@@ -16,6 +16,7 @@ from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestAnimation(AnimationBase):
@@ -51,7 +52,7 @@ class _TestAnimation(AnimationBase):
 
 
 class TestAnimationBase:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_basic_animation_settings(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         target: VariableNameMixIn = VariableNameMixIn()
@@ -65,7 +66,7 @@ class TestAnimationBase:
         assert isinstance(animation._delay, ap.Int)
         assert animation._easing == ap.Easing.EASE_OUT_QUINT
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_start(self) -> None:
         expression_data_util.empty_expression()
         animation: _TestAnimation = _TestAnimation()
@@ -102,7 +103,7 @@ class TestAnimationBase:
         expression = expression_data_util.get_current_expression()
         assert ".ease(" not in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         assert animation.variable_name == "test_animation_base"
@@ -137,7 +138,7 @@ class TestAnimationBase:
             Optional argument dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_complete(self) -> None:
         expression_data_util.empty_expression()
         animation: _TestAnimation = _TestAnimation()
@@ -161,7 +162,7 @@ class TestAnimationBase:
             self.on_animation_complete_1, options={"value": 10}
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_complete_handler_expression(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         expression: str = animation._get_animation_complete_handler_expression()
@@ -181,7 +182,7 @@ class TestAnimationBase:
         assert f"\n  .after({handler_name_1})"
         assert f"\n  .after({handler_name_2})"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_animation_not_started(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         target_1: VariableNameMixIn = VariableNameMixIn()
@@ -196,7 +197,7 @@ class TestAnimationBase:
             kwargs={"handler": self.on_animation_complete_2},
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_target(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         target: VariableNameMixIn = VariableNameMixIn()
@@ -204,7 +205,7 @@ class TestAnimationBase:
         animation._set_basic_animation_settings(target=target, duration=1000)
         assert animation.target == target
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_basic_expression(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         target: VariableNameMixIn = VariableNameMixIn()

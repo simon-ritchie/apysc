@@ -10,9 +10,10 @@ import apysc as ap
 from apysc._color import color_util
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__fill_one_digit_hex_color_code() -> None:
     filled_color_code: str = color_util._fill_one_digit_hex_color_code(
         hex_color_code="a"
@@ -20,7 +21,7 @@ def test__fill_one_digit_hex_color_code() -> None:
     assert filled_color_code == "00000a"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__fill_three_digit_hex_color_code() -> None:
     filled_color_code: str = color_util._fill_three_digit_hex_color_code(
         hex_color_code="a03"
@@ -28,7 +29,7 @@ def test__fill_three_digit_hex_color_code() -> None:
     assert filled_color_code == "aa0033"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_complement_hex_color() -> None:
     import apysc as ap
 
@@ -53,7 +54,7 @@ def test_complement_hex_color() -> None:
     assert hex_color_code_4.variable_name != hex_color_code_5.variable_name
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_complement_hex_color_expression() -> None:
     expression_data_util.empty_expression()
 
@@ -79,7 +80,7 @@ def test__append_complement_hex_color_expression() -> None:
         assert match is not None, expected_pattern
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_remove_color_code_sharp_symbol_expression() -> None:
     expression_data_util.empty_expression()
 
@@ -98,7 +99,7 @@ def test__append_remove_color_code_sharp_symbol_expression() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_color_code_sharp_symbol() -> None:
     hex_color_code_1: str = color_util.remove_color_code_sharp_symbol(
         hex_color_code="#00aaff"

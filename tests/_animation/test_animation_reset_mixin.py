@@ -4,10 +4,11 @@ from retrying import retry
 
 from apysc._animation.animation_reset_mixin import AnimationResetMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationResetMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_reset(self) -> None:
         expression_data_util.empty_expression()
         mixin: AnimationResetMixIn = AnimationResetMixIn()

@@ -7,10 +7,11 @@ from apysc._animation.animation_height_for_ellipse_mixin import (
     AnimationHeightForEllipseMixIn,
 )
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationHeightForEllipseMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_height(self) -> None:
         mixin: AnimationHeightForEllipseMixIn = AnimationHeightForEllipseMixIn()
         mixin.variable_name = "test_animation_height_for_ellipse_mixin"

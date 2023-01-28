@@ -9,17 +9,18 @@ import apysc as ap
 from apysc._display.height_mixin import HeightMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestHeightMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_height(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
         height_mixin.variable_name = "test_height_mixin"
         height_mixin.height = ap.Int(200)
         assert height_mixin.height == 200
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_height_update_expression(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
         height_mixin.variable_name = "test_height_mixin"
@@ -33,7 +34,7 @@ class TestHeightMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_height_and_skip_appending_exp(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
         expression_data_util.empty_expression()
@@ -51,7 +52,7 @@ class TestHeightMixIn:
         height_mixin._update_height_and_skip_appending_exp(value=400)
         assert height_mixin.height == 400
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_height_if_not_initialized(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
         height_mixin.variable_name = "test_height_mixin"
@@ -62,7 +63,7 @@ class TestHeightMixIn:
         height_mixin._initialize_height_if_not_initialized()
         assert height_mixin.height == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
         height_mixin.variable_name = "test_height_mixin"
@@ -75,7 +76,7 @@ class TestHeightMixIn:
         height_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert height_mixin._height_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
         height_mixin.variable_name = "test_height_mixin"
@@ -90,7 +91,7 @@ class TestHeightMixIn:
         height_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert height_mixin.height == 5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_height_attr_linking_setting(self) -> None:
         mixin: HeightMixIn = HeightMixIn()
         mixin.variable_name = "test_height_mixin"

@@ -7,6 +7,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestElse:
@@ -37,7 +38,7 @@ class TestElse:
         assert expected in expression
         assert int_1 == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_last_scope(self) -> None:
         expression_data_util.empty_expression()
         last_scope.reset()

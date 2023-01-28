@@ -12,9 +12,10 @@ from apysc._file import file_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._testing.testing_helper import assert_raises
 from scripts.apply_lints_and_build_docs import LintCommand
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_run_lint_command() -> None:
     lint_command: LintCommand = {
         "command": "ls -l",
@@ -24,20 +25,20 @@ def test_run_lint_command() -> None:
     assert "apysc" in stdout
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_tmp_py_module() -> None:
     file_util.save_plain_txt(txt="\n", file_path="./tmp_123.py")
     apply_lints_and_build_docs._remove_tmp_py_module()
     assert not os.path.exists("./tmp_123.py")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_run_command() -> None:
     stdout: str = apply_lints_and_build_docs.run_command(command="ls")
     assert "apysc" in stdout
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_module_paths() -> None:
     module_paths: List[str] = apply_lints_and_build_docs._get_module_paths()
     expected_paths: List[str] = [
@@ -52,7 +53,7 @@ def test__get_module_paths() -> None:
         assert expected.endswith(".py")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_inplace_lint_commands() -> None:
     original_remove_not_updated_file_paths_func = (
         apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths
@@ -105,7 +106,7 @@ def test__make_inplace_lint_commands() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_joined_paths_str() -> None:
     joined_paths_str: str = apply_lints_and_build_docs._get_joined_paths_str(
         module_paths=["./test/path_1.py", "./test/path_2.py"]
@@ -113,7 +114,7 @@ def test__get_joined_paths_str() -> None:
     assert joined_paths_str == ("./test/path_1.py ./test/path_2.py")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_autoflake_lint_command_if_module_updated() -> None:
     original_remove_not_updated_file_paths_func = (
         apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths
@@ -159,7 +160,7 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_isort_lint_command_if_module_updated() -> None:
     original_remove_not_updated_file_paths_func = (
         apply_lints_and_build_docs.lint_and_doc_hash_util.remove_not_updated_file_paths
@@ -205,7 +206,7 @@ def test__append_isort_lint_command_if_module_updated() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__start_subprocess() -> None:
     process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
         command_strs=["ls", "-l"]
@@ -215,7 +216,7 @@ def test__start_subprocess() -> None:
     assert "apysc" in stdout.decode()
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__check_build_doc_process() -> None:
     build_doc_process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
         command_strs=["python", "-c", 'print("build completed!")']
@@ -234,7 +235,7 @@ def test__check_build_doc_process() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__check_flake8_process() -> None:
     flake8_process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
         command_strs=["python", "-c", '"x = 1 + 1"']
@@ -251,7 +252,7 @@ def test__check_flake8_process() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__check_numdoclint_process() -> None:
     numdoclint_process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
         command_strs=["python", "-c", 'print("[]")']
@@ -270,7 +271,7 @@ def test__check_numdoclint_process() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__check_mypy_process() -> None:
     mypy_process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
         command_strs=[
@@ -295,7 +296,7 @@ def test__check_mypy_process() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__start_numdoclint_processes() -> None:
     numdoclint_processes: List[
         sp.Popen
@@ -307,7 +308,7 @@ def test__start_numdoclint_processes() -> None:
         assert "numdoclint" in joined_command
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__update_doc_files_timestamp() -> None:
     original_src_doc_dir_path: str = apply_lints_and_build_docs._SRC_DOCS_DIR_PATH
     tmp_dir_path: str = "./tmp/test_apply_lints_and_build_docs/"
@@ -347,7 +348,7 @@ def test__update_doc_files_timestamp() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_build_doc_command_strs() -> None:
     command_strs: List[str] = apply_lints_and_build_docs._make_build_doc_command_strs(
         skip_sync_translation=True

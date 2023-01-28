@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationScaleXFromPointMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_scale_x_from_point(self) -> None:
         interface: ScaleXFromPointMixIn = ScaleXFromPointMixIn()
         animation: ap.AnimationScaleXFromPoint = interface.animation_scale_x_from_point(

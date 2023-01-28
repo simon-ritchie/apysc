@@ -6,10 +6,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestGraphicsClearMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_clear(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

@@ -7,9 +7,10 @@ from retrying import retry
 from apysc._file import file_util
 from apysc._testing.testing_helper import assert_raises
 from scripts import run_test_projects_e2e_testing
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_target_test_project_main_module_paths() -> None:
     main_module_paths: List[
         str
@@ -30,7 +31,7 @@ def test__get_target_test_project_main_module_paths() -> None:
         assert unexpected_path not in main_module_paths
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__run_test_project_command() -> None:
     run_test_projects_e2e_testing._run_test_project_command(
         main_module_path="./test_projects/AnimationXMixIn/main.py"
@@ -51,7 +52,7 @@ def test__run_test_project_command() -> None:
     file_util.delete_file_if_exists(file_path=tmp_module_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_index_file_path() -> None:
     index_file_path: str = run_test_projects_e2e_testing._get_index_file_path(
         main_module_path="./test_projects/AnimationXMixIn/" "main.py"

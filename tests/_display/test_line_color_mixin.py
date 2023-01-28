@@ -9,10 +9,11 @@ import apysc as ap
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineColorMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_color(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
@@ -25,7 +26,7 @@ class TestLineColorMixIn:
         assert line_color_interface.line_color != string_2
         assert line_color_interface.line_color.variable_name != string_2.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_color_update_expression(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
@@ -41,7 +42,7 @@ class TestLineColorMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_color_and_skip_appending_exp(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
@@ -54,7 +55,7 @@ class TestLineColorMixIn:
         expected: str = f"{line_color_interface.variable_name}.stroke("
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_color_if_not_initialized(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
@@ -64,7 +65,7 @@ class TestLineColorMixIn:
         line_color_interface._initialize_line_color_if_not_initialized()
         assert line_color_interface.line_color == "#333333"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
@@ -77,7 +78,7 @@ class TestLineColorMixIn:
         line_color_interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert line_color_interface._line_color_snapshots[snapshot_name] == "#333333"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
@@ -92,7 +93,7 @@ class TestLineColorMixIn:
         line_color_interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert line_color_interface.line_color == "#222222"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_initial_line_color_if_not_blank(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"

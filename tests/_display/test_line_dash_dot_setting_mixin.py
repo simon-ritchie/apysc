@@ -9,10 +9,11 @@ import apysc as ap
 from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineDashDotSettingMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_dash_dot_setting_if_not_initialized(self) -> None:
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
         mixin._initialize_line_dash_dot_setting_if_not_initialized()
@@ -24,7 +25,7 @@ class TestLineDashDotSettingMixIn:
         mixin._initialize_line_dash_dot_setting_if_not_initialized()
         assert isinstance(mixin._line_dash_dot_setting, ap.LineDashDotSetting)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_dash_dot_setting(self) -> None:
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
         mixin.variable_name = "test_line_dash_dot_setting_mixin"
@@ -39,7 +40,7 @@ class TestLineDashDotSettingMixIn:
         mixin.line_dash_dot_setting = line_dash_dot_setting
         assert mixin.line_dash_dot_setting == line_dash_dot_setting
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_dash_dot_setting_and_skip_appending_exp(self) -> None:
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
         mixin._update_line_dash_dot_setting_and_skip_appending_exp(value=None)
@@ -60,7 +61,7 @@ class TestLineDashDotSettingMixIn:
             value=10,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_dash_dot_setting_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
@@ -90,7 +91,7 @@ class TestLineDashDotSettingMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
         line_dash_dot_setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
@@ -109,7 +110,7 @@ class TestLineDashDotSettingMixIn:
             snapshot_name: line_dash_dot_setting
         }
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
         line_dash_dot_setting: ap.LineDashDotSetting = ap.LineDashDotSetting(

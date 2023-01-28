@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_fill_color_mixin import AnimationFillColorMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationFillColorMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_fill_color(self) -> None:
         interface: AnimationFillColorMixIn = AnimationFillColorMixIn()
         interface.variable_name = "test_animation_fill_color_interface"

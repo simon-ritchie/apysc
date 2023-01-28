@@ -6,6 +6,7 @@ import apysc as ap
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestInterface(XMixIn, YMixIn):
@@ -13,7 +14,7 @@ class _TestInterface(XMixIn, YMixIn):
 
 
 class TestAnimationMove:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_move_interface"
@@ -30,7 +31,7 @@ class TestAnimationMove:
         assert animation_move._y == 200
         assert isinstance(animation_move._y, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_move_interface"
@@ -44,7 +45,7 @@ class TestAnimationMove:
         )
         assert expression == expected
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: _TestInterface = _TestInterface()
         target.variable_name = "test_animation_move_interface"

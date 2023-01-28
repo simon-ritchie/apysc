@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationRotationAroundCenterMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_rotation_around_center(self) -> None:
         mixin: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         animation_rotation_around_center: ap.AnimationRotationAroundCenter = (

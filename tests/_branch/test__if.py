@@ -10,10 +10,11 @@ from apysc._expression import indent_num
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestIf:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = locals()
@@ -29,7 +30,7 @@ class TestIf:
             any_obj=if_,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
@@ -44,7 +45,7 @@ class TestIf:
         assert int_1._value_snapshots[snapshot_name] == 10
         assert int_2._value_snapshots[snapshot_name] == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
@@ -69,7 +70,7 @@ class TestIf:
         last_scope_ = last_scope.get_last_scope()
         assert last_scope_ == LastScope.NORMAL
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_enter_expression(self) -> None:
         expression_data_util.empty_expression()
         indent_num.reset()
@@ -83,7 +84,7 @@ class TestIf:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_exit_expression(self) -> None:
         expression_data_util.empty_expression()
         indent_num.reset()
@@ -99,7 +100,7 @@ class TestIf:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_last_scope(self) -> None:
         with ap.If(ap.Boolean(True), locals_=locals(), globals_=globals()):
             pass

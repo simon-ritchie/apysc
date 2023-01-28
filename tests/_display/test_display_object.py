@@ -6,10 +6,11 @@ import apysc as ap
 from apysc._display.any_display_object import AnyDisplayObject
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestDisplayObject:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject(
@@ -22,7 +23,7 @@ class TestDisplayObject:
             any_obj=display_object,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_variable_name(self) -> None:
         ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject(
@@ -31,7 +32,7 @@ class TestDisplayObject:
         display_object.variable_name = "test_display_object_2"
         assert display_object.variable_name == "test_display_object_2"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_overflow_visible_setting(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()

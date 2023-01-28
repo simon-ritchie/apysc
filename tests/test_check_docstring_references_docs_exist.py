@@ -5,9 +5,10 @@ from retrying import retry
 
 from apysc._testing.testing_helper import assert_raises
 from scripts import check_docstring_references_docs_exist as mod
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__extract_file_names() -> None:
     file_names: List[str] = mod._extract_file_names(dir_path="./apysc/_display/")
     for file_name in file_names:
@@ -22,14 +23,14 @@ def test__extract_file_names() -> None:
         assert expected_file_name in file_names
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__main() -> None:
     file_names: List[str] = mod._main(dir_path="./apysc/_display/")
     assert "sprite.html" in file_names
     assert "stage.html" in file_names
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__assert_url_contains_language_path() -> None:
     mod._assert_url_contains_language_path(
         url="https://simon-ritchie.github.io/apysc/en/stage.html"

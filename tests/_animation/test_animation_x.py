@@ -7,10 +7,11 @@ from apysc._display.x_mixin import XMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationX:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         interface: VariableNameMixIn = VariableNameMixIn()
         interface.variable_name = "test_animation_x"
@@ -32,7 +33,7 @@ class TestAnimationX:
         )
         assert animation_x.variable_name.startswith(f"{var_names.ANIMATION_X}_")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         interface: VariableNameMixIn = VariableNameMixIn()
         interface.variable_name = "test_animation_x"
@@ -47,7 +48,7 @@ class TestAnimationX:
         expected: str = f"\n  .x({animation_x._x.variable_name});"
         assert expression == expected
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: XMixIn = XMixIn()
         target.variable_name = "test_animation_x"

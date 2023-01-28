@@ -5,11 +5,12 @@ from retrying import retry
 import apysc as ap
 from apysc._console import assertion
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 _EXPECTED_FILE_NAME_STR: str = "file name: test_assertion.py"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_equal() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
@@ -53,7 +54,7 @@ def test_assert_equal() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__trace_info() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
@@ -66,7 +67,7 @@ def test__trace_info() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_not_equal() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
@@ -107,7 +108,7 @@ def test_assert_not_equal() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_left_and_right_strs() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
@@ -122,7 +123,7 @@ def test__get_left_and_right_strs() -> None:
     assert right_str == '"World!"'
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_true() -> None:
     expression_data_util.empty_expression()
     boolean_1: ap.Boolean = ap.Boolean(True)
@@ -141,7 +142,7 @@ def test_assert_true() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__add_equal_if_type_strict_setting_is_true() -> None:
     expression: str = assertion._add_equal_if_type_strict_setting_is_true(
         expression="a ==", type_strict=True
@@ -154,7 +155,7 @@ def test__add_equal_if_type_strict_setting_is_true() -> None:
     assert expression == "a =="
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_false() -> None:
     expression_data_util.empty_expression()
     boolean_1: ap.Boolean = ap.Boolean(False)
@@ -168,7 +169,7 @@ def test_assert_false() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__value_type_is_array() -> None:
     result: bool = assertion._value_type_is_array(value=100)
     assert not result
@@ -177,7 +178,7 @@ def test__value_type_is_array() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_arrays_equal() -> None:
     expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
@@ -193,7 +194,7 @@ def test_assert_arrays_equal() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__trace_arrays_or_dicts_assertion_info() -> None:
     expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
@@ -238,7 +239,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_arrays_or_dicts_comparison_expression() -> None:
     expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
@@ -268,7 +269,7 @@ def test__make_arrays_or_dicts_comparison_expression() -> None:
     assert expression == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_arrays_not_equal() -> None:
     expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
@@ -284,7 +285,7 @@ def test_assert_arrays_not_equal() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_defined() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(3)
@@ -298,7 +299,7 @@ def test_assert_defined() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_undefined() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(3)
@@ -312,7 +313,7 @@ def test_assert_undefined() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_dicts_equal() -> None:
     expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
@@ -329,7 +330,7 @@ def test_assert_dicts_equal() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__value_type_is_dict() -> None:
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     result: bool = assertion._value_type_is_dict(value=dict_1)
@@ -343,7 +344,7 @@ def test__value_type_is_dict() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_dicts_not_equal() -> None:
     expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
@@ -360,7 +361,7 @@ def test_assert_dicts_not_equal() -> None:
     assert _EXPECTED_FILE_NAME_STR in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_greater() -> None:
     expression_data_util.empty_expression()
     assertion.assert_greater(left=20, right=10, msg="Value is not greater than 10.")
@@ -384,7 +385,7 @@ def test_assert_greater() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_greater_equal() -> None:
     expression_data_util.empty_expression()
     assertion.assert_greater_equal(
@@ -414,7 +415,7 @@ def test_assert_greater_equal() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_less() -> None:
     expression_data_util.empty_expression()
     assertion.assert_less(left=10, right=11, msg="Value is not less than 11.")
@@ -438,7 +439,7 @@ def test_assert_less() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_less_equal() -> None:
     expression_data_util.empty_expression()
     assertion.assert_less_equal(

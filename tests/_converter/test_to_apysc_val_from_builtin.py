@@ -4,9 +4,10 @@ from retrying import retry
 
 import apysc as ap
 from apysc._converter import to_apysc_val_from_builtin
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_copied_int_from_builtin_val() -> None:
     copied: ap.Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
         integer=10, variable_name_suffix="test_value"
@@ -22,7 +23,7 @@ def test_get_copied_int_from_builtin_val() -> None:
     assert int_1.variable_name != copied.variable_name
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_copied_string_from_builtin_val() -> None:
     copied: ap.String = to_apysc_val_from_builtin.get_copied_string_from_builtin_val(
         string="Hello", variable_name_suffix="test_string"
@@ -38,7 +39,7 @@ def test_get_copied_string_from_builtin_val() -> None:
     assert string.variable_name != copied.variable_name
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_copied_number_from_builtin_val() -> None:
     num: ap.Number = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
         float_or_num=10.5, variable_name_suffix="test_number"
@@ -54,7 +55,7 @@ def test_get_copied_number_from_builtin_val() -> None:
     assert num == ap.Number(20.5)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_copied_boolean_from_builtin_val() -> None:
     copied: ap.Boolean = to_apysc_val_from_builtin.get_copied_boolean_from_builtin_val(
         bool_val=True, variable_name_suffix="test_boolean"

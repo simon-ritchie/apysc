@@ -6,10 +6,11 @@ import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._expression import expression_data_util
 from apysc._type import value_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestFillAlphaMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_fill_alpha(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
@@ -20,7 +21,7 @@ class TestFillAlphaMixIn:
         fill_alpha_name: str = fill_alpha.variable_name
         assert fill_alpha_name != fill_alpha_interface._fill_alpha.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_fill_alpha_update_expression(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
@@ -35,7 +36,7 @@ class TestFillAlphaMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_fill_alpha_and_skip_appending_exp(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
@@ -50,7 +51,7 @@ class TestFillAlphaMixIn:
         )
         assert fill_alpha_interface.fill_alpha == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_fill_alpha_if_not_initialized(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
@@ -61,7 +62,7 @@ class TestFillAlphaMixIn:
         fill_alpha_interface._initialize_fill_alpha_if_not_initialized()
         assert fill_alpha_interface.fill_alpha == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
@@ -74,7 +75,7 @@ class TestFillAlphaMixIn:
         fill_alpha_interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert fill_alpha_interface._fill_alpha_snapshots[snapshot_name] == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
@@ -89,7 +90,7 @@ class TestFillAlphaMixIn:
         fill_alpha_interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert fill_alpha_interface.fill_alpha == 0.3
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_fill_alpha_attr_linking_setting(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"

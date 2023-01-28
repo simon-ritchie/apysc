@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_line_thickness_mixin import AnimationLineThicknessMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationLineThicknessMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_line_thickness_mixin(self) -> None:
         mixin: AnimationLineThicknessMixIn = AnimationLineThicknessMixIn()
         mixin.variable_name = "test_animation_line_thickness_mixin"

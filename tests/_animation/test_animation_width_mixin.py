@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_width_mixin import AnimationWidthMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationWidthMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_width(self) -> None:
         mixin: AnimationWidthMixIn = AnimationWidthMixIn()
         mixin.variable_name = "test_animation_width_mixin"

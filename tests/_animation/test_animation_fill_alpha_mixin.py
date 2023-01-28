@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_fill_alpha_mixin import AnimationFillAlphaMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationFillAlphaMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_fill_alpha(self) -> None:
         interface: AnimationFillAlphaMixIn = AnimationFillAlphaMixIn()
         interface.variable_name = "test_animation_fill_alpha_interface"

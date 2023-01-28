@@ -8,10 +8,11 @@ from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationScaleXFromCenter:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         target_1: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         target_1.variable_name = "test_animation_scale_x_from_center"
@@ -48,7 +49,7 @@ class TestAnimationScaleXFromCenter:
             scale_x_from_center=2.0,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         target: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         target.variable_name = "test_animation_scale_x_from_center"
@@ -59,7 +60,7 @@ class TestAnimationScaleXFromCenter:
         variable_name: str = animation._scale_x_from_center_diff_ratio.variable_name
         assert expression == (f"\n  .scale({variable_name}, 1);")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         target.variable_name = "test_animation_scale_x_from_center"

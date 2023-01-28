@@ -6,10 +6,11 @@ import apysc as ap
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationLineColor:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         target: LineColorMixIn = LineColorMixIn()
         target.variable_name = "test_animation_line_color"
@@ -32,7 +33,7 @@ class TestAnimationLineColor:
             any_obj=animation,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         target: LineColorMixIn = LineColorMixIn()
         target.variable_name = "test_animation_line_color"
@@ -43,7 +44,7 @@ class TestAnimationLineColor:
         expression: str = animation._get_animation_func_expression()
         assert expression == (f"\n  .stroke({animation._line_color.variable_name});")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: LineColorMixIn = LineColorMixIn()
         target.variable_name = "test_animation_line_color"

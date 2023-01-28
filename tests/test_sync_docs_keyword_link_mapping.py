@@ -7,9 +7,10 @@ from retrying import retry
 from apysc._file import file_util
 from apysc._lint_and_doc.docs_lang import Lang
 from scripts import sync_docs_keyword_link_mapping
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_keyword_link_mappings() -> None:
     keyword_link_mappings: Dict[
         str, str
@@ -36,7 +37,7 @@ def test__create_keyword_link_mappings() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_sync() -> None:
     expected_en_script_path: str = "./docs/en/static/keyword_link_mapping.js"
     file_util.remove_file_if_exists(file_path=expected_en_script_path)

@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationScaleXFromCenterMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_scale_x_from_center(self) -> None:
         mixin: ScaleXFromCenterMixIn = ScaleXFromCenterMixIn()
         mixin.variable_name = "test_animation_scale_x_from_center"

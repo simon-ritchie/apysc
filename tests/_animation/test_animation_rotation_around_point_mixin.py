@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationRotationAroundPointMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_rotation_around_point(self) -> None:
         mixin: RotationAroundPointMixIn = RotationAroundPointMixIn()
         mixin.variable_name = "test_animation_rotation_around_point_mixin"

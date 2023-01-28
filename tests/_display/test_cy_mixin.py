@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.cy_mixin import CyMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestCyMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_y_if_not_initialized(self) -> None:
         mixin: CyMixIn = CyMixIn()
         mixin._initialize_y_if_not_initialized()
@@ -18,7 +19,7 @@ class TestCyMixIn:
         mixin._initialize_y_if_not_initialized()
         assert mixin._y == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_y(self) -> None:
         mixin: CyMixIn = CyMixIn()
         mixin.variable_name = "test_y_mixin"
@@ -27,7 +28,7 @@ class TestCyMixIn:
         mixin.y = ap.Int(10)
         assert mixin.y == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_y_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: CyMixIn = CyMixIn()
@@ -38,7 +39,7 @@ class TestCyMixIn:
         expected: str = f"{mixin.variable_name}.cy({y.variable_name});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: CyMixIn = CyMixIn()
         mixin.variable_name = "test_y_mixin"
@@ -51,7 +52,7 @@ class TestCyMixIn:
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert mixin._y_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: CyMixIn = CyMixIn()
         mixin.variable_name = "test_y_mixin"
@@ -66,14 +67,14 @@ class TestCyMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin.y == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_y_attr_linking_setting(self) -> None:
         mixin: CyMixIn = CyMixIn()
         mixin.variable_name = "test_y_mixin"
         mixin._initialize_y_if_not_initialized()
         assert mixin._attr_linking_stack["y"] == [ap.Int(0)]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_y_and_skip_appending_exp(self) -> None:
         mixin: CyMixIn = CyMixIn()
         mixin._update_y_and_skip_appending_exp(y=100)

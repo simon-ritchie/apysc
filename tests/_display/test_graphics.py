@@ -11,10 +11,11 @@ from apysc._display.graphics import Graphics
 from apysc._display.graphics import Rectangle
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestGraphics:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -31,7 +32,7 @@ class TestGraphics:
         assert isinstance(graphics.variable_name, str)
         assert graphics.variable_name != ""
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_begin_fill(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -48,7 +49,7 @@ class TestGraphics:
             any_obj=graphics,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_rect(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -70,7 +71,7 @@ class TestGraphics:
         assert isinstance(graphics.get_child_at(index=0), Rectangle)
         assert rectangle == graphics.get_child_at(index=0)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_clear(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -80,7 +81,7 @@ class TestGraphics:
         sprite.graphics.clear()
         assert sprite.graphics.num_children == 0
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -90,14 +91,14 @@ class TestGraphics:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         repr_str: str = repr(sprite.graphics)
         assert repr_str == f"Graphics('{sprite.graphics.variable_name}')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_to(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -124,7 +125,7 @@ class TestGraphics:
         assert polyline._variable_name_suffix == "test_line"
         assert "test_line" in polyline.points[2]._variable_name_suffix
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_move_to(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -141,7 +142,7 @@ class TestGraphics:
         assert polyline.points == ap.Array([ap.Point2D(300, 400)])
         assert polyline.variable_name != pre_var_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__reset_each_line_settings(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -193,7 +194,7 @@ class TestGraphics:
         assert line._start_point == ap.Point2D(x=expected_x_start, y=expected_y_start)
         assert line._end_point == ap.Point2D(x=expected_x_end, y=expected_y_end)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_line(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -217,7 +218,7 @@ class TestGraphics:
         assert isinstance(sprite.graphics.line_dot_setting, ap.LineDotSetting)
         sprite.graphics._children == [line]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_dashed_line(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -248,7 +249,7 @@ class TestGraphics:
         assert isinstance(sprite.graphics.line_dot_setting, ap.LineDotSetting)
         sprite.graphics._children == [line]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_dotted_line(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -274,7 +275,7 @@ class TestGraphics:
         assert isinstance(sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_round_dotted_line(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -301,7 +302,7 @@ class TestGraphics:
         assert isinstance(sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_dash_dotted_line(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -329,7 +330,7 @@ class TestGraphics:
         assert isinstance(sprite.graphics.line_dash_setting, ap.LineDashSetting)
         sprite.graphics._children == [line]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_polygon(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -345,7 +346,7 @@ class TestGraphics:
         assert polygon._variable_name_suffix == "test_polygon"
         assert sprite.graphics._children == [polygon]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_round_rect(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -367,7 +368,7 @@ class TestGraphics:
         assert rectangle._variable_name_suffix == "test_rectangle"
         assert sprite.graphics._children == [rectangle]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_circle(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -380,7 +381,7 @@ class TestGraphics:
         assert circle._variable_name_suffix == "test_circle"
         assert sprite.graphics._children == [circle]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_ellipse(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -394,7 +395,7 @@ class TestGraphics:
         assert ellipse._variable_name_suffix == "test_ellipse"
         assert sprite.graphics._children == [ellipse]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_path(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -408,7 +409,7 @@ class TestGraphics:
         assert path._path_data_list == path_data_list
         assert path._variable_name_suffix == "test_path"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_draw_triangle(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

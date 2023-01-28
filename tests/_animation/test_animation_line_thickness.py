@@ -6,10 +6,11 @@ import apysc as ap
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationLineThickness:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         target: LineThicknessMixIn = LineThicknessMixIn()
         target.variable_name = "test_line_thickness_interface"
@@ -34,7 +35,7 @@ class TestAnimationLineThickness:
             any_obj=animation_line_thickness,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         target: LineThicknessMixIn = LineThicknessMixIn()
         target.variable_name = "test_line_thickness_interface"
@@ -47,7 +48,7 @@ class TestAnimationLineThickness:
             f"{animation_line_thickness._line_thickness.variable_name}}});"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: LineThicknessMixIn = LineThicknessMixIn()
         target.variable_name = "test_line_thickness_interface"

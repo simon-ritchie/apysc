@@ -14,6 +14,7 @@ from apysc._expression import indent_num
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class IfSubClass(IfBase):
@@ -35,7 +36,7 @@ class IfSubClass(IfBase):
 
 
 class TestIfBase:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         condition: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = {"value1": 10}
@@ -61,7 +62,7 @@ class TestIfBase:
             any_obj=instance,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         expression_data_util.empty_expression()
         indent_num.reset()
@@ -78,7 +79,7 @@ class TestIfBase:
             assert instance._entered
             assert instance._snapshot_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         expression_data_util.empty_expression()
         indent_num.reset()
@@ -100,7 +101,7 @@ class TestIfBase:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_exit_expression(self) -> None:
         expression_data_util.empty_expression()
         indent_num.reset()
@@ -112,7 +113,7 @@ class TestIfBase:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__last_scope_is_if_or_elif(self) -> None:
         last_scope.reset()
         boolean_1: ap.Boolean = ap.Boolean(True)

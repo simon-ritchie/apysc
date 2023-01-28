@@ -27,6 +27,7 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestGraphic(GraphicsBase, FillColorMixIn, FillAlphaMixIn):
@@ -132,7 +133,7 @@ class _TestGraphic(GraphicsBase, FillColorMixIn, FillAlphaMixIn):
 
 
 class TestGraphicsBase:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -157,7 +158,7 @@ class TestGraphicsBase:
             any_obj=graphics,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_initial_basic_values(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
@@ -185,7 +186,7 @@ class TestGraphicsBase:
             any_obj=graphics,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_line_setting_if_not_none_value_exists(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
@@ -234,7 +235,7 @@ class TestGraphicsBase:
             dot_size=5, dash_size=10, space_size=5
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_basic_vals_expression(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(

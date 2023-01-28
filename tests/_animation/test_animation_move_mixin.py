@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_move_mixin import AnimationMoveMixIn
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationMoveMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_move(self) -> None:
         mixin: AnimationMoveMixIn = AnimationMoveMixIn()
         mixin.variable_name = "test_animation_move_mixin"

@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestFillColorMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_fill_color(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
@@ -19,7 +20,7 @@ class TestFillColorMixIn:
         string_2: ap.String = fill_color_mixin.fill_color
         assert string_1.variable_name != string_2.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
@@ -29,7 +30,7 @@ class TestFillColorMixIn:
         expected: str = 'test_fill_color_mixin.fill("#666666");'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
@@ -42,7 +43,7 @@ class TestFillColorMixIn:
         expected: str = f"{fill_color_mixin.variable_name}.fill("
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_fill_color_if_not_initialized(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
@@ -52,7 +53,7 @@ class TestFillColorMixIn:
         fill_color_mixin._initialize_fill_color_if_not_initialized()
         assert fill_color_mixin.fill_color == "#333333"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
@@ -65,7 +66,7 @@ class TestFillColorMixIn:
         fill_color_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert fill_color_mixin._fill_color_snapshots[snapshot_name] == "#333333"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
@@ -80,7 +81,7 @@ class TestFillColorMixIn:
         fill_color_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert fill_color_mixin.fill_color == "#222222"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_initial_fill_color_if_not_blank(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"

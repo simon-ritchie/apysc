@@ -7,10 +7,11 @@ from apysc._display.height_mixin import HeightMixIn
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationHeight:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_height"
@@ -35,7 +36,7 @@ class TestAnimationHeight:
             any_obj=animation_height,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_height"
@@ -45,7 +46,7 @@ class TestAnimationHeight:
         expression: str = animation_height._get_animation_func_expression()
         assert expression == (f"\n  .height({animation_height._height.variable_name});")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: HeightMixIn = HeightMixIn()
         target.variable_name = "test_animation_height"

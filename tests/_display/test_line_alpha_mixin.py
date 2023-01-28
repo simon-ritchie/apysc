@@ -9,17 +9,18 @@ import apysc as ap
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLineAlphaMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_line_alpha(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
         line_alpha_mixin.line_alpha = ap.Number(0.3)
         assert line_alpha_mixin.line_alpha == 0.3
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_alpha_update_expression(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
@@ -36,7 +37,7 @@ class TestLineAlphaMixIn:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__update_line_alpha_and_skip_appending_exp(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
@@ -51,7 +52,7 @@ class TestLineAlphaMixIn:
         line_alpha_mixin._update_line_alpha_and_skip_appending_exp(value=0.3)
         assert line_alpha_mixin.line_alpha == 0.3
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_line_alpha_if_not_initialized(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
@@ -62,7 +63,7 @@ class TestLineAlphaMixIn:
         line_alpha_mixin._initialize_line_alpha_if_not_initialized()
         assert line_alpha_mixin.line_alpha == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
@@ -75,7 +76,7 @@ class TestLineAlphaMixIn:
         line_alpha_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert line_alpha_mixin._line_alpha_snapshots[snapshot_name] == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
@@ -90,7 +91,7 @@ class TestLineAlphaMixIn:
         line_alpha_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert line_alpha_mixin.line_alpha == 0.3
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_line_alpha_attr_linking_setting(self) -> None:
         interface: LineAlphaMixIn = LineAlphaMixIn()
         interface.variable_name = "test_line_alpha_mixin"

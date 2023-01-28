@@ -8,10 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestCircle:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
@@ -30,7 +31,7 @@ class TestCircle:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         circle: ap.Circle = ap.Circle(
@@ -104,7 +105,7 @@ class TestCircle:
             dot_size=5, dash_size=10, space_size=5
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -112,7 +113,7 @@ class TestCircle:
         repr_str: str = repr(circle)
         assert repr_str == f"Circle('{circle.variable_name}')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_center_coordinates(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()
@@ -124,7 +125,7 @@ class TestCircle:
         assert f"{circle.variable_name}.cx(" in expression
         assert f"{circle.variable_name}.cy(" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

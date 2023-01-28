@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.css_mixin import CssMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMixIn(CssMixIn):
@@ -14,7 +15,7 @@ class _TestMixIn(CssMixIn):
 
 
 class TestCssMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_css_if_not_initialized(self) -> None:
         interface: CssMixIn = CssMixIn()
         interface._initialize_css_if_not_initialized()
@@ -24,7 +25,7 @@ class TestCssMixIn:
         interface._initialize_css_if_not_initialized()
         assert interface._css == {"display": ap.String("none")}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_get_css(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         css: ap.String = interface.get_css(name="display")
@@ -34,7 +35,7 @@ class TestCssMixIn:
         css = interface.get_css(name="display")
         assert css == "none"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_get_css_expresion(self) -> None:
         expression_data_util.empty_expression()
         interface: _TestMixIn = _TestMixIn()
@@ -47,14 +48,14 @@ class TestCssMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_set_css(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         name: ap.String = ap.String("display")
         interface.set_css(name=name, value="none")
         assert interface._css == {"display": ap.String("none")}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_set_css_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: _TestMixIn = _TestMixIn()
@@ -68,7 +69,7 @@ class TestCssMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface.set_css(name="display", value="none")
@@ -80,7 +81,7 @@ class TestCssMixIn:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._css_snapshot[snapshot_name] == {"display": ap.String("none")}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface.set_css(name="display", value="none")

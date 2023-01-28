@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._display.ellipse_height_mixin import EllipseHeightMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestEllipseHeightMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_ellipse_height_if_not_initialized(self) -> None:
         mixin: EllipseHeightMixIn = EllipseHeightMixIn()
         mixin._initialize_ellipse_height_if_not_initialized()
@@ -18,7 +19,7 @@ class TestEllipseHeightMixIn:
         mixin._initialize_ellipse_height_if_not_initialized()
         assert mixin._ellipse_height == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_ellipse_height(self) -> None:
         mixin: EllipseHeightMixIn = EllipseHeightMixIn()
         mixin.variable_name = "test_ellipse_height_mixin"
@@ -27,7 +28,7 @@ class TestEllipseHeightMixIn:
         mixin.ellipse_height = ap.Int(10)
         assert mixin.ellipse_height == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_ellipse_height_update_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: EllipseHeightMixIn = EllipseHeightMixIn()
@@ -52,7 +53,7 @@ class TestEllipseHeightMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: EllipseHeightMixIn = EllipseHeightMixIn()
         mixin.variable_name = "test_ellipse_height_mixin"
@@ -65,7 +66,7 @@ class TestEllipseHeightMixIn:
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert mixin._ellipse_height_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: EllipseHeightMixIn = EllipseHeightMixIn()
         mixin.variable_name = "test_ellipse_height_mixin"
@@ -80,7 +81,7 @@ class TestEllipseHeightMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin.ellipse_height == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_ellipse_height_attr_linking_setting(self) -> None:
         mixin: EllipseHeightMixIn = EllipseHeightMixIn()
         mixin.variable_name = "test_ellipse_height_mixin"

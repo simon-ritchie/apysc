@@ -8,10 +8,11 @@ from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationRotationAroundCenter:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         target_1: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         target_1.variable_name = "test_animation_rotation_around_center"
@@ -49,7 +50,7 @@ class TestAnimationRotationAroundCenter:
             rotation_around_center=50,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         target: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         target.variable_name = "test_animation_rotation_around_center"
@@ -64,7 +65,7 @@ class TestAnimationRotationAroundCenter:
         )
         assert expression == (f"\n  .rotate({diff_variable_name});")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: RotationAroundCenterMixIn = RotationAroundCenterMixIn()
         target.variable_name = "test_animation_rotation_around_center"

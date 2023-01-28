@@ -8,9 +8,10 @@ from retrying import retry
 import apysc as ap
 from apysc._display import graphics_expression
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_fill_expression() -> None:
     fill_color: ap.String = ap.String("")
     expression: str = ".attr({"
@@ -32,7 +33,7 @@ def test_append_fill_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_x_expression() -> None:
     expression: str = ".attr({"
     x: ap.Int = ap.Int(100)
@@ -47,7 +48,7 @@ def test_append_x_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_y_expression() -> None:
     y: ap.Int = ap.Int(200)
     expression: str = ".attr({"
@@ -62,7 +63,7 @@ def test_append_y_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_fill_opacity_expression() -> None:
     fill_alpha: ap.Number = ap.Number(0.5)
     expression: str = ".attr({"
@@ -77,7 +78,7 @@ def test_append_fill_opacity_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_stroke_expression() -> None:
     line_color: ap.String = ap.String("")
     expression: str = ".attr({"
@@ -98,7 +99,7 @@ def test_append_stroke_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_stroke_width_expression() -> None:
     line_thickness: ap.Int = ap.Int(3)
     expression: str = ".attr({"
@@ -113,7 +114,7 @@ def test_append_stroke_width_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_stroke_opacity_expression() -> None:
     line_alpha: ap.Number = ap.Number(0.25)
     expression: str = ".attr({"
@@ -128,7 +129,7 @@ def test_append_stroke_opacity_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_stroke_linecap_expression() -> None:
     line_cap: ap.String = ap.String(ap.LineCaps.BUTT.value)
     expression: str = graphics_expression.append_stroke_linecap_expression(
@@ -148,7 +149,7 @@ def test_append_stroke_linecap_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_stroke_linejoin_expression() -> None:
     expression: str = graphics_expression.append_stroke_linejoin_expression(
         line_joints=ap.String(ap.LineJoints.MITER.value),

@@ -10,6 +10,7 @@ from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestChildMixIn:
@@ -18,14 +19,14 @@ class TestChildMixIn:
     (ChildMixIn subclasses).
     """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_add_child(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         assert stage._children == ap.Array([sprite])
         assert sprite.parent == stage
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_remove_child(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
@@ -36,7 +37,7 @@ class TestChildMixIn:
         assert stage._children == ap.Array([sprite_1])
         assert sprite_2.parent is None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_contains(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
@@ -46,7 +47,7 @@ class TestChildMixIn:
         sprite_2: ap.Sprite = ap.Sprite()
         assert not sprite_1.contains(child=sprite_2)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_contains_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
@@ -60,7 +61,7 @@ class TestChildMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_num_children(self) -> None:
         stage: ap.Stage = ap.Stage()
         assert stage.num_children == 0
@@ -75,7 +76,7 @@ class TestChildMixIn:
         sprite_1.add_child(child=sprite_3)
         assert sprite_1.num_children == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_get_child_at(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
@@ -87,7 +88,7 @@ class TestChildMixIn:
         assert not isinstance(child_2, ap.Sprite)
         assert isinstance(child_2, DisplayObject)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_num_children_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
@@ -111,7 +112,7 @@ class TestChildMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_get_child_at_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
@@ -136,7 +137,7 @@ class TestChildMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_children_if_not_initialized(self) -> None:
         child_interface: ChildMixIn = ChildMixIn()
         child_interface._initialize_children_if_not_initialized()
@@ -148,7 +149,7 @@ class TestChildMixIn:
         child_interface._initialize_children_if_not_initialized()
         assert child_interface._children == [sprite]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
 
         stage: ap.Stage = ap.Stage()
@@ -171,7 +172,7 @@ class TestChildMixIn:
         stage._run_all_make_snapshot_methods(snapshot_name=snapshot_name_1)
         assert stage._children_snapshots[snapshot_name_1] == [sprite_1, 100]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
@@ -194,7 +195,7 @@ class TestChildMixIn:
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
         assert stage._children == [100]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_expression_of_remove_children(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()
@@ -211,7 +212,7 @@ class TestChildMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_remove_children(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()
@@ -223,7 +224,7 @@ class TestChildMixIn:
         assert ".children()" in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_expression_of_add_child() -> None:
     stage: ap.Stage = ap.Stage()
     sprite: ap.Sprite = ap.Sprite()
@@ -233,7 +234,7 @@ def test_append_expression_of_add_child() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_expression_of_remove_child() -> None:
     stage: ap.Stage = ap.Stage()
     sprite: ap.Sprite = ap.Sprite()

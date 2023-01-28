@@ -21,6 +21,7 @@ from scripts.build_docs import _CodeBlockMypyError
 from scripts.build_docs import _CodeBlockNumdoclintError
 from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
+from apysc._testing.testing_helper import apply_test_settings
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     ".lint_and_doc_hash/.document/docs_src/source/stage",
@@ -51,7 +52,7 @@ def _checkout_files() -> None:
         os.system(f"git checkout {checkout_file_path}")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__replace_static_path_recursively() -> None:
     jquery_file_name: str = jslib_util.get_jquery_file_name()
     tmp_dir_1: str = "../.tmp_test_build_docs/"
@@ -90,7 +91,7 @@ def test__replace_static_path_recursively() -> None:
 
 
 class Test_CodeBlock:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         code_block: _CodeBlock = _CodeBlock(
             code_type="py", code="print(100)", runnable=True
@@ -101,7 +102,7 @@ class Test_CodeBlock:
         )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_code_blocks_from_txt() -> None:
     md_txt: str = (
         "Hello"
@@ -134,7 +135,7 @@ def test__get_code_blocks_from_txt() -> None:
     assert not code_blocks[2].runnable
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__replace_html_saving_export_path_by_doc_path() -> None:
     code: str = """from apysc import Stage
 from apysc import save_overall_html
@@ -148,7 +149,7 @@ save_overall_html(
     assert expected in code
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_runnable_scripts_in_md_code_blocks() -> None:
     tmp_md_file_path: str = "../tmp_test_get_runnable_scripts_in_md_code_blocks.md"
     md_txt: str = """Hello
@@ -190,7 +191,7 @@ print(300)
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__exec_document_lint_and_script() -> None:
     hash_file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path="./docs_src/source/quick_start.md", hash_type=HashType.DOCUMENT
@@ -207,7 +208,7 @@ def test__exec_document_lint_and_script() -> None:
         assert "./docs_src/source/_static/" in executed_script
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_runnable_inline_comment_from_code_blocks() -> None:
     tmp_dir_path: str = "../tmp_test_build_docs/"
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
@@ -237,7 +238,7 @@ def test__remove_runnable_inline_comment_from_code_blocks() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_js_lib_path_and_skip_settings() -> None:
     """_append_js_lib_path_and_skip_settings 関数のテスト。"""
     code: str = """print(200)
@@ -260,7 +261,7 @@ save_overall_html(
     assert code == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_script_data_list() -> None:
     os.makedirs("./tmp/", exist_ok=True)
     tmp_file_path_1: str = "./tmp/tmp_test_build_docs_1.md"
@@ -307,7 +308,7 @@ def test__make_script_data_list() -> None:
     file_util.remove_file_if_exists(file_path=tmp_file_path_2)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__run_code_block_script() -> None:
     return_data: _RunReturnData = build_docs._run_code_block_script(
         script_data={
@@ -322,7 +323,7 @@ def test__run_code_block_script() -> None:
     }
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_script_return_data() -> None:
     build_docs._validate_script_return_data(
         return_data_list=[
@@ -348,7 +349,7 @@ def test__validate_script_return_data() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__check_code_block_with_flake8() -> None:
     script_data: _ScriptData = {
         "md_file_path": "./tmp.py",
@@ -368,7 +369,7 @@ def test__check_code_block_with_flake8() -> None:
     build_docs._check_code_block_with_flake8(script_data=script_data)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__check_code_block_with_numdoclint() -> None:
     script_data: _ScriptData = {
         "md_file_path": "./tmp.py",
@@ -397,7 +398,7 @@ def test__check_code_block_with_numdoclint() -> None:
     build_docs._check_code_block_with_numdoclint(script_data=script_data)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__check_code_block_with_mypy() -> None:
     script_data: _ScriptData = {
         "md_file_path": "./tmp.py",
@@ -417,7 +418,7 @@ def test__check_code_block_with_mypy() -> None:
     build_docs._check_code_block_with_mypy(script_data=script_data)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_code_block_output_dir_paths() -> None:
     tmp_test_dir_path: str = "tmp/test_build_docs_1/"
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
@@ -447,7 +448,7 @@ def test__get_code_block_output_dir_paths() -> None:
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__copy_code_block_outputs() -> None:
     tmp_test_dir_path: str = "tmp/test_build_docs_2/"
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
@@ -469,7 +470,7 @@ def test__copy_code_block_outputs() -> None:
     shutil.rmtree(expected_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__replace_docstring_specification() -> None:
     tmp_dir_path: str = "./tmp/"
     os.makedirs(tmp_dir_path, exist_ok=True)
@@ -495,7 +496,7 @@ def test__replace_docstring_specification() -> None:
     file_util.remove_file_if_exists(file_path=tmp_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_document_hash_files_if_docstring_src_modified() -> None:
     _checkout_files()
 
@@ -535,7 +536,7 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
     _checkout_files()
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__flatten_2dim_module_paths_and_make_it_unique() -> None:
     flattened_module_paths: List[
         str
@@ -555,7 +556,7 @@ def test__flatten_2dim_module_paths_and_make_it_unique() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_docstring_module_hash() -> None:
     test_module_path: str = "./tests/test_build_docs.py"
     test_hash_file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
@@ -569,7 +570,7 @@ def test__save_docstring_module_hash() -> None:
     file_util.remove_file_if_exists(file_path=test_hash_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_check_each_doc_has_single_h1_symbol() -> None:
     file_names: List[str] = os.listdir("./docs_src/source/")
     doc_file_paths: List[str] = []
@@ -598,7 +599,7 @@ def test_check_each_doc_has_single_h1_symbol() -> None:
         assert len(found_txts) == 1, doc_file_path
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_build_command() -> None:
     command: str = build_docs._get_build_command(lang=Lang.EN)
     assert command == (
@@ -611,7 +612,7 @@ def test__get_build_command() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__sync_js_libs() -> None:
     jquery_file_name: str = jslib_util.get_jquery_file_name()
     test_file_path: str = f"./docs_src/source/_static/{jquery_file_name}"
@@ -621,7 +622,7 @@ def test__sync_js_libs() -> None:
     assert os.path.exists(test_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_excluding_file_names_prefix_list() -> None:
     excluding_file_names_prefix_list: List[
         str
@@ -630,7 +631,7 @@ def test__get_excluding_file_names_prefix_list() -> None:
     assert "en_" not in excluding_file_names_prefix_list
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__apply_black_formatting_to_code_block() -> None:
     tmp_md_str: str = "Hello!\n\n```py\nprint('100')\n```"
     os.makedirs("./tmp/", exist_ok=True)

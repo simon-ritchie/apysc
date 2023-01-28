@@ -9,10 +9,11 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestEllipse:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -35,7 +36,7 @@ class TestEllipse:
 
         assert_fill_attr_expression_exists(expression=expression)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
         ellipse: ap.Ellipse = ap.Ellipse(
@@ -114,7 +115,7 @@ class TestEllipse:
             dot_size=5, dash_size=10, space_size=3
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -124,7 +125,7 @@ class TestEllipse:
         repr_str: str = repr(ellipse)
         assert repr_str == f"Ellipse('{ellipse.variable_name}')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

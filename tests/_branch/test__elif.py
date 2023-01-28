@@ -10,6 +10,7 @@ from apysc._expression import expression_data_util
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestElif:
@@ -41,7 +42,7 @@ class TestElif:
         with ap.If(boolean_1, locals_=locals(), globals_=globals()):
             pass
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_last_scope(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True)
         with ap.If(boolean_1, locals_=locals(), globals_=globals()):
@@ -51,7 +52,7 @@ class TestElif:
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.ELIF
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = locals()

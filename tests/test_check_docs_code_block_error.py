@@ -7,9 +7,10 @@ from apysc._file import file_util
 from apysc._testing.testing_helper import assert_raises
 from scripts import check_docs_code_block_error
 from scripts.check_docs_code_block_error import _CodeBlockError
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__target_file_is_translated_document() -> None:
     result: bool = check_docs_code_block_error._target_file_is_translated_document(
         file_name="jp_sprite.md"
@@ -22,7 +23,7 @@ def test__target_file_is_translated_document() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_target_document_file_paths() -> None:
     document_file_paths: List[
         str
@@ -35,7 +36,7 @@ def test__get_target_document_file_paths() -> None:
     assert "./docs_src/source/_static/" not in document_file_paths
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__run_document_code_blocks() -> None:
     test_md_file_path: str = "./tmp/test_check_docs_code_block_error_1.md"
     file_util.save_plain_txt(

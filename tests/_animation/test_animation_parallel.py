@@ -7,10 +7,11 @@ import apysc as ap
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationParallel:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -41,7 +42,7 @@ class TestAnimationParallel:
             f"{var_names.ANIMATION_PARALLEL}_"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -70,7 +71,7 @@ class TestAnimationParallel:
         )
         assert expression == expected
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -94,7 +95,7 @@ class TestAnimationParallel:
         for expected in expected_strs:
             assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_animation_targets_are_unified(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -121,7 +122,7 @@ class TestAnimationParallel:
             animations=animations,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_animations_duration_are_default_vals(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -143,7 +144,7 @@ class TestAnimationParallel:
             animations=animations,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_animations_delay_are_default_vals(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -165,7 +166,7 @@ class TestAnimationParallel:
             animations=animations,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_animations_easing_are_default_vals(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
@@ -187,7 +188,7 @@ class TestAnimationParallel:
             animations=animations,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_animation_attr_exp(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

@@ -5,10 +5,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationParallelMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_animation_parallel(self) -> None:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()

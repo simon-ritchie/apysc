@@ -7,9 +7,10 @@ from retrying import retry
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing.e2e_testing_helper import LocalFileData
 from scripts import run_docs_e2e_tests
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_file_names() -> None:
     file_names: List[str] = run_docs_e2e_tests._get_file_names(lang=Lang.EN)
     expected_file_names: List[str] = [
@@ -40,7 +41,7 @@ def test__get_file_names() -> None:
         assert unexpected_file_name not in file_names
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_expected_assertion_failed_msgs() -> None:
     expected_assertion_failed_msgs: Optional[
         List[str]
@@ -58,7 +59,7 @@ def test__get_expected_assertion_failed_msgs() -> None:
     assert expected_assertion_failed_msgs is None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_local_file_data_2dim_list() -> None:
     local_file_data_2dim_list: List[
         List[LocalFileData]

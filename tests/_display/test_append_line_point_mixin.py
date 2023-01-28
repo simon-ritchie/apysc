@@ -10,10 +10,11 @@ from apysc._display.append_line_point_mixin import AppendLinePointMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAppendLinePointMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_append_line_point(self) -> None:
         expression_data_util.empty_expression()
         mixin: AppendLinePointMixIn = AppendLinePointMixIn()

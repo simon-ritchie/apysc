@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMixIn(FlipXMixIn):
@@ -16,7 +17,7 @@ class _TestMixIn(FlipXMixIn):
 
 
 class TestFlipXMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_flip_x_if_not_initialized(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface._initialize_flip_x_if_not_initialized()
@@ -26,7 +27,7 @@ class TestFlipXMixIn:
         interface._initialize_flip_x_if_not_initialized()
         assert interface._flip_x
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_flip_x(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         assert not interface.flip_x
@@ -34,7 +35,7 @@ class TestFlipXMixIn:
         interface.flip_x = ap.Boolean(True)
         assert interface.flip_x
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_flip_x_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: _TestMixIn = _TestMixIn()
@@ -54,7 +55,7 @@ class TestFlipXMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface.flip_x = ap.Boolean(True)
@@ -66,7 +67,7 @@ class TestFlipXMixIn:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._flip_x_snapshots[snapshot_name]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface.flip_x = ap.Boolean(True)
@@ -80,7 +81,7 @@ class TestFlipXMixIn:
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert not interface.flip_x
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_flip_x_attr_linking_setting(self) -> None:
         interface: _TestMixIn = _TestMixIn()
         interface._initialize_flip_x_if_not_initialized()

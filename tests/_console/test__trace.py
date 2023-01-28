@@ -6,9 +6,10 @@ import apysc as ap
 from apysc._console import _trace
 from apysc._expression import expression_data_util
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_trace() -> None:
     stage: ap.Stage = ap.Stage()
     ap.trace(stage, 100, "Hello!")
@@ -38,7 +39,7 @@ def _dummy_trace() -> str:
 _TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO: str = _dummy_trace()
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_func_callers_info() -> None:
     print(_TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO)
     assert _TOP_LEVEL_SCOPE_FUNC_CALLERS_INFO.startswith("\\nCalled from: test__trace")
@@ -49,7 +50,7 @@ def test__get_func_callers_info() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_outer_frames_index() -> None:
     _trace._temporary_outer_frames_index_adjustments = 5
     outer_frame_index: int = _trace._get_outer_frames_index()
@@ -61,14 +62,14 @@ def test__get_outer_frames_index() -> None:
 
 
 class TestTemporaryOuterFramesIndexAdjustment:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         with _trace.TemporaryOuterFramesIndexAdjustment(
             temporary_outer_frames_index_adjustments=5
         ):
             assert _trace._temporary_outer_frames_index_adjustments == 5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         with _trace.TemporaryOuterFramesIndexAdjustment(
             temporary_outer_frames_index_adjustments=5

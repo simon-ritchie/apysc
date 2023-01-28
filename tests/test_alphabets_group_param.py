@@ -5,9 +5,10 @@ from retrying import retry
 
 from apysc._testing.testing_helper import assert_raises
 from scripts import alphabets_group_param
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__split_alphabets_group_str() -> None:
     assert_raises(
         expected_error_class=ValueError,

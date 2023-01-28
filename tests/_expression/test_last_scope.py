@@ -4,9 +4,10 @@ from retrying import retry
 
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_reset() -> None:
     last_scope.set_last_scope(value=LastScope.FOR)
     last_scope.reset()
@@ -14,7 +15,7 @@ def test_reset() -> None:
     assert last_scope_ == LastScope.NORMAL
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_last_scope() -> None:
     last_scope.reset()
     last_scope_: LastScope = last_scope.get_last_scope()
@@ -25,7 +26,7 @@ def test_get_last_scope() -> None:
     assert last_scope_ == last_scope.LastScope.IF
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_set_last_scope() -> None:
     last_scope.reset()
     last_scope.set_last_scope(value=last_scope.LastScope.IF)

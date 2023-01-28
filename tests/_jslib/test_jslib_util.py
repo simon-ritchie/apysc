@@ -7,27 +7,28 @@ from retrying import retry
 
 from apysc._jslib import jslib_util
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 _EXPECTED_JQUERY_FILE_NAME: str = "jquery-3.5.1.min.js"
 _EXPECTED_SVG_FILE_NAME: str = "svg-3.1.2.min.js"
 _EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME: str = "jquery.mousewheel-3.1.13.min.js"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_jslib_file_names() -> None:
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
     assert _EXPECTED_JQUERY_FILE_NAME in jslib_file_names
     assert _EXPECTED_SVG_FILE_NAME in jslib_file_names
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_jslib_abs_dir_path() -> None:
     jslib_abs_dir_path: str = jslib_util.get_jslib_abs_dir_path()
     file_names: List[str] = os.listdir(jslib_abs_dir_path)
     assert _EXPECTED_JQUERY_FILE_NAME in file_names
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_export_jslib_to_specified_dir() -> None:
     tmp_dir_path: str = "../.tmp_apysc_jslib_util_test/"
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
@@ -50,13 +51,13 @@ def test_export_jslib_to_specified_dir() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_read_jslib_str() -> None:
     jslib_str: str = jslib_util.read_jslib_str(jslib_name=_EXPECTED_JQUERY_FILE_NAME)
     assert jslib_str != ""
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__sort_js_file_names_with_priority_setting() -> None:
     sorted_jslib_file_names: List[
         str
@@ -74,7 +75,7 @@ def test__sort_js_file_names_with_priority_setting() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_jquery_file_name() -> None:
     file_name: str = jslib_util.get_jquery_file_name()
     assert file_name == _EXPECTED_JQUERY_FILE_NAME

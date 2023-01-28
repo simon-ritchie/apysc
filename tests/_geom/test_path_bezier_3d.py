@@ -8,10 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPathBezier3D:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10,
@@ -68,7 +69,7 @@ class TestPathBezier3D:
             == "test_path_bezier_3d__dest_y"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_svg_str(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10,
@@ -98,7 +99,7 @@ class TestPathBezier3D:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_update_path_data(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10,
@@ -152,7 +153,7 @@ class TestPathBezier3D:
             == "test_path_bezier_3d__relative"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10,
@@ -264,7 +265,7 @@ class TestPathBezier3D:
         result = path_bezier_3d == other
         assert result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10,

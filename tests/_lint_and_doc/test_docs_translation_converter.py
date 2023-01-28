@@ -23,9 +23,10 @@ from apysc._lint_and_doc.docs_translation_converter import (
 )
 from apysc._lint_and_doc.docs_translation_converter import _TranslationMappingNotFound
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_translated_str_is_not_blank() -> None:
     mod._validate_translated_str_is_not_blank(
         translated_str="Lorem  ipsum dolor sit.",
@@ -43,7 +44,7 @@ def test__validate_translated_str_is_not_blank() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_apply_translation_to_doc() -> None:
     md_file_path: str = "./docs_src/source/sprite.md"
     expected_translated_file_path: str = (
@@ -63,7 +64,7 @@ def test_apply_translation_to_doc() -> None:
     assert "このページでは、`Sprite`クラスについて説明します。" in translated_doc_str
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__add_heading_info_if_exists() -> None:
     translated_doc: str = mod._add_heading_info_if_exists(
         translated_doc="",
@@ -82,7 +83,7 @@ def test__add_heading_info_if_exists() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__apply_mapping_if_translated_str_is_api_sig() -> None:
     src_translated_str: str = (
         "**[Interface signature]** `__init__(self, *, "
@@ -107,7 +108,7 @@ def test__apply_mapping_if_translated_str_is_api_sig() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_sharp_heading_symbol_num() -> None:
     sharp_symbol_num: int = mod._get_sharp_heading_symbol_num(target_str="Lorem ipsum")
     assert sharp_symbol_num == 0
@@ -116,7 +117,7 @@ def test__get_sharp_heading_symbol_num() -> None:
     assert sharp_symbol_num == 2
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_sharp_heading_symbol_num_are_same() -> None:
     mod._validate_sharp_heading_symbol_num_are_same(
         translated_str="## テストテキスト",
@@ -134,7 +135,7 @@ def test__validate_sharp_heading_symbol_num_are_same() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_unnecessary_line_break_between_list() -> None:
     translated_doc: str = (
         "# テスト見出し1"
@@ -163,13 +164,13 @@ def test__remove_unnecessary_line_break_between_list() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_first_spaces_num() -> None:
     first_spaces_num: int = mod._get_first_spaces_num(txt="    - Lorem ipsum")
     assert first_spaces_num == 4
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_first_spaces_nums_are_same() -> None:
     mod._validate_first_spaces_nums_are_same(
         translated_str="    - Lorem ipsum",
@@ -187,7 +188,7 @@ def test__validate_first_spaces_nums_are_same() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
     mod._validate_markdown_list_hyphen_symbols_are_same(
         translated_str="テストテキスト", key="Lorem ipsum", md_file_path="test/path.md"
@@ -207,7 +208,7 @@ def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_tail_hr_tag() -> None:
     mod._validate_tail_hr_tag(
         translated_str="テストテキスト。", key="Lorem ipsum.", md_file_path="test/path.md"
@@ -229,7 +230,7 @@ def test__validate_tail_hr_tag() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_line_break_between_api_docs_list_br_tag() -> None:
     translated_doc: str = mod._remove_line_break_between_api_docs_list_br_tag(
         translated_doc=(
@@ -247,7 +248,7 @@ def test__remove_line_break_between_api_docs_list_br_tag() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_first_br_tags_and_list_symbols_are_same() -> None:
     mod._validate_first_br_tags_and_list_symbols_are_same(
         translated_str="テストテキスト", key="Lorem ipsum", md_file_path="test/path.md"
@@ -269,7 +270,7 @@ def test__validate_first_br_tags_and_list_symbols_are_same() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_first_full_width_list_symbols_are_same() -> None:
     mod._validate_first_full_width_list_symbols_are_same(
         translated_str="テストテキスト", key="Lorem ipsum", md_file_path="test/path.md"
@@ -289,7 +290,7 @@ def test__validate_first_full_width_list_symbols_are_same() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_double_line_breaks_if_txt_is_not_blank() -> None:
     txt: str = mod._append_double_line_breaks_if_txt_is_not_blank(txt="")
     assert txt == ""

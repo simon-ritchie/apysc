@@ -8,9 +8,10 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._geom import path_data_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_make_paths_expression_from_list() -> None:
     path_move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=50)
     path_line_to: ap.PathLineTo = ap.PathLineTo(x=100, y=100)

@@ -6,9 +6,10 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import expression_variables_util
 from apysc._expression import indent_num
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_next_variable_num() -> None:
     expression_data_util.empty_expression()
     next_variable_num: int = expression_variables_util._get_next_variable_num(
@@ -24,7 +25,7 @@ def test__get_next_variable_num() -> None:
     assert next_variable_num == 3
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_variable_name() -> None:
     variable_name: str = expression_variables_util._make_variable_name(
         type_name="i", variable_num=3
@@ -32,7 +33,7 @@ def test__make_variable_name() -> None:
     assert variable_name == "i_3"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_next_variable_name() -> None:
     expression_data_util.empty_expression()
 
@@ -45,7 +46,7 @@ def test_get_next_variable_name() -> None:
     assert variable_name == "sprite_2"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_substitution_expression() -> None:
     indent_num.reset()
     expression_data_util.empty_expression()
@@ -59,7 +60,7 @@ def test_append_substitution_expression() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_substitution_expression_with_names() -> None:
     expression_data_util.empty_expression()
     expression_variables_util.append_substitution_expression_with_names(

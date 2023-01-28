@@ -8,10 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPathBezier3DContinual:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         path_bezier_3d_continual: ap.PathBezier3DContinual = ap.PathBezier3DContinual(
             control_x=10,
@@ -57,7 +58,7 @@ class TestPathBezier3DContinual:
             == "test_path_bezier_3d_continual__dest_y"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_svg_str(self) -> None:
         continual: ap.PathBezier3DContinual = ap.PathBezier3DContinual(
             control_x=10, control_y=20, dest_x=30, dest_y=40
@@ -75,7 +76,7 @@ class TestPathBezier3DContinual:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_update_path_data(self) -> None:
         continual: ap.PathBezier3DContinual = ap.PathBezier3DContinual(
             control_x=10,
@@ -104,7 +105,7 @@ class TestPathBezier3DContinual:
         assert continual._dest_y._variable_name_suffix == "test_continual__dest_y"
         assert continual._relative._variable_name_suffix == "test_continual__relative"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         continual: ap.PathBezier3DContinual = ap.PathBezier3DContinual(
             control_x=10, control_y=20, dest_x=30, dest_y=40, relative=False
@@ -157,7 +158,7 @@ class TestPathBezier3DContinual:
         result = continual == other
         assert result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         continual: ap.PathBezier3DContinual = ap.PathBezier3DContinual(
             control_x=10, control_y=20, dest_x=30, dest_y=40, relative=False

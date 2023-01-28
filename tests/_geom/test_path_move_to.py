@@ -8,10 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPathMoveTo:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(
             x=50, y=100, relative=True, variable_name_suffix="test_path_move_to"
@@ -31,7 +32,7 @@ class TestPathMoveTo:
         assert path_move_to._x._variable_name_suffix == "test_path_move_to__x"
         assert path_move_to._y._variable_name_suffix == "test_path_move_to__y"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_svg_str(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=100)
         svg_str: str = path_move_to._get_svg_str()
@@ -45,7 +46,7 @@ class TestPathMoveTo:
         )
         assert match is not None, svg_str
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_update_path_data(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(
             x=50, y=100, relative=False, variable_name_suffix="test_path_move_to"
@@ -66,7 +67,7 @@ class TestPathMoveTo:
             == "test_path_move_to__relative"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=100, relative=False)
         result: ap.Boolean = path_move_to == 10
@@ -90,7 +91,7 @@ class TestPathMoveTo:
         result = path_move_to == other
         assert result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=100, relative=False)
         other: ap.PathMoveTo = ap.PathMoveTo(x=100, y=100, relative=False)

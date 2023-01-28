@@ -9,9 +9,10 @@ from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def teardown() -> None:
     """
     Function that will be called when test ended.
@@ -19,7 +20,7 @@ def teardown() -> None:
     expression_data_util.empty_expression()
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_current_event_handler_scope_count() -> None:
     expression_data_util.empty_expression()
     scope_count: int = event_handler_scope.get_current_event_handler_scope_count()
@@ -30,7 +31,7 @@ def test_get_current_event_handler_scope_count() -> None:
     assert scope_count == 3
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_current_scope_count() -> None:
     event_handler_scope._save_current_scope_count(count=3)
     scope_count: int = event_handler_scope.get_current_event_handler_scope_count()
@@ -41,7 +42,7 @@ def test__save_current_scope_count() -> None:
     assert scope_count == 5
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__increment_scope_count() -> None:
     expression_data_util.empty_expression()
     event_handler_scope._increment_scope_count()
@@ -53,7 +54,7 @@ def test__increment_scope_count() -> None:
     assert scope_count == 2
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__decrement_scope_count() -> None:
     expression_data_util.empty_expression()
 
@@ -73,7 +74,7 @@ def test__decrement_scope_count() -> None:
 
 
 class TestHandlerScope:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
@@ -83,7 +84,7 @@ class TestHandlerScope:
         assert handler_scope._handler_name == "test_handler_1"
         assert handler_scope._instance == instance
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         expression_data_util.empty_expression()
         instance: VariableNameMixIn = VariableNameMixIn()
@@ -101,7 +102,7 @@ class TestHandlerScope:
                 )
                 assert scope_count == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         expression_data_util.empty_expression()
         instance: VariableNameMixIn = VariableNameMixIn()
@@ -122,14 +123,14 @@ class TestHandlerScope:
 
 
 class TestTemporaryNotHandlerScope:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         event_handler_scope._save_current_scope_count(count=1)
         scope: TemporaryNotHandlerScope = TemporaryNotHandlerScope()
         event_handler_scope._save_current_scope_count(count=0)
         assert scope._original_scope_count == 1
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         event_handler_scope._save_current_scope_count(count=1)
         with TemporaryNotHandlerScope():
@@ -139,7 +140,7 @@ class TestTemporaryNotHandlerScope:
             assert scope_count == 0
         event_handler_scope._save_current_scope_count(count=0)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         event_handler_scope._save_current_scope_count(count=1)
         with TemporaryNotHandlerScope():
@@ -149,7 +150,7 @@ class TestTemporaryNotHandlerScope:
         event_handler_scope._save_current_scope_count(count=0)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -167,7 +168,7 @@ def test__save_handler_calling_stack() -> None:
     assert result[1] == "test_instance"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__delete_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -184,7 +185,7 @@ def test__delete_handler_calling_stack() -> None:
     assert result is None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_suffix_num_from_handler_name() -> None:
     handler_name: str = event_handler_scope.remove_suffix_num_from_handler_name(
         handler_name="__main__on_timer_1_timer_5"
@@ -192,7 +193,7 @@ def test_remove_suffix_num_from_handler_name() -> None:
     assert handler_name == "__main__on_timer_1_timer"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_current_scope_is_in_event_handler() -> None:
     result: bool = event_handler_scope.current_scope_is_in_event_handler()
     assert not result

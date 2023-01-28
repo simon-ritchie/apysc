@@ -13,9 +13,10 @@ from apysc._expression.expression_data_util import _LimitClauseCantUseError
 from apysc._expression.indent_num import Indent
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_current_expression() -> None:
     expression_data_util.empty_expression()
     ap.append_js_expression(expression='console.log("Hello!");')
@@ -27,7 +28,7 @@ def test_get_current_expression() -> None:
     assert expression == ""
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_js_expression() -> None:
     indent_num.reset()
     expression_data_util.empty_expression()
@@ -59,7 +60,7 @@ def test_append_js_expression() -> None:
     assert result_3[-1][0] == "var num_2 = 20;"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_current_expression() -> None:
     expression_data_util.empty_expression()
     current_expression: str = expression_data_util._get_current_expression(
@@ -80,7 +81,7 @@ def test__get_current_expression() -> None:
     assert current_expression == 'console.log("Hello!");\nconsole.log("World!");'
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_current_event_handler_scope_expression() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -95,7 +96,7 @@ def test_get_current_event_handler_scope_expression() -> None:
     assert current_expression == 'console.log("Hello!");'
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_expression_normal_table() -> None:
     expression_data_util._create_expression_normal_table()
     result: bool = expression_data_util._table_exists(
@@ -104,7 +105,7 @@ def test__create_expression_normal_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__table_exists() -> None:
     expression_data_util._create_expression_normal_table()
     result: bool = expression_data_util._table_exists(
@@ -118,7 +119,7 @@ def test__table_exists() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_initialize_sqlite_tables_if_not_initialized() -> None:
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     query: str = (
@@ -141,7 +142,7 @@ def test_initialize_sqlite_tables_if_not_initialized() -> None:
     assert not initialized
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_create_table_query() -> None:
     query: str = expression_data_util._make_create_table_query(
         table_name=expression_data_util.TableName.EXPRESSION_HANDLER,
@@ -157,7 +158,7 @@ def test__make_create_table_query() -> None:
     assert query == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_expression_handler_table() -> None:
     expression_data_util._create_expression_handler_table()
     result: bool = expression_data_util._table_exists(
@@ -166,7 +167,7 @@ def test__create_expression_handler_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_indent_num_normal_table() -> None:
     expression_data_util._create_indent_num_normal_table()
     result: bool = expression_data_util._table_exists(
@@ -175,7 +176,7 @@ def test__create_indent_num_normal_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_indent_num_handler_table() -> None:
     expression_data_util._create_indent_num_handler_table()
     result: bool = expression_data_util._table_exists(
@@ -184,7 +185,7 @@ def test__create_indent_num_handler_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_last_scope_table() -> None:
     expression_data_util._create_last_scope_table()
     result: bool = expression_data_util._table_exists(
@@ -193,7 +194,7 @@ def test__create_last_scope_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_event_handler_scope_count_table() -> None:
     expression_data_util._create_event_handler_scope_count_table()
     result: bool = expression_data_util._table_exists(
@@ -202,7 +203,7 @@ def test__create_event_handler_scope_count_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_loop_count_table() -> None:
     expression_data_util._create_loop_count_table()
     result: bool = expression_data_util._table_exists(
@@ -211,7 +212,7 @@ def test__create_loop_count_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_debug_mode_setting_table() -> None:
     expression_data_util._create_debug_mode_setting_table()
     result: bool = expression_data_util._table_exists(
@@ -220,7 +221,7 @@ def test__create_debug_mode_setting_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_empty_expression() -> None:
     expression_data_util._create_expression_normal_table()
     expression_data_util.cursor.execute(
@@ -240,7 +241,7 @@ def test_empty_expression() -> None:
     assert result is None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_expression_table_name() -> None:
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
@@ -256,7 +257,7 @@ def test__get_expression_table_name() -> None:
     assert table_name == expression_data_util.TableName.EXPRESSION_NORMAL
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_debug_mode_callable_count_table() -> None:
     expression_data_util._create_debug_mode_setting_table()
     result: bool = expression_data_util._table_exists(
@@ -265,7 +266,7 @@ def test__create_debug_mode_callable_count_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_stage_elem_id_table() -> None:
     expression_data_util._create_stage_elem_id_table()
     result: bool = expression_data_util._table_exists(
@@ -274,7 +275,7 @@ def test__create_stage_elem_id_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_variable_name_count_table() -> None:
     expression_data_util._create_variable_name_count_table()
     result: bool = expression_data_util._table_exists(
@@ -283,7 +284,7 @@ def test__create_variable_name_count_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_handler_calling_stack_table() -> None:
     expression_data_util._create_handler_calling_stack_table()
     result: bool = expression_data_util._table_exists(
@@ -292,7 +293,7 @@ def test__create_handler_calling_stack_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_circular_calling_handler_name_table() -> None:
     expression_data_util._create_circular_calling_handler_name_table()
     result: bool = expression_data_util._table_exists(
@@ -301,7 +302,7 @@ def test__create_circular_calling_handler_name_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_stage_id_table() -> None:
     expression_data_util._create_stage_id_table()
     result: bool = expression_data_util._table_exists(
@@ -310,7 +311,7 @@ def test__create_stage_id_table() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_limit_clause() -> None:
     sqls: List[str] = [
         "DELETE FROM test_table LIMIT 1;",
@@ -327,7 +328,7 @@ def test__validate_limit_clause() -> None:
     expression_data_util._validate_limit_clause(sql="SELECT a FROM test_table LIMIT 1;")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_exec_query() -> None:
     expression_data_util.empty_expression()
     table_name: str = expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value

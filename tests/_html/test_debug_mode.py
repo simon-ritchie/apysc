@@ -10,16 +10,17 @@ from apysc._expression import expression_data_util
 from apysc._html import debug_mode
 from apysc._html.debug_mode import DebugInfo
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_set_debug_mode() -> None:
     ap.Stage()
     ap.set_debug_mode()
     assert debug_mode.is_debug_mode()
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_debug_mode() -> None:
     ap.Stage()
     result: bool = ap.is_debug_mode()
@@ -34,7 +35,7 @@ def test_is_debug_mode() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_callable_count() -> None:
     expression_data_util.empty_expression()
     callable_count: int = debug_mode._get_callable_count(
@@ -58,7 +59,7 @@ def test__get_callable_count() -> None:
     assert callable_count == 2
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__increment_callable_count() -> None:
     expression_data_util.empty_expression()
     debug_mode._increment_callable_count(
@@ -74,7 +75,7 @@ def test__increment_callable_count() -> None:
     assert callable_count == 1
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_callable_str() -> None:
     callable_str: str = debug_mode._get_callable_str(callable_=test__get_callable_str)
     assert callable_str == "test__get_callable_str"
@@ -83,7 +84,7 @@ def test__get_callable_str() -> None:
     assert callable_str == "any_func"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_unset_debug_mode() -> None:
     ap.Stage()
     ap.set_debug_mode()
@@ -92,7 +93,7 @@ def test_unset_debug_mode() -> None:
     assert not ap.is_debug_mode()
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_callable_path_name() -> None:
     path_name: str = debug_mode._get_callable_path_name(
         callable_=TestDebugInfo.test___init__,
@@ -114,7 +115,7 @@ def test__get_callable_path_name() -> None:
     assert path_name == "tests__html_test_debug_mode_test___init__"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_add_debug_info_setting() -> None:
     class _TestClass:
         @debug_mode.add_debug_info_setting(module_name=__name__)
@@ -152,7 +153,7 @@ def test_add_debug_info_setting() -> None:
 
 
 class TestDebugInfo:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         debug_info: DebugInfo = DebugInfo(
             callable_=self.test___init__,
@@ -172,7 +173,7 @@ class TestDebugInfo:
             any_obj=debug_info,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         ap.Stage()
         with DebugInfo(
@@ -202,7 +203,7 @@ class TestDebugInfo:
         assert "\n// Positional arguments: [10]" in expression
         assert "\n// Keyword arguments: {'a': 10}" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_class_info(self) -> None:
         debug_info: DebugInfo = DebugInfo(
             callable_=self.test___init__,
@@ -220,7 +221,7 @@ class TestDebugInfo:
         class_info = debug_info._get_class_info()
         assert class_info == ""
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         ap.Stage()
         with DebugInfo(

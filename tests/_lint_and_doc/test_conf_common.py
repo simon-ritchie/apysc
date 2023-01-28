@@ -6,6 +6,7 @@ from retrying import retry
 from sphinx.application import Sphinx
 
 from apysc._lint_and_doc import conf_common
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _MockSphinx(Sphinx):
@@ -28,7 +29,7 @@ class _MockSphinx(Sphinx):
             assert os.path.exists(f"./docs_src/source/_static/{filename}")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_setup() -> None:
     sphinx: _MockSphinx = _MockSphinx()
     conf_common.setup(sphinx=sphinx)

@@ -16,9 +16,10 @@ from apysc._file import file_util
 from apysc._html import exporter
 from apysc._jslib import jslib_util
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@apply_test_settings(retrying_sleep_time=300)
 def test__export_js_libs() -> None:
     jquery_file_name: str = jslib_util.get_jquery_file_name()
     tmp_dir_path: str = "../.tmp_apysc_test_exporter/"
@@ -72,7 +73,7 @@ def test__append_head_to_html_str() -> None:
     assert expected_str in html_str
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@apply_test_settings(retrying_sleep_time=300)
 def test__append_expression_to_html_str() -> None:
     html_str: str = "<html>\n<body>"
     stage: ap.Stage = ap.Stage(stage_elem_id="test_stage")
@@ -81,7 +82,7 @@ def test__append_expression_to_html_str() -> None:
     assert f"function main_{stage.variable_name}() {{" in html_str
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@apply_test_settings(retrying_sleep_time=300)
 def test_save_overall_html() -> None:
     jquery_file_name: str = jslib_util.get_jquery_file_name()
     tmp_dir_path: str = "../.tmp_apysc_test_exporter/"
@@ -120,7 +121,7 @@ def test_save_overall_html() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_entry_point_function_call() -> None:
     stage: ap.Stage = ap.Stage()
     html_str: str = "<html>"
@@ -136,7 +137,7 @@ def test__append_entry_point_function_call() -> None:
     assert html_str == expected
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@apply_test_settings(retrying_sleep_time=300)
 def test__append_stage_global_variable_to_html() -> None:
     ap.Stage(stage_elem_id="test_stage")
     html_str: str = "<html>"
@@ -147,7 +148,7 @@ def test__append_stage_global_variable_to_html() -> None:
     assert html_str == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings(retrying_sleep_time=500)
 def test_get_entry_point_func_name() -> None:
     stage: ap.Stage = ap.Stage()
     entry_point_func_name: str = exporter.get_entry_point_func_name()
@@ -155,7 +156,7 @@ def test_get_entry_point_func_name() -> None:
     assert entry_point_func_name == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_var_name_from_line() -> None:
     var_name: str = exporter._get_var_name_from_line(line="any_value = 200;")
     assert var_name == ""
@@ -170,7 +171,7 @@ def test__get_var_name_from_line() -> None:
     assert var_name == ""
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__target_js_variable_is_used() -> None:
     var_name: str = "i_10"
     exp_lines: List[str] = ["// i_10 info", "var i_10 = 20;"]
@@ -198,7 +199,7 @@ def test__target_js_variable_is_used() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_unused_js_vars() -> None:
     expression: str = (
         "var i_10 = 10;"
@@ -226,7 +227,7 @@ def test__remove_unused_js_vars() -> None:
     assert result == expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_common_js_functions() -> None:
     expression: str = exporter._append_common_js_functions(
         expression='console.log("Hello!");'
@@ -235,7 +236,7 @@ def test__append_common_js_functions() -> None:
     assert expression.endswith('\nconsole.log("Hello!");')
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_blank_lines() -> None:
     expression: str = 'console.log("Hello!");' "\n" "\n  " '\nconsole.log("World!");'
     expression = exporter._remove_blank_lines(expression=expression)
@@ -243,7 +244,7 @@ def test__remove_blank_lines() -> None:
     assert expression == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__minify_html() -> None:
     ap.Stage()
     html_str: str = "<html>" "\n<body>" "\n  <span>a</span>" "\n</body>" "\n</html>"
@@ -259,7 +260,7 @@ def test__minify_html() -> None:
     assert html_str.startswith("<html><body>")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_event_handler_expressions() -> None:
     expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
@@ -274,7 +275,7 @@ def test__append_event_handler_expressions() -> None:
     assert expression == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_jslib_str_to_html() -> None:
     jquery_file_name: str = jslib_util.get_jquery_file_name()
     html_str: str = exporter._append_jslib_str_to_html(
@@ -309,7 +310,7 @@ def test__append_jslib_str_to_html() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__display_info() -> None:
     msg: str = exporter._display_info(msg="Hello", verbose=0)
     assert msg == ""
@@ -318,7 +319,7 @@ def test__display_info() -> None:
     assert msg == "Hello"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__display_debug_mode_ignoring_minify_setting_info() -> None:
     ap.Stage()
     ap.set_debug_mode()

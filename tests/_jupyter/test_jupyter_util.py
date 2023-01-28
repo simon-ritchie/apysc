@@ -6,9 +6,10 @@ from retrying import retry
 
 import apysc as ap
 from apysc._jupyter import jupyter_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_display_on_jupyter() -> None:
     original_tmp_root_dir: str = jupyter_util._TMP_ROOT_DIR_PATH
     jupyter_util._TMP_ROOT_DIR_PATH = "../tmp_test_1/"
@@ -22,7 +23,7 @@ def test_display_on_jupyter() -> None:
     os.remove("test_file.html")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_overall_html() -> None:
     original_tmp_root_dir: str = jupyter_util._TMP_ROOT_DIR_PATH
     jupyter_util._TMP_ROOT_DIR_PATH = "../tmp_test_2/"
@@ -35,7 +36,7 @@ def test__save_overall_html() -> None:
     os.remove("test_file.html")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_display_on_colaboratory() -> None:
     original_tmp_root_dir: str = jupyter_util._TMP_ROOT_DIR_PATH
     jupyter_util._TMP_ROOT_DIR_PATH = "../tmp_test_3/"

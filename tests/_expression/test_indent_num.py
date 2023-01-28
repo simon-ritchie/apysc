@@ -7,9 +7,10 @@ from apysc._expression import expression_data_util
 from apysc._expression import indent_num
 from apysc._expression.indent_num import Indent
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_current_indent_num() -> None:
     expression_data_util.empty_expression()
     current_indent_num: int = indent_num.get_current_indent_num()
@@ -20,7 +21,7 @@ def test_get_current_indent_num() -> None:
     assert current_indent_num == 2
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_reset() -> None:
     expression_data_util.empty_expression()
     with Indent():
@@ -36,7 +37,7 @@ def test_reset() -> None:
 
 
 class TestIndent:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         indent_num.reset()
         with Indent():
@@ -46,7 +47,7 @@ class TestIndent:
                 current_indent_num = indent_num.get_current_indent_num()
                 assert current_indent_num == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         indent_num.reset()
         with Indent():
@@ -58,7 +59,7 @@ class TestIndent:
         assert current_indent_num == 0
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_indent_num_table_name() -> None:
     expression_data_util.empty_expression()
     table_name: str = indent_num._get_indent_num_table_name()

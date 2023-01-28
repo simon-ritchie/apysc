@@ -8,10 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPathHorizontal:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
             x=50, relative=True, variable_name_suffix="test_path_horizontal"
@@ -28,7 +29,7 @@ class TestPathHorizontal:
         assert path_horizontal._variable_name_suffix == "test_path_horizontal"
         assert path_horizontal._x._variable_name_suffix == "test_path_horizontal__x"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_svg_str(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50)
         svg_str = path_horizontal._get_svg_str()
@@ -41,7 +42,7 @@ class TestPathHorizontal:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_update_path_data(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
             x=50, relative=False, variable_name_suffix="test_path_horizontal"
@@ -60,7 +61,7 @@ class TestPathHorizontal:
             == "test_path_horizontal__relative"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50, relative=False)
         result: ap.Boolean = path_horizontal == 10
@@ -80,7 +81,7 @@ class TestPathHorizontal:
         result = path_horizontal == other
         assert result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50, relative=False)
         other: ap.PathHorizontal = ap.PathHorizontal(x=100, relative=False)

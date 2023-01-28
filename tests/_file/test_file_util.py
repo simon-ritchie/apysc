@@ -7,9 +7,10 @@ from retrying import retry
 
 from apysc._file import file_util
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_empty_directory() -> None:
     tmp_dir_path: str = "../.tmp_apysc/"
     os.makedirs(tmp_dir_path, exist_ok=True)
@@ -26,7 +27,7 @@ def test_empty_directory() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_read_txt() -> None:
     tmp_file_path: str = "../tmp_apysc_test_file_util.txt"
     with open(tmp_file_path, "w") as f:
@@ -45,7 +46,7 @@ def test_read_txt() -> None:
     os.remove(tmp_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_save_plain_txt() -> None:
     tmp_file_path: str = "../tmp_apysc_test_file_util.txt"
     file_util.save_plain_txt(
@@ -65,7 +66,7 @@ def test_save_plain_txt() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_file_if_exists() -> None:
     tmp_file_path: str = "../tmp_apysc_test_file_util.txt"
     file_util.save_plain_txt(
@@ -77,13 +78,13 @@ def test_remove_file_if_exists() -> None:
     file_util.remove_file_if_exists(file_path=tmp_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_abs_module_dir_path() -> None:
     abs_module_dir_path: str = file_util.get_abs_module_dir_path(module=file_util)
     assert abs_module_dir_path.endswith("/apysc/_file/")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_abs_directory_path_from_file_path() -> None:
     dir_path: str = file_util.get_abs_directory_path_from_file_path(
         file_path="any/dir/path.txt"
@@ -91,7 +92,7 @@ def test_get_abs_directory_path_from_file_path() -> None:
     assert dir_path == "any/dir/"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_plain_txt() -> None:
     tmp_file_path: str = "../tmp_test_file_util.txt"
     file_util.remove_file_if_exists(file_path=tmp_file_path)
@@ -101,7 +102,7 @@ def test_append_plain_txt() -> None:
     assert txt == "Hello World!"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_specified_ext_file_paths_recursively() -> None:
     file_paths: List[str] = file_util.get_specified_ext_file_paths_recursively(
         extension="md", dir_path="./docs_src/"
@@ -111,7 +112,7 @@ def test_get_specified_ext_file_paths_recursively() -> None:
     assert "./docs_src/source/conf.py" not in file_paths
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_count_files_recursively() -> None:
     tmp_dir_path: str = "tmp/tmp_test_file_util/"
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
@@ -132,7 +133,7 @@ def test_count_files_recursively() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_delete_file_if_exists() -> None:
     os.makedirs("./tmp/", exist_ok=True)
     test_file_path: str = "./tmp/test_file.txt"
@@ -146,7 +147,7 @@ def test_delete_file_if_exists() -> None:
     assert not os.path.exists(test_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__has_excluding_prefix() -> None:
     result: bool = file_util._has_excluding_prefix(
         file_name="jp_sprite.md", excluding_file_names_prefix_list=None

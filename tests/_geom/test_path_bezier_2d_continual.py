@@ -8,10 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPathBezier2DContinual:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         path_bezier_2d_continual: ap.PathBezier2DContinual = ap.PathBezier2DContinual(
             x=10,
@@ -40,7 +41,7 @@ class TestPathBezier2DContinual:
             == "test_path_bezier_2d_continual__y"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_svg_str(self) -> None:
         path_bezier_2d_continual: ap.PathBezier2DContinual = ap.PathBezier2DContinual(
             x=10, y=20
@@ -57,7 +58,7 @@ class TestPathBezier2DContinual:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_update_path_data(self) -> None:
         path_bezier_2d_continual: ap.PathBezier2DContinual = ap.PathBezier2DContinual(
             x=10,
@@ -84,7 +85,7 @@ class TestPathBezier2DContinual:
             "test_path_bezier_2d_continual__relative"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         path_bezier_2d_continual: ap.PathBezier2DContinual = ap.PathBezier2DContinual(
             x=10, y=20, relative=False
@@ -113,7 +114,7 @@ class TestPathBezier2DContinual:
         assert isinstance(result, ap.Boolean)
         assert result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         path_bezier_2d_continual: ap.PathBezier2DContinual = ap.PathBezier2DContinual(
             x=10, y=20, relative=False

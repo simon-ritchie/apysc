@@ -8,10 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPathClose:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         path_close: ap.PathClose = ap.PathClose()
         assert_attrs(
@@ -22,7 +23,7 @@ class TestPathClose:
             any_obj=path_close,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_path_close(self) -> None:
         path_close: ap.PathClose = ap.PathClose()
         svg_str: str = path_close._get_svg_str()

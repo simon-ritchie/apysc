@@ -6,6 +6,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestTimerEvent:
@@ -21,14 +22,14 @@ class TestTimerEvent:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33)
         event: ap.TimerEvent = ap.TimerEvent(this=timer)
         assert event.variable_name.startswith(f"{var_names.TIMER_EVENT}_")
         assert event._this == timer
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_this(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33)
         event: ap.TimerEvent = ap.TimerEvent(this=timer)

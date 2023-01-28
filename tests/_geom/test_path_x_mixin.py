@@ -4,10 +4,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._geom.path_x_mixin import PathXMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPathXMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_x(self) -> None:
         mixin: PathXMixIn = PathXMixIn()
         mixin._x = ap.Int(10)
@@ -16,7 +17,7 @@ class TestPathXMixIn:
         mixin.x = ap.Int(20)
         assert mixin.x == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: PathXMixIn = PathXMixIn()
         mixin._x = ap.Int(10)
@@ -24,7 +25,7 @@ class TestPathXMixIn:
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert mixin._x_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: PathXMixIn = PathXMixIn()
         mixin._x = ap.Int(10)
@@ -37,7 +38,7 @@ class TestPathXMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin.x == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_x_if_not_initialized(self) -> None:
         mixin: PathXMixIn = PathXMixIn()
         mixin._initialize_x_if_not_initialized()
@@ -47,7 +48,7 @@ class TestPathXMixIn:
         mixin._initialize_x_if_not_initialized()
         assert mixin.x == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_x_linking_setting(self) -> None:
         mixin: PathXMixIn = PathXMixIn()
         mixin._initialize_x_if_not_initialized()

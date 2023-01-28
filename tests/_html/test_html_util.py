@@ -10,9 +10,10 @@ from apysc._expression import expression_data_util
 from apysc._html import html_util
 from apysc._html.html_util import ScriptLineUtil
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_first_selector_symbol_char() -> None:
     str_val_1: str = html_util.remove_first_selector_symbol_char(str_val=".line-graph")
     assert str_val_1 == "line-graph"
@@ -162,7 +163,7 @@ def test_wrap_expression_by_script_tag() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_remove_first_selector_symbol_char_expression() -> None:
     expression_data_util.empty_expression()
     str_val_1: ap.String = ap.String(".line-graph")

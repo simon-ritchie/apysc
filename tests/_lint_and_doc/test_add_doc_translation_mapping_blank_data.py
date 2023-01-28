@@ -14,9 +14,10 @@ from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_src_docs_file_paths() -> None:
     src_docs_file_paths: List[str] = mod._get_src_docs_file_paths()
     assert "./docs_src/source/sprite.md" in src_docs_file_paths
@@ -25,7 +26,7 @@ def test__get_src_docs_file_paths() -> None:
     assert "./docs_src/source/conf.py" not in src_docs_file_paths
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_translated_document() -> None:
     result: bool = mod._is_translated_document(path="./test/path.md")
     assert not result
@@ -37,7 +38,7 @@ def test__is_translated_document() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_mappings_from_keys() -> None:
     test_src_doc_file_path: str = (
         "./docs_src/source/test_add_doc_translation_mapping_blank_data_2.md"
@@ -69,7 +70,7 @@ def test__make_mappings_from_keys() -> None:
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_mapping_data() -> None:
     test_src_doc_file_path: str = (
         "./docs_src/source/test_add_doc_translation_mapping_blank_data_3.md"
@@ -129,7 +130,7 @@ def test__save_mapping_data() -> None:
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_add_mapping_blank_data() -> None:
     file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path="./docs_src/source/sprite.md",
@@ -141,7 +142,7 @@ def test_add_mapping_blank_data() -> None:
     assert os.path.isfile(file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_skipping_pattern_keys_from_list() -> None:
     result_keys: List[str] = mod._remove_skipping_pattern_keys_from_list(
         keys=[
@@ -160,7 +161,7 @@ def test__remove_skipping_pattern_keys_from_list() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__set_fixed_translation_value_if_exists() -> None:
     fixed_value: str = mod._set_fixed_translation_value_if_exists(
         key="**[Parameters]**", value="Lorem ipsum."
@@ -173,7 +174,7 @@ def test__set_fixed_translation_value_if_exists() -> None:
     assert fixed_value == "Lorem ipsum."
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__set_same_value_if_code_block_mapping_is_blank() -> None:
     value: str = mod._set_same_value_if_code_block_mapping_is_blank(
         key="```py\nprint(10)\n```", value="Lorem ipsum."
@@ -191,7 +192,7 @@ def test__set_same_value_if_code_block_mapping_is_blank() -> None:
     assert value == "```py\nprint(10)\n```"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__convert_link_list_by_lang() -> None:
     value: str = mod._convert_link_list_by_lang(
         key="Lorem ipsum.", value="Dolor sit.", lang=Lang.JP
@@ -249,12 +250,12 @@ def _read_added_mapping_modules_recursively(*, dir_path: str) -> None:
         importlib.reload(module)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_can_read_added_mapping_modules() -> None:
     _read_added_mapping_modules_recursively(dir_path="./apysc/_translation/")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__extract_link_texts() -> None:
     link_texts: List[str] = mod._extract_link_texts(
         value=("- [Lorem ipsum](any/path_1.md)" "\n- [Dolar sit](any/path_2.md)")
@@ -262,7 +263,7 @@ def test__extract_link_texts() -> None:
     assert link_texts == ["Lorem ipsum", "Dolar sit"]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__replace_link_text_by_fixed_mapping() -> None:
     value: str = mod._replace_link_text_by_fixed_mapping(
         value="- [Lorem ipsum](any/path_1.md)", lang=Lang.JP
@@ -284,7 +285,7 @@ def test__replace_link_text_by_fixed_mapping() -> None:
     assert value == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__set_same_value_if_api_params_or_returns_list() -> None:
     value: str = mod._set_same_value_if_api_params_or_returns_list(
         key="Lorem ipsum", value="テストテキスト"
@@ -297,7 +298,7 @@ def test__set_same_value_if_api_params_or_returns_list() -> None:
     assert value == "- `self`: AnimatonBase"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__set_same_value_if_key_is_no_mapping_fixed_string() -> None:
     value: str = mod._set_same_value_if_key_is_no_mapping_fixed_string(
         key="</details>", value=""
@@ -310,7 +311,7 @@ def test__set_same_value_if_key_is_no_mapping_fixed_string() -> None:
     assert value == ""
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__set_same_value_if_key_is_image_link() -> None:
     value: str = mod._set_same_value_if_key_is_image_link(key="Lorem ipsum", value="")
     assert value == ""
@@ -321,7 +322,7 @@ def test__set_same_value_if_key_is_image_link() -> None:
     assert value == "![](_static/colaboratory_interface.png)"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__set_translated_file_names_to_toc_code_block() -> None:
     value: str = "Lorem ipsum"
     value = mod._set_translated_file_names_to_toc_code_block(lang=Lang.JP, value=value)
@@ -332,7 +333,7 @@ def test__set_translated_file_names_to_toc_code_block() -> None:
     assert value == ("```{toctree}" "\njp_lorem_ipsum" "\njp_dolor_sit_amet_2" "\n```")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__replace_link_en_dir_with_target_lang() -> None:
     value: str = (
         "- [test document 1](https://test_apysc.com/en/jp_graphics_draw_path.html)"

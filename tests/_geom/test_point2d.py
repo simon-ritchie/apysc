@@ -6,10 +6,11 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestPoint2D:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20, variable_name_suffix="test_point")
         assert_attrs(
@@ -37,7 +38,7 @@ class TestPoint2D:
             any_obj=point,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_x(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20, variable_name_suffix="test_point")
         x: ap.Int = point.x
@@ -48,7 +49,7 @@ class TestPoint2D:
         point.x += 20
         assert point.x == 30
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_y(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20, variable_name_suffix="test_point")
         y: ap.Int = point.y
@@ -59,7 +60,7 @@ class TestPoint2D:
         point.y += 20
         assert point.y == 40
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         result: ap.Boolean = point == 20
@@ -77,7 +78,7 @@ class TestPoint2D:
         result = point == ap.Point2D(x=10, y=30)
         assert not result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         result: ap.Boolean = point != ap.Point2D(x=20, y=20)
@@ -86,7 +87,7 @@ class TestPoint2D:
         result = point != ap.Point2D(x=10, y=20)
         assert not result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         x: ap.Int = ap.Int(10)
@@ -99,7 +100,7 @@ class TestPoint2D:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_x_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
@@ -108,7 +109,7 @@ class TestPoint2D:
         expected: str = f'{x.variable_name} = {point.variable_name}["x"];'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_y_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
@@ -117,7 +118,7 @@ class TestPoint2D:
         expected: str = f'{y.variable_name} = {point.variable_name}["y"];'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_x_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
@@ -127,7 +128,7 @@ class TestPoint2D:
         expected: str = f'{point.variable_name}["x"] = {x.variable_name};'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_y_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
@@ -137,7 +138,7 @@ class TestPoint2D:
         expected: str = f'{point.variable_name}["y"] = {y.variable_name};'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         snapshot_name: str = point._get_next_snapshot_name()
@@ -151,7 +152,7 @@ class TestPoint2D:
         assert point._x_snapshots == {snapshot_name: 10}
         assert point._y_snapshots == {snapshot_name: 20}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         snapshot_name: str = point._get_next_snapshot_name()
@@ -164,7 +165,7 @@ class TestPoint2D:
         assert point.x == 10
         assert point.y == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         repr_str: str = repr(point)

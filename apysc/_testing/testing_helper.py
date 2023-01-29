@@ -9,10 +9,9 @@ from typing import Dict
 from typing import Optional
 from typing import Type
 from typing import TypeVar
+import time
 
 import pytest
-
-from apysc._file import file_util
 
 
 def make_blank_file(*, file_path: str) -> None:
@@ -25,6 +24,7 @@ def make_blank_file(*, file_path: str) -> None:
     file_path : str
         File path to make.
     """
+    from apysc._file import file_util
     file_util.save_plain_txt(txt="", file_path=file_path)
 
 
@@ -141,7 +141,7 @@ _Callable = TypeVar("_Callable", bound=Callable)
 def apply_test_settings(
     *,
     retrying_max_attempts_num: int = 15,
-    retrying_sleep_time: Optional[int] = None,
+    retrying_sleep_seconds: Optional[float] = None,
 ) -> _Callable:
     """
     Apply each test setting to a test function.
@@ -151,16 +151,16 @@ def apply_test_settings(
     ----------
     retrying_max_attempts_num : int, optional
         Maximum number of retrying attempts.
-    retrying_sleep_time : Optional[int], optional
-        A Sleep time of retrying.
+    retrying_sleep_seconds : Optional[float], optional
+        A Sleep seconds of retrying.
 
     Returns
     -------
     wrapped : Callable
         Wrapped callable object.
     """
-    if retrying_sleep_time is None:
-        retrying_sleep_time = randint(10, 3000)
+    if retrying_sleep_seconds is None:
+        retrying_sleep_seconds = randint(10, 3000) / 1000
 
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
@@ -174,6 +174,7 @@ def apply_test_settings(
                         result = callable_(*args, **kwargs)
                         break
                     except Exception:
+                        time.sleep(secs=retrying_sleep_seconds)
                         continue
                 result = callable_(*args, **kwargs)
                 break

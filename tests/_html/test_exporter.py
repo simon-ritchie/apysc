@@ -16,7 +16,7 @@ from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-@apply_test_settings(retrying_sleep_time=300)
+@apply_test_settings(retrying_sleep_seconds=0.3)
 def test__export_js_libs() -> None:
     jquery_file_name: str = jslib_util.get_jquery_file_name()
     tmp_dir_path: str = "../.tmp_apysc_test_exporter/"
@@ -70,7 +70,7 @@ def test__append_head_to_html_str() -> None:
     assert expected_str in html_str
 
 
-@apply_test_settings(retrying_sleep_time=300)
+@apply_test_settings(retrying_sleep_seconds=0.3)
 def test__append_expression_to_html_str() -> None:
     html_str: str = "<html>\n<body>"
     stage: ap.Stage = ap.Stage(stage_elem_id="test_stage")
@@ -79,7 +79,7 @@ def test__append_expression_to_html_str() -> None:
     assert f"function main_{stage.variable_name}() {{" in html_str
 
 
-@apply_test_settings(retrying_sleep_time=300)
+@apply_test_settings(retrying_sleep_seconds=0.3)
 def test_save_overall_html() -> None:
     jquery_file_name: str = jslib_util.get_jquery_file_name()
     tmp_dir_path: str = "../.tmp_apysc_test_exporter/"
@@ -134,7 +134,7 @@ def test__append_entry_point_function_call() -> None:
     assert html_str == expected
 
 
-@apply_test_settings(retrying_sleep_time=300)
+@apply_test_settings(retrying_sleep_seconds=0.3)
 def test__append_stage_global_variable_to_html() -> None:
     ap.Stage(stage_elem_id="test_stage")
     html_str: str = "<html>"
@@ -145,7 +145,7 @@ def test__append_stage_global_variable_to_html() -> None:
     assert html_str == expected
 
 
-@apply_test_settings(retrying_sleep_time=500)
+@apply_test_settings(retrying_sleep_seconds=0.5)
 def test_get_entry_point_func_name() -> None:
     stage: ap.Stage = ap.Stage()
     entry_point_func_name: str = exporter.get_entry_point_func_name()

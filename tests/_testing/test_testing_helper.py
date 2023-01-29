@@ -110,7 +110,7 @@ def test_apply_test_settings() -> None:
 
     @testing_helper.apply_test_settings(
         retrying_max_attempts_num=2,
-        retrying_sleep_time=1,
+        retrying_sleep_seconds=0.001,
     )
     def test_func_1(*, value: int) -> None:
         global _count

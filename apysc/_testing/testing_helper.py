@@ -152,7 +152,7 @@ def apply_test_settings(
     Parameters
     ----------
     retrying_max_attempts_num : int, optional
-        A maximum number of retrying attempts.
+        A maximum number of retry attempts.
     retrying_sleep_seconds : Optional[float], optional
         A Sleep seconds of retrying (Maximum seconds is 10).
 

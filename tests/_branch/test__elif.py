@@ -2,7 +2,6 @@ from typing import Any
 from typing import Dict
 
 from pytest import raises
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
@@ -13,7 +12,6 @@ from apysc._testing.testing_helper import assert_attrs
 
 
 class TestElif:
-    @retry(stop_max_attempt_number=15, wait_fixed=1500)
     @apply_test_settings(retrying_sleep_seconds=1.5)
     def test__append_enter_expression(self) -> None:
         expression_data_util.empty_expression()

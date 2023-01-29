@@ -86,7 +86,7 @@ def test__get_expected_next_md_file_name() -> None:
     assert expected_next_md_file_name == "b.md"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(1100, 3000))
+@apply_test_settings(retrying_sleep_seconds=1)
 def test__update_adjacent_doc_modified_time_if_toctree_updated() -> None:
     original_file_prev_modified_time: float = os.path.getmtime(
         filename="./docs_src/source/sprite.md"
@@ -125,6 +125,6 @@ def test__update_adjacent_doc_modified_time_if_toctree_updated() -> None:
     assert translated_file_prev_modified_time != after_modified_time
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(1100, 3000))
+@apply_test_settings(retrying_sleep_seconds=1.3)
 def test_update_docs_prev_and_next_page_modified_time() -> None:
     docs_toctree_util.update_docs_prev_and_next_page_modified_time()

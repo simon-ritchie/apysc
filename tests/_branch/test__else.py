@@ -1,5 +1,4 @@
 import pytest
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
@@ -9,7 +8,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestElse:
-    @retry(stop_max_attempt_number=15, wait_fixed=1000)
+    @apply_test_settings(retrying_sleep_seconds=1)
     def test__append_enter_expression(self) -> None:
         expression_data_util.empty_expression()
         last_scope.reset()

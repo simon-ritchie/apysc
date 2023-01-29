@@ -5,9 +5,10 @@ from retrying import retry
 
 from apysc._file import file_util
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_make_blank_file() -> None:
     file_path: str = "./tmp/tmp_test_testing_helper.txt"
     file_util.remove_file_if_exists(file_path=file_path)
@@ -20,7 +21,7 @@ def test_make_blank_file() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__assert_has_attr() -> None:
     class _TestClass:
 
@@ -38,7 +39,7 @@ def test__assert_has_attr() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_attrs() -> None:
     class _TestClass:
 
@@ -67,7 +68,7 @@ def test_assert_attrs() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_raises() -> None:
     def _test_func_1() -> None:
         raise ValueError("Test error!")
@@ -77,7 +78,7 @@ def test_assert_raises() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_attrs_type() -> None:
     class _TestClass:
 
@@ -105,7 +106,7 @@ def test_assert_attrs_type() -> None:
 _count: int = 0
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_apply_test_settings() -> None:
     global _count
     _count = 0

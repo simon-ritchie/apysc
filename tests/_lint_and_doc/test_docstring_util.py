@@ -21,9 +21,10 @@ from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import _SectionPattern
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_docstring_path_comment_matches() -> None:
     matches: List[str] = docstring_util._get_docstring_path_comment_matches(
         md_txt=(
@@ -39,7 +40,7 @@ def test__get_docstring_path_comment_matches() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__extract_docstring_path_specification_comment_from_line() -> None:
     docstring_path_specification_comment: str = (
         docstring_util._extract_docstring_path_specification_comment_from_line(
@@ -67,7 +68,7 @@ def test__extract_docstring_path_specification_comment_from_line() -> None:
     assert docstring_path_specification_comment == ""
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_replaced_docstring_section_from_md_txt() -> None:
     md_txt: str = (
         "# Test title"
@@ -107,7 +108,7 @@ def test__remove_replaced_docstring_section_from_md_txt() -> None:
     assert md_txt == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_reset_replaced_docstring_section() -> None:
     tmp_md_file_path: str = "./tmp/test_docstring_util_1.md"
     os.makedirs("./tmp/", exist_ok=True)
@@ -159,7 +160,7 @@ def test_reset_replaced_docstring_section() -> None:
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__extract_path_from_docstring_comment() -> None:
     path: str = docstring_util._extract_path_from_docstring_comment(
         docstring_path_comment="# Test title"
@@ -174,7 +175,7 @@ def test__extract_path_from_docstring_comment() -> None:
     assert path == "apysc._display.sprite.Sprite.add_child"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__extract_package_path_and_callable_name_from_path() -> None:
     module_or_class_package_path: str
     callable_name: str
@@ -199,7 +200,7 @@ def test__extract_package_path_and_callable_name_from_path() -> None:
     assert callable_name == "add_child"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_section_line() -> None:
     result: bool = docstring_util._is_section_line(line="    Parameters")
     assert result
@@ -214,7 +215,7 @@ def test__is_section_line() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_extract_summary_from_docstring() -> None:
     summary: str = docstring_util.extract_summary_from_docstring(
         docstring=_TEST_DOCSTRING
@@ -239,7 +240,7 @@ def test_extract_summary_from_docstring() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_target_section_pattern_line() -> None:
     result: bool = docstring_util._is_target_section_pattern_line(
         line="    Parameters", section_pattern=_SectionPattern.PARAMETERS
@@ -262,7 +263,7 @@ def test__is_target_section_pattern_line() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_hyphens_line() -> None:
     line: str = "    Parameters"
     result: bool = docstring_util._is_hyphens_line(line=line)
@@ -273,7 +274,7 @@ def test__is_hyphens_line() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_value_name_and_type_from_line() -> None:
     value_name: str
     type_name: str
@@ -290,7 +291,7 @@ def test__get_value_name_and_type_from_line() -> None:
     assert type_name == "int"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_indent_num_from_line() -> None:
     indent_num: int = docstring_util._get_indent_num_from_line(
         line="    any_value : int"
@@ -303,7 +304,7 @@ def test__get_indent_num_from_line() -> None:
     assert indent_num == 2
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_line_breaks_and_unnecessary_spaces() -> None:
     text: str = docstring_util._remove_line_breaks_and_unnecessary_spaces(
         text=(
@@ -383,7 +384,7 @@ _TEST_DOCSTRING: str = (
 )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_extract_param_or_rtn_values_from_docstring() -> None:
     param_values: List[
         Parameter
@@ -440,7 +441,7 @@ def test_extract_param_or_rtn_values_from_docstring() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_prm_or_rtn_description_and_append_to_list() -> None:
     parameters: List[Parameter] = []
 
@@ -478,7 +479,7 @@ def test__make_prm_or_rtn_description_and_append_to_list() -> None:
 
 
 class Test_ParamOrRtnBase:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
             name="test_value", type_str="int", description="Lorem ipsum dolor sit."
@@ -492,7 +493,7 @@ class Test_ParamOrRtnBase:
             any_obj=param_or_rtn,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
             name="test_value", type_str="int", description="Lorem ipsum dolor sit."
@@ -524,21 +525,21 @@ class Test_ParamOrRtnBase:
         result = param_or_rtn == other
         assert result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_name(self) -> None:
         param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
             name="test_value", type_str="int", description="Lorem ipsum dolor sit."
         )
         assert param_or_rtn.name == "test_value"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_type_str(self) -> None:
         param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
             name="test_value", type_str="int", description="Lorem ipsum dolor sit."
         )
         assert param_or_rtn.type_str == "int"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_description(self) -> None:
         param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
             name="test_value", type_str="int", description="Lorem ipsum dolor sit."
@@ -546,7 +547,7 @@ class Test_ParamOrRtnBase:
         assert param_or_rtn.description == "Lorem ipsum dolor sit."
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_params_or_rtns_section_pattern_by_type() -> None:
     pattern: _SectionPattern = (
         docstring_util._get_params_or_rtns_section_pattern_by_type(
@@ -569,7 +570,7 @@ def test__get_params_or_rtns_section_pattern_by_type() -> None:
 
 
 class Test_Raise:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         raise_: Raise = Raise(
             err_class_name="ValueError", description="Lorem ipsum dolor sit."
@@ -582,21 +583,21 @@ class Test_Raise:
             any_obj=raise_,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_err_class_name(self) -> None:
         raise_: Raise = Raise(
             err_class_name="ValueError", description="Lorem ipsum dolor sit."
         )
         assert raise_.err_class_name == "ValueError"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_description(self) -> None:
         raise_: Raise = Raise(
             err_class_name="ValueError", description="Lorem ipsum dolor sit."
         )
         assert raise_.description == "Lorem ipsum dolor sit."
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         raise_: Raise = Raise(
             err_class_name="ValueError", description="Lorem ipsum dolor sit."
@@ -620,7 +621,7 @@ class Test_Raise:
         assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_raise_description_and_append_to_list() -> None:
     raise_values: List[Raise] = []
 
@@ -649,7 +650,7 @@ def test__make_raise_description_and_append_to_list() -> None:
     assert raise_values == [expected_raise]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_extract_raise_values_from_docstring() -> None:
     raise_values: List[Raise] = docstring_util.extract_raise_values_from_docstring(
         docstring=_TEST_DOCSTRING
@@ -668,7 +669,7 @@ def test_extract_raise_values_from_docstring() -> None:
     assert raise_values[1] == expected_raise
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_base_indent_num_if_not_set() -> None:
     base_indent_num: int = docstring_util._get_base_indent_num_if_not_set(
         line="        test_value : int", base_indent_num=1
@@ -681,7 +682,7 @@ def test__get_base_indent_num_if_not_set() -> None:
     assert base_indent_num == 1
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_blank_lines_from_list() -> None:
     result_lines: List[str] = docstring_util._remove_blank_lines_from_list(
         lines=[
@@ -697,7 +698,7 @@ def test__remove_blank_lines_from_list() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_skip_target_line() -> None:
     result: bool = docstring_util._is_skip_target_line(
         is_target_section_range=False, line="        any_value : int"
@@ -715,7 +716,7 @@ def test__is_skip_target_line() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_extract_notes_from_docstring() -> None:
     notes: str = docstring_util.extract_notes_from_docstring(docstring=_TEST_DOCSTRING)
     assert notes == (
@@ -726,7 +727,7 @@ def test_extract_notes_from_docstring() -> None:
 
 
 class Test_Reference:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         reference: Reference = Reference(
             page_label="Sprite document",
@@ -740,7 +741,7 @@ class Test_Reference:
             any_obj=reference,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_page_label(self) -> None:
         reference: Reference = Reference(
             page_label="Sprite document",
@@ -748,7 +749,7 @@ class Test_Reference:
         )
         assert reference.page_label == "Sprite document"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_url(self) -> None:
         reference: Reference = Reference(
             page_label="Sprite document",
@@ -756,7 +757,7 @@ class Test_Reference:
         )
         assert reference.url == "https://simon-ritchie.github.io/apysc/sprite.html"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         reference: Reference = Reference(
             page_label="Sprite document",
@@ -787,7 +788,7 @@ class Test_Reference:
         assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_unnecessary_markdown_list_from_line() -> None:
     line: str = docstring_util._remove_unnecessary_markdown_list_from_line(
         line="    - Sprite document"
@@ -795,7 +796,7 @@ def test__remove_unnecessary_markdown_list_from_line() -> None:
     assert line == "Sprite document"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_reference_and_append_to_list() -> None:
     reference_values: List[Reference] = []
 
@@ -816,7 +817,7 @@ def test__make_reference_and_append_to_list() -> None:
     assert reference_values == [expected_reference]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_extract_reference_values_from_docstring() -> None:
     reference_values: List[
         Reference
@@ -837,7 +838,7 @@ def test_extract_reference_values_from_docstring() -> None:
     assert reference_values[1] == expected_reference
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_params_or_rtns_to_markdown() -> None:
     markdown: str = "## add_child interface api document"
     markdown = docstring_util.append_params_or_rtns_to_markdown(
@@ -895,7 +896,7 @@ def test_append_params_or_rtns_to_markdown() -> None:
     assert markdown == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_raises_to_markdown() -> None:
     markdown: str = "## add_child interface api document"
     markdown = docstring_util.append_raises_to_markdown(markdown=markdown, raises=[])
@@ -921,7 +922,7 @@ def test_append_raises_to_markdown() -> None:
     assert markdown == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_notes_to_markdown() -> None:
     markdown: str = "## add_child interface api document"
     markdown = docstring_util.append_notes_to_markdown(markdown=markdown, notes="")
@@ -948,7 +949,7 @@ def test_append_notes_to_markdown() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_references_to_markdown() -> None:
     markdown: str = "## add_child interface api document"
     markdown = docstring_util.append_references_to_markdown(
@@ -984,7 +985,7 @@ def test_append_references_to_markdown() -> None:
     assert markdown == expected
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_summary_to_markdown() -> None:
     markdown: str = "## add_child interface api document"
     markdown = docstring_util.append_summary_to_markdown(
@@ -1016,7 +1017,7 @@ def test_append_summary_to_markdown() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__convert_docstring_to_markdown() -> None:
     signature: Signature = inspect.signature(test__convert_docstring_to_markdown)
     markdown: str = docstring_util._convert_docstring_to_markdown(
@@ -1108,7 +1109,7 @@ def test__convert_docstring_to_markdown() -> None:
 _PATH_COMMENT_KEYWORD: str = docstring_util.DOCSTRING_PATH_COMMENT_KEYWORD
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__convert_docstring_path_comment_to_markdown_format() -> None:
     markdown_format_docstring: str = (
         docstring_util._convert_docstring_path_comment_to_markdown_format(
@@ -1139,7 +1140,7 @@ def test__convert_docstring_path_comment_to_markdown_format() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_replace_docstring_path_specification() -> None:
     tmp_dir_path: str = "./tmp/"
     os.makedirs(tmp_dir_path, exist_ok=True)
@@ -1173,7 +1174,7 @@ def test_replace_docstring_path_specification() -> None:
     file_util.remove_file_if_exists(file_path=tmp_md_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_callable_from_package_path_and_callable_name() -> None:
     assert_raises(
         expected_error_class=_DocstringPathNotFoundError,
@@ -1201,7 +1202,7 @@ def test__get_callable_from_package_path_and_callable_name() -> None:
 
 
 class Test_Example:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         example: Example = Example(input_code_block="x = 10\nx", expected_output="10")
         assert_attrs(
@@ -1212,17 +1213,17 @@ class Test_Example:
             any_obj=example,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_input_code_block(self) -> None:
         example: Example = Example(input_code_block="x = 10\nx", expected_output="10")
         assert example.input_code_block == "x = 10\nx"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_expected_output(self) -> None:
         example: Example = Example(input_code_block="x = 10\nx", expected_output="10")
         assert example.expected_output == "10"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         example: Example = Example(input_code_block="x = 10\nx", expected_output="10")
 
@@ -1242,7 +1243,7 @@ class Test_Example:
         assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_example_output_line() -> None:
     result: bool = docstring_util._is_example_output_line(line="    >>> x = 10")
     assert not result
@@ -1254,7 +1255,7 @@ def test__is_example_output_line() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__make_example_and_append_to_list() -> None:
     example_values: List[Example] = []
     docstring_util._make_example_and_append_to_list(
@@ -1279,7 +1280,7 @@ def test__make_example_and_append_to_list() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_extract_example_values_from_docstring() -> None:
     example_values: List[
         Example
@@ -1304,7 +1305,7 @@ def test_extract_example_values_from_docstring() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_append_examples_to_markdown() -> None:
     markdown: str = "## add_child interface api document"
     markdown = docstring_util.append_examples_to_markdown(
@@ -1340,7 +1341,7 @@ def test_append_examples_to_markdown() -> None:
     assert len(lines) == len(expected_lines)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__slice_references_by_md_file_path() -> None:
     references: List[Reference] = [
         Reference(
@@ -1365,7 +1366,7 @@ def test__slice_references_by_md_file_path() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_docstring_src_module_paths() -> None:
     module_paths: List[str] = docstring_util.get_docstring_src_module_paths(
         md_file_path="./docs_src/source/int_and_number.md"
@@ -1374,7 +1375,7 @@ def test_get_docstring_src_module_paths() -> None:
     assert "./apysc/_type/number.py" in module_paths
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_trailing_hr_tag() -> None:
     markdown: str = docstring_util.remove_trailing_hr_tag(
         markdown="Lorem ipsum dolor sit.\n\n<hr>\n"
@@ -1382,13 +1383,13 @@ def test_remove_trailing_hr_tag() -> None:
     assert markdown == "Lorem ipsum dolor sit."
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__remove_noqa() -> None:
     string: str = docstring_util._remove_noqa(string="Lorem ipsum dolor sit.  # noqa")
     assert string == "Lorem ipsum dolor sit."
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_br_tag_and_replace_symbol_if_first_char_is_hyphen() -> None:
     line: str = (
         docstring_util._append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
@@ -1398,7 +1399,7 @@ def test__append_br_tag_and_replace_symbol_if_first_char_is_hyphen() -> None:
     assert line == "<br>    ・Lorem ipsum dolor sit."
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_extract_docstrings_from_module() -> None:
     docstrings: List[str] = docstring_util.extract_docstrings_from_module(module=stage)
     expected_keywords: List[str] = [

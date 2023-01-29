@@ -19,6 +19,7 @@ from apysc._file import file_util
 from apysc._file import module_util
 from apysc._lint_and_doc import docstring_to_markdown_converter
 from apysc._lint_and_doc import lint_and_doc_hash_util
+from apysc._testing.testing_helper import apply_test_settings
 
 _MODULE_STR: str = '''"""Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -178,7 +179,7 @@ def _save_test_module() -> None:
     file_util.save_plain_txt(txt=_MODULE_STR, file_path=_test_module_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def _remove_test_module_dir() -> None:
     """Remove the test modules directory."""
     global _test_module_dir_path
@@ -189,7 +190,7 @@ def teardown() -> None:
     _remove_test_module_dir()
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_module_docstring_to_markdown() -> None:
     _save_test_module()
     markdown: str = (
@@ -216,7 +217,7 @@ def test__append_module_docstring_to_markdown() -> None:
         assert expected_str in markdown
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_module_toplevel_functions() -> None:
     module: ModuleType = _read_test_module()
     toplevel_functions: List[
@@ -226,7 +227,7 @@ def test__get_module_toplevel_functions() -> None:
     assert toplevel_functions[0].__name__ == "sample_func_1"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_toplevel_function_docstring_to_markdown() -> None:
     markdown: str = (
         docstring_to_markdown_converter._append_toplevel_function_docstring_to_markdown(
@@ -255,7 +256,7 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
         assert expected_str in markdown
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_each_section_to_markdown() -> None:
     module: ModuleType = _read_test_module()
     toplevel_functions: List[
@@ -278,7 +279,7 @@ def test__append_each_section_to_markdown() -> None:
         assert expected_str in markdown
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_toplevel_classes() -> None:
     module: ModuleType = _read_test_module()
     toplevel_classes: List[
@@ -289,7 +290,7 @@ def test__get_toplevel_classes() -> None:
     assert sorted(names) == sorted(["Process", "_SampleClass"])
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_methods_from_class() -> None:
     module: ModuleType = _read_test_module()
     toplevel_classes: List[
@@ -313,7 +314,7 @@ def test__get_methods_from_class() -> None:
     assert "sample_method_1" in actual_method_names
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_toplevel_class_docstring_to_markdown() -> None:
     module: ModuleType = _read_test_module()
     toplevel_classes: List[
@@ -346,7 +347,7 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
     assert "## close method docstring" not in markdown
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__convert_module_docstring_to_markdown() -> None:
     global _test_module_path
     _save_test_module()
@@ -375,7 +376,7 @@ def test__convert_module_docstring_to_markdown() -> None:
         assert unexpected_str not in markdown
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__save_markdown() -> None:
     global _test_module_path
     _save_test_module()
@@ -404,7 +405,7 @@ def test__save_markdown() -> None:
     shutil.rmtree("./docstring_markdowns/tmp/", ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_convert_recursively() -> None:
     global _test_module_dir_path, _test_module_path
     _save_test_module()
@@ -457,7 +458,7 @@ def test_convert_recursively() -> None:
         file_util.remove_file_if_exists(file_path=hash_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_excluding_target_builtin_methods() -> None:
     excluding_target_builtin_methods_dict: Dict[
         str, str
@@ -465,7 +466,7 @@ def test__get_excluding_target_builtin_methods() -> None:
     assert excluding_target_builtin_methods_dict["__hash__"] == ("Return hash(self).")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_excluding_dir_path() -> None:
     result: bool = docstring_to_markdown_converter._is_excluding_dir_path(
         dir_path="./apysc/_translation/jp/sprite.py"

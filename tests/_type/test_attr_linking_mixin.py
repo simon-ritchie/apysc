@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAttrLinkingMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_attr_linking_stack(self) -> None:
         interface: AttrLinkingMixIn = AttrLinkingMixIn()
         interface._initialize_attr_linking_stack(attr_name="x")
@@ -17,7 +18,7 @@ class TestAttrLinkingMixIn:
         interface._initialize_attr_linking_stack(attr_name="x")
         assert interface._attr_linking_stack == {"x": [ap.Int(10)]}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_attr_to_linking_stack(self) -> None:
         interface: AttrLinkingMixIn = AttrLinkingMixIn()
         attr: ap.Int = ap.Int(10)
@@ -27,7 +28,7 @@ class TestAttrLinkingMixIn:
         interface._append_attr_to_linking_stack(attr=attr, attr_name="x")
         assert interface._attr_linking_stack == {"x": [ap.Int(10)]}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_applying_new_attr_val_exp(self) -> None:
         expression_data_util.empty_expression()
         interface: AttrLinkingMixIn = AttrLinkingMixIn()
@@ -43,7 +44,7 @@ class TestAttrLinkingMixIn:
         assert f"{attr_2.variable_name} = {new_attr.variable_name};" in expression
         assert f"{new_attr.variable_name} = {new_attr.variable_name};" not in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__is_target_attr_already_linked(self) -> None:
         interface: AttrLinkingMixIn = AttrLinkingMixIn()
         attr: ap.Int = ap.Int(10)

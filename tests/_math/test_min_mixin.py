@@ -6,9 +6,10 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._math import min_mixin
 from apysc._math.min_mixin import MinMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_min_float_value() -> None:
     min_value: float = min_mixin._get_min_float_value(
         values=ap.Array([10, 10.5, ap.Int(9), ap.Number(8.5)])
@@ -16,7 +17,7 @@ def test__get_min_float_value() -> None:
     assert min_value == 8.5
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_min_value_variable_name_suffix_from_arr() -> None:
     suffix: str = min_mixin._get_min_value_variable_name_suffix_from_arr(
         arr=ap.Array(
@@ -44,7 +45,7 @@ def test__get_min_value_variable_name_suffix_from_arr() -> None:
 
 
 class TestMinMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_min(self) -> None:
         expression_data_util.empty_expression()
         values: ap.Array = ap.Array([10, 9.5, ap.Int(9), ap.Number(9.5)])

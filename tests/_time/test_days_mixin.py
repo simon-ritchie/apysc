@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.days_mixin import DaysMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestDaysMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_init_days_value_for_python(self) -> None:
         left_datetime: ap.DateTime = ap.DateTime(
             year=2022,
@@ -28,7 +29,7 @@ class TestDaysMixIn:
         )
         assert mixin._days_value == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_days_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: DaysMixIn = DaysMixIn()
@@ -42,7 +43,7 @@ class TestDaysMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert expected in expression
 
-    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    # @apply_test_settings()
     def test_days(self) -> None:
         expression_data_util.empty_expression()
         mixin: DaysMixIn = DaysMixIn()

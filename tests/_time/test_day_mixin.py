@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.day_mixin import DayMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestDayMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_init_day_value(self) -> None:
         mixin: DayMixIn = DayMixIn()
         mixin._set_init_day_value(day=15)
@@ -17,7 +18,7 @@ class TestDayMixIn:
         assert mixin._day == 15
         assert isinstance(mixin._day, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_init_day_argument_expression(self) -> None:
         mixin: DayMixIn = DayMixIn()
         mixin._set_init_day_value(day=15)
@@ -29,7 +30,7 @@ class TestDayMixIn:
         expression = mixin._get_init_day_argument_expression()
         assert expression == f", {int_val.variable_name}"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot_and_revert(self) -> None:
         mixin: DayMixIn = DayMixIn()
         mixin._set_init_day_value(day=15)
@@ -39,7 +40,7 @@ class TestDayMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._day == 15
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_day_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: DayMixIn = DayMixIn()
@@ -51,7 +52,7 @@ class TestDayMixIn:
         expected: str = f"{day_val.variable_name} = {mixin.variable_name}.getDate();"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_day(self) -> None:
         expression_data_util.empty_expression()
         mixin: DayMixIn = DayMixIn()
@@ -70,7 +71,7 @@ class TestDayMixIn:
         expression = expression_data_util.get_current_expression()
         expected = f"{mixin.variable_name}.setDate({day.variable_name});"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_day_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: DayMixIn = DayMixIn()

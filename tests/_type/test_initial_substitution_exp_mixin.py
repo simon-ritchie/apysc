@@ -6,6 +6,7 @@ from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestClass(InitialSubstitutionExpMixIn, VariableNameMixIn):
@@ -22,7 +23,7 @@ class _TestClass(InitialSubstitutionExpMixIn, VariableNameMixIn):
 
 
 class TestInitialSubstitutionExpMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_initial_substitution_expression_if_in_handler_scope(self) -> None:
         instance: _TestClass = _TestClass()
         instance.variable_name = "test_instance"

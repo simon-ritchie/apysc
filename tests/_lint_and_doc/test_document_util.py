@@ -5,9 +5,10 @@ from retrying import retry
 
 from apysc._lint_and_doc import document_util
 from apysc._lint_and_doc.docs_lang import Lang
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_docs_md_file_paths() -> None:
     file_paths: List[str] = document_util.get_docs_md_file_paths()
     expected_file_paths: List[str] = [
@@ -24,7 +25,7 @@ def test_get_docs_md_file_paths() -> None:
         assert expected_path_exists, expected_file_path
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_exclude_patterns() -> None:
     patterns: List[str] = document_util.get_exclude_patterns(lang=Lang.EN)
     assert "jp_*.md" in patterns
@@ -34,7 +35,7 @@ def test_get_exclude_patterns() -> None:
     assert "jp_sprite.md" not in patterns
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_src_dir_path() -> None:
     src_dir_path: str = document_util._get_src_dir_path()
     assert src_dir_path.endswith("/docs_src/source/")

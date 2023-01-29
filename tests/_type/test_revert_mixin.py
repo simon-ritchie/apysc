@@ -8,6 +8,7 @@ from retrying import retry
 import apysc as ap
 from apysc._type import revert_mixin
 from apysc._type.revert_mixin import RevertMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class NotRevertableValue:
@@ -126,7 +127,7 @@ class TestRevertMixIn:
         revertable_value._delete_snapshot_exists_val(snapshot_name="snapshot_2")
         assert "snapshot_2" not in revertable_value._snapshot_exists_
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_next_snapshot_name(self) -> None:
         from apysc._expression.var_names import SNAPSHOT
 
@@ -137,7 +138,7 @@ class TestRevertMixIn:
         snapshot_name_2: str = revertable_value._get_next_snapshot_name()
         assert snapshot_name_1 != snapshot_name_2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_ss_exists_val_if_not_initialized(self) -> None:
         revertable_value = RevertableValue1()
         revertable_value._initialize_ss_exists_val_if_not_initialized()
@@ -147,7 +148,7 @@ class TestRevertMixIn:
         revertable_value._initialize_ss_exists_val_if_not_initialized()
         assert revertable_value._snapshot_exists_ == {"snapshot_1": True}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__run_all_make_snapshot_methods(self) -> None:
         revertable_value = RevertableValue3()
         snapshot_name: str = "snapshot_1"
@@ -157,7 +158,7 @@ class TestRevertMixIn:
         assert revertable_value._snapshots2[snapshot_name] == 20
         assert revertable_value._snapshots3[snapshot_name] == 30
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__run_all_revert_methods(self) -> None:
         revertable_value = RevertableValue3()
         snapshot_name: str = "snapshot_1"
@@ -171,7 +172,7 @@ class TestRevertMixIn:
         assert revertable_value._value2 == 20
         assert revertable_value._value3 == 30
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__run_base_cls_make_snapshot_methods_recursively(self) -> None:
         revertable_value = RevertableValue3()
         snapshot_name: str = "snapshot_1"
@@ -182,7 +183,7 @@ class TestRevertMixIn:
         assert revertable_value._snapshots2[snapshot_name] == 20
         assert revertable_value._snapshots3[snapshot_name] == 30
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__run_base_cls_revert_methods_recursively(self) -> None:
         revertable_value = RevertableValue3()
         snapshot_name: str = "snapshot_1"
@@ -199,7 +200,7 @@ class TestRevertMixIn:
         assert revertable_value._value2 == 20
         assert revertable_value._value3 == 30
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_single_snapshot_val_to_dict(self) -> None:
         revertable_value = RevertableValue1()
         snapshot_name: str = "snapshot_1"

@@ -10,10 +10,11 @@ from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestCopyMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__copy(self) -> None:
         mixin: CopyMixIn = CopyMixIn()
         mixin.variable_name = "test_copy_mixin"
@@ -22,7 +23,7 @@ class TestCopyMixIn:
         assert result.variable_name.startswith("test_copy_mixin_")
         assert result.variable_name != mixin.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_copy_expression(self) -> None:
         expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(10)
@@ -38,7 +39,7 @@ class TestCopyMixIn:
         expected = f"{arr_2.variable_name} = " f"cpy({arr_1.variable_name});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
         expression_data_util.empty_expression()
         instance: VariableNameMixIn = VariableNameMixIn()

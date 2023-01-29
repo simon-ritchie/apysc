@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.hour_mixin import HourMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestHourMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_init_hour_value(self) -> None:
         mixin: HourMixIn = HourMixIn()
         mixin._set_init_hour_value(hour=10)
@@ -17,7 +18,7 @@ class TestHourMixIn:
         assert mixin._hour == 10
         assert isinstance(mixin._hour, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_init_hour_argument_expression(self) -> None:
         mixin: HourMixIn = HourMixIn()
         mixin._set_init_hour_value(hour=10)
@@ -29,7 +30,7 @@ class TestHourMixIn:
         expression = mixin._get_init_hour_argument_expression()
         assert expression == f", {int_val.variable_name}"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot_and_revert(self) -> None:
         mixin: HourMixIn = HourMixIn()
         mixin._set_init_hour_value(hour=10)
@@ -39,7 +40,7 @@ class TestHourMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._hour == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_hour_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: HourMixIn = HourMixIn()
@@ -50,7 +51,7 @@ class TestHourMixIn:
         expected: str = f"{hour_val.variable_name} = {mixin.variable_name}.getHours();"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_hour(self) -> None:
         expression_data_util.empty_expression()
         mixin: HourMixIn = HourMixIn()
@@ -71,7 +72,7 @@ class TestHourMixIn:
         expected = f"{mixin.variable_name}.setHours({hour.variable_name});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_hour_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: HourMixIn = HourMixIn()

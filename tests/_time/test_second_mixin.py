@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.second_mixin import SecondMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestSecondMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_init_second_value(self) -> None:
         mixin: SecondMixIn = SecondMixIn()
         mixin._set_init_second_value(second=50)
@@ -17,7 +18,7 @@ class TestSecondMixIn:
         assert mixin._second == 50
         assert isinstance(mixin._second, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_init_second_argument_expression(self) -> None:
         mixin: SecondMixIn = SecondMixIn()
         mixin._set_init_second_value(second=50)
@@ -29,7 +30,7 @@ class TestSecondMixIn:
         expression = mixin._get_init_second_argument_expression()
         assert expression == f", {int_val.variable_name}"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot_and_revert(self) -> None:
         mixin: SecondMixIn = SecondMixIn()
         mixin._set_init_second_value(second=50)
@@ -39,7 +40,7 @@ class TestSecondMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._second == 50
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_second_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: SecondMixIn = SecondMixIn()
@@ -52,7 +53,7 @@ class TestSecondMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_second(self) -> None:
         expression_data_util.empty_expression()
         mixin: SecondMixIn = SecondMixIn()
@@ -71,7 +72,7 @@ class TestSecondMixIn:
         expectd = f"{mixin.variable_name}.setSeconds({second.variable_name});"
         assert expectd in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_second_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: SecondMixIn = SecondMixIn()

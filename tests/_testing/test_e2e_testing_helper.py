@@ -12,9 +12,10 @@ from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing import e2e_testing_helper
 from apysc._testing.e2e_testing_helper import LocalFileData
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_docs_local_file_path() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
         lang=Lang.EN, file_name="index"
@@ -67,7 +68,7 @@ class _MockConsoleMessage(ConsoleMessage):
         return self._text
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_local_file_console_event_handler() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
         lang=Lang.EN, file_name="index"
@@ -143,7 +144,7 @@ class _MockError(Error):
         return self._stack
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_local_file_page_err_handler() -> None:
     file_path: str = "file://test/path.html"
     handler: Callable[
@@ -166,7 +167,7 @@ def test__get_local_file_page_err_handler() -> None:
     e2e_testing_helper._delete_local_file_assertion_error_logs(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__replace_paths_symbols_by_underscore() -> None:
     file_path: str = e2e_testing_helper._replace_paths_symbols_by_underscore(
         file_path="file://docs/en/index.html"
@@ -174,7 +175,7 @@ def test__replace_paths_symbols_by_underscore() -> None:
     assert file_path == "file___docs_en_index_html"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_local_file_page_err_file_path() -> None:
     log_file_path: str = e2e_testing_helper._get_local_file_page_err_file_path(
         file_path="file://docs/en/index.html"
@@ -184,7 +185,7 @@ def test__get_local_file_page_err_file_path() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_local_file_assertion_err_file_path() -> None:
     log_file_path: str = e2e_testing_helper._get_local_file_assertion_err_file_path(
         file_path="file://docs/en/index.html"
@@ -194,7 +195,7 @@ def test__get_local_file_assertion_err_file_path() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__delete_local_file_assertion_error_logs() -> None:
     file_path: str = "file://docs/en/index.html"
     local_file_page_err_file_path: str = (
@@ -212,7 +213,7 @@ def test__delete_local_file_assertion_error_logs() -> None:
     assert not os.path.exists(local_file_assertion_err_file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__assert_local_file_error_log_not_exits() -> None:
     file_path: str = "file://docs/en/index.html"
     e2e_testing_helper._delete_local_file_assertion_error_logs(file_path=file_path)
@@ -229,7 +230,7 @@ def test__assert_local_file_error_log_not_exits() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_assert_local_files_not_raise_error() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
         lang=Lang.EN, file_name="index"

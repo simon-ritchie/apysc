@@ -5,9 +5,10 @@ from retrying import retry
 import apysc as ap
 from apysc._testing import testing_helper
 from apysc._validation import bool_validation
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_bool() -> None:
     bool_validation.validate_bool(value=True)
     testing_helper.assert_raises(
@@ -19,7 +20,7 @@ def test_validate_bool() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_builtin_bool() -> None:
     bool_validation.validate_builtin_bool(value=True)
     bool_validation.validate_builtin_bool(value=False)

@@ -11,10 +11,11 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestString:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_str_value(self) -> None:
         string_1: ap.String = ap.String("Hello!")
         value: str = string_1._get_str_value(value="World!")
@@ -22,7 +23,7 @@ class TestString:
         value = string_1._get_str_value(value=string_1)
         assert value == "Hello!"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         testing_helper.assert_raises(
             expected_error_class=ValueError, callable_=ap.String, value=100
@@ -43,7 +44,7 @@ class TestString:
         string_2: ap.String = ap.String(value=string_1)
         assert string_2._value == "Hello!"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -56,13 +57,13 @@ class TestString:
         expected = f"var {string_2.variable_name} = {string_1.variable_name};"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_value(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         string_1.value = "World!"
         assert string_1.value == "World!"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -77,7 +78,7 @@ class TestString:
         expected = f"{string_2.variable_name} = {string_1.variable_name};"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___add__(self) -> None:
         string_1: ap.String = ap.String(value="Hello")
         string_2: ap.String = string_1 + " World!"
@@ -87,7 +88,7 @@ class TestString:
         string_4: ap.String = string_1 + string_3
         assert string_4._value == "Hello apysc!"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_addition_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -98,7 +99,7 @@ class TestString:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___mul__(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = string_1 * 3
@@ -107,7 +108,7 @@ class TestString:
         string_3: ap.String = string_1 * ap.Int(2)
         assert string_3.value == "Hello!Hello!"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_multiplication_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -127,7 +128,7 @@ class TestString:
         expected = f"\nfor (var i = 0; i < {int_1.variable_name}; i++) {{"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___iadd__(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello")
@@ -147,7 +148,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___imul__(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -164,7 +165,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___str__(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         result: str = str(string_1)
@@ -174,7 +175,7 @@ class TestString:
         del string_1._value
         assert str(string_1) == ""
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         assert string_1 == "Hello!"
@@ -187,7 +188,7 @@ class TestString:
         assert isinstance(string_1 == string_2, ap.Boolean)
         assert isinstance(string_1 == 100, ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         assert string_1 != "World"
@@ -198,7 +199,7 @@ class TestString:
         assert isinstance(string_1 != ap.String("World"), ap.Boolean)
         assert isinstance(string_1 != 100, ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___lt__(self) -> None:
         string_1: ap.String = ap.String(value="1970-01-02")
         assert string_1 < "1970-01-03"
@@ -208,7 +209,7 @@ class TestString:
 
         assert isinstance(string_1 < "1970-01-03", ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___le__(self) -> None:
         string_1: ap.String = ap.String(value="1970-01-02")
         assert string_1 <= "1970-01-02"
@@ -219,7 +220,7 @@ class TestString:
 
         assert isinstance(string_1 <= "1970-01-02", ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___gt__(self) -> None:
         string_1: ap.String = ap.String(value="1970-01-02")
         assert string_1 > "1970-01-01"
@@ -229,7 +230,7 @@ class TestString:
 
         assert isinstance(string_1 > "1970-01-01", ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ge__(self) -> None:
         string_1: ap.String = ap.String(value="1970-01-02")
         assert string_1 >= "1970-01-02"
@@ -240,17 +241,17 @@ class TestString:
 
         assert isinstance(string_1 >= "1970-01-02", ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___int__(self) -> None:
         string_1: ap.String = ap.String(value="100")
         assert int(string_1) == 100
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___float__(self) -> None:
         string_1: ap.String = ap.String(value="100.5")
         assert float(string_1) == 100.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         assert repr(string_1) == "String('Hello!')"
@@ -258,7 +259,7 @@ class TestString:
         del string_1._value
         assert repr(string_1) == "String('')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         snapshot_name: str = "snapshot_1"
@@ -269,7 +270,7 @@ class TestString:
         string_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert string_1._value_snapshots[snapshot_name] == "Hello!"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         snapshot_name: str = "snapshot_1"
@@ -282,7 +283,7 @@ class TestString:
         string_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert string_1.value == "World!"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_eq_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -309,7 +310,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_ne_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -336,7 +337,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_lt_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -363,7 +364,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_le_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -390,7 +391,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_gt_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -417,7 +418,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_ge_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value="Hello!")
@@ -444,7 +445,7 @@ class TestString:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__convert_other_val_to_string(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
         converted_val: Any = string_1._convert_other_val_to_string(other="world")
@@ -454,7 +455,7 @@ class TestString:
         converted_val = string_1._convert_other_val_to_string(other=100)
         assert converted_val == 100
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_initial_substitution_expression(self) -> None:
         string: ap.String = ap.String(value="Hello!")
         expression: str = string._create_initial_substitution_expression()

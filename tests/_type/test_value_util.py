@@ -6,9 +6,10 @@ import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._type import value_util
 from apysc._type.expression_string import ExpressionString
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_value_str_for_expression() -> None:
     exp_str: ExpressionString = ExpressionString(value="s_1")
     value_str: str = value_util.get_value_str_for_expression(value=exp_str)
@@ -43,7 +44,7 @@ def test_get_value_str_for_expression() -> None:
     assert value_str == "null"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_copy() -> None:
     int_val: ap.Int = ap.Int(value=10)
     copied_val_1: ap.Int = value_util.get_copy(value=int_val)
@@ -54,7 +55,7 @@ def test_get_copy() -> None:
     assert copied_val_2 == 100
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_value_str_from_iterable() -> None:
     int_1: ap.Int = ap.Int(value=10)
     value_str: str = value_util._get_value_str_from_iterable(
@@ -71,7 +72,7 @@ def test__get_value_str_from_iterable() -> None:
     assert value_str == "[30, 40]"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_dict_key_type() -> None:
     value_util._validate_dict_key_type(key=10)
     value_util._validate_dict_key_type(key=10.5)
@@ -84,7 +85,7 @@ def test__validate_dict_key_type() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_value_str_from_dict() -> None:
     value_str: str = value_util._get_value_str_from_dict(
         value={"key_1": 10, 20: "Hello", "key_3": [1, 2, 3]}

@@ -6,17 +6,18 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnyValue:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         any_value: ap.AnyValue = ap.AnyValue(100, variable_name_suffix="test_any_value")
         assert any_value._value == 100
         assert any_value.variable_name.startswith(var_names.ANY)
         assert any_value._variable_name_suffix == "test_any_value"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         any_value_1: ap.AnyValue = ap.AnyValue(100)
@@ -37,7 +38,7 @@ class TestAnyValue:
         expected = f"var {any_value_3.variable_name} = null;"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
@@ -52,7 +53,7 @@ class TestAnyValue:
         expected = f"{any_value.variable_name} = {int_1.variable_name};"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_value(self) -> None:
         any_value: ap.AnyValue = ap.AnyValue(100)
         any_value.value = 200
@@ -99,7 +100,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___add__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
@@ -110,7 +111,7 @@ class TestAnyValue:
             any_value=any_value, result=result, other=int_1, expected_operator="+"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___sub__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
@@ -121,7 +122,7 @@ class TestAnyValue:
             any_value=any_value, result=result, other=int_1, expected_operator="-"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_arithmetic_operation_expression(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
@@ -136,7 +137,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___mul__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
@@ -147,7 +148,7 @@ class TestAnyValue:
             any_value=any_value, result=result, other=int_1, expected_operator="*"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___truediv__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(100)
@@ -158,7 +159,7 @@ class TestAnyValue:
             any_value=any_value, result=result, other=int_1, expected_operator="/"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___floordiv__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -172,7 +173,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_incremental_arithmetic_operation_expression(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -215,7 +216,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___iadd__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -229,7 +230,7 @@ class TestAnyValue:
             expected_operator="+=",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___isub__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -243,7 +244,7 @@ class TestAnyValue:
             expected_operator="-=",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___imul__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -257,7 +258,7 @@ class TestAnyValue:
             expected_operator="*=",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___itruediv__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -302,7 +303,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_comparison_expression(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -317,7 +318,7 @@ class TestAnyValue:
             expected_comparison_operator="<=",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -330,7 +331,7 @@ class TestAnyValue:
             expected_comparison_operator="===",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -343,7 +344,7 @@ class TestAnyValue:
             expected_comparison_operator="!==",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___lt__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -356,7 +357,7 @@ class TestAnyValue:
             expected_comparison_operator="<",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___le__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -369,7 +370,7 @@ class TestAnyValue:
             expected_comparison_operator="<=",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___gt__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -382,7 +383,7 @@ class TestAnyValue:
             expected_comparison_operator=">",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ge__(self) -> None:
         expression_data_util.empty_expression()
         any_value: ap.AnyValue = ap.AnyValue(200)
@@ -395,7 +396,7 @@ class TestAnyValue:
             expected_comparison_operator=">=",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         any_value: ap.AnyValue = ap.AnyValue(200)
         snapshot_name: str = any_value._get_next_snapshot_name()
@@ -406,7 +407,7 @@ class TestAnyValue:
         any_value._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert any_value._any_value_snapshots == {snapshot_name: 200}
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         any_value: ap.AnyValue = ap.AnyValue(200)
         snapshot_name: str = any_value._get_next_snapshot_name()

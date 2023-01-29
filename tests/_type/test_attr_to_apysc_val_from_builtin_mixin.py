@@ -11,6 +11,7 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestClass1(AttrToApyscValFromBuiltinMixIn):
@@ -26,7 +27,7 @@ class _TestClass2(
 
 
 class TestAttrToApyscValFromBuiltinMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_copied_int_from_builtin_val(self) -> None:
         instance_1: _TestClass1 = _TestClass1()
         int_1: ap.Int = instance_1._get_copied_int_from_builtin_val(
@@ -43,7 +44,7 @@ class TestAttrToApyscValFromBuiltinMixIn:
         )
         assert int_2._variable_name_suffix == "test_instance__x"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_copied_number_from_builtin_val(self) -> None:
         instance_2: _TestClass2 = _TestClass2()
         instance_2._variable_name_suffix = "test_instance"
@@ -54,7 +55,7 @@ class TestAttrToApyscValFromBuiltinMixIn:
         assert isinstance(copied, ap.Number)
         assert copied._variable_name_suffix == "test_instance__fill_alpha"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_copied_string_from_builtin_val(self) -> None:
         instance_2: _TestClass2 = _TestClass2()
         instance_2._variable_name_suffix = "test_instance"
@@ -65,7 +66,7 @@ class TestAttrToApyscValFromBuiltinMixIn:
         assert isinstance(copied, ap.String)
         assert copied._variable_name_suffix == "test_instance__fill_color"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_copied_boolean_from_builtin_val(self) -> None:
         instance_2: _TestClass2 = _TestClass2()
         instance_2._variable_name_suffix = "test_instance"
@@ -77,7 +78,7 @@ class TestAttrToApyscValFromBuiltinMixIn:
         assert copied._variable_name_suffix == "test_instance__visible"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_variable_name_suffix() -> None:
     instance_1: _TestClass1 = _TestClass1()
     suffix: str = attr_to_apysc_val_from_builtin_mixin._get_variable_name_suffix(

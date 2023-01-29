@@ -5,9 +5,10 @@ from retrying import retry
 import apysc as ap
 from apysc._testing import testing_helper
 from apysc._validation import color_validation
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_hex_color_code_format() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,

@@ -9,10 +9,11 @@ from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestHeading:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         heading: Heading = Heading(heading_text="## What is the Sprite?")
         assert_attrs(
@@ -24,31 +25,31 @@ class TestHeading:
             any_obj=heading,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_text(self) -> None:
         heading: Heading = Heading(heading_text="## What is the Sprite?")
         assert heading.text == "What is the Sprite?"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_overall_text(self) -> None:
         heading: Heading = Heading(heading_text="## What is the Sprite?")
         assert heading.overall_text == "## What is the Sprite?"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_sharp_num(self) -> None:
         heading: Heading = Heading(heading_text="## What is the Sprite?")
         assert heading.sharp_num == 2
 
 
 class TestBodyText:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         body_text: BodyText = BodyText(text="\n\nLorem ipsum dolor sit amet.\n\n")
         assert_attrs(
             expected_attrs={"_text": "Lorem ipsum dolor sit amet."}, any_obj=body_text
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_text(self) -> None:
         body_text: BodyText = BodyText(text="\n\nLorem ipsum dolor sit amet.\n\n")
         assert body_text.text == "Lorem ipsum dolor sit amet."
@@ -111,7 +112,7 @@ _TEST_MARKDOWN_TEXT: str = (
 
 
 class TestCodeBlock:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         code_block: CodeBlock = CodeBlock(code_block=_TEST_CODE_BLOCK_1)
         assert_attrs(
@@ -123,23 +124,23 @@ class TestCodeBlock:
             any_obj=code_block,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_code_block(self) -> None:
         code_block: CodeBlock = CodeBlock(code_block=_TEST_CODE_BLOCK_1)
         assert code_block.code_block == _TEST_CODE_BLOCK_2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_overall_code_block(self) -> None:
         code_block: CodeBlock = CodeBlock(code_block=_TEST_CODE_BLOCK_1)
         assert code_block.overall_code_block == _TEST_CODE_BLOCK_1.strip()
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_code_type(self) -> None:
         code_block: CodeBlock = CodeBlock(code_block=_TEST_CODE_BLOCK_1)
         assert code_block.code_type == "py"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_code_block_from_list() -> None:
     code_block_lines: List[str] = [
         "```py",
@@ -155,7 +156,7 @@ def test__create_code_block_from_list() -> None:
     assert code_block.code_type == "py"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_body_text_and_append_to_list_if_values_exist() -> None:
     splitted_values: List[Union[Heading, BodyText, CodeBlock]] = []
     document_text_split_util._create_body_text_and_append_to_list_if_values_exist(
@@ -180,7 +181,7 @@ def test__create_body_text_and_append_to_list_if_values_exist() -> None:
     assert body_text_lines == []
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_split_markdown_document() -> None:
     splitted: List[
         Union[Heading, BodyText, CodeBlock]

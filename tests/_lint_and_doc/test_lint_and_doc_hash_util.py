@@ -8,16 +8,17 @@ from apysc._file import file_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.lint_and_doc_hash_util import _IsFileUpdatedArgs
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_lint_hash_dir_path() -> None:
     dir_path: str = lint_and_doc_hash_util.get_hash_dir_path(hash_type=HashType.ISORT)
     assert dir_path == ("./.lint_and_doc_hash/.isort/")
     assert os.path.isdir(dir_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_target_file_hash_file_path() -> None:
     file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
         file_path="./apysc/_display/sprite.py", hash_type=HashType.ISORT
@@ -27,7 +28,7 @@ def test_get_target_file_hash_file_path() -> None:
     assert os.path.isdir(os.path.dirname(file_path))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_read_target_file_hash() -> None:
     file_util.remove_file_if_exists(
         file_path="./apysc/_display/not_existing_module_1.py"
@@ -43,7 +44,7 @@ def test_read_target_file_hash() -> None:
     assert hashed_string != ""
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_read_saved_hash() -> None:
     module_path: str = "./apysc/_display/not_existing_module_2.py"
     file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
@@ -65,7 +66,7 @@ def test_read_saved_hash() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_save_target_file_hash() -> None:
     module_path: str = "./apysc/_display/not_existing_module_3.py"
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
@@ -95,7 +96,7 @@ def test_save_target_file_hash() -> None:
     file_util.remove_file_if_exists(file_path=hash_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_file_updated() -> None:
     module_path: str = "./apysc/_display/not_existing_module_4.py"
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
@@ -127,7 +128,7 @@ def test_is_file_updated() -> None:
     file_util.remove_file_if_exists(file_path=hash_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__is_file_updated_func_for_multiprocessing() -> None:
     module_path: str = "./apysc/_display/not_existing_module_5.py"
     file_util.remove_file_if_exists(file_path=module_path)
@@ -148,7 +149,7 @@ def test__is_file_updated_func_for_multiprocessing() -> None:
     file_util.remove_file_if_exists(file_path=module_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__create_args_list_for_multiprocessing() -> None:
     args_list: List[
         _IsFileUpdatedArgs
@@ -171,7 +172,7 @@ def test__create_args_list_for_multiprocessing() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_not_updated_file_paths() -> None:
     module_path: str = "./apysc/_display/not_existing_module_6.py"
     hash_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(
@@ -200,7 +201,7 @@ def test_remove_not_updated_file_paths() -> None:
     file_util.remove_file_if_exists(file_path=hash_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_save_target_files_hash() -> None:
     module_path_1: str = "./apysc/_display/not_existing_module_7.py"
     module_path_2: str = "./apysc/_display/not_existing_module_8.py"
@@ -235,7 +236,7 @@ def test_save_target_files_hash() -> None:
     file_util.remove_file_if_exists(file_path=hash_path_2)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_delete_target_file_hash() -> None:
     file_path: str = "./apysc/_display/circle.py"
     hash_file_path: str = lint_and_doc_hash_util.get_target_file_hash_file_path(

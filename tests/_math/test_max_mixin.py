@@ -6,9 +6,10 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._math import max_mixin
 from apysc._math.max_mixin import MaxMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_max_float_value() -> None:
     max_value: float = max_mixin._get_max_float_value(
         values=ap.Array([10, 10.5, ap.Int(11), ap.Number(10.9)]),
@@ -16,7 +17,7 @@ def test__get_max_float_value() -> None:
     assert max_value == 11.0
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_max_value_variable_name_suffix_from_arr() -> None:
     suffix: str = max_mixin._get_max_value_variable_name_suffix_from_arr(
         arr=ap.Array(
@@ -32,7 +33,7 @@ def test__get_max_value_variable_name_suffix_from_arr() -> None:
 
 
 class TestMaxMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_max(self) -> None:
         expression_data_util.empty_expression()
         values: ap.Array = ap.Array([10, 10.5, ap.Int(11), ap.Number(10.9)])

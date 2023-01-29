@@ -5,9 +5,10 @@ from retrying import retry
 import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import path_validation
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_bezier_2d_continual_pre_data() -> None:
     move_to: ap.PathMoveTo = ap.PathMoveTo(x=0, y=50)
     bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
@@ -44,7 +45,7 @@ def test__validate_bezier_2d_continual_pre_data() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__validate_bezier_3d_continual_pre_data() -> None:
     move_to: ap.PathMoveTo = ap.PathMoveTo(x=0, y=50)
     bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
@@ -86,7 +87,7 @@ def test__validate_bezier_3d_continual_pre_data() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_path_data_list() -> None:
     move_to: ap.PathMoveTo = ap.PathMoveTo(x=0, y=50)
     bezier_2d_continual: ap.PathBezier2DContinual = ap.PathBezier2DContinual(

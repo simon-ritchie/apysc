@@ -14,9 +14,10 @@ from apysc._lint_and_doc.document_text_split_util import Heading
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
 from apysc._testing.testing_helper import assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_read_mapping_data() -> None:
     test_src_doc_file_path: str = (
         "./docs_src/source/test_translation_mapping_utils_1.md"
@@ -52,7 +53,7 @@ def test_read_mapping_data() -> None:
     file_util.remove_file_if_exists(file_path=test_mapping_module_path)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_mapping_module_path() -> None:
     mapping_module_path: str = translation_mapping_utils.get_mapping_module_path(
         src_doc_file_path="./docs_src/source/sprite.md", lang=Lang.JP
@@ -60,7 +61,7 @@ def test_get_mapping_module_path() -> None:
     assert mapping_module_path == "./apysc/_translation/jp/sprite.py"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_convert_splitted_values_to_keys() -> None:
     splitted_values: List[Union[Heading, BodyText, CodeBlock]] = [
         Heading(heading_text="# Sprite"),
@@ -93,7 +94,7 @@ def test_convert_splitted_values_to_keys() -> None:
     assert keys[4] == "consectetur adipiscing"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_escape_key_or_value() -> None:
     key_or_val: str = translation_mapping_utils.escape_key_or_value(
         key_or_val=(
@@ -107,7 +108,7 @@ def test_escape_key_or_value() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_body_text_keys_to_list() -> None:
     keys: List[str] = []
     translation_mapping_utils._append_body_text_keys_to_list(
@@ -159,7 +160,7 @@ def test__append_body_text_keys_to_list() -> None:
     ]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_escaping_from_key_or_value() -> None:
     key_or_val: str = translation_mapping_utils.remove_escaping_from_key_or_value(
         key_or_val="\\\\Hello!\\n\\'World!\\\""
@@ -167,7 +168,7 @@ def test_remove_escaping_from_key_or_value() -> None:
     assert key_or_val == "\\Hello!\n'World!\""
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_mapping_unnecessary_key() -> None:
     result: bool = translation_mapping_utils.is_mapping_unnecessary_key(
         key=(
@@ -183,7 +184,7 @@ def test_is_mapping_unnecessary_key() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_translation_skipping_key() -> None:
     result: bool = translation_mapping_utils.is_translation_skipping_key(
         key="<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->"
@@ -196,7 +197,7 @@ def test_is_translation_skipping_key() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_translated_file_path_from_src_path() -> None:
     test_source_doc_path: str = "./tmp/test_document.md"
     translated_file_path: str = (
@@ -207,7 +208,7 @@ def test_get_translated_file_path_from_src_path() -> None:
     assert translated_file_path == "./tmp/jp_test_document.md"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_remove_empty_keys() -> None:
     keys: List[str] = [
         " ",
@@ -218,7 +219,7 @@ def test_remove_empty_keys() -> None:
     assert result_keys == ["Lorem ipsum"]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_get_hash_type_from_lang() -> None:
     hash_type: HashType = translation_mapping_utils.get_hash_type_from_lang(
         lang=Lang.JP
@@ -232,7 +233,7 @@ def test_get_hash_type_from_lang() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__key_is_api_docs_list() -> None:
     result: bool = translation_mapping_utils._key_is_api_docs_list(key_="Lorem ipsum")
     assert not result
@@ -257,7 +258,7 @@ def test__key_is_api_docs_list() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__key_is_api_docs_br_tags_list() -> None:
     result: bool = translation_mapping_utils._key_is_api_docs_br_tags_list(
         key_="- ValueError: <br> ・If the animations' target "
@@ -273,7 +274,7 @@ def test__key_is_api_docs_br_tags_list() -> None:
     assert not result
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__extend_keys_with_api_docs_br_tags_list() -> None:
     keys: List[str] = []
     translation_mapping_utils._extend_keys_with_api_docs_br_tags_list(

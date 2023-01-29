@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.minute_mixin import MinuteMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestMinuteMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_init_minute_value(self) -> None:
         mixin: MinuteMixIn = MinuteMixIn()
         mixin._set_init_minute_value(minute=30)
@@ -17,7 +18,7 @@ class TestMinuteMixIn:
         assert mixin._minute == 30
         assert isinstance(mixin._minute, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_init_minute_argument_expression(self) -> None:
         mixin: MinuteMixIn = MinuteMixIn()
         mixin._set_init_minute_value(minute=30)
@@ -29,7 +30,7 @@ class TestMinuteMixIn:
         expression = mixin._get_init_minute_argument_expression()
         assert expression == f", {int_val.variable_name}"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot_and_revert(self) -> None:
         mixin: MinuteMixIn = MinuteMixIn()
         mixin._set_init_minute_value(minute=30)
@@ -39,7 +40,7 @@ class TestMinuteMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._minute == 30
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_minute_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: MinuteMixIn = MinuteMixIn()
@@ -52,7 +53,7 @@ class TestMinuteMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_minute(self) -> None:
         expression_data_util.empty_expression()
         mixin: MinuteMixIn = MinuteMixIn()
@@ -72,7 +73,7 @@ class TestMinuteMixIn:
         expected = f"{mixin.variable_name}.setMinutes({minute.variable_name});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_minute_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: MinuteMixIn = MinuteMixIn()

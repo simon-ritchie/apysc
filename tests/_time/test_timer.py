@@ -14,6 +14,7 @@ from apysc._event.handler import HandlerData
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestTimer:
@@ -41,7 +42,7 @@ class TestTimer:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3, repeat_count=10)
@@ -63,28 +64,28 @@ class TestTimer:
         expression = expression_data_util.get_current_expression()
         assert f"var {timer.variable_name};" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_delay(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         assert timer.delay == 33.3
         assert isinstance(timer.delay, ap.Number)
         assert timer._delay.variable_name != timer.delay.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_repeat_count(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3, repeat_count=3)
         assert timer.repeat_count == 3
         assert isinstance(timer.repeat_count, ap.Int)
         assert timer._repeat_count.variable_name != timer.repeat_count.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_running(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         assert not timer.running
         assert isinstance(timer.running, ap.Boolean)
         assert timer._running.variable_name != timer.running.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_start(self) -> None:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
@@ -131,14 +132,14 @@ class TestTimer:
         assert f"setInterval({timer._handler_name}" not in expression
         assert "test_prev_variable = setInterval(test_prev_handler" in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_current_count(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         assert timer.current_count == 0
         assert isinstance(timer.current_count, ap.Int)
         assert timer._current_count.variable_name != timer.current_count.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__wrap_handler(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         wrapped: Callable[[ap.TimerEvent, Any], None] = timer._wrap_handler(
@@ -148,7 +149,7 @@ class TestTimer:
         wrapped(e, {})
         assert timer.current_count == 0
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_stop(self) -> None:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
@@ -164,7 +165,7 @@ class TestTimer:
         assert expected in expression
         assert not timer.running
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_stop_expression(self) -> None:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
@@ -177,7 +178,7 @@ class TestTimer:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_count_branch_expression(self) -> None:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3, repeat_count=5)
@@ -215,7 +216,7 @@ class TestTimer:
         expected = f"$({timer.blank_object_variable_name}).off(" f'"{event_type}");'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__convert_delay_to_number(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         assert timer.delay == 33.3
@@ -229,7 +230,7 @@ class TestTimer:
         assert timer.delay == 16.6666667
         assert isinstance(timer.delay, ap.Number)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_timer_complete(self) -> None:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
@@ -239,7 +240,7 @@ class TestTimer:
             HandlerData,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_reset(self) -> None:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)

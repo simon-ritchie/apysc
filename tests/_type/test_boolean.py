@@ -11,10 +11,11 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestBoolean:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(
             value=ap.Int(1), variable_name_suffix="test_boolean"
@@ -38,7 +39,7 @@ class TestBoolean:
         boolean_3: ap.Boolean = ap.Boolean(value=False)
         assert not boolean_3._value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(1)
@@ -57,7 +58,7 @@ class TestBoolean:
         expected = f"{boolean_3.variable_name} = false;"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_bool_from_arg_value(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(value=1)
         result: bool = boolean_1._get_bool_from_arg_value(value=1)
@@ -76,7 +77,7 @@ class TestBoolean:
             value="Hello!",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_value_and_skip_expression_appending(self) -> None:
         expression_data_util.empty_expression()
         boolean_1: ap.Boolean = ap.Boolean(value=1)
@@ -86,7 +87,7 @@ class TestBoolean:
         expected: str = f"{boolean_1.variable_name} = false;"
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         boolean_1: ap.Boolean = ap.Boolean(value=1)
@@ -107,7 +108,7 @@ class TestBoolean:
         expected = f"{boolean_1.variable_name} = false;"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_value(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(value=1)
         int_1: ap.Int = ap.Int(0)
@@ -117,14 +118,14 @@ class TestBoolean:
         boolean_1.value = 1
         assert boolean_1.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___bool__(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(1)
         assert boolean_1
         boolean_1.value = 0
         assert not boolean_1
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         boolean: ap.Boolean = ap.Boolean(True)
         assert repr(boolean) == "Boolean(True)"
@@ -132,7 +133,7 @@ class TestBoolean:
         del boolean._value
         assert repr(boolean) == "Boolean(False)"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         boolean: ap.Boolean = ap.Boolean(True)
         snapshot_name: str = "snapshot_1"
@@ -143,7 +144,7 @@ class TestBoolean:
         boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert boolean._value_snapshots[snapshot_name]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         boolean: ap.Boolean = ap.Boolean(True)
         snapshot_name: str = "snapshot_1"
@@ -156,7 +157,7 @@ class TestBoolean:
         boolean._run_all_revert_methods(snapshot_name=snapshot_name)
         assert not boolean.value
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True, variable_name_suffix="test_boolean_1")
         boolean_2: ap.Boolean = ap.Boolean(True)
@@ -181,7 +182,7 @@ class TestBoolean:
         assert not result
         assert isinstance(result, ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_not_(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True, variable_name_suffix="test_boolean_1")
         boolean_2: ap.Boolean = boolean_1.not_
@@ -191,7 +192,7 @@ class TestBoolean:
         boolean_3: ap.Boolean = boolean_2.not_
         assert boolean_3
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_not_prop_expression(self) -> None:
         expression_data_util.empty_expression()
         boolean_1: ap.Boolean = ap.Boolean(True)
@@ -200,7 +201,7 @@ class TestBoolean:
         expected: str = f"{boolean_2.variable_name} = " f"!{boolean_1.variable_name};"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_eq_expression(self) -> None:
         expression_data_util.empty_expression()
         boolean_1: ap.Boolean = ap.Boolean(True)
@@ -238,7 +239,7 @@ class TestBoolean:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True)
         boolean_2: ap.Boolean = ap.Boolean(False)
@@ -246,7 +247,7 @@ class TestBoolean:
         assert result
         assert isinstance(result, ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_ne_expression(self) -> None:
         expression_data_util.empty_expression()
         boolean_1: ap.Boolean = ap.Boolean(True)
@@ -270,7 +271,7 @@ class TestBoolean:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_comparison_other_type(self) -> None:
         bool_1: ap.Boolean = ap.Boolean(True)
         acceptable_values: tuple = (ap.Boolean(False), True, ap.Int(1), 0)
@@ -283,7 +284,7 @@ class TestBoolean:
             other="Hello!",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_initial_substitution_expression(self) -> None:
         bool_1: ap.Boolean = ap.Boolean(True)
         expression: str = bool_1._create_initial_substitution_expression()
@@ -302,6 +303,6 @@ class TestBoolean:
 
 
 class TestBool:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_alias(self) -> None:
         assert ap.Boolean == ap.Bool

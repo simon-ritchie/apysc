@@ -7,9 +7,10 @@ from apysc._display.any_display_object import AnyDisplayObject
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import display_validation
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_stage() -> None:
     stage: ap.Stage = ap.Stage()
     display_validation.validate_stage(stage=stage)
@@ -21,7 +22,7 @@ def test_validate_stage() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_display_object() -> None:
     stage: ap.Stage = ap.Stage()
     testing_helper.assert_raises(
@@ -41,7 +42,7 @@ def test_validate_display_object() -> None:
     display_validation.validate_display_object(display_object=display_object)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_graphics() -> None:
     ap.Stage()
     sprite: ap.Sprite = ap.Sprite()
@@ -54,7 +55,7 @@ def test_validate_graphics() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_sprite() -> None:
     stage: ap.Stage = ap.Stage()
     sprite: ap.Sprite = ap.Sprite()
@@ -67,7 +68,7 @@ def test_validate_sprite() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_line_cap() -> None:
     display_validation.validate_line_cap(cap=ap.LineCaps.BUTT)
     display_validation.validate_line_cap(cap=ap.LineCaps.ROUND)
@@ -102,7 +103,7 @@ def test_validate_line_cap() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_line_joints() -> None:
     display_validation.validate_line_joints(joints=ap.LineJoints.MITER)
     display_validation.validate_line_joints(joints=ap.LineJoints.ROUND)
@@ -138,7 +139,7 @@ def test_validate_line_joints() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_multiple_line_settings_are_not_set() -> None:
     ap.Stage()
     sprite: ap.Sprite = ap.Sprite()
@@ -190,7 +191,7 @@ def test_validate_multiple_line_settings_are_not_set() -> None:
     delattr(sprite.graphics, "_line_round_dot_setting")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_display_object_container() -> None:
     stage: ap.Stage = ap.Stage()
     display_validation.validate_display_object_container(container_object=stage)

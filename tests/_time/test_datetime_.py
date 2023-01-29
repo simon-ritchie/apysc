@@ -9,10 +9,11 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import assert_attrs
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestDateTime:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         datetime: ap.DateTime = ap.DateTime(year=2022, month=3, day=5)
         assert_attrs(
@@ -56,7 +57,7 @@ class TestDateTime:
             any_obj=datetime,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot_and__revert(self) -> None:
         datetime: ap.DateTime = ap.DateTime(
             year=2022,
@@ -91,7 +92,7 @@ class TestDateTime:
             any_obj=datetime,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_initial_substitution_expression(self) -> None:
         datetime: ap.DateTime = ap.DateTime(
             year=2022,
@@ -130,7 +131,7 @@ class TestDateTime:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         datetime: ap.DateTime = ap.DateTime(
@@ -146,7 +147,7 @@ class TestDateTime:
         expected: str = f"var {datetime.variable_name} = new Date("
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___sub__(self) -> None:
         expression_data_util.empty_expression()
         left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=2)

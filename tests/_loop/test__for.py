@@ -10,10 +10,11 @@ from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._loop import loop_count
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestFor:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         arr: ap.Array = ap.Array([1, 2, 3])
         for_: ap.For = ap.For(
@@ -38,7 +39,7 @@ class TestFor:
             any_obj=for_,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_arr_enter_expression(self) -> None:
         expression_data_util.empty_expression()
         arr: ap.Array = ap.Array([1, 2, 3])
@@ -51,7 +52,7 @@ class TestFor:
         expected = f"for ({i_name} = 0; {i_name} < length; {i_name}++) {{"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___enter__(self) -> None:
         indent_num.reset()
         arr: ap.Array = ap.Array([1, 2, 3])
@@ -74,7 +75,7 @@ class TestFor:
         assert isinstance(key, ap.String)
         assert key == ""
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___exit__(self) -> None:
         expression_data_util.empty_expression()
         indent_num.reset()
@@ -92,7 +93,7 @@ class TestFor:
         current_loop_count: int = loop_count.get_current_loop_count()
         assert current_loop_count == 0
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_dict_enter_expression(self) -> None:
         expression_data_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
@@ -102,7 +103,7 @@ class TestFor:
         expected: str = f"for (var {key.variable_name} in {dict_1.variable_name}) {{"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_arr_or_dict_val_type(self) -> None:
         ap.For(ap.Array([0]))
         ap.For(ap.Dictionary({"a": 10}))

@@ -11,6 +11,7 @@ from retrying import retry
 import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestClass1:
@@ -28,7 +29,7 @@ def _test_func_2(*, handler: Callable) -> None:
     ...
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_not_empty_string() -> None:
     @arg_validation_decos.not_empty_string(arg_position_index=0)
     def _test_func(a: str) -> None:
@@ -64,7 +65,7 @@ def test_not_empty_string() -> None:
     test_instance._test_method_2("Hello")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__extract_arg_value() -> None:
     def _test_func_1(*, a: int) -> None:
         ...
@@ -96,7 +97,7 @@ def test__extract_arg_value() -> None:
     assert value == "Hello!"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_handler_args_num() -> None:
     def _test_handler_1(e: ap.Event) -> None:
         ...
@@ -114,7 +115,7 @@ def test_handler_args_num() -> None:
     _test_func_2(handler=_test_handler_2)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_handler_options_type() -> None:
     @arg_validation_decos.handler_options_type(arg_position_index=0)
     def _test_func(*, options: dict) -> None:
@@ -125,7 +126,7 @@ def test_handler_options_type() -> None:
     _test_func(options={"msg": "Hello!"})
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_arg_name_by_index() -> None:
     def _test_func(*, a: int, b: str) -> None:
         ...
@@ -148,7 +149,7 @@ def test__get_arg_name_by_index() -> None:
     assert arg_name == "a"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_callable_and_arg_names_msg() -> None:
     def _test_func(a: int) -> None:
         ...
@@ -163,7 +164,7 @@ def test__get_callable_and_arg_names_msg() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_integer() -> None:
     @arg_validation_decos.is_integer(arg_position_index=1)
     def _test_func(*, a: str, b: Union[int, ap.Int]) -> None:
@@ -177,7 +178,7 @@ def test_is_integer() -> None:
     _test_func(a="Hello!", b=ap.Int(10))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_num_is_gt_zero() -> None:
     @arg_validation_decos.num_is_gt_zero(arg_position_index=0)
     def _test_func(*, a: Union[int, ap.Int]) -> None:
@@ -188,7 +189,7 @@ def test_num_is_gt_zero() -> None:
     assert_raises(expected_error_class=ValueError, callable_=_test_func, a=0)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_easing() -> None:
     @arg_validation_decos.is_easing(arg_position_index=0)
     def _test_func(*, easing: ap.Easing) -> None:
@@ -204,7 +205,7 @@ def test_is_easing() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_default_val_by_arg_name() -> None:
     def _test_func(*, a: int, b: str = "Hello!") -> None:
         ...
@@ -220,7 +221,7 @@ def test__get_default_val_by_arg_name() -> None:
     assert default_val == "Hello!"
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_num() -> None:
     @arg_validation_decos.is_num(arg_position_index=0)
     def _test_func_1(*, a: Union[int, float, ap.Int, ap.Number]) -> None:
@@ -234,7 +235,7 @@ def test_is_num() -> None:
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a="Hello!")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_hex_color_code_format() -> None:
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=0)
     def _test_func(*, a: str) -> None:
@@ -248,7 +249,7 @@ def test_is_hex_color_code_format() -> None:
     assert_raises(expected_error_class=ValueError, callable_=_test_func, a="Hello!")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_num_is_gte_zero() -> None:
     @arg_validation_decos.num_is_gte_zero(arg_position_index=0)
     def _test_func(*, a: int) -> None:
@@ -259,7 +260,7 @@ def test_num_is_gte_zero() -> None:
     assert_raises(expected_error_class=ValueError, callable_=_test_func, a=-1)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_num_is_0_to_1_range() -> None:
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=0)
     def _test_func(*, a: float) -> None:
@@ -272,7 +273,7 @@ def test_num_is_0_to_1_range() -> None:
     _test_func(a=1.0)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_animations() -> None:
     @arg_validation_decos.is_animations(arg_position_index=0)
     def _test_func(*, a: List[ap.AnimationBase]) -> None:
@@ -300,7 +301,7 @@ def test_is_animations() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_apysc_boolean() -> None:
     @arg_validation_decos.is_apysc_boolean(arg_position_index=0)
     def _test_func(*, a: ap.Boolean) -> None:
@@ -316,7 +317,7 @@ def test_is_apysc_boolean() -> None:
     _test_func(a=ap.Boolean(True))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_vars_dict() -> None:
     @arg_validation_decos.is_vars_dict(arg_position_index=0)
     def _test_func_1(*, a: Optional[Dict[str, Any]]) -> None:
@@ -357,7 +358,7 @@ def test_is_vars_dict() -> None:
     _test_func_2(a={"b": 10})
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_display_object() -> None:
     @arg_validation_decos.is_display_object(arg_position_index=0)
     def _test_func(*, a: ap.DisplayObject) -> None:
@@ -370,7 +371,7 @@ def test_is_display_object() -> None:
     _test_func(a=sprite)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_display_object_container() -> None:
     @arg_validation_decos.is_display_object_container(
         arg_position_index=0, optional=False
@@ -396,7 +397,7 @@ def test_is_display_object_container() -> None:
     _test_func_2(a=None)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_string() -> None:
     @arg_validation_decos.is_string(arg_position_index=0)
     def _test_func(*, a: Union[str, ap.String]) -> None:
@@ -412,7 +413,7 @@ def test_is_string() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_apysc_num() -> None:
     @arg_validation_decos.is_apysc_num(arg_position_index=0)
     def _test_func(*, a: Union[ap.Int, ap.Number]) -> None:
@@ -428,7 +429,7 @@ def test_is_apysc_num() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_point_2ds() -> None:
     @arg_validation_decos.is_point_2ds(arg_position_index=0)
     def _test_func(*, a: Union[List[ap.Point2D], ap.Array[ap.Point2D]]) -> None:
@@ -454,7 +455,7 @@ def test_is_point_2ds() -> None:
     _test_func(a=ap.Array([ap.Point2D(x=10, y=20), ap.Point2D(x=30, y=40)]))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_valid_path_data_list() -> None:
     @arg_validation_decos.is_valid_path_data_list(arg_position_index=0)
     def _test_func(*, a: List[ap.PathDataBase]) -> None:
@@ -474,7 +475,7 @@ def test_is_valid_path_data_list() -> None:
     _test_func(a=[ap.PathMoveTo(x=50, y=50), ap.PathLineTo(x=100, y=100)])
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_line_cap() -> None:
     @arg_validation_decos.is_line_cap(arg_position_index=0, optional=True)
     def _test_func_1(*, a: Optional[Union[ap.String, ap.LineCaps]]) -> None:
@@ -496,7 +497,7 @@ def test_is_line_cap() -> None:
     _test_func_2(a=ap.LineCaps.ROUND)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_multiple_line_settings_are_not_set() -> None:
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     def _test_func_1(*, rectangle: ap.Rectangle) -> None:
@@ -519,7 +520,7 @@ def test_multiple_line_settings_are_not_set() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_line_dash_dot_setting() -> None:
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineDashDotSetting]) -> None:
@@ -530,7 +531,7 @@ def test_is_line_dash_dot_setting() -> None:
     _test_func(a=ap.LineDashDotSetting(dot_size=5, dash_size=10, space_size=5))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_line_dash_setting() -> None:
     @arg_validation_decos.is_line_dash_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineDashSetting]) -> None:
@@ -541,7 +542,7 @@ def test_is_line_dash_setting() -> None:
     _test_func(a=ap.LineDashSetting(dash_size=10, space_size=5))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_line_dot_setting() -> None:
     @arg_validation_decos.is_line_dot_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineDotSetting]) -> None:
@@ -552,7 +553,7 @@ def test_is_line_dot_setting() -> None:
     _test_func(a=ap.LineDotSetting(dot_size=5))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_line_joints() -> None:
     @arg_validation_decos.is_line_joints(arg_position_index=0, optional=True)
     def _test_func_1(*, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
@@ -571,7 +572,7 @@ def test_is_line_joints() -> None:
     _test_func_2(a=ap.LineJoints.BEVEL)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_line_round_dot_setting() -> None:
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineRoundDotSetting]) -> None:
@@ -582,7 +583,7 @@ def test_is_line_round_dot_setting() -> None:
     _test_func(a=ap.LineRoundDotSetting(round_size=10, space_size=5))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_apysc_integer() -> None:
     @arg_validation_decos.is_apysc_integer(arg_position_index=0)
     def _test_func(*, a: ap.Int) -> None:
@@ -592,7 +593,7 @@ def test_is_apysc_integer() -> None:
     _test_func(a=ap.Int(100))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_point_2d() -> None:
     @arg_validation_decos.is_point_2d(arg_position_index=0)
     def _test_func(*, a: ap.Point2D) -> None:
@@ -606,7 +607,7 @@ def test_is_point_2d() -> None:
     _test_func(a=ap.Point2D(x=50, y=100))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_builtin_string() -> None:
     @arg_validation_decos.is_builtin_string(arg_position_index=0, optional=False)
     def _test_func_1(*, a: str) -> None:
@@ -637,7 +638,7 @@ def test_is_builtin_string() -> None:
     _test_func_2(a="Hello!")
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_builtin_integer() -> None:
     @arg_validation_decos.is_builtin_integer(arg_position_index=0)
     def _test_func(*, a: int) -> None:
@@ -651,7 +652,7 @@ def test_is_builtin_integer() -> None:
     _test_func(a=100)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_variable_name_interface_type() -> None:
     @arg_validation_decos.is_variable_name_interface_type(arg_position_index=0)
     def _test_func(*, a: ap.Int) -> None:
@@ -661,7 +662,7 @@ def test_is_variable_name_interface_type() -> None:
     _test_func(a=ap.Int(100))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_event() -> None:
     @arg_validation_decos.is_event(arg_position_index=0)
     def _test_func(*, a: ap.Event) -> None:
@@ -677,7 +678,7 @@ def test_is_event() -> None:
     _test_func(a=e)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_boolean() -> None:
     @arg_validation_decos.is_boolean(arg_position_index=0)
     def _test_func(*, a: Union[bool, ap.Boolean]) -> None:
@@ -688,7 +689,7 @@ def test_is_boolean() -> None:
     _test_func(a=ap.Boolean(True))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_builtin_boolean() -> None:
     @arg_validation_decos.is_builtin_boolean(arg_position_index=0)
     def _test_func(*, a: bool) -> None:
@@ -702,7 +703,7 @@ def test_is_builtin_boolean() -> None:
     _test_func(a=True)
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_acceptable_array_value() -> None:
     @arg_validation_decos.is_acceptable_array_value(arg_position_index=0)
     def _test_func(*, a: Union[list, tuple, range, ap.Array]) -> None:
@@ -715,7 +716,7 @@ def test_is_acceptable_array_value() -> None:
     _test_func(a=ap.Array([10, 20]))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_acceptable_dictionary_value() -> None:
     @arg_validation_decos.is_acceptable_dictionary_value(arg_position_index=0)
     def _test_func(*, a: Union[dict, ap.Dictionary]) -> None:
@@ -730,7 +731,7 @@ def test_is_acceptable_dictionary_value() -> None:
     _test_func(a=ap.Dictionary({"b": 20}))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_acceptable_boolean_value() -> None:
     @arg_validation_decos.is_acceptable_boolean_value(arg_position_index=0)
     def _test_func(*, a: Union[bool, int, ap.Int, ap.Boolean]) -> None:
@@ -756,7 +757,7 @@ def test_is_acceptable_boolean_value() -> None:
     _test_func(a=ap.Boolean(False))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_fps() -> None:
     @arg_validation_decos.is_fps(arg_position_index=0)
     def _test_func(*, fps: ap.FPS) -> int:
@@ -772,7 +773,7 @@ def test_is_fps() -> None:
     assert result == 10
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_builtin_dict() -> None:
     @arg_validation_decos.is_builtin_dict(arg_position_index=0)
     def _test_func(*, dict_val: Dict[Any, Any]) -> int:
@@ -788,7 +789,7 @@ def test_is_builtin_dict() -> None:
     assert result == 20
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_four_digit_year() -> None:
     @arg_validation_decos.is_four_digit_year(arg_position_index=0)
     def _test_func(*, year: Union[int, ap.Int]) -> int:
@@ -813,7 +814,7 @@ def test_is_four_digit_year() -> None:
     assert result == 30
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_month_int() -> None:
     @arg_validation_decos.is_month_int(arg_position_index=0)
     def _test_func(*, month: Union[int, ap.Int]) -> int:
@@ -852,7 +853,7 @@ def test_is_month_int() -> None:
     assert result == 40
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_day_int() -> None:
     @arg_validation_decos.is_day_int(arg_position_index=0)
     def _test_func(*, day: Union[int, ap.Int]) -> int:
@@ -893,7 +894,7 @@ def test_is_day_int() -> None:
     assert result == 50
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_hour_int() -> None:
     @arg_validation_decos.is_hour_int(arg_position_index=0)
     def _test_func(*, hour: Union[int, ap.Int]) -> int:
@@ -926,7 +927,7 @@ def test_is_hour_int() -> None:
     assert result == 60
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_minute_int() -> None:
     @arg_validation_decos.is_minute_int(arg_position_index=0)
     def _test_func(*, minute: Union[int, ap.Int]) -> int:
@@ -963,7 +964,7 @@ def test_is_minute_int() -> None:
     assert result == 80
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_second_int() -> None:
     @arg_validation_decos.is_second_int(arg_position_index=0)
     def _test_func(*, second: Union[int, ap.Int]) -> int:
@@ -1000,7 +1001,7 @@ def test_is_second_int() -> None:
     assert result == 100
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_millisecond_int() -> None:
     @arg_validation_decos.is_millisecond_int(arg_position_index=0)
     def _test_func(*, millisecond: Union[int, ap.Int]) -> int:
@@ -1037,7 +1038,7 @@ def test_is_millisecond_int() -> None:
     assert result == 120
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_apysc_datetime() -> None:
     @arg_validation_decos.is_apysc_datetime(arg_position_index=0)
     def _test_func(*, datetime_: ap.DateTime) -> int:
@@ -1053,7 +1054,7 @@ def test_is_apysc_datetime() -> None:
     assert result == 130
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_is_nums_array() -> None:
     @arg_validation_decos.is_nums_array(arg_position_index=0)
     def _test_func(*, arr: ap.Array) -> int:

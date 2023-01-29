@@ -7,13 +7,14 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
 from apysc._type import type_util
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestNumber:
 
     expression_data_util.empty_expression()
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
         number_1: ap.Number = ap.Number(value=100, variable_name_suffix="test_number")
@@ -35,7 +36,7 @@ class TestNumber:
             expected_error_class=ValueError, callable_=ap.Number, value="Hello!"
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_value(self) -> None:
         expression_data_util.empty_expression()
         number_1: ap.Number = ap.Number(value=100.5)
@@ -64,7 +65,7 @@ class TestNumber:
         number_2: ap.Number = number_1 + 20.6
         assert number_2.value == 31.1
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_data_util.empty_expression()
         number_1: ap.Number = ap.Number(value=10.5)
@@ -81,7 +82,7 @@ class TestNumber:
         expected = f"{number_2.variable_name} = {number_1.variable_name};"
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         number_1: ap.Number = ap.Number(value=10.5)
         repr_str: str = repr(number_1)

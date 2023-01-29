@@ -5,10 +5,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestLeftAndRightDatetimesMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_left_and_right_py_datetimes_from_apysc_datetime(self) -> None:
         left_apysc_datetime: ap.DateTime = ap.DateTime(
             year=2022,

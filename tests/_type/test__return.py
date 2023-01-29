@@ -7,10 +7,11 @@ from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestReturn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_current_scope_is_event_handler(self) -> None:
         expression_data_util.empty_expression()
         instance: VariableNameMixIn = VariableNameMixIn()
@@ -29,7 +30,7 @@ class TestReturn:
         ):
             _: ap.Return = ap.Return()
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
         instance: VariableNameMixIn = VariableNameMixIn()

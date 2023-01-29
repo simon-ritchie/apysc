@@ -7,10 +7,11 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestInt:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
         int_val_1: ap.Int = ap.Int(value=100.5)
@@ -33,7 +34,7 @@ class TestInt:
         int_val_3: ap.Int = ap.Int(value=10, variable_name_suffix="test_int_3")
         assert int_val_3._variable_name_suffix == "test_int_3"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_value(self) -> None:
         expression_data_util.empty_expression()
         int_val_1: ap.Int = ap.Int(value=100)
@@ -53,13 +54,13 @@ class TestInt:
         expression = expression_data_util.get_current_expression()
         expected = f"{int_val_2.variable_name} = {int_val_1.variable_name};"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___add__(self) -> None:
         int_1: ap.Int = ap.Int(value=10)
         int_2: ap.Int = int_1 + 10.5
         assert int_2.value == 20
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(value=10)
@@ -75,7 +76,7 @@ class TestInt:
         expected = f"{int_2.variable_name} = {int_1.variable_name};"
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_cast_expression(self) -> None:
         expression_data_util.empty_expression()
         int_val: ap.Int = ap.Int(value=ap.Number(value=100.5))
@@ -97,7 +98,7 @@ class TestInt:
         expected = f"{int_val.variable_name} = 100;"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         int_1: ap.Int = ap.Int(3)
         repr_str: str = repr(int_1)

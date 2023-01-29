@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.year_mixin import YearMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestYearMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_init_year_value(self) -> None:
         mixin: YearMixIn = YearMixIn()
         mixin._set_init_year_value(year=2022)
@@ -17,7 +18,7 @@ class TestYearMixIn:
         assert mixin._year == 2022
         assert isinstance(mixin._year, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_init_year_argument_expression(self) -> None:
         mixin: YearMixIn = YearMixIn()
         mixin._set_init_year_value(year=2022)
@@ -29,7 +30,7 @@ class TestYearMixIn:
         expression = mixin._get_init_year_argument_expression()
         assert expression == int_val.variable_name
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot_and_revert(self) -> None:
         mixin: YearMixIn = YearMixIn()
         mixin._set_init_year_value(year=2022)
@@ -39,7 +40,7 @@ class TestYearMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._year == 2022
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_year_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: YearMixIn = YearMixIn()
@@ -52,7 +53,7 @@ class TestYearMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_year(self) -> None:
         expression_data_util.empty_expression()
         mixin: YearMixIn = YearMixIn()
@@ -73,7 +74,7 @@ class TestYearMixIn:
         expected = f"{mixin.variable_name}.setFullYear({year.variable_name});"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_year_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: YearMixIn = YearMixIn()

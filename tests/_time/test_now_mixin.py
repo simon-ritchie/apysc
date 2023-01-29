@@ -6,10 +6,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time import now_mixin
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestNowMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_now(self) -> None:
         expression_data_util.empty_expression()
         now_: datetime = datetime.now()
@@ -24,7 +25,7 @@ class TestNowMixIn:
         assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__append_now_expression() -> None:
     expression_data_util.empty_expression()
     datetime: ap.DateTime = ap.DateTime(

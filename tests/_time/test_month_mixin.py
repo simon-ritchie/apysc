@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.month_mixin import MonthMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestMonthMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__set_init_month_value(self) -> None:
         mixin: MonthMixIn = MonthMixIn()
         mixin._set_init_month_value(month=5)
@@ -17,7 +18,7 @@ class TestMonthMixIn:
         assert mixin._month == 5
         assert isinstance(mixin._month, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_init_month_argument_expression(self) -> None:
         mixin: MonthMixIn = MonthMixIn()
         mixin._set_init_month_value(month=5)
@@ -29,7 +30,7 @@ class TestMonthMixIn:
         expression = mixin._get_init_month_argument_expression()
         assert expression == f", {int_val.variable_name} - 1"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot_and_revert(self) -> None:
         mixin: MonthMixIn = MonthMixIn()
         mixin._set_init_month_value(month=5)
@@ -39,7 +40,7 @@ class TestMonthMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._month == 5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_month_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: MonthMixIn = MonthMixIn()
@@ -53,7 +54,7 @@ class TestMonthMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_month(self) -> None:
         expression_data_util.empty_expression()
         mixin: MonthMixIn = MonthMixIn()
@@ -73,7 +74,7 @@ class TestMonthMixIn:
         expression = expression_data_util.get_current_expression()
         expected = f"{mixin.variable_name}.setMonth({month.variable_name} - 1);"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_month_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: MonthMixIn = MonthMixIn()

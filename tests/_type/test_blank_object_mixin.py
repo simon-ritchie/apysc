@@ -5,10 +5,11 @@ from retrying import retry
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.blank_object_mixin import BlankObjectMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestBlankObjectMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__initialize_blank_object_if_not_initialized(self) -> None:
         expression_data_util.empty_expression()
         mixin: BlankObjectMixIn = BlankObjectMixIn()
@@ -21,7 +22,7 @@ class TestBlankObjectMixIn:
         expected: str = f"var {mixin._blank_object_variable_name} = {{}};"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_blank_object_variable_name(self) -> None:
         mixin: BlankObjectMixIn = BlankObjectMixIn()
         blank_object_variable_name: str = mixin.blank_object_variable_name

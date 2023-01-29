@@ -5,10 +5,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._time.weekday_mixin import WeekdayMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestWeekdayMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_weekday_js_val_with_attrs(self) -> None:
         mixin: WeekdayMixIn = WeekdayMixIn()
         weekday_js_val: int = mixin._get_weekday_js_val_with_attrs()
@@ -34,7 +35,7 @@ class TestWeekdayMixIn:
         weekday_js_val = mixin._get_weekday_js_val_with_attrs()
         assert weekday_js_val == 0
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_weekday_js_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: WeekdayMixIn = WeekdayMixIn()
@@ -45,7 +46,7 @@ class TestWeekdayMixIn:
         expected: str = f"{weekday_val.variable_name} = {mixin.variable_name}.getDay();"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_weekday_js(self) -> None:
         expression_data_util.empty_expression()
         mixin: WeekdayMixIn = WeekdayMixIn()
@@ -60,7 +61,7 @@ class TestWeekdayMixIn:
         expected: str = f"{weekday.variable_name} = {mixin.variable_name}.getDay();"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_weekday_py_val_with_attrs(self) -> None:
         mixin: WeekdayMixIn = WeekdayMixIn()
         weekday_py_val: int = mixin._get_weekday_py_val_with_attrs()
@@ -86,7 +87,7 @@ class TestWeekdayMixIn:
         weekday_py_val = mixin._get_weekday_py_val_with_attrs()
         assert weekday_py_val == 6
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_weekday_py_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: WeekdayMixIn = WeekdayMixIn()
@@ -101,7 +102,7 @@ class TestWeekdayMixIn:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_weekday_py(self) -> None:
         expression_data_util.empty_expression()
         mixin: WeekdayMixIn = WeekdayMixIn()

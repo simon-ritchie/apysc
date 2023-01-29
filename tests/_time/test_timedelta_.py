@@ -7,9 +7,10 @@ from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._time import timedelta_
 from apysc._time.timedelta_ import TimeDelta
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test__get_variable_name_suffix_from_datetimes() -> None:
     left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
     right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=3)
@@ -43,7 +44,7 @@ def test__get_variable_name_suffix_from_datetimes() -> None:
 
 
 class TestTimeDelta:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_initial_substitution_expression(self) -> None:
         left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
         right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=3)
@@ -58,7 +59,7 @@ class TestTimeDelta:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
@@ -74,7 +75,7 @@ class TestTimeDelta:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         expression_data_util.empty_expression()
         left_datetime: ap.DateTime = ap.DateTime(

@@ -4,6 +4,7 @@ from retrying import retry
 
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestInterface(VariableNameMixIn, VariableNameSuffixMixIn):
@@ -11,7 +12,7 @@ class _TestInterface(VariableNameMixIn, VariableNameSuffixMixIn):
 
 
 class TestVariableNameMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_variable_name(self) -> None:
         interface: _TestInterface = _TestInterface()
         assert interface.variable_name == ""
@@ -29,7 +30,7 @@ class TestVariableNameMixIn:
         interface._variable_name_suffix = "test_instance"
         assert interface.variable_name == "test_interface_2__test_instance"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_previous_variable_name(self) -> None:
         interface: VariableNameMixIn = VariableNameMixIn()
         previous_variable_name: str = interface._get_previous_variable_name()

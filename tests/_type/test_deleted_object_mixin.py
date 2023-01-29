@@ -5,10 +5,11 @@ from retrying import retry
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.deleted_object_mixin import DeletedObjectMixIn
 from apysc._type.deleted_object_mixin import _DisabledObjectError
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestDeletedObjectMixIn:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__is_deleted_object(self) -> None:
         mixin: DeletedObjectMixIn = DeletedObjectMixIn()
         assert not mixin._is_deleted_object
@@ -28,7 +29,7 @@ class TestDeletedObjectMixIn:
             a=100,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: DeletedObjectMixIn = DeletedObjectMixIn()
         mixin._is_deleted_object = True
@@ -36,7 +37,7 @@ class TestDeletedObjectMixIn:
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         mixin._is_deleted_object_snapshot[snapshot_name] = True
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         mixin: DeletedObjectMixIn = DeletedObjectMixIn()
         mixin._is_deleted_object = True
@@ -50,7 +51,7 @@ class TestDeletedObjectMixIn:
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert not mixin._is_deleted_object
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__disable_each_methods(self) -> None:
         class _TestClass(DeletedObjectMixIn):
             def _test_func(self, a: int) -> int:
@@ -64,7 +65,7 @@ class TestDeletedObjectMixIn:
             a=100,
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__disabled_method(self) -> None:
         mixin: DeletedObjectMixIn = DeletedObjectMixIn()
         assert_raises(

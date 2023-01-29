@@ -13,10 +13,11 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestArray:
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___init__(self) -> None:
         array_1: ap.Array = ap.Array((1, 2, 3), variable_name_suffix="test_array")
         expected_attrs: Dict[str, Any] = {
@@ -28,7 +29,7 @@ class TestArray:
         testing_helper.assert_attrs(expected_attrs=expected_attrs, any_obj=array_1)
         assert array_1.variable_name.startswith(f"{var_names.ARRAY}_")
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_list_value(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         list_val: List[Any] = array_1._get_list_value(value=[4, 5, 6])
@@ -41,7 +42,7 @@ class TestArray:
         list_val = array_1._get_list_value(value=other_array)
         assert list_val == [10, 11, 12]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
@@ -54,7 +55,7 @@ class TestArray:
         expected = f"var {array_2.variable_name} = {array_1.variable_name}"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
@@ -68,7 +69,7 @@ class TestArray:
         expected = f"{array_2.variable_name} = {array_1.variable_name};"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_value(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.value = [4, 5, 6]
@@ -78,19 +79,19 @@ class TestArray:
         array_2.value = array_1
         assert array_2.value == [4, 5, 6]  # type: ignore
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_append(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.append(value=4)
         assert array_1.value == [1, 2, 3, 4]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_push(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.push(value=4)
         assert array_1.value == [1, 2, 3, 4]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_push_and_append_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
@@ -99,7 +100,7 @@ class TestArray:
         expected: str = f"{array_1.variable_name}.push(4);"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_extend(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         array_1.extend(other_arr=[3, 4])
@@ -108,7 +109,7 @@ class TestArray:
         array_1.extend(other_arr=array_2)
         assert array_1.value == [1, 2, 3, 4, 5, 6]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_extend_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
@@ -128,14 +129,14 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_concat(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = array_1.concat([3, 4])
         assert array_2.value == [1, 2, 3, 4]
         assert array_1.value == [1, 2]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_concat_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
@@ -155,19 +156,19 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_insert(self) -> None:
         array_1: ap.Array = ap.Array([1, 3])
         array_1.insert(index=1, value=2)
         assert array_1.value == [1, 2, 3]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_insert_at(self) -> None:
         array_1: ap.Array = ap.Array([1, 3])
         array_1.insert_at(index=1, value=2)
         assert array_1.value == [1, 2, 3]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_insert_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array[Any] = ap.Array([1, 4])
@@ -186,14 +187,14 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_pop(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         value: int = array_1.pop()
         assert array_1.value == [1]
         assert value == 2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_pop_expression(self) -> None:
         expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(2)
@@ -209,13 +210,13 @@ class TestArray:
         expected = f"{value_1.variable_name} = " f"{array_1.variable_name}.pop();"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_remove(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.remove(value=2)
         assert array_1.value == [1, 3]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_remove_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
@@ -230,7 +231,7 @@ class TestArray:
         for expected_str in expected_strs:
             assert expected_str in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_remove_at(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_1.remove_at(index=1)
@@ -241,7 +242,7 @@ class TestArray:
         array_1.remove_at(index=2)
         assert array_1.value == [1, 4]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_remove_at_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
@@ -256,13 +257,13 @@ class TestArray:
         expected = f"{array_1.variable_name}.splice({int_1.variable_name}, 1);"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_reverse(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.reverse()
         assert array_1.value == [3, 2, 1]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_reverse_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
@@ -271,7 +272,7 @@ class TestArray:
         expected: str = f"{array_1.variable_name}.reverse();"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_sort(self) -> None:
         array_1: ap.Array = ap.Array([3, 5, 1, 4, 2])
         array_1.sort()
@@ -281,7 +282,7 @@ class TestArray:
         array_2.sort(ascending=False)
         assert array_2.value == [5, 4, 3, 2, 1]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_sort_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([3, 5, 1, 4, 2])
@@ -300,7 +301,7 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_slice(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_2: ap.Array = array_1.slice(start=1, end=3)
@@ -312,7 +313,7 @@ class TestArray:
         array_4: ap.Array = array_1.slice(end=2)
         assert array_4.value == [1, 2]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_slice_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
@@ -343,7 +344,7 @@ class TestArray:
         expected = f"{array_5.variable_name} = {array_1.variable_name}" ".slice(0, 2);"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___getitem__(self) -> None:
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         testing_helper.assert_raises(
@@ -356,7 +357,7 @@ class TestArray:
         value_2: ap.AnyValue = array_1[3]
         assert isinstance(value_2, ap.AnyValue)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_getitem_expression(self) -> None:
         expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(3)
@@ -390,7 +391,7 @@ class TestArray:
         expected = f"{value_2.variable_name} = {array_2.variable_name}[0];"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__validate_index_type_is_int(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         array_1._validate_index_type_is_int(index=1)
@@ -401,7 +402,7 @@ class TestArray:
             index="Hello!",
         )
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__get_builtin_int_from_index(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         builtin_int_index: int = array_1._get_builtin_int_from_index(index=1)
@@ -412,7 +413,7 @@ class TestArray:
         assert builtin_int_index == 1
         assert isinstance(builtin_int_index, int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___setitem__(self) -> None:
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         array_1[1] = 4
@@ -424,7 +425,7 @@ class TestArray:
         assert array_1.value[1] == 5
         assert isinstance(array_1.value[1], ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_setitem_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
@@ -447,20 +448,20 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___delitem__(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         del array_1[1]
         assert array_1.value == [1, 3]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_length(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         length: ap.Int = array_1.length
         assert length == 3
         assert isinstance(length, ap.Int)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_length_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
@@ -469,13 +470,13 @@ class TestArray:
         expected: str = f"{length.variable_name} = {array_1.variable_name}.length;"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___len__(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         with pytest.raises(Exception):  # type: ignore
             len(array_1)  # type: ignore
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_join(self) -> None:
         array_1: ap.Array = ap.Array(["1", ap.String("2"), 3, ap.Int(4)])
         joined: ap.String = array_1.join(",")
@@ -483,7 +484,7 @@ class TestArray:
         joined = array_1.join(ap.String(","))
         assert joined == "1,2,3,4"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_join_expression(self) -> None:
         expression_data_util.empty_expression()
         string_1: ap.String = ap.String("2")
@@ -498,7 +499,7 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___str__(self) -> None:
         array_1: ap.Array = ap.Array(
             [
@@ -520,7 +521,7 @@ class TestArray:
         del array_1._value
         assert str(array_1) == "[]"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___repr__(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         assert repr(array_1) == "Array([1, 2])"
@@ -531,7 +532,7 @@ class TestArray:
         array_2: ap.Array = ap.Array([ap.Int(10)])
         assert repr(array_2) == "Array([Int(10)])"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_index_of(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         index_1: ap.Int = array_1.index_of(value=2)
@@ -541,7 +542,7 @@ class TestArray:
         index_2: ap.Int = array_1.index_of(value=4)
         assert index_2 == -1
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_index_of_expression(self) -> None:
         expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(2)
@@ -554,7 +555,7 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___eq__(self) -> None:
         array_1: ap.Array = ap.Array([1, ap.Int(2)])
         array_2: ap.Array = ap.Array([1, ap.Int(2)])
@@ -571,7 +572,7 @@ class TestArray:
         result = array_4 == 10
         assert isinstance(result, ap.Boolean)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___bool__(self) -> None:
         array_1: ap.Array = ap.Array([])
         assert not array_1
@@ -579,7 +580,7 @@ class TestArray:
         array_2: ap.Array = ap.Array([1])
         assert array_2
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__make_snapshot(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         snapshot_name: str = "snapshot_1"
@@ -590,7 +591,7 @@ class TestArray:
         array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert array_1._value_snapshots[snapshot_name] == [1, 2, 3]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__revert(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])
         snapshot_name: str = "snapshot_1"
@@ -603,7 +604,7 @@ class TestArray:
         array_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert array_1 == [4, 5, 6]
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_eq_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
@@ -630,7 +631,7 @@ class TestArray:
         )
         assert match is not None
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test___ne__(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = ap.Array([3, 4])
@@ -642,7 +643,7 @@ class TestArray:
         result = array_1 != array_3
         assert not result
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_ne_expression(self) -> None:
         expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
@@ -655,7 +656,7 @@ class TestArray:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__convert_other_val_to_array(self) -> None:
         array_1: ap.Array = ap.Array([1, 2])
         converted_val: Any = array_1._convert_other_val_to_array(other=[3, 4])
@@ -665,7 +666,7 @@ class TestArray:
         converted_val = array_1._convert_other_val_to_array(other=10)
         assert converted_val == 10
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__convert_range_to_list(self) -> None:
         array_1: ap.Array = ap.Array(range(3))
         assert array_1._initial_value == [0, 1, 2]
@@ -673,7 +674,7 @@ class TestArray:
         array_2: ap.Array = ap.Array((0, 1, 2))
         assert array_2._initial_value == (0, 1, 2)
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__append_clear_expression(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()
@@ -683,7 +684,7 @@ class TestArray:
         expected: str = f"{arr.variable_name}.splice(0);"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test_clear(self) -> None:
         expression_data_util.empty_expression()
         ap.Stage()
@@ -694,7 +695,7 @@ class TestArray:
         expected: str = f"{arr.variable_name}.splice(0);"
         assert expected in expression
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @apply_test_settings()
     def test__create_initial_substitution_expression(self) -> None:
         arr_1: ap.Array = ap.Array([1, 2, 3])
         expression: str = arr_1._create_initial_substitution_expression()

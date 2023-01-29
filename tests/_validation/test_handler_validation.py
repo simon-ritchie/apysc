@@ -7,13 +7,14 @@ from typing_extensions import TypedDict
 import apysc as ap
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import handler_validation
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestTypedDict(TypedDict):
     a: int
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_options_type() -> None:
     handler_validation.validate_options_type(options=None)
 
@@ -49,7 +50,7 @@ def _test_handler_3(self: Any, *, e: ap.Event, options: dict) -> None:
     ...
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_handler_args_num() -> None:
     assert_raises(
         expected_error_class=TypeError,

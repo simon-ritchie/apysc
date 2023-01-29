@@ -5,9 +5,10 @@ from retrying import retry
 import apysc as ap
 from apysc._testing import testing_helper
 from apysc._validation import number_validation
+from apysc._testing.testing_helper import apply_test_settings
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_num() -> None:
     number_validation.validate_num(num=100)
     number_validation.validate_num(num=100.5)
@@ -21,7 +22,7 @@ def test_validate_num() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_integer() -> None:
     number_validation.validate_integer(integer=10)
     number_validation.validate_integer(integer=ap.Int(10))
@@ -34,7 +35,7 @@ def test_validate_integer() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_num_is_gt_zero() -> None:
     number_validation.validate_num_is_gt_zero(num=1)
     number_validation.validate_num_is_gt_zero(num=ap.Int(1))
@@ -52,7 +53,7 @@ def test_validate_num_is_gt_zero() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_num_is_gte_zero() -> None:
     number_validation.validate_num_is_gte_zero(num=0)
     number_validation.validate_num_is_gte_zero(num=1)
@@ -66,7 +67,7 @@ def test_validate_num_is_gte_zero() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_int_is_zero_or_one() -> None:
     number_validation.validate_int_is_zero_or_one(integer="Hello!")  # type: ignore
     number_validation.validate_int_is_zero_or_one(integer=1)
@@ -85,7 +86,7 @@ def test_validate_int_is_zero_or_one() -> None:
     )
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_number_is_0_to_1_range() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
@@ -124,7 +125,7 @@ def test_validate_number_is_0_to_1_range() -> None:
     number_validation.validate_num_is_0_to_1_range(num=ap.Number(1.0))
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@apply_test_settings()
 def test_validate_builtin_integer() -> None:
     number_validation.validate_builtin_integer(integer=100)
     testing_helper.assert_raises(

@@ -2,6 +2,7 @@
 """
 
 import functools
+import time
 from random import randint
 from typing import Any
 from typing import Callable
@@ -9,7 +10,7 @@ from typing import Dict
 from typing import Optional
 from typing import Type
 from typing import TypeVar
-import time
+from typing import cast
 
 import pytest
 
@@ -25,12 +26,13 @@ def make_blank_file(*, file_path: str) -> None:
         File path to make.
     """
     from apysc._file import file_util
+
     file_util.save_plain_txt(txt="", file_path=file_path)
 
 
 def _assert_has_attr(*, any_obj: Any, attr_name: str) -> None:
     """
-    Check object has specified attribute.
+    Check object has a specified attribute.
 
     Parameters
     ----------
@@ -150,7 +152,7 @@ def apply_test_settings(
     Parameters
     ----------
     retrying_max_attempts_num : int, optional
-        Maximum number of retrying attempts.
+        A maximum number of retrying attempts.
     retrying_sleep_seconds : Optional[float], optional
         A Sleep seconds of retrying (Maximum seconds is 10).
 
@@ -167,6 +169,7 @@ def apply_test_settings(
     if retrying_sleep_seconds is None:
         retrying_sleep_seconds = randint(10, 3000) / 1000
     _validate_retrying_sleep_seconds(retrying_sleep_seconds=retrying_sleep_seconds)
+    retrying_sleep_seconds_: float = cast(float, retrying_sleep_seconds)
 
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
@@ -180,7 +183,7 @@ def apply_test_settings(
                         result = callable_(*args, **kwargs)
                         break
                     except Exception:
-                        time.sleep(retrying_sleep_seconds)
+                        time.sleep(retrying_sleep_seconds_)
                         continue
                 result = callable_(*args, **kwargs)
                 break
@@ -193,12 +196,12 @@ def apply_test_settings(
 
 def _validate_retrying_sleep_seconds(*, retrying_sleep_seconds: float) -> None:
     """
-    Validate whether a specified retrying sleep seconds is not greater than 10.
+    Validate whether specified retrying sleep seconds is not greater than 10.
 
     Parameters
     ----------
     retrying_sleep_seconds : float
-        A Sleep seconds of retrying.
+        Sleep seconds of retrying.
 
     Raises
     ------

@@ -6,7 +6,7 @@ Common testing helper implementations.
 
 ## `_assert_has_attr` function docstring
 
-Check object has specified attribute.<hr>
+Check object has a specified attribute.<hr>
 
 **[Parameters]**
 
@@ -15,6 +15,21 @@ Check object has specified attribute.<hr>
 - `attr_name`: str
   - Expected attribute name.
 
+## `_validate_retrying_sleep_seconds` function docstring
+
+Validate whether specified retrying sleep seconds is not greater than 10.<hr>
+
+**[Parameters]**
+
+- `retrying_sleep_seconds`: float
+  - Sleep seconds of retrying.
+
+<hr>
+
+**[Raises]**
+
+- ValueError: If a specified `retrying_sleep_seconds` is greater than 10.
+
 ## `apply_test_settings` function docstring
 
 Apply each test setting to a test function. This function is a decorator function.<hr>
@@ -22,9 +37,9 @@ Apply each test setting to a test function. This function is a decorator functio
 **[Parameters]**
 
 - `retrying_max_attempts_num`: int, optional
-  - Maximum number of retrying attempts.
-- `retrying_sleep_time`: Optional[int], optional
-  - A Sleep time of retrying.
+  - A maximum number of retry attempts.
+- `retrying_sleep_seconds`: Optional[float], optional
+  - A Sleep seconds of retrying (Maximum seconds is 10).
 
 <hr>
 
@@ -32,6 +47,12 @@ Apply each test setting to a test function. This function is a decorator functio
 
 - `wrapped`: Callable
   - Wrapped callable object.
+
+<hr>
+
+**[Raises]**
+
+- ValueError: If a specified `retrying_sleep_seconds` is greater than 10.
 
 ## `assert_attrs` function docstring
 

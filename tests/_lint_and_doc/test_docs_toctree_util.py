@@ -1,8 +1,5 @@
 import os
-from random import randint
 from typing import List
-
-from retrying import retry
 
 from apysc._lint_and_doc import docs_toctree_util
 from apysc._testing.testing_helper import apply_test_settings

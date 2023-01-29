@@ -1,16 +1,13 @@
 import re
-from random import randint
 from typing import Match
 from typing import Optional
-
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestCopyMixIn:

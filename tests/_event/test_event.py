@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._expression import var_names
 from apysc._testing import testing_helper

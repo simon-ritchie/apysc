@@ -1,10 +1,7 @@
 import os
-from random import randint
 from types import ModuleType
 from typing import Any
 from typing import List
-
-from retrying import retry
 
 from apysc._display import sprite
 from apysc._display.sprite import Sprite

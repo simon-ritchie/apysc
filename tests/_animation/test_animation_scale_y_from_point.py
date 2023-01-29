@@ -1,15 +1,11 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display import scale_interface_helper
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAnimationScaleYFromPoint:

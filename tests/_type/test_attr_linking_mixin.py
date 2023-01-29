@@ -1,11 +1,7 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 
 
 class TestAttrLinkingMixIn:

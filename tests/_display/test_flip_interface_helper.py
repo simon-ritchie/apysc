@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display import flip_interface_helper
 from apysc._testing.testing_helper import apply_test_settings

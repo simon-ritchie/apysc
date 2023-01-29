@@ -1,11 +1,7 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
-from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationScaleXFromCenterMixIn:

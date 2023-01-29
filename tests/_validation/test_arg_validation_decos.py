@@ -1,4 +1,3 @@
-from random import randint
 from typing import Any
 from typing import Callable
 from typing import Dict
@@ -6,12 +5,10 @@ from typing import List
 from typing import Optional
 from typing import Union
 
-from retrying import retry
-
 import apysc as ap
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestClass1:

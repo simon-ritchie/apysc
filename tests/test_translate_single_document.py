@@ -1,18 +1,15 @@
 import os
-from random import randint
-
-from retrying import retry
 
 from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from scripts import translate_single_document
 from scripts.translate_single_document import _InvalidDocBuildStatusCode
 from scripts.translate_single_document import _SourceFileIsNotEnglish
 from scripts.translate_single_document import _SourceFileNotFound
 from scripts.translate_single_document import _UndefinedLanguage
-from apysc._testing.testing_helper import apply_test_settings
 
 _TEST_DOC_SRC_PATH: str = "./docs_src/source/sprite.md"
 _TEST_HASH_FILE_PATH_1: str = lint_and_doc_hash_util.get_target_file_hash_file_path(

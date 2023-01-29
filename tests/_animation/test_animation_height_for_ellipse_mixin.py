@@ -1,13 +1,9 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._animation.animation_height_for_ellipse_mixin import (
     AnimationHeightForEllipseMixIn,
 )
-from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationHeightForEllipseMixIn:

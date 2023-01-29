@@ -1,10 +1,6 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
-from apysc._type import type_util
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type import type_util
 
 
 @apply_test_settings()

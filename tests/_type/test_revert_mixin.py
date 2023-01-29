@@ -1,14 +1,11 @@
-from random import randint
 from typing import Any
 from typing import Dict
 from typing import List
 
-from retrying import retry
-
 import apysc as ap
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._type import revert_mixin
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class NotRevertableValue:

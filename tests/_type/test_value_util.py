@@ -1,12 +1,8 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._type import value_util
 from apysc._type.expression_string import ExpressionString
-from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()

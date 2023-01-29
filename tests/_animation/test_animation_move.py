@@ -1,12 +1,8 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class _TestInterface(XMixIn, YMixIn):

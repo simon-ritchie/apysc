@@ -1,9 +1,6 @@
-from random import randint
 from typing import Dict
 from typing import List
 from typing import Union
-
-from retrying import retry
 
 from apysc._file import file_util
 from apysc._lint_and_doc import translation_mapping_utils
@@ -13,8 +10,8 @@ from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
 from apysc._lint_and_doc.translation_mapping_utils import MAPPING_CONST_NAME
-from apysc._testing.testing_helper import assert_raises
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 @apply_test_settings()

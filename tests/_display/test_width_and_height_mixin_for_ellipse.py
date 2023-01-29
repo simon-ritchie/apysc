@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display.width_and_height_mixin_for_ellipse import (
     WidthAndHeightMixInForEllipse,

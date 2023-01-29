@@ -1,8 +1,5 @@
 import os
-from random import randint
 from typing import List
-
-from retrying import retry
 
 from apysc._lint_and_doc.docs_keyword_link_mapping import MAPPINGS
 from apysc._testing.testing_helper import apply_test_settings

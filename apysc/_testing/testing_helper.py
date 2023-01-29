@@ -1,14 +1,14 @@
 """Common testing helper implementations.
 """
 
+import functools
+from random import randint
 from typing import Any
 from typing import Callable
 from typing import Dict
 from typing import Optional
 from typing import Type
-import functools
 from typing import TypeVar
-from random import randint
 
 import pytest
 

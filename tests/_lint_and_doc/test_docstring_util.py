@@ -1,11 +1,8 @@
 import inspect
 import os
 from inspect import Signature
-from random import randint
 from typing import Callable
 from typing import List
-
-from retrying import retry
 
 from apysc._display import stage
 from apysc._file import file_util
@@ -19,9 +16,9 @@ from apysc._lint_and_doc.docstring_util import _DocstringCallableNotExistsError
 from apysc._lint_and_doc.docstring_util import _DocstringPathNotFoundError
 from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import _SectionPattern
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
-from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()

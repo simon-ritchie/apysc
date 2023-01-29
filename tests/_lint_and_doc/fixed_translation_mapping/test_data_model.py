@@ -1,10 +1,7 @@
 import os
 from enum import Enum
-from random import randint
 from typing import List
 from typing import Optional
-
-from retrying import retry
 
 from apysc._file import file_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
@@ -17,9 +14,9 @@ from apysc._lint_and_doc.fixed_translation_mapping.data_model import (
     _UnsupportedLanguageException,
 )
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import assert_raises
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestMapping:

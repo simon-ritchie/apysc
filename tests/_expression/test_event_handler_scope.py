@@ -1,15 +1,12 @@
-from random import randint
 from typing import Optional
 from typing import Tuple
-
-from retrying import retry
 
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 @apply_test_settings()

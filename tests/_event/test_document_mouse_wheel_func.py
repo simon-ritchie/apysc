@@ -1,8 +1,5 @@
-from random import randint
 from typing import Any
 from typing import Dict
-
-from retrying import retry
 
 import apysc as ap
 from apysc._event.handler import get_handler_name

@@ -13,8 +13,6 @@ from typing import Match
 from typing import Optional
 from typing import Type
 
-from retrying import retry
-
 from apysc._file import file_util
 from apysc._file import module_util
 from apysc._lint_and_doc import docstring_to_markdown_converter

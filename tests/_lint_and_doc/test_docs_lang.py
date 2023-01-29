@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 from apysc._lint_and_doc import docs_lang
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing.testing_helper import apply_test_settings

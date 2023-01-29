@@ -1,12 +1,9 @@
 from datetime import datetime
-from random import randint
-
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._time import now_mixin
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._time import now_mixin
 
 
 class TestNowMixIn:

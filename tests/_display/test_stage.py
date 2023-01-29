@@ -1,18 +1,15 @@
-from random import randint
 from typing import Any
 from typing import Dict
 from typing import Optional
 from typing import Tuple
-
-from retrying import retry
 
 import apysc as ap
 from apysc._display import stage
 from apysc._display.any_display_object import AnyDisplayObject
 from apysc._expression import expression_data_util
 from apysc._testing import testing_helper
-from apysc._testing.testing_helper import assert_raises
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestStage:

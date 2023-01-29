@@ -1,7 +1,4 @@
-from random import randint
-
 import pytest
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util

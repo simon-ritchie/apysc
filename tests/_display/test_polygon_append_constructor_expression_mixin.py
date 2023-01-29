@@ -1,11 +1,7 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._expression import expression_data_util
-from tests._display.test_graphics_expression import assert_stroke_attr_expression_exists
 from apysc._testing.testing_helper import apply_test_settings
+from tests._display.test_graphics_expression import assert_stroke_attr_expression_exists
 
 
 class TestPolygonAppendConstructorExpressionMixIn:

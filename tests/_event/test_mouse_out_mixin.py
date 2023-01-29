@@ -1,14 +1,11 @@
-from random import randint
 from typing import Any
 from typing import Dict
-
-from retrying import retry
 
 import apysc as ap
 from apysc._event.mouse_out_mixin import MouseOutMixIn
 from apysc._expression import expression_data_util
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class _TestMouseOut(MouseOutMixIn, VariableNameMixIn):

@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 from apysc._event.prevent_default_mixin import PreventDefaultMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings

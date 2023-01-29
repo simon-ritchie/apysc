@@ -1,7 +1,4 @@
-from random import randint
 from typing import List
-
-from retrying import retry
 
 from apysc._lint_and_doc import document_util
 from apysc._lint_and_doc.docs_lang import Lang

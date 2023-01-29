@@ -1,11 +1,8 @@
 from datetime import datetime
-from random import randint
-
-from retrying import retry
 
 import apysc as ap
-from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
 
 
 class TestLeftAndRightDatetimesMixIn:

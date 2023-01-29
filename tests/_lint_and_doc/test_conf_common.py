@@ -1,8 +1,6 @@
 import os
-from random import randint
 from typing import Any
 
-from retrying import retry
 from sphinx.application import Sphinx
 
 from apysc._lint_and_doc import conf_common

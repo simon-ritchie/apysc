@@ -1,10 +1,7 @@
 import re
-from random import randint
 from typing import List
 from typing import Match
 from typing import Optional
-
-from retrying import retry
 
 import apysc as ap
 from apysc._display.set_lower_scale_limit_mixin import SetLowerScaleLimitMixIn

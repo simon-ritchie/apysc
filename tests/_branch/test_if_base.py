@@ -1,11 +1,8 @@
 import re
-from random import randint
 from typing import Any
 from typing import Dict
 from typing import Match
 from typing import Optional
-
-from retrying import retry
 
 import apysc as ap
 from apysc._branch.if_base import IfBase

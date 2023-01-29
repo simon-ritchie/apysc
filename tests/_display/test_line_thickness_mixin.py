@@ -1,9 +1,6 @@
 import re
-from random import randint
 from typing import Match
 from typing import Optional
-
-from retrying import retry
 
 import apysc as ap
 from apysc._display.line_thickness_mixin import LineThicknessMixIn

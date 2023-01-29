@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._animation.animation_time_mixin import AnimationTimeMixIn
 from apysc._expression import expression_data_util

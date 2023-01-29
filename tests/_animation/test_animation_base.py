@@ -1,12 +1,9 @@
 import re
-from random import randint
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Match
 from typing import Optional
-
-from retrying import retry
 
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
@@ -14,9 +11,9 @@ from apysc._event.custom_event_type import CustomEventType
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestAnimation(AnimationBase):

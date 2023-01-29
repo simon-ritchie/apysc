@@ -1,13 +1,10 @@
 import os
-from random import randint
 from typing import Dict
-
-from retrying import retry
 
 from apysc._file import file_util
 from apysc._lint_and_doc.docs_lang import Lang
-from scripts import sync_docs_keyword_link_mapping
 from apysc._testing.testing_helper import apply_test_settings
+from scripts import sync_docs_keyword_link_mapping
 
 
 @apply_test_settings()

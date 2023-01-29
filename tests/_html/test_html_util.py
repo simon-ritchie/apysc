@@ -1,9 +1,6 @@
-from random import randint
 from typing import Dict
 from typing import List
 from typing import Tuple
-
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util

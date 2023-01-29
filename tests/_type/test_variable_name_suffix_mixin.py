@@ -1,9 +1,5 @@
-from random import randint
-
-from retrying import retry
-
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class TestVariableNameSuffixMixIn:

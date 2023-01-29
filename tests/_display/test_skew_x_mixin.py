@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._expression import expression_data_util

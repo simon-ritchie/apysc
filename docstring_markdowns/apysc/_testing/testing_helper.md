@@ -15,6 +15,24 @@ Check object has specified attribute.<hr>
 - `attr_name`: str
   - Expected attribute name.
 
+## `apply_test_settings` function docstring
+
+Apply each test setting to a test function. This function is a decorator function.<hr>
+
+**[Parameters]**
+
+- `retrying_max_attempts_num`: int, optional
+  - Maximum number of retrying attempts.
+- `retrying_sleep_time`: Optional[int], optional
+  - A Sleep time of retrying.
+
+<hr>
+
+**[Returns]**
+
+- `wrapped`: Callable
+  - Wrapped callable object.
+
 ## `assert_attrs` function docstring
 
 Check a specified object's attributes.<hr>

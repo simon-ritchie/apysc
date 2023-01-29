@@ -1,5 +1,3 @@
-from random import randint
-
 import pytest
 from retrying import retry
 

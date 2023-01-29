@@ -1,8 +1,5 @@
 # pyright: reportUnusedExpression=false
 
-from random import randint
-
-from retrying import retry
 
 import apysc as ap
 from apysc._display.cx_mixin import CxMixIn

@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
 from apysc._testing.testing_helper import apply_test_settings

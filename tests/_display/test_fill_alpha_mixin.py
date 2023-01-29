@@ -1,12 +1,8 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._expression import expression_data_util
-from apysc._type import value_util
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type import value_util
 
 
 class TestFillAlphaMixIn:

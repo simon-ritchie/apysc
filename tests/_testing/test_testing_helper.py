@@ -1,7 +1,4 @@
 import os
-from random import randint
-
-from retrying import retry
 
 from apysc._file import file_util
 from apysc._testing import testing_helper

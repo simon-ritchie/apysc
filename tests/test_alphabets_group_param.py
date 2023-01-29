@@ -1,11 +1,8 @@
-from random import randint
 from typing import List
 
-from retrying import retry
-
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from scripts import alphabets_group_param
-from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()

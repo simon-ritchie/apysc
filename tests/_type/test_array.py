@@ -1,5 +1,4 @@
 import re
-from random import randint
 from typing import Any
 from typing import Dict
 from typing import List
@@ -7,7 +6,6 @@ from typing import Match
 from typing import Optional
 
 import pytest
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util

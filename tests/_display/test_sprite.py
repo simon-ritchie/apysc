@@ -1,7 +1,4 @@
-from random import randint
 from typing import List
-
-from retrying import retry
 
 import apysc as ap
 from apysc._display.graphics import Graphics

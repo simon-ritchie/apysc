@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._expression import expression_data_util

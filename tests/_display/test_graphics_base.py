@@ -1,13 +1,11 @@
-from random import randint
 from typing import Union
-
-from retrying import retry
 
 import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._testing import testing_helper
+from apysc._testing.testing_helper import apply_test_settings
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
 from tests._display.test_graphics_expression import (
     assert_fill_opacity_attr_expression_exists,
@@ -27,7 +25,6 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestGraphic(GraphicsBase, FillColorMixIn, FillAlphaMixIn):

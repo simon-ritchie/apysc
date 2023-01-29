@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._display.any_display_object import AnyDisplayObject
 from apysc._expression import expression_data_util

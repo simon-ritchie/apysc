@@ -1,13 +1,10 @@
-from random import randint
 from typing import List
 from typing import Optional
 
-from retrying import retry
-
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing.e2e_testing_helper import LocalFileData
-from scripts import run_docs_e2e_tests
 from apysc._testing.testing_helper import apply_test_settings
+from scripts import run_docs_e2e_tests
 
 
 @apply_test_settings()

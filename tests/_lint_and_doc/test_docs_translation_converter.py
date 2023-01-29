@@ -1,7 +1,4 @@
 import os
-from random import randint
-
-from retrying import retry
 
 from apysc._file import file_util
 from apysc._lint_and_doc import docs_translation_converter as mod
@@ -22,8 +19,8 @@ from apysc._lint_and_doc.docs_translation_converter import (
     _MarkdownListHyphenSymbolsAreNotSame,
 )
 from apysc._lint_and_doc.docs_translation_converter import _TranslationMappingNotFound
-from apysc._testing.testing_helper import assert_raises
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 @apply_test_settings()

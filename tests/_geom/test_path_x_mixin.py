@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._geom.path_x_mixin import PathXMixIn
 from apysc._testing.testing_helper import apply_test_settings

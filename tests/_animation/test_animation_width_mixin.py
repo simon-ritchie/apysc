@@ -1,11 +1,7 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._animation.animation_width_mixin import AnimationWidthMixIn
-from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestAnimationWidthMixIn:

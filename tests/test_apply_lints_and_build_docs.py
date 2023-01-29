@@ -2,17 +2,14 @@ import os
 import shutil
 import subprocess as sp
 import time
-from random import randint
 from typing import List
-
-from retrying import retry
 
 import scripts.apply_lints_and_build_docs as apply_lints_and_build_docs
 from apysc._file import file_util
 from apysc._lint_and_doc.lint_and_doc_hash_util import HashType
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from scripts.apply_lints_and_build_docs import LintCommand
-from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()

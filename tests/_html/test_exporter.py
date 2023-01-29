@@ -1,12 +1,9 @@
 import os
 import re
 import shutil
-from random import randint
 from typing import List
 from typing import Match
 from typing import Optional
-
-from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
@@ -15,8 +12,8 @@ from apysc._expression.event_handler_scope import HandlerScope
 from apysc._file import file_util
 from apysc._html import exporter
 from apysc._jslib import jslib_util
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 @apply_test_settings(retrying_sleep_time=300)

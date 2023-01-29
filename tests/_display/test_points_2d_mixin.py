@@ -1,13 +1,11 @@
 # pyright: reportUnusedExpression=false
 
 import re
-from random import randint
 from typing import List
 from typing import Match
 from typing import Optional
 
 import pytest
-from retrying import retry
 
 import apysc as ap
 from apysc._display.points_2d_mixin import Points2DMixIn

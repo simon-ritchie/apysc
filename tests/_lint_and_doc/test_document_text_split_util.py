@@ -1,15 +1,12 @@
-from random import randint
 from typing import List
 from typing import Union
-
-from retrying import retry
 
 from apysc._lint_and_doc import document_text_split_util
 from apysc._lint_and_doc.document_text_split_util import BodyText
 from apysc._lint_and_doc.document_text_split_util import CodeBlock
 from apysc._lint_and_doc.document_text_split_util import Heading
-from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestHeading:

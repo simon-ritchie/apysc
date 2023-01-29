@@ -1,9 +1,6 @@
 import os
 import shutil
-from random import randint
 from typing import List
-
-from retrying import retry
 
 from apysc._file import file_util
 from apysc._testing import testing_helper

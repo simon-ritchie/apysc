@@ -1,13 +1,11 @@
-from random import randint
 from typing import Any
 
-from retrying import retry
 from typing_extensions import TypedDict
 
 import apysc as ap
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import handler_validation
-from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestTypedDict(TypedDict):

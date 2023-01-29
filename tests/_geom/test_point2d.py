@@ -1,12 +1,8 @@
-from random import randint
-
-from retrying import retry
-
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestPoint2D:

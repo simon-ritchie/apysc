@@ -1,7 +1,3 @@
-from random import randint
-
-from retrying import retry
-
 import scripts.run_doctest_and_save_passing_num as mod
 from apysc._testing.testing_helper import apply_test_settings
 

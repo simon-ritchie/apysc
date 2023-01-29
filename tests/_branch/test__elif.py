@@ -1,4 +1,3 @@
-from random import randint
 from typing import Any
 from typing import Dict
 
@@ -9,8 +8,8 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
-from apysc._testing.testing_helper import assert_attrs
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestElif:

@@ -1,18 +1,15 @@
 import re
-from random import randint
 from typing import List
 from typing import Match
 from typing import Optional
-
-from retrying import retry
 
 import apysc as ap
 from apysc._display import rotation_interface_helper
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._type.expression_string import ExpressionString
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.expression_string import ExpressionString
 
 
 class _TestMixIn(RotationAroundPointMixIn):

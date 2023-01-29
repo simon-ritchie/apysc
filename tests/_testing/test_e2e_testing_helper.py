@@ -1,18 +1,16 @@
 import os
-from random import randint
 from typing import Callable
 from typing import List
 
 from playwright.sync_api import ConsoleMessage
 from playwright.sync_api import Error
-from retrying import retry
 
 from apysc._file import file_util
 from apysc._lint_and_doc.docs_lang import Lang
 from apysc._testing import e2e_testing_helper
 from apysc._testing.e2e_testing_helper import LocalFileData
-from apysc._testing.testing_helper import assert_raises
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 @apply_test_settings()

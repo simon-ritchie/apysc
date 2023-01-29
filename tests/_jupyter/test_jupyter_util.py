@@ -1,8 +1,5 @@
 import os
 import shutil
-from random import randint
-
-from retrying import retry
 
 import apysc as ap
 from apysc._jupyter import jupyter_util

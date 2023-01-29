@@ -152,15 +152,21 @@ def apply_test_settings(
     retrying_max_attempts_num : int, optional
         Maximum number of retrying attempts.
     retrying_sleep_seconds : Optional[float], optional
-        A Sleep seconds of retrying.
+        A Sleep seconds of retrying (Maximum seconds is 10).
 
     Returns
     -------
     wrapped : Callable
         Wrapped callable object.
+
+    Raises
+    ------
+    ValueError
+        If a specified `retrying_sleep_seconds` is greater than 10.
     """
     if retrying_sleep_seconds is None:
         retrying_sleep_seconds = randint(10, 3000) / 1000
+    _validate_retrying_sleep_seconds(retrying_sleep_seconds=retrying_sleep_seconds)
 
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
@@ -174,7 +180,7 @@ def apply_test_settings(
                         result = callable_(*args, **kwargs)
                         break
                     except Exception:
-                        time.sleep(secs=retrying_sleep_seconds)
+                        time.sleep(retrying_sleep_seconds)
                         continue
                 result = callable_(*args, **kwargs)
                 break
@@ -183,3 +189,25 @@ def apply_test_settings(
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore
+
+
+def _validate_retrying_sleep_seconds(*, retrying_sleep_seconds: float) -> None:
+    """
+    Validate whether a specified retrying sleep seconds is not greater than 10.
+
+    Parameters
+    ----------
+    retrying_sleep_seconds : float
+        A Sleep seconds of retrying.
+
+    Raises
+    ------
+    ValueError
+        If a specified `retrying_sleep_seconds` is greater than 10.
+    """
+    if retrying_sleep_seconds <= 10:
+        return
+    raise ValueError(
+        "A specified `retrying_sleep_seconds` argument is greater than 10: "
+        f"{retrying_sleep_seconds}"
+    )

@@ -131,3 +131,15 @@ def test_apply_test_settings() -> None:
 
     result: int = test_func_2(value=10)
     assert result == 10
+
+
+@apply_test_settings()
+def test__validate_retrying_sleep_seconds() -> None:
+    """_validate_retrying_sleep_seconds 関数のテスト。"""
+    testing_helper._validate_retrying_sleep_seconds(retrying_sleep_seconds=10)
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        callable_=testing_helper._validate_retrying_sleep_seconds,
+        retrying_sleep_seconds=10.1,
+    )

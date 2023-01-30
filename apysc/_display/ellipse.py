@@ -32,6 +32,7 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
+from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 
 
 class Ellipse(
@@ -39,6 +40,7 @@ class Ellipse(
     CyMixIn,
     GraphicsBase,
     RotationAroundCenterMixIn,
+    RotationAroundPointMixIn,
     WidthAndHeightMixInForEllipse,
     FillColorMixIn,
     FillAlphaMixIn,

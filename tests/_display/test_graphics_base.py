@@ -26,11 +26,13 @@ from tests._display.test_graphics_expression import (
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
+from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 
 
 class _TestGraphic(
     GraphicsBase,
     RotationAroundCenterMixIn,
+    RotationAroundPointMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
 ):

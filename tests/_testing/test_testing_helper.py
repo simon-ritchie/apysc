@@ -123,7 +123,7 @@ def test_apply_test_settings() -> None:
         callable_=test_func_1,
         value=10,
     )
-    assert _count == 2
+    assert _count == 3
 
     @testing_helper.apply_test_settings(retrying_max_attempts_num=2)
     def test_func_2(*, value: int) -> int:

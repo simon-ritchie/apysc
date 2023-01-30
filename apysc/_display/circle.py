@@ -32,6 +32,7 @@ from apysc._validation import arg_validation_decos
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
+from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 
 
 class Circle(
@@ -41,6 +42,7 @@ class Circle(
     RotationAroundCenterMixIn,
     RotationAroundPointMixIn,
     ScaleXFromCenterMixIn,
+    ScaleYFromCenterMixIn,
     RadiusMixIn,
     FillColorMixIn,
     FillAlphaMixIn,

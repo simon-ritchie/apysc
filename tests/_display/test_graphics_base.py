@@ -28,6 +28,7 @@ from tests._display.test_graphics_expression import assert_y_attr_expression_exi
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
+from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 
 
 class _TestGraphic(
@@ -35,6 +36,7 @@ class _TestGraphic(
     RotationAroundCenterMixIn,
     RotationAroundPointMixIn,
     ScaleXFromCenterMixIn,
+    ScaleYFromCenterMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
 ):

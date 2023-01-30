@@ -29,12 +29,14 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 
 
 class Circle(
     CxMixIn,
     CyMixIn,
     GraphicsBase,
+    RotationAroundCenterMixIn,
     RadiusMixIn,
     FillColorMixIn,
     FillAlphaMixIn,

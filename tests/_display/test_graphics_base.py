@@ -25,9 +25,15 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
+from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 
 
-class _TestGraphic(GraphicsBase, FillColorMixIn, FillAlphaMixIn):
+class _TestGraphic(
+    GraphicsBase,
+    RotationAroundCenterMixIn,
+    FillColorMixIn,
+    FillAlphaMixIn,
+):
     def __repr__(self) -> str:
         """
         Get a string representation of this instance (for the sake of

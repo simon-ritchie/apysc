@@ -44,6 +44,7 @@ from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
+from apysc._display.skew_x_mixin import SkewXMixIn
 
 
 class Triangle(
@@ -64,6 +65,7 @@ class Triangle(
     ScaleYFromPointMixIn,
     FlipXMixIn,
     FlipYMixIn,
+    SkewXMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
     PolygonAppendConstructorExpressionMixIn,

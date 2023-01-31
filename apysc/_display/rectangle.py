@@ -36,6 +36,7 @@ from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
+from apysc._display.flip_y_mixin import FlipYMixIn
 
 
 class Rectangle(
@@ -49,6 +50,7 @@ class Rectangle(
     ScaleXFromPointMixIn,
     ScaleYFromPointMixIn,
     FlipXMixIn,
+    FlipYMixIn,
     WidthMixIn,
     HeightMixIn,
     EllipseWidthMixIn,

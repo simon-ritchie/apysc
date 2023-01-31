@@ -34,6 +34,7 @@ from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 
 
+
 class Path(
     XMixIn,
     YMixIn,

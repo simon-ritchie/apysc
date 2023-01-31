@@ -30,6 +30,7 @@ from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
+from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 
 
 class _TestGraphic(
@@ -39,6 +40,7 @@ class _TestGraphic(
     ScaleXFromCenterMixIn,
     ScaleYFromCenterMixIn,
     ScaleXFromPointMixIn,
+    ScaleYFromPointMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
 ):

@@ -27,7 +27,6 @@ from apysc._display.line_joints import LineJoints
 from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
-from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.stage import get_stage
@@ -40,7 +39,6 @@ from apysc._validation import arg_validation_decos
 
 class GraphicsBase(
     DisplayObject,
-    ScaleYFromPointMixIn,
     FlipXMixIn,
     FlipYMixIn,
     SkewXMixIn,

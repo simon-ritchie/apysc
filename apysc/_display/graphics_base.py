@@ -12,7 +12,6 @@ from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
-from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_caps import LineCaps
@@ -39,7 +38,6 @@ from apysc._validation import arg_validation_decos
 
 class GraphicsBase(
     DisplayObject,
-    FlipXMixIn,
     FlipYMixIn,
     SkewXMixIn,
     SkewYMixIn,

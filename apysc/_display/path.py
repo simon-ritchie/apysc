@@ -35,6 +35,7 @@ from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._display.skew_x_mixin import SkewXMixIn
+from apysc._display.skew_y_mixin import SkewYMixIn
 
 
 class Path(
@@ -49,6 +50,7 @@ class Path(
     FlipXMixIn,
     FlipYMixIn,
     SkewXMixIn,
+    SkewYMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
     VariableNameSuffixMixIn,

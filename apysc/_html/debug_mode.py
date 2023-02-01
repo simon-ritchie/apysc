@@ -1,3 +1,5 @@
+# mypy: disable-error-code=type-var
+
 """This module is for the HTML and JavaScript debugging-mode
 setting interface implementations.
 """

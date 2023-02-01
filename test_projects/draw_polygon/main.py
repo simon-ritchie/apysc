@@ -5,6 +5,7 @@ $ python test_projects/draw_polygon/main.py
 """
 
 import sys
+from typing import Optional
 
 sys.path.append("./")
 
@@ -63,7 +64,7 @@ def on_polygon_click(e: ap.MouseEvent[ap.Polygon], options: dict) -> None:
         Optional parameters.
     """
     polygon: ap.Polygon = e.this
-    polygon.line_round_dot_setting = None
+    polygon.line_round_dot_setting = None  # type: ignore[assignment]
 
 
 if __name__ == "__main__":

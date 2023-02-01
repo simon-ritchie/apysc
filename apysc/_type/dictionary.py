@@ -1,7 +1,7 @@
 """Class implementation for the dictionary value.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import Generic
 from typing import TypeVar
@@ -659,8 +659,11 @@ class Dictionary(
     @final
     @add_debug_info_setting(module_name=__name__)
     def get(
-        self, key: Union[_Key, ExpressionString], *, default: DefaultType = None
-    ) -> DefaultType:
+        self,
+        key: Union[_Key, ExpressionString],
+        *,
+        default: Optional[DefaultType] = None,
+    ) -> Optional[DefaultType]:
         """
         Get a specified key dictionary value. If this
         dictionary hasn't a specified key, this interface

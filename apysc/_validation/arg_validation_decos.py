@@ -1,3 +1,5 @@
+# mypy: disable-error-code=type-var
+
 """This module is for the argument validations' decorators.
 
 Mainly the following decorators exist.

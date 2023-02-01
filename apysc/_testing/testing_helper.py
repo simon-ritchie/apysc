@@ -1,3 +1,5 @@
+# mypy: disable-error-code=type-var
+
 """Common testing helper implementations.
 """
 

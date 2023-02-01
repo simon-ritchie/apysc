@@ -33,6 +33,7 @@ from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
+from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.width_and_height_mixin_for_ellipse import (
@@ -58,6 +59,7 @@ class Ellipse(
     ScaleXFromCenterMixIn,
     ScaleYFromCenterMixIn,
     ScaleXFromPointMixIn,
+    ScaleYFromPointMixIn,
     FlipXMixIn,
     FlipYMixIn,
     SkewXMixIn,

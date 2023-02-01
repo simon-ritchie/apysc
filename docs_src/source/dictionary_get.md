@@ -33,7 +33,7 @@ assert got_val_3 is None
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get(self, key: Union[~_Key, apysc._type.expression_string.ExpressionString], *, default: ~DefaultType = None) -> ~DefaultType`<hr>
+**[Interface signature]** `get(self, key: Union[~_Key, apysc._type.expression_string.ExpressionString], *, default: Union[~DefaultType, NoneType] = None) -> ~DefaultType`<hr>
 
 **[Interface summary]**
 

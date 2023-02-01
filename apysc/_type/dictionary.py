@@ -1,9 +1,10 @@
 """Class implementation for the dictionary value.
 """
 
-from typing import Any, Optional
+from typing import Any
 from typing import Dict
 from typing import Generic
+from typing import Optional
 from typing import TypeVar
 from typing import Union
 
@@ -663,7 +664,7 @@ class Dictionary(
         key: Union[_Key, ExpressionString],
         *,
         default: Optional[DefaultType] = None,
-    ) -> Optional[DefaultType]:
+    ) -> DefaultType:
         """
         Get a specified key dictionary value. If this
         dictionary hasn't a specified key, this interface

@@ -77,7 +77,7 @@
 <section id="get-api">
 <h2>get API<a class="headerlink" href="#get-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get(self,</span> <span class="pre">key:</span> <span class="pre">Union[~_Key,</span> <span class="pre">apysc._type.expression_string.ExpressionString],</span> <span class="pre">*,</span> <span class="pre">default:</span> <span class="pre">~DefaultType</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">~DefaultType</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get(self,</span> <span class="pre">key:</span> <span class="pre">Union[~_Key,</span> <span class="pre">apysc._type.expression_string.ExpressionString],</span> <span class="pre">*,</span> <span class="pre">default:</span> <span class="pre">Union[~DefaultType,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">~DefaultType</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定されたキーの辞書内の値を取得します。もし指定されたキーが辞書に存在しない場合、このインターフェイスはデフォルト値を返却します。<hr></p>
 <p><strong>[引数]</strong></p>

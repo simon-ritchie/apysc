@@ -5,7 +5,6 @@ $ python test_projects/draw_polygon/main.py
 """
 
 import sys
-from typing import Optional
 
 sys.path.append("./")
 

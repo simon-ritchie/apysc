@@ -119,3 +119,14 @@ class TestLineDotSettingMixIn:
         mixin.line_dot_setting = None
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin.line_dot_setting is None
+
+    @apply_test_settings()
+    def test_delete_line_dot_setting(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: LineDotSettingMixIn = LineDotSettingMixIn()
+        mixin.variable_name = "test_line_dot_setting_mixin"
+        mixin.line_dot_setting = ap.LineDotSetting(dot_size=10)
+        mixin.delete_line_dot_setting()
+        assert mixin.line_dot_setting is None
+        expression: str = expression_data_util.get_current_expression()
+        assert '"stroke-dasharray", ""' in expression

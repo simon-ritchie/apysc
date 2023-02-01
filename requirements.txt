@@ -7,7 +7,7 @@ autoflake==1.4
 isort==5.7.0
 flake8==5.0.4
 numdoclint==0.1.9
-mypy==0.950
+mypy==0.991
 html-minifier==0.0.4
 wheel==0.38.1
 Sphinx==4.0.2

@@ -49,6 +49,7 @@ from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_joints_mixin import LineJointsMixIn
+from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 
 
 class Triangle(
@@ -76,6 +77,7 @@ class Triangle(
     LineColorMixIn,
     LineAlphaMixIn,
     LineJointsMixIn,
+    LineDotSettingMixIn,
     PolygonAppendConstructorExpressionMixIn,
     VariableNameSuffixMixIn,
 ):

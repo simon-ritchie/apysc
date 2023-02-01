@@ -11,13 +11,29 @@ from apysc._display import graphics
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.flip_x_mixin import FlipXMixIn
+from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._display.graphics_base import GraphicsBase
+from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_caps import LineCaps
+from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
+from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
 from apysc._display.line_dash_setting import LineDashSetting
+from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
 from apysc._display.line_dot_setting import LineDotSetting
+from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 from apysc._display.line_joints import LineJoints
+from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
+from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
+from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
+from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
+from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
+from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
+from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
+from apysc._display.skew_x_mixin import SkewXMixIn
+from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._geom.path_data_base import PathDataBase
@@ -27,22 +43,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
-from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
-from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
-from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
-from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
-from apysc._display.flip_x_mixin import FlipXMixIn
-from apysc._display.flip_y_mixin import FlipYMixIn
-from apysc._display.skew_x_mixin import SkewXMixIn
-from apysc._display.skew_y_mixin import SkewYMixIn
-from apysc._display.line_color_mixin import LineColorMixIn
-from apysc._display.line_alpha_mixin import LineAlphaMixIn
-from apysc._display.line_joints_mixin import LineJointsMixIn
-from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
-from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
-from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
-from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
 
 
 class Path(

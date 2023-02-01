@@ -3,7 +3,24 @@ from typing import Union
 import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.flip_x_mixin import FlipXMixIn
+from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._display.graphics_base import GraphicsBase
+from apysc._display.line_alpha_mixin import LineAlphaMixIn
+from apysc._display.line_color_mixin import LineColorMixIn
+from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
+from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
+from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
+from apysc._display.line_joints_mixin import LineJointsMixIn
+from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
+from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
+from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
+from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
+from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
+from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
+from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
+from apysc._display.skew_x_mixin import SkewXMixIn
+from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
@@ -25,23 +42,6 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
-from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
-from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
-from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
-from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
-from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
-from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
-from apysc._display.flip_x_mixin import FlipXMixIn
-from apysc._display.flip_y_mixin import FlipYMixIn
-from apysc._display.skew_x_mixin import SkewXMixIn
-from apysc._display.skew_y_mixin import SkewYMixIn
-from apysc._display.line_color_mixin import LineColorMixIn
-from apysc._display.line_alpha_mixin import LineAlphaMixIn
-from apysc._display.line_joints_mixin import LineJointsMixIn
-from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
-from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
-from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
-from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
 
 
 class _TestGraphic(

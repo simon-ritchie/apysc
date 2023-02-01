@@ -89,13 +89,13 @@ class GraphicsBase(
         line_joints : String or LineJoints or None
             A line-joints value to set.
         """
+        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
+        from apysc._display.fill_color_mixin import FillColorMixIn
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display.line_joints_mixin import LineJointsMixIn
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
-        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-        from apysc._display.fill_color_mixin import FillColorMixIn
 
         if isinstance(self, FillColorMixIn):
             self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
@@ -208,13 +208,13 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
+        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
+        from apysc._display.fill_color_mixin import FillColorMixIn
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display.line_joints_mixin import LineJointsMixIn
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
-        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-        from apysc._display.fill_color_mixin import FillColorMixIn
 
         if isinstance(self, FillColorMixIn):
             self._initialize_fill_color_if_not_initialized()

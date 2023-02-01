@@ -129,3 +129,17 @@ class TestLineRoundDotSettingMixIn:
         mixin.line_round_dot_setting = None
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin.line_round_dot_setting == line_round_dot_setting
+
+    @apply_test_settings()
+    def test_delete_line_round_dot_setting(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
+        mixin.variable_name = "test_line_round_dot_setting_mixin"
+        mixin.line_round_dot_setting = ap.LineRoundDotSetting(
+            round_size=10, space_size=5
+        )
+        mixin.delete_line_round_dot_setting()
+        mixin.line_cap = ap.LineCaps.BUTT
+        assert mixin.line_round_dot_setting is None
+        expression: str = expression_data_util.get_current_expression()
+        assert '"stroke-dasharray", ""' in expression

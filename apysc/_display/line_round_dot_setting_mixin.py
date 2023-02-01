@@ -132,6 +132,22 @@ class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def delete_line_round_dot_setting(self) -> None:
+        """
+        Delete a current line round dot setting.
+
+        References
+        ----------
+        - GraphicsBase line_round_dot interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_round_dot_setting.html  # noqa
+        """
+        import apysc as ap
+        self._update_line_round_dot_setting_and_skip_appending_exp(value=None)
+        self.line_cap = ap.LineCaps.BUTT
+        self._append_line_round_dot_setting_update_expression()
+
     _line_round_dot_setting_snapshots: Dict[str, Optional[LineRoundDotSetting]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

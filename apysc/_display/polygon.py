@@ -50,6 +50,7 @@ from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
+from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
 
 
 class Polygon(
@@ -75,6 +76,7 @@ class Polygon(
     LineJointsMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
+    LineRoundDotSettingMixIn,
     PolygonAppendConstructorExpressionMixIn,
     VariableNameSuffixMixIn,
 ):

@@ -37,6 +37,7 @@ from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
+from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
 
 
 class Line(
@@ -57,6 +58,7 @@ class Line(
     LineAlphaMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
+    LineRoundDotSettingMixIn,
     VariableNameSuffixMixIn,
 ):
     """

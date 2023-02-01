@@ -40,6 +40,7 @@ from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
+from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
 
 
 class _TestGraphic(
@@ -61,6 +62,7 @@ class _TestGraphic(
     LineJointsMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
+    LineRoundDotSettingMixIn,
 ):
     def __repr__(self) -> str:
         """

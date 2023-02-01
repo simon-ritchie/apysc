@@ -20,7 +20,6 @@ from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
 from apysc._display.line_joints import LineJoints
-from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
 from apysc._display.stage import get_stage
@@ -33,7 +32,6 @@ from apysc._validation import arg_validation_decos
 
 class GraphicsBase(
     DisplayObject,
-    LineJointsMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,
@@ -103,6 +101,7 @@ class GraphicsBase(
         """
         from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
+        from apysc._display.line_joints_mixin import LineJointsMixIn
 
         if isinstance(self, FillColorMixIn):
             self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
@@ -115,7 +114,7 @@ class GraphicsBase(
             self._update_line_alpha_and_skip_appending_exp(value=line_alpha)
         if line_cap is not None:
             self._update_line_cap_and_skip_appending_exp(value=line_cap)
-        if line_joints is not None:
+        if isinstance(self, LineJointsMixIn) and line_joints is not None:
             self._update_line_joints_and_skip_appending_exp(value=line_joints)
 
         if isinstance(self, FillAlphaMixIn):
@@ -215,6 +214,7 @@ class GraphicsBase(
         from apysc._display import graphics_expression
         from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
+        from apysc._display.line_joints_mixin import LineJointsMixIn
 
         if isinstance(self, FillColorMixIn):
             self._initialize_fill_color_if_not_initialized()
@@ -258,10 +258,13 @@ class GraphicsBase(
             line_cap=self._line_cap, expression=expression, indent_num=indent_num
         )
 
-        self._initialize_line_joints_if_not_initialized()
-        expression = graphics_expression.append_stroke_linejoin_expression(
-            line_joints=self._line_joints, expression=expression, indent_num=indent_num
-        )
+        if isinstance(self, LineJointsMixIn):
+            self._initialize_line_joints_if_not_initialized()
+            expression = graphics_expression.append_stroke_linejoin_expression(
+                line_joints=self._line_joints,
+                expression=expression,
+                indent_num=indent_num,
+            )
 
         self._initialize_x_if_not_initialized()
         expression = graphics_expression.append_x_expression(

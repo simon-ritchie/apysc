@@ -14,7 +14,6 @@ from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
-from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
@@ -29,7 +28,6 @@ from apysc._validation import arg_validation_decos
 
 class GraphicsBase(
     DisplayObject,
-    LineDashDotSettingMixIn,
     ABC,
 ):
 

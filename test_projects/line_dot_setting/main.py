@@ -55,7 +55,7 @@ def on_polyline_click(e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
         Optional parameters.
     """
     polyline: ap.Polyline = e.this
-    polyline.line_dot_setting = None  # type: ignore[assignment]
+    polyline.delete_line_dot_setting()
 
 
 if __name__ == "__main__":

@@ -126,6 +126,20 @@ class LineDashSettingMixIn(VariableNameMixIn, RevertMixIn):
         )
         ap.append_js_expression(expression=expression)
 
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def delete_line_dash_setting(self) -> None:
+        """
+        Delete a current line dash setting.
+
+        References
+        ----------
+        - GraphicsBase line_dot_setting interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dot_setting.html  # noqa
+        """
+        self._update_line_dash_setting_and_skip_appending_exp(value=None)
+        self._append_line_dash_setting_update_expression()
+
     _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

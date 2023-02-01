@@ -39,6 +39,7 @@ from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
+from apysc._display.line_color_mixin import LineColorMixIn
 
 
 class Circle(
@@ -58,6 +59,7 @@ class Circle(
     RadiusMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
+    LineColorMixIn,
     VariableNameSuffixMixIn,
     AttrToApyscValFromBuiltinMixIn,
 ):

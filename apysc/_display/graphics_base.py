@@ -14,7 +14,6 @@ from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_caps import LineCaps
-from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_dot_setting_mixin import LineDashDotSettingMixIn
 from apysc._display.line_dash_setting import LineDashSetting
@@ -35,7 +34,6 @@ from apysc._validation import arg_validation_decos
 
 class GraphicsBase(
     DisplayObject,
-    LineColorMixIn,
     LineAlphaMixIn,
     LineJointsMixIn,
     LineDotSettingMixIn,
@@ -105,11 +103,14 @@ class GraphicsBase(
         line_joints : String or LineJoints or None
             A line-joints value to set.
         """
+        from apysc._display.line_color_mixin import LineColorMixIn
+
         if isinstance(self, FillColorMixIn):
             self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
         if isinstance(self, FillAlphaMixIn):
             self._update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
-        self._set_initial_line_color_if_not_blank(line_color=line_color)
+        if isinstance(self, LineColorMixIn):
+            self._set_initial_line_color_if_not_blank(line_color=line_color)
         self._update_line_thickness_and_skip_appending_exp(value=line_thickness)
         self._update_line_alpha_and_skip_appending_exp(value=line_alpha)
         if line_cap is not None:
@@ -133,12 +134,13 @@ class GraphicsBase(
                 attr=self._fill_color, attr_name="fill_color"
             )
 
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._line_color, attr_name="line_color"
-        )
-        self._append_attr_to_linking_stack(
-            attr=self._line_color, attr_name="line_color"
-        )
+        if isinstance(self, LineColorMixIn):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_color, attr_name="line_color"
+            )
+            self._append_attr_to_linking_stack(
+                attr=self._line_color, attr_name="line_color"
+            )
 
         self._append_applying_new_attr_val_exp(
             new_attr=self._line_alpha, attr_name="line_alpha"
@@ -210,6 +212,7 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
+        from apysc._display.line_color_mixin import LineColorMixIn
 
         if isinstance(self, FillColorMixIn):
             self._initialize_fill_color_if_not_initialized()
@@ -227,10 +230,13 @@ class GraphicsBase(
                 indent_num=indent_num,
             )
 
-        self._initialize_line_color_if_not_initialized()
-        expression = graphics_expression.append_stroke_expression(
-            line_color=self._line_color, expression=expression, indent_num=indent_num
-        )
+        if isinstance(self, LineColorMixIn):
+            self._initialize_line_color_if_not_initialized()
+            expression = graphics_expression.append_stroke_expression(
+                line_color=self._line_color,
+                expression=expression,
+                indent_num=indent_num,
+            )
 
         self._initialize_line_thickness_if_not_initialized()
         expression = graphics_expression.append_stroke_width_expression(

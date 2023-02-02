@@ -3336,5 +3336,21 @@ MAPPINGS: Mappings = Mappings(
             key="  - Truncated and converted to `Int`'s value.",
             val="  - 切り捨て処理と`Int`型への変換が反映された値。",
         ),
+        Mapping(
+            key="## Delete setting",
+            val="## 設定の削除",
+        ),
+        Mapping(
+            key="In the following example, if you click the rectangle, the handler deletes the line setting:",
+            val="以下の例では四角をクリックするとハンドラ内の処理で線の設定を削除しています:",
+        ),
+        Mapping(
+            key="## delete_line_dot_setting API",
+            val="## delete_line_dot_setting のAPI",
+        ),
+        Mapping(
+            key="Delete a current line dot setting.",
+            val="現在の点線の設定を削除します。",
+        ),
     ]
 )

@@ -120,3 +120,15 @@ class TestLineDashDotSettingMixIn:
         mixin._line_dash_dot_setting = None
         mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert mixin._line_dash_dot_setting == line_dash_dot_setting
+
+    @apply_test_settings()
+    def test_delete_line_dash_dot_setting(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
+        mixin.line_dash_dot_setting = ap.LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=7
+        )
+        mixin.delete_line_dash_dot_setting()
+        assert mixin.line_dash_dot_setting is None
+        expression: str = expression_data_util.get_current_expression()
+        assert '"stroke-dasharray", ""' in expression

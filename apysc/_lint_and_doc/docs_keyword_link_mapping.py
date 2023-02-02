@@ -187,4 +187,8 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "Math.min": "math_min",
     "Math.max": "math_max",
     "Math.trunc": "math_trunc",
+    "delete_line_dot_setting": "graphics_base_line_dot_setting",
+    "delete_line_dash_setting": "graphics_base_line_dot_setting",
+    "delete_line_round_dot_setting": "graphics_base_line_round_dot_setting",
+    "delete_line_dash_dot_setting": "graphics_base_line_dash_dot_setting",
 }

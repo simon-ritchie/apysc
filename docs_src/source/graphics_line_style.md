@@ -720,7 +720,7 @@ Int(5)
 
 **[Interface summary]**
 
-Get current line round dot setting.<hr>
+Get current line-round dot setting.<hr>
 
 **[Returns]**
 

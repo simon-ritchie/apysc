@@ -1089,7 +1089,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="  - Current line dot setting.", val="  - 現在の点線設定。"),
         Mapping(key="  - Current line dash setting.", val="  - 現在の破線設定。"),
         Mapping(
-            key="Get current line round dot setting.<hr>",
+            key="Get current line-round dot setting.<hr>",
             val="現在の線の丸ドットのスタイル設定を取得します。<hr>",
         ),
         Mapping(key="  - Current line round dot setting.", val="  - 現在の線の丸ドットのスタイル設定。"),
@@ -3359,6 +3359,14 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="Delete a current line dash setting.",
             val="現在の破線の設定を削除します。",
+        ),
+        Mapping(
+            key="## delete_line_round_dot_setting API",
+            val="## delete_line_round_dot_setting のAPI",
+        ),
+        Mapping(
+            key="Delete a current line-round dot setting.",
+            val="現在の線の丸ドット設定を削除します。",
         ),
     ]
 )

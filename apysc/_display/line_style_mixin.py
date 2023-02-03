@@ -569,7 +569,7 @@ class LineStyleMixIn(
     @add_debug_info_setting(module_name=__name__)
     def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
         """
-        Get current line round dot setting.
+        Get current line-round dot setting.
 
         Returns
         -------

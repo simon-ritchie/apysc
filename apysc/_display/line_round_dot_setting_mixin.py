@@ -136,7 +136,7 @@ class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
     @add_debug_info_setting(module_name=__name__)
     def delete_line_round_dot_setting(self) -> None:
         """
-        Delete a current line round dot setting.
+        Delete a current line-round dot setting.
 
         References
         ----------

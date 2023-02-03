@@ -31,7 +31,7 @@ class LineDashSettingMixIn(VariableNameMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
-        Get current line dash setting.
+        Get a current line dash setting.
 
         Returns
         -------
@@ -134,8 +134,8 @@ class LineDashSettingMixIn(VariableNameMixIn, RevertMixIn):
 
         References
         ----------
-        - GraphicsBase line_dot_setting interface
-            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dot_setting.html  # noqa
+        - GraphicsBase line_dash_setting interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_base_line_dash_setting.html  # noqa
         """
         self._update_line_dash_setting_and_skip_appending_exp(value=None)
         self._append_line_dash_setting_update_expression()

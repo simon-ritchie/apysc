@@ -75,12 +75,55 @@
 </div>
 <iframe src="static/graphics_base_line_dash_setting_basic_usage/index.html" width="250" height="100"></iframe>
 </section>
+<section id="delete-setting">
+<h2>Delete setting<a class="headerlink" href="#delete-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">delete_line_dash_setting</span></code> interface deletes this line setting.</p>
+<p>In the following example, if you click the rectangle, the handler deletes the line setting:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler for the click event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.MouseEvent[ap.Rectangle]</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional argument dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">delete_line_dash_setting</span><span class="p">()</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#666&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#fff&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">line_dash_setting</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">LineDashSetting</span><span class="p">(</span><span class="n">dash_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_click</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./graphics_base_line_dash_setting_delete_setting/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_base_line_dash_setting_delete_setting/index.html" width="150" height="150"></iframe>
+</section>
 <section id="line-dash-setting-property-api">
 <h2>line_dash_setting property API<a class="headerlink" href="#line-dash-setting-property-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.line_dash_setting_mixin.LineDashSettingMixIn.line_dash_setting -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
-<p>Get current line dash setting.<hr></p>
+<p>Get a current line dash setting.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code>: LineDashSetting or None</p>
@@ -107,6 +150,14 @@
 </pre></div>
 </div>
 </section>
+<section id="delete-line-dash-setting-api">
+<h2>delete_line_dash_setting API<a class="headerlink" href="#delete-line-dash-setting-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.line_dash_setting_mixin.LineDashSettingMixIn.delete_line_dash_setting -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">delete_line_dash_setting(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong></p>
+<p>Delete a current line dash setting.</p>
+</section>
 </section>
 
 
@@ -124,7 +175,9 @@
 <li><a class="reference internal" href="#">GraphicsBase line_dash_setting interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#delete-setting">Delete setting</a></li>
 <li><a class="reference internal" href="#line-dash-setting-property-api">line_dash_setting property API</a></li>
+<li><a class="reference internal" href="#delete-line-dash-setting-api">delete_line_dash_setting API</a></li>
 </ul>
 </li>
 </ul>

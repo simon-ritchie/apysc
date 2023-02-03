@@ -919,7 +919,7 @@ MAPPINGS: Mappings = Mappings(
             key="## line_dash_setting property API", val="## line_dash_setting 属性のAPI"
         ),
         Mapping(
-            key="Get current line dash setting.<hr>",
+            key="Get a current line dash setting.<hr>",
             val="現在の線の破線のスタイル設定を取得します。<hr>",
         ),
         Mapping(key="  - Line dash setting.", val="  - 線の破線のスタイル設定。"),
@@ -3351,6 +3351,14 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="Delete a current line dot setting.",
             val="現在の点線の設定を削除します。",
+        ),
+        Mapping(
+            key="## delete_line_dash_setting API",
+            val="## delete_line_dash_setting のAPI",
+        ),
+        Mapping(
+            key="Delete a current line dash setting.",
+            val="現在の破線の設定を削除します。",
         ),
     ]
 )

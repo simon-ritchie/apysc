@@ -685,7 +685,7 @@ Int(5)
 
 **[Interface summary]**
 
-Get current line dash setting.<hr>
+Get a current line dash setting.<hr>
 
 **[Returns]**
 

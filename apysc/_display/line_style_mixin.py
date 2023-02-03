@@ -539,7 +539,7 @@ class LineStyleMixIn(
     @add_debug_info_setting(module_name=__name__)
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
-        Get current line dash setting.
+        Get a current line dash setting.
 
         Returns
         -------

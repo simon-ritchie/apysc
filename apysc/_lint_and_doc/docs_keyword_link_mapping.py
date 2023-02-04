@@ -191,4 +191,5 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "delete_line_dash_setting": "graphics_base_line_dash_setting",
     "delete_line_round_dot_setting": "graphics_base_line_round_dot_setting",
     "delete_line_dash_dot_setting": "graphics_base_line_dash_dot_setting",
+    "draw_triangle": "graphics_draw_triangle",
 }

@@ -39,4 +39,12 @@ Update line dash-dot (1-dot chain) setting and skip appending expression.<hr>
 **[Parameters]**
 
 - `value`: LineDashDotSetting or None
-  - Line dash dot (1-dot chain) setting to set.
+  - Line dash-dot (1-dot chain) setting to set.
+
+### `delete_line_dash_dot_setting` method docstring
+
+Delete a current line dash-dot (1-dot chain) setting.<hr>
+
+**[References]**
+
+- [GraphicsBase line_dash_dot_setting interface](https://simon-ritchie.github.io/apysc/en/graphics_base_line_dash_dot_setting.html)

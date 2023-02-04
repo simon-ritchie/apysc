@@ -854,7 +854,7 @@ Create a polyline vector graphic.<hr>
 - `line_round_dot_setting`: LineRoundDotSetting or None, default None
   - A round-dot setting to set.
 - `line_dash_dot_setting`: LineDashDotSetting or None, default None
-  - A dash dot (1-dot chain) setting to set.
+  - A dash-dot (1-dot chain) setting to set.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ''

@@ -40,3 +40,11 @@ Update line dot setting and skip appending expression.<hr>
 
 - `value`: LineDotSetting or None
   - Line dot setting to set.
+
+### `delete_line_dot_setting` method docstring
+
+Delete a current line dot setting.<hr>
+
+**[References]**
+
+- [GraphicsBase line_dot_setting interface](https://simon-ritchie.github.io/apysc/en/graphics_base_line_dot_setting.html)

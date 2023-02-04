@@ -174,7 +174,7 @@ class GraphicsBase(
         line_round_dot_setting : Optional[LineRoundDotSetting]
             A round-dot setting to set.
         line_dash_dot_setting : Optional[LineDashDotSetting]
-            A dash dot (1-dot chain) setting to set.
+            A dash-dot (1-dot chain) setting to set.
         """
         if line_dot_setting is not None:
             self.line_dot_setting = line_dot_setting

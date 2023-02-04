@@ -913,7 +913,9 @@ MAPPINGS: Mappings = Mappings(
             key="Get a current dash-dot (1-dot chain) setting.<hr>",
             val="現在の一点鎖線のスタイル設定を取得します。<hr>",
         ),
-        Mapping(key="## line_dash_dot_setting API", val="## line_dash_dot_setting のAPI"),
+        Mapping(
+            key="## line_dash_dot_setting API", val="## line_dash_dot_setting のAPI"
+        ),
         Mapping(key="  - Dash-dot (1-dot chain) setting.", val="  - 一点鎖線の設定。"),
         Mapping(
             key="## line_dash_setting property API", val="## line_dash_setting 属性のAPI"
@@ -1098,11 +1100,11 @@ MAPPINGS: Mappings = Mappings(
             val="## line_dash_dot_setting 属性のAPI",
         ),
         Mapping(
-            key="Get current line dash dot setting.<hr>",
+            key="Get current line dash-dot setting.<hr>",
             val="現在の線の一点鎖線のスタイル設定を取得します。<hr>",
         ),
         Mapping(key="  - Line color opacity (0.0 to 1.0).", val="  - 線色の透明度（0.0～1.0）。"),
-        Mapping(key="  - Current line dash dot setting.", val="  - 現在の一点鎖線のスタイル設定。"),
+        Mapping(key="  - Current line dash-dot setting.", val="  - 現在の一点鎖線のスタイル設定。"),
         Mapping(
             key="The getter or setter interface value becomes (or requires) the `Int` value.",
             val="getterもしくはsetterの各インターフェイスの値は`Int`型の値になります。",
@@ -1981,7 +1983,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="  - A dash setting to set.", val="  - 設定する破線のスタイル設定。"),
         Mapping(key="  - A round-dot setting to set.", val="  - 設定する丸ドットのスタイル設定。"),
         Mapping(
-            key="  - A dash dot (1-dot chain) setting to set.",
+            key="  - A dash-dot (1-dot chain) setting to set.",
             val="  - 設定する一点鎖線のスタイル設定。",
         ),
         Mapping(

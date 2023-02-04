@@ -755,12 +755,12 @@ Int(3)
 
 **[Interface summary]**
 
-Get current line dash dot setting.<hr>
+Get current line dash-dot setting.<hr>
 
 **[Returns]**
 
 - `line_dash_dot_setting`: LineDashDotSetting or None
-  - Current line dash dot setting.
+  - Current line dash-dot setting.
 
 <hr>
 

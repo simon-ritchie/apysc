@@ -73,4 +73,4 @@ If a line setting (dot, dash, or something else) with a value other than None ex
 - `line_round_dot_setting`: Optional[LineRoundDotSetting]
   - A round-dot setting to set.
 - `line_dash_dot_setting`: Optional[LineDashDotSetting]
-  - A dash dot (1-dot chain) setting to set.
+  - A dash-dot (1-dot chain) setting to set.

@@ -40,3 +40,11 @@ Update line dash setting and skip appending expression.<hr>
 
 - `value`: LineDashSetting or None
   - Line dash setting to set.
+
+### `delete_line_dash_setting` method docstring
+
+Delete a current line dash setting.<hr>
+
+**[References]**
+
+- [GraphicsBase line_dash_setting interface](https://simon-ritchie.github.io/apysc/en/graphics_base_line_dash_setting.html)

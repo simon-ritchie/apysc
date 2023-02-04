@@ -4,13 +4,13 @@ This page explains the `Graphics` class `draw_dash_dotted_line` method interface
 
 ## What interface is this?
 
-`draw_dash_dotted_line` interface draws the simple straight dash dotted-line (also called 1-dot chain line or long dashed short dashed line) graphics.
+`draw_dash_dotted_line` interface draws the simple straight dash-dotted-line (also called 1-dot chain line or long dashed short dashed line) graphics.
 
 This interface will ignore `dot_setting`, `dash_setting`, `round_dot_setting`, and `dash_dot_setting`.
 
 ## Basic usage
 
-`draw_dash_dotted_line` interface has basic coordinates arguments of `x_start`, `y_start`, `x_end` and `y_end`. That also has `dot_size` (the short dash size), `dash_size` (the long dash size) and `space_size` (the space size between the each dashes) arguments to determine line style.
+`draw_dash_dotted_line` interface has basic coordinates arguments of `x_start`, `y_start`, `x_end` and `y_end`. That also has `dot_size` (the short dash size), `dash_size` (the long dash size), and `space_size` (the space size between each dash) arguments to determine line style.
 
 ```py
 # runnable

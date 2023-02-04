@@ -599,12 +599,12 @@ class LineStyleMixIn(
     @add_debug_info_setting(module_name=__name__)
     def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
         """
-        Get current line dash dot setting.
+        Get current line dash-dot setting.
 
         Returns
         -------
         line_dash_dot_setting : LineDashDotSetting or None
-            Current line dash dot setting.
+            Current line dash-dot setting.
 
         Examples
         --------

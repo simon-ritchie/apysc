@@ -144,6 +144,7 @@ class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
             - https://simon-ritchie.github.io/apysc/en/graphics_base_line_round_dot_setting.html  # noqa
         """
         import apysc as ap
+
         self._update_line_round_dot_setting_and_skip_appending_exp(value=None)
         self.line_cap = ap.LineCaps.BUTT
         self._append_line_round_dot_setting_update_expression()

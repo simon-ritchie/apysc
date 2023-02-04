@@ -40,3 +40,11 @@ Update line round setting and skip appending expression.<hr>
 
 - `value`: LineRoundSetting or None
   - Line round-dot settings to set.
+
+### `delete_line_round_dot_setting` method docstring
+
+Delete a current line-round dot setting.<hr>
+
+**[References]**
+
+- [GraphicsBase line_round_dot interface](https://simon-ritchie.github.io/apysc/en/graphics_base_line_round_dot_setting.html)

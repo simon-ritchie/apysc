@@ -73,12 +73,12 @@ class LineDashDotSettingMixIn(VariableNameMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def line_dash_dot_setting(self, value: Optional[LineDashDotSetting]) -> None:
         """
-        Set line dash dot (1-dot chain) setting.
+        Set line dash-dot (1-dot chain) setting.
 
         Parameters
         ----------
         value : LineDashDotSetting or None
-            Line dash dot (1-dot chain) setting to set.
+            Line dash-dot (1-dot chain) setting to set.
 
         References
         ----------
@@ -99,7 +99,7 @@ class LineDashDotSettingMixIn(VariableNameMixIn, RevertMixIn):
         Parameters
         ----------
         value : LineDashDotSetting or None
-            Line dash dot (1-dot chain) setting to set.
+            Line dash-dot (1-dot chain) setting to set.
         """
         if value is not None and not isinstance(value, LineDashDotSetting):
             raise TypeError(

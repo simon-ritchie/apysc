@@ -3383,10 +3383,6 @@ MAPPINGS: Mappings = Mappings(
             val="## draw_triangle のAPI",
         ),
         Mapping(
-            key="## draw_triangle API",
-            val="## draw_triangle のAPI",
-        ),
-        Mapping(
             key="Draw a triangle vector graphic.<hr>",
             val="三角形のベクターグラフィックスを描画します。<hr>",
         ),

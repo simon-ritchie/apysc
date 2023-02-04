@@ -29,6 +29,14 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\n\nap.save_overall_html(dest_dir_path=\"triangle_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\n\nap.save_overall_html(dest_dir_path=\"triangle_basic_usage/\")\n```",  # noqa
     ##################################################
+    "## Note of the draw_triangle interface": "## draw_triangle インターフェイスの特記事項",
+    ##################################################
+    "you can also create a triangle instance with the `draw_triangle` interface.": "`draw_triangle`インターフェイスを使うことでも三角形のインスタンスを生成することができます。",  # noqa
+    ##################################################
+    "For more details, please see the following:": "詳細については以下をご確認ください:",
+    ##################################################
+    "- [Graphics draw_triangle interface](graphics_draw_triangle.md)": "- [Graphics クラスの draw_triangle インターフェイス](jp_graphics_draw_triangle.md)",  # noqa
+    ##################################################
     "## x property interface example": "## x属性のインターフェイス例",
     ##################################################
     "The `x` property updates or gets the instance\'s x-coordinate:": "`x`属性ではX座標の値の更新もしくは取得を行えます:",  # noqa

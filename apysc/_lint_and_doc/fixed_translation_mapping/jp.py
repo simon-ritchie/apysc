@@ -3394,5 +3394,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - Created triangle graphics instance.",
             val="  - 生成された三角形のグラフィックスのインスタンス。",
         ),
+        Mapping(
+            key="Graphics draw_triangle interface",
+            val="Graphics クラスの draw_triangle インターフェイス",
+        ),
     ]
 )

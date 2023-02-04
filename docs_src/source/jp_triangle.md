@@ -40,6 +40,14 @@ ap.save_overall_html(dest_dir_path="triangle_basic_usage/")
 
 <iframe src="static/triangle_basic_usage/index.html" width="150" height="150"></iframe>
 
+## draw_triangle インターフェイスの特記事項
+
+`draw_triangle`インターフェイスを使うことでも三角形のインスタンスを生成することができます。
+
+詳細については以下をご確認ください:
+
+- [Graphics クラスの draw_triangle インターフェイス](jp_graphics_draw_triangle.md)
+
 ## x属性のインターフェイス例
 
 `x`属性ではX座標の値の更新もしくは取得を行えます:

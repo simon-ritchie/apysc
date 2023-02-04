@@ -38,6 +38,14 @@ ap.save_overall_html(dest_dir_path="triangle_basic_usage/")
 
 <iframe src="static/triangle_basic_usage/index.html" width="150" height="150"></iframe>
 
+## Note of the draw_triangle interface
+
+you can also create a triangle instance with the `draw_triangle` interface.
+
+For more details, please see the following:
+
+- [Graphics draw_triangle interface](graphics_draw_triangle.md)
+
 ## x property interface example
 
 The `x` property updates or gets the instance's x-coordinate:

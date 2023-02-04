@@ -155,3 +155,9 @@ Int(30)
 >>> triangle.fill_color
 String('#00aaff')
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Triangle クラス](https://simon-ritchie.github.io/apysc/jp/jp_triangle.html)

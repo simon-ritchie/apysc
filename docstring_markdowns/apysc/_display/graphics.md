@@ -736,6 +736,13 @@ Int(30)
 String('#00aaff')
 ```
 
+<hr>
+
+**[References]**
+
+- [Triangle class](https://simon-ritchie.github.io/apysc/en/triangle.html)
+- [Graphics draw_triangle interface](https://simon-ritchie.github.io/apysc/en/graphics_draw_triangle.html)
+
 ### `line_to` method docstring
 
 Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>

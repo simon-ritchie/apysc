@@ -150,3 +150,9 @@ Int(30)
 >>> triangle.fill_color
 String('#00aaff')
 ```
+
+<hr>
+
+**[References]**
+
+- [Triangle class](https://simon-ritchie.github.io/apysc/en/triangle.html)

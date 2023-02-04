@@ -1188,6 +1188,13 @@ class Graphics(
         triangle : Triangle
             Created triangle graphics instance.
 
+        References
+        ----------
+        - Triangle class
+            - https://simon-ritchie.github.io/apysc/en/triangle.html
+        - Graphics draw_triangle interface
+            - https://simon-ritchie.github.io/apysc/en/graphics_draw_triangle.html
+
         Examples
         --------
         >>> import apysc as ap

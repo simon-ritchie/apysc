@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Graphics draw_round_rect interface" href="graphics_draw_round_rect.html" />
-    <link rel="prev" title="Graphics line_style interface" href="graphics_line_style.html" /> 
+    <link rel="prev" title="Graphics draw_triangle interface" href="graphics_draw_triangle.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -35,7 +35,7 @@
           <a href="graphics_draw_round_rect.html" title="Graphics draw_round_rect interface"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="graphics_line_style.html" title="Graphics line_style interface"
+          <a href="graphics_draw_triangle.html" title="Graphics draw_triangle interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Graphics draw_rect interface</a></li> 
@@ -56,7 +56,7 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface has <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code> arguments. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are rectangle coordinates settings, and <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> will determine rectangle size.</p>
+<p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface has <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code> arguments. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are rectangle coordinates settings, and <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> determine rectangle size.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -72,7 +72,7 @@
 </div>
 <p>The previous script draws horizontal rectangle graphics.</p>
 <iframe src="static/graphics_draw_rect_basic_usage/index.html" width="200" height="150"></iframe>
-<p>Notes: <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> call (fill color setting) is necessary before <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface call. If you skip it, it displays nothing on stage.</p>
+<p>Notes: <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> call (fill color setting) is necessary before a <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface call. If you skip it, it displays nothing on stage.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -89,7 +89,7 @@
 </section>
 <section id="rectangle-instance">
 <h2>Rectangle instance<a class="headerlink" href="#rectangle-instance" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface will return <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> instance. You can update each setting or bind events.</p>
+<p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface will return a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> instance. You can update each setting or bind events.</p>
 <p>For instance, the following script sets the mouse event to <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and updates the x position in the handler (<code class="docutils literal notranslate"><span class="pre">on_click</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -213,8 +213,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_line_style.html"
-                        title="previous chapter">Graphics line_style interface</a></p>
+  <p class="topless"><a href="graphics_draw_triangle.html"
+                        title="previous chapter">Graphics draw_triangle interface</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="graphics_draw_round_rect.html"
                         title="next chapter">Graphics draw_round_rect interface</a></p>
@@ -242,7 +242,7 @@
           <a href="graphics_draw_round_rect.html" title="Graphics draw_round_rect interface"
              >next</a> |</li>
         <li class="right" >
-          <a href="graphics_line_style.html" title="Graphics line_style interface"
+          <a href="graphics_draw_triangle.html" title="Graphics draw_triangle interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Graphics draw_rect interface</a></li> 

@@ -144,6 +144,7 @@ draw_interfaces_abstract
 graphics
 graphics_begin_fill
 graphics_line_style
+graphics_draw_triangle
 graphics_draw_rect
 graphics_draw_round_rect
 graphics_draw_circle

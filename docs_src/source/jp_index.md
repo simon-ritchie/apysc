@@ -147,6 +147,7 @@ jp_draw_interfaces_abstract
 jp_graphics
 jp_graphics_begin_fill
 jp_graphics_line_style
+jp_graphics_draw_triangle
 jp_graphics_draw_rect
 jp_graphics_draw_round_rect
 jp_graphics_draw_circle

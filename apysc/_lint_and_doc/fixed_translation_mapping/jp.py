@@ -3378,5 +3378,21 @@ MAPPINGS: Mappings = Mappings(
             key="Delete a current line dash-dot (1-dot chain) setting.",
             val="現在の線の一点鎖線の設定を削除します。",
         ),
+        Mapping(
+            key="## draw_triangle API",
+            val="## draw_triangle のAPI",
+        ),
+        Mapping(
+            key="## draw_triangle API",
+            val="## draw_triangle のAPI",
+        ),
+        Mapping(
+            key="Draw a triangle vector graphic.<hr>",
+            val="三角形のベクターグラフィックスを描画します。<hr>",
+        ),
+        Mapping(
+            key="  - Created triangle graphics instance.",
+            val="  - 生成された三角形のグラフィックスのインスタンス。",
+        ),
     ]
 )

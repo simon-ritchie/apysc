@@ -8,7 +8,7 @@ This page explains the `Graphics` class `draw_round_rect` method interface.
 
 ## Basic usage
 
-`draw_round_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates settings, and `width` and `height` will determine rectangle size.
+`draw_round_rect` interface has `x`, `y`, `width`, and `height` arguments. `x` and `y` are rectangle coordinates settings, and `width` and `height` determine rectangle size.
 
 This interface also has `ellipse_width` and `ellipse_height` arguments to set the round size to the rectangle corners.
 
@@ -46,9 +46,9 @@ ap.save_overall_html(dest_dir_path="graphics_draw_round_rect_basic_usage/")
 
 ## Return value
 
-`draw_round_rect` interface will return the `Rectangle` instance, same as the `draw_rect` interface.
+`draw_round_rect` interface will return the `Rectangle` instance, the same as the `draw_rect` interface.
 
-The `Rectangle` instance has the `ellipse_width` attribute and `ellipse_height` to change the rectangle round size.
+The `Rectangle` instance has the `ellipse_width` attribute and `ellipse_height` to change the rectangle's round size.
 
 ```py
 # runnable

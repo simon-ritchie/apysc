@@ -171,7 +171,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `dash_dot_setting`: LineDashDotSetting or None, default None": "- `dash_dot_setting`: LineDashDotSetting or None, default None",  # noqa
     ##################################################
-    "  - Dash dot (1-dot chain) setting. If this is specified, it makes a line 1-dot chained.": "  - 一点鎖線のスタイル設定。もしこの引数が指定された場合、線の一点鎖線になります。",  # noqa
+    "  - Dash-dot (1-dot chain) setting. If this is specified, it makes a line 1-dot chained.": "  - 一点鎖線のスタイル設定。もしこの引数が指定された場合、線の一点鎖線になります。",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

@@ -31,12 +31,12 @@ class LineDashDotSettingMixIn(VariableNameMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
         """
-        Get current dash dot (1-dot chain) setting.
+        Get a current dash-dot (1-dot chain) setting.
 
         Returns
         -------
         line_dash_dot_setting : LineDashDotSetting or None
-            Dash dot (1-dot chain) setting.
+            Dash-dot (1-dot chain) setting.
 
         References
         ----------

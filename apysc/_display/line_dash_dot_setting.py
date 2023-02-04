@@ -1,4 +1,4 @@
-"""Dash dot (1-dot chain) setting for a line.
+"""Dash-dot (1-dot chain) setting for a line.
 """
 
 from typing import Union
@@ -23,7 +23,7 @@ class LineDashDotSetting(
     AttrToApyscValFromBuiltinMixIn,
 ):
     """
-    Dash dot (1-dot chain) setting for a line.
+    Dash-dot (1-dot chain) setting for a line.
 
     References
     ----------
@@ -70,7 +70,7 @@ class LineDashDotSetting(
         variable_name_suffix: str = ""
     ) -> None:
         """
-        Dash dot (1-dot chain) setting for a line.
+        Dash-dot (1-dot chain) setting for a line.
 
         Parameters
         ----------

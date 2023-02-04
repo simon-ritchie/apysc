@@ -30,8 +30,55 @@ line.line_dash_dot_setting = ap.LineDashDotSetting(
 ap.save_overall_html(dest_dir_path="./graphics_base_line_dash_dot_setting_basic_usage/")
 ```
 
-<iframe src="static/graphics_base_line_dash_dot_setting_basic_usage/index.html" width="250" height=100></iframe>
+<iframe src="static/graphics_base_line_dash_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
 
+
+## Delete setting
+
+The `delete_line_dash_dot_setting` interface deletes this line setting.
+
+In the following example, if you click the rectangle, the handler deletes the line setting:
+
+```py
+# runnable
+import apysc as ap
+
+
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler for the click event.
+
+    Parameters
+    ----------
+    e : ap.MouseEvent[ap.Rectangle]
+        Event instance.
+    options : dict
+        Optional argument dictionary.
+    """
+    rectangle: ap.Rectangle = e.this
+    rectangle.delete_line_dash_dot_setting()
+
+
+ap.Stage(
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color="#666",
+    line_color="#fff",
+    line_thickness=2,
+    line_dash_dot_setting=ap.LineDashDotSetting(dot_size=2, dash_size=4, space_size=2),
+)
+rectangle.click(handler=on_click)
+ap.save_overall_html(
+    dest_dir_path="./graphics_base_line_dash_dot_setting_delete_setting/"
+)
+```
+
+<iframe src="static/graphics_base_line_dash_dot_setting_delete_setting/index.html" width="150" height="150"></iframe>
 
 ## line_dash_dot_setting API
 
@@ -41,12 +88,12 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_dash_dot_setting_basic_
 
 **[Interface summary]**
 
-Get current dash dot (1-dot chain) setting.<hr>
+Get a current dash-dot (1-dot chain) setting.<hr>
 
 **[Returns]**
 
 - `line_dash_dot_setting`: LineDashDotSetting or None
-  - Dash dot (1-dot chain) setting.
+  - Dash-dot (1-dot chain) setting.
 
 <hr>
 
@@ -72,3 +119,15 @@ Int(5)
 >>> line.line_dash_dot_setting.space_size
 Int(3)
 ```
+
+## delete_line_dash_dot_setting API
+
+<!-- Docstring: apysc._display.line_dash_dot_setting_mixin.LineDashDotSettingMixIn.delete_line_dash_dot_setting -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `delete_line_dash_dot_setting(self) -> None`<hr>
+
+**[Interface summary]**
+
+Delete a current line dash-dot (1-dot chain) setting.

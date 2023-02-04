@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Dash dot (1-dot chain) setting for a line.
+Dash-dot (1-dot chain) setting for a line.
 
 ## `LineDashDotSetting` class docstring
 
-Dash dot (1-dot chain) setting for a line.<hr>
+Dash-dot (1-dot chain) setting for a line.<hr>
 
 **[Examples]**
 
@@ -39,7 +39,7 @@ Int(3)
 
 ### `__init__` method docstring
 
-Dash dot (1-dot chain) setting for a line.<hr>
+Dash-dot (1-dot chain) setting for a line.<hr>
 
 **[Parameters]**
 

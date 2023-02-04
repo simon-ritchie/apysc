@@ -32,9 +32,56 @@ line.line_dash_dot_setting = ap.LineDashDotSetting(
 ap.save_overall_html(dest_dir_path="./graphics_base_line_dash_dot_setting_basic_usage/")
 ```
 
-<iframe src="static/graphics_base_line_dash_dot_setting_basic_usage/index.html" width="250" height=100></iframe>
+<iframe src="static/graphics_base_line_dash_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>
 
-## line_dash_dot_setting API
+## 設定の削除
+
+`delete_line_dash_dot_setting`インターフェイスではこの線の設定を削除します。
+
+以下の例では四角をクリックするとハンドラ内の処理で線の設定を削除しています:
+
+```py
+# runnable
+import apysc as ap
+
+
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler for the click event.
+
+    Parameters
+    ----------
+    e : ap.MouseEvent[ap.Rectangle]
+        Event instance.
+    options : dict
+        Optional argument dictionary.
+    """
+    rectangle: ap.Rectangle = e.this
+    rectangle.delete_line_dash_dot_setting()
+
+
+ap.Stage(
+    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color="#666",
+    line_color="#fff",
+    line_thickness=2,
+    line_dash_dot_setting=ap.LineDashDotSetting(dot_size=2, dash_size=4, space_size=2),
+)
+rectangle.click(handler=on_click)
+ap.save_overall_html(
+    dest_dir_path="./graphics_base_line_dash_dot_setting_delete_setting/"
+)
+```
+
+<iframe src="static/graphics_base_line_dash_dot_setting_delete_setting/index.html" width="150" height="150"></iframe>
+
+## line_dash_dot_setting のAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
@@ -71,3 +118,13 @@ Int(5)
 >>> line.line_dash_dot_setting.space_size
 Int(3)
 ```
+
+## delete_line_dash_dot_setting のAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `delete_line_dash_dot_setting(self) -> None`<hr>
+
+**[インターフェイス概要]**
+
+現在の線の一点鎖線の設定を削除します。

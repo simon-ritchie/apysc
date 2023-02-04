@@ -910,11 +910,11 @@ MAPPINGS: Mappings = Mappings(
             val="  - '#00aaff'などの16進数の線の色。もし設定されていない場合はこの空文字となります。",
         ),
         Mapping(
-            key="Get current dash dot (1-dot chain) setting.<hr>",
+            key="Get a current dash-dot (1-dot chain) setting.<hr>",
             val="現在の一点鎖線のスタイル設定を取得します。<hr>",
         ),
-        Mapping(key="## line_dash_dot_setting API", val="## line_dash_dot_setting API"),
-        Mapping(key="  - Dash dot (1-dot chain) setting.", val="  - 一点鎖線の設定。"),
+        Mapping(key="## line_dash_dot_setting API", val="## line_dash_dot_setting のAPI"),
+        Mapping(key="  - Dash-dot (1-dot chain) setting.", val="  - 一点鎖線の設定。"),
         Mapping(
             key="## line_dash_setting property API", val="## line_dash_setting 属性のAPI"
         ),
@@ -1045,7 +1045,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - 丸ドットの設定。もしこの引数が指定された場合、線は丸ドットになります。特記事項: ごの設定は内部でcapの設定を使用しているため、cap（線の端のスタイル設定）と線幅の設定を上書きします。また、cap設定を使用している都合、線の長さも長くなります。move_toやline_toなどのインターフェイスを使った通常の線の長さと合わせたい場合には丸の半分のサイズを線の開始位置のX座標へ加算し、さらに丸の半分のサイズを線の終了位置のX座標から減算してください（Y座標も同様です）。例: `this.move_to(x + round_size / 2, y)`、`this.line_to(x - round_size / 2, y)`",
         ),
         Mapping(
-            key="  - Dash dot (1-dot chain) setting. If this is specified, it makes a line 1-dot chained.",
+            key="  - Dash-dot (1-dot chain) setting. If this is specified, it makes a line 1-dot chained.",
             val="  - 一点鎖線のスタイル設定。もしこの引数が指定された場合、線の一点鎖線になります。",
         ),
         Mapping(
@@ -3367,6 +3367,14 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="Delete a current line-round dot setting.",
             val="現在の線の丸ドット設定を削除します。",
+        ),
+        Mapping(
+            key="## delete_line_dash_dot_setting API",
+            val="## delete_line_dash_dot_setting のAPI",
+        ),
+        Mapping(
+            key="Delete a current line dash-dot (1-dot chain) setting.",
+            val="現在の線の一点鎖線の設定を削除します。",
         ),
     ]
 )

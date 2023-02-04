@@ -108,7 +108,7 @@ class LineStyleMixIn(
             `this.move_to(x + round_size / 2, y)`,
             `this.line_to(x - round_size / 2, y)`
         dash_dot_setting : LineDashDotSetting or None, default None
-            Dash dot (1-dot chain) setting. If this is specified,
+            Dash-dot (1-dot chain) setting. If this is specified,
             it makes a line 1-dot chained.
 
         References

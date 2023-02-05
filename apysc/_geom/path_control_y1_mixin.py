@@ -7,7 +7,7 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
-from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -23,7 +23,7 @@ class PathControlY1MixIn(
     VariableNameSuffixMixIn,
 ):
 
-    _control_y1: Int
+    _control_y1: Number
 
     @final
     def _initialize_control_y1_if_not_initialized(self) -> None:
@@ -36,7 +36,7 @@ class PathControlY1MixIn(
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="control_y1"
         )
-        self._control_y1 = Int(
+        self._control_y1 = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -59,13 +59,13 @@ class PathControlY1MixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def control_y1(self) -> Int:
+    def control_y1(self) -> Number:
         """
         Get a first y-coordinate of the control point.
 
         Returns
         -------
-        control_y1 : Int
+        control_y1 : Number
             First y-coordinate of the control point.
 
         Examples
@@ -79,9 +79,9 @@ class PathControlY1MixIn(
         ...     dest_x=50,
         ...     dest_y=50,
         ... )
-        >>> bezier_3d.control_y1 = ap.Int(25)
+        >>> bezier_3d.control_y1 = ap.Number(25)
         >>> bezier_3d.control_y1
-        Int(25)
+        Number(25.0)
         """
         self._initialize_control_y1_if_not_initialized()
         return self._control_y1._copy()
@@ -89,13 +89,13 @@ class PathControlY1MixIn(
     @control_y1.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def control_y1(self, value: Int) -> None:
+    def control_y1(self, value: Number) -> None:
         """
         Set a first y-coordinate of the control point.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             First y-coordinate of the control point.
         """
         self._initialize_control_y1_if_not_initialized()
@@ -103,7 +103,7 @@ class PathControlY1MixIn(
 
         self._append_control_y1_linking_setting()
 
-    _control_y1_snapshots: Dict[str, int]
+    _control_y1_snapshots: Dict[str, float]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -117,7 +117,7 @@ class PathControlY1MixIn(
         self._initialize_control_y1_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_control_y1_snapshots",
-            value=int(self._control_y1._value),
+            value=float(self._control_y1._value),
             snapshot_name=snapshot_name,
         )
 

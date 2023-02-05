@@ -12,6 +12,7 @@ from apysc._geom.path_y_mixin import PathYMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
@@ -44,13 +45,13 @@ class PathVertical(PathDataBase, PathYMixIn):
     """
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=True)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        y: Union[int, Int],
+        y: Union[float, Number],
         *,
         relative: Union[bool, Boolean] = False,
         variable_name_suffix: str = "",
@@ -60,7 +61,7 @@ class PathVertical(PathDataBase, PathYMixIn):
 
         Parameters
         ----------
-        y : Int or int
+        y : float or Number
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
@@ -97,7 +98,9 @@ class PathVertical(PathDataBase, PathYMixIn):
         super(PathVertical, self).__init__(
             path_label=PathLabel.VERTICAL, relative=relative
         )
-        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
+        self.y = self._get_copied_number_from_builtin_val(
+            float_or_num=y, attr_identifier="y"
+        )
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -119,18 +122,18 @@ class PathVertical(PathDataBase, PathYMixIn):
         return svg_str
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(
-        self, y: Union[int, Int], *, relative: Union[bool, Boolean] = False
+        self, y: Union[float, Number], *, relative: Union[bool, Boolean] = False
     ) -> None:
         """
         Update the path's data settings.
 
         Parameters
         ----------
-        y : Int or int
+        y : float or Number
             Y-coordinate of the destination point.
         relative : bool or Boolean
             A boolean value indicates whether the path

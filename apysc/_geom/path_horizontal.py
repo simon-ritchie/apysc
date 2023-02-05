@@ -11,7 +11,7 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_x_mixin import PathXMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
-from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
@@ -44,13 +44,13 @@ class PathHorizontal(PathDataBase, PathXMixIn):
     """
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        x: Union[int, Int],
+        x: Union[float, Number],
         *,
         relative: Union[bool, Boolean] = False,
         variable_name_suffix: str = "",
@@ -60,7 +60,7 @@ class PathHorizontal(PathDataBase, PathXMixIn):
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the destination point.
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
@@ -97,7 +97,9 @@ class PathHorizontal(PathDataBase, PathXMixIn):
         super(PathHorizontal, self).__init__(
             path_label=PathLabel.HORIZONTAL, relative=relative
         )
-        self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
+        self.x = self._get_copied_number_from_builtin_val(
+            float_or_num=x, attr_identifier="x"
+        )
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -119,18 +121,18 @@ class PathHorizontal(PathDataBase, PathXMixIn):
         return svg_str
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.is_boolean(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(
-        self, x: Union[int, Int], *, relative: Union[bool, Boolean] = False
+        self, x: Union[float, Number], *, relative: Union[bool, Boolean] = False
     ) -> None:
         """
         Update the path's data settings.
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the destination point.
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
@@ -142,9 +144,11 @@ class PathHorizontal(PathDataBase, PathXMixIn):
         >>> path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50)
         >>> path_horizontal.update_path_data(x=100)
         >>> path_horizontal.x
-        Int(100)
+        Number(100.0)
         """
-        self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
+        self.x = self._get_copied_number_from_builtin_val(
+            float_or_num=x, attr_identifier="x"
+        )
         self.relative = self._get_copied_boolean_from_builtin_val(
             bool_val=relative, attr_identifier="relative"
         )

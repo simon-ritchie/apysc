@@ -8,6 +8,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -23,7 +24,7 @@ class PathXMixIn(
     VariableNameSuffixMixIn,
 ):
 
-    _x: Int
+    _x: Number
 
     @final
     def _initialize_x_if_not_initialized(self) -> None:
@@ -34,7 +35,7 @@ class PathXMixIn(
         if hasattr(self, "_x"):
             return
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-        self._x = Int(
+        self._x = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -53,7 +54,7 @@ class PathXMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def x(self) -> Int:
+    def x(self) -> Number:
         """
         Get an x-coordinate of the destination point.
 
@@ -66,9 +67,9 @@ class PathXMixIn(
         --------
         >>> import apysc as ap
         >>> line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=50)
-        >>> line_to.x = ap.Int(100)
+        >>> line_to.x = ap.Number(100)
         >>> line_to.x
-        Int(100)
+        Number(100.0)
         """
         self._initialize_x_if_not_initialized()
         return self._x._copy()
@@ -76,13 +77,13 @@ class PathXMixIn(
     @x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def x(self, value: Int) -> None:
+    def x(self, value: Number) -> None:
         """
         Set an x-coordinate of the destination point.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             X-coordinate of the destination point.
         """
         self._initialize_x_if_not_initialized()
@@ -90,7 +91,7 @@ class PathXMixIn(
 
         self._append_x_linking_setting()
 
-    _x_snapshots: Dict[str, int]
+    _x_snapshots: Dict[str, float]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -104,7 +105,7 @@ class PathXMixIn(
         self._initialize_x_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_x_snapshots",
-            value=int(self._x._value),
+            value=float(self._x._value),
             snapshot_name=snapshot_name,
         )
 

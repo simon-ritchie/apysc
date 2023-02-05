@@ -22,7 +22,7 @@ class TestPathHorizontal:
             },
             any_obj=path_horizontal,
         )
-        assert isinstance(path_horizontal._x, ap.Int)
+        assert isinstance(path_horizontal._x, ap.Number)
         assert path_horizontal._variable_name_suffix == "test_path_horizontal"
         assert path_horizontal._x._variable_name_suffix == "test_path_horizontal__x"
 

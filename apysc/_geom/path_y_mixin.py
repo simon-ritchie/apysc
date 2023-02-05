@@ -8,6 +8,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -23,7 +24,7 @@ class PathYMixIn(
     VariableNameSuffixMixIn,
 ):
 
-    _y: Int
+    _y: Number
 
     @final
     def _initialize_y_if_not_initialized(self) -> None:
@@ -34,7 +35,7 @@ class PathYMixIn(
         if hasattr(self, "_y"):
             return
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
-        self._y = Int(
+        self._y = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -53,22 +54,22 @@ class PathYMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def y(self) -> Int:
+    def y(self) -> Number:
         """
         Get a y-coordinate of the destination point.
 
         Returns
         -------
-        y : Int
+        y : Number
             A y-coordinate of the destination point.
 
         Examples
         --------
         >>> import apysc as ap
         >>> line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=50)
-        >>> line_to.y = ap.Int(100)
+        >>> line_to.y = ap.Number(100)
         >>> line_to.y
-        Int(100)
+        Number(100.0)
         """
         self._initialize_y_if_not_initialized()
         return self._y._copy()
@@ -76,13 +77,13 @@ class PathYMixIn(
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def y(self, value: Int) -> None:
+    def y(self, value: Number) -> None:
         """
         Set a y-coordinate of the destination point.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             Y-coordinate of the destination point.
         """
         self._initialize_y_if_not_initialized()
@@ -90,7 +91,7 @@ class PathYMixIn(
 
         self._append_y_linking_setting()
 
-    _y_snapshots: Dict[str, int]
+    _y_snapshots: Dict[str, float]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -104,7 +105,7 @@ class PathYMixIn(
         self._initialize_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_y_snapshots",
-            value=int(self._y._value),
+            value=float(self._y._value),
             snapshot_name=snapshot_name,
         )
 

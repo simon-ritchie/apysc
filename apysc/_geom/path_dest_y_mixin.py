@@ -8,6 +8,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -23,7 +24,7 @@ class PathDestYMixIn(
     VariableNameSuffixMixIn,
 ):
 
-    _dest_y: Int
+    _dest_y: Number
 
     @final
     def _initialize_dest_y_if_not_initialized(self) -> None:
@@ -34,7 +35,7 @@ class PathDestYMixIn(
         if hasattr(self, "_dest_y"):
             return
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="dest_y")
-        self._dest_y = Int(
+        self._dest_y = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -55,13 +56,13 @@ class PathDestYMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def dest_y(self) -> Int:
+    def dest_y(self) -> Number:
         """
         Get a y-coordinate of the destination point.
 
         Returns
         -------
-        dest_y : Int
+        dest_y : Number
             Y-coordinate of the destination point.
 
         Examples
@@ -70,9 +71,9 @@ class PathDestYMixIn(
         >>> bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
         ...     control_x=50, control_y=0, dest_x=100, dest_y=50
         ... )
-        >>> bezier_2d.dest_y = ap.Int(75)
+        >>> bezier_2d.dest_y = ap.Number(75)
         >>> bezier_2d.dest_y
-        Int(75)
+        Number(75.0)
         """
         self._initialize_dest_y_if_not_initialized()
         return self._dest_y._copy()
@@ -80,13 +81,13 @@ class PathDestYMixIn(
     @dest_y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def dest_y(self, value: Int) -> None:
+    def dest_y(self, value: Number) -> None:
         """
         Set a y-coordinate of the destination point.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             Y-coordinate of the destination point
         """
         self._initialize_dest_y_if_not_initialized()
@@ -94,7 +95,7 @@ class PathDestYMixIn(
 
         self._append_dest_y_linking_setting()
 
-    _dest_y_snapshots: Dict[str, int]
+    _dest_y_snapshots: Dict[str, float]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -108,7 +109,7 @@ class PathDestYMixIn(
         self._initialize_dest_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_dest_y_snapshots",
-            value=int(self._dest_y._value),
+            value=float(self._dest_y._value),
             snapshot_name=snapshot_name,
         )
 

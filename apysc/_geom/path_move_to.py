@@ -12,7 +12,7 @@ from apysc._geom.path_x_mixin import PathXMixIn
 from apysc._geom.path_y_mixin import PathYMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
-from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
@@ -45,15 +45,15 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
     """
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_boolean(arg_position_index=3)
     @arg_validation_decos.is_builtin_string(arg_position_index=4, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         *,
         relative: Union[bool, Boolean] = False,
         variable_name_suffix: str = "",
@@ -63,9 +63,9 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the destination point.
-        y : Int or int
+        y : float or Number
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
             A boolean value indicates whether the path coordinates
@@ -102,8 +102,12 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
         super(PathMoveTo, self).__init__(
             path_label=PathLabel.MOVE_TO, relative=relative
         )
-        self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
-        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
+        self.x = self._get_copied_number_from_builtin_val(
+            float_or_num=x, attr_identifier="x"
+        )
+        self.y = self._get_copied_number_from_builtin_val(
+            float_or_num=y, attr_identifier="y"
+        )
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -130,8 +134,8 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(
         self,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         *,
         relative: Union[bool, Boolean] = False,
     ) -> None:
@@ -140,9 +144,9 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the destination point.
-        y : Int or int
+        y : float or Number
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
@@ -154,13 +158,17 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
         >>> move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=50)
         >>> move_to.update_path_data(x=100, y=150)
         >>> move_to.x
-        Int(100)
+        Number(100.0)
 
         >>> move_to.y
-        Int(150)
+        Number(150.0)
         """
-        self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
-        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
+        self.x = self._get_copied_number_from_builtin_val(
+            float_or_num=x, attr_identifier="x"
+        )
+        self.y = self._get_copied_number_from_builtin_val(
+            float_or_num=y, attr_identifier="y"
+        )
         self.relative = self._get_copied_boolean_from_builtin_val(
             bool_val=relative, attr_identifier="relative"
         )

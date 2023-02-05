@@ -17,6 +17,7 @@ from apysc._geom.path_dest_y_mixin import PathDestYMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
@@ -69,23 +70,23 @@ class PathBezier3D(
     """
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
-    @arg_validation_decos.is_integer(arg_position_index=5)
-    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=5)
+    @arg_validation_decos.is_num(arg_position_index=6)
     @arg_validation_decos.is_boolean(arg_position_index=7)
     @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        control_x1: Union[int, Int],
-        control_y1: Union[int, Int],
-        control_x2: Union[int, Int],
-        control_y2: Union[int, Int],
-        dest_x: Union[int, Int],
-        dest_y: Union[int, Int],
+        control_x1: Union[float, Number],
+        control_y1: Union[float, Number],
+        control_x2: Union[float, Number],
+        control_y2: Union[float, Number],
+        dest_x: Union[float, Number],
+        dest_y: Union[float, Number],
         *,
         relative: Union[bool, Boolean] = False,
         variable_name_suffix: str = "",
@@ -95,17 +96,17 @@ class PathBezier3D(
 
         Parameters
         ----------
-        control_x1 : Int or int
+        control_x1 : float or Number
             X-coordinate of the bezier's first control point.
-        control_y1 : Int or int
+        control_y1 : float or Number
             Y-coordinate of the bezier's first control point.
-        control_x2 : Int or int
+        control_x2 : float or Number
             X-coordinate of the bezier's second control point.
-        control_y2 : Int or int
+        control_y2 : float or Number
             Y-coordinate of the bezier's second control point.
-        dest_x : Int or int
+        dest_x : float or Number
             X-coordinate of the destination point.
-        dest_y : Int or int
+        dest_y : float or Number
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
@@ -154,23 +155,23 @@ class PathBezier3D(
         super(PathBezier3D, self).__init__(
             path_label=PathLabel.BEZIER_3D, relative=relative
         )
-        self.control_x1 = self._get_copied_int_from_builtin_val(
-            integer=control_x1, attr_identifier="control_x1"
+        self.control_x1 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_x1, attr_identifier="control_x1"
         )
-        self.control_y1 = self._get_copied_int_from_builtin_val(
-            integer=control_y1, attr_identifier="control_y1"
+        self.control_y1 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_y1, attr_identifier="control_y1"
         )
-        self.control_x2 = self._get_copied_int_from_builtin_val(
-            integer=control_x2, attr_identifier="control_x2"
+        self.control_x2 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_x2, attr_identifier="control_x2"
         )
-        self.control_y2 = self._get_copied_int_from_builtin_val(
-            integer=control_y2, attr_identifier="control_y2"
+        self.control_y2 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_y2, attr_identifier="control_y2"
         )
-        self.dest_x = self._get_copied_int_from_builtin_val(
-            integer=dest_x, attr_identifier="dest_x"
+        self.dest_x = self._get_copied_number_from_builtin_val(
+            float_or_num=dest_x, attr_identifier="dest_x"
         )
-        self.dest_y = self._get_copied_int_from_builtin_val(
-            integer=dest_y, attr_identifier="dest_y"
+        self.dest_y = self._get_copied_number_from_builtin_val(
+            float_or_num=dest_y, attr_identifier="dest_y"
         )
 
     @final
@@ -205,22 +206,22 @@ class PathBezier3D(
         return svg_str
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
-    @arg_validation_decos.is_integer(arg_position_index=5)
-    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=5)
+    @arg_validation_decos.is_num(arg_position_index=6)
     @arg_validation_decos.is_boolean(arg_position_index=7)
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(
         self,
-        control_x1: Union[int, Int],
-        control_y1: Union[int, Int],
-        control_x2: Union[int, Int],
-        control_y2: Union[int, Int],
-        dest_x: Union[int, Int],
-        dest_y: Union[int, Int],
+        control_x1: Union[float, Number],
+        control_y1: Union[float, Number],
+        control_x2: Union[float, Number],
+        control_y2: Union[float, Number],
+        dest_x: Union[float, Number],
+        dest_y: Union[float, Number],
         *,
         relative: Union[bool, Boolean] = False,
     ) -> None:
@@ -229,17 +230,17 @@ class PathBezier3D(
 
         Parameters
         ----------
-        control_x1 : Int or int
+        control_x1 : float or Number
             X-coordinate of the bezier's first control point.
-        control_y1 : Int or int
+        control_y1 : float or Number
             Y-coordinate of the bezier's first control point.
-        control_x2 : Int or int
+        control_x2 : float or Number
             X-coordinate of the bezier's second control point.
-        control_y2 : Int or int
+        control_y2 : float or Number
             Y-coordinate of the bezier's second control point.
-        dest_x : Int or int
+        dest_x : float or Number
             X-coordinate of the destination point.
-        dest_y : Int or int
+        dest_y : float or Number
             Y-coordinate of the destination point.
         relative : bool or Boolean, default False
             A boolean value indicates whether the path
@@ -265,40 +266,40 @@ class PathBezier3D(
         ...     dest_y=150,
         ... )
         >>> bezier_3d_continual.control_x1
-        Int(100)
+        Number(100)
 
         >>> bezier_3d_continual.control_y1
-        Int(100)
+        Number(100)
 
         >>> bezier_3d_continual.control_x2
-        Int(150)
+        Number(150)
 
         >>> bezier_3d_continual.control_y2
-        Int(100)
+        Number(100)
 
         >>> bezier_3d_continual.dest_x
-        Int(150)
+        Number(150)
 
         >>> bezier_3d_continual.dest_y
-        Int(150)
+        Number(150)
         """
-        self.control_x1 = self._get_copied_int_from_builtin_val(
-            integer=control_x1, attr_identifier="control_x1"
+        self.control_x1 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_x1, attr_identifier="control_x1"
         )
-        self.control_y1 = self._get_copied_int_from_builtin_val(
-            integer=control_y1, attr_identifier="control_y1"
+        self.control_y1 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_y1, attr_identifier="control_y1"
         )
-        self.control_x2 = self._get_copied_int_from_builtin_val(
-            integer=control_x2, attr_identifier="control_x2"
+        self.control_x2 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_x2, attr_identifier="control_x2"
         )
-        self.control_y2 = self._get_copied_int_from_builtin_val(
-            integer=control_y2, attr_identifier="control_y2"
+        self.control_y2 = self._get_copied_number_from_builtin_val(
+            float_or_num=control_y2, attr_identifier="control_y2"
         )
-        self.dest_x = self._get_copied_int_from_builtin_val(
-            integer=dest_x, attr_identifier="dest_x"
+        self.dest_x = self._get_copied_number_from_builtin_val(
+            float_or_num=dest_x, attr_identifier="dest_x"
         )
-        self.dest_y = self._get_copied_int_from_builtin_val(
-            integer=dest_y, attr_identifier="dest_y"
+        self.dest_y = self._get_copied_number_from_builtin_val(
+            float_or_num=dest_y, attr_identifier="dest_y"
         )
         self.relative = self._get_copied_boolean_from_builtin_val(
             bool_val=relative, attr_identifier="relative"

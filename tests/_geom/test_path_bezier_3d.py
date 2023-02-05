@@ -34,12 +34,12 @@ class TestPathBezier3D:
             },
             any_obj=path_bezier_3d,
         )
-        assert isinstance(path_bezier_3d._control_x1, ap.Int)
-        assert isinstance(path_bezier_3d._control_y1, ap.Int)
-        assert isinstance(path_bezier_3d._control_x2, ap.Int)
-        assert isinstance(path_bezier_3d._control_y2, ap.Int)
-        assert isinstance(path_bezier_3d._dest_x, ap.Int)
-        assert isinstance(path_bezier_3d._dest_y, ap.Int)
+        assert isinstance(path_bezier_3d._control_x1, ap.Number)
+        assert isinstance(path_bezier_3d._control_y1, ap.Number)
+        assert isinstance(path_bezier_3d._control_x2, ap.Number)
+        assert isinstance(path_bezier_3d._control_y2, ap.Number)
+        assert isinstance(path_bezier_3d._dest_x, ap.Number)
+        assert isinstance(path_bezier_3d._dest_y, ap.Number)
         assert path_bezier_3d._variable_name_suffix == "test_path_bezier_3d"
         assert (
             path_bezier_3d._control_x1._variable_name_suffix

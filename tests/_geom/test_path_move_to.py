@@ -23,8 +23,8 @@ class TestPathMoveTo:
             },
             any_obj=path_move_to,
         )
-        assert isinstance(path_move_to._x, ap.Int)
-        assert isinstance(path_move_to._y, ap.Int)
+        assert isinstance(path_move_to._x, ap.Number)
+        assert isinstance(path_move_to._y, ap.Number)
         assert path_move_to._variable_name_suffix == "test_path_move_to"
         assert path_move_to._x._variable_name_suffix == "test_path_move_to__x"
         assert path_move_to._y._variable_name_suffix == "test_path_move_to__y"

@@ -65,7 +65,7 @@ class PathControlX2MixIn(
 
         Returns
         -------
-        control_x2 : Int
+        control_x2 : Number
             Second x-coordinate of the control point.
 
         Examples

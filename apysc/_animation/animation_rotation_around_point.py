@@ -12,6 +12,7 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 _Target = TypeVar("_Target", bound=VariableNameMixIn)
@@ -50,8 +51,8 @@ class AnimationRotationAroundPoint(AnimationBase[_Target], Generic[_Target]):
     >>> animation: ap.AnimationRotationAroundPoint
     >>> animation = rectangle.animation_rotation_around_point(
     ...     rotation_around_point=90,
-    ...     x=ap.Int(100),
-    ...     y=ap.Int(100),
+    ...     x=ap.Number(100),
+    ...     y=ap.Number(100),
     ...     duration=1500,
     ...     easing=ap.Easing.EASE_OUT_QUINT,
     ... )
@@ -59,8 +60,8 @@ class AnimationRotationAroundPoint(AnimationBase[_Target], Generic[_Target]):
     """
 
     _rotation_around_point: Int
-    _x: Int
-    _y: Int
+    _x: Number
+    _y: Number
     _before_rotation_around_point: Int
     _rotation_around_point_diff: Int
 
@@ -71,8 +72,8 @@ class AnimationRotationAroundPoint(AnimationBase[_Target], Generic[_Target]):
         *,
         target: _Target,
         rotation_around_point: Union[int, Int],
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR,
@@ -87,9 +88,9 @@ class AnimationRotationAroundPoint(AnimationBase[_Target], Generic[_Target]):
             (e.g., `Rectangle` instance).
         rotation_around_point : int or Int
             The final rotation around the given point of the animation.
-        x : int or Int
+        x : float or Number
             X-coordinate.
-        y : int or Int
+        y : float or Number
             Y-coordinate.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
@@ -112,8 +113,12 @@ class AnimationRotationAroundPoint(AnimationBase[_Target], Generic[_Target]):
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ANIMATION_ROTATION_AROUND_POINT
         )
-        self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
-        self._y = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=y)
+        self._x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=x
+        )
+        self._y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=y
+        )
         target_: VariableNameMixIn = target
         if isinstance(target_, RotationAroundPointMixIn):
             target_._initialize_rotation_around_point_if_not_initialized()

@@ -23,9 +23,9 @@ class TestAnimationMove:
             easing=ap.Easing.EASE_OUT_QUINT,
         )
         assert animation_move._x == 100
-        assert isinstance(animation_move._x, ap.Int)
+        assert isinstance(animation_move._x, ap.Number)
         assert animation_move._y == 200
-        assert isinstance(animation_move._y, ap.Int)
+        assert isinstance(animation_move._y, ap.Number)
 
     @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:

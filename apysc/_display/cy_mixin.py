@@ -10,7 +10,7 @@ from apysc._animation.animation_cy_mixin import AnimationCyMixIn
 from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
-from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -34,7 +34,7 @@ class CyMixIn(
         if hasattr(self, "_y"):
             return
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
-        self._y = Int(
+        self._y = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -53,13 +53,13 @@ class CyMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def y(self) -> Int:
+    def y(self) -> Number:
         """
         Get a center y-coordinate.
 
         Returns
         -------
-        y : Int
+        y : Number
             Center y-coordinate.
 
         References
@@ -74,27 +74,27 @@ class CyMixIn(
         >>> sprite: ap.Sprite = ap.Sprite()
         >>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
-        >>> circle.y = ap.Int(120)
+        >>> circle.y = ap.Number(120)
         >>> circle.y
-        Int(120)
+        Number(120.0)
         """
         import apysc as ap
         from apysc._type import value_util
 
         self._initialize_y_if_not_initialized()
-        y: ap.Int = value_util.get_copy(value=self._y)
+        y: ap.Number = value_util.get_copy(value=self._y)
         return y
 
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def y(self, value: Int) -> None:
+    def y(self, value: Number) -> None:
         """
         Update a center y-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             Center y-coordinate value.
 
         References
@@ -123,23 +123,23 @@ class CyMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    def _update_y_and_skip_appending_exp(self, *, y: Union[int, Int]) -> None:
+    def _update_y_and_skip_appending_exp(self, *, y: Union[float, Number]) -> None:
         """
         Update y-coordinate and skip appending an expression.
 
         Parameters
         ----------
-        y : int or Int
+        y : float or Number
             Y-coordinate value.
         """
-        if isinstance(y, Int):
-            y_: Int = y
+        if isinstance(y, Number):
+            y_: Number = y
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
-            y_ = Int(y, variable_name_suffix=suffix)
+            y_ = Number(y, variable_name_suffix=suffix)
         self._y = y_
 
-    _y_snapshots: Dict[str, int]
+    _y_snapshots: Dict[str, float]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -153,7 +153,7 @@ class CyMixIn(
         self._initialize_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_y_snapshots",
-            value=int(self._y._value),
+            value=float(self._y._value),
             snapshot_name=snapshot_name,
         )
 

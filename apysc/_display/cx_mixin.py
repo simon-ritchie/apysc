@@ -10,7 +10,7 @@ from apysc._animation.animation_cx_mixin import AnimationCxMixIn
 from apysc._display.x_interface import XInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
-from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -34,7 +34,7 @@ class CxMixIn(
         if hasattr(self, "_x"):
             return
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-        self._x = Int(
+        self._x = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -53,13 +53,13 @@ class CxMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def x(self) -> Int:
+    def x(self) -> Number:
         """
         Get a center x-coordinate.
 
         Returns
         -------
-        x : Int
+        x : Number
             Center x-coordinate.
 
         References
@@ -74,27 +74,27 @@ class CxMixIn(
         >>> sprite: ap.Sprite = ap.Sprite()
         >>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
-        >>> circle.x = ap.Int(120)
+        >>> circle.x = ap.Number(120)
         >>> circle.x
-        Int(120)
+        Number(120.0)
         """
         import apysc as ap
         from apysc._type import value_util
 
         self._initialize_x_if_not_initialized()
-        x: ap.Int = value_util.get_copy(value=self._x)
+        x: ap.Number = value_util.get_copy(value=self._x)
         return x
 
     @x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def x(self, value: Int) -> None:
+    def x(self, value: Number) -> None:
         """
         Update a center x-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             Center x-coordinate value.
 
         References
@@ -122,23 +122,23 @@ class CxMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    def _update_x_and_skip_appending_exp(self, *, x: Union[int, Int]) -> None:
+    def _update_x_and_skip_appending_exp(self, *, x: Union[float, Number]) -> None:
         """
         Update x-coordinate and skip appending an expression.
 
         Parameters
         ----------
-        x : int or Int
+        x : float or Number
             X-coordinate value.
         """
-        if isinstance(x, Int):
-            x_: Int = x
+        if isinstance(x, Number):
+            x_: Number = x
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-            x_ = Int(x, variable_name_suffix=suffix)
+            x_ = Number(x, variable_name_suffix=suffix)
         self._x = x_
 
-    _x_snapshots: Dict[str, int]
+    _x_snapshots: Dict[str, float]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -152,7 +152,7 @@ class CxMixIn(
         self._initialize_x_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_x_snapshots",
-            value=int(self._x._value),
+            value=float(self._x._value),
             snapshot_name=snapshot_name,
         )
 

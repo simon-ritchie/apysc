@@ -11,6 +11,7 @@ from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 _Target = TypeVar("_Target", bound=VariableNameMixIn)
@@ -54,7 +55,7 @@ class AnimationX(AnimationBase[_Target], Generic[_Target]):
     >>> _ = animation.start()
     """
 
-    _x: Int
+    _x: Number
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -62,7 +63,7 @@ class AnimationX(AnimationBase[_Target], Generic[_Target]):
         self,
         *,
         target: _Target,
-        x: Union[int, Int],
+        x: Union[float, Number],
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR,
@@ -75,7 +76,7 @@ class AnimationX(AnimationBase[_Target], Generic[_Target]):
         target : VariableNameMixIn
             A target instance of the animation target
             (e.g., `DisplayObject` instance).
-        x : int or Int
+        x : float or Number
             Destination of the x-coordinate.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
@@ -91,7 +92,9 @@ class AnimationX(AnimationBase[_Target], Generic[_Target]):
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ANIMATION_X
         )
-        self._x = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=x)
+        self._y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=x
+        )
         self._set_basic_animation_settings(
             target=target, duration=duration, delay=delay, easing=easing
         )

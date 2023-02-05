@@ -12,6 +12,7 @@ from apysc._animation.animation_rotation_around_point_mixin import (
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -45,18 +46,18 @@ class RotationAroundPointMixIn(
         )
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def get_rotation_around_point(self, *, x: Int, y: Int) -> Int:
+    def get_rotation_around_point(self, *, x: Number, y: Number) -> Int:
         """
         Get a rotation value around the given coordinates.
 
         Parameters
         ----------
-        x : Int
+        x : Number
             X-coordinate.
-        y : Int
+        y : Number
             Y-coordinate.
 
         Returns
@@ -78,8 +79,8 @@ class RotationAroundPointMixIn(
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
-        >>> x: ap.Int = ap.Int(100)
-        >>> y: ap.Int = ap.Int(100)
+        >>> x: ap.Number = ap.Number(100)
+        >>> y: ap.Number = ap.Number(100)
         >>> rectangle.set_rotation_around_point(rotation=ap.Int(45), x=x, y=y)
         >>> rectangle.get_rotation_around_point(x=x, y=y)
         Int(45)
@@ -92,7 +93,7 @@ class RotationAroundPointMixIn(
         default_val: ap.Int = ap.Int(0)
         key_exp_str: ExpressionString = (
             rotation_interface_helper.get_coordinates_key_for_expression(
-                x=int(x._value), y=int(y._value)
+                x=float(x._value), y=float(y._value)
             )
         )
         rotation: ap.Int = self._rotation_around_point.get(
@@ -102,10 +103,10 @@ class RotationAroundPointMixIn(
 
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
     @add_debug_info_setting(module_name=__name__)
-    def set_rotation_around_point(self, *, rotation: Int, x: Int, y: Int) -> None:
+    def set_rotation_around_point(self, *, rotation: Int, x: Number, y: Number) -> None:
         """
         Update a rotation value around the given coordinates.
 
@@ -113,9 +114,9 @@ class RotationAroundPointMixIn(
         ----------
         rotation : Int
             Rotation value to set.
-        x : Int
+        x : Number
             X-coordinate.
-        y : Int
+        y : Number
             Y-coordinate.
 
         References
@@ -140,7 +141,7 @@ class RotationAroundPointMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_rotation_around_point_update_expression(
-        self, *, rotation: Int, x: Int, y: Int
+        self, *, rotation: Int, x: Number, y: Number
     ) -> None:
         """
         Append a rotation value around the given coordinates
@@ -150,9 +151,9 @@ class RotationAroundPointMixIn(
         ----------
         rotation : Int
             Rotation value to set.
-        x : Int
+        x : Number
             X-coordinate.
-        y : Int
+        y : Number
             Y-coordinate.
         """
         import apysc as ap
@@ -164,7 +165,7 @@ class RotationAroundPointMixIn(
 
     @final
     def _get_rotation_around_point_updating_expression(
-        self, *, rotation: Int, x: Int, y: Int
+        self, *, rotation: Int, x: Number, y: Number
     ) -> str:
         """
         Get a rotation value around the given coordinates'
@@ -174,9 +175,9 @@ class RotationAroundPointMixIn(
         ----------
         rotation : Int
             Rotation value to set.
-        x : Int
+        x : Number
             X-coordinate.
-        y : Int
+        y : Number
             Y-coordinate.
 
         Returns

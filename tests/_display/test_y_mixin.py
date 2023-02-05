@@ -10,10 +10,10 @@ class TestYMixIn:
     def test_y(self) -> None:
         y_mixin: YMixIn = YMixIn()
         y_mixin.variable_name = "test_y_mixin"
-        y_mixin.y = ap.Int(200)
+        y_mixin.y = ap.Number(200)
         assert y_mixin.y == 200
 
-        y: ap.Int = y_mixin.y
+        y: ap.Number = y_mixin.y
         assert y == y_mixin._y
         assert y.variable_name != y_mixin.y.variable_name
 
@@ -22,7 +22,7 @@ class TestYMixIn:
         y_mixin: YMixIn = YMixIn()
         expression_data_util.empty_expression()
         y_mixin.variable_name = "test_y_mixin"
-        y_mixin.y = ap.Int(300)
+        y_mixin.y = ap.Number(300)
         expression: str = expression_data_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(value=y_mixin._y)
         expected: str = f"test_y_mixin.y({value_str});"
@@ -35,7 +35,7 @@ class TestYMixIn:
         y_mixin._initialize_y_if_not_initialized()
         assert y_mixin.y == 0
 
-        y_mixin.y = ap.Int(100)
+        y_mixin.y = ap.Number(100)
         y_mixin._initialize_y_if_not_initialized()
         assert y_mixin.y == 100
 
@@ -43,12 +43,12 @@ class TestYMixIn:
     def test__make_snapshot(self) -> None:
         y_mixin: YMixIn = YMixIn()
         y_mixin.variable_name = "test_y_mixin"
-        y_mixin.y = ap.Int(100)
+        y_mixin.y = ap.Number(100)
         snapshot_name: str = "snapshot_1"
         y_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert y_mixin._y_snapshots[snapshot_name] == 100
 
-        y_mixin.y = ap.Int(150)
+        y_mixin.y = ap.Number(150)
         y_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert y_mixin._y_snapshots[snapshot_name] == 100
 
@@ -56,31 +56,31 @@ class TestYMixIn:
     def test__revert(self) -> None:
         y_mixin: YMixIn = YMixIn()
         y_mixin.variable_name = "test_y_mixin"
-        y_mixin.y = ap.Int(100)
+        y_mixin.y = ap.Number(100)
         snapshot_name: str = "snapshot_1"
         y_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        y_mixin.y = ap.Int(150)
+        y_mixin.y = ap.Number(150)
         y_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert y_mixin.y == 100
 
-        y_mixin.y = ap.Int(150)
+        y_mixin.y = ap.Number(150)
         y_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert y_mixin.y == 150
 
     @apply_test_settings()
     def test__append_y_attr_linking_setting(self) -> None:
-        interface: YMixIn = YMixIn()
-        interface.variable_name = "test_y_mixin"
-        interface._initialize_y_if_not_initialized()
-        assert interface._attr_linking_stack["y"] == [ap.Int(0)]
+        mixin: YMixIn = YMixIn()
+        mixin.variable_name = "test_y_mixin"
+        mixin._initialize_y_if_not_initialized()
+        assert mixin._attr_linking_stack["y"] == [ap.Number(0)]
 
     @apply_test_settings()
     def test__update_y_and_skip_appending_exp(self) -> None:
-        interface: YMixIn = YMixIn()
-        interface._update_y_and_skip_appending_exp(y=100)
-        assert interface.y == 100
-        assert isinstance(interface.y, ap.Int)
+        mixin: YMixIn = YMixIn()
+        mixin._update_y_and_skip_appending_exp(y=100)
+        assert mixin.y == 100
+        assert isinstance(mixin.y, ap.Number)
 
-        interface._update_y_and_skip_appending_exp(y=ap.Int(200))
-        assert interface.y == 200
-        assert isinstance(interface.y, ap.Int)
+        mixin._update_y_and_skip_appending_exp(y=ap.Number(200))
+        assert mixin.y == 200
+        assert isinstance(mixin.y, ap.Number)

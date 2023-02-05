@@ -67,13 +67,13 @@ def append_fill_opacity_expression(
 
 
 @add_debug_info_setting(module_name=__name__)
-def append_x_expression(*, x: Int, expression: str, indent_num: int) -> str:
+def append_x_expression(*, x: Number, expression: str, indent_num: int) -> str:
     """
     Append x position expression to specified expression's string.
 
     Parameters
     ----------
-    x : Int
+    x : Number
         An x-coordinate to use.
     expression : str
         Expression string to be appended x position expression.
@@ -93,13 +93,13 @@ def append_x_expression(*, x: Int, expression: str, indent_num: int) -> str:
 
 
 @add_debug_info_setting(module_name=__name__)
-def append_y_expression(*, y: Int, expression: str, indent_num: int) -> str:
+def append_y_expression(*, y: Number, expression: str, indent_num: int) -> str:
     """
     Append y position expression to specified expression's string.
 
     Parameters
     ----------
-    y : Int
+    y : Number
         A y-coordinate to use.
     expression : str
         Expression string to be appended y position expression.

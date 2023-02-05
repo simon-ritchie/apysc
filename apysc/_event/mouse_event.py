@@ -11,6 +11,7 @@ from apysc._event.prevent_default_mixin import PreventDefaultMixIn
 from apysc._event.stop_propagation_mixin import StopPropagationMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
@@ -81,13 +82,13 @@ class MouseEvent(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def stage_x(self) -> Int:
+    def stage_x(self) -> Number:
         """
         Get the x-coordinate of the stage reference.
 
         Returns
         -------
-        x : Int
+        x : Number
             x-coordinate.
 
         References
@@ -111,19 +112,19 @@ class MouseEvent(
         """
         import apysc as ap
 
-        x: ap.Int = ap.Int(0)
+        x: ap.Number = ap.Number(0)
         self._append_stage_x_getter_expression(x=x)
         return x
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_stage_x_getter_expression(self, *, x: Int) -> None:
+    def _append_stage_x_getter_expression(self, *, x: Number) -> None:
         """
         Append stage_x getter property expression.
 
         Parameters
         ----------
-        x : Int
+        x : Number
             Target x-coordinate value.
         """
         import apysc as ap
@@ -137,13 +138,13 @@ class MouseEvent(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def stage_y(self) -> Int:
+    def stage_y(self) -> Number:
         """
         Get the y-coordinate of the stage reference.
 
         Returns
         -------
-        y : Int
+        y : Number
             y-coordinate.
 
         References
@@ -155,7 +156,7 @@ class MouseEvent(
         --------
         >>> import apysc as ap
         >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-        ...     stage_y: ap.Int = e.stage_y
+        ...     stage_y: ap.Number = e.stage_y
         ...     # Do something here with the coordinate.
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
@@ -167,19 +168,19 @@ class MouseEvent(
         """
         import apysc as ap
 
-        y: ap.Int = ap.Int(0)
+        y: ap.Number = ap.Number(0)
         self._append_stage_y_getter_expression(y=y)
         return y
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_stage_y_getter_expression(self, *, y: Int) -> None:
+    def _append_stage_y_getter_expression(self, *, y: Number) -> None:
         """
         Append stage_y getter property expression.
 
         Parameters
         ----------
-        y : Int
+        y : Number
             Target y-coordinate value.
         """
         import apysc as ap
@@ -193,7 +194,7 @@ class MouseEvent(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def local_x(self) -> Int:
+    def local_x(self) -> Number:
         """
         Get a local x-coordinate event listening instance.
         For example, this value becomes x-coordinate from
@@ -201,7 +202,7 @@ class MouseEvent(
 
         Returns
         -------
-        x : Int
+        x : Number
             x-coordinate.
 
         References
@@ -213,7 +214,7 @@ class MouseEvent(
         --------
         >>> import apysc as ap
         >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-        ...     local_x: ap.Int = e.local_x
+        ...     local_x: ap.Number = e.local_x
         ...     # Do something here with the coordinate.
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
@@ -225,13 +226,13 @@ class MouseEvent(
         """
         import apysc as ap
 
-        x: ap.Int = ap.Int(0)
+        x: ap.Number = ap.Number(0)
         self._append_local_x_getter_expression(x=x)
         return x
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_local_x_getter_expression(self, *, x: Int) -> None:
+    def _append_local_x_getter_expression(self, *, x: Number) -> None:
         """
         Append local_x getter property expression.
 
@@ -242,7 +243,7 @@ class MouseEvent(
         """
         import apysc as ap
 
-        stage_x: ap.Int = self.stage_x
+        stage_x: ap.Number = self.stage_x
         this: _Target = self.this
         expression: str = (
             f"{x.variable_name} = {stage_x.variable_name} - "
@@ -252,7 +253,7 @@ class MouseEvent(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def local_y(self) -> Int:
+    def local_y(self) -> Number:
         """
         Get the local y-coordinate of the event listening instance.
         For example, this value becomes y-coordinate from Sprite's
@@ -260,7 +261,7 @@ class MouseEvent(
 
         Returns
         -------
-        y : Int
+        y : Number
             y-coordinate.
 
         References
@@ -272,7 +273,7 @@ class MouseEvent(
         --------
         >>> import apysc as ap
         >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-        ...     local_y: ap.Int = e.local_y
+        ...     local_y: ap.Number = e.local_y
         ...     # Do something here with the coordinate.
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
@@ -284,24 +285,24 @@ class MouseEvent(
         """
         import apysc as ap
 
-        y: ap.Int = ap.Int(0)
+        y: ap.Number = ap.Number(0)
         self._append_local_y_getter_expression(y=y)
         return y
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_local_y_getter_expression(self, *, y: Int) -> None:
+    def _append_local_y_getter_expression(self, *, y: Number) -> None:
         """
         Append local_y getter property expression.
 
         Parameters
         ----------
-        y : Int
+        y : Number
             Target y-coordinate value.
         """
         import apysc as ap
 
-        stage_y: ap.Int = self.stage_y
+        stage_y: ap.Number = self.stage_y
         this: _Target = self.this
         expression: str = (
             f"{y.variable_name} = {stage_y.variable_name} - "

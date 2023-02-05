@@ -6,19 +6,18 @@ from typing import Union
 
 from apysc._type.dictionary import Dictionary
 from apysc._type.expression_string import ExpressionString
-from apysc._type.int import Int
 from apysc._type.number import Number
 
 
 def get_coordinate_key_for_expression(
-    *, coordinate: Union[int, Int]
+    *, coordinate: Union[float, Number]
 ) -> ExpressionString:
     """
     Get a key string for the expression from the x or y coordinate.
 
     Parameters
     ----------
-    coordinate : int or Int
+    coordinate : float or Number
         X or y coordinate.
 
     Returns
@@ -43,7 +42,7 @@ class CoordinateType(Enum):
 
 def get_scale_updating_expression(
     *,
-    coordinate: Int,
+    coordinate: Number,
     scale_dict: Dictionary[str, Number],
     interface_variable_name: str,
     coordinate_type: CoordinateType,
@@ -53,7 +52,7 @@ def get_scale_updating_expression(
 
     Parameters
     ----------
-    coordinate : Int
+    coordinate : Number
         X or y coordinate.
     scale_dict : Dictionary
         Scale value dictionary.
@@ -80,7 +79,7 @@ def get_scale_updating_expression(
     )
     key_exp_str_2: ExpressionString = (
         scale_interface_helper.get_coordinate_key_for_expression(
-            coordinate=int(coordinate._value)
+            coordinate=float(coordinate._value)
         )
     )
     after_value_str: str = value_util.get_value_str_for_expression(

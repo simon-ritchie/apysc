@@ -8,6 +8,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -23,7 +24,7 @@ class PathControlXMixIn(
     VariableNameSuffixMixIn,
 ):
 
-    _control_x: Int
+    _control_x: Number
 
     @final
     def _initialize_control_x_if_not_initialized(self) -> None:
@@ -36,7 +37,7 @@ class PathControlXMixIn(
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="control_x"
         )
-        self._control_x = Int(
+        self._control_x = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -57,13 +58,13 @@ class PathControlXMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def control_x(self) -> Int:
+    def control_x(self) -> Number:
         """
         Get a X-coordinate of the point.
 
         Returns
         -------
-        control_x : Int
+        control_x : Number
             X-coordinate of the control point.
 
         Examples
@@ -72,9 +73,9 @@ class PathControlXMixIn(
         >>> bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
         ...     control_x=50, control_y=0, dest_x=100, dest_y=50
         ... )
-        >>> bezier_2d.control_x = ap.Int(125)
+        >>> bezier_2d.control_x = ap.Number(125)
         >>> bezier_2d.control_x
-        Int(125)
+        Number(125.0)
         """
         self._initialize_control_x_if_not_initialized()
         return self._control_x._copy()
@@ -82,13 +83,13 @@ class PathControlXMixIn(
     @control_x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def control_x(self, value: Int) -> None:
+    def control_x(self, value: Number) -> None:
         """
         Set a X-coordinate of the control point.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             X-coordinate of the control point.
         """
         self._initialize_control_x_if_not_initialized()

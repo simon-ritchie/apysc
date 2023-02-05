@@ -16,7 +16,7 @@ def test_get_coordinate_key_for_expression() -> None:
     )
     assert key_exp_str.value == "String(10)"
 
-    x: ap.Int = ap.Int(10)
+    x: ap.Number = ap.Number(10)
     key_exp_str = scale_interface_helper.get_coordinate_key_for_expression(coordinate=x)
     expected: str = f"String({x.variable_name})"
     assert key_exp_str.value == expected
@@ -24,10 +24,10 @@ def test_get_coordinate_key_for_expression() -> None:
 
 @apply_test_settings()
 def test_get_scale_updating_expression() -> None:
-    coordinate: ap.Int = ap.Int(100)
+    coordinate: ap.Number = ap.Number(100)
     key_exp_str: ExpressionString = (
         scale_interface_helper.get_coordinate_key_for_expression(
-            coordinate=int(coordinate._value)
+            coordinate=float(coordinate._value)
         )
     )
     scale_val: ap.Number = ap.Number(0.5)

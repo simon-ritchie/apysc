@@ -33,7 +33,7 @@ def test_append_fill_expression() -> None:
 @apply_test_settings()
 def test_append_x_expression() -> None:
     expression: str = ".attr({"
-    x: ap.Int = ap.Int(100)
+    x: ap.Number = ap.Number(100)
     expression = graphics_expression.append_x_expression(
         x=x, expression=expression, indent_num=1
     )
@@ -47,7 +47,7 @@ def test_append_x_expression() -> None:
 
 @apply_test_settings()
 def test_append_y_expression() -> None:
-    y: ap.Int = ap.Int(200)
+    y: ap.Number = ap.Number(200)
     expression: str = ".attr({"
     expression = graphics_expression.append_y_expression(
         y=y, expression=expression, indent_num=1

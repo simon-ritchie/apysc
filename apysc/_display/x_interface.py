@@ -5,40 +5,40 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Union
 
-from apysc._type.int import Int
+from apysc._type.number import Number
 
 
 class XInterface(ABC):
 
-    _x: Int
+    _x: Number
 
     @property
     @abstractmethod
-    def x(self) -> Int:
+    def x(self) -> Number:
         """
         Get an x-coordinate.
         """
 
     @x.setter
     @abstractmethod
-    def x(self, value: Int) -> None:
+    def x(self, value: Number) -> None:
         """
         Update x-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             X-coordinate value.
         """
 
     @abstractmethod
-    def _update_x_and_skip_appending_exp(self, *, x: Union[int, Int]) -> None:
+    def _update_x_and_skip_appending_exp(self, *, x: Union[float, Number]) -> None:
         """
         Update an x-coordinate and skip appending an expression.
 
         Parameters
         ----------
-        x : int or Int
+        x : float or Number
             X-coordinate value.
         """
 

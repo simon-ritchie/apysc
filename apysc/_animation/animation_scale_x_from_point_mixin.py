@@ -17,7 +17,7 @@ from apysc._validation import arg_validation_decos
 class AnimationScaleXFromPointMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_num(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
@@ -26,7 +26,7 @@ class AnimationScaleXFromPointMixIn(AnimationMixIns):
         self,
         *,
         scale_x_from_point: Union[float, Number],
-        x: Union[int, Int],
+        x: Union[float, Number],
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR
@@ -43,7 +43,7 @@ class AnimationScaleXFromPointMixIn(AnimationMixIns):
         ----------
         scale_x_from_point : float or Number
             The final scale-x from the given point of the animation.
-        x : Int or int
+        x : float or Number
             X-coordinate.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.
@@ -85,7 +85,7 @@ class AnimationScaleXFromPointMixIn(AnimationMixIns):
         ... )
         >>> _ = rectangle.animation_scale_x_from_point(
         ...     scale_x_from_point=0.5,
-        ...     x=ap.Int(100),
+        ...     x=ap.Number(100),
         ...     duration=1500,
         ...     easing=ap.Easing.EASE_OUT_QUINT,
         ... ).start()

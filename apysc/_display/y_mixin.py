@@ -11,7 +11,7 @@ from apysc._animation.animation_y_mixin import AnimationYMixIn
 from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
-from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
@@ -37,7 +37,7 @@ class YMixIn(
         if hasattr(self, "_y"):
             return
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
-        self._y = Int(
+        self._y = Number(
             0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -56,13 +56,13 @@ class YMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def y(self) -> Int:
+    def y(self) -> Number:
         """
         Get a y-coordinate.
 
         Returns
         -------
-        y : Int
+        y : Number
             Y-coordinate.
 
         References
@@ -79,27 +79,27 @@ class YMixIn(
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
-        >>> rectangle.y = ap.Int(100)
+        >>> rectangle.y = ap.Number(100)
         >>> rectangle.y
-        Int(100)
+        Number(100.0)
         """
         import apysc as ap
         from apysc._type import value_util
 
         self._initialize_y_if_not_initialized()
-        y: ap.Int = value_util.get_copy(value=self._y)
+        y: ap.Number = value_util.get_copy(value=self._y)
         return y
 
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def y(self, value: Int) -> None:
+    def y(self, value: Number) -> None:
         """
         Update y-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             Y-coordinate value.
 
         References
@@ -129,23 +129,23 @@ class YMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    def _update_y_and_skip_appending_exp(self, *, y: Union[int, Int]) -> None:
+    def _update_y_and_skip_appending_exp(self, *, y: Union[float, Number]) -> None:
         """
         Update y-coordinate and skip appending an expression.
 
         Parameters
         ----------
-        y : int or Int
+        y : float or Number
             Y-coordinate value.
         """
-        if isinstance(y, Int):
-            y_: Int = y
+        if isinstance(y, Number):
+            y_: Number = y
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
-            y_ = Int(y, variable_name_suffix=suffix)
+            y_ = Number(y, variable_name_suffix=suffix)
         self._y = y_
 
-    _y_snapshots: Dict[str, int]
+    _y_snapshots: Dict[str, float]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -159,7 +159,7 @@ class YMixIn(
         self._initialize_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_y_snapshots",
-            value=int(self._y._value),
+            value=float(self._y._value),
             snapshot_name=snapshot_name,
         )
 

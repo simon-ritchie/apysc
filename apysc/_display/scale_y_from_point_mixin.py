@@ -51,13 +51,13 @@ class ScaleYFromPointMixIn(
     @final
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def get_scale_y_from_point(self, *, y: Int) -> Number:
+    def get_scale_y_from_point(self, *, y: Number) -> Number:
         """
         Get a scale-y value from the given y-coordinate.
 
         Parameters
         ----------
-        y : Int
+        y : Number
             Y-coordinate.
 
         Returns
@@ -79,7 +79,7 @@ class ScaleYFromPointMixIn(
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
-        >>> y: ap.Int = ap.Int(100)
+        >>> y: ap.Number = ap.Number(100)
         >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
         >>> rectangle.get_scale_y_from_point(y=y)
         Number(1.5)
@@ -91,7 +91,7 @@ class ScaleYFromPointMixIn(
         default_val: ap.Number = ap.Number(1.0)
         key_exp_str: ExpressionString = (
             scale_interface_helper.get_coordinate_key_for_expression(
-                coordinate=int(y._value)
+                coordinate=float(y._value)
             )
         )
         scale_y: ap.Number = self._scale_y_from_point.get(
@@ -101,9 +101,9 @@ class ScaleYFromPointMixIn(
 
     @final
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @arg_validation_decos.is_apysc_integer(arg_position_index=2)
+    @arg_validation_decos.is_apysc_num(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def set_scale_y_from_point(self, *, scale_y: Number, y: Int) -> None:
+    def set_scale_y_from_point(self, *, scale_y: Number, y: Number) -> None:
         """
         Update a scale-y value from the given y-coordinate.
 
@@ -111,7 +111,7 @@ class ScaleYFromPointMixIn(
         ----------
         scale_y : Number
             Scale-y value to set.
-        y : Int
+        y : Number
             Y-coordinate.
 
         References
@@ -128,7 +128,7 @@ class ScaleYFromPointMixIn(
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
-        >>> y: ap.Int = ap.Int(100)
+        >>> y: ap.Number = ap.Number(100)
         >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
         >>> rectangle.get_scale_y_from_point(y=y)
         Number(1.5)
@@ -138,7 +138,7 @@ class ScaleYFromPointMixIn(
         self._initialize_scale_y_from_point_if_not_initialized()
         key_exp_str: ExpressionString = (
             scale_interface_helper.get_coordinate_key_for_expression(
-                coordinate=int(y._value)
+                coordinate=float(y._value)
             )
         )
         self._set_lower_scale_limit(value=scale_y)
@@ -147,14 +147,14 @@ class ScaleYFromPointMixIn(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_scale_y_from_point_update_expression(self, *, y: Int) -> None:
+    def _append_scale_y_from_point_update_expression(self, *, y: Number) -> None:
         """
         Append the scale-y from the specified y-coordinate updating
         expression.
 
         Parameters
         ----------
-        y : Int
+        y : Number
             Y-coordinate.
         """
         import apysc as ap

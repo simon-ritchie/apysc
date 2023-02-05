@@ -9,12 +9,13 @@ from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.animation_y import AnimationY
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
 class AnimationYMixIn(AnimationMixIns):
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     @arg_validation_decos.is_integer(arg_position_index=2)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
@@ -22,7 +23,7 @@ class AnimationYMixIn(AnimationMixIns):
     def animation_y(
         self,
         *,
-        y: Union[int, Int],
+        y: Union[float, Number],
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR
@@ -37,7 +38,7 @@ class AnimationYMixIn(AnimationMixIns):
 
         Parameters
         ----------
-        y : Int or int
+        y : float or Number
             Destination of the y-coordinate.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.

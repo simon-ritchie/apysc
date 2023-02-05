@@ -51,7 +51,7 @@ class AnimationScaleYFromPoint(AnimationBase[_Target], Generic[_Target]):
     >>> animation: ap.AnimationScaleYFromPoint
     >>> animation = rectangle.animation_scale_y_from_point(
     ...     scale_y_from_point=0.5,
-    ...     y=ap.Int(100),
+    ...     y=ap.Number(100),
     ...     duration=1500,
     ...     easing=ap.Easing.EASE_OUT_QUINT,
     ... )
@@ -59,7 +59,7 @@ class AnimationScaleYFromPoint(AnimationBase[_Target], Generic[_Target]):
     """
 
     _scale_y_from_point: Number
-    _y: Int
+    _y: Number
     _before_scale_y_from_point: Number
     _scale_y_from_point_diff_ratio: Number
 
@@ -70,7 +70,7 @@ class AnimationScaleYFromPoint(AnimationBase[_Target], Generic[_Target]):
         *,
         target: _Target,
         scale_y_from_point: Union[float, Number],
-        y: Union[int, Int],
+        y: Union[float, Number],
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR,
@@ -85,7 +85,7 @@ class AnimationScaleYFromPoint(AnimationBase[_Target], Generic[_Target]):
             (e.g., `Rectangle` instance).
         scale_y_from_point : float or Number
             The final scale-y from the given point of the animation.
-        y : Int or int
+        y : float or Number
             Y-coordinate.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.
@@ -109,7 +109,9 @@ class AnimationScaleYFromPoint(AnimationBase[_Target], Generic[_Target]):
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ANIMATION_SCALE_Y_FROM_POINT
         )
-        self._y = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=y)
+        self._y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=y
+        )
         target_: VariableNameMixIn = target
         if isinstance(target_, ScaleYFromPointMixIn):
             target_._initialize_scale_y_from_point_if_not_initialized()

@@ -34,8 +34,8 @@ class TestRotationAroundPointMixIn:
     @apply_test_settings()
     def test_get_rotation_around_point(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
-        x: ap.Int = ap.Int(100)
-        y: ap.Int = ap.Int(200)
+        x: ap.Number = ap.Number(100)
+        y: ap.Number = ap.Number(200)
         rotation: ap.Int = mixin.get_rotation_around_point(x=x, y=y)
         assert rotation == 0
 
@@ -50,8 +50,8 @@ class TestRotationAroundPointMixIn:
     def test_set_rotation_around_point(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
         rotation: ap.Int = ap.Int(50)
-        x: ap.Int = ap.Int(100)
-        y: ap.Int = ap.Int(200)
+        x: ap.Number = ap.Number(100)
+        y: ap.Number = ap.Number(200)
         mixin.set_rotation_around_point(rotation=rotation, x=x, y=y)
         rotation = mixin.get_rotation_around_point(x=x, y=y)
         assert rotation == 50
@@ -61,8 +61,8 @@ class TestRotationAroundPointMixIn:
         expression_data_util.empty_expression()
         mixin: _TestMixIn = _TestMixIn()
         rotation: ap.Int = ap.Int(50)
-        x: ap.Int = ap.Int(100)
-        y: ap.Int = ap.Int(200)
+        x: ap.Number = ap.Number(100)
+        y: ap.Number = ap.Number(200)
         mixin.set_rotation_around_point(rotation=rotation, x=x, y=y)
         expression: str = expression_data_util.get_current_expression()
         assert ".rotate(" in expression
@@ -70,15 +70,15 @@ class TestRotationAroundPointMixIn:
     @apply_test_settings()
     def test__make_snapshot(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
-        x: ap.Int = ap.Int(50)
-        y: ap.Int = ap.Int(100)
+        x: ap.Number = ap.Number(50)
+        y: ap.Number = ap.Number(100)
         rotation: ap.Int = ap.Int(90)
         mixin.set_rotation_around_point(rotation=rotation, x=x, y=y)
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         key_exp_str: ExpressionString = (
             rotation_interface_helper.get_coordinates_key_for_expression(
-                x=int(x._value), y=int(y._value)
+                x=float(x._value), y=float(y._value)
             )
         )
         assert mixin._rotation_around_point_snapshots == {
@@ -94,8 +94,8 @@ class TestRotationAroundPointMixIn:
     @apply_test_settings()
     def test__revert(self) -> None:
         mixin: _TestMixIn = _TestMixIn()
-        x: ap.Int = ap.Int(50)
-        y: ap.Int = ap.Int(100)
+        x: ap.Number = ap.Number(50)
+        y: ap.Number = ap.Number(100)
         mixin.set_rotation_around_point(rotation=ap.Int(90), x=x, y=y)
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -117,8 +117,8 @@ class TestRotationAroundPointMixIn:
         expression_data_util.empty_expression()
         mixin: _TestMixIn = _TestMixIn()
         rotation: ap.Int = ap.Int(50)
-        x: ap.Int = ap.Int(100)
-        y: ap.Int = ap.Int(200)
+        x: ap.Number = ap.Number(100)
+        y: ap.Number = ap.Number(200)
 
         key_exp_str: ExpressionString = (
             rotation_interface_helper.get_coordinates_key_for_expression(x=x, y=y)

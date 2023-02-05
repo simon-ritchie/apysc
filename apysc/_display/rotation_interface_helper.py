@@ -4,20 +4,20 @@
 from typing import Union
 
 from apysc._type.expression_string import ExpressionString
-from apysc._type.int import Int
+from apysc._type.number import Number
 
 
 def get_coordinates_key_for_expression(
-    *, x: Union[int, Int], y: Union[int, Int]
+    *, x: Union[float, Number], y: Union[float, Number]
 ) -> ExpressionString:
     """
     Get a key string for the expression from the x and y coordinates.
 
     Parameters
     ----------
-    x : int or Int
+    x : float or Number
         X-coordinate.
-    y : int or Int
+    y : float or Number
         Y-coordinate.
 
     Returns

@@ -12,7 +12,6 @@ from apysc._animation.animation_scale_x_from_point_mixin import (
 from apysc._display.set_lower_scale_limit_mixin import SetLowerScaleLimitMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
-from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
@@ -50,13 +49,13 @@ class ScaleXFromPointMixIn(
     @final
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def get_scale_x_from_point(self, *, x: Int) -> Number:
+    def get_scale_x_from_point(self, *, x: Number) -> Number:
         """
         Get a scale-x value from the given x-coordinate.
 
         Parameters
         ----------
-        x : Int
+        x : Number
             X-coordinate.
 
         Returns
@@ -82,7 +81,7 @@ class ScaleXFromPointMixIn(
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
-        >>> x: ap.Int = ap.Int(100)
+        >>> x: ap.Number = ap.Number(100)
         >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
         >>> rectangle.get_scale_x_from_point(x=x)
         Number(1.5)
@@ -95,7 +94,7 @@ class ScaleXFromPointMixIn(
         default_val: ap.Number = ap.Number(1.0)
         key_exp_str: ExpressionString = (
             scale_interface_helper.get_coordinate_key_for_expression(
-                coordinate=int(x._value)
+                coordinate=float(x._value)
             )
         )
         scale_x: ap.Number = self._scale_x_from_point.get(
@@ -105,9 +104,9 @@ class ScaleXFromPointMixIn(
 
     @final
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @arg_validation_decos.is_apysc_integer(arg_position_index=2)
+    @arg_validation_decos.is_apysc_num(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def set_scale_x_from_point(self, *, scale_x: Number, x: Int) -> None:
+    def set_scale_x_from_point(self, *, scale_x: Number, x: Number) -> None:
         """
         Update a scale-x value from the given x-coordinate.
 
@@ -115,7 +114,7 @@ class ScaleXFromPointMixIn(
         ----------
         scale_x : Number
             Scale-x value to set.
-        x : Int
+        x : Number
             X-coordinate.
 
         Notes
@@ -136,7 +135,7 @@ class ScaleXFromPointMixIn(
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
-        >>> x: ap.Int = ap.Int(100)
+        >>> x: ap.Number = ap.Number(100)
         >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
         >>> rectangle.get_scale_x_from_point(x=x)
         Number(1.5)
@@ -147,7 +146,7 @@ class ScaleXFromPointMixIn(
         self._initialize_scale_x_from_point_if_not_initialized()
         key_exp_str: ExpressionString = (
             scale_interface_helper.get_coordinate_key_for_expression(
-                coordinate=int(x._value)
+                coordinate=float(x._value)
             )
         )
         self._set_lower_scale_limit(value=scale_x)
@@ -156,14 +155,14 @@ class ScaleXFromPointMixIn(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_scale_x_from_point_update_expression(self, *, x: Int) -> None:
+    def _append_scale_x_from_point_update_expression(self, *, x: Number) -> None:
         """
         Append the scale-x from the specified x-coordinate updating
         expression.
 
         Parameters
         ----------
-        x : Int
+        x : Number
             X-coordinate.
         """
         import apysc as ap

@@ -6,39 +6,40 @@ from abc import abstractmethod
 from typing import Union
 
 from apysc._type.int import Int
+from apysc._type.number import Number
 
 
 class YInterface(ABC):
 
-    _y: Int
+    _y: Number
 
     @property
     @abstractmethod
-    def y(self) -> Int:
+    def y(self) -> Number:
         """
         Get a y-coordinate.
         """
 
     @y.setter
     @abstractmethod
-    def y(self, value: Int) -> None:
+    def y(self, value: Number) -> None:
         """
         Update y-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             y-coordinate value.
         """
 
     @abstractmethod
-    def _update_y_and_skip_appending_exp(self, *, y: Union[int, Int]) -> None:
+    def _update_y_and_skip_appending_exp(self, *, y: Union[float, Number]) -> None:
         """
         Update a y-coordinate and skip appending an expression.
 
         Parameters
         ----------
-        y : int or Int
+        y : float or Number
             Y-coordinate value.
         """
 

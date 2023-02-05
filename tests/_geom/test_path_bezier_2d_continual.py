@@ -27,8 +27,8 @@ class TestPathBezier2DContinual:
             },
             any_obj=path_bezier_2d_continual,
         )
-        assert isinstance(path_bezier_2d_continual._x, ap.Int)
-        assert isinstance(path_bezier_2d_continual._y, ap.Int)
+        assert isinstance(path_bezier_2d_continual._x, ap.Number)
+        assert isinstance(path_bezier_2d_continual._y, ap.Number)
         assert (
             path_bezier_2d_continual._x._variable_name_suffix
             == "test_path_bezier_2d_continual__x"

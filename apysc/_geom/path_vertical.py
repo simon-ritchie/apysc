@@ -145,9 +145,11 @@ class PathVertical(PathDataBase, PathYMixIn):
         >>> path_vertical: ap.PathVertical = ap.PathVertical(y=50)
         >>> path_vertical.update_path_data(y=100)
         >>> path_vertical.y
-        Int(100)
+        Number(100.0)
         """
-        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
+        self.y = self._get_copied_number_from_builtin_val(
+            float_or_num=y, attr_identifier="y"
+        )
         self.relative = self._get_copied_boolean_from_builtin_val(
             bool_val=relative, attr_identifier="relative"
         )

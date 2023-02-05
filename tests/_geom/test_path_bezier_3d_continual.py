@@ -30,10 +30,10 @@ class TestPathBezier3DContinual:
             },
             any_obj=path_bezier_3d_continual,
         )
-        assert isinstance(path_bezier_3d_continual._control_x, ap.Int)
-        assert isinstance(path_bezier_3d_continual._control_y, ap.Int)
-        assert isinstance(path_bezier_3d_continual._dest_x, ap.Int)
-        assert isinstance(path_bezier_3d_continual._dest_y, ap.Int)
+        assert isinstance(path_bezier_3d_continual._control_x, ap.Number)
+        assert isinstance(path_bezier_3d_continual._control_y, ap.Number)
+        assert isinstance(path_bezier_3d_continual._dest_x, ap.Number)
+        assert isinstance(path_bezier_3d_continual._dest_y, ap.Number)
         assert (
             path_bezier_3d_continual._variable_name_suffix
             == "test_path_bezier_3d_continual"

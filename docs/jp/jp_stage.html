@@ -106,6 +106,40 @@
 </div>
 <p>このオプションはapyscの各プロジェクトで複数回出力などを行う際のIDの識別やバージョン管理などの面で便利です。</p>
 </section>
+<section id="get-stage">
+<h2>get_stage 関数のインターフェイス<a class="headerlink" href="#get-stage" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">get_stage</span></code>関数は現在生成済みのステージのインスタンスを返却します。</p>
+<p>このインターフェイスは他の関数のスコープ内などでステージのインスタンスを参照したい場合などに便利なことがあります。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Entry point of this project.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+        <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+        <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span>
+        <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;my_stage&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="o">...</span>
+    <span class="n">_other_function</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_other_function</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The other function to do something.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">get_stage</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">stage</span><span class="o">.</span><span class="n">stage_elem_id</span> <span class="o">==</span> <span class="s2">&quot;my_stage&quot;</span>
+
+
+<span class="n">_main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 <section id="stage-api">
 <h2>Stage クラスのコンストラクタのAPI<a class="headerlink" href="#stage-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -378,6 +412,26 @@
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp/jp_get_child_at.html">get_child_at （特定位置の子の取得処理）のインターフェイス</a></p></li>
 </ul>
 </section>
+<section id="get-stage-api">
+<h2>get_stage のAPI<a class="headerlink" href="#get-stage-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_stage()</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.stage.Stage</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>既に生成済みのステージのインスタンスを取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stage</span></code>: Stage</p>
+<ul>
+<li><p>対象のステージのインスタンス。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[エラー発生条件]</strong></p>
+<ul class="simple">
+<li><p>_StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -398,6 +452,7 @@
 <li><a class="reference internal" href="#id3">ステージの背景色設定</a></li>
 <li><a class="reference internal" href="#id4">ステージのサイズ設定</a></li>
 <li><a class="reference internal" href="#id">ステージの要素のID設定</a></li>
+<li><a class="reference internal" href="#get-stage">get_stage 関数のインターフェイス</a></li>
 <li><a class="reference internal" href="#stage-api">Stage クラスのコンストラクタのAPI</a></li>
 <li><a class="reference internal" href="#stage-elem-id-api">stage_elem_id 属性のAPI</a></li>
 <li><a class="reference internal" href="#add-child-api">add_child API</a></li>
@@ -405,6 +460,7 @@
 <li><a class="reference internal" href="#contains-api">contains API</a></li>
 <li><a class="reference internal" href="#num-children-property-api">num_children property API</a></li>
 <li><a class="reference internal" href="#get-child-at-api">get_child_at API</a></li>
+<li><a class="reference internal" href="#get-stage-api">get_stage のAPI</a></li>
 </ul>
 </li>
 </ul>

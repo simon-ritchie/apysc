@@ -106,6 +106,40 @@
 </div>
 <p>This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.</p>
 </section>
+<section id="get-stage-function-interface">
+<h2>get_stage function interface<a class="headerlink" href="#get-stage-function-interface" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_stage</span></code> function returns the current stage instance.</p>
+<p>This interface is sometimes useful to get a stage instance in the other function’s scope.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">_main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Entry point of this project.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+        <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+        <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span>
+        <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;my_stage&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="o">...</span>
+    <span class="n">_other_function</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_other_function</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The other function to do something.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">get_stage</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">stage</span><span class="o">.</span><span class="n">stage_elem_id</span> <span class="o">==</span> <span class="s2">&quot;my_stage&quot;</span>
+
+
+<span class="n">_main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 <section id="stage-class-constructor-api">
 <h2>Stage class constructor API<a class="headerlink" href="#stage-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.stage.Stage.__init__ -->
@@ -385,6 +419,27 @@
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/get_child_at.html">get_child_at interface</a></p></li>
 </ul>
 </section>
+<section id="get-stage-api">
+<h2>get_stage API<a class="headerlink" href="#get-stage-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.stage.get_stage -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_stage()</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.stage.Stage</span></code><hr></p>
+<p><strong>[Interface summary]</strong></p>
+<p>Get an already instantiated stage instance.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stage</span></code>: Stage</p>
+<ul>
+<li><p>Target stage instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Raises]</strong></p>
+<ul class="simple">
+<li><p>_StageNotCreatedError: If there is no instantiated stage yet.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -405,6 +460,7 @@
 <li><a class="reference internal" href="#stage-background-color-setting">Stage background color setting</a></li>
 <li><a class="reference internal" href="#stage-size-setting">Stage size setting</a></li>
 <li><a class="reference internal" href="#stage-element-id-setting">Stage element id setting</a></li>
+<li><a class="reference internal" href="#get-stage-function-interface">get_stage function interface</a></li>
 <li><a class="reference internal" href="#stage-class-constructor-api">Stage class constructor API</a></li>
 <li><a class="reference internal" href="#stage-elem-id-property-api">stage_elem_id property API</a></li>
 <li><a class="reference internal" href="#add-child-api">add_child API</a></li>
@@ -412,6 +468,7 @@
 <li><a class="reference internal" href="#contains-api">contains API</a></li>
 <li><a class="reference internal" href="#num-children-property-api">num_children property API</a></li>
 <li><a class="reference internal" href="#get-child-at-api">get_child_at API</a></li>
+<li><a class="reference internal" href="#get-stage-api">get_stage API</a></li>
 </ul>
 </li>
 </ul>

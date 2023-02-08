@@ -68,6 +68,42 @@ stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="line_chart_1"
 
 This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.
 
+## get_stage function interface
+
+The `get_stage` function returns the current stage instance.
+
+This interface is sometimes useful to get a stage instance in the other function's scope.
+
+```py
+# runnable
+import apysc as ap
+
+
+def _main() -> None:
+    """
+    Entry point of this project.
+    """
+    _: ap.Stage = ap.Stage(
+        stage_width=150,
+        stage_height=150,
+        background_color="#333",
+        stage_elem_id="my_stage",
+    )
+    ...
+    _other_function()
+
+
+def _other_function() -> None:
+    """
+    The other function to do something.
+    """
+    stage: ap.Stage = ap.get_stage()
+    assert stage.stage_elem_id == "my_stage"
+
+
+_main()
+```
+
 ## Stage class constructor API
 
 <!-- Docstring: apysc._display.stage.Stage.__init__ -->
@@ -358,3 +394,26 @@ True
 **[References]**
 
 - [get_child_at interface](https://simon-ritchie.github.io/apysc/en/get_child_at.html)
+
+## get_stage API
+
+<!-- Docstring: apysc._display.stage.get_stage -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `get_stage() -> apysc._display.stage.Stage`<hr>
+
+**[Interface summary]**
+
+Get an already instantiated stage instance.<hr>
+
+**[Returns]**
+
+- `stage`: Stage
+  - Target stage instance.
+
+<hr>
+
+**[Raises]**
+
+- _StageNotCreatedError: If there is no instantiated stage yet.

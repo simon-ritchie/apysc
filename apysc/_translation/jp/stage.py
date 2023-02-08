@@ -49,6 +49,14 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.": "このオプションはapyscの各プロジェクトで複数回出力などを行う際のIDの識別やバージョン管理などの面で便利です。",  # noqa
     ##################################################
+    "## get_stage function interface": "## get_stage 関数のインターフェイス",
+    ##################################################
+    "The `get_stage` function returns the current stage instance.": "`get_stage`関数は現在生成済みのステージのインスタンスを返却します。",  # noqa
+    ##################################################
+    "This interface is sometimes useful to get a stage instance in the other function\'s scope.": "このインターフェイスは他の関数のスコープ内などでステージのインスタンスを参照したい場合などに便利なことがあります。",  # noqa
+    ##################################################
+    "```py\n# runnable\nimport apysc as ap\n\n\ndef _main() -> None:\n    \"\"\"\n    Entry point of this project.\n    \"\"\"\n    _: ap.Stage = ap.Stage(\n        stage_width=150,\n        stage_height=150,\n        background_color=\"#333\",\n        stage_elem_id=\"my_stage\",\n    )\n    ...\n    _other_function()\n\n\ndef _other_function() -> None:\n    \"\"\"\n    The other function to do something.\n    \"\"\"\n    stage: ap.Stage = ap.get_stage()\n    assert stage.stage_elem_id == \"my_stage\"\n\n\n_main()\n```": "```py\n# runnable\nimport apysc as ap\n\n\ndef _main() -> None:\n    \"\"\"\n    Entry point of this project.\n    \"\"\"\n    _: ap.Stage = ap.Stage(\n        stage_width=150,\n        stage_height=150,\n        background_color=\"#333\",\n        stage_elem_id=\"my_stage\",\n    )\n    ...\n    _other_function()\n\n\ndef _other_function() -> None:\n    \"\"\"\n    The other function to do something.\n    \"\"\"\n    stage: ap.Stage = ap.get_stage()\n    assert stage.stage_elem_id == \"my_stage\"\n\n\n_main()\n```",  # noqa
+    ##################################################
     "## Stage class constructor API": "## Stage クラスのコンストラクタのAPI",
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
@@ -254,4 +262,24 @@ MAPPING: Dict[str, str] = {
     "**[References]**": "**[関連資料]**",
     ##################################################
     "- [get_child_at interface](https://simon-ritchie.github.io/apysc/en/get_child_at.html)": "- [get_child_at （特定位置の子の取得処理）のインターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_get_child_at.html)",  # noqa
+    ##################################################
+    "## get_stage API": "## get_stage のAPI",
+    ##################################################
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    ##################################################
+    "**[Interface summary]**": "**[インターフェイス概要]**",
+    ##################################################
+    "Get an already instantiated stage instance.<hr>": "既に生成済みのステージのインスタンスを取得します。<hr>",
+    ##################################################
+    "**[Returns]**": "**[返却値]**",
+    ##################################################
+    "- `stage`: Stage": "- `stage`: Stage",
+    ##################################################
+    "  - Target stage instance.": "  - 対象のステージのインスタンス。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Raises]**": "**[エラー発生条件]**",
+    ##################################################
+    "- _StageNotCreatedError: If there is no instantiated stage yet.": "- _StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。",  # noqa
 }

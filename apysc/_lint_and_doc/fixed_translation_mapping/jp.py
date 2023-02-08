@@ -3398,5 +3398,21 @@ MAPPINGS: Mappings = Mappings(
             key="Triangle class",
             val="Triangle クラス",
         ),
+        Mapping(
+            key="## get_stage API",
+            val="## get_stage のAPI",
+        ),
+        Mapping(
+            key="Get an already instantiated stage instance.<hr>",
+            val="既に生成済みのステージのインスタンスを取得します。<hr>",
+        ),
+        Mapping(
+            key="  - Target stage instance.",
+            val="  - 対象のステージのインスタンス。",
+        ),
+        Mapping(
+            key="- _StageNotCreatedError: If there is no instantiated stage yet.",
+            val="- _StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。",
+        ),
     ]
 )

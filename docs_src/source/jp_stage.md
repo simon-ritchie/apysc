@@ -70,6 +70,42 @@ stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="line_chart_1"
 
 このオプションはapyscの各プロジェクトで複数回出力などを行う際のIDの識別やバージョン管理などの面で便利です。
 
+## get_stage 関数のインターフェイス
+
+`get_stage`関数は現在生成済みのステージのインスタンスを返却します。
+
+このインターフェイスは他の関数のスコープ内などでステージのインスタンスを参照したい場合などに便利なことがあります。
+
+```py
+# runnable
+import apysc as ap
+
+
+def _main() -> None:
+    """
+    Entry point of this project.
+    """
+    _: ap.Stage = ap.Stage(
+        stage_width=150,
+        stage_height=150,
+        background_color="#333",
+        stage_elem_id="my_stage",
+    )
+    ...
+    _other_function()
+
+
+def _other_function() -> None:
+    """
+    The other function to do something.
+    """
+    stage: ap.Stage = ap.get_stage()
+    assert stage.stage_elem_id == "my_stage"
+
+
+_main()
+```
+
 ## Stage クラスのコンストラクタのAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
@@ -351,3 +387,24 @@ True
 **[関連資料]**
 
 - [get_child_at （特定位置の子の取得処理）のインターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_get_child_at.html)
+
+## get_stage のAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `get_stage() -> apysc._display.stage.Stage`<hr>
+
+**[インターフェイス概要]**
+
+既に生成済みのステージのインスタンスを取得します。<hr>
+
+**[返却値]**
+
+- `stage`: Stage
+  - 対象のステージのインスタンス。
+
+<hr>
+
+**[エラー発生条件]**
+
+- _StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。

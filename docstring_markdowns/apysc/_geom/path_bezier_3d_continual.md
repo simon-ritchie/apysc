@@ -64,13 +64,13 @@ Path data class for SVG's `continual 3D bezier curve` (S).<hr>
 
 **[Parameters]**
 
-- `control_x`: Int or int
+- `control_x`: float or Number
   - X-coordinate of the bezier's control point.
-- `control_y`: Int or int
+- `control_y`: float or Number
   - Y-coordinate of the bezier's control point.
-- `dest_x`: Int or int
+- `dest_x`: float or Number
   - X-coordinate of the destination point.
-- `dest_y`: Int or int
+- `dest_y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -144,13 +144,13 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `control_x`: Int or int
+- `control_x`: float or Number
   - X-coordinate of the bezier's control point.
-- `control_y`: Int or int
+- `control_y`: float or Number
   - Y-coordinate of the bezier's control point.
-- `dest_x`: Int or int
+- `dest_x`: float or Number
   - X-coordinate of the destination point.
-- `dest_y`: Int or int
+- `dest_y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -168,14 +168,14 @@ Update the path's data settings.<hr>
 ...     control_x=150, control_y=150, dest_x=150, dest_y=100
 ... )
 >>> bezier_3d_continual.control_x
-Int(150)
+Number(150.0)
 
 >>> bezier_3d_continual.control_y
-Int(150)
+Number(150.0)
 
 >>> bezier_3d_continual.dest_x
-Int(150)
+Number(150.0)
 
 >>> bezier_3d_continual.dest_y
-Int(100)
+Number(100.0)
 ```

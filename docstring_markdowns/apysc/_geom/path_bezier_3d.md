@@ -64,17 +64,17 @@ Path data class for the SVG's `3D bezier curve` (C).<hr>
 
 **[Parameters]**
 
-- `control_x1`: Int or int
+- `control_x1`: float or Number
   - X-coordinate of the bezier's first control point.
-- `control_y1`: Int or int
+- `control_y1`: float or Number
   - Y-coordinate of the bezier's first control point.
-- `control_x2`: Int or int
+- `control_x2`: float or Number
   - X-coordinate of the bezier's second control point.
-- `control_y2`: Int or int
+- `control_y2`: float or Number
   - Y-coordinate of the bezier's second control point.
-- `dest_x`: Int or int
+- `dest_x`: float or Number
   - X-coordinate of the destination point.
-- `dest_y`: Int or int
+- `dest_y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -148,17 +148,17 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `control_x1`: Int or int
+- `control_x1`: float or Number
   - X-coordinate of the bezier's first control point.
-- `control_y1`: Int or int
+- `control_y1`: float or Number
   - Y-coordinate of the bezier's first control point.
-- `control_x2`: Int or int
+- `control_x2`: float or Number
   - X-coordinate of the bezier's second control point.
-- `control_y2`: Int or int
+- `control_y2`: float or Number
   - Y-coordinate of the bezier's second control point.
-- `dest_x`: Int or int
+- `dest_x`: float or Number
   - X-coordinate of the destination point.
-- `dest_y`: Int or int
+- `dest_y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -186,20 +186,20 @@ Update the path's data settings.<hr>
 ...     dest_y=150,
 ... )
 >>> bezier_3d_continual.control_x1
-Int(100)
+Number(100)
 
 >>> bezier_3d_continual.control_y1
-Int(100)
+Number(100)
 
 >>> bezier_3d_continual.control_x2
-Int(150)
+Number(150)
 
 >>> bezier_3d_continual.control_y2
-Int(100)
+Number(100)
 
 >>> bezier_3d_continual.dest_x
-Int(150)
+Number(150)
 
 >>> bezier_3d_continual.dest_y
-Int(150)
+Number(150)
 ```

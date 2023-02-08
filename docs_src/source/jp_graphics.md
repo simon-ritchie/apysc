@@ -78,8 +78,8 @@ def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle: ap.Rectangle = e.this
 
     # Update the coordinates, fill alpha, and fill color.
-    rectangle.x = ap.Int(100)
-    rectangle.y = ap.Int(100)
+    rectangle.x = ap.Number(100)
+    rectangle.y = ap.Number(100)
     rectangle.fill_alpha = ap.Number(0.5)
     rectangle.fill_color = ap.String("#f0a")
 

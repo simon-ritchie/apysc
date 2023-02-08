@@ -5,7 +5,6 @@ from apysc._display.polygon_apply_current_points_mixin import (
     PolygonApplyCurrentPointsMixIn,
 )
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.int import Int
 from apysc._type.number import Number
 
 

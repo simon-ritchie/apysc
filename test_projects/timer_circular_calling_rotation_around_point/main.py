@@ -64,8 +64,8 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    x: ap.Int = ap.Int(50)
-    y: ap.Int = ap.Int(50)
+    x: ap.Number = ap.Number(50)
+    y: ap.Number = ap.Number(50)
     rotation: ap.Int = rectangle.get_rotation_around_point(x=x, y=y)
     rectangle.set_rotation_around_point(rotation=rotation + 1, x=x, y=y)
 
@@ -100,8 +100,8 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    x: ap.Int = ap.Int(50)
-    y: ap.Int = ap.Int(50)
+    x: ap.Number = ap.Number(50)
+    y: ap.Number = ap.Number(50)
     rotation: ap.Int = rectangle.get_rotation_around_point(x=x, y=y)
     rectangle.set_rotation_around_point(rotation=rotation - 1, x=x, y=y)
 

@@ -14,9 +14,9 @@ Set the rotation around the given point animation setting.<hr>
 
 - `rotation_around_point`: Int or int
   - The final rotation of the animation.
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.

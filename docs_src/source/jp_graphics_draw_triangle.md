@@ -91,7 +91,7 @@ ap.save_overall_html(dest_dir_path="./graphics_draw_triangle_triangle_instance/"
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_triangle(self, *, x1: Union[int, apysc._type.int.Int], y1: Union[int, apysc._type.int.Int], x2: Union[int, apysc._type.int.Int], y2: Union[int, apysc._type.int.Int], x3: Union[int, apysc._type.int.Int], y3: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.triangle.Triangle`<hr>
+**[インターフェイスの構造]** `draw_triangle(self, *, x1: Union[float, apysc._type.number.Number], y1: Union[float, apysc._type.number.Number], x2: Union[float, apysc._type.number.Number], y2: Union[float, apysc._type.number.Number], x3: Union[float, apysc._type.number.Number], y3: Union[float, apysc._type.number.Number], variable_name_suffix: str = '') -> apysc._display.triangle.Triangle`<hr>
 
 **[インターフェイス概要]**
 
@@ -99,22 +99,22 @@ ap.save_overall_html(dest_dir_path="./graphics_draw_triangle_triangle_instance/"
 
 **[引数]**
 
-- `x1`: Union[int, Int]
+- `x1`: Union[float, Number]
   - 1つ目の頂点のX座標。
 
-- `y1`: Union[int, Int]
+- `y1`: Union[float, Number]
   - 1つ目の頂点のY座標。
 
-- `x2`: Union[int, Int]
+- `x2`: Union[float, Number]
   - 2つ目の頂点のX座標。
 
-- `y2`: Union[int, Int]
+- `y2`: Union[float, Number]
   - 2つ目の頂点のY座標。
 
-- `x3`: Union[int, Int]
+- `x3`: Union[float, Number]
   - 3つ目の頂点のX座標。
 
-- `y3`: Union[int, Int]
+- `y3`: Union[float, Number]
   - 3つ目の頂点のY座標。
 
 - `variable_name_suffix`: str, optional
@@ -146,11 +146,11 @@ ap.save_overall_html(dest_dir_path="./graphics_draw_triangle_triangle_instance/"
 ...     y3=100,
 ... )
 >>> triangle.x1
-Number(75)
+Number(75.0)
 
 >>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Number(30.0)
+Int(30)
 
 >>> triangle.fill_color
 String('#00aaff')

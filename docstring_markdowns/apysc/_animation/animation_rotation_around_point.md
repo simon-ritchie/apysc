@@ -21,8 +21,8 @@ The animation class for a rotation around the given point.<hr>
 >>> animation: ap.AnimationRotationAroundPoint
 >>> animation = rectangle.animation_rotation_around_point(
 ...     rotation_around_point=90,
-...     x=ap.Int(100),
-...     y=ap.Int(100),
+...     x=ap.Number(100),
+...     y=ap.Number(100),
 ...     duration=1500,
 ...     easing=ap.Easing.EASE_OUT_QUINT,
 ... )
@@ -51,9 +51,9 @@ The animation class for a rotation around the given point.<hr>
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `rotation_around_point`: int or Int
   - The final rotation around the given point of the animation.
-- `x`: int or Int
+- `x`: float or Number
   - X-coordinate.
-- `y`: int or Int
+- `y`: float or Number
   - Y-coordinate.
 - `duration`: int or Int, default 3000
   - Milliseconds before an animation ends.

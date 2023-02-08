@@ -83,7 +83,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_line_line_instance/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
+**[Interface signature]** `draw_line(self, *, x_start: Union[float, apysc._type.number.Number], y_start: Union[float, apysc._type.number.Number], x_end: Union[float, apysc._type.number.Number], y_end: Union[float, apysc._type.number.Number], variable_name_suffix: str = '') -> '_line.Line'`<hr>
 
 **[Interface summary]**
 
@@ -91,13 +91,13 @@ Draw a normal line vector graphic.<hr>
 
 **[Parameters]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - Line start x-coordinate.
-- `y_start`: Int or int
+- `y_start`: float or Number
   - Line start y-coordinate.
-- `x_end`: Int or int
+- `x_end`: float or Number
   - Line end x-coordinate.
-- `y_end`: Int or int
+- `y_end`: float or Number
   - Line end y-coordinate.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

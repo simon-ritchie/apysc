@@ -21,7 +21,7 @@ The animation class for a scale-x from the given point.<hr>
 >>> animation: ap.AnimationScaleXFromPoint
 >>> animation = rectangle.animation_scale_x_from_point(
 ...     scale_x_from_point=0.5,
-...     x=ap.Int(100),
+...     x=ap.Number(100),
 ...     duration=1500,
 ...     easing=ap.Easing.EASE_OUT_QUINT,
 ... )
@@ -50,7 +50,7 @@ The animation class for a scale-x from the given point.<hr>
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `scale_x_from_point`: float or Number
   - The final scale-x from the given point of the animation.
-- `x`: int or Int
+- `x`: float or Number
   - X-coordinate.
 - `duration`: int or Int, default 3000
   - Milliseconds before an animation ends.

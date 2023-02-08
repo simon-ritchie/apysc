@@ -24,10 +24,10 @@
 ...     ]
 ... )
 >>> point_1.x
-Int(0)
+Number(0.0)
 
 >>> point_1.y
-Int(0)
+Number(0.0)
 ```
 
 ### `__eq__` method docstring
@@ -52,9 +52,9 @@ Equal comparison method.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Union[float, Number]
   - X-coordinate.
-- `y`: int or Int
+- `y`: Union[float, Number]
   - Y-coordinate.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
@@ -100,7 +100,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 **[Returns]**
 
 - `repr_str`: str
-  - Type name and coordinates values are set (e.g., `Point2D(Int(50), Int(100))`).
+  - Type name and coordinates values are set (e.g., `Point2D(Number(50.0), Number(100.0))`).
 
 ### `_append_constructor_expression` method docstring
 
@@ -112,7 +112,7 @@ Append x property getter expression.<hr>
 
 **[Parameters]**
 
-- `x`: Int
+- `x`: Number
   - Target x value.
 
 ### `_append_x_setter_expression` method docstring
@@ -121,7 +121,7 @@ Append x property setter expression.<hr>
 
 **[Parameters]**
 
-- `value`: Int
+- `value`: Number
   - X-coordinate to set.
 
 ### `_append_y_getter_expression` method docstring
@@ -130,7 +130,7 @@ Append y property getter expression.<hr>
 
 **[Parameters]**
 
-- `y`: Int
+- `y`: Number
   - Target y value.
 
 ### `_append_y_setter_expression` method docstring
@@ -139,7 +139,7 @@ Append y property setter expression.<hr>
 
 **[Parameters]**
 
-- `value`: Int
+- `value`: Number
   - Y-coordinate to set.
 
 ### `_make_snapshot` method docstring

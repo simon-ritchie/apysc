@@ -52,7 +52,7 @@ def _draw_rectangle(*, x: float, y: float) -> None:
 
 class MySprite(ap.Sprite):
     @ap.add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, x: float, y: float) -> None:
+    def __init__(self, *, x: int, y: int) -> None:
         """
         My rectangle's sprite container class.
 

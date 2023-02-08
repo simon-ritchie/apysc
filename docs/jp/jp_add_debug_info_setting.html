@@ -77,16 +77,16 @@
 
 
 <span class="nd">@ap</span><span class="o">.</span><span class="n">add_debug_info_setting</span><span class="p">(</span><span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">_draw_rectangle</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">_draw_rectangle</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Draw a rectangle with the given coordinates and sprite</span>
 <span class="sd">    container class.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x : int</span>
+<span class="sd">    x : float</span>
 <span class="sd">        X-coordinate of the rectangle.</span>
-<span class="sd">    y : int</span>
+<span class="sd">    y : float</span>
 <span class="sd">        Y-coordinate of the rectangle.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_</span><span class="p">:</span> <span class="n">MySprite</span> <span class="o">=</span> <span class="n">MySprite</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
@@ -100,9 +100,9 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : int</span>
+<span class="sd">        x : float</span>
 <span class="sd">            X-coordinate of the rectangle.</span>
-<span class="sd">        y : int</span>
+<span class="sd">        y : float</span>
 <span class="sd">            Y-coordinate of the rectangle.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MySprite</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>

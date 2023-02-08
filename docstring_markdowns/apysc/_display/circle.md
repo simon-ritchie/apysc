@@ -17,10 +17,10 @@ The circle vector graphics class.<hr>
 >>> sprite.graphics.begin_fill(color="#0af")
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> circle.x
-Int(100)
+Number(100.0)
 
 >>> circle.y
-Int(100)
+Number(100.0)
 
 >>> circle.radius
 Int(50)
@@ -42,9 +42,9 @@ Create a circle vector graphic.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the circle center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the circle center.
 - `radius`: Int or int
   - Circle radius.
@@ -84,10 +84,10 @@ Create a circle vector graphic.<hr>
 >>> stage: ap.Stage = ap.Stage()
 >>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color="#00aaff")
 >>> circle.x
-Int(100)
+Number(100.0)
 
 >>> circle.y
-Int(100)
+Number(100.0)
 
 >>> circle.radius
 Int(50)
@@ -137,9 +137,9 @@ Create a rectangle instance with the instance of specified graphics.<hr>
 
 - `graphics`: graphics.Graphics
   - Graphics instance to link this instance.
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the circle center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the circle center.
 - `radius`: Int or int
   - Circle radius.
@@ -159,7 +159,7 @@ Set a center x-coordinate and a center y-coordinate.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the circle center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the circle center.

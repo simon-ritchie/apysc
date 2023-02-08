@@ -64,7 +64,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    x: ap.Int = ap.Int(50)
+    x: ap.Number = ap.Number(50)
     scale_x: ap.Number = rectangle.get_scale_x_from_point(x=x)
     rectangle.set_scale_x_from_point(scale_x=scale_x + 0.005, x=x)
 
@@ -99,7 +99,7 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    x: ap.Int = ap.Int(50)
+    x: ap.Number = ap.Number(50)
     scale_x: ap.Number = rectangle.get_scale_x_from_point(x=x)
     rectangle.set_scale_x_from_point(scale_x=scale_x - 0.005, x=x)
 

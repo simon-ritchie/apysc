@@ -193,12 +193,12 @@
 <section id="get-scale-x-from-point-api">
 <h2>get_scale_x_from_point API<a class="headerlink" href="#get-scale-x-from-point-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">apysc._type.int.Int)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定されたX座標を基準として水平方向の拡縮の値を取得します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Number</p>
 <ul>
 <li><p>X座標。</p></li>
 </ul>
@@ -224,7 +224,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">set_scale_x_from_point</span><span class="p">(</span><span class="n">scale_x</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">get_scale_x_from_point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
 <span class="go">Number(1.5)</span>
@@ -234,7 +234,7 @@
 <section id="set-scale-x-from-point-api">
 <h2>set_scale_x_from_point API<a class="headerlink" href="#set-scale-x-from-point-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point(self,</span> <span class="pre">*,</span> <span class="pre">scale_x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">x:</span> <span class="pre">apysc._type.int.Int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point(self,</span> <span class="pre">*,</span> <span class="pre">scale_x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定されたX座病を基準とした水平方向の拡縮値を更新します。<hr></p>
 <p><strong>[引数]</strong></p>
@@ -244,7 +244,7 @@
 <li><p>設定する水平方向の拡縮値。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Number</p>
 <ul>
 <li><p>X座標。</p></li>
 </ul>
@@ -261,7 +261,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">set_scale_x_from_point</span><span class="p">(</span><span class="n">scale_x</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">get_scale_x_from_point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
 <span class="go">Number(1.5)</span>
@@ -271,12 +271,12 @@
 <section id="get-scale-y-from-point-api">
 <h2>get_scale_y_from_point API<a class="headerlink" href="#get-scale-y-from-point-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point(self,</span> <span class="pre">*,</span> <span class="pre">y:</span> <span class="pre">apysc._type.int.Int)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point(self,</span> <span class="pre">*,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定されたY座標を基準とした垂直方向の拡縮の値を取得します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Number</p>
 <ul>
 <li><p>Y座標。</p></li>
 </ul>
@@ -300,7 +300,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">set_scale_y_from_point</span><span class="p">(</span><span class="n">scale_y</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">get_scale_y_from_point</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="go">Number(1.5)</span>
@@ -310,7 +310,7 @@
 <section id="set-scale-y-from-point-api">
 <h2>set_scale_y_from_point API<a class="headerlink" href="#set-scale-y-from-point-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point(self,</span> <span class="pre">*,</span> <span class="pre">scale_y:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.int.Int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point(self,</span> <span class="pre">*,</span> <span class="pre">scale_y:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定されたY座標を基準とした垂直方向の拡縮値を更新します。<hr></p>
 <p><strong>[引数]</strong></p>
@@ -320,7 +320,7 @@
 <li><p>設定すの垂直方向の拡縮値。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Number</p>
 <ul>
 <li><p>Y座標。</p></li>
 </ul>
@@ -335,7 +335,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">set_scale_y_from_point</span><span class="p">(</span><span class="n">scale_y</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">get_scale_y_from_point</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="go">Number(1.5)</span>

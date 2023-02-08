@@ -190,17 +190,17 @@
 <section id="move-to-api">
 <h2>move_to API<a class="headerlink" href="#move-to-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">move_to(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">move_to(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定された座標に線の描画位置を移動させます。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: float or Number</p>
 <ul>
 <li><p>移動先となるX座標。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: float or Number</p>
 <ul>
 <li><p>移動先となるY座標。</p></li>
 </ul>
@@ -242,17 +242,17 @@
 <section id="line-to-api">
 <h2>line_to API<a class="headerlink" href="#line-to-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">line_to(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">line_to(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>直前の位置の座標から指定された座標に向けて線を描画します（初期位置はx=0, y=0になります）。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: float or Number</p>
 <ul>
 <li><p>線の描画先となる終点のX座標。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: float or Number</p>
 <ul>
 <li><p>線の描画先となる終点のY座標。</p></li>
 </ul>

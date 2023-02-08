@@ -161,7 +161,7 @@ ap.save_overall_html(dest_dir_path="path_bezier_3d_relative/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, control_x1: Union[int, apysc._type.int.Int], control_y1: Union[int, apysc._type.int.Int], control_x2: Union[int, apysc._type.int.Int], control_y2: Union[int, apysc._type.int.Int], dest_x: Union[int, apysc._type.int.Int], dest_y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, control_x1: Union[float, apysc._type.number.Number], control_y1: Union[float, apysc._type.number.Number], control_x2: Union[float, apysc._type.number.Number], control_y2: Union[float, apysc._type.number.Number], dest_x: Union[float, apysc._type.number.Number], dest_y: Union[float, apysc._type.number.Number], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -169,22 +169,22 @@ SVGの3次のベジェ曲線（C）のパスデータのためのクラスです
 
 **[引数]**
 
-- `control_x1`: Int or int
+- `control_x1`: float or Number
   - ベジェ曲線の最初の制御点のX座標。
 
-- `control_y1`: Int or int
+- `control_y1`: float or Number
   - ベジェ曲線の最初の制御点のY座標。
 
-- `control_x2`: Int or int
+- `control_x2`: float or Number
   - ベジェ曲線の2つ目の制御点のX座標。
 
-- `control_y2`: Int or int
+- `control_y2`: float or Number
   - ベジェ曲線の2つ目の制御点のY座標。
 
-- `dest_x`: Int or int
+- `dest_x`: float or Number
   - 終点のX座標。
 
-- `dest_y`: Int or int
+- `dest_y`: float or Number
   - 終点のY座標。
 
 - `relative`: bool or Boolean, default False

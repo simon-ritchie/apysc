@@ -158,7 +158,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_scale_x_from_point(self, *, x: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[Interface signature]** `get_scale_x_from_point(self, *, x: apysc._type.number.Number) -> apysc._type.number.Number`<hr>
 
 **[Interface summary]**
 
@@ -166,7 +166,7 @@ Get a scale-x value from the given x-coordinate.<hr>
 
 **[Parameters]**
 
-- `x`: Int
+- `x`: Number
   - X-coordinate.
 
 <hr>
@@ -192,7 +192,7 @@ The scale's minimum value is almost zero, and it does not become negative.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> x: ap.Int = ap.Int(100)
+>>> x: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
 >>> rectangle.get_scale_x_from_point(x=x)
 Number(1.5)
@@ -204,7 +204,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `set_scale_x_from_point(self, *, scale_x: apysc._type.number.Number, x: apysc._type.int.Int) -> None`<hr>
+**[Interface signature]** `set_scale_x_from_point(self, *, scale_x: apysc._type.number.Number, x: apysc._type.number.Number) -> None`<hr>
 
 **[Interface summary]**
 
@@ -214,7 +214,7 @@ Update a scale-x value from the given x-coordinate.<hr>
 
 - `scale_x`: Number
   - Scale-x value to set.
-- `x`: Int
+- `x`: Number
   - X-coordinate.
 
 <hr>
@@ -233,7 +233,7 @@ The scale's minimum value is almost zero, and it does not become negative.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> x: ap.Int = ap.Int(100)
+>>> x: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
 >>> rectangle.get_scale_x_from_point(x=x)
 Number(1.5)
@@ -245,7 +245,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_scale_y_from_point(self, *, y: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[Interface signature]** `get_scale_y_from_point(self, *, y: apysc._type.number.Number) -> apysc._type.number.Number`<hr>
 
 **[Interface summary]**
 
@@ -253,7 +253,7 @@ Get a scale-y value from the given y-coordinate.<hr>
 
 **[Parameters]**
 
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>
@@ -275,7 +275,7 @@ Get a scale-y value from the given y-coordinate.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> y: ap.Int = ap.Int(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
 >>> rectangle.get_scale_y_from_point(y=y)
 Number(1.5)
@@ -287,7 +287,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `set_scale_y_from_point(self, *, scale_y: apysc._type.number.Number, y: apysc._type.int.Int) -> None`<hr>
+**[Interface signature]** `set_scale_y_from_point(self, *, scale_y: apysc._type.number.Number, y: apysc._type.number.Number) -> None`<hr>
 
 **[Interface summary]**
 
@@ -297,7 +297,7 @@ Update a scale-y value from the given y-coordinate.<hr>
 
 - `scale_y`: Number
   - Scale-y value to set.
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>
@@ -312,7 +312,7 @@ Update a scale-y value from the given y-coordinate.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> y: ap.Int = ap.Int(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
 >>> rectangle.get_scale_y_from_point(y=y)
 Number(1.5)

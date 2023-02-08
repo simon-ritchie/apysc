@@ -29,8 +29,8 @@ def main() -> None:
     ap.assert_equal(left=10, right=point.x)
     ap.assert_equal(left=20, right=point.y)
 
-    x: ap.Int = ap.Int(30)
-    y: ap.Int = ap.Int(40)
+    x: ap.Number = ap.Number(30)
+    y: ap.Number = ap.Number(40)
     point = ap.Point2D(x=x, y=y)
     ap.assert_equal(left=30, right=point.x)
     ap.assert_equal(left=40, right=point.y)

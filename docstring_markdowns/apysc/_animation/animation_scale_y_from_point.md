@@ -21,7 +21,7 @@ The animation class for a scale-y from the given point.<hr>
 >>> animation: ap.AnimationScaleYFromPoint
 >>> animation = rectangle.animation_scale_y_from_point(
 ...     scale_y_from_point=0.5,
-...     y=ap.Int(100),
+...     y=ap.Number(100),
 ...     duration=1500,
 ...     easing=ap.Easing.EASE_OUT_QUINT,
 ... )
@@ -50,7 +50,7 @@ The animation class for a scale-y from the given point.<hr>
   - A target instance of the animation target (e.g., `Rectangle` instance).
 - `scale_y_from_point`: float or Number
   - The final scale-y from the given point of the animation.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.

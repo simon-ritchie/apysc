@@ -64,9 +64,9 @@
 <section id="id3">
 <h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">assert_less</span></code>と<code class="docutils literal notranslate"><span class="pre">assert_less_equal</span></code>のインターフェイスは<code class="docutils literal notranslate"><span class="pre">left</span></code>引数と<code class="docutils literal notranslate"><span class="pre">right</span></code>引数の指定を必要とします。</p>
-<p>これらの値はPythonビルトインの<code class="docutils literal notranslate"><span class="pre">int</span></code>や<code class="docutils literal notranslate"><span class="pre">float</span></code>、apyscの<code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>などの数値の値のみを受け付けます。</p>
+<p>これらの引数はPythonビルトインの<code class="docutils literal notranslate"><span class="pre">int</span></code>や<code class="docutils literal notranslate"><span class="pre">float</span></code>、apyscの<code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>などの数値の値のみ受け付けます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">msg</span></code>引数は省略可です。</p>
-<p>もしアサーションが失敗した場合には指定された<code class="docutils literal notranslate"><span class="pre">msg</span></code></p>
+<p>このインターフェイスはアサーションが失敗した際に<code class="docutils literal notranslate"><span class="pre">msg</span></code>（message）引数の値をブラウザのコンソール上に表示します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -83,7 +83,7 @@
 </pre></div>
 </div>
 <iframe src="static/assert_less_and_less_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
-<p>以下の例ではアサーションは失敗し、<code class="docutils literal notranslate"><span class="pre">Assertion</span> <span class="pre">failed</span></code>というメッセージがブラウザのコンソール上に表示されます:</p>
+<p><code class="docutils literal notranslate"><span class="pre">以下の例ではアサーションが失敗し、</span></code>Assertion failed`というメッセージがブラウザ上のコンソールに表示されます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

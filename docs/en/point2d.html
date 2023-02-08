@@ -87,7 +87,7 @@
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">point</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
@@ -122,17 +122,17 @@
 <h2>Point2D class constructor API<a class="headerlink" href="#point2d-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._geom.point2d.Point2D.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>2-dimensional geometry point.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: int or Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>X-coordinate.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: int or Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>Y-coordinate.</p></li>
 </ul>
@@ -167,7 +167,7 @@
 <p>X-coordinate property.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Number</p>
 <ul>
 <li><p>X-coordinate.</p></li>
 </ul>
@@ -177,9 +177,9 @@
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">x</span>
-<span class="go">Int(150)</span>
+<span class="go">Number(150.0)</span>
 </pre></div>
 </div>
 </section>
@@ -191,7 +191,7 @@
 <p>Y-coordinate property.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Number</p>
 <ul>
 <li><p>Y-coordinate.</p></li>
 </ul>
@@ -201,9 +201,9 @@
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">y</span>
-<span class="go">Int(150)</span>
+<span class="go">Number(150.0)</span>
 </pre></div>
 </div>
 </section>

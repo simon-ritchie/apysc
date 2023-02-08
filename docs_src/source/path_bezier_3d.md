@@ -161,7 +161,7 @@ ap.save_overall_html(dest_dir_path="path_bezier_3d_relative/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, control_x1: Union[int, apysc._type.int.Int], control_y1: Union[int, apysc._type.int.Int], control_x2: Union[int, apysc._type.int.Int], control_y2: Union[int, apysc._type.int.Int], dest_x: Union[int, apysc._type.int.Int], dest_y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, control_x1: Union[float, apysc._type.number.Number], control_y1: Union[float, apysc._type.number.Number], control_x2: Union[float, apysc._type.number.Number], control_y2: Union[float, apysc._type.number.Number], dest_x: Union[float, apysc._type.number.Number], dest_y: Union[float, apysc._type.number.Number], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -169,17 +169,17 @@ Path data class for the SVG's `3D bezier curve` (C).<hr>
 
 **[Parameters]**
 
-- `control_x1`: Int or int
+- `control_x1`: float or Number
   - X-coordinate of the bezier's first control point.
-- `control_y1`: Int or int
+- `control_y1`: float or Number
   - Y-coordinate of the bezier's first control point.
-- `control_x2`: Int or int
+- `control_x2`: float or Number
   - X-coordinate of the bezier's second control point.
-- `control_y2`: Int or int
+- `control_y2`: float or Number
   - Y-coordinate of the bezier's second control point.
-- `dest_x`: Int or int
+- `dest_x`: float or Number
   - X-coordinate of the destination point.
-- `dest_y`: Int or int
+- `dest_y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).

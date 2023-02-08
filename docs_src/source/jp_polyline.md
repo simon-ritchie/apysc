@@ -66,7 +66,7 @@ polyline: ap.Polyline = ap.Polyline(
     line_color="#0af",
     line_thickness=3,
 )
-polyline.x = ap.Int(100)
+polyline.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="polyline_x/")
 ```
@@ -96,7 +96,7 @@ polyline: ap.Polyline = ap.Polyline(
     line_color="#0af",
     line_thickness=3,
 )
-polyline.y = ap.Int(100)
+polyline.y = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="polyline_y/")
 ```

@@ -53,7 +53,7 @@ Path data class for the SVG `vertical line' (V).<hr>
 
 **[Parameters]**
 
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -116,7 +116,7 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -130,5 +130,5 @@ Update the path's data settings.<hr>
 >>> path_vertical: ap.PathVertical = ap.PathVertical(y=50)
 >>> path_vertical.update_path_data(y=100)
 >>> path_vertical.y
-Int(100)
+Number(100.0)
 ```

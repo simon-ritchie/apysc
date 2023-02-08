@@ -75,7 +75,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_circle(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], radius: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_circle.Circle'`<hr>
+**[インターフェイスの構造]** `draw_circle(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], radius: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_circle.Circle'`<hr>
 
 **[インターフェイス概要]**
 
@@ -83,10 +83,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 
 **[引数]**
 
-- `x`: Int or int
+- `x`: float or Number
   - 円の中心のX座標。
 
-- `y`: Int or int
+- `y`: float or Number
   - 円の中心のY座標。
 
 - `radius`: Int or int

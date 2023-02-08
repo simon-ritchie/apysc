@@ -34,7 +34,7 @@ def main() -> None:
     rectangle.x += 50
     ap.assert_equal(rectangle.x, 150)
 
-    x: ap.Int = rectangle.x
+    x: ap.Number = rectangle.x
     x += 50
     ap.assert_equal(x, 200)
     ap.assert_not_equal(x, rectangle.x)

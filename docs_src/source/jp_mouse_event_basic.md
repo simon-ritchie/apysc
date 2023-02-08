@@ -332,7 +332,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 
 **[返却値]**
 
-- `x`: Int
+- `x`: Number
   - X座標。
 
 <hr>
@@ -363,7 +363,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 
 **[返却値]**
 
-- `y`: Int
+- `y`: Number
   - Y座標。
 
 <hr>
@@ -373,7 +373,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 ```py
 >>> import apysc as ap
 >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-...     stage_y: ap.Int = e.stage_y
+...     stage_y: ap.Number = e.stage_y
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
@@ -394,7 +394,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 
 **[返却値]**
 
-- `x`: Int
+- `x`: Number
   - X座標。
 
 <hr>
@@ -404,7 +404,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 ```py
 >>> import apysc as ap
 >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-...     local_x: ap.Int = e.local_x
+...     local_x: ap.Number = e.local_x
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
@@ -425,7 +425,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 
 **[返却値]**
 
-- `y`: Int
+- `y`: Number
   - Y座標。
 
 <hr>
@@ -435,7 +435,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 ```py
 >>> import apysc as ap
 >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-...     local_y: ap.Int = e.local_y
+...     local_y: ap.Number = e.local_y
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()

@@ -46,7 +46,7 @@ The animation class for the x-coordinate.<hr>
 
 - `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `DisplayObject` instance).
-- `x`: int or Int
+- `x`: float or Number
   - Destination of the x-coordinate.
 - `duration`: int or Int, default 3000
   - Milliseconds before an animation ends.

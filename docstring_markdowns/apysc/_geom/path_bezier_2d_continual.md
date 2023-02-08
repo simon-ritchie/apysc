@@ -55,9 +55,9 @@ Path data class for the SVG `continual 2D bezier curve` (T).<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the destination point.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -122,9 +122,9 @@ Update a path data settings.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the destination point.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -138,8 +138,8 @@ Update a path data settings.<hr>
 >>> bezier_2d_continual = ap.PathBezier2DContinual(x=100, y=50)
 >>> bezier_2d_continual.update_path_data(x=150, y=100)
 >>> bezier_2d_continual.x
-Int(150)
+Number(150.0)
 
 >>> bezier_2d_continual.y
-Int(100)
+Number(100.0)
 ```

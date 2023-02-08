@@ -13,7 +13,6 @@ from apysc._display.set_lower_scale_limit_mixin import SetLowerScaleLimitMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.dictionary import Dictionary
 from apysc._type.expression_string import ExpressionString
-from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (

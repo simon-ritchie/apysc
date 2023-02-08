@@ -135,7 +135,7 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_relative/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, control_x: Union[int, apysc._type.int.Int], control_y: Union[int, apysc._type.int.Int], dest_x: Union[int, apysc._type.int.Int], dest_y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, control_x: Union[float, apysc._type.number.Number], control_y: Union[float, apysc._type.number.Number], dest_x: Union[float, apysc._type.number.Number], dest_y: Union[float, apysc._type.number.Number], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -143,16 +143,16 @@ SVGの2次のベジェ曲線（Q）のデータを設定するためのクラス
 
 **[引数]**
 
-- `control_x`: Int or int
+- `control_x`: float or Number
   - ベジェ曲線の制御点のX座標。
 
-- `control_y`: Int or int
+- `control_y`: float or Number
   - ベジェ曲線の制御点のY座標。
 
-- `dest_x`: Int or int
+- `dest_x`: float or Number
   - 終点のX座標。
 
-- `dest_y`: Int or int
+- `dest_y`: float or Number
   - 終点のY座標。
 
 - `relative`: bool or Boolean, default False

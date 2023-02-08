@@ -42,5 +42,5 @@ Update x-coordinate and skip appending an expression.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: float or Number
   - X-coordinate value.

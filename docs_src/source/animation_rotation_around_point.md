@@ -89,7 +89,7 @@ ap.save_overall_html(dest_dir_path="./animation_rotation_around_point_basic_usag
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `animation_rotation_around_point(self, *, rotation_around_point: Union[int, apysc._type.int.Int], x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_rotation_around_point.AnimationRotationAroundPoint`<hr>
+**[Interface signature]** `animation_rotation_around_point(self, *, rotation_around_point: Union[int, apysc._type.int.Int], x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_rotation_around_point.AnimationRotationAroundPoint`<hr>
 
 **[Interface summary]**
 
@@ -99,9 +99,9 @@ Set the rotation around the given point animation setting.<hr>
 
 - `rotation_around_point`: Int or int
   - The final rotation of the animation.
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.

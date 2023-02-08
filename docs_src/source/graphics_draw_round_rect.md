@@ -81,7 +81,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_round_rect_return_value/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_round_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
+**[Interface signature]** `draw_round_rect(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int], ellipse_height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
 **[Interface summary]**
 
@@ -89,9 +89,9 @@ Draw a rounded rectangle vector graphics.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate to start drawing.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate to start drawing.
 - `width`: Int or int
   - Rectangle width.

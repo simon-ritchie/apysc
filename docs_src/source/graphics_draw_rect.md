@@ -94,7 +94,7 @@ If you click rectangle, the handler changes the x position to 100.
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
+**[Interface signature]** `draw_rect(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
 **[Interface summary]**
 
@@ -102,9 +102,9 @@ Draw a rectangle vector graphics.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X position to start drawing.
-- `y`: Int or int
+- `y`: float or Number
   - Y position to start drawing.
 - `width`: Int or int
   - Rectangle width.
@@ -133,10 +133,10 @@ Draw a rectangle vector graphics.<hr>
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.x
-Int(50)
+Number(50.0)
 
 >>> rectangle.width
-Int(50)
+Number(50.0)
 
 >>> rectangle.fill_color
 String('#00aaff')

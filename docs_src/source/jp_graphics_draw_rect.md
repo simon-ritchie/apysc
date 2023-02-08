@@ -93,7 +93,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_rect_rectangle/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_rect(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
+**[インターフェイスの構造]** `draw_rect(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.rectangle.Rectangle`<hr>
 
 **[インターフェイス概要]**
 
@@ -101,10 +101,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_rect_rectangle/")
 
 **[引数]**
 
-- `x`: Int or int
+- `x`: float or Number
   - 描画を開始する位置のX座標。
 
-- `y`: Int or int
+- `y`: float or Number
   - 描画を開始する位置のY座標。
 
 - `width`: Int or int
@@ -136,10 +136,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_rect_rectangle/")
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.x
-Int(50)
+Number(50.0)
 
 >>> rectangle.width
-Int(50)
+Number(50.0)
 
 >>> rectangle.fill_color
 String('#00aaff')

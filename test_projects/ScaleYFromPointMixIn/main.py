@@ -49,7 +49,7 @@ def main() -> None:
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50
     )
-    rectangle_2.set_scale_y_from_point(scale_y=ap.Number(2.0), y=ap.Int(100))
+    rectangle_2.set_scale_y_from_point(scale_y=ap.Number(2.0), y=ap.Number(100))
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
@@ -66,7 +66,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    y: ap.Int = ap.Int(50)
+    y: ap.Number = ap.Number(50)
     scale_y: ap.Number = rectangle.get_scale_y_from_point(y=y)
     scale_y += 0.03
     rectangle.set_scale_y_from_point(scale_y=scale_y, y=y)

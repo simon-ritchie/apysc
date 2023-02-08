@@ -83,7 +83,7 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -91,9 +91,9 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Union[float, Number]
   - X-coordinate.
-- `y`: int or Int
+- `y`: Union[float, Number]
   - Y-coordinate.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
@@ -128,7 +128,7 @@ X-coordinate property.<hr>
 
 **[Returns]**
 
-- `x`: Int
+- `x`: Number
   - X-coordinate.
 
 <hr>
@@ -155,7 +155,7 @@ Y-coordinate property.<hr>
 
 **[Returns]**
 
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>

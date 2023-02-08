@@ -92,7 +92,7 @@ ap.save_overall_html(dest_dir_path="./graphics_draw_triangle_triangle_instance/"
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_triangle(self, *, x1: Union[int, apysc._type.int.Int], y1: Union[int, apysc._type.int.Int], x2: Union[int, apysc._type.int.Int], y2: Union[int, apysc._type.int.Int], x3: Union[int, apysc._type.int.Int], y3: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> apysc._display.triangle.Triangle`<hr>
+**[Interface signature]** `draw_triangle(self, *, x1: Union[float, apysc._type.number.Number], y1: Union[float, apysc._type.number.Number], x2: Union[float, apysc._type.number.Number], y2: Union[float, apysc._type.number.Number], x3: Union[float, apysc._type.number.Number], y3: Union[float, apysc._type.number.Number], variable_name_suffix: str = '') -> apysc._display.triangle.Triangle`<hr>
 
 **[Interface summary]**
 
@@ -100,17 +100,17 @@ Draw a triangle vector graphic.<hr>
 
 **[Parameters]**
 
-- `x1`: Union[int, Int]
+- `x1`: Union[float, Number]
   - First vertex's x coordinate.
-- `y1`: Union[int, Int]
+- `y1`: Union[float, Number]
   - First vertex's y coordinate.
-- `x2`: Union[int, Int]
+- `x2`: Union[float, Number]
   - Second vertex's x coordinate.
-- `y2`: Union[int, Int]
+- `y2`: Union[float, Number]
   - Second vertex's y coordinate.
-- `x3`: Union[int, Int]
+- `x3`: Union[float, Number]
   - Third vertex's x coordinate.
-- `y3`: Union[int, Int]
+- `y3`: Union[float, Number]
   - Third vertex's y coordinate.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
@@ -145,7 +145,7 @@ Number(75.0)
 
 >>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Number(30.0)
+Int(30)
 
 >>> triangle.fill_color
 String('#00aaff')

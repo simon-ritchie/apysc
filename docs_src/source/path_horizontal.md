@@ -76,7 +76,7 @@ ap.save_overall_html(dest_dir_path="path_horizontal_relative/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, x: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, x: Union[float, apysc._type.number.Number], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -84,7 +84,7 @@ Path data class for the SVG's `horizontal line` (H).<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).

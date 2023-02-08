@@ -12,9 +12,9 @@ Set the x and y coordinates animation settings.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - Destination of the x-coordinate.
-- `y`: Int or int
+- `y`: float or Number
   - Destination of the y-coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.

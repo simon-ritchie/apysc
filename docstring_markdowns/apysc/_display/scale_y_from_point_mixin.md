@@ -12,7 +12,7 @@ Append the scale-y from the specified y-coordinate updating expression.<hr>
 
 **[Parameters]**
 
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 ### `_initialize_scale_y_from_point_if_not_initialized` method docstring
@@ -43,7 +43,7 @@ Get a scale-y value from the given y-coordinate.<hr>
 
 **[Parameters]**
 
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>
@@ -65,7 +65,7 @@ Get a scale-y value from the given y-coordinate.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> y: ap.Int = ap.Int(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
 >>> rectangle.get_scale_y_from_point(y=y)
 Number(1.5)
@@ -85,7 +85,7 @@ Update a scale-y value from the given y-coordinate.<hr>
 
 - `scale_y`: Number
   - Scale-y value to set.
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>
@@ -100,7 +100,7 @@ Update a scale-y value from the given y-coordinate.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> y: ap.Int = ap.Int(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
 >>> rectangle.get_scale_y_from_point(y=y)
 Number(1.5)

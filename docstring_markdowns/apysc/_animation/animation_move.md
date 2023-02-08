@@ -47,9 +47,9 @@ The animation class for moving x and y coordinates.<hr>
 
 - `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `DisplayObject` instance).
-- `x`: int or Int
+- `x`: float or Number
   - Destination of the x-coordinate.
-- `y`: int or Int
+- `y`: float or Number
   - Destination of the y-coordinate.
 - `duration`: int or Int, default 3000
   - Milliseconds before an animation ends.

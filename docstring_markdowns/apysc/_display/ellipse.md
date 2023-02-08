@@ -19,10 +19,10 @@ The ellipse vector graphics class.<hr>
 ...     x=100, y=100, width=80, height=50
 ... )
 >>> ellipse.x
-Int(100)
+Number(100.0)
 
 >>> ellipse.y
-Int(100)
+Number(100.0)
 
 >>> ellipse.width
 Int(80)
@@ -47,9 +47,9 @@ Create an ellipse vector graphic.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the ellipse center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the ellipse center.
 - `width`: Int or int
   - Ellipse width.
@@ -93,10 +93,10 @@ Create an ellipse vector graphic.<hr>
 ...     x=100, y=100, width=100, height=50, fill_color="#00aaff"
 ... )
 >>> ellipse.x
-Int(100)
+Number(100.0)
 
 >>> ellipse.y
-Int(100)
+Number(100.0)
 
 >>> ellipse.width
 Int(100)
@@ -135,9 +135,9 @@ Create an ellipse instance with the instance of specified graphics.<hr>
 
 - `graphics`: Graphics
   - Graphics instance to link this instance.
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the ellipse center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the ellipse center.
 - `width`: Int or int
   - Ellipse width.

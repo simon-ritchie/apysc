@@ -19,11 +19,11 @@ Create an object that has each vector graphics interface.<hr>
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.x
-Int(50)
+Number(50.0)
 
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> circle.x
-Int(100)
+Number(100.0)
 ```
 
 <hr>
@@ -78,9 +78,9 @@ Draw a circle vector graphics.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the circle center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the circle center.
 - `radius`: Int or int
   - Circle radius.
@@ -129,13 +129,13 @@ Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
 
 **[Parameters]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - Line start x-coordinate.
-- `y_start`: Int or int
+- `y_start`: float or Number
   - Line start y-coordinate.
-- `x_end`: Int or int
+- `x_end`: float or Number
   - Line end x-coordinate.
-- `y_end`: Int or int
+- `y_end`: float or Number
   - Line end y-coordinate.
 - `dot_size`: Int or int
   - Dot size.
@@ -196,13 +196,13 @@ Draw a dashed line vector graphics.<hr>
 
 **[Parameters]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - Line start x-coordinate.
-- `y_start`: Int or int
+- `y_start`: float or Number
   - Line start y-coordinate.
-- `x_end`: Int or int
+- `x_end`: float or Number
   - Line end x-coordinate.
-- `y_end`: Int or int
+- `y_end`: float or Number
   - Line end y-coordinate.
 - `dash_size`: Int or int
   - Dash size.
@@ -256,13 +256,13 @@ Draw a dotted line vector graphics.<hr>
 
 **[Parameters]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - Line start x-coordinate.
-- `y_start`: Int or int
+- `y_start`: float or Number
   - Line start y-coordinate.
-- `x_end`: Int or int
+- `x_end`: float or Number
   - Line end x-coordinate.
-- `y_end`: Int or int
+- `y_end`: float or Number
   - Line end y-coordinate.
 - `dot_size`: Int or int
   - Dot size.
@@ -314,9 +314,9 @@ Draw an ellipse vector graphic.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the ellipse center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the ellipse center.
 - `width`: Int or int
   - Ellipse width.
@@ -345,10 +345,10 @@ Draw an ellipse vector graphic.<hr>
 ...     x=100, y=100, width=100, height=50
 ... )
 >>> ellipse.x
-Int(100)
+Number(100.0)
 
 >>> ellipse.y
-Int(100)
+Number(100.0)
 
 >>> ellipse.width
 Int(100)
@@ -372,13 +372,13 @@ Draw a normal line vector graphic.<hr>
 
 **[Parameters]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - Line start x-coordinate.
-- `y_start`: Int or int
+- `y_start`: float or Number
   - Line start y-coordinate.
-- `x_end`: Int or int
+- `x_end`: float or Number
   - Line end x-coordinate.
-- `y_end`: Int or int
+- `y_end`: float or Number
   - Line end y-coordinate.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
@@ -520,9 +520,9 @@ Draw a rectangle vector graphics.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X position to start drawing.
-- `y`: Int or int
+- `y`: float or Number
   - Y position to start drawing.
 - `width`: Int or int
   - Rectangle width.
@@ -551,10 +551,10 @@ Draw a rectangle vector graphics.<hr>
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.x
-Int(50)
+Number(50.0)
 
 >>> rectangle.width
-Int(50)
+Number(50.0)
 
 >>> rectangle.fill_color
 String('#00aaff')
@@ -572,13 +572,13 @@ Draw a round-dotted line vector graphics.<hr>
 
 **[Parameters]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - Line start x-coordinate.
-- `y_start`: Int or int
+- `y_start`: float or Number
   - Line start y-coordinate.
-- `x_end`: Int or int
+- `x_end`: float or Number
   - Line end x-coordinate.
-- `y_end`: Int or int
+- `y_end`: float or Number
   - Line end y-coordinate.
 - `round_size`: Int or int
   - Dot round size.
@@ -632,9 +632,9 @@ Draw a rounded rectangle vector graphics.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate to start drawing.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate to start drawing.
 - `width`: Int or int
   - Rectangle width.
@@ -685,17 +685,17 @@ Draw a triangle vector graphic.<hr>
 
 **[Parameters]**
 
-- `x1`: Union[int, Int]
+- `x1`: Union[float, Number]
   - First vertex's x coordinate.
-- `y1`: Union[int, Int]
+- `y1`: Union[float, Number]
   - First vertex's y coordinate.
-- `x2`: Union[int, Int]
+- `x2`: Union[float, Number]
   - Second vertex's x coordinate.
-- `y2`: Union[int, Int]
+- `y2`: Union[float, Number]
   - Second vertex's y coordinate.
-- `x3`: Union[int, Int]
+- `x3`: Union[float, Number]
   - Third vertex's x coordinate.
-- `y3`: Union[int, Int]
+- `y3`: Union[float, Number]
   - Third vertex's y coordinate.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
@@ -730,7 +730,7 @@ Number(75.0)
 
 >>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Number(30.0)
+Int(30)
 
 >>> triangle.fill_color
 String('#00aaff')
@@ -749,9 +749,9 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X destination point to draw a line.
-- `y`: Int or int
+- `y`: float or Number
   - Y destination point to draw a line.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
@@ -797,9 +797,9 @@ Move a line position to a specified point.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X destination point to move.
-- `y`: Int or int
+- `y`: float or Number
   - Y destination point to move.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

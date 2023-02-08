@@ -156,7 +156,7 @@ ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_polyline/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `move_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
+**[インターフェイスの構造]** `move_to(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[インターフェイス概要]**
 
@@ -164,10 +164,10 @@ ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_polyline/")
 
 **[引数]**
 
-- `x`: Int or int
+- `x`: float or Number
   - 移動先となるX座標。
 
-- `y`: Int or int
+- `y`: float or Number
   - 移動先となるY座標。
 
 - `variable_name_suffix`: str, default ''
@@ -205,7 +205,7 @@ Int(5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `line_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
+**[インターフェイスの構造]** `line_to(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[インターフェイス概要]**
 
@@ -213,10 +213,10 @@ Int(5)
 
 **[引数]**
 
-- `x`: Int or int
+- `x`: float or Number
   - 線の描画先となる終点のX座標。
 
-- `y`: Int or int
+- `y`: float or Number
   - 線の描画先となる終点のY座標。
 
 - `variable_name_suffix`: str, default ''

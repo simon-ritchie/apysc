@@ -44,17 +44,17 @@ Create a triangle vector graphics instance.<hr>
 
 **[Parameters]**
 
-- `x1`: Union[int, Int]
+- `x1`: Union[float, Number]
   - First vertex's x coordinate.
-- `y1`: Union[int, Int]
+- `y1`: Union[float, Number]
   - First vertex's y coordinate.
-- `x2`: Union[int, Int]
+- `x2`: Union[float, Number]
   - Second vertex's x coordinate.
-- `y2`: Union[int, Int]
+- `y2`: Union[float, Number]
   - Second vertex's y coordinate.
-- `x3`: Union[int, Int]
+- `x3`: Union[float, Number]
   - Third vertex's x coordinate.
-- `y3`: Union[int, Int]
+- `y3`: Union[float, Number]
   - Third vertex's y coordinate.
 - `fill_color`: str or String, default ''
   - A fill-color to set.
@@ -104,7 +104,7 @@ Create a triangle vector graphics instance.<hr>
 >>> triangle.x2
 Number(50.0)
 
->>> triangle.y1 = ap.Number(30)
+>>> triangle.y1 = ap.Number(30.0)
 >>> triangle.y1
 Number(30.0)
 ```
@@ -132,17 +132,17 @@ Create a triangle instance with the instance of specified graphics.<hr>
 
 - `graphics`: graphics.Graphics
   - Graphics instance to link this instance.
-- `x1`: Union[int, Int]
+- `x1`: Union[float, Number]
   - First vertex's y coordinate.
-- `y1`: Union[int, Int]
+- `y1`: Union[float, Number]
   - First vertex's y coordinate.
-- `x2`: Union[int, Int]
+- `x2`: Union[float, Number]
   - Second vertex's x coordinate.
-- `y2`: Union[int, Int]
+- `y2`: Union[float, Number]
   - Second vertex's y coordinate.
-- `x3`: Union[int, Int]
+- `x3`: Union[float, Number]
   - Third vertex's x coordinate.
-- `y3`: Union[int, Int]
+- `y3`: Union[float, Number]
   - Third vertex's y coordinate.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

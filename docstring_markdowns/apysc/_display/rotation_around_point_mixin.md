@@ -14,9 +14,9 @@ Append a rotation value around the given coordinates updating expression.<hr>
 
 - `rotation`: Int
   - Rotation value to set.
-- `x`: Int
+- `x`: Number
   - X-coordinate.
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 ### `_get_rotation_around_point_updating_expression` method docstring
@@ -27,9 +27,9 @@ Get a rotation value around the given coordinates' updating expression string.<h
 
 - `rotation`: Int
   - Rotation value to set.
-- `x`: Int
+- `x`: Number
   - X-coordinate.
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>
@@ -67,9 +67,9 @@ Get a rotation value around the given coordinates.<hr>
 
 **[Parameters]**
 
-- `x`: Int
+- `x`: Number
   - X-coordinate.
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>
@@ -91,8 +91,8 @@ Get a rotation value around the given coordinates.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> x: ap.Int = ap.Int(100)
->>> y: ap.Int = ap.Int(100)
+>>> x: ap.Number = ap.Number(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_rotation_around_point(rotation=ap.Int(45), x=x, y=y)
 >>> rectangle.get_rotation_around_point(x=x, y=y)
 Int(45)
@@ -112,9 +112,9 @@ Update a rotation value around the given coordinates.<hr>
 
 - `rotation`: Int
   - Rotation value to set.
-- `x`: Int
+- `x`: Number
   - X-coordinate.
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>

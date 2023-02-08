@@ -10,7 +10,6 @@ from apysc._event.event import Event
 from apysc._event.prevent_default_mixin import PreventDefaultMixIn
 from apysc._event.stop_propagation_mixin import StopPropagationMixIn
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos

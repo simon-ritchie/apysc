@@ -58,7 +58,7 @@ def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    ap.assert_equal(0.3, rectangle.get_scale_y_from_point(y=ap.Int(100)))
+    ap.assert_equal(0.3, rectangle.get_scale_y_from_point(y=ap.Number(100)))
     rectangle.animation_scale_y_from_point(
         scale_y_from_point=1.5,
         y=100,
@@ -80,7 +80,7 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    ap.assert_equal(1.5, rectangle.get_scale_y_from_point(y=ap.Int(100)))
+    ap.assert_equal(1.5, rectangle.get_scale_y_from_point(y=ap.Number(100)))
     rectangle.animation_scale_y_from_point(
         scale_y_from_point=0.3,
         y=100,

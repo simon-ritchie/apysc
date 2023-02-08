@@ -14,7 +14,7 @@ Set the scale-x from the given point animation setting.<hr>
 
 - `scale_x_from_point`: float or Number
   - The final scale-x from the given point of the animation.
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
@@ -48,7 +48,7 @@ To start this animation, you need to call the `start` method of the returned ins
 ... )
 >>> _ = rectangle.animation_scale_x_from_point(
 ...     scale_x_from_point=0.5,
-...     x=ap.Int(100),
+...     x=ap.Number(100),
 ...     duration=1500,
 ...     easing=ap.Easing.EASE_OUT_QUINT,
 ... ).start()

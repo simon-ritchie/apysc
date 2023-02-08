@@ -53,9 +53,9 @@ Path data class for the SVG `line to` (L).<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the destination point.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -118,9 +118,9 @@ Update the path data settings.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the destination point.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -134,8 +134,8 @@ Update the path data settings.<hr>
 >>> line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=50)
 >>> line_to.update_path_data(x=100, y=150)
 >>> line_to.x
-Int(100)
+Number(100.0)
 
 >>> line_to.y
-Int(150)
+Number(150.0)
 ```

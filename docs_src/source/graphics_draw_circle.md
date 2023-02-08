@@ -76,7 +76,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_circle(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], radius: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_circle.Circle'`<hr>
+**[Interface signature]** `draw_circle(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], radius: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_circle.Circle'`<hr>
 
 **[Interface summary]**
 
@@ -84,9 +84,9 @@ Draw a circle vector graphics.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the circle center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the circle center.
 - `radius`: Int or int
   - Circle radius.

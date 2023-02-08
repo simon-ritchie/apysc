@@ -157,7 +157,7 @@ If you click the following line, line style will be updated:
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `move_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
+**[Interface signature]** `move_to(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[Interface summary]**
 
@@ -165,9 +165,9 @@ Move a line position to a specified point.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X destination point to move.
-- `y`: Int or int
+- `y`: float or Number
   - Y destination point to move.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
@@ -206,7 +206,7 @@ Int(5)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `line_to(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
+**[Interface signature]** `line_to(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], variable_name_suffix: str = '') -> '_polyline.Polyline'`<hr>
 
 **[Interface summary]**
 
@@ -214,9 +214,9 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X destination point to draw a line.
-- `y`: Int or int
+- `y`: float or Number
   - Y destination point to draw a line.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

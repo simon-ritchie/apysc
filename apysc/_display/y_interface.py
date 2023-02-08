@@ -5,7 +5,6 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Union
 
-from apysc._type.int import Int
 from apysc._type.number import Number
 
 

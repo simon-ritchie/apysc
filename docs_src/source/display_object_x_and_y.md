@@ -84,7 +84,7 @@ Get an x-coordinate.<hr>
 
 **[Returns]**
 
-- `x`: Int
+- `x`: Number
   - X-coordinate.
 
 <hr>
@@ -116,7 +116,7 @@ Get a y-coordinate.<hr>
 
 **[Returns]**
 
-- `y`: Int
+- `y`: Number
   - Y-coordinate.
 
 <hr>

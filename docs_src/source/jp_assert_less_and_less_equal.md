@@ -18,11 +18,11 @@
 
 `assert_less`と`assert_less_equal`のインターフェイスは`left`引数と`right`引数の指定を必要とします。
 
-これらの値はPythonビルトインの`int`や`float`、apyscの`Int`や`Number`などの数値の値のみを受け付けます。
+これらの引数はPythonビルトインの`int`や`float`、apyscの`Int`や`Number`などの数値の値のみ受け付けます。
 
 `msg`引数は省略可です。
 
-もしアサーションが失敗した場合には指定された`msg`
+このインターフェイスはアサーションが失敗した際に`msg`（message）引数の値をブラウザのコンソール上に表示します。
 
 ```py
 # runnable
@@ -42,7 +42,7 @@ ap.save_overall_html(dest_dir_path="assert_less_and_less_equal_basic_usage_1/")
 
 <iframe src="static/assert_less_and_less_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
 
-以下の例ではアサーションは失敗し、`Assertion failed`というメッセージがブラウザのコンソール上に表示されます:
+`以下の例ではアサーションが失敗し、`Assertion failed`というメッセージがブラウザ上のコンソールに表示されます:
 
 ```py
 # runnable

@@ -86,7 +86,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_ellipse(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_ellipse.Ellipse'`<hr>
+**[インターフェイスの構造]** `draw_ellipse(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_ellipse.Ellipse'`<hr>
 
 **[インターフェイス概要]**
 
@@ -94,10 +94,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 
 **[引数]**
 
-- `x`: Int or int
+- `x`: float or Number
   - 楕円の中央のX座標。
 
-- `y`: Int or int
+- `y`: float or Number
   - 楕円の中央のY座標。
 
 - `width`: Int or int
@@ -129,10 +129,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 ...     x=100, y=100, width=100, height=50
 ... )
 >>> ellipse.x
-Int(100)
+Number(100.0)
 
 >>> ellipse.y
-Int(100)
+Number(100.0)
 
 >>> ellipse.width
 Int(100)

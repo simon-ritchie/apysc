@@ -60,8 +60,7 @@ class TestScaleYFromPointMixIn:
         mixin.set_scale_y_from_point(scale_y=scale_y, y=y)
         expression: str = expression_data_util.get_current_expression()
         patterns: List[str] = [
-            rf"{mixin.variable_name}"
-            rf"\.scale\(1, 1 / .+?, 0, {y.variable_name}\);",
+            rf"{mixin.variable_name}" rf"\.scale\(1, 1 / .+?, 0, {y.variable_name}\);",
             rf"{mixin.variable_name}"
             rf".scale\(1, {scale_y.variable_name}, 0, {y.variable_name}\);",
         ]

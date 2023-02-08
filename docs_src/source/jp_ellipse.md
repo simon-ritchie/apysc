@@ -48,7 +48,7 @@ ap.Stage(
     background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
 )
 ellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color="#0af")
-ellipse.x = ap.Int(100)
+ellipse.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="ellipse_x/")
 ```
@@ -67,7 +67,7 @@ ap.Stage(
     background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
 )
 ellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color="#0af")
-ellipse.y = ap.Int(125)
+ellipse.y = ap.Number(125)
 
 ap.save_overall_html(dest_dir_path="ellipse_y/")
 ```
@@ -683,7 +683,7 @@ ap.save_overall_html(dest_dir_path="ellipse_skew_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -691,10 +691,10 @@ ap.save_overall_html(dest_dir_path="ellipse_skew_y/")
 
 **[引数]**
 
-- `x`: Int or int
+- `x`: float or Number
   - 楕円の中央のX座標。
 
-- `y`: Int or int
+- `y`: float or Number
   - 楕円の中央のY座標。
 
 - `width`: Int or int
@@ -753,10 +753,10 @@ ap.save_overall_html(dest_dir_path="ellipse_skew_y/")
 ...     x=100, y=100, width=100, height=50, fill_color="#00aaff"
 ... )
 >>> ellipse.x
-Int(100)
+Number(100.0)
 
 >>> ellipse.y
-Int(100)
+Number(100.0)
 
 >>> ellipse.width
 Int(100)

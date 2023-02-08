@@ -76,7 +76,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_point_basic_us
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_rotation_around_point(self, *, x: apysc._type.int.Int, y: apysc._type.int.Int) -> apysc._type.int.Int`<hr>
+**[インターフェイスの構造]** `get_rotation_around_point(self, *, x: apysc._type.number.Number, y: apysc._type.number.Number) -> apysc._type.int.Int`<hr>
 
 **[インターフェイス概要]**
 
@@ -84,10 +84,10 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_point_basic_us
 
 **[引数]**
 
-- `x`: Int
+- `x`: Number
   - X座標。
 
-- `y`: Int
+- `y`: Number
   - Y座標。
 
 <hr>
@@ -109,8 +109,8 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_point_basic_us
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> x: ap.Int = ap.Int(100)
->>> y: ap.Int = ap.Int(100)
+>>> x: ap.Number = ap.Number(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_rotation_around_point(rotation=ap.Int(45), x=x, y=y)
 >>> rectangle.get_rotation_around_point(x=x, y=y)
 Int(45)
@@ -120,7 +120,7 @@ Int(45)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `set_rotation_around_point(self, *, rotation: apysc._type.int.Int, x: apysc._type.int.Int, y: apysc._type.int.Int) -> None`<hr>
+**[インターフェイスの構造]** `set_rotation_around_point(self, *, rotation: apysc._type.int.Int, x: apysc._type.number.Number, y: apysc._type.number.Number) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -131,8 +131,8 @@ Int(45)
 - `rotation`: Int
   - 設定する回転量。
 
-- `x`: Int
+- `x`: Number
   - X座標。
 
-- `y`: Int
+- `y`: Number
   - Y座標。

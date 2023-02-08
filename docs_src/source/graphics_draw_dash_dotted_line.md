@@ -44,7 +44,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dash_dotted_line_basic_usage/"
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_dash_dotted_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dot_size: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
+**[Interface signature]** `draw_dash_dotted_line(self, *, x_start: Union[float, apysc._type.number.Number], y_start: Union[float, apysc._type.number.Number], x_end: Union[float, apysc._type.number.Number], y_end: Union[float, apysc._type.number.Number], dot_size: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
 
 **[Interface summary]**
 
@@ -52,13 +52,13 @@ Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
 
 **[Parameters]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - Line start x-coordinate.
-- `y_start`: Int or int
+- `y_start`: float or Number
   - Line start y-coordinate.
-- `x_end`: Int or int
+- `x_end`: float or Number
   - Line end x-coordinate.
-- `y_end`: Int or int
+- `y_end`: float or Number
   - Line end y-coordinate.
 - `dot_size`: Int or int
   - Dot size.

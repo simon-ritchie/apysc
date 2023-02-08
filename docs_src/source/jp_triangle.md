@@ -68,7 +68,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.x = ap.Int(100)
+triangle.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="triangle_x/")
 ```
@@ -95,7 +95,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.y = ap.Int(100)
+triangle.y = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="triangle_y/")
 ```
@@ -972,7 +972,7 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, x1: Union[int, apysc._type.int.Int], y1: Union[int, apysc._type.int.Int], x2: Union[int, apysc._type.int.Int], y2: Union[int, apysc._type.int.Int], x3: Union[int, apysc._type.int.Int], y3: Union[int, apysc._type.int.Int], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, x1: Union[float, apysc._type.number.Number], y1: Union[float, apysc._type.number.Number], x2: Union[float, apysc._type.number.Number], y2: Union[float, apysc._type.number.Number], x3: Union[float, apysc._type.number.Number], y3: Union[float, apysc._type.number.Number], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -980,22 +980,22 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 
 **[引数]**
 
-- `x1`: Union[int, Int]
+- `x1`: Union[float, Number]
   - 1つ目の頂点のX座標。
 
-- `y1`: Union[int, Int]
+- `y1`: Union[float, Number]
   - 1つ目の頂点のY座標。
 
-- `x2`: Union[int, Int]
+- `x2`: Union[float, Number]
   - 2つ目の頂点のX座標。
 
-- `y2`: Union[int, Int]
+- `y2`: Union[float, Number]
   - 2つ目の頂点のY座標。
 
-- `x3`: Union[int, Int]
+- `x3`: Union[float, Number]
   - 3つ目の頂点のX座標。
 
-- `y3`: Union[int, Int]
+- `y3`: Union[float, Number]
   - 3つ目の頂点のY座標。
 
 - `fill_color`: str or String, default ''
@@ -1056,9 +1056,9 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 ...     line_thickness=3,
 ... )
 >>> triangle.x2
-Int(50)
+Number(50.0)
 
->>> triangle.y1 = ap.Number(30)
+>>> triangle.y1 = ap.Number(30.0)
 >>> triangle.y1
 Number(30.0)
 ```
@@ -1073,7 +1073,7 @@ Number(30.0)
 
 **[返却値]**
 
-- `x1`: Int
+- `x1`: Number
   - 1つ目のX座標。
 
 ## y1 属性のAPI
@@ -1086,7 +1086,7 @@ Number(30.0)
 
 **[返却値]**
 
-- `y1`: Int
+- `y1`: Number
   - 1つ目のY座標。
 
 ## x2 属性のAPI
@@ -1099,7 +1099,7 @@ Get a second x-coordinate.<hr>
 
 **[返却値]**
 
-- `x2`: Int
+- `x2`: Number
   - 2つ目のX座標。
 
 ## y2 属性のAPI
@@ -1112,7 +1112,7 @@ Get a second x-coordinate.<hr>
 
 **[返却値]**
 
-- `y2`: Int
+- `y2`: Number
   - 2つ目のY座標。
 
 ## x3 属性のAPI
@@ -1125,7 +1125,7 @@ Get a second x-coordinate.<hr>
 
 **[返却値]**
 
-- `x3`: Int
+- `x3`: Number
   - 3つ目のX座標。
 
 ## y3 属性のAPI
@@ -1138,5 +1138,5 @@ Get a second x-coordinate.<hr>
 
 **[返却値]**
 
-- `y3`: Int
+- `y3`: Number
   - 3つ目のY座標。

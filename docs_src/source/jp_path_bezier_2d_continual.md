@@ -104,7 +104,7 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_continual_relative/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], *, relative: Union[bool, apysc._type.boolean.Boolean] = False, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -112,10 +112,10 @@ SVGの連続した2次元のベジェ曲線のデータ設定用のクラスで�
 
 **[引数]**
 
-- `x`: Int or int
+- `x`: float or Number
   - 終点のX座標。
 
-- `y`: Int or int
+- `y`: float or Number
   - 終点のY座標。
 
 - `relative`: bool or Boolean, default False

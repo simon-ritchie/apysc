@@ -87,7 +87,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `draw_ellipse(self, *, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_ellipse.Ellipse'`<hr>
+**[Interface signature]** `draw_ellipse(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_ellipse.Ellipse'`<hr>
 
 **[Interface summary]**
 
@@ -95,9 +95,9 @@ Draw an ellipse vector graphic.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the ellipse center.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate of the ellipse center.
 - `width`: Int or int
   - Ellipse width.
@@ -126,10 +126,10 @@ Draw an ellipse vector graphic.<hr>
 ...     x=100, y=100, width=100, height=50
 ... )
 >>> ellipse.x
-Int(100)
+Number(100.0)
 
 >>> ellipse.y
-Int(100)
+Number(100.0)
 
 >>> ellipse.width
 Int(100)

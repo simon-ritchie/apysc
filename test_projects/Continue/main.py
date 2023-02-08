@@ -28,7 +28,7 @@ def main() -> None:
     ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
 
     arr: ap.Array = ap.Array(range(2))
-    i: ap.Int
+    i: ap.Number
     with ap.For(arr) as i:
         condition: ap.Boolean = i == 1
         condition = condition.not_

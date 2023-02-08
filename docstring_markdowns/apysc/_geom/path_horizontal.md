@@ -53,7 +53,7 @@ Path data class for the SVG's `horizontal line` (H).<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -116,7 +116,7 @@ Update the path's data settings.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate of the destination point.
 - `relative`: bool or Boolean, default False
   - A boolean value indicates whether the path coordinates are relative or not (absolute).
@@ -130,5 +130,5 @@ Update the path's data settings.<hr>
 >>> path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50)
 >>> path_horizontal.update_path_data(x=100)
 >>> path_horizontal.x
-Int(100)
+Number(100.0)
 ```

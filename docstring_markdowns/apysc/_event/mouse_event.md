@@ -67,7 +67,7 @@ Append local_x getter property expression.<hr>
 
 **[Parameters]**
 
-- `x`: Int
+- `x`: Number
   - Target x-coordinate value.
 
 ### `_append_local_y_getter_expression` method docstring
@@ -76,7 +76,7 @@ Append local_y getter property expression.<hr>
 
 **[Parameters]**
 
-- `y`: Int
+- `y`: Number
   - Target y-coordinate value.
 
 ### `_append_stage_x_getter_expression` method docstring
@@ -85,7 +85,7 @@ Append stage_x getter property expression.<hr>
 
 **[Parameters]**
 
-- `x`: Int
+- `x`: Number
   - Target x-coordinate value.
 
 ### `_append_stage_y_getter_expression` method docstring
@@ -94,5 +94,5 @@ Append stage_y getter property expression.<hr>
 
 **[Parameters]**
 
-- `y`: Int
+- `y`: Number
   - Target y-coordinate value.

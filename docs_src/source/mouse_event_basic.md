@@ -332,7 +332,7 @@ Get the x-coordinate of the stage reference.<hr>
 
 **[Returns]**
 
-- `x`: Int
+- `x`: Number
   - x-coordinate.
 
 <hr>
@@ -365,7 +365,7 @@ Get the y-coordinate of the stage reference.<hr>
 
 **[Returns]**
 
-- `y`: Int
+- `y`: Number
   - y-coordinate.
 
 <hr>
@@ -375,7 +375,7 @@ Get the y-coordinate of the stage reference.<hr>
 ```py
 >>> import apysc as ap
 >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-...     stage_y: ap.Int = e.stage_y
+...     stage_y: ap.Number = e.stage_y
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
@@ -398,7 +398,7 @@ Get a local x-coordinate event listening instance. For example, this value becom
 
 **[Returns]**
 
-- `x`: Int
+- `x`: Number
   - x-coordinate.
 
 <hr>
@@ -408,7 +408,7 @@ Get a local x-coordinate event listening instance. For example, this value becom
 ```py
 >>> import apysc as ap
 >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-...     local_x: ap.Int = e.local_x
+...     local_x: ap.Number = e.local_x
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
@@ -431,7 +431,7 @@ Get the local y-coordinate of the event listening instance. For example, this va
 
 **[Returns]**
 
-- `y`: Int
+- `y`: Number
   - y-coordinate.
 
 <hr>
@@ -441,7 +441,7 @@ Get the local y-coordinate of the event listening instance. For example, this va
 ```py
 >>> import apysc as ap
 >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-...     local_y: ap.Int = e.local_y
+...     local_y: ap.Number = e.local_y
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()

@@ -10,9 +10,9 @@ Get a key string for the expression from the x and y coordinates.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: float or Number
   - X-coordinate.
-- `y`: int or Int
+- `y`: float or Number
   - Y-coordinate.
 
 <hr>

@@ -41,7 +41,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dashed_line_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `draw_dashed_line(self, *, x_start: Union[int, apysc._type.int.Int], y_start: Union[int, apysc._type.int.Int], x_end: Union[int, apysc._type.int.Int], y_end: Union[int, apysc._type.int.Int], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
+**[インターフェイスの構造]** `draw_dashed_line(self, *, x_start: Union[float, apysc._type.number.Number], y_start: Union[float, apysc._type.number.Number], x_end: Union[float, apysc._type.number.Number], y_end: Union[float, apysc._type.number.Number], dash_size: Union[int, apysc._type.int.Int], space_size: Union[int, apysc._type.int.Int], variable_name_suffix: str = '') -> '_line.Line'`<hr>
 
 **[インターフェイス概要]**
 
@@ -49,16 +49,16 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dashed_line_basic_usage/")
 
 **[引数]**
 
-- `x_start`: Int or int
+- `x_start`: float or Number
   - 線の開始位置のX座標。
 
-- `y_start`: Int or int
+- `y_start`: float or Number
   - 線の開始位置のY座標。
 
-- `x_end`: Int or int
+- `x_end`: float or Number
   - 線の終了位置のX座標。
 
-- `y_end`: Int or int
+- `y_end`: float or Number
   - 線の終了位置のY座標。
 
 - `dash_size`: Int or int

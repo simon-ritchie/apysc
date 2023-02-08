@@ -128,17 +128,17 @@
 <section id="draw-rect-api">
 <h2>draw_rect API<a class="headerlink" href="#draw-rect-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">draw_rect(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">width:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">height:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.rectangle.Rectangle</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">draw_rect(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">width:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">height:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.rectangle.Rectangle</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>ベクターグラフィックスの四角を描画します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: float or Number</p>
 <ul>
 <li><p>描画を開始する位置のX座標。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: float or Number</p>
 <ul>
 <li><p>描画を開始する位置のY座標。</p></li>
 </ul>
@@ -178,10 +178,10 @@
 <span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span>
-<span class="go">Int(50)</span>
+<span class="go">Number(50.0)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">width</span>
-<span class="go">Int(50)</span>
+<span class="go">Number(50.0)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span>
 <span class="go">String(&#39;#00aaff&#39;)</span>

@@ -10,7 +10,7 @@ Get a key string for the expression from the x or y coordinate.<hr>
 
 **[Parameters]**
 
-- `coordinate`: int or Int
+- `coordinate`: float or Number
   - X or y coordinate.
 
 <hr>
@@ -26,7 +26,7 @@ Get a scale updating expression string from a specified coordinate.<hr>
 
 **[Parameters]**
 
-- `coordinate`: Int
+- `coordinate`: Number
   - X or y coordinate.
 - `scale_dict`: Dictionary
   - Scale value dictionary.

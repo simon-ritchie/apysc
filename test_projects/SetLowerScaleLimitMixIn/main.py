@@ -84,18 +84,18 @@ def on_timer(e: ap.TimerEvent, options: _CircleOptions) -> None:
         ap.assert_equal(circle_2.scale_y_from_center, MIN_SCALE)
 
     circle_3: ap.Circle = options["circle_3"]
-    with ap.If(circle_3.get_scale_x_from_point(x=ap.Int(300)) <= MIN_SCALE):
-        circle_3.set_scale_x_from_point(scale_x=ap.Number(1.0), x=ap.Int(300))
+    with ap.If(circle_3.get_scale_x_from_point(x=ap.Number(300)) <= MIN_SCALE):
+        circle_3.set_scale_x_from_point(scale_x=ap.Number(1.0), x=ap.Number(300))
     with ap.Else():
-        circle_3.set_scale_x_from_point(scale_x=ap.Number(-0.5), x=ap.Int(300))
-        ap.assert_equal(circle_3.get_scale_x_from_point(x=ap.Int(300)), MIN_SCALE)
+        circle_3.set_scale_x_from_point(scale_x=ap.Number(-0.5), x=ap.Number(300))
+        ap.assert_equal(circle_3.get_scale_x_from_point(x=ap.Number(300)), MIN_SCALE)
 
     circle_4: ap.Circle = options["circle_4"]
-    with ap.If(circle_4.get_scale_y_from_point(y=ap.Int(100)) <= MIN_SCALE):
-        circle_4.set_scale_y_from_point(scale_y=ap.Number(1.0), y=ap.Int(100))
+    with ap.If(circle_4.get_scale_y_from_point(y=ap.Number(100)) <= MIN_SCALE):
+        circle_4.set_scale_y_from_point(scale_y=ap.Number(1.0), y=ap.Number(100))
     with ap.Else():
-        circle_4.set_scale_y_from_point(scale_y=ap.Number(-0.5), y=ap.Int(100))
-        ap.assert_equal(circle_4.get_scale_y_from_point(y=ap.Int(100)), MIN_SCALE)
+        circle_4.set_scale_y_from_point(scale_y=ap.Number(-0.5), y=ap.Number(100))
+        ap.assert_equal(circle_4.get_scale_y_from_point(y=ap.Number(100)), MIN_SCALE)
 
 
 if __name__ == "__main__":

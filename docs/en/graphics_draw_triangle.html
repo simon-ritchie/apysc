@@ -129,37 +129,37 @@
 <h2>draw_triangle API<a class="headerlink" href="#draw-triangle-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.graphics.Graphics.draw_triangle -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_triangle(self,</span> <span class="pre">*,</span> <span class="pre">x1:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y1:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">x2:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y2:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">x3:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y3:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.triangle.Triangle</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_triangle(self,</span> <span class="pre">*,</span> <span class="pre">x1:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y1:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">x2:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y2:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">x3:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y3:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.triangle.Triangle</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>Draw a triangle vector graphic.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x1</span></code>: Union[int, Int]</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x1</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>First vertex’s x coordinate.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y1</span></code>: Union[int, Int]</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y1</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>First vertex’s y coordinate.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x2</span></code>: Union[int, Int]</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x2</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>Second vertex’s x coordinate.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y2</span></code>: Union[int, Int]</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y2</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>Second vertex’s y coordinate.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x3</span></code>: Union[int, Int]</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x3</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>Third vertex’s x coordinate.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y3</span></code>: Union[int, Int]</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y3</span></code>: Union[float, Number]</p>
 <ul>
 <li><p>Third vertex’s y coordinate.</p></li>
 </ul>
@@ -195,9 +195,9 @@
 <span class="gp">... </span>    <span class="n">y3</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">triangle</span><span class="o">.</span><span class="n">x1</span>
-<span class="go">Int(75)</span>
+<span class="go">Number(75.0)</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">triangle</span><span class="o">.</span><span class="n">y1</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">triangle</span><span class="o">.</span><span class="n">y1</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">triangle</span><span class="o">.</span><span class="n">y1</span>
 <span class="go">Int(30)</span>
 

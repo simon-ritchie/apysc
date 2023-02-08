@@ -29,7 +29,7 @@ Append delta_x getter property's expression.<hr>
 
 **[Parameters]**
 
-- `delta_x`: Int
+- `delta_x`: Number
   - Target delta x value.
 
 ### `_append_delta_y_getter_expression` method docstring
@@ -38,5 +38,5 @@ Append delta_y getter property's expression.<hr>
 
 **[Parameters]**
 
-- `delta_y`: Int
+- `delta_y`: Number
   - Target delta y value.

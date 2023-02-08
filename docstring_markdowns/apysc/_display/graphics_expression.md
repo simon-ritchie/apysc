@@ -150,7 +150,7 @@ Append x position expression to specified expression's string.<hr>
 
 **[Parameters]**
 
-- `x`: Int
+- `x`: Number
   - An x-coordinate to use.
 - `expression`: str
   - Expression string to be appended x position expression.
@@ -170,7 +170,7 @@ Append y position expression to specified expression's string.<hr>
 
 **[Parameters]**
 
-- `y`: Int
+- `y`: Number
   - A y-coordinate to use.
 - `expression`: str
   - Expression string to be appended y position expression.

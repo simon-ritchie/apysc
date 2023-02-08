@@ -42,5 +42,5 @@ Update y-coordinate and skip appending an expression.<hr>
 
 **[Parameters]**
 
-- `y`: int or Int
+- `y`: float or Number
   - Y-coordinate value.

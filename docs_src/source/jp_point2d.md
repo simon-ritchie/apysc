@@ -45,7 +45,7 @@ assert point.y == 20
 import apysc as ap
 
 point: ap.Point2D = ap.Point2D(x=10, y=20)
-point.x = ap.Int(30)
+point.x = ap.Number(30)
 assert point.x == 30
 ```
 
@@ -82,7 +82,7 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, x: Union[int, apysc._type.int.Int], y: Union[int, apysc._type.int.Int], *, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], *, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -90,10 +90,10 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 
 **[引数]**
 
-- `x`: int or Int
+- `x`: Union[float, Number]
   - X座標。
 
-- `y`: int or Int
+- `y`: Union[float, Number]
   - Y座標。
 
 - `variable_name_suffix`: str, default ''
@@ -127,7 +127,7 @@ X座標の属性のインターフェイスです。<hr>
 
 **[返却値]**
 
-- `x`: Int
+- `x`: Number
   - X座標。
 
 <hr>
@@ -137,9 +137,9 @@ X座標の属性のインターフェイスです。<hr>
 ```py
 >>> import apysc as ap
 >>> point: ap.Point2D = ap.Point2D(x=50, y=100)
->>> point.x = ap.Int(150)
+>>> point.x = ap.Number(150)
 >>> point.x
-Int(150)
+Number(150.0)
 ```
 
 ## y属性のAPI
@@ -152,7 +152,7 @@ Y座標の属性のインターフェイスです。<hr>
 
 **[返却値]**
 
-- `y`: Int
+- `y`: Number
   - Y座標。
 
 <hr>
@@ -162,7 +162,7 @@ Y座標の属性のインターフェイスです。<hr>
 ```py
 >>> import apysc as ap
 >>> point: ap.Point2D = ap.Point2D(x=50, y=100)
->>> point.y = ap.Int(150)
+>>> point.y = ap.Number(150)
 >>> point.y
-Int(150)
+Number(150.0)
 ```

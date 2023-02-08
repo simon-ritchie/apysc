@@ -19,10 +19,10 @@ The rectangle vector graphics class.<hr>
 ...     x=50, y=50, width=100, height=75
 ... )
 >>> rectangle.x
-Int(50)
+Number(50.0)
 
 >>> rectangle.y
-Int(50)
+Number(50.0)
 
 >>> rectangle.width
 Int(100)
@@ -47,9 +47,9 @@ Create a rectangle vector graphic.<hr>
 
 **[Parameters]**
 
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate to start drawing.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate to start drawing.
 - `width`: Int or int
   - Rectangle width.
@@ -97,10 +97,10 @@ Create a rectangle vector graphic.<hr>
 ...     x=50, y=50, width=100, height=100, fill_color="#00aaff"
 ... )
 >>> rectangle.x
-Int(50)
+Number(50.0)
 
 >>> rectangle.y
-Int(50)
+Number(50.0)
 
 >>> rectangle.width
 Int(100)
@@ -139,9 +139,9 @@ Create a rectangle instance with the instance of specified graphics..<hr>
 
 - `graphics`: Graphics
   - Graphics instance to link this instance.
-- `x`: Int or int
+- `x`: float or Number
   - X-coordinate to start drawing.
-- `y`: Int or int
+- `y`: float or Number
   - Y-coordinate to start drawing.
 - `width`: Int or int
   - Rectangle width.

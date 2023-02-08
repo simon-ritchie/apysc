@@ -12,9 +12,9 @@ Append line point at the end.<hr>
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: float, Number
   - X-coordinate.
-- `y`: int or Int
+- `y`: float, Number
   - Y-coordinate.
 
 <hr>

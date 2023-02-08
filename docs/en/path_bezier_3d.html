@@ -99,12 +99,12 @@
     <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
 <span class="p">)</span>
 
-<span class="n">CONTROL_X1</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">CONTROL_Y1</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">CONTROL_X2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">CONTROL_Y2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">DEST_X</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">DEST_Y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">CONTROL_X1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">CONTROL_Y1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">CONTROL_X2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">CONTROL_Y2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">DEST_X</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">DEST_Y</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">200</span>
 
 <span class="n">path</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span>
     <span class="n">path_data_list</span><span class="o">=</span><span class="p">[</span>
@@ -189,37 +189,37 @@
 <h2>PathBezier3D class constructor API<a class="headerlink" href="#pathbezier3d-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._geom.path_bezier_3d.PathBezier3D.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">control_x1:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">control_y1:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">control_x2:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">control_y2:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">dest_x:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">dest_y:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">relative:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">control_x1:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">control_y1:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">control_x2:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">control_y2:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">dest_x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">dest_y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">relative:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>Path data class for the SVG’s <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">bezier</span> <span class="pre">curve</span></code> (C).<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">control_x1</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">control_x1</span></code>: float or Number</p>
 <ul>
 <li><p>X-coordinate of the bezier’s first control point.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control_y1</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">control_y1</span></code>: float or Number</p>
 <ul>
 <li><p>Y-coordinate of the bezier’s first control point.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control_x2</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">control_x2</span></code>: float or Number</p>
 <ul>
 <li><p>X-coordinate of the bezier’s second control point.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control_y2</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">control_y2</span></code>: float or Number</p>
 <ul>
 <li><p>Y-coordinate of the bezier’s second control point.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dest_x</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_x</span></code>: float or Number</p>
 <ul>
 <li><p>X-coordinate of the destination point.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dest_y</span></code>: Int or int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_y</span></code>: float or Number</p>
 <ul>
 <li><p>Y-coordinate of the destination point.</p></li>
 </ul>

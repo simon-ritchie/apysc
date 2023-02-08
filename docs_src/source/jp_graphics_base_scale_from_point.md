@@ -157,7 +157,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_scale_x_from_point(self, *, x: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[インターフェイスの構造]** `get_scale_x_from_point(self, *, x: apysc._type.number.Number) -> apysc._type.number.Number`<hr>
 
 **[インターフェイス概要]**
 
@@ -165,7 +165,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 
 **[引数]**
 
-- `x`: Int
+- `x`: Number
   - X座標。
 
 <hr>
@@ -191,7 +191,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_point_basic_usage_y
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> x: ap.Int = ap.Int(100)
+>>> x: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
 >>> rectangle.get_scale_x_from_point(x=x)
 Number(1.5)
@@ -201,7 +201,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `set_scale_x_from_point(self, *, scale_x: apysc._type.number.Number, x: apysc._type.int.Int) -> None`<hr>
+**[インターフェイスの構造]** `set_scale_x_from_point(self, *, scale_x: apysc._type.number.Number, x: apysc._type.number.Number) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -212,7 +212,7 @@ Number(1.5)
 - `scale_x`: Number
   - 設定する水平方向の拡縮値。
 
-- `x`: Int
+- `x`: Number
   - X座標。
 
 <hr>
@@ -231,7 +231,7 @@ Number(1.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> x: ap.Int = ap.Int(100)
+>>> x: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
 >>> rectangle.get_scale_x_from_point(x=x)
 Number(1.5)
@@ -241,7 +241,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_scale_y_from_point(self, *, y: apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+**[インターフェイスの構造]** `get_scale_y_from_point(self, *, y: apysc._type.number.Number) -> apysc._type.number.Number`<hr>
 
 **[インターフェイス概要]**
 
@@ -249,7 +249,7 @@ Number(1.5)
 
 **[引数]**
 
-- `y`: Int
+- `y`: Number
   - Y座標。
 
 <hr>
@@ -271,7 +271,7 @@ Number(1.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> y: ap.Int = ap.Int(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
 >>> rectangle.get_scale_y_from_point(y=y)
 Number(1.5)
@@ -281,7 +281,7 @@ Number(1.5)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `set_scale_y_from_point(self, *, scale_y: apysc._type.number.Number, y: apysc._type.int.Int) -> None`<hr>
+**[インターフェイスの構造]** `set_scale_y_from_point(self, *, scale_y: apysc._type.number.Number, y: apysc._type.number.Number) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -292,7 +292,7 @@ Number(1.5)
 - `scale_y`: Number
   - 設定すの垂直方向の拡縮値。
 
-- `y`: Int
+- `y`: Number
   - Y座標。
 
 <hr>
@@ -307,7 +307,7 @@ Number(1.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> y: ap.Int = ap.Int(100)
+>>> y: ap.Number = ap.Number(100)
 >>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
 >>> rectangle.get_scale_y_from_point(y=y)
 Number(1.5)

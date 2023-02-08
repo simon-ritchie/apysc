@@ -44,7 +44,7 @@ The animation class for a center-y coordinate.<hr>
 
 - `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Circle` instance).
-- `y`: Int or int
+- `y`: float or Number
   - Destination of the y-coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.

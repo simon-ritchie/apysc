@@ -117,17 +117,17 @@
 <section id="get-rotation-around-point-api">
 <h2>get_rotation_around_point API<a class="headerlink" href="#get-rotation-around-point-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">y:</span> <span class="pre">apysc._type.int.Int)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.int.Int</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.int.Int</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定された座標を基準とした回転量を取得します。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Number</p>
 <ul>
 <li><p>X座標。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Number</p>
 <ul>
 <li><p>Y座標。</p></li>
 </ul>
@@ -151,8 +151,8 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">set_rotation_around_point</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">45</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">get_rotation_around_point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 <span class="go">Int(45)</span>
@@ -162,7 +162,7 @@
 <section id="set-rotation-around-point-api">
 <h2>set_rotation_around_point API<a class="headerlink" href="#set-rotation-around-point-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">rotation:</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">x:</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">y:</span> <span class="pre">apysc._type.int.Int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">rotation:</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>指定された座標基準の回転量を更新します。<hr></p>
 <p><strong>[引数]</strong></p>
@@ -172,12 +172,12 @@
 <li><p>設定する回転量。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Number</p>
 <ul>
 <li><p>X座標。</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Number</p>
 <ul>
 <li><p>Y座標。</p></li>
 </ul>

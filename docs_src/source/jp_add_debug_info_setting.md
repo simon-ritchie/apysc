@@ -35,16 +35,16 @@ def _main() -> None:
 
 
 @ap.add_debug_info_setting(module_name=__name__)
-def _draw_rectangle(*, x: int, y: int) -> None:
+def _draw_rectangle(*, x: float, y: float) -> None:
     """
     Draw a rectangle with the given coordinates and sprite
     container class.
 
     Parameters
     ----------
-    x : int
+    x : float
         X-coordinate of the rectangle.
-    y : int
+    y : float
         Y-coordinate of the rectangle.
     """
     _: MySprite = MySprite(x=x, y=y)
@@ -52,15 +52,15 @@ def _draw_rectangle(*, x: int, y: int) -> None:
 
 class MySprite(ap.Sprite):
     @ap.add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, x: int, y: int) -> None:
+    def __init__(self, *, x: float, y: float) -> None:
         """
         My rectangle's sprite container class.
 
         Parameters
         ----------
-        x : int
+        x : float
             X-coordinate of the rectangle.
-        y : int
+        y : float
             Y-coordinate of the rectangle.
         """
         super(MySprite, self).__init__()

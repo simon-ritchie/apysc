@@ -60,7 +60,7 @@ polygon: ap.Polygon = ap.Polygon(
     ],
     fill_color="#0af",
 )
-polygon.x = ap.Int(100)
+polygon.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="polygon_x/")
 ```
@@ -88,7 +88,7 @@ polygon: ap.Polygon = ap.Polygon(
     ],
     fill_color="#0af",
 )
-polygon.y = ap.Int(100)
+polygon.y = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="polygon_y/")
 ```

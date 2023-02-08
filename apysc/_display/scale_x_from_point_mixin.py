@@ -47,7 +47,7 @@ class ScaleXFromPointMixIn(
         )
 
     @final
-    @arg_validation_decos.is_apysc_integer(arg_position_index=1)
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def get_scale_x_from_point(self, *, x: Number) -> Number:
         """

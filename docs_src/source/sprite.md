@@ -132,7 +132,7 @@ Boolean(False)
 Boolean(True)
 
 >>> # Move the sprite container
->>> sprite_2.x = ap.Int(50)
+>>> sprite_2.x = ap.Number(50)
 >>> sprite_2.x
-Int(50)
+Number(50.0)
 ```

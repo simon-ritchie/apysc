@@ -50,11 +50,11 @@ def main() -> None:
 
     # Test for rectangle x position update.
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=0, y=50, width=50, height=50)
-    rectangle.x = ap.Int(350)
+    rectangle.x = ap.Number(350)
 
     # Test for rectangle y position update.
     rectangle = sprite.graphics.draw_rect(x=450, y=0, width=50, height=50)
-    rectangle.y = ap.Int(50)
+    rectangle.y = ap.Number(50)
 
     # Test for rectangle width update.
     rectangle = sprite.graphics.draw_rect(x=550, y=50, width=50, height=50)
@@ -99,13 +99,13 @@ def main() -> None:
     fill_alpha += 0.2
     ap.assert_not_equal(left=fill_alpha, right=rectangle.fill_alpha)
 
-    rectangle.x = ap.Int(550)
-    x: ap.Int = rectangle.x
+    rectangle.x = ap.Number(550)
+    x: ap.Number = rectangle.x
     x += 100
     ap.assert_not_equal(left=x, right=rectangle.x)
 
-    rectangle.y = ap.Int(150)
-    y: ap.Int = rectangle.y
+    rectangle.y = ap.Number(150)
+    y: ap.Number = rectangle.y
     y += 100
     ap.assert_not_equal(left=y, right=rectangle.y)
 

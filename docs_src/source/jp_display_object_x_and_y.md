@@ -25,8 +25,8 @@ sprite.graphics.begin_fill(color="#0af")
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=0, y=0, width=50, height=50)
 
 # Update the x and y coordinates from 0 to 50.
-rectangle.x = ap.Int(50)
-rectangle.y = ap.Int(50)
+rectangle.x = ap.Number(50)
+rectangle.y = ap.Number(50)
 
 ap.save_overall_html(dest_dir_path="display_object_x_and_y_basic_usage/")
 ```
@@ -98,9 +98,9 @@ X座標を取得します。<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> rectangle.x = ap.Int(100)
+>>> rectangle.x = ap.Number(100)
 >>> rectangle.x
-Int(100)
+Number(100.0)
 ```
 
 ## y属性のAPI
@@ -128,7 +128,7 @@ Y座標を取得します。<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> rectangle.y = ap.Int(100)
+>>> rectangle.y = ap.Number(100)
 >>> rectangle.y
-Int(100)
+Number(100.0)
 ```

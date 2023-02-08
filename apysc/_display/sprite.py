@@ -57,9 +57,9 @@ class Sprite(
     Boolean(True)
 
     >>> # Move the sprite container
-    >>> sprite_2.x = ap.Int(50)
+    >>> sprite_2.x = ap.Number(50)
     >>> sprite_2.x
-    Int(50)
+    Number(50.0)
     """
 
     graphics: "_Graphics"
@@ -110,9 +110,9 @@ class Sprite(
         Boolean(True)
 
         >>> # Move the sprite container
-        >>> sprite_2.x = ap.Int(50)
+        >>> sprite_2.x = ap.Number(50)
         >>> sprite_2.x
-        Int(50)
+        Number(50.0)
         """
         import apysc as ap
         from apysc._expression import expression_variables_util

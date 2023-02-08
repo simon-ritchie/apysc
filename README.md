@@ -80,7 +80,7 @@ Example code fragments:
 
 ```py
 ...
-rectangle.x = ap.Int(100)
+rectangle.x = ap.Number(100)
 ...
 ```
 

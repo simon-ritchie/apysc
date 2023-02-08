@@ -46,7 +46,7 @@ ap.Stage(
     background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
 )
 ellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color="#0af")
-ellipse.x = ap.Int(100)
+ellipse.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="ellipse_x/")
 ```
@@ -65,7 +65,7 @@ ap.Stage(
     background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
 )
 ellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color="#0af")
-ellipse.y = ap.Int(125)
+ellipse.y = ap.Number(125)
 
 ap.save_overall_html(dest_dir_path="ellipse_y/")
 ```

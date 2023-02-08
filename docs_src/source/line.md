@@ -60,7 +60,7 @@ line: ap.Line = ap.Line(
     line_color="#0af",
     line_thickness=5,
 )
-line.x = ap.Int(100)
+line.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="line_x/")
 ```
@@ -86,7 +86,7 @@ line: ap.Line = ap.Line(
     line_color="#0af",
     line_thickness=5,
 )
-line.y = ap.Int(80)
+line.y = ap.Number(80)
 
 ap.save_overall_html(dest_dir_path="line_y/")
 ```

@@ -43,7 +43,7 @@ The `x` and `y` property can be updated with an `Int` type value, as follows:
 import apysc as ap
 
 point: ap.Point2D = ap.Point2D(x=10, y=20)
-point.x = ap.Int(30)
+point.x = ap.Number(30)
 assert point.x == 30
 ```
 
@@ -138,9 +138,9 @@ X-coordinate property.<hr>
 ```py
 >>> import apysc as ap
 >>> point: ap.Point2D = ap.Point2D(x=50, y=100)
->>> point.x = ap.Int(150)
+>>> point.x = ap.Number(150)
 >>> point.x
-Int(150)
+Number(150.0)
 ```
 
 ## y property API
@@ -165,7 +165,7 @@ Y-coordinate property.<hr>
 ```py
 >>> import apysc as ap
 >>> point: ap.Point2D = ap.Point2D(x=50, y=100)
->>> point.y = ap.Int(150)
+>>> point.y = ap.Number(150)
 >>> point.y
-Int(150)
+Number(150.0)
 ```

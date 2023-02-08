@@ -83,7 +83,7 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 
 ```py
 ...
-rectangle.x = ap.Int(100)
+rectangle.x = ap.Number(100)
 ...
 ```
 

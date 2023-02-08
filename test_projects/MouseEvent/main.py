@@ -41,8 +41,8 @@ def main() -> None:
 
     sprite_2: ap.Sprite = ap.Sprite()
     sprite_2.graphics.begin_fill(color="#f0a")
-    sprite_2.x = ap.Int(150)
-    sprite_2.y = ap.Int(100)
+    sprite_2.x = ap.Number(150)
+    sprite_2.y = ap.Number(100)
     rectangle_2: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )
@@ -64,16 +64,16 @@ def on_rectangle_1_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     ap.trace("Rectangle 1 clicked!")
     ap.trace("stage_x:", e.stage_x)
-    ap.assert_true(e.stage_x >= ap.Int(50))
-    ap.assert_true(e.stage_x <= ap.Int(100))
+    ap.assert_true(e.stage_x >= ap.Number(50))
+    ap.assert_true(e.stage_x <= ap.Number(100))
 
     ap.trace("stage_y:", e.stage_y)
-    ap.assert_true(e.stage_y >= ap.Int(100))
-    ap.assert_true(e.stage_y <= ap.Int(150))
+    ap.assert_true(e.stage_y >= ap.Number(100))
+    ap.assert_true(e.stage_y <= ap.Number(150))
 
     ap.trace("local_x:", e.local_x)
-    ap.assert_true(e.local_x >= ap.Int(0))
-    ap.assert_true(e.local_x <= ap.Int(50))
+    ap.assert_true(e.local_x >= ap.Number(0))
+    ap.assert_true(e.local_x <= ap.Number(50))
 
 
 def on_rectangle_2_clicked(e: ap.MouseEvent, options: dict) -> None:
@@ -89,12 +89,12 @@ def on_rectangle_2_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     ap.trace("Rectangle 2 clicked!")
     ap.trace("local_x:", e.local_x)
-    ap.assert_true(e.local_x >= ap.Int(0))
-    ap.assert_true(e.local_x <= ap.Int(50))
+    ap.assert_true(e.local_x >= ap.Number(0))
+    ap.assert_true(e.local_x <= ap.Number(50))
 
     ap.trace("local_y:", e.local_y)
-    ap.assert_true(e.local_y >= ap.Int(0))
-    ap.assert_true(e.local_y <= ap.Int(50))
+    ap.assert_true(e.local_y >= ap.Number(0))
+    ap.assert_true(e.local_y <= ap.Number(50))
 
 
 if __name__ == "__main__":

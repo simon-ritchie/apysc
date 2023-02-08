@@ -44,11 +44,11 @@ def main() -> None:
     sprite.graphics.line_to(x=200, y=200)
     sprite.graphics.line_to(x=100, y=100)
 
-    sprite.graphics.move_to(x=ap.Int(0), y=ap.Int(0))
-    sprite.graphics.line_to(x=ap.Int(100), y=ap.Int(0))
-    polyline: ap.Polyline = sprite.graphics.line_to(x=ap.Int(100), y=ap.Int(100))
-    polyline.x = ap.Int(200)
-    polyline.y = ap.Int(200)
+    sprite.graphics.move_to(x=ap.Number(0), y=ap.Number(0))
+    sprite.graphics.line_to(x=ap.Number(100), y=ap.Number(0))
+    polyline: ap.Polyline = sprite.graphics.line_to(x=ap.Number(100), y=ap.Number(100))
+    polyline.x = ap.Number(200)
+    polyline.y = ap.Number(200)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

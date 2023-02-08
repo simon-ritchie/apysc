@@ -238,7 +238,7 @@ class MouseEvent(
 
         Parameters
         ----------
-        x : Int
+        x : Number
             Target x-coordinate value.
         """
         import apysc as ap

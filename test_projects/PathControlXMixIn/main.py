@@ -39,7 +39,7 @@ def main() -> None:
         stage_elem_id="stage",
     )
     mixin: PathControlXMixIn = PathControlXMixIn()
-    mixin.control_x = ap.Int(10)
+    mixin.control_x = ap.Number(10)
     options: _InterfaceOptions = {"mixin": mixin}
     ap.Timer(on_timer_1, delay=1000, repeat_count=1, options=options).start()
 
@@ -58,7 +58,7 @@ def on_timer_1(e: ap.TimerEvent, options: _InterfaceOptions) -> None:
         Optional arguments dictionary.
     """
     ap.assert_equal(10, options["mixin"].control_x)
-    options["mixin"].control_x = ap.Int(20)
+    options["mixin"].control_x = ap.Number(20)
     ap.Timer(on_timer_2, delay=1000, repeat_count=1, options=options).start()
 
 
@@ -74,7 +74,7 @@ def on_timer_2(e: ap.TimerEvent, options: _InterfaceOptions) -> None:
         Optional arguments dictionary.
     """
     ap.assert_equal(20, options["mixin"].control_x)
-    options["mixin"].control_x = ap.Int(10)
+    options["mixin"].control_x = ap.Number(10)
     ap.Timer(on_timer_1, delay=1000, repeat_count=1, options=options).start()
 
 

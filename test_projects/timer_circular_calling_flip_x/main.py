@@ -39,7 +39,7 @@ def main() -> None:
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.x = ap.Int(100)
+    sprite.x = ap.Number(100)
     sprite.graphics.begin_fill(color="#00aaff")
 
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=0, y=50, width=50, height=50)

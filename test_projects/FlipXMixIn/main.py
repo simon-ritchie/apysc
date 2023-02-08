@@ -39,7 +39,7 @@ def main() -> None:
     )
     sprite_1: ap.Sprite = ap.Sprite()
     sprite_1.graphics.begin_fill(color="#0af")
-    sprite_1.x = ap.Int(150)
+    sprite_1.x = ap.Number(150)
 
     polygon_1: ap.Polygon = sprite_1.graphics.draw_polygon(
         points=[
@@ -59,7 +59,7 @@ def main() -> None:
             ap.Point2D(x=50, y=175),
         ]
     )
-    polygon_2.x = ap.Int(50)
+    polygon_2.x = ap.Number(50)
     options = {"polygon": polygon_2}
     timer_2: ap.Timer = ap.Timer(on_timer_1, delay=1000, options=options)
     timer_2.start()

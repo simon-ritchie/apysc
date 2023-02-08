@@ -48,7 +48,7 @@ ap.Stage(
     background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
 )
 circle: ap.Circle = ap.Circle(x=0, y=75, radius=50, fill_color="#0af")
-circle.x = ap.Int(100)
+circle.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="circle_x/")
 ```
@@ -67,7 +67,7 @@ ap.Stage(
     background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
 )
 circle: ap.Circle = ap.Circle(x=75, y=0, radius=50, fill_color="#0af")
-circle.y = ap.Int(100)
+circle.y = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="circle_y/")
 ```

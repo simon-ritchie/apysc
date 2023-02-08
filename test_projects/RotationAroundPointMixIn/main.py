@@ -59,8 +59,8 @@ def main() -> None:
 
     sprite_2: ap.Sprite = ap.Sprite()
     sprite_2.graphics.begin_fill(color="#f0a", alpha=0.5)
-    sprite_2.x = ap.Int(50)
-    sprite_2.y = ap.Int(50)
+    sprite_2.x = ap.Number(50)
+    sprite_2.y = ap.Number(50)
     rectangle_3: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )
@@ -85,15 +85,15 @@ def on_timer_1(e: ap.TimerEvent, options: _Rect1And2Options) -> None:
         Optional arguments dictionary.
     """
     rectangle_1: ap.Rectangle = options["rectangle_1"]
-    x: ap.Int = ap.Int(50)
-    y: ap.Int = ap.Int(50)
+    x: ap.Number = ap.Number(50)
+    y: ap.Number = ap.Number(50)
     rotation: ap.Int = rectangle_1.get_rotation_around_point(x=x, y=y)
     rotation += 1
     rectangle_1.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
     rectangle_2: ap.Rectangle = options["rectangle_2"]
-    x = ap.Int(100)
-    y = ap.Int(100)
+    x = ap.Number(100)
+    y = ap.Number(100)
     rotation = rectangle_1.get_rotation_around_point(x=x, y=y)
     rotation += 1
     rectangle_2.set_rotation_around_point(rotation=rotation, x=x, y=y)
@@ -111,8 +111,8 @@ def on_timer_2(e: ap.TimerEvent, options: _Rect3Options) -> None:
         Optional arguments dictionary.
     """
     rectangle_3: ap.Rectangle = options["rectangle_3"]
-    x: ap.Int = ap.Int(50)
-    y: ap.Int = ap.Int(50)
+    x: ap.Number = ap.Number(50)
+    y: ap.Number = ap.Number(50)
     rotation: ap.Int = rectangle_3.get_rotation_around_point(x=x, y=y)
     rotation += 1
     rectangle_3.set_rotation_around_point(rotation=rotation, x=x, y=y)

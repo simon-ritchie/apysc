@@ -1220,8 +1220,8 @@ class Graphics(
         ...     y3=100,
         ... )
         >>> triangle.x1
-        Int(75)
-        >>> triangle.y1 = ap.Int(30)
+        Number(75.0)
+        >>> triangle.y1 = ap.Number(30)
         >>> triangle.y1
         Int(30)
         >>> triangle.fill_color

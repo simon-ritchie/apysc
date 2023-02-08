@@ -66,7 +66,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.x = ap.Int(100)
+triangle.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="triangle_x/")
 ```
@@ -93,7 +93,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.y = ap.Int(100)
+triangle.y = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="triangle_y/")
 ```
@@ -120,7 +120,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.x1 = ap.Int(100)
+triangle.x1 = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="triangle_x1/")
 ```
@@ -147,7 +147,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.y1 = ap.Int(0)
+triangle.y1 = ap.Number(0)
 
 ap.save_overall_html(dest_dir_path="triangle_y1/")
 ```
@@ -174,7 +174,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.x2 = ap.Int(75)
+triangle.x2 = ap.Number(75)
 
 ap.save_overall_html(dest_dir_path="triangle_x2/")
 ```
@@ -201,7 +201,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.y2 = ap.Int(75)
+triangle.y2 = ap.Number(75)
 
 ap.save_overall_html(dest_dir_path="triangle_y2/")
 ```
@@ -228,7 +228,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.x3 = ap.Int(75)
+triangle.x3 = ap.Number(75)
 
 ap.save_overall_html(dest_dir_path="triangle_x3/")
 ```
@@ -255,7 +255,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color="#0af",
 )
-triangle.y3 = ap.Int(75)
+triangle.y3 = ap.Number(75)
 
 ap.save_overall_html(dest_dir_path="triangle_y3/")
 ```
@@ -1040,9 +1040,9 @@ Create a triangle vector graphics instance.<hr>
 >>> triangle.x2
 Int(50)
 
->>> triangle.y1 = ap.Int(30)
+>>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Int(30)
+Int(30.0)
 ```
 
 ## x1 property API

@@ -79,74 +79,74 @@ class _TestGraphic(
         return f"_TestGraphic({self.variable_name})"
 
     @property
-    def x(self) -> ap.Int:
+    def x(self) -> ap.Number:
         """
         Get an x-coordinate.
 
         Returns
         -------
-        x : Int
+        x : Number
             X-coordinate.
         """
         return self._x
 
     @x.setter
-    def x(self, value: ap.Int) -> None:
+    def x(self, value: ap.Number) -> None:
         """
         Update x-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             X-coordinate value.
         """
         self._x = value
 
     @property
-    def y(self) -> ap.Int:
+    def y(self) -> ap.Number:
         """
         Get a y-coordinate.
 
         Returns
         -------
-        y : Int
+        y : Number
             Y-coordinate.
         """
         return self._y
 
     @y.setter
-    def y(self, value: ap.Int) -> None:
+    def y(self, value: ap.Number) -> None:
         """
         Update y-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             Y-coordinate value.
         """
         self._y = value
 
-    def _update_x_and_skip_appending_exp(self, *, x: Union[int, ap.Int]) -> None:
+    def _update_x_and_skip_appending_exp(self, *, x: Union[float, ap.Number]) -> None:
         """
         Update x-coordinate and skip appending an expression.
 
         Parameters
         ----------
-        x : int or Int
+        x : float or Number
             X-coordinate value.
         """
-        self._x = ap.Int(x)
+        self._x = ap.Number(x)
 
-    def _update_y_and_skip_appending_exp(self, *, y: Union[int, ap.Int]) -> None:
+    def _update_y_and_skip_appending_exp(self, *, y: Union[float, ap.Number]) -> None:
         """
         Update y-coordinate and skip appending an expression.
 
         Parameters
         ----------
-        y : int or Int
+        y : float or Number
             Y-coordinate value.
         """
-        self._y = ap.Int(y)
+        self._y = ap.Number(y)
 
     def _initialize_x_if_not_initialized(self) -> None:
         """
@@ -155,7 +155,7 @@ class _TestGraphic(
         """
         if hasattr(self, "_x"):
             return
-        self._x = ap.Int(0)
+        self._x = ap.Number(0)
 
     def _initialize_y_if_not_initialized(self) -> None:
         """
@@ -164,7 +164,7 @@ class _TestGraphic(
         """
         if hasattr(self, "_y"):
             return
-        self._y = ap.Int(0)
+        self._y = ap.Number(0)
 
 
 class TestGraphicsBase:

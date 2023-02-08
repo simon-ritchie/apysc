@@ -71,10 +71,10 @@ ap.Stage(
     background_color="#333", stage_width=400, stage_height=420, stage_elem_id="stage"
 )
 
-CONTROL_X: int = 350
-CONTROL_Y: int = 375
-DEST_X: int = 350
-DEST_Y: int = 200
+CONTROL_X: float = 350
+CONTROL_Y: float = 375
+DEST_X: float = 350
+DEST_Y: float = 200
 
 path: ap.Path = ap.Path(
     path_data_list=[

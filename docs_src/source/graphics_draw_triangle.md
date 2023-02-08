@@ -141,11 +141,11 @@ Draw a triangle vector graphic.<hr>
 ...     y3=100,
 ... )
 >>> triangle.x1
-Int(75)
+Number(75.0)
 
->>> triangle.y1 = ap.Int(30)
+>>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Int(30)
+Number(30.0)
 
 >>> triangle.fill_color
 String('#00aaff')

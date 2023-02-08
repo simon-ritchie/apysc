@@ -325,7 +325,7 @@ class TestNumberValueMixIn:
         """
         x_mixin: XMixIn = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
-        x_mixin.x = ap.Int(10)
+        x_mixin.x = ap.Number(10)
         x_variable_name: str = x_mixin._x.variable_name
         return x_mixin, x_variable_name
 
@@ -406,7 +406,7 @@ class TestNumberValueMixIn:
 
         expression_data_util.empty_expression()
         x_mixin, previous_variable_name = self._make_x_mixin_instance()
-        x: ap.Int = x_mixin.x
+        x: ap.Number = x_mixin.x
         x += 20
         self._assert_substitution_expression_to_prev_var_not_exist(
             x_mixin=x_mixin, previous_x_variable_name=previous_variable_name
@@ -441,7 +441,7 @@ class TestNumberValueMixIn:
 
         expression_data_util.empty_expression()
         x_mixin, previous_variable_name = self._make_x_mixin_instance()
-        x: ap.Int = x_mixin.x
+        x: ap.Number = x_mixin.x
         x -= 20
         self._assert_substitution_expression_to_prev_var_not_exist(
             x_mixin=x_mixin, previous_x_variable_name=previous_variable_name

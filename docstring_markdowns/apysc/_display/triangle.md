@@ -25,11 +25,11 @@ The triangle vector graphics class.<hr>
 ...     line_thickness=3,
 ... )
 >>> triangle.x2
-Int(50)
+Number(50.0)
 
->>> triangle.y1 = ap.Int(30)
+>>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Int(30)
+Number(30.0)
 ```
 
 <hr>
@@ -102,11 +102,11 @@ Create a triangle vector graphics instance.<hr>
 ...     line_thickness=3,
 ... )
 >>> triangle.x2
-Int(50)
+Number(50.0)
 
->>> triangle.y1 = ap.Int(30)
+>>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Int(30)
+Number(30.0)
 ```
 
 <hr>

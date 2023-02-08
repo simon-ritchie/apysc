@@ -147,7 +147,7 @@ path: ap.Path = ap.Path(
     line_color="#0af",
     line_thickness=5,
 )
-path.x = ap.Int(50)
+path.x = ap.Number(50)
 
 ap.save_overall_html(dest_dir_path="path_x/")
 ```
@@ -176,7 +176,7 @@ path: ap.Path = ap.Path(
     line_color="#0af",
     line_thickness=5,
 )
-path.y = ap.Int(50)
+path.y = ap.Number(50)
 
 ap.save_overall_html(dest_dir_path="path_y/")
 ```

@@ -50,7 +50,7 @@ ap.Stage(
 rectangle: ap.Rectangle = ap.Rectangle(
     x=0, y=50, width=50, height=50, fill_color="#0af"
 )
-rectangle.x = ap.Int(100)
+rectangle.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="rectangle_x/")
 ```
@@ -71,7 +71,7 @@ ap.Stage(
 rectangle: ap.Rectangle = ap.Rectangle(
     x=50, y=0, width=50, height=50, fill_color="#0af"
 )
-rectangle.y = ap.Int(100)
+rectangle.y = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="rectangle_y/")
 ```

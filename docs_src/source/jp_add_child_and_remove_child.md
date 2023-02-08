@@ -106,13 +106,13 @@ ap.Stage(
 
 first_sprite: ap.Sprite = ap.Sprite()
 first_sprite.graphics.begin_fill(color="#0af")
-first_sprite.x = ap.Int(50)
-first_sprite.y = ap.Int(50)
+first_sprite.x = ap.Number(50)
+first_sprite.y = ap.Number(50)
 rectangle: ap.Rectangle = first_sprite.graphics.draw_rect(x=0, y=0, width=50, height=50)
 
 second_sprite: ap.Sprite = ap.Sprite()
-second_sprite.x = ap.Int(150)
-second_sprite.y = ap.Int(50)
+second_sprite.x = ap.Number(150)
+second_sprite.y = ap.Number(50)
 
 options: _SpriteAndRectOptions = {"rectangle": rectangle, "sprite": second_sprite}
 first_sprite.click(on_sprite_click, options=options)

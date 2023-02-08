@@ -39,7 +39,7 @@ def main() -> None:
     circle: ap.Circle = ap.Circle(
         x=100, y=100, radius=50, fill_color="#0af", variable_name_suffix="test_circle"
     )
-    circle.x = ap.Int(150)
+    circle.x = ap.Number(150)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

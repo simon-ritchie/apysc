@@ -17,8 +17,8 @@ class TestAppendLinePointMixIn:
         mixin: AppendLinePointMixIn = AppendLinePointMixIn()
         mixin.variable_name = "test_append_line_point_mixin"
         mixin._variable_name_suffix = "test_mixin"
-        x: ap.Int = ap.Int(50)
-        y: ap.Int = ap.Int(100)
+        x: ap.Number = ap.Number(50)
+        y: ap.Number = ap.Number(100)
         assert_raises(
             expected_error_class=AttributeError,
             callable_=mixin.append_line_point,

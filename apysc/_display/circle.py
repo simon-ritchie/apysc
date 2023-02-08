@@ -93,10 +93,10 @@ class Circle(
     >>> sprite.graphics.begin_fill(color="#0af")
     >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
     >>> circle.x
-    Int(100)
+    Number(100.0)
 
     >>> circle.y
-    Int(100)
+    Number(100.0)
 
     >>> circle.radius
     Int(50)
@@ -108,9 +108,9 @@ class Circle(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     # y
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=2)
     # radius
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
@@ -147,8 +147,8 @@ class Circle(
     def __init__(
         self,
         *,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         radius: Union[int, Int],
         fill_color: Union[str, String] = "",
         fill_alpha: Union[float, Number] = 1.0,
@@ -169,9 +169,9 @@ class Circle(
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the circle center.
-        y : Int or int
+        y : float or Number
             Y-coordinate of the circle center.
         radius : Int or int
             Circle radius.
@@ -216,9 +216,9 @@ class Circle(
         >>> stage: ap.Stage = ap.Stage()
         >>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color="#00aaff")
         >>> circle.x
-        Int(100)
+        Number(100.0)
         >>> circle.y
-        Int(100)
+        Number(100.0)
         >>> circle.radius
         Int(50)
         >>> circle.fill_color
@@ -276,8 +276,8 @@ class Circle(
         cls,
         *,
         graphics: "graphics.Graphics",
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         radius: Union[int, Int],
         variable_name_suffix: str = "",
     ) -> "Circle":
@@ -289,9 +289,9 @@ class Circle(
         ----------
         graphics : graphics.Graphics
             Graphics instance to link this instance.
-        x : Int or int
+        x : float or Number
             X-coordinate of the circle center.
-        y : Int or int
+        y : float or Number
             Y-coordinate of the circle center.
         radius : Int or int
             Circle radius.
@@ -327,20 +327,24 @@ class Circle(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_center_coordinates(
-        self, *, x: Union[int, Int], y: Union[int, Int]
+        self, *, x: Union[float, Number], y: Union[float, Number]
     ) -> None:
         """
         Set a center x-coordinate and a center y-coordinate.
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the circle center.
-        y : Int or int
+        y : float or Number
             Y-coordinate of the circle center.
         """
-        self.x = self._get_copied_int_from_builtin_val(integer=x, attr_identifier="x")
-        self.y = self._get_copied_int_from_builtin_val(integer=y, attr_identifier="y")
+        self.x = self._get_copied_number_from_builtin_val(
+            float_or_num=x, attr_identifier="x"
+        )
+        self.y = self._get_copied_number_from_builtin_val(
+            float_or_num=y, attr_identifier="y"
+        )
 
     @final
     @add_debug_info_setting(module_name=__name__)

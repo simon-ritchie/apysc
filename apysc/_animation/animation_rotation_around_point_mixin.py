@@ -12,14 +12,15 @@ from apysc._animation.animation_rotation_around_point import (
 )
 from apysc._animation.easing import Easing
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
 class AnimationRotationAroundPointMixIn(AnimationMixIns):
     @final
     @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=4)
     @arg_validation_decos.is_integer(arg_position_index=5)
@@ -28,8 +29,8 @@ class AnimationRotationAroundPointMixIn(AnimationMixIns):
         self,
         *,
         rotation_around_point: Union[int, Int],
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR
@@ -46,9 +47,9 @@ class AnimationRotationAroundPointMixIn(AnimationMixIns):
         ----------
         rotation_around_point : Int or int
             The final rotation of the animation.
-        x : Int or int
+        x : float or Number
             X-coordinate.
-        y : Int or int
+        y : float or Number
             Y-coordinate.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.

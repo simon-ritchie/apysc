@@ -86,8 +86,8 @@ class TestLine:
         expression: str = line._make_points_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf"{var_names.INT}_.+, {var_names.INT}_.+, "
-                rf"{var_names.INT}_.+, {var_names.INT}_.+$"
+                rf"{var_names.NUMBER}_.+, {var_names.NUMBER}_.+, "
+                rf"{var_names.NUMBER}_.+, {var_names.NUMBER}_.+$"
             ),
             string=expression,
             flags=re.MULTILINE,

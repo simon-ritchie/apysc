@@ -28,6 +28,7 @@ from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
@@ -58,11 +59,11 @@ class Graphics(
     ...     x=50, y=50, width=50, height=50
     ... )
     >>> rectangle.x
-    Int(50)
+    Number(50.0)
 
     >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
     >>> circle.x
-    Int(100)
+    Number(100.0)
     """
 
     _current_line: Optional["_polyline.Polyline"] = None
@@ -160,8 +161,8 @@ class Graphics(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
@@ -171,8 +172,8 @@ class Graphics(
     def draw_rect(
         self,
         *,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         width: Union[int, Int],
         height: Union[int, Int],
         variable_name_suffix: str = "",
@@ -182,9 +183,9 @@ class Graphics(
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X position to start drawing.
-        y : Int or int
+        y : float or Number
             Y position to start drawing.
         width : Int or int
             Rectangle width.
@@ -214,10 +215,10 @@ class Graphics(
         ...     x=50, y=50, width=50, height=50
         ... )
         >>> rectangle.x
-        Int(50)
+        Number(50.0)
 
         >>> rectangle.width
-        Int(50)
+        Number(50.0)
 
         >>> rectangle.fill_color
         String('#00aaff')
@@ -233,8 +234,8 @@ class Graphics(
         return rectangle
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
@@ -248,8 +249,8 @@ class Graphics(
     def draw_round_rect(
         self,
         *,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         width: Union[int, Int],
         height: Union[int, Int],
         ellipse_width: Union[int, Int],
@@ -261,9 +262,9 @@ class Graphics(
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate to start drawing.
-        y : Int or int
+        y : float or Number
             Y-coordinate to start drawing.
         width : Int or int
             Rectangle width.
@@ -325,8 +326,8 @@ class Graphics(
         return rectangle
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @arg_validation_decos.is_builtin_string(arg_position_index=4, optional=False)
@@ -334,8 +335,8 @@ class Graphics(
     def draw_circle(
         self,
         *,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         radius: Union[int, Int],
         variable_name_suffix: str = "",
     ) -> "_circle.Circle":
@@ -344,9 +345,9 @@ class Graphics(
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the circle center.
-        y : Int or int
+        y : float or Number
             Y-coordinate of the circle center.
         radius : Int or int
             Circle radius.
@@ -393,8 +394,8 @@ class Graphics(
         return circle
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4)
@@ -404,8 +405,8 @@ class Graphics(
     def draw_ellipse(
         self,
         *,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         width: Union[int, Int],
         height: Union[int, Int],
         variable_name_suffix: str = "",
@@ -415,9 +416,9 @@ class Graphics(
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate of the ellipse center.
-        y : Int or int
+        y : float or Number
             Y-coordinate of the ellipse center.
         width : Int or int
             Ellipse width.
@@ -447,10 +448,10 @@ class Graphics(
         ...     x=100, y=100, width=100, height=50
         ... )
         >>> ellipse.x
-        Int(100)
+        Number(100.0)
 
         >>> ellipse.y
-        Int(100)
+        Number(100.0)
 
         >>> ellipse.width
         Int(100)
@@ -472,12 +473,16 @@ class Graphics(
         return ellipse
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def line_to(
-        self, *, x: Union[int, Int], y: Union[int, Int], variable_name_suffix: str = ""
+        self,
+        *,
+        x: Union[float, Number],
+        y: Union[float, Number],
+        variable_name_suffix: str = "",
     ) -> "_polyline.Polyline":
         """
         Draw a line from previous point to specified point (initial
@@ -485,9 +490,9 @@ class Graphics(
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X destination point to draw a line.
-        y : Int or int
+        y : float or Number
             Y destination point to draw a line.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
@@ -540,21 +545,25 @@ class Graphics(
         return self._current_line
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def move_to(
-        self, *, x: Union[int, Int], y: Union[int, Int], variable_name_suffix: str = ""
+        self,
+        *,
+        x: Union[float, Number],
+        y: Union[float, Number],
+        variable_name_suffix: str = "",
     ) -> "_polyline.Polyline":
         """
         Move a line position to a specified point.
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X destination point to move.
-        y : Int or int
+        y : float or Number
             Y destination point to move.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
@@ -610,19 +619,19 @@ class Graphics(
         self._line_dash_dot_setting = None
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
     @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_line(
         self,
         *,
-        x_start: Union[int, Int],
-        y_start: Union[int, Int],
-        x_end: Union[int, Int],
-        y_end: Union[int, Int],
+        x_start: Union[float, Number],
+        y_start: Union[float, Number],
+        x_end: Union[float, Number],
+        y_end: Union[float, Number],
         variable_name_suffix: str = "",
     ) -> "_line.Line":
         """
@@ -635,13 +644,13 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : Int or int
+        x_start : float or Number
             Line start x-coordinate.
-        y_start : Int or int
+        y_start : float or Number
             Line start y-coordinate.
-        x_end : Int or int
+        x_end : float or Number
             Line end x-coordinate.
-        y_end : Int or int
+        y_end : float or Number
             Line end y-coordinate.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
@@ -689,10 +698,10 @@ class Graphics(
         return line
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
     @arg_validation_decos.is_integer(arg_position_index=5)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @arg_validation_decos.is_builtin_string(arg_position_index=6, optional=False)
@@ -700,10 +709,10 @@ class Graphics(
     def draw_dotted_line(
         self,
         *,
-        x_start: Union[int, Int],
-        y_start: Union[int, Int],
-        x_end: Union[int, Int],
-        y_end: Union[int, Int],
+        x_start: Union[float, Number],
+        y_start: Union[float, Number],
+        x_end: Union[float, Number],
+        y_end: Union[float, Number],
         dot_size: Union[int, Int],
         variable_name_suffix: str = "",
     ) -> "_line.Line":
@@ -717,13 +726,13 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : Int or int
+        x_start : float or Number
             Line start x-coordinate.
-        y_start : Int or int
+        y_start : float or Number
             Line start y-coordinate.
-        x_end : Int or int
+        x_end : float or Number
             Line end x-coordinate.
-        y_end : Int or int
+        y_end : float or Number
             Line end y-coordinate.
         dot_size : Int or int
             Dot size.
@@ -781,10 +790,10 @@ class Graphics(
         return line
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
     @arg_validation_decos.is_integer(arg_position_index=5)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @arg_validation_decos.is_integer(arg_position_index=6)
@@ -794,10 +803,10 @@ class Graphics(
     def draw_dashed_line(
         self,
         *,
-        x_start: Union[int, Int],
-        y_start: Union[int, Int],
-        x_end: Union[int, Int],
-        y_end: Union[int, Int],
+        x_start: Union[float, Number],
+        y_start: Union[float, Number],
+        x_end: Union[float, Number],
+        y_end: Union[float, Number],
         dash_size: Union[int, Int],
         space_size: Union[int, Int],
         variable_name_suffix: str = "",
@@ -812,13 +821,13 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : Int or int
+        x_start : float or Number
             Line start x-coordinate.
-        y_start : Int or int
+        y_start : float or Number
             Line start y-coordinate.
-        x_end : Int or int
+        x_end : float or Number
             Line end x-coordinate.
-        y_end : Int or int
+        y_end : float or Number
             Line end y-coordinate.
         dash_size : Int or int
             Dash size.
@@ -880,10 +889,10 @@ class Graphics(
         return line
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
     @arg_validation_decos.is_integer(arg_position_index=5)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @arg_validation_decos.is_integer(arg_position_index=6)
@@ -893,10 +902,10 @@ class Graphics(
     def draw_round_dotted_line(
         self,
         *,
-        x_start: Union[int, Int],
-        y_start: Union[int, Int],
-        x_end: Union[int, Int],
-        y_end: Union[int, Int],
+        x_start: Union[float, Number],
+        y_start: Union[float, Number],
+        x_end: Union[float, Number],
+        y_end: Union[float, Number],
         round_size: Union[int, Int],
         space_size: Union[int, Int],
         variable_name_suffix: str = "",
@@ -911,13 +920,13 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : Int or int
+        x_start : float or Number
             Line start x-coordinate.
-        y_start : Int or int
+        y_start : float or Number
             Line start y-coordinate.
-        x_end : Int or int
+        x_end : float or Number
             Line end x-coordinate.
-        y_end : Int or int
+        y_end : float or Number
             Line end y-coordinate.
         round_size : Int or int
             Dot round size.
@@ -979,10 +988,10 @@ class Graphics(
         return line
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
     @arg_validation_decos.is_integer(arg_position_index=5)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     @arg_validation_decos.is_integer(arg_position_index=6)
@@ -994,10 +1003,10 @@ class Graphics(
     def draw_dash_dotted_line(
         self,
         *,
-        x_start: Union[int, Int],
-        y_start: Union[int, Int],
-        x_end: Union[int, Int],
-        y_end: Union[int, Int],
+        x_start: Union[float, Number],
+        y_start: Union[float, Number],
+        x_end: Union[float, Number],
+        y_end: Union[float, Number],
         dot_size: Union[int, Int],
         dash_size: Union[int, Int],
         space_size: Union[int, Int],
@@ -1008,13 +1017,13 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : Int or int
+        x_start : float or Number
             Line start x-coordinate.
-        y_start : Int or int
+        y_start : float or Number
             Line start y-coordinate.
-        x_end : Int or int
+        x_end : float or Number
             Line end x-coordinate.
-        y_end : Int or int
+        y_end : float or Number
             Line end y-coordinate.
         dot_size : Int or int
             Dot size.
@@ -1143,23 +1152,23 @@ class Graphics(
         return polygon
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
-    @arg_validation_decos.is_integer(arg_position_index=4)
-    @arg_validation_decos.is_integer(arg_position_index=5)
-    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=5)
+    @arg_validation_decos.is_num(arg_position_index=6)
     @arg_validation_decos.is_builtin_string(arg_position_index=7, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def draw_triangle(
         self,
         *,
-        x1: Union[int, Int],
-        y1: Union[int, Int],
-        x2: Union[int, Int],
-        y2: Union[int, Int],
-        x3: Union[int, Int],
-        y3: Union[int, Int],
+        x1: Union[float, Number],
+        y1: Union[float, Number],
+        x2: Union[float, Number],
+        y2: Union[float, Number],
+        x3: Union[float, Number],
+        y3: Union[float, Number],
         variable_name_suffix: str = "",
     ) -> _triangle.Triangle:
         """
@@ -1167,17 +1176,17 @@ class Graphics(
 
         Parameters
         ----------
-        x1 : Union[int, Int]
+        x1 : Union[float, Number]
             First vertex's x coordinate.
-        y1 : Union[int, Int]
+        y1 : Union[float, Number]
             First vertex's y coordinate.
-        x2 : Union[int, Int]
+        x2 : Union[float, Number]
             Second vertex's x coordinate.
-        y2 : Union[int, Int]
+        y2 : Union[float, Number]
             Second vertex's y coordinate.
-        x3 : Union[int, Int]
+        x3 : Union[float, Number]
             Third vertex's x coordinate.
-        y3 : Union[int, Int]
+        y3 : Union[float, Number]
             Third vertex's y coordinate.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.

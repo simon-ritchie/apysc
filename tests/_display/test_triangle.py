@@ -37,8 +37,8 @@ class TestTriangle:
             x3=100,
             y3=50,
         )
-        assert triangle.x == ap.Int(15)
-        assert triangle.y == ap.Int(10)
+        assert triangle.x == ap.Number(15)
+        assert triangle.y == ap.Number(10)
 
     @apply_test_settings()
     def test___repr__(self) -> None:

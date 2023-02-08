@@ -251,14 +251,14 @@ class Polyline(
         """
         Set an x and y properties coordinate with a minimum point.
         """
-        min_x: int = min([point._x._value for point in self._points._value])
-        min_y: int = min([point._y._value for point in self._points._value])
+        min_x: float = min([point._x._value for point in self._points._value])
+        min_y: float = min([point._y._value for point in self._points._value])
 
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-        self._x = Int(min_x, variable_name_suffix=suffix)
+        self._x = Number(min_x, variable_name_suffix=suffix)
 
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="y")
-        self._y = Int(min_y, variable_name_suffix=suffix)
+        self._y = Number(min_y, variable_name_suffix=suffix)
 
     @classmethod
     @final

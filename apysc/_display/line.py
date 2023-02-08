@@ -234,10 +234,10 @@ class Line(
         Set initial x and y properties coordinate with
         a minimum point.
         """
-        min_x: int = min(self._start_point._x._value, self._end_point._x._value)
-        min_y: int = min(self._start_point._y._value, self._end_point._y._value)
-        self._x = Int(min_x)
-        self._y = Int(min_y)
+        min_x: float = min(self._start_point._x._value, self._end_point._x._value)
+        min_y: float = min(self._start_point._y._value, self._end_point._y._value)
+        self._x = Number(min_x)
+        self._y = Number(min_y)
 
     @classmethod
     @final

@@ -97,10 +97,10 @@ class Rectangle(
     ...     x=50, y=50, width=100, height=75
     ... )
     >>> rectangle.x
-    Int(50)
+    Number(50.0)
 
     >>> rectangle.y
-    Int(50)
+    Number(50.0)
 
     >>> rectangle.width
     Int(100)
@@ -115,9 +115,9 @@ class Rectangle(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     # y
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=2)
     # width
     @arg_validation_decos.is_integer(arg_position_index=3)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
@@ -163,8 +163,8 @@ class Rectangle(
     def __init__(
         self,
         *,
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         width: Union[int, Int],
         height: Union[int, Int],
         ellipse_width: Union[int, Int] = 0,
@@ -188,9 +188,9 @@ class Rectangle(
 
         Parameters
         ----------
-        x : Int or int
+        x : float or Number
             X-coordinate to start drawing.
-        y : Int or int
+        y : float or Number
             Y-coordinate to start drawing.
         width : Int or int
             Rectangle width.
@@ -243,9 +243,9 @@ class Rectangle(
         ...     x=50, y=50, width=100, height=100, fill_color="#00aaff"
         ... )
         >>> rectangle.x
-        Int(50)
+        Number(50.0)
         >>> rectangle.y
-        Int(50)
+        Number(50.0)
         >>> rectangle.width
         Int(100)
         >>> rectangle.height
@@ -321,8 +321,8 @@ class Rectangle(
         cls,
         *,
         graphics: "graphics.Graphics",
-        x: Union[int, Int],
-        y: Union[int, Int],
+        x: Union[float, Number],
+        y: Union[float, Number],
         width: Union[int, Int],
         height: Union[int, Int],
         variable_name_suffix: str = "",
@@ -335,9 +335,9 @@ class Rectangle(
         ----------
         graphics : Graphics
             Graphics instance to link this instance.
-        x : Int or int
+        x : float or Number
             X-coordinate to start drawing.
-        y : Int or int
+        y : float or Number
             Y-coordinate to start drawing.
         width : Int or int
             Rectangle width.

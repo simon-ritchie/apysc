@@ -111,26 +111,26 @@ class Triangle(
     ...     line_thickness=3,
     ... )
     >>> triangle.x2
-    Int(50)
-    >>> triangle.y1 = ap.Int(30)
+    Number(50.0)
+    >>> triangle.y1 = ap.Number(30)
     >>> triangle.y1
-    Int(30)
+    Number(30.0)
     """
 
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x1
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1)
     # y1
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=2)
     # x2
-    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=3)
     # y2
-    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=4)
     # x3
-    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.is_num(arg_position_index=5)
     # y3
-    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.is_num(arg_position_index=6)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
     # fill_alpha
@@ -164,12 +164,12 @@ class Triangle(
     def __init__(
         self,
         *,
-        x1: Union[int, Int],
-        y1: Union[int, Int],
-        x2: Union[int, Int],
-        y2: Union[int, Int],
-        x3: Union[int, Int],
-        y3: Union[int, Int],
+        x1: Union[float, Number],
+        y1: Union[float, Number],
+        x2: Union[float, Number],
+        y2: Union[float, Number],
+        x3: Union[float, Number],
+        y3: Union[float, Number],
         fill_color: Union[str, String] = "",
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
@@ -189,17 +189,17 @@ class Triangle(
 
         Parameters
         ----------
-        x1 : Union[int, Int]
+        x1 : Union[float, Number]
             First vertex's x coordinate.
-        y1 : Union[int, Int]
+        y1 : Union[float, Number]
             First vertex's y coordinate.
-        x2 : Union[int, Int]
+        x2 : Union[float, Number]
             Second vertex's x coordinate.
-        y2 : Union[int, Int]
+        y2 : Union[float, Number]
             Second vertex's y coordinate.
-        x3 : Union[int, Int]
+        x3 : Union[float, Number]
             Third vertex's x coordinate.
-        y3 : Union[int, Int]
+        y3 : Union[float, Number]
             Third vertex's y coordinate.
         fill_color : str or String, default ''
             A fill-color to set.
@@ -252,13 +252,13 @@ class Triangle(
         ...     line_thickness=3,
         ... )
         >>> triangle.x2
-        Int(50)
-        >>> triangle.y1 = ap.Int(30)
+        Number(50.0)
+        >>> triangle.y1 = ap.Number(30.0)
         >>> triangle.y1
-        Int(30)
+        Number(30.0)
         """
         from apysc._converter.to_apysc_val_from_builtin import (
-            get_copied_int_from_builtin_val,
+            get_copied_number_from_builtin_val,
         )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -277,12 +277,12 @@ class Triangle(
             line_cap=line_cap,
             line_joints=line_joints,
         )
-        self._x1 = get_copied_int_from_builtin_val(integer=x1)
-        self._y1 = get_copied_int_from_builtin_val(integer=y1)
-        self._x2 = get_copied_int_from_builtin_val(integer=x2)
-        self._y2 = get_copied_int_from_builtin_val(integer=y2)
-        self._x3 = get_copied_int_from_builtin_val(integer=x3)
-        self._y3 = get_copied_int_from_builtin_val(integer=y3)
+        self._x1 = get_copied_number_from_builtin_val(float_or_num=x1)
+        self._y1 = get_copied_number_from_builtin_val(float_or_num=y1)
+        self._x2 = get_copied_number_from_builtin_val(float_or_num=x2)
+        self._y2 = get_copied_number_from_builtin_val(float_or_num=y2)
+        self._x3 = get_copied_number_from_builtin_val(float_or_num=x3)
+        self._y3 = get_copied_number_from_builtin_val(float_or_num=y3)
         self._set_points_with_each_coordinate()
         self._append_constructor_expression()
         self._set_line_setting_if_not_none_value_exists(
@@ -313,14 +313,14 @@ class Triangle(
         """
         Set an x and y properties coordinate with a minimum point.
         """
-        min_x: int = min(self._x1._value, self._x2._value, self._x3._value)
-        min_y: int = min(self._y1._value, self._y2._value, self._y3._value)
+        min_x: float = min(self._x1._value, self._x2._value, self._x3._value)
+        min_y: float = min(self._y1._value, self._y2._value, self._y3._value)
 
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-        self._x = Int(min_x, variable_name_suffix=suffix)
+        self._x = Number(min_x, variable_name_suffix=suffix)
 
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="y")
-        self._y = Int(min_y, variable_name_suffix=suffix)
+        self._y = Number(min_y, variable_name_suffix=suffix)
 
     @classmethod
     @final
@@ -328,12 +328,12 @@ class Triangle(
         cls,
         *,
         graphics: "graphics.Graphics",
-        x1: Union[int, Int],
-        y1: Union[int, Int],
-        x2: Union[int, Int],
-        y2: Union[int, Int],
-        x3: Union[int, Int],
-        y3: Union[int, Int],
+        x1: Union[float, Number],
+        y1: Union[float, Number],
+        x2: Union[float, Number],
+        y2: Union[float, Number],
+        x3: Union[float, Number],
+        y3: Union[float, Number],
         variable_name_suffix: str = "",
     ) -> "Triangle":
         """
@@ -344,17 +344,17 @@ class Triangle(
         ----------
         graphics : graphics.Graphics
             Graphics instance to link this instance.
-        x1 : Union[int, Int]
+        x1 : Union[float, Number]
             First vertex's y coordinate.
-        y1 : Union[int, Int]
+        y1 : Union[float, Number]
             First vertex's y coordinate.
-        x2 : Union[int, Int]
+        x2 : Union[float, Number]
             Second vertex's x coordinate.
-        y2 : Union[int, Int]
+        y2 : Union[float, Number]
             Second vertex's y coordinate.
-        x3 : Union[int, Int]
+        x3 : Union[float, Number]
             Third vertex's x coordinate.
-        y3 : Union[int, Int]
+        y3 : Union[float, Number]
             Third vertex's y coordinate.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.

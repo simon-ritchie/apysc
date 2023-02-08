@@ -16,11 +16,11 @@ class TestPolygonX3MixIn:
             x3=125,
             y3=150,
         )
-        x3: ap.Int = triangle.x3
-        assert x3 == ap.Int(125)
+        x3: ap.Number = triangle.x3
+        assert x3 == ap.Number(125)
 
-        triangle.x3 = ap.Int(130)
-        assert triangle.x3 == ap.Int(130)
-        assert triangle._points[2].x == ap.Int(130)
+        triangle.x3 = ap.Number(130)
+        assert triangle.x3 == ap.Number(130)
+        assert triangle._points[2].x == ap.Number(130)
         expression: str = expression_data_util.get_current_expression()
         assert ".plot" in expression

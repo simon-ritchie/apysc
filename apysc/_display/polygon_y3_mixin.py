@@ -5,35 +5,35 @@ from apysc._display.polygon_apply_current_points_mixin import (
     PolygonApplyCurrentPointsMixIn,
 )
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.int import Int
+from apysc._type.number import Number
 
 
 class PolygonY3MixIn(PolygonApplyCurrentPointsMixIn):
 
-    _y3: Int
+    _y3: Number
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def y3(self) -> Int:
+    def y3(self) -> Number:
         """
         Get a third y-coordinate.
 
         Returns
         -------
-        y3 : Int
+        y3 : Number
             A third y-coordinate.
         """
-        y3: Int = self._points[2].y
+        y3: Number = self._points[2].y
         return y3
 
     @y3.setter
-    def y3(self, value: Int) -> None:
+    def y3(self, value: Number) -> None:
         """
         Set a third y-coordinate.
 
         Parameters
         ----------
-        value : Int
+        value : Number
             Y-coordinate to set.
         """
         import apysc as ap

@@ -14,10 +14,10 @@ class TestPolygonY1MixIn:
             x3=150,
             y3=100,
         )
-        y1: ap.Int = triangle.y1
-        assert y1 == ap.Int(50)
+        y1: ap.Number = triangle.y1
+        assert y1 == ap.Number(50)
         assert triangle._y1._value == 50
 
-        triangle.y1 = ap.Int(75)
-        assert triangle.y1 == ap.Int(75)
-        assert triangle._points[0].y == ap.Int(75)
+        triangle.y1 = ap.Number(75)
+        assert triangle.y1 == ap.Number(75)
+        assert triangle._points[0].y == ap.Number(75)

@@ -14,7 +14,7 @@ from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
     SetXAndYWithMinimumPointInterfaceBase,
 )
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
@@ -26,18 +26,23 @@ class AppendLinePointMixIn(
     PointsVarNameMixIn,
 ):
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)
-    def append_line_point(self, *, x: Union[int, Int], y: Union[int, Int]) -> None:
+    def append_line_point(
+        self,
+        *,
+        x: Union[float, Number],
+        y: Union[float, Number],
+    ) -> None:
         """
         Append line point at the end.
 
         Parameters
         ----------
-        x : int or Int
+        x : float, Number
             X-coordinate.
-        y : int or Int
+        y : float, Number
             Y-coordinate.
 
         Examples

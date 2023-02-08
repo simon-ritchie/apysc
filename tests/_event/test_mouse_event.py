@@ -66,7 +66,7 @@ class TestMouseEvent:
         mouse_event: ap.MouseEvent[ap.Int] = ap.MouseEvent(this=int_1)
         local_x: ap.Number = mouse_event.local_x
         assert local_x == 0
-        assert isinstance(local_x, ap.Int)
+        assert isinstance(local_x, ap.Number)
 
     @apply_test_settings()
     def test__append_local_x_getter_expression(self) -> None:
@@ -77,7 +77,7 @@ class TestMouseEvent:
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf"{local_x.variable_name} = {var_names.INT}\_.+? \- "
+                rf"{local_x.variable_name} = {var_names.NUMBER}\_.+? \- "
                 rf"get_total_x\({sprite.variable_name}\);"
             ),
             string=expression,
@@ -102,7 +102,7 @@ class TestMouseEvent:
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf"{local_y.variable_name} = {var_names.INT}\_.+? \- "
+                rf"{local_y.variable_name} = {var_names.NUMBER}\_.+? \- "
                 rf"get_total_y\({sprite.variable_name}\);"
             ),
             string=expression,

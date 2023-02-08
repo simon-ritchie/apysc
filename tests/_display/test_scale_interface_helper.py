@@ -14,7 +14,7 @@ def test_get_coordinate_key_for_expression() -> None:
     key_exp_str: ExpressionString = (
         scale_interface_helper.get_coordinate_key_for_expression(coordinate=10)
     )
-    assert key_exp_str.value == "String(10)"
+    assert key_exp_str.value == "String(10.000)"
 
     x: ap.Number = ap.Number(10)
     key_exp_str = scale_interface_helper.get_coordinate_key_for_expression(coordinate=x)

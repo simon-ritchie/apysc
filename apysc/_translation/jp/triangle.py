@@ -41,49 +41,49 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `x` property updates or gets the instance\'s x-coordinate:": "`x`属性ではX座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x/\")\n```",  # noqa
     ##################################################
     "## y property interface example": "## y属性のインターフェイス例",
     ##################################################
     "The `y` property updates or gets the instance\'s y-coordinate:": "`y`属性ではY座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_y/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_y/\")\n```",  # noqa
     ##################################################
     "## x1 property interface example": "## x1属性のインターフェイス例",
     ##################################################
     "The `x1` property updates or gets the instance\'s first vertex x-coordinate:": "`x1`属性では1つ目の頂点のX座標の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x1 = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x1 = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x1/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x1 = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x1 = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"triangle_x1/\")\n```",  # noqa
     ##################################################
     "## y1 property interface example": "## y1属性のインターフェイス例",
     ##################################################
     "The `y1` property updates or gets the instance\'s first vertex y-coordinate:": "`y1`属性では1つ目の頂点のY座標の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y1 = ap.Int(0)\n\nap.save_overall_html(dest_dir_path=\"triangle_y1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y1 = ap.Int(0)\n\nap.save_overall_html(dest_dir_path=\"triangle_y1/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y1 = ap.Number(0)\n\nap.save_overall_html(dest_dir_path=\"triangle_y1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y1 = ap.Number(0)\n\nap.save_overall_html(dest_dir_path=\"triangle_y1/\")\n```",  # noqa
     ##################################################
     "## x2 property interface example": "## x2属性のインターフェイス例",
     ##################################################
     "The `x2` property updates or gets the instance\'s second vertex x-coordinate:": "`x2`属性では2つ目の頂点のX座標の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x2 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x2 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x2/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x2 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x2 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x2/\")\n```",  # noqa
     ##################################################
     "## y2 property interface example": "## y2属性のインターフェイス例",
     ##################################################
     "The `y2` property updates or gets the instance\'s second vertex y-coordinate:": "`y2`属性では2つ目の頂点のY座標の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y2 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y2 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y2/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y2 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y2 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y2/\")\n```",  # noqa
     ##################################################
     "## x3 property interface example": "## x3属性のインターフェイス例",
     ##################################################
     "The `x3` property updates or gets the instance\'s third vertex x-coordinate:": "`x3`属性では3つ目のX座標の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x3 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x3/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x3 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x3/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x3 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x3/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.x3 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_x3/\")\n```",  # noqa
     ##################################################
     "## y3 property interface example": "## y3属性のインターフェイス例",
     ##################################################
     "The `y3` property updates or gets the instance\'s third vertex y-coordinate:": "`y3`属性では3つ目のY座標の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y3 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y3/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y3 = ap.Int(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y3/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y3 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y3/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\ntriangle: ap.Triangle = ap.Triangle(\n    x1=75,\n    y1=50,\n    x2=50,\n    y2=100,\n    x3=100,\n    y3=100,\n    fill_color=\"#0af\",\n)\ntriangle.y3 = ap.Number(75)\n\nap.save_overall_html(dest_dir_path=\"triangle_y3/\")\n```",  # noqa
     ##################################################
     "## fill_color property interface example": "## fill_color属性のインターフェイス例",
     ##################################################
@@ -211,27 +211,27 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x1`: Union[int, Int]": "- `x1`: Union[int, Int]",
+    "- `x1`: Union[float, Number]": "- `x1`: Union[float, Number]",
     ##################################################
     "  - First vertex\'s x coordinate.": "  - 1つ目の頂点のX座標。",
     ##################################################
-    "- `y1`: Union[int, Int]": "- `y1`: Union[int, Int]",
+    "- `y1`: Union[float, Number]": "- `y1`: Union[float, Number]",
     ##################################################
     "  - First vertex\'s y coordinate.": "  - 1つ目の頂点のY座標。",
     ##################################################
-    "- `x2`: Union[int, Int]": "- `x2`: Union[int, Int]",
+    "- `x2`: Union[float, Number]": "- `x2`: Union[float, Number]",
     ##################################################
     "  - Second vertex\'s x coordinate.": "  - 2つ目の頂点のX座標。",
     ##################################################
-    "- `y2`: Union[int, Int]": "- `y2`: Union[int, Int]",
+    "- `y2`: Union[float, Number]": "- `y2`: Union[float, Number]",
     ##################################################
     "  - Second vertex\'s y coordinate.": "  - 2つ目の頂点のY座標。",
     ##################################################
-    "- `x3`: Union[int, Int]": "- `x3`: Union[int, Int]",
+    "- `x3`: Union[float, Number]": "- `x3`: Union[float, Number]",
     ##################################################
     "  - Third vertex\'s x coordinate.": "  - 3つ目の頂点のX座標。",
     ##################################################
-    "- `y3`: Union[int, Int]": "- `y3`: Union[int, Int]",
+    "- `y3`: Union[float, Number]": "- `y3`: Union[float, Number]",
     ##################################################
     "  - Third vertex\'s y coordinate.": "  - 3つ目の頂点のY座標。",
     ##################################################
@@ -291,7 +291,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> triangle: ap.Triangle = ap.Triangle(\n...     x1=75,\n...     y1=50,\n...     x2=50,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n...     fill_color=\"#0af\",\n...     line_color=\"#fff\",\n...     line_thickness=3,\n... )\n>>> triangle.x2\nInt(50)\n\n>>> triangle.y1 = ap.Int(30)\n>>> triangle.y1\nInt(30)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> triangle: ap.Triangle = ap.Triangle(\n...     x1=75,\n...     y1=50,\n...     x2=50,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n...     fill_color=\"#0af\",\n...     line_color=\"#fff\",\n...     line_thickness=3,\n... )\n>>> triangle.x2\nInt(50)\n\n>>> triangle.y1 = ap.Int(30)\n>>> triangle.y1\nInt(30)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> triangle: ap.Triangle = ap.Triangle(\n...     x1=75,\n...     y1=50,\n...     x2=50,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n...     fill_color=\"#0af\",\n...     line_color=\"#fff\",\n...     line_thickness=3,\n... )\n>>> triangle.x2\nNumber(50.0)\n\n>>> triangle.y1 = ap.Number(30.0)\n>>> triangle.y1\nNumber(30.0)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> triangle: ap.Triangle = ap.Triangle(\n...     x1=75,\n...     y1=50,\n...     x2=50,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n...     fill_color=\"#0af\",\n...     line_color=\"#fff\",\n...     line_thickness=3,\n... )\n>>> triangle.x2\nNumber(50.0)\n\n>>> triangle.y1 = ap.Number(30.0)\n>>> triangle.y1\nNumber(30.0)\n```",  # noqa
     ##################################################
     "## x1 property API": "## x1 属性のAPI",
     ##################################################
@@ -303,7 +303,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `x1`: Int": "- `x1`: Int",
+    "- `x1`: Number": "- `x1`: Number",
     ##################################################
     "  - A first x-coordinate.": "  - 1つ目のX座標。",
     ##################################################
@@ -317,7 +317,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `y1`: Int": "- `y1`: Int",
+    "- `y1`: Number": "- `y1`: Number",
     ##################################################
     "  - A first y-coordinate.": "  - 1つ目のY座標。",
     ##################################################
@@ -331,7 +331,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `x2`: Int": "- `x2`: Int",
+    "- `x2`: Number": "- `x2`: Number",
     ##################################################
     "  - A second x-coordinate.": "  - 2つ目のX座標。",
     ##################################################
@@ -345,7 +345,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `y2`: Int": "- `y2`: Int",
+    "- `y2`: Number": "- `y2`: Number",
     ##################################################
     "  - A second y-coordinate.": "  - 2つ目のY座標。",
     ##################################################
@@ -359,7 +359,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `x3`: Int": "- `x3`: Int",
+    "- `x3`: Number": "- `x3`: Number",
     ##################################################
     "  - A third x-coordinate.": "  - 3つ目のX座標。",
     ##################################################
@@ -373,7 +373,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `y3`: Int": "- `y3`: Int",
+    "- `y3`: Number": "- `y3`: Number",
     ##################################################
     "  - A third y-coordinate.": "  - 3つ目のY座標。",
 }

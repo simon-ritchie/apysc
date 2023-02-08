@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Each `DisplayObject` instance has the x and y properties and can get/set the value with it.": "`DisplayObject`の各インスタンスはxとy属性を持っており、それを参照して座標値の取得と更新を行うことができます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(x=0, y=0, width=50, height=50)\n\n# Update the x and y coordinates from 0 to 50.\nrectangle.x = ap.Int(50)\nrectangle.y = ap.Int(50)\n\nap.save_overall_html(dest_dir_path=\"display_object_x_and_y_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(x=0, y=0, width=50, height=50)\n\n# Update the x and y coordinates from 0 to 50.\nrectangle.x = ap.Int(50)\nrectangle.y = ap.Int(50)\n\nap.save_overall_html(dest_dir_path=\"display_object_x_and_y_basic_usage/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(x=0, y=0, width=50, height=50)\n\n# Update the x and y coordinates from 0 to 50.\nrectangle.x = ap.Number(50)\nrectangle.y = ap.Number(50)\n\nap.save_overall_html(dest_dir_path=\"display_object_x_and_y_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\n\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nrectangle: ap.Rectangle = sprite.graphics.draw_rect(x=0, y=0, width=50, height=50)\n\n# Update the x and y coordinates from 0 to 50.\nrectangle.x = ap.Number(50)\nrectangle.y = ap.Number(50)\n\nap.save_overall_html(dest_dir_path=\"display_object_x_and_y_basic_usage/\")\n```",  # noqa
     ##################################################
     "## Augmented assignment": "## 累算代入演算",
     ##################################################
@@ -41,7 +41,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - X-coordinate.": "  - X座標。",
     ##################################################
@@ -49,7 +49,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x = ap.Int(100)\n>>> rectangle.x\nInt(100)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x = ap.Int(100)\n>>> rectangle.x\nInt(100)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x = ap.Number(100)\n>>> rectangle.x\nNumber(100.0)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x = ap.Number(100)\n>>> rectangle.x\nNumber(100.0)\n```",  # noqa
     ##################################################
     "## y property API": "## y属性のAPI",
     ##################################################
@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
     ##################################################
@@ -69,5 +69,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.y = ap.Int(100)\n>>> rectangle.y\nInt(100)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.y = ap.Int(100)\n>>> rectangle.y\nInt(100)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.y = ap.Number(100)\n>>> rectangle.y\nNumber(100.0)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.y = ap.Number(100)\n>>> rectangle.y\nNumber(100.0)\n```",  # noqa
 }

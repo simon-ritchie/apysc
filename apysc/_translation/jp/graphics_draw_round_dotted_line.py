@@ -41,19 +41,19 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x_start`: Int or int": "- `x_start`: Int or int",
+    "- `x_start`: float or Number": "- `x_start`: float or Number",
     ##################################################
     "  - Line start x-coordinate.": "  - 線の開始位置のX座標。",
     ##################################################
-    "- `y_start`: Int or int": "- `y_start`: Int or int",
+    "- `y_start`: float or Number": "- `y_start`: float or Number",
     ##################################################
     "  - Line start y-coordinate.": "  - 線の開始位置のY座標。",
     ##################################################
-    "- `x_end`: Int or int": "- `x_end`: Int or int",
+    "- `x_end`: float or Number": "- `x_end`: float or Number",
     ##################################################
     "  - Line end x-coordinate.": "  - 線の終了位置のX座標。",
     ##################################################
-    "- `y_end`: Int or int": "- `y_end`: Int or int",
+    "- `y_end`: float or Number": "- `y_end`: float or Number",
     ##################################################
     "  - Line end y-coordinate.": "  - 線の終了位置のY座標。",
     ##################################################

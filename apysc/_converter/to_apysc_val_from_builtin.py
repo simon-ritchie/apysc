@@ -61,7 +61,7 @@ def get_copied_number_from_builtin_val(
     """
     import apysc as ap
 
-    if isinstance(float_or_num, float):
+    if isinstance(float_or_num, (int, float)):
         copied: ap.Number = ap.Number(
             float_or_num, variable_name_suffix=variable_name_suffix
         )

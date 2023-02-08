@@ -33,7 +33,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Similarly, the cyan circle shows the destination point.": "同様に、シアンの色では終点座標を示しています。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: int = 100\nCONTROL_Y: int = 25\nDEST_X: int = 150\nDEST_Y: int = 100\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathBezier2D(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 5\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\ncyan_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_2d_basic_usage_2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: int = 100\nCONTROL_Y: int = 25\nDEST_X: int = 150\nDEST_Y: int = 100\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathBezier2D(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 5\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\ncyan_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_2d_basic_usage_2/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: float = 100\nCONTROL_Y: float = 25\nDEST_X: float = 150\nDEST_Y: float = 100\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathBezier2D(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 5\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\ncyan_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_2d_basic_usage_2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: float = 100\nCONTROL_Y: float = 25\nDEST_X: float = 150\nDEST_Y: float = 100\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathBezier2D(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 5\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\ncyan_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_2d_basic_usage_2/\")\n```",  # noqa
     ##################################################
     "## Relative position setting": "## 相対座標設定",
     ##################################################
@@ -61,19 +61,19 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `control_x`: Int or int": "- `control_x`: Int or int",
+    "- `control_x`: float or Number": "- `control_x`: float or Number",
     ##################################################
     "  - X-coordinate of the bezier\'s control point.": "  - ベジェ曲線の制御点のX座標。",
     ##################################################
-    "- `control_y`: Int or int": "- `control_y`: Int or int",
+    "- `control_y`: float or Number": "- `control_y`: float or Number",
     ##################################################
     "  - Y-coordinate of the bezier\'s control point.": "  - ベジェ曲線の制御点のY座標。",
     ##################################################
-    "- `dest_x`: Int or int": "- `dest_x`: Int or int",
+    "- `dest_x`: float or Number": "- `dest_x`: float or Number",
     ##################################################
     "  - X-coordinate of the destination point.": "  - 終点のX座標。",
     ##################################################
-    "- `dest_y`: Int or int": "- `dest_y`: Int or int",
+    "- `dest_y`: float or Number": "- `dest_y`: float or Number",
     ##################################################
     "  - Y-coordinate of the destination point.": "  - 終点のY座標。",
     ##################################################

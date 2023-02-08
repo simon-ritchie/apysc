@@ -47,27 +47,27 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x1`: Union[int, Int]": "- `x1`: Union[int, Int]",
+    "- `x1`: Union[float, Number]": "- `x1`: Union[float, Number]",
     ##################################################
     "  - First vertex\'s x coordinate.": "  - 1つ目の頂点のX座標。",
     ##################################################
-    "- `y1`: Union[int, Int]": "- `y1`: Union[int, Int]",
+    "- `y1`: Union[float, Number]": "- `y1`: Union[float, Number]",
     ##################################################
     "  - First vertex\'s y coordinate.": "  - 1つ目の頂点のY座標。",
     ##################################################
-    "- `x2`: Union[int, Int]": "- `x2`: Union[int, Int]",
+    "- `x2`: Union[float, Number]": "- `x2`: Union[float, Number]",
     ##################################################
     "  - Second vertex\'s x coordinate.": "  - 2つ目の頂点のX座標。",
     ##################################################
-    "- `y2`: Union[int, Int]": "- `y2`: Union[int, Int]",
+    "- `y2`: Union[float, Number]": "- `y2`: Union[float, Number]",
     ##################################################
     "  - Second vertex\'s y coordinate.": "  - 2つ目の頂点のY座標。",
     ##################################################
-    "- `x3`: Union[int, Int]": "- `x3`: Union[int, Int]",
+    "- `x3`: Union[float, Number]": "- `x3`: Union[float, Number]",
     ##################################################
     "  - Third vertex\'s x coordinate.": "  - 3つ目の頂点のX座標。",
     ##################################################
-    "- `y3`: Union[int, Int]": "- `y3`: Union[int, Int]",
+    "- `y3`: Union[float, Number]": "- `y3`: Union[float, Number]",
     ##################################################
     "  - Third vertex\'s y coordinate.": "  - 3つ目の頂点のY座標。",
     ##################################################
@@ -87,7 +87,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\", alpha=0.7)\n>>> sprite.graphics.line_style(color=\"#fff\", thickness=5, alpha=0.5)\n>>> triangle: ap.Triangle = sprite.graphics.draw_triangle(\n...     x1=75,\n...     y1=50,\n...     x2=25,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n... )\n>>> triangle.x1\nInt(75)\n\n>>> triangle.y1 = ap.Int(30)\n>>> triangle.y1\nInt(30)\n\n>>> triangle.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\", alpha=0.7)\n>>> sprite.graphics.line_style(color=\"#fff\", thickness=5, alpha=0.5)\n>>> triangle: ap.Triangle = sprite.graphics.draw_triangle(\n...     x1=75,\n...     y1=50,\n...     x2=25,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n... )\n>>> triangle.x1\nInt(75)\n\n>>> triangle.y1 = ap.Int(30)\n>>> triangle.y1\nInt(30)\n\n>>> triangle.fill_color\nString(\'#00aaff\')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\", alpha=0.7)\n>>> sprite.graphics.line_style(color=\"#fff\", thickness=5, alpha=0.5)\n>>> triangle: ap.Triangle = sprite.graphics.draw_triangle(\n...     x1=75,\n...     y1=50,\n...     x2=25,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n... )\n>>> triangle.x1\nNumber(75.0)\n\n>>> triangle.y1 = ap.Number(30)\n>>> triangle.y1\nInt(30)\n\n>>> triangle.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\", alpha=0.7)\n>>> sprite.graphics.line_style(color=\"#fff\", thickness=5, alpha=0.5)\n>>> triangle: ap.Triangle = sprite.graphics.draw_triangle(\n...     x1=75,\n...     y1=50,\n...     x2=25,\n...     y2=100,\n...     x3=100,\n...     y3=100,\n... )\n>>> triangle.x1\nNumber(75.0)\n\n>>> triangle.y1 = ap.Number(30)\n>>> triangle.y1\nInt(30)\n\n>>> triangle.fill_color\nString(\'#00aaff\')\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

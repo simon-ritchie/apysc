@@ -105,7 +105,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - x-coordinate.": "  - X座標。",
     ##################################################
@@ -125,7 +125,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - y-coordinate.": "  - Y座標。",
     ##################################################
@@ -133,7 +133,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     stage_y: ap.Int = e.stage_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```": "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     stage_y: ap.Int = e.stage_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     stage_y: ap.Number = e.stage_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```": "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     stage_y: ap.Number = e.stage_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```",  # noqa
     ##################################################
     "## local_x property API": "## local_x 属性のAPI",
     ##################################################
@@ -145,7 +145,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - x-coordinate.": "  - X座標。",
     ##################################################
@@ -153,7 +153,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_x: ap.Int = e.local_x\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```": "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_x: ap.Int = e.local_x\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_x: ap.Number = e.local_x\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```": "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_x: ap.Number = e.local_x\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```",  # noqa
     ##################################################
     "## local_y property API": "## local_y 属性のAPI",
     ##################################################
@@ -165,7 +165,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - y-coordinate.": "  - Y座標。",
     ##################################################
@@ -173,7 +173,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_y: ap.Int = e.local_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```": "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_y: ap.Int = e.local_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_y: ap.Number = e.local_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```": "```py\n>>> import apysc as ap\n>>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:\n...     local_y: ap.Number = e.local_y\n...     # Do something here with the coordinate.\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> _ = rectangle.mousedown(on_mousedown)\n```",  # noqa
     ##################################################
     "## this property API": "## this 属性のAPI",
     ##################################################

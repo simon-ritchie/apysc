@@ -37,13 +37,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `x` property updates or gets the instance\'s x-coordinate:": "`x`属性ではX座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=50, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=50, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_x/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=50, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=50, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_x/\")\n```",  # noqa
     ##################################################
     "## y property interface example": "## y属性のインターフェイス例",
     ##################################################
     "The `y` property updates or gets the instance\'s y-coordinate:": "`y`属性ではY座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=0, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=0, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_y/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=0, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.y = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=0, width=50, height=50, fill_color=\"#0af\"\n)\nrectangle.y = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"rectangle_y/\")\n```",  # noqa
     ##################################################
     "## width property interface example": "## width属性のインターフェイス例",
     ##################################################
@@ -203,11 +203,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: Int or int": "- `x`: Int or int",
+    "- `x`: float or Number": "- `x`: float or Number",
     ##################################################
     "  - X-coordinate to start drawing.": "  - 描画を開始するX座標。",
     ##################################################
-    "- `y`: Int or int": "- `y`: Int or int",
+    "- `y`: float or Number": "- `y`: float or Number",
     ##################################################
     "  - Y-coordinate to start drawing.": "  - 描画を開始するY座標。",
     ##################################################
@@ -283,5 +283,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=100, height=100, fill_color=\"#00aaff\"\n... )\n>>> rectangle.x\nInt(50)\n\n>>> rectangle.y\nInt(50)\n\n>>> rectangle.width\nInt(100)\n\n>>> rectangle.height\nInt(100)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=100, height=100, fill_color=\"#00aaff\"\n... )\n>>> rectangle.x\nInt(50)\n\n>>> rectangle.y\nInt(50)\n\n>>> rectangle.width\nInt(100)\n\n>>> rectangle.height\nInt(100)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=100, height=100, fill_color=\"#00aaff\"\n... )\n>>> rectangle.x\nNumber(50.0)\n\n>>> rectangle.y\nNumber(50.0)\n\n>>> rectangle.width\nInt(100)\n\n>>> rectangle.height\nInt(100)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=100, height=100, fill_color=\"#00aaff\"\n... )\n>>> rectangle.x\nNumber(50.0)\n\n>>> rectangle.y\nNumber(50.0)\n\n>>> rectangle.width\nInt(100)\n\n>>> rectangle.height\nInt(100)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```",  # noqa
 }

@@ -37,13 +37,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `x` property updates or gets the instance\'s x-coordinate:": "`x`属性ではX座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=0, y=75, radius=50, fill_color=\"#0af\")\ncircle.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"circle_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=0, y=75, radius=50, fill_color=\"#0af\")\ncircle.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"circle_x/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=0, y=75, radius=50, fill_color=\"#0af\")\ncircle.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"circle_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=200, stage_height=150, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=0, y=75, radius=50, fill_color=\"#0af\")\ncircle.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"circle_x/\")\n```",  # noqa
     ##################################################
     "## y property interface example": "## y属性のインターフェイス例",
     ##################################################
     "The `y` property updates or gets the instance\'s y-coordinate:": "`y`属性ではY座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=75, y=0, radius=50, fill_color=\"#0af\")\ncircle.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"circle_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=75, y=0, radius=50, fill_color=\"#0af\")\ncircle.y = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"circle_y/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=75, y=0, radius=50, fill_color=\"#0af\")\ncircle.y = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"circle_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=200, stage_elem_id=\"stage\"\n)\ncircle: ap.Circle = ap.Circle(x=75, y=0, radius=50, fill_color=\"#0af\")\ncircle.y = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"circle_y/\")\n```",  # noqa
     ##################################################
     "## radius property interface example": "## radius属性のインターフェイス例",
     ##################################################
@@ -189,11 +189,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: Int or int": "- `x`: Int or int",
+    "- `x`: float or Number": "- `x`: float or Number",
     ##################################################
     "  - X-coordinate of the circle center.": "  - 円の中心のX座標。",
     ##################################################
-    "- `y`: Int or int": "- `y`: Int or int",
+    "- `y`: float or Number": "- `y`: float or Number",
     ##################################################
     "  - Y-coordinate of the circle center.": "  - 円の中心のY座標。",
     ##################################################
@@ -257,5 +257,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=\"#00aaff\")\n>>> circle.x\nInt(100)\n\n>>> circle.y\nInt(100)\n\n>>> circle.radius\nInt(50)\n\n>>> circle.fill_color\nString(\'#00aaff\')\n\n>>> circle = ap.Circle(\n...     x=100,\n...     y=100,\n...     radius=50,\n...     line_color=\"#ffffff\",\n...     line_thickness=3,\n...     line_dot_setting=ap.LineDotSetting(dot_size=10),\n... )\n>>> circle.line_color\nString(\'#ffffff\')\n\n>>> circle.line_thickness\nInt(3)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=\"#00aaff\")\n>>> circle.x\nInt(100)\n\n>>> circle.y\nInt(100)\n\n>>> circle.radius\nInt(50)\n\n>>> circle.fill_color\nString(\'#00aaff\')\n\n>>> circle = ap.Circle(\n...     x=100,\n...     y=100,\n...     radius=50,\n...     line_color=\"#ffffff\",\n...     line_thickness=3,\n...     line_dot_setting=ap.LineDotSetting(dot_size=10),\n... )\n>>> circle.line_color\nString(\'#ffffff\')\n\n>>> circle.line_thickness\nInt(3)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=\"#00aaff\")\n>>> circle.x\nNumber(100.0)\n\n>>> circle.y\nNumber(100.0)\n\n>>> circle.radius\nInt(50)\n\n>>> circle.fill_color\nString(\'#00aaff\')\n\n>>> circle = ap.Circle(\n...     x=100,\n...     y=100,\n...     radius=50,\n...     line_color=\"#ffffff\",\n...     line_thickness=3,\n...     line_dot_setting=ap.LineDotSetting(dot_size=10),\n... )\n>>> circle.line_color\nString(\'#ffffff\')\n\n>>> circle.line_thickness\nInt(3)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=\"#00aaff\")\n>>> circle.x\nNumber(100.0)\n\n>>> circle.y\nNumber(100.0)\n\n>>> circle.radius\nInt(50)\n\n>>> circle.fill_color\nString(\'#00aaff\')\n\n>>> circle = ap.Circle(\n...     x=100,\n...     y=100,\n...     radius=50,\n...     line_color=\"#ffffff\",\n...     line_thickness=3,\n...     line_dot_setting=ap.LineDotSetting(dot_size=10),\n... )\n>>> circle.line_color\nString(\'#ffffff\')\n\n>>> circle.line_thickness\nInt(3)\n```",  # noqa
 }

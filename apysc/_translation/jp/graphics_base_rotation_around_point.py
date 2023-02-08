@@ -37,11 +37,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - X-coordinate.": "  - X座標。",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
     ##################################################
@@ -57,7 +57,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Int = ap.Int(100)\n>>> y: ap.Int = ap.Int(100)\n>>> rectangle.set_rotation_around_point(rotation=ap.Int(45), x=x, y=y)\n>>> rectangle.get_rotation_around_point(x=x, y=y)\nInt(45)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Int = ap.Int(100)\n>>> y: ap.Int = ap.Int(100)\n>>> rectangle.set_rotation_around_point(rotation=ap.Int(45), x=x, y=y)\n>>> rectangle.get_rotation_around_point(x=x, y=y)\nInt(45)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Number = ap.Number(100)\n>>> y: ap.Number = ap.Number(100)\n>>> rectangle.set_rotation_around_point(rotation=ap.Int(45), x=x, y=y)\n>>> rectangle.get_rotation_around_point(x=x, y=y)\nInt(45)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Number = ap.Number(100)\n>>> y: ap.Number = ap.Number(100)\n>>> rectangle.set_rotation_around_point(rotation=ap.Int(45), x=x, y=y)\n>>> rectangle.get_rotation_around_point(x=x, y=y)\nInt(45)\n```",  # noqa
     ##################################################
     "## set_rotation_around_point API": "## set_rotation_around_point API",
     ##################################################
@@ -73,11 +73,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Rotation value to set.": "  - 設定する回転量。",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - X-coordinate.": "  - X座標。",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
 }

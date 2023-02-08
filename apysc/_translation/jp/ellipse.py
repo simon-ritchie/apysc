@@ -37,13 +37,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `x` property updates or gets the instance\'s x-coordinate:": "`x`属性ではX座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color=\"#0af\")\nellipse.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"ellipse_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color=\"#0af\")\nellipse.x = ap.Int(100)\n\nap.save_overall_html(dest_dir_path=\"ellipse_x/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color=\"#0af\")\nellipse.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"ellipse_x/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color=\"#0af\")\nellipse.x = ap.Number(100)\n\nap.save_overall_html(dest_dir_path=\"ellipse_x/\")\n```",  # noqa
     ##################################################
     "## y property interface example": "## y属性のインターフェイス例",
     ##################################################
     "The `y` property updates or gets the instance\'s y-coordinate:": "`y`属性ではY座標の値の更新もしくは取得を行えます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color=\"#0af\")\nellipse.y = ap.Int(125)\n\nap.save_overall_html(dest_dir_path=\"ellipse_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color=\"#0af\")\nellipse.y = ap.Int(125)\n\nap.save_overall_html(dest_dir_path=\"ellipse_y/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color=\"#0af\")\nellipse.y = ap.Number(125)\n\nap.save_overall_html(dest_dir_path=\"ellipse_y/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=150, stage_height=150, stage_elem_id=\"stage\"\n)\nellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color=\"#0af\")\nellipse.y = ap.Number(125)\n\nap.save_overall_html(dest_dir_path=\"ellipse_y/\")\n```",  # noqa
     ##################################################
     "## width property interface example": "## width属性のインターフェイス例",
     ##################################################
@@ -195,11 +195,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: Int or int": "- `x`: Int or int",
+    "- `x`: float or Number": "- `x`: float or Number",
     ##################################################
     "  - X-coordinate of the ellipse center.": "  - 楕円の中央のX座標。",
     ##################################################
-    "- `y`: Int or int": "- `y`: Int or int",
+    "- `y`: float or Number": "- `y`: float or Number",
     ##################################################
     "  - Y-coordinate of the ellipse center.": "  - 楕円の中央のY座標。",
     ##################################################
@@ -267,5 +267,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> ellipse: ap.Ellipse = ap.Ellipse(\n...     x=100, y=100, width=100, height=50, fill_color=\"#00aaff\"\n... )\n>>> ellipse.x\nInt(100)\n\n>>> ellipse.y\nInt(100)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> ellipse: ap.Ellipse = ap.Ellipse(\n...     x=100, y=100, width=100, height=50, fill_color=\"#00aaff\"\n... )\n>>> ellipse.x\nInt(100)\n\n>>> ellipse.y\nInt(100)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> ellipse: ap.Ellipse = ap.Ellipse(\n...     x=100, y=100, width=100, height=50, fill_color=\"#00aaff\"\n... )\n>>> ellipse.x\nNumber(100.0)\n\n>>> ellipse.y\nNumber(100.0)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> ellipse: ap.Ellipse = ap.Ellipse(\n...     x=100, y=100, width=100, height=50, fill_color=\"#00aaff\"\n... )\n>>> ellipse.x\nNumber(100.0)\n\n>>> ellipse.y\nNumber(100.0)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```",  # noqa
 }

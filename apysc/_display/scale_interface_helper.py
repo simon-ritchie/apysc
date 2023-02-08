@@ -30,7 +30,7 @@ def get_coordinate_key_for_expression(
     if isinstance(coordinate, VariableNameMixIn):
         coordinate_str: str = coordinate.variable_name
     else:
-        coordinate_str = str(coordinate)
+        coordinate_str = "{:.3f}".format(coordinate)
     key_exp_str: ExpressionString = ExpressionString(value=f"String({coordinate_str})")
     return key_exp_str
 

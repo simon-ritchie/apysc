@@ -45,7 +45,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - X-coordinate.": "  - X座標。",
     ##################################################
@@ -65,7 +65,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```",  # noqa
     ##################################################
     "## set_scale_x_from_point API": "## set_scale_x_from_point API",
     ##################################################
@@ -81,7 +81,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Scale-x value to set.": "  - 設定する水平方向の拡縮値。",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - X-coordinate.": "  - X座標。",
     ##################################################
@@ -93,7 +93,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> x: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)\n>>> rectangle.get_scale_x_from_point(x=x)\nNumber(1.5)\n```",  # noqa
     ##################################################
     "## get_scale_y_from_point API": "## get_scale_y_from_point API",
     ##################################################
@@ -105,7 +105,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
     ##################################################
@@ -121,7 +121,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```",  # noqa
     ##################################################
     "## set_scale_y_from_point API": "## set_scale_y_from_point API",
     ##################################################
@@ -137,7 +137,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Scale-y value to set.": "  - 設定すの垂直方向の拡縮値。",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
     ##################################################
@@ -145,5 +145,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Int = ap.Int(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> y: ap.Number = ap.Number(100)\n>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)\n>>> rectangle.get_scale_y_from_point(y=y)\nNumber(1.5)\n```",  # noqa
 }

@@ -22,7 +22,7 @@ class TestPathVertical:
             },
             any_obj=path_vertical,
         )
-        assert isinstance(path_vertical._y, ap.Int)
+        assert isinstance(path_vertical._y, ap.Number)
         assert path_vertical._variable_name_suffix == "test_path_vertical"
         assert path_vertical._y._variable_name_suffix == "test_path_vertical__y"
 

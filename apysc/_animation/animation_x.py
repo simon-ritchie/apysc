@@ -92,7 +92,7 @@ class AnimationX(AnimationBase[_Target], Generic[_Target]):
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ANIMATION_X
         )
-        self._y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+        self._x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=x
         )
         self._set_basic_animation_settings(

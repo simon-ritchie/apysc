@@ -33,7 +33,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `x` and `y` property can be updated with an `Int` type value, as follows:": "`x`と`y`属性は以下のコード例のように`Int`型の値を使って値を更新することができます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Int(30)\nassert point.x == 30\n```": "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Int(30)\nassert point.x == 30\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Number(30)\nassert point.x == 30\n```": "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Number(30)\nassert point.x == 30\n```",  # noqa
     ##################################################
     "## Usage example of the draw_polygon interface": "## draw_polygon インターフェイスにおける使用例",  # noqa
     ##################################################
@@ -53,11 +53,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: int or Int": "- `x`: int or Int",
+    "- `x`: Union[float, Number]": "- `x`: Union[float, Number]",
     ##################################################
     "  - X-coordinate.": "  - X座標。",
     ##################################################
-    "- `y`: int or Int": "- `y`: int or Int",
+    "- `y`: Union[float, Number]": "- `y`: Union[float, Number]",
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
     ##################################################
@@ -81,7 +81,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `x`: Int": "- `x`: Int",
+    "- `x`: Number": "- `x`: Number",
     ##################################################
     "  - X-coordinate.": "  - X座標。",
     ##################################################
@@ -89,7 +89,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.x = ap.Int(150)\n>>> point.x\nInt(150)\n```": "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.x = ap.Int(150)\n>>> point.x\nInt(150)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.x = ap.Number(150)\n>>> point.x\nNumber(150.0)\n```": "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.x = ap.Number(150)\n>>> point.x\nNumber(150.0)\n```",  # noqa
     ##################################################
     "## y property API": "## y属性のAPI",
     ##################################################
@@ -101,7 +101,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Returns]**": "**[返却値]**",
     ##################################################
-    "- `y`: Int": "- `y`: Int",
+    "- `y`: Number": "- `y`: Number",
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
     ##################################################
@@ -109,5 +109,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.y = ap.Int(150)\n>>> point.y\nInt(150)\n```": "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.y = ap.Int(150)\n>>> point.y\nInt(150)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.y = ap.Number(150)\n>>> point.y\nNumber(150.0)\n```": "```py\n>>> import apysc as ap\n>>> point: ap.Point2D = ap.Point2D(x=50, y=100)\n>>> point.y = ap.Number(150)\n>>> point.y\nNumber(150.0)\n```",  # noqa
 }

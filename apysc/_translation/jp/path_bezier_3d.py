@@ -39,7 +39,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "And also, the yellow circle shows the destination point of the bezier curve.": "また、黄色の円ではベジェ曲線の終点座標を示しています。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=250, stage_height=270, stage_elem_id=\"stage\"\n)\n\nCONTROL_X1: int = 50\nCONTROL_Y1: int = 25\nCONTROL_X2: int = 200\nCONTROL_Y2: int = 25\nDEST_X: int = 200\nDEST_Y: int = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=CONTROL_X1,\n            control_y1=CONTROL_Y1,\n            control_x2=CONTROL_X2,\n            control_y2=CONTROL_Y2,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X1,\n    y=CONTROL_Y1,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X2,\n    y=CONTROL_Y2,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nyellow_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#ff0\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_basic_usage_2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=250, stage_height=270, stage_elem_id=\"stage\"\n)\n\nCONTROL_X1: int = 50\nCONTROL_Y1: int = 25\nCONTROL_X2: int = 200\nCONTROL_Y2: int = 25\nDEST_X: int = 200\nDEST_Y: int = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=CONTROL_X1,\n            control_y1=CONTROL_Y1,\n            control_x2=CONTROL_X2,\n            control_y2=CONTROL_Y2,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X1,\n    y=CONTROL_Y1,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X2,\n    y=CONTROL_Y2,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nyellow_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#ff0\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_basic_usage_2/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=250, stage_height=270, stage_elem_id=\"stage\"\n)\n\nCONTROL_X1: float = 50\nCONTROL_Y1: float = 25\nCONTROL_X2: float = 200\nCONTROL_Y2: float = 25\nDEST_X: float = 200\nDEST_Y: float = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=CONTROL_X1,\n            control_y1=CONTROL_Y1,\n            control_x2=CONTROL_X2,\n            control_y2=CONTROL_Y2,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X1,\n    y=CONTROL_Y1,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X2,\n    y=CONTROL_Y2,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nyellow_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#ff0\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_basic_usage_2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=250, stage_height=270, stage_elem_id=\"stage\"\n)\n\nCONTROL_X1: float = 50\nCONTROL_Y1: float = 25\nCONTROL_X2: float = 200\nCONTROL_Y2: float = 25\nDEST_X: float = 200\nDEST_Y: float = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=CONTROL_X1,\n            control_y1=CONTROL_Y1,\n            control_x2=CONTROL_X2,\n            control_y2=CONTROL_Y2,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X1,\n    y=CONTROL_Y1,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X2,\n    y=CONTROL_Y2,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nyellow_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#ff0\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_basic_usage_2/\")\n```",  # noqa
     ##################################################
     "## Relative position setting": "## 相対座標設定",
     ##################################################
@@ -65,27 +65,27 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `control_x1`: Int or int": "- `control_x1`: Int or int",
+    "- `control_x1`: float or Number": "- `control_x1`: float or Number",
     ##################################################
     "  - X-coordinate of the bezier\'s first control point.": "  - ベジェ曲線の最初の制御点のX座標。",
     ##################################################
-    "- `control_y1`: Int or int": "- `control_y1`: Int or int",
+    "- `control_y1`: float or Number": "- `control_y1`: float or Number",
     ##################################################
     "  - Y-coordinate of the bezier\'s first control point.": "  - ベジェ曲線の最初の制御点のY座標。",
     ##################################################
-    "- `control_x2`: Int or int": "- `control_x2`: Int or int",
+    "- `control_x2`: float or Number": "- `control_x2`: float or Number",
     ##################################################
     "  - X-coordinate of the bezier\'s second control point.": "  - ベジェ曲線の2つ目の制御点のX座標。",  # noqa
     ##################################################
-    "- `control_y2`: Int or int": "- `control_y2`: Int or int",
+    "- `control_y2`: float or Number": "- `control_y2`: float or Number",
     ##################################################
     "  - Y-coordinate of the bezier\'s second control point.": "  - ベジェ曲線の2つ目の制御点のY座標。",  # noqa
     ##################################################
-    "- `dest_x`: Int or int": "- `dest_x`: Int or int",
+    "- `dest_x`: float or Number": "- `dest_x`: float or Number",
     ##################################################
     "  - X-coordinate of the destination point.": "  - 終点のX座標。",
     ##################################################
-    "- `dest_y`: Int or int": "- `dest_y`: Int or int",
+    "- `dest_y`: float or Number": "- `dest_y`: float or Number",
     ##################################################
     "  - Y-coordinate of the destination point.": "  - 終点のY座標。",
     ##################################################

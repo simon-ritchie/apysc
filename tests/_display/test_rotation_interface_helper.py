@@ -9,7 +9,7 @@ def test_get_coordinates_key_for_expression() -> None:
     key_exp_str: ExpressionString = (
         rotation_interface_helper.get_coordinates_key_for_expression(x=100, y=200)
     )
-    assert key_exp_str.value == 'String(100) + "_" + String(200)'
+    assert key_exp_str.value == 'String(100.000) + "_" + String(200.000)'
 
     x: ap.Number = ap.Number(100)
     y: ap.Number = ap.Number(200)

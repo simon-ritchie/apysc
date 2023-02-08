@@ -49,11 +49,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: Int or int": "- `x`: Int or int",
+    "- `x`: float or Number": "- `x`: float or Number",
     ##################################################
     "  - X position to start drawing.": "  - 描画を開始する位置のX座標。",
     ##################################################
-    "- `y`: Int or int": "- `y`: Int or int",
+    "- `y`: float or Number": "- `y`: float or Number",
     ##################################################
     "  - Y position to start drawing.": "  - 描画を開始する位置のY座標。",
     ##################################################
@@ -81,5 +81,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x\nInt(50)\n\n>>> rectangle.width\nInt(50)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x\nInt(50)\n\n>>> rectangle.width\nInt(50)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x\nNumber(50.0)\n\n>>> rectangle.width\nNumber(50.0)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(\n...     x=50, y=50, width=50, height=50\n... )\n>>> rectangle.x\nNumber(50.0)\n\n>>> rectangle.width\nNumber(50.0)\n\n>>> rectangle.fill_color\nString(\'#00aaff\')\n```",  # noqa
 }

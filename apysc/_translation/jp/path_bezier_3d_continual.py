@@ -39,7 +39,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "In the following example, the cyan circle shows the control point (`control_x` and `control_y`), and the magenta circle shows the destination point (`dest_x` and `dest_y`):": "以下のコード例ではシアンの円は制御点（`control_x`と`control_y`）の位置を示し、マゼンタの円では終点の位置（`dest_x`と`dest_y`）を示します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=400, stage_height=420, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: int = 350\nCONTROL_Y: int = 375\nDEST_X: int = 350\nDEST_Y: int = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=50,\n            control_y1=25,\n            control_x2=200,\n            control_y2=25,\n            dest_x=200,\n            dest_y=200,\n        ),\n        ap.PathBezier3DContinual(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\n\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_continual_basic_usage_2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=400, stage_height=420, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: int = 350\nCONTROL_Y: int = 375\nDEST_X: int = 350\nDEST_Y: int = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=50,\n            control_y1=25,\n            control_x2=200,\n            control_y2=25,\n            dest_x=200,\n            dest_y=200,\n        ),\n        ap.PathBezier3DContinual(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\n\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_continual_basic_usage_2/\")\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=400, stage_height=420, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: float = 350\nCONTROL_Y: float = 375\nDEST_X: float = 350\nDEST_Y: float = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=50,\n            control_y1=25,\n            control_x2=200,\n            control_y2=25,\n            dest_x=200,\n            dest_y=200,\n        ),\n        ap.PathBezier3DContinual(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\n\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_continual_basic_usage_2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=\"#333\", stage_width=400, stage_height=420, stage_elem_id=\"stage\"\n)\n\nCONTROL_X: float = 350\nCONTROL_Y: float = 375\nDEST_X: float = 350\nDEST_Y: float = 200\n\npath: ap.Path = ap.Path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=200),\n        ap.PathBezier3D(\n            control_x1=50,\n            control_y1=25,\n            control_x2=200,\n            control_y2=25,\n            dest_x=200,\n            dest_y=200,\n        ),\n        ap.PathBezier3DContinual(\n            control_x=CONTROL_X,\n            control_y=CONTROL_Y,\n            dest_x=DEST_X,\n            dest_y=DEST_Y,\n        ),\n    ],\n    line_color=\"#fff\",\n    line_thickness=5,\n)\n\nRADIUS: int = 10\n\ncyan_circle: ap.Circle = ap.Circle(\n    x=CONTROL_X,\n    y=CONTROL_Y,\n    radius=RADIUS,\n    fill_color=\"#0af\",\n)\n\nmagenta_circle: ap.Circle = ap.Circle(\n    x=DEST_X,\n    y=DEST_Y,\n    radius=RADIUS,\n    fill_color=\"#f0a\",\n)\n\nap.save_overall_html(dest_dir_path=\"path_bezier_3d_continual_basic_usage_2/\")\n```",  # noqa
     ##################################################
     "## Relative position setting": "## 相対座標設定",
     ##################################################
@@ -63,19 +63,19 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `control_x`: Int or int": "- `control_x`: Int or int",
+    "- `control_x`: float or Number": "- `control_x`: float or Number",
     ##################################################
     "  - X-coordinate of the bezier\'s control point.": "  - ベジェ曲線の制御点のX座標。",
     ##################################################
-    "- `control_y`: Int or int": "- `control_y`: Int or int",
+    "- `control_y`: float or Number": "- `control_y`: float or Number",
     ##################################################
     "  - Y-coordinate of the bezier\'s control point.": "  - ベジェ曲線の制御点のY座標。",
     ##################################################
-    "- `dest_x`: Int or int": "- `dest_x`: Int or int",
+    "- `dest_x`: float or Number": "- `dest_x`: float or Number",
     ##################################################
     "  - X-coordinate of the destination point.": "  - 終点のX座標。",
     ##################################################
-    "- `dest_y`: Int or int": "- `dest_y`: Int or int",
+    "- `dest_y`: float or Number": "- `dest_y`: float or Number",
     ##################################################
     "  - Y-coordinate of the destination point.": "  - 終点のY座標。",
     ##################################################

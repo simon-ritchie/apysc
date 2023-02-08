@@ -43,11 +43,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `x`: Int or int": "- `x`: Int or int",
+    "- `x`: float or Number": "- `x`: float or Number",
     ##################################################
     "  - X-coordinate of the ellipse center.": "  - 楕円の中央のX座標。",
     ##################################################
-    "- `y`: Int or int": "- `y`: Int or int",
+    "- `y`: float or Number": "- `y`: float or Number",
     ##################################################
     "  - Y-coordinate of the ellipse center.": "  - 楕円の中央のY座標。",
     ##################################################
@@ -75,5 +75,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(\n...     x=100, y=100, width=100, height=50\n... )\n>>> ellipse.x\nInt(100)\n\n>>> ellipse.y\nInt(100)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(\n...     x=100, y=100, width=100, height=50\n... )\n>>> ellipse.x\nInt(100)\n\n>>> ellipse.y\nInt(100)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(\n...     x=100, y=100, width=100, height=50\n... )\n>>> ellipse.x\nNumber(100.0)\n\n>>> ellipse.y\nNumber(100.0)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(\n...     x=100, y=100, width=100, height=50\n... )\n>>> ellipse.x\nNumber(100.0)\n\n>>> ellipse.y\nNumber(100.0)\n\n>>> ellipse.width\nInt(100)\n\n>>> ellipse.height\nInt(50)\n\n>>> ellipse.fill_color\nString(\'#00aaff\')\n```",  # noqa
 }

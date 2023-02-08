@@ -111,10 +111,10 @@ Draw a circle vector graphics.<hr>
 >>> sprite.graphics.begin_fill(color="#0af")
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> circle.x
-Int(100)
+Number(100.0)
 
 >>> circle.y
-Int(100)
+Number(100.0)
 
 >>> circle.radius
 Int(50)

@@ -145,7 +145,7 @@ Number(75.0)
 
 >>> triangle.y1 = ap.Number(30)
 >>> triangle.y1
-Int(30)
+Number(30.0)
 
 >>> triangle.fill_color
 String('#00aaff')

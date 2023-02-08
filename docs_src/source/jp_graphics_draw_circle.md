@@ -113,10 +113,10 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 >>> sprite.graphics.begin_fill(color="#0af")
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> circle.x
-Int(100)
+Number(100.0)
 
 >>> circle.y
-Int(100)
+Number(100.0)
 
 >>> circle.radius
 Int(50)

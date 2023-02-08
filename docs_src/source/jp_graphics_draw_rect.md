@@ -139,7 +139,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_rect_rectangle/")
 Number(50.0)
 
 >>> rectangle.width
-Number(50.0)
+Int(50)
 
 >>> rectangle.fill_color
 String('#00aaff')

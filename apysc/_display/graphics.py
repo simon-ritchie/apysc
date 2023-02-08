@@ -218,7 +218,7 @@ class Graphics(
         Number(50.0)
 
         >>> rectangle.width
-        Number(50.0)
+        Int(50)
 
         >>> rectangle.fill_color
         String('#00aaff')
@@ -373,10 +373,10 @@ class Graphics(
         >>> sprite.graphics.begin_fill(color="#0af")
         >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
         >>> circle.x
-        Int(100)
+        Number(100.0)
 
         >>> circle.y
-        Int(100)
+        Number(100.0)
 
         >>> circle.radius
         Int(50)
@@ -1223,7 +1223,7 @@ class Graphics(
         Number(75.0)
         >>> triangle.y1 = ap.Number(30)
         >>> triangle.y1
-        Int(30)
+        Number(30.0)
         >>> triangle.fill_color
         String('#00aaff')
         """

@@ -60,7 +60,7 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         ...     ]
         ... )
         >>> polygon.points
-        Array([Point2D(Int(0), Int(0)), Point2D(Int(50), Int(0))])
+        Array([Point2D(Number(0.0), Number(0.0)), Point2D(Number(50.0), Number(0.0))])
         """
         self._initialize_points_if_not_initialized()
         return self._points

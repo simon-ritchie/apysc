@@ -265,22 +265,22 @@ class PathBezier3D(
         ...     dest_y=150,
         ... )
         >>> bezier_3d_continual.control_x1
-        Number(100)
+        Number(100.0)
 
         >>> bezier_3d_continual.control_y1
-        Number(100)
+        Number(100.0)
 
         >>> bezier_3d_continual.control_x2
-        Number(150)
+        Number(150.0)
 
         >>> bezier_3d_continual.control_y2
-        Number(100)
+        Number(100.0)
 
         >>> bezier_3d_continual.dest_x
-        Number(150)
+        Number(150.0)
 
         >>> bezier_3d_continual.dest_y
-        Number(150)
+        Number(150.0)
         """
         self.control_x1 = self._get_copied_number_from_builtin_val(
             float_or_num=control_x1, attr_identifier="control_x1"

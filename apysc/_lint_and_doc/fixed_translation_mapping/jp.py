@@ -3414,5 +3414,25 @@ MAPPINGS: Mappings = Mappings(
             key="- _StageNotCreatedError: If there is no instantiated stage yet.",
             val="- _StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。",
         ),
+        Mapping(
+            key="## unbind_custom_event API",
+            val="## unbind_custom_event のAPI",
+        ),
+        Mapping(
+            key="Unbind (remove) a custom event listener setting.<hr>",
+            val="単体のカスタムイベントのリスナー設定を解除します。<hr>",
+        ),
+        Mapping(
+            key="  - A handler for when the custom event is triggered.",
+            val="  - カスタムイベントが発火された際に呼ばれるハンドラ。",
+        ),
+        Mapping(
+            key="## unbind_custom_event_all API",
+            val="## unbind_custom_event_all のAPI",
+        ),
+        Mapping(
+            key="Unbind (remove) custom event listener settings.<hr>",
+            val="カスタムイベントのリスナー設定を一通り解除します。<hr>",
+        ),
     ]
 )

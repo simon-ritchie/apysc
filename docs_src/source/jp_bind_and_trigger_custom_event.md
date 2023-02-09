@@ -121,6 +121,12 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 
 <iframe src="static/bind_and_trigger_custom_event_basic_usage/index.html" width="250" height="150"></iframe>
 
+## カスタムイベントの設定の解除
+
+`unbind_custom_event`メソッドのインターフェイスは単体のカスタムイベントの解除を行います。
+
+同様に、`unbind_custom_event_all`メソッドのインターフェイスは全てのカスタムイベントの解除を行います。
+
 ## bind_custom_event API
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
@@ -208,6 +214,96 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
 ...     rectangle.fill_color = ap.String("#f0a")
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color="#0af")
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50
+... )
+>>> e: ap.Event = ap.Event(this=rectangle)
+>>> _ = rectangle.bind_custom_event(
+...     custom_event_type="my_custom_event", handler=on_custom_event, e=e
+... )
+>>> # Do something here and then trigger the custom event
+>>> rectangle.trigger_custom_event(custom_event_type="my_custom_event")
+```
+
+## unbind_custom_event のAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `unbind_custom_event(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str], handler: Callable[[Any, Any], NoneType]) -> str`<hr>
+
+**[インターフェイス概要]**
+
+単体のカスタムイベントのリスナー設定を解除します。<hr>
+
+**[引数]**
+
+- `custom_event_type`: CustomEventType or str
+  - 対象の独自のイベントの種別値としての文字列。
+
+- `handler`: _Handler
+  - カスタムイベントが発火された際に呼ばれるハンドラ。
+
+<hr>
+
+**[返却値]**
+
+- `name`: str
+  - ハンドラ名。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.unbind_custom_event(
+...         custom_event_type="my_custom_event", handler=on_custom_event
+...     )
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color="#0af")
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50
+... )
+>>> e: ap.Event = ap.Event(this=rectangle)
+>>> _ = rectangle.bind_custom_event(
+...     custom_event_type="my_custom_event", handler=on_custom_event, e=e
+... )
+>>> # Do something here and then trigger the custom event
+>>> rectangle.trigger_custom_event(custom_event_type="my_custom_event")
+```
+
+## unbind_custom_event_all のAPI
+
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
+
+**[インターフェイスの構造]** `unbind_custom_event_all(self, *, custom_event_type: Union[apysc._event.custom_event_type.CustomEventType, str]) -> None`<hr>
+
+**[インターフェイス概要]**
+
+カスタムイベントのリスナー設定を一通り解除します。<hr>
+
+**[引数]**
+
+- `custom_event_type`: CustomEventType or str
+  - 対象の独自のイベントの種別値としての文字列。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.unbind_custom_event_all(custom_event_type="my_custom_event")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.begin_fill(color="#0af")

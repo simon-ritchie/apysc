@@ -162,6 +162,11 @@
 </div>
 <iframe src="static/bind_and_trigger_custom_event_basic_usage/index.html" width="250" height="150"></iframe>
 </section>
+<section id="id4">
+<h2>カスタムイベントの設定の解除<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">unbind_custom_event</span></code>メソッドのインターフェイスは単体のカスタムイベントの解除を行います。</p>
+<p>同様に、<code class="docutils literal notranslate"><span class="pre">unbind_custom_event_all</span></code>メソッドのインターフェイスは全てのカスタムイベントの解除を行います。</p>
+</section>
 <section id="bind-custom-event-api">
 <h2>bind_custom_event API<a class="headerlink" href="#bind-custom-event-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
@@ -266,6 +271,94 @@
 </pre></div>
 </div>
 </section>
+<section id="unbind-custom-event-api">
+<h2>unbind_custom_event のAPI<a class="headerlink" href="#unbind-custom-event-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_custom_event(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str],</span> <span class="pre">handler:</span> <span class="pre">Callable[[Any,</span> <span class="pre">Any],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>単体のカスタムイベントのリスナー設定を解除します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code>: CustomEventType or str</p>
+<ul>
+<li><p>対象の独自のイベントの種別値としての文字列。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
+<ul>
+<li><p>カスタムイベントが発火された際に呼ばれるハンドラ。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
+<ul>
+<li><p>ハンドラ名。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_custom_event</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#f0a&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_custom_event</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">custom_event_type</span><span class="o">=</span><span class="s2">&quot;my_custom_event&quot;</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">on_custom_event</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span><span class="p">(</span><span class="n">this</span><span class="o">=</span><span class="n">rectangle</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">bind_custom_event</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">custom_event_type</span><span class="o">=</span><span class="s2">&quot;my_custom_event&quot;</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">on_custom_event</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Do something here and then trigger the custom event</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">trigger_custom_event</span><span class="p">(</span><span class="n">custom_event_type</span><span class="o">=</span><span class="s2">&quot;my_custom_event&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="unbind-custom-event-all-api">
+<h2>unbind_custom_event_all のAPI<a class="headerlink" href="#unbind-custom-event-all-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_custom_event_all(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>カスタムイベントのリスナー設定を一通り解除します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code>: CustomEventType or str</p>
+<ul>
+<li><p>対象の独自のイベントの種別値としての文字列。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_custom_event</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#f0a&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_custom_event_all</span><span class="p">(</span><span class="n">custom_event_type</span><span class="o">=</span><span class="s2">&quot;my_custom_event&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span><span class="p">(</span><span class="n">this</span><span class="o">=</span><span class="n">rectangle</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">bind_custom_event</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">custom_event_type</span><span class="o">=</span><span class="s2">&quot;my_custom_event&quot;</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">on_custom_event</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Do something here and then trigger the custom event</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">trigger_custom_event</span><span class="p">(</span><span class="n">custom_event_type</span><span class="o">=</span><span class="s2">&quot;my_custom_event&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -283,8 +376,11 @@
 <li><a class="reference internal" href="#">カスタムイベントの登録とイベントの発生（発火）制御</a><ul>
 <li><a class="reference internal" href="#id2">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#id3">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id4">カスタムイベントの設定の解除</a></li>
 <li><a class="reference internal" href="#bind-custom-event-api">bind_custom_event API</a></li>
 <li><a class="reference internal" href="#trigger-custom-event-api">trigger_custom_event API</a></li>
+<li><a class="reference internal" href="#unbind-custom-event-api">unbind_custom_event のAPI</a></li>
+<li><a class="reference internal" href="#unbind-custom-event-all-api">unbind_custom_event_all のAPI</a></li>
 </ul>
 </li>
 </ul>

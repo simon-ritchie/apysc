@@ -15,3 +15,15 @@ class TestSvgTextTextMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{text.variable_name} = {mixin._variable_name}.text();"
         assert expected in expression
+
+    @apply_test_settings()
+    def test_text(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: SvgTextTextMixIn = SvgTextTextMixIn()
+        mixin.variable_name = "test_mixin"
+        mixin._text = "Lorem ipsum"
+        text: ap.String = mixin.text
+        assert text._value == "Lorem ipsum"
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f"{text.variable_name} = {mixin._variable_name}.text();"
+        assert expected in expression

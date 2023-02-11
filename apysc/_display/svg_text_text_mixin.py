@@ -30,7 +30,7 @@ class SvgTextTextMixIn(
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="text")
         text: String = String(self._text, variable_name_suffix=suffix)
         self._append_text_getter_expression(text=text)
-        pass
+        return text
 
     def _append_text_getter_expression(self, *, text: String) -> None:
         """

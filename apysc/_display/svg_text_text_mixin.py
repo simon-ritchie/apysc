@@ -5,7 +5,7 @@ from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class SvgTextTextMixIn(
+class SVGTextTextMixIn(
     VariableNameMixIn,
 ):
 

@@ -1,7 +1,7 @@
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._expression import expression_data_util
-from apysc._display.svg_text_text_mixin import SvgTextTextMixIn
+from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn
 )
@@ -11,16 +11,16 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
-    SvgTextTextMixIn,
+    SVGTextTextMixIn,
 ):
     pass
 
 
-class TestSvgTextTextMixIn:
+class TestSVGTextTextMixIn:
     @apply_test_settings()
     def test__append_text_getter_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin: SvgTextTextMixIn = SvgTextTextMixIn()
+        mixin: SVGTextTextMixIn = SVGTextTextMixIn()
         mixin.variable_name = "test_mixin"
         text: ap.String = ap.String("Lorem ipsum")
         mixin._append_text_getter_expression(text=text)
@@ -31,7 +31,7 @@ class TestSvgTextTextMixIn:
     @apply_test_settings()
     def test_text(self) -> None:
         expression_data_util.empty_expression()
-        mixin_1: SvgTextTextMixIn = SvgTextTextMixIn()
+        mixin_1: SVGTextTextMixIn = SVGTextTextMixIn()
         mixin_1.variable_name = "test_mixin"
         mixin_1._text = "Lorem ipsum"
         text: ap.String = mixin_1.text
@@ -55,7 +55,7 @@ class TestSvgTextTextMixIn:
     @apply_test_settings()
     def test__append_text_setter_expression(self) -> None:
         expression_data_util.empty_expression()
-        mixin: SvgTextTextMixIn = SvgTextTextMixIn()
+        mixin: SVGTextTextMixIn = SVGTextTextMixIn()
         mixin.variable_name = "test_mixin"
         text: ap.String = ap.String("Lorem ipsum")
         mixin._append_text_setter_expression(text=text)

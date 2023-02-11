@@ -42,6 +42,25 @@ class SVGText(
         )
         self.variable_name = variable_name
         self._variable_name_suffix = variable_name_suffix
+        self._set_text_value(text=text)
         super(SVGText, self).__init__(
             variable_name=variable_name,
         )
+
+    def _set_text_value(self, *, text: Union[str, String]) -> None:
+        """
+        Set a text value.
+
+        Parameters
+        ----------
+        text : Union[str, String]
+            A target text.
+        """
+        if isinstance(text, str):
+            text_: String = String(
+                text,
+                variable_name_suffix=self._variable_name_suffix,
+            )
+        else:
+            text_ = text
+        self.text = text_

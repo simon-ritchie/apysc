@@ -1,26 +1,47 @@
 """Class implementation for a SVG text.
 """
 
-from typing import Union
+from typing import Optional, Union
 
 from apysc._type.string import String
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
-from apysc._display.display_object import DisplayObject
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
+from apysc._display.graphics_base import GraphicsBase
+from apysc._display.child_mixin import ChildMixIn
+from apysc._type.number import Number
+from apysc._type.int import Int
+from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
+from apysc._display.line_color_mixin import LineColorMixIn
+from apysc._display.line_alpha_mixin import LineAlphaMixIn
+from apysc._display.line_thickness_mixin import LineThicknessMixIn
 
 
 class SVGText(
-    DisplayObject,
-    SVGTextTextMixIn,
     XMixIn,
     YMixIn,
+    GraphicsBase,
+    FillColorMixIn,
+    FillAlphaMixIn,
+    LineColorMixIn,
+    LineAlphaMixIn,
+    LineThicknessMixIn,
+    SVGTextTextMixIn,
 ):
 
     def __init__(
         self,
         *,
         text: Union[str, String],
+        x: Union[float, Number] = 0.0,
+        y: Union[float, Number] = 0.0,
+        fill_color: Union[str, String] = "",
+        fill_alpha: Union[float, Number] = 1.0,
+        line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
+        parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -30,6 +51,24 @@ class SVGText(
         ----------
         text : Union[str, String]
             A text to use in this class.
+        x : float or Number, default 0.0
+            X-coordinate to start drawing.
+        y : float or Number, default 0.0
+            Y-coordinate to start drawing.
+        fill_color : str or String, default ''
+            A fill-color to set.
+        fill_alpha : float or Number, default 1.0
+            A fill-alpha to set.
+        line_color : str or String, default ''
+            A line-color to set.
+        line_alpha : float or Number, default 1.0
+            A line-alpha to set.
+        line_thickness : int or Int, default 1
+            A line-thickness (line-width) to set.
+        parent : ChildMixIn or None, default None
+            A parent instance to add this instance.
+            If a specified value is None, this interface uses
+            a stage instance.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -42,10 +81,47 @@ class SVGText(
         )
         self.variable_name = variable_name
         self._variable_name_suffix = variable_name_suffix
-        self._set_text_value(text=text)
+        self._update_x_and_skip_appending_exp(x=x)
+        self._update_y_and_skip_appending_exp(y=y)
+        self._set_initial_basic_values(
+            fill_color=fill_color,
+            fill_alpha=fill_alpha,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=None,
+            line_joints=None,
+        )
+        text_: String = self._set_text_value(text=text)
+        self._append_constructor_expression(text=text_)
         super(SVGText, self).__init__(
+            parent=parent,
             variable_name=variable_name,
         )
+
+    def _append_constructor_expression(self, *, text: String) -> None:
+        """
+        Append a constructor expression string.
+
+        Parameters
+        ----------
+        text : String
+            A text to use in this class.
+        """
+        import apysc as ap
+
+        variable_name: str = self.variable_name
+        stage: ap.Stage = ap.get_stage()
+        expression: str = (
+            f"var {variable_name} = {stage.variable_name}"
+            f"\n  .text({text.variable_name})"
+            "\n  .attr({"
+        )
+        expression = self._append_basic_vals_expression(
+            expression=expression, indent_num=2
+        )
+        expression += "\n  });"
+        ap.append_js_expression(expression=expression)
 
     def _set_text_value(self, *, text: Union[str, String]) -> String:
         """
@@ -70,3 +146,17 @@ class SVGText(
             text_ = text
         self.text = text_
         return text_
+
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            This interface returns a type name and variable name
+            (e.g., `SVGText("<variable_name>")`).
+        """
+        repr_str: str = f'{SVGText.__name__}("{self._variable_name}")'
+        return repr_str

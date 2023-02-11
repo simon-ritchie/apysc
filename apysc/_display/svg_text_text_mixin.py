@@ -3,16 +3,10 @@
 
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn
-)
 
 
 class SvgTextTextMixIn(
     VariableNameMixIn,
-    VariableNameSuffixMixIn,
-    VariableNameSuffixAttrOrVarMixIn,
 ):
 
     _text: str = ""
@@ -27,7 +21,12 @@ class SvgTextTextMixIn(
         text : String
             A current text's string.
         """
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="text")
+        from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+            VariableNameSuffixAttrOrVarMixIn
+        )
+        suffix: str = ""
+        if isinstance(self, VariableNameSuffixAttrOrVarMixIn):
+            suffix = self._get_attr_or_variable_name_suffix(value_identifier="text")
         text: String = String(self._text, variable_name_suffix=suffix)
         self._append_text_getter_expression(text=text)
         return text

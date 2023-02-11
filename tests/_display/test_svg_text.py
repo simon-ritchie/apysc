@@ -26,5 +26,6 @@ class TestSVGText:
         assert svg_text.text == ap.String("test text 1")
         assert svg_text._text == "test text 1"
 
-        svg_text = SVGText(text="test text 2")
+        text_: ap.String = svg_text._set_text_value(text="test text 2")
+        assert text_ == ap.String("test text 2")
         assert svg_text.text == ap.String("test text 2")

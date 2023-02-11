@@ -47,7 +47,7 @@ class SVGText(
             variable_name=variable_name,
         )
 
-    def _set_text_value(self, *, text: Union[str, String]) -> None:
+    def _set_text_value(self, *, text: Union[str, String]) -> String:
         """
         Set a text value.
 
@@ -55,6 +55,11 @@ class SVGText(
         ----------
         text : Union[str, String]
             A target text.
+
+        Returns
+        -------
+        text_ : String
+            A set text.
         """
         if isinstance(text, str):
             text_: String = String(
@@ -64,3 +69,4 @@ class SVGText(
         else:
             text_ = text
         self.text = text_
+        return text_

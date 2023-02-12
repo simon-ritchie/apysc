@@ -37,6 +37,7 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.path import Path
+from apysc._display.svg_text import SVGText
 from apysc._geom.point2d import Point2D
 from apysc._geom.path_label import PathLabel
 from apysc._geom.path_data_base import PathDataBase

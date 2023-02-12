@@ -35,7 +35,7 @@ class SVGText(
         *,
         text: Union[str, String],
         x: Union[float, Number] = 0.0,
-        y: Union[float, Number] = 30.0,
+        y: Union[float, Number] = 0.0,
         fill_color: Union[str, String] = "#666",
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
@@ -53,7 +53,7 @@ class SVGText(
             A text to use in this class.
         x : float or Number, default 0.0
             X-coordinate to start drawing.
-        y : float or Number, default 30.0
+        y : float or Number, default 0.0
             Y-coordinate to start drawing.
         fill_color : str or String, default '#666'
             A fill-color to set.
@@ -94,6 +94,12 @@ class SVGText(
         )
         self._append_constructor_expression()
         self._set_text_value(text=text)
+
+        # Since the SVG-text constructor's y-coordinate is different from
+        # the y-attribute updating, this class sets the y-coordinate attribute
+        # value after the constructor.
+        self.y = self.y
+
         super(SVGText, self).__init__(
             parent=parent,
             variable_name=variable_name,

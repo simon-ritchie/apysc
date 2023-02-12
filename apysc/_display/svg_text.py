@@ -16,12 +16,20 @@ from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
+from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
+from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
+from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
+from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 
 
 class SVGText(
     XMixIn,
     YMixIn,
     GraphicsBase,
+    ScaleXFromCenterMixIn,
+    ScaleYFromCenterMixIn,
+    ScaleXFromPointMixIn,
+    ScaleYFromPointMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
     LineColorMixIn,

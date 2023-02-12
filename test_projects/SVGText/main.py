@@ -88,6 +88,30 @@ def main() -> None:
     )
     svg_text.y = ap.Number(180)
 
+    svg_text = ap.SVGText(
+        text="scale_x_from_center test",
+        y=200,
+    )
+    svg_text.scale_x_from_center = ap.Number(0.5)
+
+    svg_text = ap.SVGText(
+        text="scale_y_from_center test",
+        y=220,
+    )
+    svg_text.scale_y_from_center = ap.Number(0.5)
+
+    svg_text = ap.SVGText(
+        text="scale_x_from_point test",
+        y=240,
+    )
+    svg_text.set_scale_x_from_point(scale_x=ap.Number(0.5), x=ap.Number(0))
+
+    svg_text = ap.SVGText(
+        text="scale_y_from_point test",
+        y=260,
+    )
+    svg_text.set_scale_y_from_point(scale_y=ap.Number(0.5), y=ap.Number(260))
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

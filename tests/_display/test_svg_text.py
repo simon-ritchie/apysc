@@ -76,3 +76,16 @@ class TestSVGText:
         repr_str: str = repr(svg_text)
         expected: str = f'SVGText("{svg_text.variable_name}")'
         assert repr_str == expected
+
+    @apply_test_settings()
+    def test__append_constructor_expression(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        svg_text: SVGText = SVGText(
+            text="test text 1",
+        )
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"var {svg_text.variable_name} = {stage.variable_name}"
+            "\n  .text()"
+        )
+        assert expected in expression

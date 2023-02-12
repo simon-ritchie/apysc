@@ -35,8 +35,8 @@ class SVGText(
         *,
         text: Union[str, String],
         x: Union[float, Number] = 0.0,
-        y: Union[float, Number] = 0.0,
-        fill_color: Union[str, String] = "",
+        y: Union[float, Number] = 30.0,
+        fill_color: Union[str, String] = "#666",
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
         line_alpha: Union[float, Number] = 1.0,
@@ -53,9 +53,9 @@ class SVGText(
             A text to use in this class.
         x : float or Number, default 0.0
             X-coordinate to start drawing.
-        y : float or Number, default 0.0
+        y : float or Number, default 30.0
             Y-coordinate to start drawing.
-        fill_color : str or String, default ''
+        fill_color : str or String, default '#666'
             A fill-color to set.
         fill_alpha : float or Number, default 1.0
             A fill-alpha to set.
@@ -92,21 +92,16 @@ class SVGText(
             line_cap=None,
             line_joints=None,
         )
-        text_: String = self._set_text_value(text=text)
-        self._append_constructor_expression(text=text_)
+        self._append_constructor_expression()
+        self._set_text_value(text=text)
         super(SVGText, self).__init__(
             parent=parent,
             variable_name=variable_name,
         )
 
-    def _append_constructor_expression(self, *, text: String) -> None:
+    def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression string.
-
-        Parameters
-        ----------
-        text : String
-            A text to use in this class.
         """
         import apysc as ap
 
@@ -114,7 +109,7 @@ class SVGText(
         stage: ap.Stage = ap.get_stage()
         expression: str = (
             f"var {variable_name} = {stage.variable_name}"
-            f"\n  .text({text.variable_name})"
+            "\n  .text()"
             "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(

@@ -1,25 +1,26 @@
 """Class implementation for a SVG text.
 """
 
-from typing import Optional, Union
+from typing import Optional
+from typing import Union
 
-from apysc._type.string import String
-from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
-from apysc._display.x_mixin import XMixIn
-from apysc._display.y_mixin import YMixIn
-from apysc._display.graphics_base import GraphicsBase
 from apysc._display.child_mixin import ChildMixIn
-from apysc._type.number import Number
-from apysc._type.int import Int
-from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-from apysc._display.line_color_mixin import LineColorMixIn
+from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
+from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
+from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.x_mixin import XMixIn
+from apysc._display.y_mixin import YMixIn
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
 
 
 class SVGText(
@@ -37,7 +38,6 @@ class SVGText(
     LineThicknessMixIn,
     SVGTextTextMixIn,
 ):
-
     def __init__(
         self,
         *,
@@ -122,9 +122,7 @@ class SVGText(
         variable_name: str = self.variable_name
         stage: ap.Stage = ap.get_stage()
         expression: str = (
-            f"var {variable_name} = {stage.variable_name}"
-            "\n  .text()"
-            "\n  .attr({"
+            f"var {variable_name} = {stage.variable_name}" "\n  .text()" "\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
             expression=expression, indent_num=2

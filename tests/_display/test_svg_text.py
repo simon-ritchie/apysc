@@ -1,9 +1,9 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings, assert_attrs
-from apysc._expression import expression_data_util
 from apysc._display.svg_text import SVGText
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 from tests._display.test_graphics_expression import (
     assert_fill_opacity_attr_expression_exists,
 )
@@ -85,7 +85,6 @@ class TestSVGText:
         )
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"var {svg_text.variable_name} = {stage.variable_name}"
-            "\n  .text()"
+            f"var {svg_text.variable_name} = {stage.variable_name}" "\n  .text()"
         )
         assert expected in expression

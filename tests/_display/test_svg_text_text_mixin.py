@@ -1,9 +1,9 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
-from apysc._expression import expression_data_util
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn
+    VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
@@ -48,9 +48,8 @@ class TestSVGTextTextMixIn:
         mixin_2: _TestMixIn = _TestMixIn()
         mixin_2._variable_name_suffix = "test_suffix"
         mixin_2._text = "Lorem ipsum"
-        text: ap.String = mixin_2.text
+        text = mixin_2.text
         assert "test_suffix" in text.variable_name
-
 
     @apply_test_settings()
     def test__append_text_setter_expression(self) -> None:

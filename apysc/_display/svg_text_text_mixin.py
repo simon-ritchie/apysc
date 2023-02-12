@@ -22,8 +22,9 @@ class SVGTextTextMixIn(
             A current text's string.
         """
         from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-            VariableNameSuffixAttrOrVarMixIn
+            VariableNameSuffixAttrOrVarMixIn,
         )
+
         suffix: str = ""
         if isinstance(self, VariableNameSuffixAttrOrVarMixIn):
             suffix = self._get_attr_or_variable_name_suffix(value_identifier="text")
@@ -54,6 +55,7 @@ class SVGTextTextMixIn(
             A target text string.
         """
         import apysc as ap
+
         expression: str = f"{text.variable_name} = {self.variable_name}.text();"
         ap.append_js_expression(expression=expression)
 
@@ -67,5 +69,6 @@ class SVGTextTextMixIn(
             A target text string.
         """
         import apysc as ap
+
         expression: str = f"{self.variable_name}.text({text.variable_name});"
         ap.append_js_expression(expression=expression)

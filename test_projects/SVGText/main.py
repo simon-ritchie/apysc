@@ -123,8 +123,20 @@ def main() -> None:
         y=340,
     )
     svg_text.set_rotation_around_point(
-        rotation=ap.Int(30), x=ap.Number(0), y=ap.Number(340)
+        rotation=ap.Int(15), x=ap.Number(0), y=ap.Number(340)
     )
+
+    svg_text = ap.SVGText(
+        text="flip_x test",
+        y=380,
+    )
+    svg_text.flip_x = ap.Boolean(True)
+
+    svg_text = ap.SVGText(
+        text="flip_y test",
+        y=400,
+    )
+    svg_text.flip_y = ap.Boolean(True)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

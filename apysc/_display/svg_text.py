@@ -23,6 +23,8 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
+from apysc._display.flip_x_mixin import FlipXMixIn
+from apysc._display.flip_y_mixin import FlipYMixIn
 
 
 class SVGText(
@@ -35,6 +37,8 @@ class SVGText(
     ScaleYFromCenterMixIn,
     ScaleXFromPointMixIn,
     ScaleYFromPointMixIn,
+    FlipXMixIn,
+    FlipYMixIn,
     FillColorMixIn,
     FillAlphaMixIn,
     LineColorMixIn,

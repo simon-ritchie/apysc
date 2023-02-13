@@ -21,12 +21,16 @@ from apysc._display.y_mixin import YMixIn
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
+from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 
 
 class SVGText(
     XMixIn,
     YMixIn,
     GraphicsBase,
+    RotationAroundCenterMixIn,
+    RotationAroundPointMixIn,
     ScaleXFromCenterMixIn,
     ScaleYFromCenterMixIn,
     ScaleXFromPointMixIn,

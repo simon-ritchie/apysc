@@ -112,6 +112,20 @@ def main() -> None:
     )
     svg_text.set_scale_y_from_point(scale_y=ap.Number(0.5), y=ap.Number(260))
 
+    svg_text = ap.SVGText(
+        text="rotation_around_center test",
+        y=300,
+    )
+    svg_text.rotation_around_center = ap.Int(15)
+
+    svg_text = ap.SVGText(
+        text="set_rotation_around_point test",
+        y=340,
+    )
+    svg_text.set_rotation_around_point(
+        rotation=ap.Int(30), x=ap.Number(0), y=ap.Number(340)
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

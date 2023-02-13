@@ -4,6 +4,9 @@
 from typing import Optional
 from typing import Union
 
+from typing_extensions import final
+
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
@@ -25,6 +28,7 @@ from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixI
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
+from apysc._validation import arg_validation_decos
 
 
 class SVGText(
@@ -46,6 +50,31 @@ class SVGText(
     LineThicknessMixIn,
     SVGTextTextMixIn,
 ):
+
+    # text
+    @arg_validation_decos.is_string(arg_position_index=1)
+    # x
+    @arg_validation_decos.is_num(arg_position_index=2)
+    # y
+    @arg_validation_decos.is_num(arg_position_index=3)
+    # fill_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4)
+    # fill_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5)
+    # line_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
+    # line_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
+    # line_thickness
+    @arg_validation_decos.is_integer(arg_position_index=8)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
+    # parent
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=9, optional=True
+    )
+    # variable_name_suffix
+    @arg_validation_decos.is_builtin_string(arg_position_index=10, optional=False)
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         *,
@@ -121,6 +150,7 @@ class SVGText(
             variable_name=variable_name,
         )
 
+    @final
     def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression string.
@@ -138,6 +168,8 @@ class SVGText(
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
 
+    @final
+    @arg_validation_decos.is_string(arg_position_index=1)
     def _set_text_value(self, *, text: Union[str, String]) -> String:
         """
         Set a text value.

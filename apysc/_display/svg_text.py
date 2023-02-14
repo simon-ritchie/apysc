@@ -6,14 +6,17 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._html.debug_mode import add_debug_info_setting
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.flip_x_mixin import FlipXMixIn
+from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
+from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
+from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
@@ -21,13 +24,10 @@ from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
-from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
-from apysc._display.flip_x_mixin import FlipXMixIn
-from apysc._display.flip_y_mixin import FlipYMixIn
 from apysc._validation import arg_validation_decos
 
 

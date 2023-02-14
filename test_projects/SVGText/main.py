@@ -138,6 +138,12 @@ def main() -> None:
     )
     svg_text.flip_y = ap.Boolean(True)
 
+    svg_text = ap.SVGText(
+        text="animation_x test",
+        y=420,
+    )
+    svg_text.animation_x(x=100, duration=2000, easing=ap.Easing.EASE_OUT_QUINT).start()
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

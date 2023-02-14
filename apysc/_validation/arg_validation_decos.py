@@ -58,6 +58,9 @@ Mainly the following decorators exist.
 - is_builtin_string
     - Set a validation to check a specified argument's type
         is the Python built-in's `str`.
+- is_apysc_string
+    - Set a validation to check a specified argument's type
+        is the `ap.String`.
 - is_hex_color_code_format
     - Set a validation to check a specified argument's value
         is a hexadecimal color code format.
@@ -1057,6 +1060,48 @@ def is_builtin_string(*, arg_position_index: int, optional: bool) -> _Callable:
                     string=string, additional_err_msg=callable_and_arg_names_msg
                 )
 
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_apysc_string(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is the `ap.String`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            string: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+
+            if not isinstance(string, ap.String):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    f"A specified argument's type is not the ap.String: {type(string)}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

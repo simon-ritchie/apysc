@@ -1074,3 +1074,19 @@ def test_is_nums_array() -> None:
         arr=ap.Array([10, 20.5, ap.Int(25), ap.Number(10.5)]),
     )
     assert result == 140
+
+
+@apply_test_settings()
+def test_is_apysc_string() -> None:
+    @arg_validation_decos.is_apysc_string(arg_position_index=0)
+    def _test_func(*, string: ap.String) -> int:
+        return 150
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        string="Lorem ipsum",
+    )
+
+    result: int = _test_func(string=ap.String("Lorem ipsum"))
+    assert result == 150

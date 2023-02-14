@@ -1,8 +1,12 @@
 """Class implementation for the SVG text's text mix-in.
 """
 
+from typing_extensions import final
+
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._validation import arg_validation_decos
 
 
 class SVGTextTextMixIn(
@@ -12,6 +16,7 @@ class SVGTextTextMixIn(
     _text: str = ""
 
     @property
+    @add_debug_info_setting(module_name=__name__)
     def text(self) -> String:
         """
         Get a current text's string.
@@ -33,6 +38,8 @@ class SVGTextTextMixIn(
         return text
 
     @text.setter
+    @arg_validation_decos.is_apysc_string(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
     def text(self, value: String) -> None:
         """
         Set a current text's string.
@@ -45,6 +52,9 @@ class SVGTextTextMixIn(
         self._text = value._value
         self._append_text_setter_expression(text=value)
 
+    @final
+    @arg_validation_decos.is_apysc_string(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
     def _append_text_getter_expression(self, *, text: String) -> None:
         """
         Append a text's getter expression string.
@@ -59,6 +69,9 @@ class SVGTextTextMixIn(
         expression: str = f"{text.variable_name} = {self.variable_name}.text();"
         ap.append_js_expression(expression=expression)
 
+    @final
+    @arg_validation_decos.is_apysc_string(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
     def _append_text_setter_expression(self, *, text: String) -> None:
         """
         Append a text's setter expression string.

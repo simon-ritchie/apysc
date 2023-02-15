@@ -61,3 +61,18 @@ class TestSVGTextTextMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{mixin.variable_name}.text({text.variable_name});"
         assert expected in expression
+
+    @apply_test_settings()
+    def test__make_snapshot_and_revert(self) -> None:
+        mixin: SVGTextTextMixIn = SVGTextTextMixIn()
+        mixin._text = "Lorem"
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin._text = "ipsum"
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._text == "Lorem"
+
+        mixin._text = "ipsum"
+        mixin._run_all_revert_methods(snapshot_name="not existing snapshot")
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._text == "ipsum"

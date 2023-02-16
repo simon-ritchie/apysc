@@ -25,8 +25,8 @@ class StringSplitMixIn(VariableNameMixIn):
 
         Returns
         -------
-        splited_strs : Array[String]
-            A splited strings' array.
+        splitted_strs : Array[String]
+            A splitted strings' array.
         """
         from apysc._type.array import Array
         from apysc._type.variable_name_suffix_attr_or_var_mixin import (
@@ -37,15 +37,15 @@ class StringSplitMixIn(VariableNameMixIn):
             suffix = self._get_attr_or_variable_name_suffix(
                 value_identifier="splitted_strs"
             )
-        splited_strs: Array[String] = Array([], variable_name_suffix=suffix)
-        self._append_split_expression(splited_strs=splited_strs, sep=sep)
-        return splited_strs
+        splitted_strs: Array[String] = Array([], variable_name_suffix=suffix)
+        self._append_split_expression(splitted_strs=splitted_strs, sep=sep)
+        return splitted_strs
 
 
     def _append_split_expression(
         self,
         *,
-        splited_strs: "Array[String]",
+        splitted_strs: "Array[String]",
         sep: "String",
     ) -> None:
         """
@@ -53,15 +53,15 @@ class StringSplitMixIn(VariableNameMixIn):
 
         Parameters
         ----------
-        splited_strs : Array[String]
-            A splited strings' array.
+        splitted_strs : Array[String]
+            A splitted strings' array.
         sep : String
             A separator string.
         """
         import apysc as ap
 
         expression: str = (
-            f"{splited_strs.variable_name} = "
+            f"{splitted_strs.variable_name} = "
             f"{self.variable_name}.split({sep.variable_name});"
         )
         ap.append_js_expression(expression=expression)

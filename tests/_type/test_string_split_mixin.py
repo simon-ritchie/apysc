@@ -24,12 +24,12 @@ class TestStringSplitMixIn:
         expression_data_util.empty_expression()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
-        splited_strs: ap.Array[ap.String] = ap.Array([ap.String("Test")])
+        splitted_strs: ap.Array[ap.String] = ap.Array([ap.String("Test")])
         sep: ap.String = ap.String(",")
-        mixin._append_split_expression(splited_strs=splited_strs, sep=sep)
+        mixin._append_split_expression(splitted_strs=splitted_strs, sep=sep)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{splited_strs.variable_name} = "
+            f"{splitted_strs.variable_name} = "
             f"{mixin.variable_name}.split({sep.variable_name});"
         )
         assert expected in expression

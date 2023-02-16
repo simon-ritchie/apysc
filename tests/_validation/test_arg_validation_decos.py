@@ -1090,3 +1090,26 @@ def test_is_apysc_string() -> None:
 
     result: int = _test_func(string=ap.String("Lorem ipsum"))
     assert result == 150
+
+
+@apply_test_settings()
+def test_is_apysc_string_array() -> None:
+    @arg_validation_decos.is_apysc_string_array(arg_position_index=0)
+    def _test_func(*, strings: ap.Array[ap.String]) -> int:
+        return 160
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        strings=100,
+        match="A specified argument is not an `Array` instance: ",
+    )
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        strings=ap.Array([ap.String("Lorem ipsum"), 100]),
+        match="A value in an array is not an apysc's String instance: ",
+    )
+
+    result: int = _test_func(strings=ap.Array([ap.String("Lorem"), ap.String("ipsum")]))

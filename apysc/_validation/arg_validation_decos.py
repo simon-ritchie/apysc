@@ -151,6 +151,9 @@ Mainly the following decorators exist.
 - is_nums_array
     - Set a validation to check a specified `Array`'s values
         are all number-relate type.
+- is_apysc_string_array
+    - Set a validation to check a specified `Array`'s values
+        are all apysc's `String` type.
 """
 
 import functools
@@ -2562,6 +2565,56 @@ def is_nums_array(*, arg_position_index: int) -> _Callable:
                 raise ValueError(
                     f"A specified array contains a non-number value: {type(value)}"
                     f"\n{callable_and_arg_names_msg}"
+                )
+
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_apysc_string_array(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified `Array`'s values
+    are all apysc's `String` type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            arr: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if not isinstance(arr, ap.Array):
+                raise TypeError(
+                    f"A specified argument is not an `Array` instance: {type(arr)}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+            for value in arr._value:
+                if isinstance(value, ap.String):
+                    continue
+                raise TypeError(
+                    "A value in an array is not an apysc's String instance: "
+                    f"{type(value)}"
                 )
 
             return callable_(*args, **kwargs)

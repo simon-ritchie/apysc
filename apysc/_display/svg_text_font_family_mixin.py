@@ -59,7 +59,6 @@ class SVGTextFontFamilyMixIn(
         )
 
         font_family: Array[String] = font_family_string.split(sep=String(","))
-        self._append_font_family_getter_expression(font_family=font_family)
         return font_family
 
     @final
@@ -83,17 +82,3 @@ class SVGTextFontFamilyMixIn(
             f'{self.variable_name}.font("family");'
         )
         ap.append_js_expression(expression=expression)
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _append_font_family_getter_expression(
-            self, *, font_family: Array[String]
-        ) -> None:
-        """
-        Append a font-family's getter expression string.
-
-        Parameters
-        ----------
-        font_family : Array[String]
-            A current font-family settings.
-        """

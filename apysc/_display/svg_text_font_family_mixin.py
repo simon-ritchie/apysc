@@ -14,8 +14,6 @@ class SVGTextFontFamilyMixIn(
     VariableNameMixIn,
 ):
 
-    _font_family: Array[String]
-
     def _initialize_font_family_if_not_initialized(self) -> None:
         """
         Initialize the `_font_family` attribute if this instance
@@ -45,11 +43,49 @@ class SVGTextFontFamilyMixIn(
             A current font-family settings.
             Each string in an array contains a font name (e.g., `Times New Roman`).
         """
+        from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+            VariableNameSuffixAttrOrVarMixIn,
+        )
+
         self._initialize_font_family_if_not_initialized()
-        font_family: Array[String] = self._font_family._copy()
+        suffix: str = ""
+        if isinstance(self, VariableNameSuffixAttrOrVarMixIn):
+            suffix = self._get_attr_or_variable_name_suffix(
+                value_identifier="font_family"
+            )
+        font_family_string: String = String("", variable_name_suffix=suffix)
+        self._append_font_family_string_getter_expression(
+            font_family_string=font_family_string
+        )
+
+        font_family: Array[String] = font_family_string.split(sep=String(","))
         self._append_font_family_getter_expression(font_family=font_family)
         return font_family
 
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _append_font_family_string_getter_expression(
+        self,
+        *,
+        font_family_string: String,
+    ) -> None:
+        """
+        Append a font-family string's getter expression string.
+
+        Parameters
+        ----------
+        font_family_string : String
+            _description_
+        """
+        import apysc as ap
+        expression: str = (
+            f"{font_family_string.variable_name} = "
+            f'{self.variable_name}.font("family");'
+        )
+        ap.append_js_expression(expression=expression)
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
     def _append_font_family_getter_expression(
             self, *, font_family: Array[String]
         ) -> None:
@@ -59,6 +95,5 @@ class SVGTextFontFamilyMixIn(
         Parameters
         ----------
         font_family : Array[String]
-            _description_
+            A current font-family settings.
         """
-        pass

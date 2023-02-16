@@ -36,5 +36,29 @@ class SVGTextFontFamilyMixIn(
     @property
     @add_debug_info_setting(module_name=__name__)
     def font_family(self) -> Array[String]:
+        """
+        Get a current font-family settings.
+
+        Returns
+        -------
+        font_family : Array[String]
+            A current font-family settings.
+            Each string in an array contains a font name (e.g., `Times New Roman`).
+        """
         self._initialize_font_family_if_not_initialized()
+        font_family: Array[String] = self._font_family._copy()
+        self._append_font_family_getter_expression(font_family=font_family)
+        return font_family
+
+    def _append_font_family_getter_expression(
+            self, *, font_family: Array[String]
+        ) -> None:
+        """
+        Append a font-family's getter expression string.
+
+        Parameters
+        ----------
+        font_family : Array[String]
+            _description_
+        """
         pass

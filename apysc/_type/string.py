@@ -15,9 +15,11 @@ from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.string_split_mixin import StringSplitMixIn
 
 
 class String(
+    StringSplitMixIn,
     CopyMixIn,
     RevertMixIn,
     CustomEventMixIn,

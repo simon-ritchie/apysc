@@ -62,3 +62,12 @@ class TestSVGTextFontFamilyMixIn:
             string=expression,
         )
         assert match_ is not None, expression
+
+        font_family = font_family._copy()
+        mixin.font_family = font_family
+        expression = expression_data_util.get_current_expression()
+        match_ = re.search(
+            pattern=rf'{mixin.variable_name}.font\({{"family": .*}}\);',
+            string=expression,
+        )
+        assert match_ is not None, expression

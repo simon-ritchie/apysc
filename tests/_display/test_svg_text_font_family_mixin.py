@@ -1,3 +1,7 @@
+import re
+
+from typing import Match, Optional
+
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
@@ -44,3 +48,17 @@ class TestSVGTextFontFamilyMixIn:
             f'{mixin.variable_name}.font("family");'
         )
         assert expected in expression
+
+    @apply_test_settings()
+    def test_font_family(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: _TestMixIn = _TestMixIn()
+        mixin.variable_name = "test_mixin"
+        mixin._variable_name_suffix = "test_suffix"
+        font_family: ap.Array[ap.String] = mixin.font_family
+        expression: str = expression_data_util.get_current_expression()
+        match_: Optional[Match] = re.search(
+            pattern=rf"{font_family.variable_name} = .*\.split\(.*?\);",
+            string=expression,
+        )
+        assert match_ is not None, expression

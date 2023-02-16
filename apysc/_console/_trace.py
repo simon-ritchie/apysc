@@ -50,6 +50,7 @@ def trace(*args: Any) -> None:
             arg_strs.append(f"{arg.variable_name}")
             continue
         arg = string_util.escape_str(string=str(arg))
+        arg = string_util.escape_double_quotation(string=arg)
         arg_strs.append(f'"{arg}"')
     expression += ", ".join(arg_strs)
 

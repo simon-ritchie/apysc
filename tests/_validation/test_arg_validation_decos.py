@@ -1113,3 +1113,4 @@ def test_is_apysc_string_array() -> None:
     )
 
     result: int = _test_func(strings=ap.Array([ap.String("Lorem"), ap.String("ipsum")]))
+    assert result == 160

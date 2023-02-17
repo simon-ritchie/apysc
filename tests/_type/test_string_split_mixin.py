@@ -6,7 +6,6 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.string_split_mixin import StringSplitMixIn
 
 
 class _TestMixIn(
@@ -18,7 +17,6 @@ class _TestMixIn(
 
 
 class TestStringSplitMixIn:
-
     @apply_test_settings()
     def test__append_split_expression(self) -> None:
         expression_data_util.empty_expression()

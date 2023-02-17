@@ -4,16 +4,15 @@
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.array import Array
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.array import Array
 
 
 class SVGTextFontFamilyMixIn(
     VariableNameMixIn,
 ):
-
     def _initialize_font_family_if_not_initialized(self) -> None:
         """
         Initialize the `_font_family` attribute if this instance
@@ -22,6 +21,7 @@ class SVGTextFontFamilyMixIn(
         from apysc._type.variable_name_suffix_attr_or_var_mixin import (
             VariableNameSuffixAttrOrVarMixIn,
         )
+
         if hasattr(self, "_font_family"):
             return
         suffix: str = ""
@@ -98,6 +98,7 @@ class SVGTextFontFamilyMixIn(
             _description_
         """
         import apysc as ap
+
         expression: str = (
             f"{font_family_string.variable_name} = "
             f'{self.variable_name}.font("family");'

@@ -23,3 +23,21 @@ Append a text's setter expression string.<hr>
 
 - `text`: String
   - A target text string.
+
+### `_make_snapshot` method docstring
+
+Make a value snapshot.<hr>
+
+**[Parameters]**
+
+- `snapshot_name`: str
+  - Target snapshot name.
+
+### `_revert` method docstring
+
+Revert a value if a snapshot exists.<hr>
+
+**[Parameters]**
+
+- `snapshot_name`: str
+  - Target snapshot name.

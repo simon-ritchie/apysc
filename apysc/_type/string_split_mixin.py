@@ -1,7 +1,7 @@
 """Class implementation for the `String` class's `split` mix-in.
 """
 
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING
 
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
@@ -32,6 +32,7 @@ class StringSplitMixIn(VariableNameMixIn):
         from apysc._type.variable_name_suffix_attr_or_var_mixin import (
             VariableNameSuffixAttrOrVarMixIn,
         )
+
         suffix: str = ""
         if isinstance(self, VariableNameSuffixAttrOrVarMixIn):
             suffix = self._get_attr_or_variable_name_suffix(
@@ -40,7 +41,6 @@ class StringSplitMixIn(VariableNameMixIn):
         splitted_strs: Array[String] = Array([], variable_name_suffix=suffix)
         self._append_split_expression(splitted_strs=splitted_strs, sep=sep)
         return splitted_strs
-
 
     def _append_split_expression(
         self,

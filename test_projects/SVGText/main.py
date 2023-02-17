@@ -154,6 +154,12 @@ def main() -> None:
         ["Impact", "Georgia"],
     )
 
+    svg_text = ap.SVGText(
+        text="remove test",
+        y=460,
+    )
+    svg_text.remove_from_parent()
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

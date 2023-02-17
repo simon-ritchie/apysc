@@ -144,6 +144,16 @@ def main() -> None:
     )
     svg_text.animation_x(x=100, duration=2000, easing=ap.Easing.EASE_OUT_QUINT).start()
 
+    svg_text = ap.SVGText(
+        text="font_family test",
+        y=440,
+    )
+    svg_text.font_family = ap.Array([ap.String("Impact"), ap.String("Georgia")])
+    ap.assert_arrays_equal(
+        svg_text.font_family,
+        ["Impact", "Georgia"],
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

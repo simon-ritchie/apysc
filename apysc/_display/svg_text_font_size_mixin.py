@@ -1,6 +1,7 @@
 """Class implementation for the SVG text's font-size mix-in.
 """
 
+from typing import Dict
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
@@ -12,6 +13,7 @@ from apysc._type.revert_mixin import RevertMixIn
 
 class SVGTextFontSizeMixIn(
     VariableNameMixIn,
+    RevertMixIn,
 ):
 
     _font_size: int = 16
@@ -74,3 +76,33 @@ class SVGTextFontSizeMixIn(
             f'{font_size.variable_name} = {self.variable_name}.font("size");'
         )
         ap.append_js_expression(expression=expression)
+
+    _font_size_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._set_single_snapshot_val_to_dict(
+            dict_name="_font_size_snapshots",
+            value=self._font_size,
+            snapshot_name=snapshot_name,
+        )
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._font_size = self._font_size_snapshots[snapshot_name]

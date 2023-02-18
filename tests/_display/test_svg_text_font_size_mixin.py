@@ -40,3 +40,17 @@ class TestSVGTextFontSizeMixIn:
         assert mixin.font_size == ap.Int(18)
         expression = expression_data_util.get_current_expression()
         expected = f'{mixin.variable_name}.font("size", {font_size.variable_name});'
+
+    @apply_test_settings()
+    def test__make_snapshot_and__revert(self) -> None:
+        mixin: SVGTextFontSizeMixIn = SVGTextFontSizeMixIn()
+        mixin._font_size = 18
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin._font_size = 20
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._font_size == 18
+
+        mixin._font_size = 20
+        mixin._run_all_revert_methods(snapshot_name="not_existing_snapshot")
+        assert mixin._font_size == 20

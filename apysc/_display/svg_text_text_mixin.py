@@ -58,7 +58,6 @@ class SVGTextTextMixIn(
         self._append_text_setter_expression(text=value)
 
     @final
-    @arg_validation_decos.is_apysc_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def _append_text_getter_expression(self, *, text: String) -> None:
         """
@@ -75,7 +74,6 @@ class SVGTextTextMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_apysc_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def _append_text_setter_expression(self, *, text: String) -> None:
         """

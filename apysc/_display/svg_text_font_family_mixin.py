@@ -25,15 +25,14 @@ class SVGTextFontFamilyMixIn(
             A current font-family settings.
             Each string in an array contains a font name (e.g., `Times New Roman`).
         """
-        from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-            VariableNameSuffixAttrOrVarMixIn,
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix
         )
 
-        suffix: str = ""
-        if isinstance(self, VariableNameSuffixAttrOrVarMixIn):
-            suffix = self._get_attr_or_variable_name_suffix(
-                value_identifier="font_family"
-            )
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="font_family",
+        )
         font_family_string: String = String("", variable_name_suffix=suffix)
         self._append_font_family_string_getter_expression(
             font_family_string=font_family_string

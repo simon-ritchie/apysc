@@ -29,15 +29,14 @@ class StringSplitMixIn(VariableNameMixIn):
             A splitted strings' array.
         """
         from apysc._type.array import Array
-        from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-            VariableNameSuffixAttrOrVarMixIn,
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix
         )
 
-        suffix: str = ""
-        if isinstance(self, VariableNameSuffixAttrOrVarMixIn):
-            suffix = self._get_attr_or_variable_name_suffix(
-                value_identifier="splitted_strs"
-            )
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="splitted_strs",
+        )
         splitted_strs: Array[String] = Array([], variable_name_suffix=suffix)
         self._append_split_expression(splitted_strs=splitted_strs, sep=sep)
         return splitted_strs

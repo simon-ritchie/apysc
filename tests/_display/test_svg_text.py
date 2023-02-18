@@ -63,8 +63,7 @@ class TestSVGText:
         assert svg_text.text == ap.String("test text 1")
         assert svg_text._text == "test text 1"
 
-        text_: ap.String = svg_text._set_text_value(text="test text 2")
-        assert text_ == ap.String("test text 2")
+        svg_text._set_text_value(text="test text 2")
         assert svg_text.text == ap.String("test text 2")
 
     @apply_test_settings()
@@ -104,3 +103,15 @@ class TestSVGText:
         )
         expression = expression_data_util.get_current_expression()
         assert "family" in expression
+
+    @apply_test_settings()
+    def test__set_font_size_value(self) -> None:
+        ap.Stage()
+        svg_text: SVGText = SVGText(
+            text="test text 1",
+            font_size=20,
+        )
+        assert svg_text.font_size == ap.Int(20)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f'{svg_text.variable_name}.font("size", '
+        assert expected in expression

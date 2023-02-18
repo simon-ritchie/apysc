@@ -58,34 +58,37 @@ class SVGText(
 
     # text
     @arg_validation_decos.is_string(arg_position_index=1)
+    # font_size
+    @arg_validation_decos.is_integer(arg_position_index=2)
     # font_family
-    @arg_validation_decos.is_apysc_string_array(arg_position_index=2, optional=True)
+    @arg_validation_decos.is_apysc_string_array(arg_position_index=3, optional=True)
     # x
-    @arg_validation_decos.is_num(arg_position_index=3)
-    # y
     @arg_validation_decos.is_num(arg_position_index=4)
+    # y
+    @arg_validation_decos.is_num(arg_position_index=5)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=5)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
     # fill_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=8)
     # line_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9)
     # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=9)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=9)
+    @arg_validation_decos.is_integer(arg_position_index=10)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=10)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=10, optional=True
+        arg_position_index=11, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=11, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=12, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         *,
         text: Union[str, String],
+        font_size: Union[int, Int] = 16,
         font_family: Optional[Array[String]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 0.0,
@@ -104,6 +107,8 @@ class SVGText(
         ----------
         text : Union[str, String]
             A text to use in this class.
+        font_size : Union[int, Int], optional
+            A font-size setting.
         font_family : Optional[Array[String]], optional
             A font-family settings.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
@@ -150,6 +155,7 @@ class SVGText(
         )
         self._append_constructor_expression()
         self._set_text_value(text=text)
+        self._set_font_size_value(font_size=font_size)
         self._set_font_family(font_family=font_family)
 
         # Since the SVG-text constructor's y-coordinate is different from
@@ -181,9 +187,31 @@ class SVGText(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def _set_text_value(self, *, text: Union[str, String]) -> String:
+    def _set_font_size_value(self, *, font_size: Union[int, Int]) -> None:
+        """
+        Set a font-size value.
+
+        Parameters
+        ----------
+        font_size : Union[int, Int]
+            A target font-size value.
+        """
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix
+        )
+        if isinstance(font_size, int):
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self, value_identifier="font_size"
+            )
+            font_size_: Int = Int(font_size, variable_name_suffix=suffix)
+        else:
+            font_size_ = font_size
+        self.font_size = font_size_
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _set_text_value(self, *, text: Union[str, String]) -> None:
         """
         Set a text value.
 
@@ -205,7 +233,6 @@ class SVGText(
         else:
             text_ = text
         self.text = text_
-        return text_
 
     @final
     @add_debug_info_setting(module_name=__name__)

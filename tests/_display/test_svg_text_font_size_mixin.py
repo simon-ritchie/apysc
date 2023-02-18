@@ -34,3 +34,9 @@ class TestSVGTextFontSizeMixIn:
             f'{font_size.variable_name} = {mixin.variable_name}.font("size");'
         )
         assert expected in expression
+
+        font_size = ap.Int(18)
+        mixin.font_size = font_size
+        assert mixin.font_size == ap.Int(18)
+        expression = expression_data_util.get_current_expression()
+        expected = f'{mixin.variable_name}.font("size", {font_size.variable_name});'

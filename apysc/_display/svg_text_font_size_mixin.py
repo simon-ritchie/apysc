@@ -39,6 +39,24 @@ class SVGTextFontSizeMixIn(
         self._append_font_size_getter_expression(font_size=font_size)
         return font_size
 
+    @font_size.setter
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @arg_validation_decos.is_apysc_integer(arg_position_index=1)
+    def font_size(self, value: Int) -> None:
+        """
+        Set a font-size setting.
+
+        Parameters
+        ----------
+        value : Int
+            A font-size setting.
+        """
+        import apysc as ap
+
+        self._font_size = value._value
+        expression: str = f'{self.variable_name}.font("size", {value.variable_name});'
+        ap.append_js_expression(expression=expression)
+
     @final
     @add_debug_info_setting(module_name=__name__)
     def _append_font_size_getter_expression(self, *, font_size: Int) -> None:

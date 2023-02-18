@@ -22,18 +22,6 @@ class _TestMixIn(
 
 class TestSVGTextFontFamilyMixIn:
     @apply_test_settings()
-    def test__initialize_font_family_if_not_initialized(self) -> None:
-        mixin: _TestMixIn = _TestMixIn()
-        mixin._variable_name_suffix = "test_suffix"
-        mixin._initialize_font_family_if_not_initialized()
-        assert mixin._font_family == ap.Array([ap.String("")])
-        assert "font_family" in mixin._font_family._variable_name_suffix
-
-        mixin._font_family[0].value = "Impact"
-        mixin._initialize_font_family_if_not_initialized()
-        assert mixin._font_family == ap.Array([ap.String("Impact")])
-
-    @apply_test_settings()
     def test__append_font_family_string_getter_expression(self) -> None:
         expression_data_util.empty_expression()
         mixin: _TestMixIn = _TestMixIn()

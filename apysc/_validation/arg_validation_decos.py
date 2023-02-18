@@ -2574,7 +2574,11 @@ def is_nums_array(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_apysc_string_array(*, arg_position_index: int) -> _Callable:
+def is_apysc_string_array(
+    *,
+    arg_position_index: int,
+    optional: bool,
+) -> _Callable:
     """
     Set a validation to check a specified `Array`'s values
     are all apysc's `String` type.
@@ -2583,6 +2587,9 @@ def is_apysc_string_array(*, arg_position_index: int) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool, optional
+        A boolean indicating whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -2601,6 +2608,9 @@ def is_apysc_string_array(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+
+            if optional and arr is None:
+                return callable_(*args, **kwargs)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index

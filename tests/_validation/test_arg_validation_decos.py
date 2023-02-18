@@ -1094,23 +1094,50 @@ def test_is_apysc_string() -> None:
 
 @apply_test_settings()
 def test_is_apysc_string_array() -> None:
-    @arg_validation_decos.is_apysc_string_array(arg_position_index=0)
-    def _test_func(*, strings: ap.Array[ap.String]) -> int:
+    @arg_validation_decos.is_apysc_string_array(arg_position_index=0, optional=False)
+    def _test_func_1(*, strings: ap.Array[ap.String]) -> int:
         return 160
 
     assert_raises(
         expected_error_class=TypeError,
-        callable_=_test_func,
+        callable_=_test_func_1,
         strings=100,
         match="A specified argument is not an `Array` instance: ",
     )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        strings=ap.Array([ap.String("Lorem ipsum"), 100]),
+        match="A value in an array is not an apysc's String instance: ",
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        strings=None,
+        match="A specified argument is not an `Array` instance:",
+    )
+
+    result: int = _test_func_1(strings=ap.Array([ap.String("Lorem"), ap.String("ipsum")]))
+    assert result == 160
+
+    @arg_validation_decos.is_apysc_string_array(arg_position_index=0, optional=True)
+    def _test_func_2(*, strings: Optional[ap.Array[ap.String]]) -> int:
+        return 170
 
     assert_raises(
         expected_error_class=TypeError,
-        callable_=_test_func,
+        callable_=_test_func_2,
+        strings=100,
+        match="A specified argument is not an `Array` instance: ",
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_2,
         strings=ap.Array([ap.String("Lorem ipsum"), 100]),
         match="A value in an array is not an apysc's String instance: ",
     )
 
-    result: int = _test_func(strings=ap.Array([ap.String("Lorem"), ap.String("ipsum")]))
-    assert result == 160
+    result = _test_func_2(strings=ap.Array([ap.String("Lorem"), ap.String("ipsum")]))
+    assert result == 170
+    result = _test_func_2(strings=None)
+    assert result == 170

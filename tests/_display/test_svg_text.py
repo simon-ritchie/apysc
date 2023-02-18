@@ -88,3 +88,19 @@ class TestSVGText:
             f"var {svg_text.variable_name} = {stage.variable_name}" "\n  .text()"
         )
         assert expected in expression
+
+    @apply_test_settings()
+    def test__set_font_family(self) -> None:
+        ap.Stage()
+        _ = SVGText(
+            text="test text 1",
+        )
+        expression: str = expression_data_util.get_current_expression()
+        assert "family" not in expression
+
+        _ = SVGText(
+            text="test text 1",
+            font_family=ap.Array([ap.String("Arial")]),
+        )
+        expression = expression_data_util.get_current_expression()
+        assert "family" in expression

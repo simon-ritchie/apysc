@@ -63,7 +63,7 @@ class SVGTextFontFamilyMixIn(
 
     @font_family.setter
     @add_debug_info_setting(module_name=__name__)
-    @arg_validation_decos.is_apysc_string_array(arg_position_index=1)
+    @arg_validation_decos.is_apysc_string_array(arg_position_index=1, optional=False)
     def font_family(self, value: Array[String]) -> None:
         """
         Set a font-family settings.

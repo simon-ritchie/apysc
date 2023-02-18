@@ -30,6 +30,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.array import Array
 
 
 class SVGText(
@@ -55,32 +56,35 @@ class SVGText(
 
     # text
     @arg_validation_decos.is_string(arg_position_index=1)
+    # font_family
+    @arg_validation_decos.is_apysc_string_array(arg_position_index=2, optional=True)
     # x
-    @arg_validation_decos.is_num(arg_position_index=2)
-    # y
     @arg_validation_decos.is_num(arg_position_index=3)
+    # y
+    @arg_validation_decos.is_num(arg_position_index=4)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=5)
     # fill_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
     # line_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8)
     # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=8)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
+    @arg_validation_decos.is_integer(arg_position_index=9)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=9)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=9, optional=True
+        arg_position_index=10, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=10, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=11, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         *,
         text: Union[str, String],
+        font_family: Optional[Array[String]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 0.0,
         fill_color: Union[str, String] = "#666",
@@ -98,6 +102,9 @@ class SVGText(
         ----------
         text : Union[str, String]
             A text to use in this class.
+        font_family : Optional[Array[String]], optional
+            A font-family settings.
+            Each string in an array needs to be a font name (e.g., `Times New Roman`).
         x : float or Number, default 0.0
             X-coordinate to start drawing.
         y : float or Number, default 0.0
@@ -141,6 +148,7 @@ class SVGText(
         )
         self._append_constructor_expression()
         self._set_text_value(text=text)
+        self._set_font_family(font_family=font_family)
 
         # Since the SVG-text constructor's y-coordinate is different from
         # the y-attribute updating, this class sets the y-coordinate attribute
@@ -172,6 +180,7 @@ class SVGText(
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
     def _set_text_value(self, *, text: Union[str, String]) -> String:
         """
         Set a text value.
@@ -195,6 +204,21 @@ class SVGText(
             text_ = text
         self.text = text_
         return text_
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _set_font_family(self, *, font_family: Optional[Array[String]]) -> None:
+        """
+        Set a font-family value.
+
+        Parameters
+        ----------
+        font_family : Optional[Array[String]]
+            A font-family settings.
+        """
+        if font_family is None:
+            return
+        self.font_family = font_family
 
     def __repr__(self) -> str:
         """

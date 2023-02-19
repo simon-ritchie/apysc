@@ -1,7 +1,7 @@
 """Class implementation for a SVG text.
 """
 
-from typing import Optional
+from typing import List, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -61,7 +61,7 @@ class SVGText(
     # font_size
     @arg_validation_decos.is_integer(arg_position_index=2)
     # font_family
-    @arg_validation_decos.is_apysc_string_array(arg_position_index=3, optional=True)
+    # @arg_validation_decos.is_apysc_string_array(arg_position_index=3, optional=True)
     # x
     @arg_validation_decos.is_num(arg_position_index=4)
     # y
@@ -89,7 +89,7 @@ class SVGText(
         *,
         text: Union[str, String],
         font_size: Union[int, Int] = 16,
-        font_family: Optional[Array[String]] = None,
+        font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 0.0,
         fill_color: Union[str, String] = "#666",
@@ -109,7 +109,7 @@ class SVGText(
             A text to use in this class.
         font_size : Union[int, Int], optional
             A font-size setting.
-        font_family : Optional[Array[String]], optional
+        font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family settings.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
         x : float or Number, default 0.0
@@ -236,7 +236,11 @@ class SVGText(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _set_font_family(self, *, font_family: Optional[Array[String]]) -> None:
+    def _set_font_family(
+        self,
+        *,
+        font_family: Optional[Union[Array[String], List[str]]],
+    ) -> None:
         """
         Set a font-family value.
 
@@ -245,9 +249,23 @@ class SVGText(
         font_family : Optional[Array[String]]
             A font-family settings.
         """
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix
+        )
         if font_family is None:
             return
-        self.font_family = font_family
+        if isinstance(font_family, list):
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="font_family",
+            )
+            font_family_: Array[String] = Array(
+                [String(font_name) for font_name in font_family],
+                variable_name_suffix=suffix,
+            )
+        else:
+            font_family_ = font_family
+        self.font_family = font_family_
 
     def __repr__(self) -> str:
         """

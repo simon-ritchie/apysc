@@ -104,6 +104,14 @@ class TestSVGText:
         expression = expression_data_util.get_current_expression()
         assert "family" in expression
 
+        ap.Stage()
+        _ = SVGText(
+            text="test text 1",
+            font_family=["Arial", "Impact"],
+        )
+        expression = expression_data_util.get_current_expression()
+        assert "family" in expression
+
     @apply_test_settings()
     def test__set_font_size_value(self) -> None:
         ap.Stage()

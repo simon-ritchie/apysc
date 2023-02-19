@@ -166,6 +166,18 @@ def main() -> None:
     )
     svg_text.remove_from_parent()
 
+    svg_text = ap.SVGText(
+        text="font_size test 1",
+        y=500,
+        font_size=20,
+    )
+
+    svg_text = ap.SVGText(
+        text="font_size test 2",
+        y=520,
+    )
+    svg_text.font_size = ap.Int(12)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

@@ -30,6 +30,7 @@ def get_attr_or_variable_name_suffix(*, instance: Any, value_identifier: str) ->
     from apysc._type.variable_name_suffix_attr_or_var_mixin import (
         VariableNameSuffixAttrOrVarMixIn,
     )
+
     suffix: str = ""
     if isinstance(instance, VariableNameSuffixAttrOrVarMixIn):
         suffix = instance._get_attr_or_variable_name_suffix(

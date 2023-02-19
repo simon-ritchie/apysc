@@ -14,7 +14,3 @@ Append a font-family string's getter expression string.<hr>
 
 - `font_family_string`: String
   - _description_
-
-### `_initialize_font_family_if_not_initialized` method docstring
-
-Initialize the `_font_family` attribute if this instance does not initialize it yet.

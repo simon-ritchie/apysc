@@ -14,6 +14,10 @@ The class for a SVG text.<hr>
 
 - `text`: Union[str, String]
   - A text to use in this class.
+- `font_size`: Union[int, Int], optional
+  - A font-size setting.
+- `font_family`: Optional[Union[Array[String], List[str]]], optional
+  - A font-family setting. Each string in an array needs to be a font name (e.g., `Times New Roman`).
 - `x`: float or Number, default 0.0
   - X-coordinate to start drawing.
 - `y`: float or Number, default 0.0
@@ -45,6 +49,24 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 ### `_append_constructor_expression` method docstring
 
 Append a constructor expression string.
+
+### `_set_font_family` method docstring
+
+Set a font-family value.<hr>
+
+**[Parameters]**
+
+- `font_family`: Optional[Array[String]]
+  - A font-family setting.
+
+### `_set_font_size_value` method docstring
+
+Set a font-size value.<hr>
+
+**[Parameters]**
+
+- `font_size`: Union[int, Int]
+  - A target font-size value.
 
 ### `_set_text_value` method docstring
 

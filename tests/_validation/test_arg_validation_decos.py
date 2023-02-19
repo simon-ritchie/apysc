@@ -1117,7 +1117,9 @@ def test_is_apysc_string_array() -> None:
         match="A specified argument is not an `Array` instance:",
     )
 
-    result: int = _test_func_1(strings=ap.Array([ap.String("Lorem"), ap.String("ipsum")]))
+    result: int = _test_func_1(
+        strings=ap.Array([ap.String("Lorem"), ap.String("ipsum")])
+    )
     assert result == 160
 
     @arg_validation_decos.is_apysc_string_array(arg_position_index=0, optional=True)
@@ -1145,7 +1147,6 @@ def test_is_apysc_string_array() -> None:
 
 @apply_test_settings()
 def test_is_builtin_str_list_or_apysc_str_arr() -> None:
-
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
         arg_position_index=0,
         optional=False,

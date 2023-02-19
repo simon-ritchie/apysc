@@ -30,7 +30,7 @@ class StringSplitMixIn(VariableNameMixIn):
         """
         from apysc._type.array import Array
         from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix
+            get_attr_or_variable_name_suffix,
         )
 
         suffix: str = get_attr_or_variable_name_suffix(

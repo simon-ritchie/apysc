@@ -1,11 +1,8 @@
-import re
-from typing import Match
-from typing import Optional
 
 import apysc as ap
+from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 
 
 class TestSVGTextFontSizeMixIn:

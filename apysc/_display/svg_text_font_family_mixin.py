@@ -26,7 +26,7 @@ class SVGTextFontFamilyMixIn(
             Each string in an array contains a font name (e.g., `Times New Roman`).
         """
         from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix
+            get_attr_or_variable_name_suffix,
         )
 
         suffix: str = get_attr_or_variable_name_suffix(
@@ -51,7 +51,7 @@ class SVGTextFontFamilyMixIn(
         Parameters
         ----------
         value : Array[String]
-            A font-family settings.
+            A font-family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
         """
         import apysc as ap

@@ -154,6 +154,9 @@ Mainly the following decorators exist.
 - is_apysc_string_array
     - Set a validation to check a specified `Array`'s values
         are all apysc's `String` type.
+- is_builtin_str_list_or_apysc_str_arr
+    - Set a validation to check a specified argument's type
+        is list of Python's str or Array of apysc's String.
 """
 
 import functools
@@ -2629,6 +2632,76 @@ def is_apysc_string_array(
                 )
 
             return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_builtin_str_list_or_apysc_str_arr(
+    *,
+    arg_position_index: int,
+    optional: bool,
+) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is list of Python's str or Array of apysc's String.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool, optional
+        A boolean indicating whether a target argument accepts
+        optional None value or not.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            arr_or_list: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+
+            if optional and arr_or_list is None:
+                return callable_(*args, **kwargs)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if isinstance(arr_or_list, list):
+                for value in arr_or_list:
+                    if not isinstance(value, str):
+                        raise TypeError(
+                            "A value in a list is not a Python's `str` value: "
+                            f"{type(value)}"
+                            f"\n{callable_and_arg_names_msg}"
+                        )
+                return callable_(*args, **kwargs)
+            if isinstance(arr_or_list, ap.Array):
+                for value in arr_or_list._value:
+                    if not isinstance(value, ap.String):
+                        raise TypeError(
+                            "A value in an array is not an apysc's String instance: "
+                            f"{type(value)}"
+                            f"\n{callable_and_arg_names_msg}"
+                        )
+                return callable_(*args, **kwargs)
+            raise TypeError(
+                "A specified argument is not a list or `Array` instance: "
+                f"{type(arr_or_list)}"
+                f"\n{callable_and_arg_names_msg}"
+            )
 
         return inner_wrapped  # type: ignore
 

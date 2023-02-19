@@ -1141,3 +1141,49 @@ def test_is_apysc_string_array() -> None:
     assert result == 170
     result = _test_func_2(strings=None)
     assert result == 170
+
+
+@apply_test_settings()
+def test_is_builtin_str_list_or_apysc_str_arr() -> None:
+
+    @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
+        arg_position_index=0,
+        optional=False,
+    )
+    def _test_func_1(*, value: Union[List[str], ap.Array[ap.String]]) -> int:
+        return 180
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        match="A value in a list is not a Python's `str` value: ",
+        value=[100, 200],
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        match="A value in an array is not an apysc's String instance: ",
+        value=ap.Array([100, 200]),
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        match="A specified argument is not a list or `Array` instance: ",
+        value=None,
+    )
+    result: int = _test_func_1(value=["Lorem", "ipsum"])
+    assert result == 180
+    result = _test_func_1(value=ap.Array([ap.String("Lorem"), ap.String("ipsum")]))
+    assert result == 180
+
+    @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
+        arg_position_index=0,
+        optional=True,
+    )
+    def _test_func_2(*, value: Optional[Union[List[str], ap.Array[ap.String]]]) -> int:
+        return 190
+
+    result = _test_func_2(value=None)
+    assert result == 190
+    result = _test_func_2(value=["Lorem", "ipsum"])
+    assert result == 190

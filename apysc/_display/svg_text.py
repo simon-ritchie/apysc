@@ -61,7 +61,9 @@ class SVGText(
     # font_size
     @arg_validation_decos.is_integer(arg_position_index=2)
     # font_family
-    # @arg_validation_decos.is_apysc_string_array(arg_position_index=3, optional=True)
+    @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
+        arg_position_index=3, optional=True
+    )
     # x
     @arg_validation_decos.is_num(arg_position_index=4)
     # y

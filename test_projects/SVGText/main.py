@@ -145,7 +145,7 @@ def main() -> None:
     svg_text.animation_x(x=100, duration=2000, easing=ap.Easing.EASE_OUT_QUINT).start()
 
     svg_text = ap.SVGText(
-        text="font_family test",
+        text="font_family test 1",
         y=440,
     )
     svg_text.font_family = ap.Array([ap.String("Impact"), ap.String("Georgia")])
@@ -155,8 +155,14 @@ def main() -> None:
     )
 
     svg_text = ap.SVGText(
-        text="remove test",
+        text="font_family test 2",
         y=460,
+        font_family=["Times New Roman", "Arial"],
+    )
+
+    svg_text = ap.SVGText(
+        text="remove test",
+        y=480,
     )
     svg_text.remove_from_parent()
 

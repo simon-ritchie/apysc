@@ -34,3 +34,12 @@ class TestSVGTextLeadingMixIn:
             f'{leading.variable_name} = {mixin.variable_name}.font("leading");'
         )
         assert expected in expression
+
+        leading = ap.Number(1.5)
+        mixin.leading = leading
+        assert mixin._leading == ap.Number(1.5)
+        expression = expression_data_util.get_current_expression()
+        expected = (
+            f'{mixin.variable_name}.font("leading", {leading.variable_name});'
+        )
+        assert expected in expression

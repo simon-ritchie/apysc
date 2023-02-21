@@ -44,3 +44,23 @@ class SVGTextLeadingMixIn(
         )
         ap.append_js_expression(expression=expression)
         return leading
+
+    @leading.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def leading(self, value: Number) -> None:
+        """
+        Set a leading setting.
+
+        Parameters
+        ----------
+        value : Number
+            A leading setting.
+        """
+        import apysc as ap
+
+        self._leading = value._value
+        expression: str = (
+            f'{self.variable_name}.font("leading", {value.variable_name});'
+        )
+        ap.append_js_expression(expression=expression)

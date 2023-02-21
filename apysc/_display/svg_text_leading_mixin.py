@@ -10,10 +10,12 @@ from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 from apysc._type.number import Number
+from apysc._type.revert_mixin import RevertMixIn
 
 
 class SVGTextLeadingMixIn(
     VariableNameMixIn,
+    RevertMixIn,
 ):
 
     _leading: float = 1.5
@@ -64,3 +66,33 @@ class SVGTextLeadingMixIn(
             f'{self.variable_name}.font("leading", {value.variable_name});'
         )
         ap.append_js_expression(expression=expression)
+
+    _leading_snapshots: Dict[str, float]
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._set_single_snapshot_val_to_dict(
+            dict_name="_leading_snapshots",
+            value=self._leading,
+            snapshot_name=snapshot_name,
+        )
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._leading = self._leading_snapshots[snapshot_name]

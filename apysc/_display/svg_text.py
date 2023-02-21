@@ -25,6 +25,7 @@ from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -55,6 +56,7 @@ class SVGText(
     SVGTextTextMixIn,
     SVGTextFontFamilyMixIn,
     SVGTextFontSizeMixIn,
+    SVGTextLeadingMixIn,
 ):
 
     # text

@@ -28,6 +28,7 @@ class TestSVGText:
             line_color="#fff",
             line_alpha=0.3,
             line_thickness=1,
+            leading=1.8,
             variable_name_suffix="test_suffix",
         )
         assert var_names.SVG_TEXT in svg_text.variable_name
@@ -40,6 +41,7 @@ class TestSVGText:
                 "_line_color": "#ffffff",
                 "_line_alpha": 0.3,
                 "_line_thickness": 1,
+                "_leading": 1.8,
                 "_parent": stage,
             },
             any_obj=svg_text,
@@ -65,6 +67,10 @@ class TestSVGText:
 
         svg_text._set_text_value(text="test text 2")
         assert svg_text.text == ap.String("test text 2")
+
+        ap.Stage()
+        svg_text = SVGText(text=ap.String("test text 3"))
+        assert svg_text.text == ap.String("test text 3")
 
     @apply_test_settings()
     def test___repr__(self) -> None:
@@ -123,3 +129,21 @@ class TestSVGText:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f'{svg_text.variable_name}.font("size", '
         assert expected in expression
+
+    @apply_test_settings()
+    def test__set_leading(self) -> None:
+        ap.Stage()
+        svg_text: SVGText = SVGText(
+            text="test text 1",
+            leading=1.8,
+        )
+        assert svg_text.leading == ap.Number(1.8)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f'{svg_text.variable_name}.font("leading", '
+        assert expected in expression
+
+        svg_text = SVGText(
+            text="test text 1",
+            leading=ap.Number(2.0),
+        )
+        assert svg_text.leading == ap.Number(2.0)

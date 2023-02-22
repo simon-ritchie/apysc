@@ -82,12 +82,14 @@ class SVGText(
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=10)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=10)
+    # leading
+    @arg_validation_decos.is_num(arg_position_index=11)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=11, optional=True
+        arg_position_index=12, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=12, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=13, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -102,6 +104,7 @@ class SVGText(
         line_color: Union[str, String] = "",
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
+        leading: Union[float, Number] = 1.5,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -131,6 +134,8 @@ class SVGText(
             A line-alpha to set.
         line_thickness : int or Int, default 1
             A line-thickness (line-width) to set.
+        leading : float or Number, default 1.5
+            A text leading size.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If a specified value is None, this interface uses
@@ -162,6 +167,7 @@ class SVGText(
         self._set_text_value(text=text)
         self._set_font_size_value(font_size=font_size)
         self._set_font_family(font_family=font_family)
+        self._set_leading(leading=leading)
 
         # Since the SVG-text constructor's y-coordinate is different from
         # the y-attribute updating, this class sets the y-coordinate attribute
@@ -190,6 +196,30 @@ class SVGText(
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _set_leading(self, *, leading: Union[float, Number]) -> None:
+        """
+        Set a leading value.
+
+        Parameters
+        ----------
+        leading : Union[float, Number]
+            A text leading value.
+        """
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
+
+        if isinstance(leading, float):
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self, value_identifier="leading"
+            )
+            leading_: Number = Number(leading, variable_name_suffix=suffix)
+        else:
+            leading_ = leading
+        self.leading = leading_
 
     @final
     @add_debug_info_setting(module_name=__name__)

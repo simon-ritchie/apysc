@@ -28,3 +28,40 @@ class SVGTextAlign(Enum):
     LEFT = "start"
     CENTER = "middle"
     RIGHT = "end"
+
+
+class SVGTextAlignMixIn(
+    VariableNameMixIn,
+):
+
+    _align: SVGTextAlign = SVGTextAlign.LEFT
+
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def align(self) -> SVGTextAlign:
+        """
+        Get a current text-align setting.
+
+        Returns
+        -------
+        align : SVGTextAlign
+            A current text-align setting.
+        """
+        return self._align
+
+    @align.setter
+    @add_debug_info_setting(module_name=__name__)
+    def align(self, value: SVGTextAlign) -> None:
+        """
+        Set a text-align setting.
+
+        Parameters
+        ----------
+        value : SVGTextAlign
+            A text-align setting.
+        """
+        import apysc as ap
+
+        self._align = value
+        expression: str = f'{self.variable_name}.font("anchor", "{value.value}");'
+        ap.append_js_expression(expression=expression)

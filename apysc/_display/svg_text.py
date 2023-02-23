@@ -26,6 +26,7 @@ from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn, SVGTextAlign
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -57,6 +58,7 @@ class SVGText(
     SVGTextFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextLeadingMixIn,
+    SVGTextAlignMixIn,
 ):
 
     # text
@@ -84,12 +86,14 @@ class SVGText(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=10)
     # leading
     @arg_validation_decos.is_num(arg_position_index=11)
+    # align
+    @arg_validation_decos.is_svg_text_align(arg_position_index=12)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=12, optional=True
+        arg_position_index=13, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=13, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=14, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -105,6 +109,7 @@ class SVGText(
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
+        align: SVGTextAlign = SVGTextAlign.LEFT,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -136,6 +141,8 @@ class SVGText(
             A line-thickness (line-width) to set.
         leading : float or Number, default 1.5
             A text-leading size.
+        align : SVGTextAlign, default SVGTextAlign.LEFT
+            A text-align setting.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If a specified value is None, this interface uses
@@ -168,6 +175,7 @@ class SVGText(
         self._set_font_size_value(font_size=font_size)
         self._set_font_family(font_family=font_family)
         self._set_leading(leading=leading)
+        self._set_align(align=align)
 
         # Since the SVG-text constructor's y-coordinate is different from
         # the y-attribute updating, this class sets the y-coordinate attribute
@@ -196,6 +204,17 @@ class SVGText(
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
+
+    def _set_align(self, *, align: SVGTextAlign) -> None:
+        """
+        Set a text-align setting.
+
+        Parameters
+        ----------
+        align : SVGTextAlign
+            A text-align setting.
+        """
+        self.align = align
 
     @final
     @add_debug_info_setting(module_name=__name__)

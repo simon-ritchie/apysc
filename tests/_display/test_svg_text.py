@@ -147,3 +147,16 @@ class TestSVGText:
             leading=ap.Number(2.0),
         )
         assert svg_text.leading == ap.Number(2.0)
+
+    @apply_test_settings()
+    def test__set_align(self) -> None:
+        ap.Stage()
+        svg_text: SVGText = SVGText(
+            text="test text 1",
+            align=ap.SVGTextAlign.CENTER,
+        )
+        assert svg_text.align == ap.SVGTextAlign.CENTER
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f'{svg_text.variable_name}.font("anchor", "middle");'
+        print(expression)
+        assert expected in expression

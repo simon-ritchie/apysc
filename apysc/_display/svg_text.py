@@ -261,7 +261,10 @@ class SVGText(
         text_ : String
             A set text.
         """
+        from apysc._string import string_util
+
         if isinstance(text, str):
+            text = string_util.escape_str(string=text)
             text_: String = String(
                 text,
                 variable_name_suffix=self._variable_name_suffix,

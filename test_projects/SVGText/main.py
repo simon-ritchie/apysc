@@ -178,6 +178,18 @@ def main() -> None:
     )
     svg_text.font_size = ap.Int(12)
 
+    svg_text = ap.SVGText(
+        text="leading test 1\nleading test 1\nleading test 1",
+        y=540,
+        leading=1.0,
+    )
+
+    svg_text = ap.SVGText(
+        text="leading test 2\nleading test 2\nleading test 2",
+        y=600,
+    )
+    svg_text.leading = ap.Number(2.0)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

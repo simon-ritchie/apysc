@@ -27,3 +27,17 @@ class TestSVGTextAlignMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f'{mixin.variable_name}.font("anchor", "middle")'
         assert expected in expression
+
+    @apply_test_settings()
+    def test__make_snapshot__revert(self) -> None:
+        mixin: SVGTextAlignMixIn = SVGTextAlignMixIn()
+        mixin.align = SVGTextAlign.CENTER
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin.align = SVGTextAlign.LEFT
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin.align == SVGTextAlign.CENTER
+
+        mixin.align = SVGTextAlign.LEFT
+        mixin._run_all_revert_methods(snapshot_name="not_existing_snapshot")
+        assert mixin.align == SVGTextAlign.LEFT

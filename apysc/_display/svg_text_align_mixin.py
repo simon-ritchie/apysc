@@ -32,6 +32,7 @@ class SVGTextAlign(Enum):
 
 class SVGTextAlignMixIn(
     VariableNameMixIn,
+    RevertMixIn,
 ):
 
     _align: SVGTextAlign = SVGTextAlign.LEFT
@@ -65,3 +66,33 @@ class SVGTextAlignMixIn(
         self._align = value
         expression: str = f'{self.variable_name}.font("anchor", "{value.value}");'
         ap.append_js_expression(expression=expression)
+
+    _align_snapshots: Dict[str, SVGTextAlign]
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._set_single_snapshot_val_to_dict(
+            dict_name="_align_snapshots",
+            value=self._align,
+            snapshot_name=snapshot_name,
+        )
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._align = self._align_snapshots[snapshot_name]

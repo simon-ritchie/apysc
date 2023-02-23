@@ -190,6 +190,31 @@ def main() -> None:
     )
     svg_text.leading = ap.Number(2.0)
 
+    svg_text = ap.SVGText(
+        text="Left align test\nLeft align test left align test",
+        x=600,
+        y=0,
+        align=ap.SVGTextAlign.LEFT,
+    )
+    svg_text = ap.SVGText(
+        text="Center align test\nCenter align test center align test",
+        x=600,
+        y=60,
+        align=ap.SVGTextAlign.CENTER,
+    )
+    svg_text = ap.SVGText(
+        text="Right align test\nRight align test right align test",
+        x=600,
+        y=120,
+        align=ap.SVGTextAlign.RIGHT,
+    )
+    svg_text = ap.SVGText(
+        text="Center align test 2\nCenter align test 2 center align test 2",
+        x=600,
+        y=180,
+    )
+    svg_text.align = ap.SVGTextAlign.CENTER
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

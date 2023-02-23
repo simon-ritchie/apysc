@@ -32,6 +32,8 @@ The class for a SVG text.<hr>
   - A line-alpha to set.
 - `line_thickness`: int or Int, default 1
   - A line-thickness (line-width) to set.
+- `leading`: float or Number, default 1.5
+  - A text-leading size.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ''
@@ -67,6 +69,15 @@ Set a font-size value.<hr>
 
 - `font_size`: Union[int, Int]
   - A target font-size value.
+
+### `_set_leading` method docstring
+
+Set a leading value.<hr>
+
+**[Parameters]**
+
+- `leading`: Union[float, Number]
+  - A text-leading value.
 
 ### `_set_text_value` method docstring
 

@@ -1,4 +1,3 @@
-
 import apysc as ap
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._expression import expression_data_util

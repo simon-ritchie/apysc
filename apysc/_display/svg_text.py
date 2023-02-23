@@ -24,8 +24,8 @@ from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
-from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
+from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -135,7 +135,7 @@ class SVGText(
         line_thickness : int or Int, default 1
             A line-thickness (line-width) to set.
         leading : float or Number, default 1.5
-            A text leading size.
+            A text-leading size.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If a specified value is None, this interface uses
@@ -206,7 +206,7 @@ class SVGText(
         Parameters
         ----------
         leading : Union[float, Number]
-            A text leading value.
+            A text-leading value.
         """
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,

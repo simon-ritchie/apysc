@@ -157,6 +157,9 @@ Mainly the following decorators exist.
 - is_builtin_str_list_or_apysc_str_arr
     - Set a validation to check a specified argument's type
         is list of Python's str or Array of apysc's String.
+- is_svg_text_align
+    - Set a validation to check a specified argument's type
+        is the `SVGTextAlign`.
 """
 
 import functools
@@ -2702,6 +2705,50 @@ def is_builtin_str_list_or_apysc_str_arr(
                 f"{type(arr_or_list)}"
                 f"\n{callable_and_arg_names_msg}"
             )
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_svg_text_align(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is the `SVGTextAlign`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            align: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(align, ap.SVGTextAlign):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "A specified argument is not a `SVGTextAlign` value: "
+                    f"{type(align)}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 

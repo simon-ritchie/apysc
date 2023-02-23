@@ -52,6 +52,7 @@ class SVGTextAlignMixIn(
 
     @align.setter
     @add_debug_info_setting(module_name=__name__)
+    @arg_validation_decos.is_svg_text_align(arg_position_index=1)
     def align(self, value: SVGTextAlign) -> None:
         """
         Set a text-align setting.

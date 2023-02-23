@@ -1188,3 +1188,19 @@ def test_is_builtin_str_list_or_apysc_str_arr() -> None:
     assert result == 190
     result = _test_func_2(value=["Lorem", "ipsum"])
     assert result == 190
+
+
+@apply_test_settings()
+def test_is_svg_text_align() -> None:
+    @arg_validation_decos.is_svg_text_align(arg_position_index=0)
+    def _test_func(*, align: ap.SVGTextAlign) -> int:
+        return 200
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        align=100,
+        match="A specified argument is not a `SVGTextAlign` value:",
+    )
+    result: int = _test_func(align=ap.SVGTextAlign.CENTER)
+    assert result == 200

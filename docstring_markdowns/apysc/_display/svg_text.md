@@ -34,6 +34,8 @@ The class for a SVG text.<hr>
   - A line-thickness (line-width) to set.
 - `leading`: float or Number, default 1.5
   - A text-leading size.
+- `align`: SVGTextAlign, default SVGTextAlign.LEFT
+  - A text-align setting.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ''
@@ -51,6 +53,15 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 ### `_append_constructor_expression` method docstring
 
 Append a constructor expression string.
+
+### `_set_align` method docstring
+
+Set a text-align setting.<hr>
+
+**[Parameters]**
+
+- `align`: SVGTextAlign
+  - A text-align setting.
 
 ### `_set_font_family` method docstring
 

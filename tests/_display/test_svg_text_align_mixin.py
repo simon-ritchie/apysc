@@ -1,9 +1,9 @@
 from typing import List
-import apysc as ap
+
 from apysc._display.svg_text_align_mixin import SVGTextAlign
+from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 
 
 @apply_test_settings()

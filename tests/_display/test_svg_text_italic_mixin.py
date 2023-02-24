@@ -31,3 +31,15 @@ class TestSVGTextItalicMixIn:
             '=== "italic";'
         )
         assert expected in expression
+
+        italic = italic.not_
+        mixin.italic = italic
+        expression = expression_data_util.get_current_expression()
+        expected = (
+            f"if ({italic.variable_name}) {{"
+            f'\n  {mixin.variable_name}.font("style", "italic");'
+            "\n} else {"
+            f'\n  {mixin.variable_name}.font("style", "normal");'
+            "\n}"
+        )
+        assert expected in expression

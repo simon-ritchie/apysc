@@ -45,3 +45,19 @@ class SVGTextItalicMixIn(
         )
         ap.append_js_expression(expression=expression)
         return italic_
+
+    @italic.setter
+    @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def italic(self, value: Boolean) -> None:
+        import apysc as ap
+
+        self._italic = value._value
+        expression: str = (
+            f"if ({value.variable_name}) {{"
+            f'\n  {self.variable_name}.font("style", "italic");'
+            "\n} else {"
+            f'\n  {self.variable_name}.font("style", "normal");'
+            "\n}"
+        )
+        ap.append_js_expression(expression=expression)

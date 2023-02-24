@@ -14,6 +14,7 @@ from apysc._type.boolean import Boolean
 
 class SVGTextItalicMixIn(
     VariableNameMixIn,
+    RevertMixIn,
 ):
 
     _italic: bool = False
@@ -61,3 +62,33 @@ class SVGTextItalicMixIn(
             "\n}"
         )
         ap.append_js_expression(expression=expression)
+
+    _italic_snapshots: Dict[str, bool]
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._set_single_snapshot_val_to_dict(
+            dict_name="_italic_snapshots",
+            value=self._italic,
+            snapshot_name=snapshot_name,
+        )
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._italic = self._italic_snapshots[snapshot_name]

@@ -43,3 +43,18 @@ class TestSVGTextItalicMixIn:
             "\n}"
         )
         assert expected in expression
+
+    @apply_test_settings()
+    def test__make_snapshot_and__revert(self) -> None:
+        expression_data_util.empty_expression()
+        mixin: _TestMixIn = _TestMixIn()
+        mixin._italic = True
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin._italic = False
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._italic
+
+        mixin._italic = False
+        mixin._run_all_revert_methods(snapshot_name="not_existing_snapshot")
+        assert not mixin._italic

@@ -29,6 +29,7 @@ class TestSVGText:
             line_alpha=0.3,
             line_thickness=1,
             leading=1.8,
+            italic=True,
             variable_name_suffix="test_suffix",
         )
         assert var_names.SVG_TEXT in svg_text.variable_name
@@ -42,6 +43,7 @@ class TestSVGText:
                 "_line_alpha": 0.3,
                 "_line_thickness": 1,
                 "_leading": 1.8,
+                "_italic": True,
                 "_parent": stage,
             },
             any_obj=svg_text,
@@ -158,5 +160,24 @@ class TestSVGText:
         assert svg_text.align == ap.SVGTextAlign.CENTER
         expression: str = expression_data_util.get_current_expression()
         expected: str = f'{svg_text.variable_name}.font("anchor", "middle");'
-        print(expression)
         assert expected in expression
+
+    @apply_test_settings()
+    def test__set_italic(self) -> None:
+        ap.Stage()
+        svg_text: SVGText = SVGText(
+            text="test text 1",
+            italic=True,
+        )
+        assert svg_text.italic
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f'{svg_text.variable_name}.font("style", "italic");'
+        assert expected in expression
+        expected = f'{svg_text.variable_name}.font("style", "normal");'
+        assert expected in expression
+
+        svg_text = SVGText(
+            text="test text 1",
+            italic=ap.Boolean(True),
+        )
+        assert svg_text.italic

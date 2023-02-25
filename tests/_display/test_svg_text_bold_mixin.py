@@ -30,3 +30,16 @@ class TestSVGTextBoldMixIn:
             f'{bold.variable_name} = {mixin.variable_name}.font("weight") === "bold";'
         )
         assert expected in expression
+
+        bold: ap.Boolean = ap.Boolean(True)
+        mixin.bold = bold
+        assert bold
+        expression = expression_data_util.get_current_expression()
+        expected = (
+            f"if ({bold.variable_name}) {{"
+            f'\n  {mixin.variable_name}.font("weight", "bold");'
+            "\n} else {"
+            f'\n  {mixin.variable_name}.font("weight", "normal");'
+            "\n}"
+        )
+        assert expected in expression

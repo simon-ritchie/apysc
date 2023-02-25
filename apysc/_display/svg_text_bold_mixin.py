@@ -22,7 +22,7 @@ class SVGTextBoldMixIn(
     @add_debug_info_setting(module_name=__name__)
     def bold(self) -> Boolean:
         """
-        Get a boolean whether this text is bold style or not.
+        Get a boolean whether this text is a bold style or not.
 
         Returns
         -------
@@ -44,3 +44,25 @@ class SVGTextBoldMixIn(
         )
         ap.append_js_expression(expression=expression)
         return bold_
+
+    @bold.setter
+    def bold(self, value: Boolean) -> None:
+        """
+        Set a boolean whether this text is a bold style or not.
+
+        Parameters
+        ----------
+        value : Boolean
+            A boolean whether this text is bold style or not.
+        """
+        import apysc as ap
+
+        self._bold = value._value
+        expression: str = (
+            f"if ({value.variable_name}) {{"
+            f'\n  {self.variable_name}.font("weight", "bold");'
+            "\n} else {"
+            f'\n  {self.variable_name}.font("weight", "normal");'
+            "\n}"
+        )
+        ap.append_js_expression(expression=expression)

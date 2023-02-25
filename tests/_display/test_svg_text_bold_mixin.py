@@ -43,3 +43,17 @@ class TestSVGTextBoldMixIn:
             "\n}"
         )
         assert expected in expression
+
+    @apply_test_settings()
+    def test__make_snapshot__revert(self) -> None:
+        mixin: _TestMIxIn = _TestMIxIn()
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._bold = True
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin._bold = False
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._bold
+
+        mixin._bold = False
+        mixin._run_all_revert_methods(snapshot_name="not_existing_snapshot")
+        assert not mixin._bold

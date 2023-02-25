@@ -14,6 +14,7 @@ from apysc._type.boolean import Boolean
 
 class SVGTextBoldMixIn(
     VariableNameMixIn,
+    RevertMixIn,
 ):
 
     _bold: bool = False
@@ -66,3 +67,33 @@ class SVGTextBoldMixIn(
             "\n}"
         )
         ap.append_js_expression(expression=expression)
+
+    _bold_snapshots: Dict[str, bool]
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._set_single_snapshot_val_to_dict(
+            dict_name="_bold_snapshots",
+            value=self._bold,
+            snapshot_name=snapshot_name,
+        )
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._bold = self._bold_snapshots[snapshot_name]

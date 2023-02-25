@@ -36,6 +36,8 @@ The class for a SVG text.<hr>
   - A text-leading size.
 - `align`: SVGTextAlign, default SVGTextAlign.LEFT
   - A text-align setting.
+- `italic`: Union[bool, Boolean], default False
+  - A boolean indicating whether a text is italic style or not (normal).
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ''
@@ -80,6 +82,15 @@ Set a font-size value.<hr>
 
 - `font_size`: Union[int, Int]
   - A target font-size value.
+
+### `_set_italic` method docstring
+
+Set SVGTextAlign italic style setting.<hr>
+
+**[Parameters]**
+
+- `italic`: Union[bool, Boolean]
+  - A boolean whether a text is in an italic style or not (normal).
 
 ### `_set_leading` method docstring
 

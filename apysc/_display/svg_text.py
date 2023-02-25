@@ -26,18 +26,18 @@ from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
+from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
-from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
+from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._type.boolean import Boolean
 
 
 class SVGText(
@@ -219,12 +219,12 @@ class SVGText(
     @add_debug_info_setting(module_name=__name__)
     def _set_italic(self, *, italic: Union[bool, Boolean]) -> None:
         """
-        Set a italic style setting.
+        Set an italic style setting.
 
         Parameters
         ----------
         italic : Union[bool, Boolean]
-            A boolean indicating whether a text is italic style or not (normal).
+            A boolean whether a text is in an italic style or not (normal).
         """
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,

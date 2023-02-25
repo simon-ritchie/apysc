@@ -93,7 +93,7 @@ def test_is_script_end_tag_line() -> None:
     assert not result
 
     result = html_util.is_script_end_tag_line(
-        line='<script src="jquery.min.js"></script>'
+        line='<script src="jquery-3.5.1.min.js"></script>'
     )
     assert not result
 

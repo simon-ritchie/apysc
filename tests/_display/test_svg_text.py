@@ -29,6 +29,7 @@ class TestSVGText:
             line_alpha=0.3,
             line_thickness=1,
             leading=1.8,
+            bold=True,
             italic=True,
             variable_name_suffix="test_suffix",
         )
@@ -43,6 +44,7 @@ class TestSVGText:
                 "_line_alpha": 0.3,
                 "_line_thickness": 1,
                 "_leading": 1.8,
+                "_bold": True,
                 "_italic": True,
                 "_parent": stage,
             },
@@ -181,3 +183,21 @@ class TestSVGText:
             italic=ap.Boolean(True),
         )
         assert svg_text.italic
+
+    @apply_test_settings()
+    def test__set_bold(self) -> None:
+        ap.Stage()
+        svg_text: SVGText = SVGText(
+            text="test text 1",
+            bold=True,
+        )
+        assert svg_text.bold
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = f'{svg_text.variable_name}.font("weight", "bold");'
+        assert expected in expression
+
+        svg_text = SVGText(
+            text="test text 1",
+            bold=ap.Boolean(True),
+        )
+        assert svg_text.bold

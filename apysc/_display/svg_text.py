@@ -29,6 +29,7 @@ from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -63,6 +64,7 @@ class SVGText(
     SVGTextLeadingMixIn,
     SVGTextAlignMixIn,
     SVGTextItalicMixIn,
+    SVGTextBoldMixIn,
 ):
 
     # text
@@ -92,14 +94,16 @@ class SVGText(
     @arg_validation_decos.is_num(arg_position_index=11)
     # align
     @arg_validation_decos.is_svg_text_align(arg_position_index=12)
-    # italic
+    # bold
     @arg_validation_decos.is_boolean(arg_position_index=13)
+    # italic
+    @arg_validation_decos.is_boolean(arg_position_index=14)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=14, optional=True
+        arg_position_index=15, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=15, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=16, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -116,6 +120,7 @@ class SVGText(
         line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
         align: SVGTextAlign = SVGTextAlign.LEFT,
+        bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
@@ -150,6 +155,8 @@ class SVGText(
             A text-leading size.
         align : SVGTextAlign, default SVGTextAlign.LEFT
             A text-align setting.
+        bold : Union[bool, Boolean], default False
+            A boolean whether this text is bold style or not.
         italic : Union[bool, Boolean], default False
             A boolean indicating whether a text is italic style or not (normal).
         parent : ChildMixIn or None, default None
@@ -185,6 +192,7 @@ class SVGText(
         self._set_font_family(font_family=font_family)
         self._set_leading(leading=leading)
         self._set_align(align=align)
+        self._set_bold(bold=bold)
         self._set_italic(italic=italic)
 
         # Since the SVG-text constructor's y-coordinate is different from
@@ -214,6 +222,31 @@ class SVGText(
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _set_bold(self, *, bold: Union[bool, Boolean]) -> None:
+        """
+        Set a bold style setting.
+
+        Parameters
+        ----------
+        bold : Union[bool, Boolean]
+            A boolean whether a text is bold style or not (normal).
+        """
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
+
+        if isinstance(bold, bool):
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="bold",
+            )
+            bold_: Boolean = Boolean(bold, variable_name_suffix=suffix)
+        else:
+            bold_ = bold
+        self.bold = bold_
 
     @final
     @add_debug_info_setting(module_name=__name__)

@@ -237,6 +237,28 @@ def main() -> None:
     )
     svg_text.italic = ap.Boolean(False)
 
+    svg_text = ap.SVGText(
+        text="Bold test 1",
+        x=600,
+        y=300,
+        bold=True,
+    )
+
+    svg_text = ap.SVGText(
+        text="Bold test 2",
+        x=600,
+        y=320,
+    )
+    svg_text.bold = ap.Boolean(True)
+
+    svg_text = ap.SVGText(
+        text="Bold test 3",
+        x=600,
+        y=340,
+        bold=True,
+    )
+    svg_text.bold = ap.Boolean(False)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

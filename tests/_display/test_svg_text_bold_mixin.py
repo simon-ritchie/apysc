@@ -9,9 +9,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class _TestMIxIn(
-    VariableNameSuffixAttrOrVarMixIn,
-    VariableNameSuffixMixIn,
-    SVGTextBoldMixIn
+    VariableNameSuffixAttrOrVarMixIn, VariableNameSuffixMixIn, SVGTextBoldMixIn
 ):
     pass
 
@@ -31,7 +29,7 @@ class TestSVGTextBoldMixIn:
         )
         assert expected in expression
 
-        bold: ap.Boolean = ap.Boolean(True)
+        bold = ap.Boolean(True)
         mixin.bold = bold
         assert bold
         expression = expression_data_util.get_current_expression()

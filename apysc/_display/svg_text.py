@@ -24,12 +24,12 @@ from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
+from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
-from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -232,7 +232,7 @@ class SVGText(
         Parameters
         ----------
         bold : Union[bool, Boolean]
-            A boolean whether a text is bold style or not (normal).
+            A boolean, whether a text is a bold style or not (normal).
         """
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,

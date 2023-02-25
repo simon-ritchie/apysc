@@ -36,6 +36,8 @@ The class for a SVG text.<hr>
   - A text-leading size.
 - `align`: SVGTextAlign, default SVGTextAlign.LEFT
   - A text-align setting.
+- `bold`: Union[bool, Boolean], default False
+  - A boolean whether this text is bold style or not.
 - `italic`: Union[bool, Boolean], default False
   - A boolean indicating whether a text is italic style or not (normal).
 - `parent`: ChildMixIn or None, default None
@@ -65,6 +67,15 @@ Set a text-align setting.<hr>
 - `align`: SVGTextAlign
   - A text-align setting.
 
+### `_set_bold` method docstring
+
+Set a bold style setting.<hr>
+
+**[Parameters]**
+
+- `bold`: Union[bool, Boolean]
+  - A boolean, whether a text is a bold style or not (normal).
+
 ### `_set_font_family` method docstring
 
 Set a font-family value.<hr>
@@ -85,7 +96,7 @@ Set a font-size value.<hr>
 
 ### `_set_italic` method docstring
 
-Set SVGTextAlign italic style setting.<hr>
+Set an italic style setting.<hr>
 
 **[Parameters]**
 

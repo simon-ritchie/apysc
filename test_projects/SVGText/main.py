@@ -215,6 +215,28 @@ def main() -> None:
     )
     svg_text.align = ap.SVGTextAlign.CENTER
 
+    svg_text = ap.SVGText(
+        text="Italic test 1",
+        x=600,
+        y=240,
+        italic=True,
+    )
+
+    svg_text = ap.SVGText(
+        text="Italic test 2",
+        x=600,
+        y=260,
+    )
+    svg_text.italic = ap.Boolean(True)
+
+    svg_text = ap.SVGText(
+        text="Italic test 3",
+        x=600,
+        y=280,
+        italic=True,
+    )
+    svg_text.italic = ap.Boolean(False)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

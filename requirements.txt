@@ -10,6 +10,7 @@ numdoclint==0.1.9
 mypy==0.991
 html-minifier==0.0.4
 wheel==0.38.1
+importlib-metadata==4.12.0
 Sphinx==5.3.0
 groundwork-sphinx-theme==1.1.1
 notebook==6.4.12
@@ -18,4 +19,3 @@ playwright==1.30.0
 myst-parser==0.18.0
 black==22.6.0
 blackdoc==0.3.4
-importlib-metadata==4.12.0

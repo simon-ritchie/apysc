@@ -18,3 +18,4 @@ playwright==1.30.0
 myst-parser==0.18.0
 black==22.6.0
 blackdoc==0.3.4
+importlib-metadata==4.12.0

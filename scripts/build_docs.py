@@ -25,11 +25,10 @@ from typing import Optional as Op
 from typing_extensions import Final
 from typing_extensions import TypedDict
 
-from apysc._file import file_util
-
 sys.path.append("./")
 
 from apysc._console import loggers
+from apysc._file import file_util
 from apysc._jslib import jslib_util
 from apysc._lint_and_doc import docs_toctree_util
 from apysc._lint_and_doc import docstring_util

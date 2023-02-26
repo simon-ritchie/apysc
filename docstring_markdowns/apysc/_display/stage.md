@@ -114,7 +114,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 **[Returns]**
 
 - `repr_str`: str
-  - Type name and elem id will be set (e.g., `Stage('<stage_elem_id>')`).
+  - Type name and elem id will be set (e.g., `Stage("<stage_elem_id>")`).
 
 ### `_append_constructor_expression` method docstring
 

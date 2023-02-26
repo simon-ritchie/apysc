@@ -513,7 +513,7 @@ class TestArray:
         string: str = str(array_1)
         assert string == (
             "['1', 2, Int(3), Number(10.5), Boolean(True), "
-            "String('Hello!'), Array([4, 5])]"
+            'String("Hello!"), Array([4, 5])]'
         )
 
         del array_1._value

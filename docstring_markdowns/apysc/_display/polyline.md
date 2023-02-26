@@ -102,7 +102,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 **[Returns]**
 
 - `repr_str`: str
-  - Type name and variable name will be set (e.g., `Polyline('<variable_name>')`).
+  - Type name and variable name will be set (e.g., `Polyline("<variable_name>")`).
 
 ### `_append_constructor_expression` method docstring
 

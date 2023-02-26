@@ -1,8 +1,6 @@
-"""Class implementation for revert interface.
+"""Class implementation for the `revert`-related mix-in.
 """
 
-from abc import ABC
-from abc import abstractmethod
 from typing import Any
 from typing import Dict
 from typing import List
@@ -11,8 +9,10 @@ from typing import Type
 
 from typing_extensions import final
 
+from apysc._type.revert_interface import RevertInterface
 
-class RevertMixIn(ABC):
+
+class RevertMixIn(RevertInterface):
 
     _snapshot_exists_: Dict[str, bool]
 
@@ -24,28 +24,6 @@ class RevertMixIn(ABC):
         if hasattr(self, "_snapshot_exists_"):
             return
         self._snapshot_exists_ = {}
-
-    @abstractmethod
-    def _make_snapshot(self, *, snapshot_name: str) -> None:
-        """
-        Make value's snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-
-    @abstractmethod
-    def _revert(self, *, snapshot_name: str) -> None:
-        """
-        Revert values if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
 
     @final
     def _run_all_make_snapshot_methods(self, *, snapshot_name: str) -> None:

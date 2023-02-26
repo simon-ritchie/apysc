@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Class implementation for revert interface.
+Class implementation for the `revert`-related mix-in.
 
 ## `make_snapshots_of_each_scope_vars` function docstring
 
@@ -53,20 +53,20 @@ Revert each scope's variables.<hr>
 
 ## `revert_variables` function docstring
 
-Revert each variables.<hr>
+Revert each variable.<hr>
 
 **[Parameters]**
 
 - `snapshot_name`: str
   - Snapshot name to use.
 - `variables`: list
-  - Each vairables to revert.
+  - Each variable to revert.
 
 ## `RevertMixIn` class docstring
 
 ### `_delete_snapshot_exists_val` method docstring
 
-Delete boolean value whether snapshot value exists or not.<hr>
+Delete a boolean value whether a snapshot value exists or not.<hr>
 
 **[Parameters]**
 
@@ -75,7 +75,7 @@ Delete boolean value whether snapshot value exists or not.<hr>
 
 ### `_get_next_snapshot_name` method docstring
 
-Get a next snapshot name.<hr>
+Get the next snapshot name.<hr>
 
 **[Returns]**
 
@@ -85,24 +85,6 @@ Get a next snapshot name.<hr>
 ### `_initialize_ss_exists_val_if_not_initialized` method docstring
 
 Initialize _snapshot_exists_ value if this instance does not initialize it yet.
-
-### `_make_snapshot` method docstring
-
-Make value's snapshot.<hr>
-
-**[Parameters]**
-
-- `snapshot_name`: str
-  - Target snapshot name.
-
-### `_revert` method docstring
-
-Revert values if a snapshot exists.<hr>
-
-**[Parameters]**
-
-- `snapshot_name`: str
-  - Target snapshot name.
 
 ### `_run_all_make_snapshot_methods` method docstring
 
@@ -165,7 +147,7 @@ If a snapshot value of the same name already exists, this interface stops the me
 
 ### `_set_snapshot_exists_val` method docstring
 
-Set boolean value whether snapshot value exists or not.<hr>
+Set a boolean value whether a snapshot value exists or not.<hr>
 
 **[Parameters]**
 
@@ -186,4 +168,4 @@ Get a boolean value whether a snapshot value exists or not.<hr>
 **[Returns]**
 
 - `snapshot_exists`: bool
-  - Boolean value whether snapshot value exists or not.
+  - Boolean value, whether a snapshot value exists or not.

@@ -123,7 +123,7 @@ class RevertMixIn(RevertInterface):
         Returns
         -------
         snapshot_exists : bool
-            Boolean value whether snapshot value exists or not.
+            Boolean value, whether a snapshot value exists or not.
         """
         self._initialize_ss_exists_val_if_not_initialized()
         return snapshot_name in self._snapshot_exists_
@@ -131,7 +131,7 @@ class RevertMixIn(RevertInterface):
     @final
     def _set_snapshot_exists_val(self, *, snapshot_name: str) -> None:
         """
-        Set boolean value whether snapshot value exists or not.
+        Set a boolean value whether a snapshot value exists or not.
 
         Parameters
         ----------
@@ -144,7 +144,7 @@ class RevertMixIn(RevertInterface):
     @final
     def _delete_snapshot_exists_val(self, *, snapshot_name: str) -> None:
         """
-        Delete boolean value whether snapshot value exists or not.
+        Delete a boolean value whether a snapshot value exists or not.
 
         Parameters
         ----------
@@ -158,7 +158,7 @@ class RevertMixIn(RevertInterface):
     @final
     def _get_next_snapshot_name(self) -> str:
         """
-        Get a next snapshot name.
+        Get the next snapshot name.
 
         Returns
         -------
@@ -276,14 +276,14 @@ def revert_each_scope_vars(
 
 def revert_variables(*, snapshot_name: str, variables: List[Any]) -> None:
     """
-    Revert each variables.
+    Revert each variable.
 
     Parameters
     ----------
     snapshot_name : str
         Snapshot name to use.
     variables : list
-        Each vairables to revert.
+        Each variable to revert.
     """
     ended: Dict[int, bool] = {}
     for variable in variables:

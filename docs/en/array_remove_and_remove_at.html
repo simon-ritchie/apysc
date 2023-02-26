@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
           <div class="body" role="main">
             
   <section id="array-class-remove-and-remove-at-interfaces">
-<h1>Array class remove and remove_at interfaces<a class="headerlink" href="#array-class-remove-and-remove-at-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>Array class remove and remove_at interfaces<a class="headerlink" href="#array-class-remove-and-remove-at-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class <code class="docutils literal notranslate"><span class="pre">remove</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_at</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">remove</span></code> method removes a specified value from an array, and the <code class="docutils literal notranslate"><span class="pre">remove_at</span></code> method removes a specified index value.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">remove</span></code> method requires target value at the first argument, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -76,7 +78,7 @@
 </div>
 </section>
 <section id="remove-api">
-<h2>remove API<a class="headerlink" href="#remove-api" title="Permalink to this headline">¶</a></h2>
+<h2>remove API<a class="headerlink" href="#remove-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._type.array.Array.remove -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove(self,</span> <span class="pre">value:</span> <span class="pre">~_ArrValue)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -101,7 +103,7 @@
 </div>
 </section>
 <section id="remove-at-api">
-<h2>remove_at API<a class="headerlink" href="#remove-at-api" title="Permalink to this headline">¶</a></h2>
+<h2>remove_at API<a class="headerlink" href="#remove-at-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._type.array.Array.remove_at -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove_at(self,</span> <span class="pre">index:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -137,8 +139,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Array class remove and remove_at interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -148,22 +151,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="array_pop.html"
-                        title="previous chapter">Array class pop interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="array_sort.html"
-                        title="next chapter">Array class sort interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="array_pop.html"
+                          title="previous chapter">Array class pop interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="array_sort.html"
+                          title="next chapter">Array class sort interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -186,7 +194,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

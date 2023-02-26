@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/graphics_line_style.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="graphics-line-style">
-<h1>Graphics クラスの line_style インターフェイス<a class="headerlink" href="#graphics-line-style" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics クラスの line_style インターフェイス<a class="headerlink" href="#graphics-line-style" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">line_style</span></code>メソッドのインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">line_style</span></code>インターフェイスは線の色や線の透明度、線幅、点線などの線の各スタイルの設定を行います。このインターフェイスは再度インターフェイスを実行したり<code class="docutils literal notranslate"><span class="pre">clear</span></code>メソッドなどを呼ぶまでスタイル設定を保持し続けます（<code class="docutils literal notranslate"><span class="pre">begin_fill</span></code>インターフェイスと同じような挙動をします）。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_rect</span></code>や<code class="docutils literal notranslate"><span class="pre">line_to</span></code>などのベクターグラフィックスの描画系の各インターフェイスはこのインターフェイスのスタイル設定を各グラフィックスインスタンス作成時に参照します。従って線の設定が必要な場合には各描画系のインターフェイスを呼ぶ前にこのインターフェイスで設定を行っておく必要があります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -85,7 +87,7 @@
 <iframe src="static/graphics_line_style_basics/index.html" width="200" height="162"></iframe>
 </section>
 <section id="id3">
-<h2>線の色の設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>線の色の設定<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>指定が必須な<code class="docutils literal notranslate"><span class="pre">color</span></code>引数は線の色を設定します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -158,7 +160,7 @@
 <iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe>
 </section>
 <section id="id4">
-<h2>線幅の設定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>線幅の設定<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">thickness</span></code>引数は線の幅を設定します。1以上の値を受け付けることができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -186,7 +188,7 @@
 <iframe src="static/graphics_line_style_thickness/index.html" width="200" height="165"></iframe>
 </section>
 <section id="id5">
-<h2>線の透明度の設定<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>線の透明度の設定<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>引数で線の透明度を設定することができます。0.0（透明）～1.0（不透明）の範囲の値を受け付けることができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -210,7 +212,7 @@
 <iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id6">
-<h2>線端の設定<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2>線端の設定<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
 <p>線の端のスタイルは<code class="docutils literal notranslate"><span class="pre">cap</span></code>引数で設定することができます。<code class="docutils literal notranslate"><span class="pre">LineCaps</span></code>クラスのenumの値を受け付けます。</p>
 <p>以下のように<code class="docutils literal notranslate"><span class="pre">LineCaps</span></code>のオプションは3種類存在します:</p>
 <ul class="simple">
@@ -245,7 +247,7 @@
 <iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe>
 </section>
 <section id="id7">
-<h2>線の繋ぎ目の設定<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2>線の繋ぎ目の設定<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">joints</span></code>引数では線の繋ぎ目（頂点部分）のスタイルを変更します。この引数には<code class="docutils literal notranslate"><span class="pre">LineJoints</span></code>のenumの各値を受け付けます。主に<code class="docutils literal notranslate"><span class="pre">move_to</span></code>や<code class="docutils literal notranslate"><span class="pre">line_to</span></code>などのインターフェイスで生成される<code class="docutils literal notranslate"><span class="pre">Polyline</span></code>クラスのインスタンスでこの引数は使用されます。</p>
 <p>以下のようにLineJointsのenumには3つの値が存在します:</p>
 <ul class="simple">
@@ -285,7 +287,7 @@
 <iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe>
 </section>
 <section id="id8">
-<h2>線の点線設定<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<h2>線の点線設定<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>引数は線を点線へと変更する設定です。この引数は<code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code>クラスの設定を受け付けます。点線のサイズは<code class="docutils literal notranslate"><span class="pre">dot_size</span></code>引数で変更することができます（1以上の値を受け付けます）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -347,7 +349,7 @@
 <p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="id9">
-<h2>線の破線設定<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>線の破線設定<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>引数は線の破線のスタイル設定を変更します。ごの引数は<code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code>クラスの設定を受け付けます。この設定では破線のサイズを<code class="docutils literal notranslate"><span class="pre">dash_size</span></code>引数で、空白のスペースのサイズを<code class="docutils literal notranslate"><span class="pre">space_size</span></code>引数で変更することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -382,7 +384,7 @@
 <p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="id10">
-<h2>線の丸ドット設定<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<h2>線の丸ドット設定<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>引数は線の丸ドットのスタイルを設定します。この引数は<code class="docutils literal notranslate"><span class="pre">LineRoundDotSetting</span></code>クラスの値を受け付けます。この設定では円のサイズを<code class="docutils literal notranslate"><span class="pre">round_size</span></code>、円の間のスペースのサイズを<code class="docutils literal notranslate"><span class="pre">space_size</span></code>引数で変更することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -418,7 +420,7 @@
 <p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="id11">
-<h2>線の一点鎖線の設定<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<h2>線の一点鎖線の設定<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>引数は線に一点鎖線のスタイルを設定します。この引数は<code class="docutils literal notranslate"><span class="pre">LineDashDotSetting</span></code>クラスのインスタンスを受け付けます。この設定は短い点線のサイズを<code class="docutils literal notranslate"><span class="pre">dot_size</span></code>、長い破線のサイズを<code class="docutils literal notranslate"><span class="pre">dash_size</span></code>、そして空白のスペースのサイズを<code class="docutils literal notranslate"><span class="pre">space_size</span></code>引数で設定できます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -453,7 +455,7 @@
 <p>特記事項: この設定は<code class="docutils literal notranslate"><span class="pre">draw_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>、<code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code>の各インターフェイスで無視されます。</p>
 </section>
 <section id="line-style-api">
-<h2>line_style API<a class="headerlink" href="#line-style-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_style API<a class="headerlink" href="#line-style-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">line_style(self,</span> <span class="pre">*,</span> <span class="pre">color:</span> <span class="pre">~StrOrString,</span> <span class="pre">thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">cap:</span> <span class="pre">Union[apysc._display.line_caps.LineCaps,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">joints:</span> <span class="pre">Union[apysc._display.line_joints.LineJoints,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dot_setting:</span> <span class="pre">Union[apysc._display.line_dot_setting.LineDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dash_setting:</span> <span class="pre">Union[apysc._display.line_dash_setting.LineDashSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">round_dot_setting:</span> <span class="pre">Union[apysc._display.line_round_dot_setting.LineRoundDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dash_dot_setting:</span> <span class="pre">Union[apysc._display.line_dash_dot_setting.LineDashDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -532,7 +534,7 @@
 </div>
 </section>
 <section id="line-color-api">
-<h2>line_color 属性のAPI<a class="headerlink" href="#line-color-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_color 属性のAPI<a class="headerlink" href="#line-color-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の色を取得します。<hr></p>
@@ -558,7 +560,7 @@
 </div>
 </section>
 <section id="line-thickness-api">
-<h2>line_thickness 属性のAPI<a class="headerlink" href="#line-thickness-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_thickness 属性のAPI<a class="headerlink" href="#line-thickness-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の線幅を取得します。<hr></p>
@@ -582,7 +584,7 @@
 </div>
 </section>
 <section id="line-alpha-api">
-<h2>line_alpha 属性のAPI<a class="headerlink" href="#line-alpha-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_alpha 属性のAPI<a class="headerlink" href="#line-alpha-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の透明度を取得します。<hr></p>
@@ -608,7 +610,7 @@
 </div>
 </section>
 <section id="line-cap-api">
-<h2>line_cap 属性のAPI<a class="headerlink" href="#line-cap-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_cap 属性のAPI<a class="headerlink" href="#line-cap-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の端のスタイル設定。<hr></p>
@@ -634,7 +636,7 @@
 </div>
 </section>
 <section id="line-joints-api">
-<h2>line_joints 属性のAPI<a class="headerlink" href="#line-joints-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_joints 属性のAPI<a class="headerlink" href="#line-joints-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の接合部（頂点）のスタイル設定を取得します。<hr></p>
@@ -660,7 +662,7 @@
 </div>
 </section>
 <section id="line-dot-setting-api">
-<h2>line_dot_setting 属性のAPI<a class="headerlink" href="#line-dot-setting-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_dot_setting 属性のAPI<a class="headerlink" href="#line-dot-setting-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の点線設定を取得します。<hr></p>
@@ -686,7 +688,7 @@
 </div>
 </section>
 <section id="line-dash-setting-api">
-<h2>line_dash_setting 属性のAPI<a class="headerlink" href="#line-dash-setting-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_dash_setting 属性のAPI<a class="headerlink" href="#line-dash-setting-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の破線のスタイル設定を取得します。<hr></p>
@@ -717,7 +719,7 @@
 </div>
 </section>
 <section id="line-round-dot-setting-api">
-<h2>line_round_dot_setting 属性のAPI<a class="headerlink" href="#line-round-dot-setting-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_round_dot_setting 属性のAPI<a class="headerlink" href="#line-round-dot-setting-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の丸ドットのスタイル設定を取得します。<hr></p>
@@ -748,7 +750,7 @@
 </div>
 </section>
 <section id="line-dash-dot-setting-api">
-<h2>line_dash_dot_setting 属性のAPI<a class="headerlink" href="#line-dash-dot-setting-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_dash_dot_setting 属性のAPI<a class="headerlink" href="#line-dash-dot-setting-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の線の一点鎖線のスタイル設定を取得します。<hr></p>
@@ -795,8 +797,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics クラスの line_style インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -823,22 +826,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_graphics_begin_fill.html"
-                        title="previous chapter">Graphics クラスの begin_fill インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_graphics_draw_triangle.html"
-                        title="next chapter">Graphics クラスの draw_triangle インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_graphics_begin_fill.html"
+                          title="previous chapter">Graphics クラスの begin_fill インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_graphics_draw_triangle.html"
+                          title="next chapter">Graphics クラスの draw_triangle インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -861,7 +869,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

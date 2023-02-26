@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
           <div class="body" role="main">
             
   <section id="graphicsbase-rotation-around-point-interfaces">
-<h1>GraphicsBase rotation_around_point interfaces<a class="headerlink" href="#graphicsbase-rotation-around-point-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>GraphicsBase rotation_around_point interfaces<a class="headerlink" href="#graphicsbase-rotation-around-point-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphic, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> and <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method will return a rotation value around the given coordinates, and the <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method will update a rotation value around the given coordinates.</p>
 <p>These rotation values are relative, and each point has the rotation value. For example, the coordinates of the <code class="docutils literal notranslate"><span class="pre">(x=50,</span> <span class="pre">y=50)</span></code> and the other coordinates of the <code class="docutils literal notranslate"><span class="pre">(x=100,</span> <span class="pre">y=100)</span></code> have different rotation values.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method requires the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments and return a rotation value around the given coordinates. The <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> requires <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">rotation</span></code> arguments. All the arguments and return value are <code class="docutils literal notranslate"><span class="pre">Int</span></code> type.</p>
 <p>The following example creates the two rectangles and rotates each rectangle in the timer handler. The first rectangle rotates around the top-left coordinates (<code class="docutils literal notranslate"><span class="pre">x=50,</span> <span class="pre">y=50</span></code>). Also, the second one rotates around the bottom-right coordinates (<code class="docutils literal notranslate"><span class="pre">x=100,</span> <span class="pre">y=100</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -115,7 +117,7 @@
 <iframe src="static/graphics_base_rotation_around_point_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="get-rotation-around-point-api">
-<h2>get_rotation_around_point API<a class="headerlink" href="#get-rotation-around-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>get_rotation_around_point API<a class="headerlink" href="#get-rotation-around-point-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.rotation_around_point_mixin.RotationAroundPointMixIn.get_rotation_around_point -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.int.Int</span></code><hr></p>
@@ -161,7 +163,7 @@
 </div>
 </section>
 <section id="set-rotation-around-point-api">
-<h2>set_rotation_around_point API<a class="headerlink" href="#set-rotation-around-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>set_rotation_around_point API<a class="headerlink" href="#set-rotation-around-point-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.rotation_around_point_mixin.RotationAroundPointMixIn.set_rotation_around_point -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">rotation:</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -198,8 +200,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">GraphicsBase rotation_around_point interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -209,22 +212,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_base_rotation_around_center.html"
-                        title="previous chapter">GraphicsBase rotation_around_center interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_base_scale_from_center.html"
-                        title="next chapter">GraphicsBase scale_x_from_center and scale_y_from_center interfaces</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="graphics_base_rotation_around_center.html"
+                          title="previous chapter">GraphicsBase rotation_around_center interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="graphics_base_scale_from_center.html"
+                          title="next chapter">GraphicsBase scale_x_from_center and scale_y_from_center interfaces</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -247,7 +255,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

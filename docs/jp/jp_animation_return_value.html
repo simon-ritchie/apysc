@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/animation_return_value.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="id1">
-<h1>各アニメーションのインターフェイスの返却値<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>各アニメーションのインターフェイスの返却値<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">animation_move</span></code>などの各アニメーションのインターフェイスの返却値について説明します。</p>
 <section id="animationbase">
-<h2>各インターフェイスはAnimationBaseのサブクラスのインスタンスを返却します<a class="headerlink" href="#animationbase" title="Permalink to this headline">¶</a></h2>
+<h2>各インターフェイスはAnimationBaseのサブクラスのインスタンスを返却します<a class="headerlink" href="#animationbase" title="Permalink to this heading">¶</a></h2>
 <p>各アニメーション関係のインターフェイスは<code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>のサブクラスのインスタンスを返却します。例えば<code class="docutils literal notranslate"><span class="pre">animation_move</span></code>インターフェイスであれば<code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>クラスのインスタンスを返却し、<code class="docutils literal notranslate"><span class="pre">animation_x</span></code>であれば<code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>クラスのインスタンスを返却します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>クラスはアニメーションの開始用の<code class="docutils literal notranslate"><span class="pre">start</span></code>メソッドやアニメーション終了時のイベント登録用の<code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>メソッドなどの基本的な共通のアニメーション関係のインターフェイスを持っています。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>返却された各値のクラスはapyscのパッケージに含まれています（例: <code class="docutils literal notranslate"><span class="pre">ap.AnimationMove</span></code>など）。そのためそれらを使用して型アノテーションを行うことができます。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">animation_x</span></code>メソッドを使用しており、返却値として<code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>クラスのインスタンスを受け取っています。加えて<code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>クラスのインスタンスを参照してアニメーション完了時のイベントを設定したりアニメーションを開始したり等を行っています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -125,8 +127,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">各アニメーションのインターフェイスの返却値</a><ul>
 <li><a class="reference internal" href="#animationbase">各インターフェイスはAnimationBaseのサブクラスのインスタンスを返却します</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -134,22 +137,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_animation_delay.html"
-                        title="previous chapter">各アニメーションのインターフェイスのdelayの設定</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_animation_base_start.html"
-                        title="next chapter">AnimationBaseクラス start インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_animation_delay.html"
+                          title="previous chapter">各アニメーションのインターフェイスのdelayの設定</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_animation_base_start.html"
+                          title="next chapter">AnimationBaseクラス start インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -172,7 +180,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

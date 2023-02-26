@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,16 +50,16 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/path_bezier_3d_continual.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="pathbezier3dcontinual">
-<h1>PathBezier3DContinual クラス<a class="headerlink" href="#pathbezier3dcontinual" title="Permalink to this headline">¶</a></h1>
+<h1>PathBezier3DContinual クラス<a class="headerlink" href="#pathbezier3dcontinual" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスについて説明しるます。</p>
 <section id="id1">
-<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスはパス上に連続した3次ベジェ曲線を設定するためのクラスです。</p>
 <p>この設定は制御点に線対称位置を使用することで滑らかな曲線を描画します。</p>
 <p>主にこの設定は<code class="docutils literal notranslate"><span class="pre">Path</span></code>クラスのコンストラクタと<code class="docutils literal notranslate"><span class="pre">draw_path</span></code>メソッドのインターフェイスで使用されます。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスのコンストラクタでは<code class="docutils literal notranslate"><span class="pre">control_x</span></code>、<code class="docutils literal notranslate"><span class="pre">control_y</span></code>、<code class="docutils literal notranslate"><span class="pre">dest_x</span></code>、<code class="docutils literal notranslate"><span class="pre">dest_y</span></code>の各引数の指定が必要になります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">control_x</span></code>と<code class="docutils literal notranslate"><span class="pre">control_y</span></code>はベジェ曲線の2つ目の制御点の位置となります。</p>
 <p>ベジェ曲線の2つ目の制御点の線対称の位置は<code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code>クラスの1つ目の制御点の位置として設定されます。</p>
@@ -154,7 +156,7 @@
 <iframe src="static/path_bezier_3d_continual_basic_usage_2/index.html" width="400" height="420"></iframe>
 </section>
 <section id="id3">
-<h2>相対座標設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>相対座標設定<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>コンストラクタの<code class="docutils literal notranslate"><span class="pre">relative</span></code>のオプション引数はその挙動を変更します。</p>
 <p>例として、もしその引数にTrueを指定した場合座標は相対座標として設定されます。</p>
 <p>デフォルト値はFalseとなっており、この設定では絶対座標として扱われます。</p>
@@ -195,7 +197,7 @@
 <iframe src="static/path_bezier_3d_continual_relative/index.html" width="400" height="420"></iframe>
 </section>
 <section id="pathbezier3dcontinual-api">
-<h2>PathBezier3DContinual クラスのコンストラクタのAPI<a class="headerlink" href="#pathbezier3dcontinual-api" title="Permalink to this headline">¶</a></h2>
+<h2>PathBezier3DContinual クラスのコンストラクタのAPI<a class="headerlink" href="#pathbezier3dcontinual-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">control_x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">control_y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">dest_x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">dest_y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">relative:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -277,8 +279,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">PathBezier3DContinual クラス</a><ul>
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -288,22 +291,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_path_bezier_3d.html"
-                        title="previous chapter">PathBezier3D クラス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_about_handler_options_type.html"
-                        title="next chapter">ハンドラのoptions引数の型について</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_path_bezier_3d.html"
+                          title="previous chapter">PathBezier3D クラス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_about_handler_options_type.html"
+                          title="next chapter">ハンドラのoptions引数の型について</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -326,7 +334,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

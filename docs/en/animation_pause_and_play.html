@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
           <div class="body" role="main">
             
   <section id="animation-pause-and-animation-play-interfaces">
-<h1>animation_pause and animation_play interfaces<a class="headerlink" href="#animation-pause-and-animation-play-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>animation_pause and animation_play interfaces<a class="headerlink" href="#animation-pause-and-animation-play-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_pause</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_play</span></code> method interfaces.</p>
 <section id="what-interface-are-these">
-<h2>What interface are these?<a class="headerlink" href="#what-interface-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interface are these?<a class="headerlink" href="#what-interface-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_pause</span></code> interface pauses all the running animations of the target instance. The <code class="docutils literal notranslate"><span class="pre">animation_play</span></code> interface restarts the paused animation.</p>
 <p>These interfaces exist in the instances that have the animation interfaces (such as the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>).</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The following example starts the x-coordinate animation and stops after 1 second. After stopping the animation and additionally 500 milliseconds passed, restarting the animation:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
@@ -116,7 +118,7 @@
 <iframe src="static/animation_pause_basic_usage/index.html" width="600" height="150"></iframe>
 </section>
 <section id="animation-pause-api">
-<h2>animation_pause API<a class="headerlink" href="#animation-pause-api" title="Permalink to this headline">¶</a></h2>
+<h2>animation_pause API<a class="headerlink" href="#animation-pause-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._animation.animation_pause_mixin.AnimationPauseMixIn.animation_pause -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_pause(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -148,7 +150,7 @@
 </div>
 </section>
 <section id="animation-play-api">
-<h2>animation_play API<a class="headerlink" href="#animation-play-api" title="Permalink to this headline">¶</a></h2>
+<h2>animation_play API<a class="headerlink" href="#animation-play-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._animation.animation_play_mixin.AnimationPlayMixIn.animation_play -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_play(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -195,8 +197,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">animation_pause and animation_play interfaces</a><ul>
 <li><a class="reference internal" href="#what-interface-are-these">What interface are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -206,22 +209,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_base_target.html"
-                        title="previous chapter">AnimationBase class target property interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_reset.html"
-                        title="next chapter">animation_reset interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="animation_base_target.html"
+                          title="previous chapter">AnimationBase class target property interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animation_reset.html"
+                          title="next chapter">animation_reset interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -244,7 +252,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +50,10 @@
           <div class="body" role="main">
             
   <section id="displayobject-class-parent-interfaces">
-<h1>DisplayObject class parent interfaces<a class="headerlink" href="#displayobject-class-parent-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>DisplayObject class parent interfaces<a class="headerlink" href="#displayobject-class-parent-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class <code class="docutils literal notranslate"><span class="pre">parent</span></code> interfaces (the <code class="docutils literal notranslate"><span class="pre">parent</span></code> property and <code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code> method).</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">parent</span></code> attribute is the getter property. This attribute becomes a <code class="docutils literal notranslate"><span class="pre">Stage</span></code> instance or a container instance like a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -71,7 +73,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code> interface removes self-instance from the parent (and not be displayed on the stage).</p>
 </section>
 <section id="basic-usage-of-the-remove-from-parent-interface">
-<h2>Basic usage of the remove_from_parent interface<a class="headerlink" href="#basic-usage-of-the-remove-from-parent-interface" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage of the remove_from_parent interface<a class="headerlink" href="#basic-usage-of-the-remove-from-parent-interface" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code> method interface (no argument options) removes the self-instance from the parent. A Removed instance is not displayed until any parent adds it again.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -93,13 +95,13 @@
 <iframe src="static/display_object_remove_from_parent_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="add_child_and_remove_child.html"><span class="doc std std-doc">add_child and remove_child interfaces</span></a></p></li>
 </ul>
 </section>
 <section id="parent-api">
-<h2>parent API<a class="headerlink" href="#parent-api" title="Permalink to this headline">¶</a></h2>
+<h2>parent API<a class="headerlink" href="#parent-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.parent_mixin.ParentMixIn.parent -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -129,7 +131,7 @@
 </div>
 </section>
 <section id="remove-from-parent-api">
-<h2>remove_from_parent API<a class="headerlink" href="#remove-from-parent-api" title="Permalink to this headline">¶</a></h2>
+<h2>remove_from_parent API<a class="headerlink" href="#remove-from-parent-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.parent_mixin.ParentMixIn.remove_from_parent -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">remove_from_parent(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -152,8 +154,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">DisplayObject class parent interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage-of-the-remove-from-parent-interface">Basic usage of the remove_from_parent interface</a></li>
@@ -164,22 +167,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="display_object_x_and_y.html"
-                        title="previous chapter">DisplayObject x and y interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="display_object_visible.html"
-                        title="next chapter">DisplayObject class visible interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="display_object_x_and_y.html"
+                          title="previous chapter">DisplayObject x and y interfaces</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="display_object_visible.html"
+                          title="next chapter">DisplayObject class visible interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -202,7 +210,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

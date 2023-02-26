@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
           <div class="body" role="main">
             
   <section id="graphics-line-style-interface">
-<h1>Graphics line_style interface<a class="headerlink" href="#graphics-line-style-interface" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics line_style interface<a class="headerlink" href="#graphics-line-style-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_style</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_style</span></code> interface sets each line style, such as the line color, line alpha, line thickness, line dot setting. This interface maintains these settings until it is called again or called the <code class="docutils literal notranslate"><span class="pre">clear</span></code> method (similar to the <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface).</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>Draw vector graphics interfaces (e.g., the <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> or <code class="docutils literal notranslate"><span class="pre">line_to</span></code>) use these line settings when creating. Therefore, calling the <code class="docutils literal notranslate"><span class="pre">line_style</span></code> method is necessary before calling each drawing interface.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -85,7 +87,7 @@
 <iframe src="static/graphics_line_style_basics/index.html" width="200" height="162"></iframe>
 </section>
 <section id="line-color-setting">
-<h2>Line-color setting<a class="headerlink" href="#line-color-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line-color setting<a class="headerlink" href="#line-color-setting" title="Permalink to this heading">¶</a></h2>
 <p>The required <code class="docutils literal notranslate"><span class="pre">color</span></code> argument sets the line color.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -158,7 +160,7 @@
 <iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe>
 </section>
 <section id="line-thickness-setting">
-<h2>Line thickness setting<a class="headerlink" href="#line-thickness-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line thickness setting<a class="headerlink" href="#line-thickness-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">thickness</span></code> argument sets the line thickness. It can accept greater than or equal to 1.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -186,7 +188,7 @@
 <iframe src="static/graphics_line_style_thickness/index.html" width="200" height="165"></iframe>
 </section>
 <section id="line-alpha-opacity-setting">
-<h2>Line alpha (opacity) setting<a class="headerlink" href="#line-alpha-opacity-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line alpha (opacity) setting<a class="headerlink" href="#line-alpha-opacity-setting" title="Permalink to this heading">¶</a></h2>
 <p>A line alpha (opacity) can be set by the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> argument. It can accept 0.0 (transparent) to 1.0 (opaque).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -210,7 +212,7 @@
 <iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-cap-setting">
-<h2>Line cap setting<a class="headerlink" href="#line-cap-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line cap setting<a class="headerlink" href="#line-cap-setting" title="Permalink to this heading">¶</a></h2>
 <p>Line cap setting changes line edge style. The <code class="docutils literal notranslate"><span class="pre">cap</span></code> argument sets this style setting, and <code class="docutils literal notranslate"><span class="pre">LineCaps</span></code> enum values are acceptable.</p>
 <p>There are three <code class="docutils literal notranslate"><span class="pre">LineCaps</span></code> options, as follows:</p>
 <ul class="simple">
@@ -245,7 +247,7 @@
 <iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe>
 </section>
 <section id="line-joints-setting">
-<h2>Line joints setting<a class="headerlink" href="#line-joints-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line joints setting<a class="headerlink" href="#line-joints-setting" title="Permalink to this heading">¶</a></h2>
 <p>Line joints setting changes the line vertices style. The <code class="docutils literal notranslate"><span class="pre">joints</span></code> argument sets this style, and <code class="docutils literal notranslate"><span class="pre">LineJoints</span></code> enum values are acceptable. The <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> class (<code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces) mainly uses this argument.</p>
 <p>There are three LineJoints enum values, as follows:</p>
 <ul class="simple">
@@ -285,7 +287,7 @@
 <iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe>
 </section>
 <section id="line-dot-setting">
-<h2>Line dot setting<a class="headerlink" href="#line-dot-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line dot setting<a class="headerlink" href="#line-dot-setting" title="Permalink to this heading">¶</a></h2>
 <p>Line dot setting changes the line to dotted line. The <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code> argument (<code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code> value) sets this setting. It can change dot size by the <code class="docutils literal notranslate"><span class="pre">dot_size</span></code> argument (greater than or equal to 1 value is acceptable).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -347,7 +349,7 @@
 <p>Notes: This setting will be ignored by <code class="docutils literal notranslate"><span class="pre">draw_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces.</p>
 </section>
 <section id="line-dash-setting">
-<h2>Line dash setting<a class="headerlink" href="#line-dash-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line dash setting<a class="headerlink" href="#line-dash-setting" title="Permalink to this heading">¶</a></h2>
 <p>Line dash setting changes the line to the dashed line. The <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code> argument (<code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code> value) sets this setting. It can change dash size and space size by the <code class="docutils literal notranslate"><span class="pre">dash_size</span></code> and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -382,7 +384,7 @@
 <p>Notes: This setting will be ignored by <code class="docutils literal notranslate"><span class="pre">draw_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces.</p>
 </section>
 <section id="line-round-dot-setting">
-<h2>Line round dot setting<a class="headerlink" href="#line-round-dot-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line round dot setting<a class="headerlink" href="#line-round-dot-setting" title="Permalink to this heading">¶</a></h2>
 <p>Line round dot setting changes the line to the round dotted line. The <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code> argument (<code class="docutils literal notranslate"><span class="pre">LineRoundDotSetting</span></code> value) sets this setting. It can change round size and space size by the <code class="docutils literal notranslate"><span class="pre">round_size</span></code> and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -418,7 +420,7 @@
 <p>Notes: This setting will be ignored by <code class="docutils literal notranslate"><span class="pre">draw_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces.</p>
 </section>
 <section id="line-dash-dot-setting">
-<h2>Line dash-dot setting<a class="headerlink" href="#line-dash-dot-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Line dash-dot setting<a class="headerlink" href="#line-dash-dot-setting" title="Permalink to this heading">¶</a></h2>
 <p>Line dash-dot setting changes the line to the dash-dotted line (also called long dashed short dashed line or one-dot chain line). The <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code> arguments set this setting and it accepts a <code class="docutils literal notranslate"><span class="pre">LineDashDotSetting</span></code> instance. This argument accepts the <code class="docutils literal notranslate"><span class="pre">dot_size</span></code> (short dashed size), <code class="docutils literal notranslate"><span class="pre">dash_size</span></code> (long dashed size), and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -453,7 +455,7 @@
 <p>Notes: This setting will be ignored by <code class="docutils literal notranslate"><span class="pre">draw_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces.</p>
 </section>
 <section id="line-style-api">
-<h2>line_style API<a class="headerlink" href="#line-style-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_style API<a class="headerlink" href="#line-style-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_style -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">line_style(self,</span> <span class="pre">*,</span> <span class="pre">color:</span> <span class="pre">~StrOrString,</span> <span class="pre">thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">cap:</span> <span class="pre">Union[apysc._display.line_caps.LineCaps,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">joints:</span> <span class="pre">Union[apysc._display.line_joints.LineJoints,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dot_setting:</span> <span class="pre">Union[apysc._display.line_dot_setting.LineDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dash_setting:</span> <span class="pre">Union[apysc._display.line_dash_setting.LineDashSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">round_dot_setting:</span> <span class="pre">Union[apysc._display.line_round_dot_setting.LineRoundDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">dash_dot_setting:</span> <span class="pre">Union[apysc._display.line_dash_dot_setting.LineDashDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -533,7 +535,7 @@
 </div>
 </section>
 <section id="line-color-property-api">
-<h2>line_color property API<a class="headerlink" href="#line-color-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_color property API<a class="headerlink" href="#line-color-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_color -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -560,7 +562,7 @@
 </div>
 </section>
 <section id="line-thickness-property-api">
-<h2>line_thickness property API<a class="headerlink" href="#line-thickness-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_thickness property API<a class="headerlink" href="#line-thickness-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_thickness -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -585,7 +587,7 @@
 </div>
 </section>
 <section id="line-alpha-property-api">
-<h2>line_alpha property API<a class="headerlink" href="#line-alpha-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_alpha property API<a class="headerlink" href="#line-alpha-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_alpha -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -612,7 +614,7 @@
 </div>
 </section>
 <section id="line-cap-property-api">
-<h2>line_cap property API<a class="headerlink" href="#line-cap-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_cap property API<a class="headerlink" href="#line-cap-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_cap -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -639,7 +641,7 @@
 </div>
 </section>
 <section id="line-joints-property-api">
-<h2>line_joints property API<a class="headerlink" href="#line-joints-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_joints property API<a class="headerlink" href="#line-joints-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_joints -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -666,7 +668,7 @@
 </div>
 </section>
 <section id="line-dot-setting-property-api">
-<h2>line_dot_setting property API<a class="headerlink" href="#line-dot-setting-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_dot_setting property API<a class="headerlink" href="#line-dot-setting-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_dot_setting -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -693,7 +695,7 @@
 </div>
 </section>
 <section id="line-dash-setting-property-api">
-<h2>line_dash_setting property API<a class="headerlink" href="#line-dash-setting-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_dash_setting property API<a class="headerlink" href="#line-dash-setting-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_dash_setting -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -725,7 +727,7 @@
 </div>
 </section>
 <section id="line-round-dot-setting-property-api">
-<h2>line_round_dot_setting property API<a class="headerlink" href="#line-round-dot-setting-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_round_dot_setting property API<a class="headerlink" href="#line-round-dot-setting-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_round_dot_setting -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -757,7 +759,7 @@
 </div>
 </section>
 <section id="line-dash-dot-setting-property-api">
-<h2>line_dash_dot_setting property API<a class="headerlink" href="#line-dash-dot-setting-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_dash_dot_setting property API<a class="headerlink" href="#line-dash-dot-setting-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.line_style_mixin.LineStyleMixIn.line_dash_dot_setting -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -805,8 +807,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics line_style interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -833,22 +836,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_begin_fill.html"
-                        title="previous chapter">Graphics begin_fill interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_draw_triangle.html"
-                        title="next chapter">Graphics draw_triangle interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="graphics_begin_fill.html"
+                          title="previous chapter">Graphics begin_fill interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="graphics_draw_triangle.html"
+                          title="next chapter">Graphics draw_triangle interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -871,7 +879,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

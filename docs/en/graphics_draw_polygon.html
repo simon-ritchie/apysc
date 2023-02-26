@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
           <div class="body" role="main">
             
   <section id="graphics-draw-polygon-interface">
-<h1>Graphics draw_polygon interface<a class="headerlink" href="#graphics-draw-polygon-interface" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics draw_polygon interface<a class="headerlink" href="#graphics-draw-polygon-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface draws vector polygon graphics. This interface works slightly similar to the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> and <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interfaces, but the paths do not need to be closed.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface has the <code class="docutils literal notranslate"><span class="pre">points</span></code> argument, which determines the polygon vertices coordinates.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -96,7 +98,7 @@
 <iframe src="static/graphics_draw_polygon_basic_usage/index.html" width="250" height="150"></iframe>
 </section>
 <section id="difference-between-the-line-to-and-draw-polygon-interfaces">
-<h2>Difference between the line_to and draw_polygon interfaces<a class="headerlink" href="#difference-between-the-line-to-and-draw-polygon-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2>Difference between the line_to and draw_polygon interfaces<a class="headerlink" href="#difference-between-the-line-to-and-draw-polygon-interfaces" title="Permalink to this heading">¶</a></h2>
 <p>If you set the fill color, the <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface becomes slightly similar to the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> (and <code class="docutils literal notranslate"><span class="pre">move_to</span></code>) interfaces. So, for example, the following codes both draw the triangle.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface draws the left triangle. Similarly, the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces draw the right one.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -165,7 +167,7 @@
 <iframe src="static/graphics_draw_polygon_line_to_difference_2/index.html" width="250" height="150"></iframe>
 </section>
 <section id="return-value">
-<h2>Return value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<h2>Return value<a class="headerlink" href="#return-value" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface returns the <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> instance. And that has the basic interface as same as the other type graphics instances. The <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> instance also has the <code class="docutils literal notranslate"><span class="pre">append_line_point</span></code> method interface to append points dynamically.</p>
 <p>For instance, the following code appends the point and changes from the triangle to the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -198,7 +200,7 @@
 <iframe src="static/graphics_draw_polygon_append_line_point/index.html" width="150" height="150"></iframe>
 </section>
 <section id="draw-polygon-api">
-<h2>draw_polygon API<a class="headerlink" href="#draw-polygon-api" title="Permalink to this headline">¶</a></h2>
+<h2>draw_polygon API<a class="headerlink" href="#draw-polygon-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.graphics.Graphics.draw_polygon -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_polygon(self,</span> <span class="pre">*,</span> <span class="pre">points:</span> <span class="pre">Union[List[apysc._geom.point2d.Point2D],</span> <span class="pre">apysc._type.array.Array[apysc._geom.point2d.Point2D]],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_polyg.Polygon'</span></code><hr></p>
@@ -256,8 +258,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics draw_polygon interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -268,22 +271,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_draw_dash_dotted_line.html"
-                        title="previous chapter">Graphics draw_dash_dotted_line interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_draw_path.html"
-                        title="next chapter">Graphics draw_path interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="graphics_draw_dash_dotted_line.html"
+                          title="previous chapter">Graphics draw_dash_dotted_line interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="graphics_draw_path.html"
+                          title="next chapter">Graphics draw_path interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -306,7 +314,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

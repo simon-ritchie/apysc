@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,19 +50,19 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/set_debug_mode.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="set-debug-mode">
-<h1>set_debug_mode インターフェイス<a class="headerlink" href="#set-debug-mode" title="Permalink to this headline">¶</a></h1>
+<h1>set_debug_mode インターフェイス<a class="headerlink" href="#set-debug-mode" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code>関数のインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code>関数のインターフェイスはデバッグモードの設定を有効化します。この設定はデバッグ用の情報（Python上の関数やメソッドの呼び出しと引数情報など）を出力されるHTML上に追加します。</p>
 </section>
 <section id="id2">
-<h2>特記事項<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>特記事項<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>デバッグモードの設定は多くの情報をHTML上に追加します。結果として出力時間は長くなり、ファイルサイズも大きくなります。</p>
 <p>また、この設定は<code class="docutils literal notranslate"><span class="pre">minify</span></code>（HTML最小化）の設定も無視します。</p>
 </section>
 <section id="id3">
-<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>ステージのインスタンス後であれば<code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code>関数を使ってデバッグモードを設定ずることができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -133,13 +135,13 @@
 </div>
 </section>
 <section id="id4">
-<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_unset_debug_mode.html"><span class="doc std std-doc">unset_debug_mode インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="set-debug-mode-api">
-<h2>set_debug_mode API<a class="headerlink" href="#set-debug-mode-api" title="Permalink to this headline">¶</a></h2>
+<h2>set_debug_mode API<a class="headerlink" href="#set-debug-mode-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_debug_mode()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -164,8 +166,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">set_debug_mode インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">特記事項</a></li>
@@ -176,22 +179,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_trace.html"
-                        title="previous chapter">trace インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_unset_debug_mode.html"
-                        title="next chapter">unset_debug_mode インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_trace.html"
+                          title="previous chapter">trace インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_unset_debug_mode.html"
+                          title="next chapter">unset_debug_mode インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -214,7 +222,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

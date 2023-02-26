@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/graphics_base_line_thickness.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="graphicsbase-line-thickness">
-<h1>GraphicsBase クラスの line_thickness インターフェイス<a class="headerlink" href="#graphicsbase-line-thickness" title="Permalink to this headline">¶</a></h1>
+<h1>GraphicsBase クラスの line_thickness インターフェイス<a class="headerlink" href="#graphicsbase-line-thickness" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>属性のインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>属性のインターフェイスではインスタンスの線幅の値の更新や取得が行えます。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>getterもしくはsetterの各インターフェイスの値は<code class="docutils literal notranslate"><span class="pre">Int</span></code>型の値になります。</p>
 <p>以下のコード例では1つ目の四角に5pxの線幅を設定しており、2つ目の四角には10pxの線幅を設定しています:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -79,7 +81,7 @@
 <iframe src="static/graphics_base_line_thickness_basic_usage/index.html" width="250" height="150"></iframe>
 </section>
 <section id="line-thickness-api">
-<h2>line_thickness 属性のAPI<a class="headerlink" href="#line-thickness-api" title="Permalink to this headline">¶</a></h2>
+<h2>line_thickness 属性のAPI<a class="headerlink" href="#line-thickness-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>このインスタンスの線幅を取得します。<hr></p>
@@ -117,8 +119,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">GraphicsBase クラスの line_thickness インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -127,22 +130,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_graphics_base_line_alpha.html"
-                        title="previous chapter">GraphicsBase クラスの line_alpha インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_graphics_base_line_dot_setting.html"
-                        title="next chapter">GraphicsBase クラスの line_dot_setting インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_graphics_base_line_alpha.html"
+                          title="previous chapter">GraphicsBase クラスの line_alpha インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_graphics_base_line_dot_setting.html"
+                          title="next chapter">GraphicsBase クラスの line_dot_setting インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -165,7 +173,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

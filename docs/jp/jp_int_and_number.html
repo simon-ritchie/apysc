@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/int_and_number.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="int-number">
-<h1>Int と Number クラス<a class="headerlink" href="#int-number" title="Permalink to this headline">¶</a></h1>
+<h1>Int と Number クラス<a class="headerlink" href="#int-number" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Int</span></code>と<code class="docutils literal notranslate"><span class="pre">Number</span></code>の各クラスについて説明します。</p>
 <p>事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
 </ul>
 <section id="int">
-<h2>Int クラス<a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h2>
+<h2>Int クラス<a class="headerlink" href="#int" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Int</span></code>クラスはapyscの整数の型となります。このクラスは以下のコード例のようにコンストラクタに数値の値を受け付けます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -90,7 +92,7 @@
 </div>
 </section>
 <section id="number">
-<h2>Number クラス<a class="headerlink" href="#number" title="Permalink to this headline">¶</a></h2>
+<h2>Number クラス<a class="headerlink" href="#number" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスはapyscの浮動小数点数の型です。このクラスは<code class="docutils literal notranslate"><span class="pre">Int</span></code>クラスと同様にコンストラクタの引数に数値を受け付けます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -105,7 +107,7 @@
 </div>
 </section>
 <section id="float">
-<h2>Floatクラスのエイリアスの特記事項<a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h2>
+<h2>Floatクラスのエイリアスの特記事項<a class="headerlink" href="#float" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Float</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスのエイリアス。です。このエイリアスは<code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスと同様に動作します。Python開発者の方はもしかしたら<code class="docutils literal notranslate"><span class="pre">Number</span></code>クラスよりもこちらのエイリアスの方が慣れ親しんでいて自然に感じられるかもしれません。一方でJavaScriptなどの開発者の方は<code class="docutils literal notranslate"><span class="pre">Float</span></code>よりも<code class="docutils literal notranslate"><span class="pre">Number</span></code>の方が自然に思えるかもしれません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -116,7 +118,7 @@
 </div>
 </section>
 <section id="id1">
-<h2>Int と Number クラスの基本的なインターフェイス<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Int と Number クラスの基本的なインターフェイス<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Int</span></code>と<code class="docutils literal notranslate"><span class="pre">Number</span></code>の各クラスは同じ各インターフェイスを持っています。詳細に関しては以下をご確認ください:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_int_and_number_arithmetic_operations.html"><span class="doc std std-doc">Int と Number クラスの基本的な各計算の制御</span></a></p></li>
@@ -125,7 +127,7 @@
 </ul>
 </section>
 <section id="int-api">
-<h2>Int クラスのコンストラクタのAPI<a class="headerlink" href="#int-api" title="Permalink to this headline">¶</a></h2>
+<h2>Int クラスのコンストラクタのAPI<a class="headerlink" href="#int-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_mixin.NumberValueMixIn],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -181,7 +183,7 @@
 </ul>
 </section>
 <section id="number-api">
-<h2>Number クラスのコンストラクタのAPI<a class="headerlink" href="#number-api" title="Permalink to this headline">¶</a></h2>
+<h2>Number クラスのコンストラクタのAPI<a class="headerlink" href="#number-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_mixin.NumberValueMixIn],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -235,7 +237,7 @@
 </ul>
 </section>
 <section id="value-api">
-<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this headline">¶</a></h2>
+<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の数値を取得します。<hr></p>
@@ -281,8 +283,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Int と Number クラス</a><ul>
 <li><a class="reference internal" href="#int">Int クラス</a></li>
 <li><a class="reference internal" href="#number">Number クラス</a></li>
@@ -295,22 +298,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_fundamental_data_classes_value_interface.html"
-                        title="previous chapter">apysc の基本的なデータ型の value インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_int_and_number_arithmetic_operations.html"
-                        title="next chapter">Int と Number クラスの基本的な計算制御</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_fundamental_data_classes_value_interface.html"
+                          title="previous chapter">apysc の基本的なデータ型の value インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_int_and_number_arithmetic_operations.html"
+                          title="next chapter">Int と Number クラスの基本的な計算制御</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -333,7 +341,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

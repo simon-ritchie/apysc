@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/boolean.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="boolean">
-<h1>Boolean クラス<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h1>
+<h1>Boolean クラス<a class="headerlink" href="#boolean" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスについて説明します。</p>
 <p>事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
 </ul>
 <section id="id1">
-<h2>Boolean クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Boolean クラスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスはapyscの真偽値のクラスです。コンストラクタの引数には以下のコード例のように<code class="docutils literal notranslate"><span class="pre">bool</span></code>や<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値を受け付けます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -72,7 +74,7 @@
 </div>
 </section>
 <section id="bool">
-<h2>Boolクラスのエイリアスの特記事項<a class="headerlink" href="#bool" title="Permalink to this headline">¶</a></h2>
+<h2>Boolクラスのエイリアスの特記事項<a class="headerlink" href="#bool" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Bool</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスのエイリアスとなります。<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスと同じ挙動をします。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -83,7 +85,7 @@
 </div>
 </section>
 <section id="id2">
-<h2>Boolean クラスの比較制御<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>Boolean クラスの比較制御<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>クラスの比較のインターフェイスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">bool</span></code>クラスの値のように動作します。</p>
 <p>等値の比較のオペレーター（<code class="docutils literal notranslate"><span class="pre">==</span></code>）を使って<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値と比較することができ、以下のコード例のように<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>や<code class="docutils literal notranslate"><span class="pre">bool</span></code>、<code class="docutils literal notranslate"><span class="pre">int</span></code>、<code class="docutils literal notranslate"><span class="pre">Int</span></code>などの型との比較を行うことができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -120,7 +122,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>Boolean の値を反転させる<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>Boolean の値を反転させる<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">not_</span></code>属性は値が反転した<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値を返却します:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -135,7 +137,7 @@
 </div>
 </section>
 <section id="boolean-api">
-<h2>Boolean クラスのコンストラクタのAPI<a class="headerlink" href="#boolean-api" title="Permalink to this headline">¶</a></h2>
+<h2>Boolean クラスのコンストラクタのAPI<a class="headerlink" href="#boolean-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[bool,</span> <span class="pre">typing_extensions.Literal[0,</span> <span class="pre">1],</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">ForwardRef('Boolean')],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -174,7 +176,7 @@
 </div>
 </section>
 <section id="value-api">
-<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this headline">¶</a></h2>
+<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の真偽値の値を取得します。<hr></p>
@@ -206,7 +208,7 @@
 </ul>
 </section>
 <section id="not-api">
-<h2>not_ 属性のAPI<a class="headerlink" href="#not-api" title="Permalink to this headline">¶</a></h2>
+<h2>not_ 属性のAPI<a class="headerlink" href="#not-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>否定条件を加えた真偽値の値を取得します。<hr></p>
@@ -243,8 +245,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Boolean クラス</a><ul>
 <li><a class="reference internal" href="#id1">Boolean クラスの概要</a></li>
 <li><a class="reference internal" href="#bool">Boolクラスのエイリアスの特記事項</a></li>
@@ -257,22 +260,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_string_addition_and_multiplication.html"
-                        title="previous chapter">String クラスの加算と乗算の各オペレーション</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_array.html"
-                        title="next chapter">Array クラス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_string_addition_and_multiplication.html"
+                          title="previous chapter">String クラスの加算と乗算の各オペレーション</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_array.html"
+                          title="next chapter">Array クラス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -295,7 +303,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

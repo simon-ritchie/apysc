@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/graphics.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="graphics">
-<h1>Graphics クラス<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics クラス<a class="headerlink" href="#graphics" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスについて説明します。</p>
 <section id="id1">
-<h2>Graphics クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Graphics クラスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスは各ベクターグラフィックスの描画のインターフェイスを扱うクラスです。このインターフェイスには四角の描画や線の描画など様々なインターフェイスが存在します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">Sprite</span></code>クラスなどのインスタンスはこの<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスのインスタンスを内部で生成します。</p>
 </section>
 <section id="sprite">
-<h2>Sprite のインスタンスを経由した各インターフェイスの呼び出し<a class="headerlink" href="#sprite" title="Permalink to this headline">¶</a></h2>
+<h2>Sprite のインスタンスを経由した各インターフェイスの呼び出し<a class="headerlink" href="#sprite" title="Permalink to this heading">¶</a></h2>
 <p>Sprite のインスタンスは<code class="docutils literal notranslate"><span class="pre">graphics</span></code>属性を持っており、その属性を使用して各描画のインターフェイスを呼び出すことができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -91,7 +93,7 @@
 <iframe src="static/graphics_call_interfaces_from_sprite_instance/index.html" width="250" height="180"></iframe>
 </section>
 <section id="id2">
-<h2>各返却値について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>各返却値について<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>各インターフェイスは<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>や<code class="docutils literal notranslate"><span class="pre">Polyline</span></code>クラスなどの生成されたグラフィックスのインスタンスを返却します。これらのインスタンスはxやy、fill_alpha、visibleなどの基本的な<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスの各属性やメソッドなどを持っています。</p>
 <p>例えば以下のコード例のようにこれらのインスタンスに対してイベントを設定して座標の更新処理などを設定することができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -138,7 +140,7 @@
 <iframe src="static/graphics_return_values/index.html" width="200" height="200"></iframe>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_graphics_begin_fill.html"><span class="doc std std-doc">Graphics クラスの begin_fill (塗りの設定)のインターフェイス</span></a></p></li>
 <li><p><a class="reference internal" href="jp_graphics_line_style.html"><span class="doc std std-doc">Graphics クラスの line_style (線のスタイル設定)のインターフェイス</span></a></p></li>
@@ -167,8 +169,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics クラス</a><ul>
 <li><a class="reference internal" href="#id1">Graphics クラスの概要</a></li>
 <li><a class="reference internal" href="#sprite">Sprite のインスタンスを経由した各インターフェイスの呼び出し</a></li>
@@ -178,22 +181,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_draw_interfaces_abstract.html"
-                        title="previous chapter">描画の各インターフェイスの概要</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_graphics_begin_fill.html"
-                        title="next chapter">Graphics クラスの begin_fill インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_draw_interfaces_abstract.html"
+                          title="previous chapter">描画の各インターフェイスの概要</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_graphics_begin_fill.html"
+                          title="next chapter">Graphics クラスの begin_fill インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -216,7 +224,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

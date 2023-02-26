@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
           <div class="body" role="main">
             
   <section id="animation-parallel-interface">
-<h1>animation_parallel interface<a class="headerlink" href="#animation-parallel-interface" title="Permalink to this headline">¶</a></h1>
+<h1>animation_parallel interface<a class="headerlink" href="#animation-parallel-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code> instance. You can set multiple simultaneous animations to the same instance with it.</p>
 <p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> subclass instance, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>You can use this interface with the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method. The <code class="docutils literal notranslate"><span class="pre">animations</span></code> list argument does not require any animation settings.</p>
 <p>The following example sets the simultaneous animations of the x, fill alpha, fill color, and line thickness.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -88,7 +90,7 @@
 <iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe>
 </section>
 <section id="note-for-each-animation-s-duration-delay-and-easing-setting">
-<h2>Note for each animation’s duration, delay, and easing setting<a class="headerlink" href="#note-for-each-animation-s-duration-delay-and-easing-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Note for each animation’s duration, delay, and easing setting<a class="headerlink" href="#note-for-each-animation-s-duration-delay-and-easing-setting" title="Permalink to this heading">¶</a></h2>
 <p>Animation settings of the <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">delay</span></code>, and <code class="docutils literal notranslate"><span class="pre">easing</span></code> in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument can’t be changed since these animation settings are referring to the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> arguments. If you set these parameters in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> arguments, setting raise an error:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_parallel</span><span class="p">(</span>
@@ -109,7 +111,7 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </div>
 </section>
 <section id="animation-parallel-api">
-<h2>animation_parallel API<a class="headerlink" href="#animation-parallel-api" title="Permalink to this headline">¶</a></h2>
+<h2>animation_parallel API<a class="headerlink" href="#animation-parallel-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._animation.animation_parallel_mixin.AnimationParallelMixIn.animation_parallel -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_parallel(self,</span> <span class="pre">*,</span> <span class="pre">animations:</span> <span class="pre">List[apysc._animation.animation_base.AnimationBase],</span> <span class="pre">duration:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">3000,</span> <span class="pre">delay:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">easing:</span> <span class="pre">apysc._animation.easing.Easing</span> <span class="pre">=</span> <span class="pre">&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_parallel.AnimationParallel</span></code><hr></p>
@@ -196,8 +198,9 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">animation_parallel interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -207,22 +210,27 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="sequential_animation.html"
-                        title="previous chapter">Sequential animation setting</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_move.html"
-                        title="next chapter">animation_move interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="sequential_animation.html"
+                          title="previous chapter">Sequential animation setting</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animation_move.html"
+                          title="next chapter">animation_move interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -245,7 +253,7 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

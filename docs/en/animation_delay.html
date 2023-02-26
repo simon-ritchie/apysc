@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
           <div class="body" role="main">
             
   <section id="animation-interfaces-delay-setting">
-<h1>Animation interfaces delay setting<a class="headerlink" href="#animation-interfaces-delay-setting" title="Permalink to this headline">¶</a></h1>
+<h1>Animation interfaces delay setting<a class="headerlink" href="#animation-interfaces-delay-setting" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the animation interfaces <code class="docutils literal notranslate"><span class="pre">delay</span></code> setting.</p>
 <section id="what-setting-is-this">
-<h2>What setting is this?<a class="headerlink" href="#what-setting-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What setting is this?<a class="headerlink" href="#what-setting-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">delay</span></code> setting determines the delay time before the animation starts. For instance, if you specify 3000 to the <code class="docutils literal notranslate"><span class="pre">delay</span></code> argument, the animation starts after 3 seconds after.</p>
 <p>Each animation method interface (such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, and so on) has the <code class="docutils literal notranslate"><span class="pre">delay</span></code> argument.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The following example sets 2 seconds between each x-coordinate animation (pause 2 seconds before animation starts):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -133,8 +135,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Animation interfaces delay setting</a><ul>
 <li><a class="reference internal" href="#what-setting-is-this">What setting is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -142,22 +145,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_duration.html"
-                        title="previous chapter">Animation interfaces duration setting</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_return_value.html"
-                        title="next chapter">Each animation interface return value</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="animation_duration.html"
+                          title="previous chapter">Animation interfaces duration setting</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animation_return_value.html"
+                          title="next chapter">Each animation interface return value</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -180,7 +188,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

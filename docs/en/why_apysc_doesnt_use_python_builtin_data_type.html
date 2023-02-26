@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +50,10 @@
           <div class="body" role="main">
             
   <section id="why-the-apysc-library-doesn-t-use-the-python-built-in-data-type">
-<h1>Why the apysc library doesn’t use the Python built-in data type<a class="headerlink" href="#why-the-apysc-library-doesn-t-use-the-python-built-in-data-type" title="Permalink to this headline">¶</a></h1>
+<h1>Why the apysc library doesn’t use the Python built-in data type<a class="headerlink" href="#why-the-apysc-library-doesn-t-use-the-python-built-in-data-type" title="Permalink to this heading">¶</a></h1>
 <p>This page explains why the apysc library doesn’t use the Python built-in data type, such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>. And why the apysc library uses the apysc data type like the <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">Array</span></code> instead.</p>
 <section id="apysc-needs-to-convert-python-to-javascript-and-track-variables-change">
-<h2>apysc needs to convert Python to JavaScript and track variables change<a class="headerlink" href="#apysc-needs-to-convert-python-to-javascript-and-track-variables-change" title="Permalink to this headline">¶</a></h2>
+<h2>apysc needs to convert Python to JavaScript and track variables change<a class="headerlink" href="#apysc-needs-to-convert-python-to-javascript-and-track-variables-change" title="Permalink to this heading">¶</a></h2>
 <p>The apysc library needs to track variable creation and update to convert the Python code to JavaScript. For this reason, apysc using the original data types, such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code> (<code class="docutils literal notranslate"><span class="pre">Float</span></code>), <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">Array</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
 <p>Occasionally, these are unnecessary to create HTML. Still, these types become essential when you use the asynchronous function, such as the event handler.</p>
 <p>The apysc library automatically sets each variable’s names and uses them when exporting the HTML and JavaScript files. It also tracks variables creation and updating and applies them to the exported JavaScript.</p>
@@ -69,30 +71,36 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Why the apysc library doesn’t use the Python built-in data type</a><ul>
 <li><a class="reference internal" href="#apysc-needs-to-convert-python-to-javascript-and-track-variables-change">apysc needs to convert Python to JavaScript and track variables change</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="get_child_at.html"
-                        title="previous chapter">get_child_at interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="fundamental_data_classes_value_interface.html"
-                        title="next chapter">apysc fundamental data classes value interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="get_child_at.html"
+                          title="previous chapter">get_child_at interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="fundamental_data_classes_value_interface.html"
+                          title="next chapter">apysc fundamental data classes value interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -115,7 +123,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

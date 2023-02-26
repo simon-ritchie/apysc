@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
           <div class="body" role="main">
             
   <section id="get-child-at-interface">
-<h1>get_child_at interface<a class="headerlink" href="#get-child-at-interface" title="Permalink to this headline">¶</a></h1>
+<h1>get_child_at interface<a class="headerlink" href="#get-child-at-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>, <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Stage</span></code>) <code class="docutils literal notranslate"><span class="pre">get_child_at</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_child_at</span></code> interface returns a child (<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>) instance at the specified index.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The following code example is adding the rectangle to the sprite container. The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class adds the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> instance at the constructor so that the first child becomes the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> instance. The second child becomes the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> instance, which the sprite added with the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> method.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -78,7 +80,7 @@
 </div>
 </section>
 <section id="get-child-at-api">
-<h2>get_child_at API<a class="headerlink" href="#get-child-at-api" title="Permalink to this headline">¶</a></h2>
+<h2>get_child_at API<a class="headerlink" href="#get-child-at-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.child_mixin.ChildMixIn.get_child_at -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_child_at(self,</span> <span class="pre">index:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.display_object.DisplayObject</span></code><hr></p>
@@ -131,8 +133,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">get_child_at interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -141,22 +144,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="num_children.html"
-                        title="previous chapter">num_children interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="why_apysc_doesnt_use_python_builtin_data_type.html"
-                        title="next chapter">Why the apysc library doesn’t use the Python built-in data type</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="num_children.html"
+                          title="previous chapter">num_children interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="why_apysc_doesnt_use_python_builtin_data_type.html"
+                          title="next chapter">Why the apysc library doesn’t use the Python built-in data type</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -179,7 +187,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

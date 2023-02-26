@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
           <div class="body" role="main">
             
   <section id="each-animation-interface-return-value">
-<h1>Each animation interface return value<a class="headerlink" href="#each-animation-interface-return-value" title="Permalink to this headline">¶</a></h1>
+<h1>Each animation interface return value<a class="headerlink" href="#each-animation-interface-return-value" title="Permalink to this heading">¶</a></h1>
 <p>This page explains each animation interface, such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, return value (<code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> instance).</p>
 <section id="each-interface-returns-the-subclass-instance-of-the-animationbase">
-<h2>Each interface returns the subclass instance of the AnimationBase<a class="headerlink" href="#each-interface-returns-the-subclass-instance-of-the-animationbase" title="Permalink to this headline">¶</a></h2>
+<h2>Each interface returns the subclass instance of the AnimationBase<a class="headerlink" href="#each-interface-returns-the-subclass-instance-of-the-animationbase" title="Permalink to this heading">¶</a></h2>
 <p>Each animation interface returns the subclass instance of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>. So, for example, the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code> interface returns the <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code> instance, and the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> interface  returns the <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class has the standard animation interfaces, such as the <code class="docutils literal notranslate"><span class="pre">start</span></code> (method to start animation), <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> (method to bind the animation completion event), <code class="docutils literal notranslate"><span class="pre">target</span></code> (property of the animation target).</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>Each return value class is in the apysc package (e.g., <code class="docutils literal notranslate"><span class="pre">ap.AnimationMove</span></code>). Therefore, you can set the type annotation with it.</p>
 <p>The following code example uses the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface. And You get an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance to start and bind the animation completion event with it.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -125,8 +127,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Each animation interface return value</a><ul>
 <li><a class="reference internal" href="#each-interface-returns-the-subclass-instance-of-the-animationbase">Each interface returns the subclass instance of the AnimationBase</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -134,22 +137,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_delay.html"
-                        title="previous chapter">Animation interfaces delay setting</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_base_start.html"
-                        title="next chapter">AnimationBase class start interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="animation_delay.html"
+                          title="previous chapter">Animation interfaces delay setting</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animation_base_start.html"
+                          title="next chapter">AnimationBase class start interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -172,7 +180,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

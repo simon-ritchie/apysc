@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,22 +50,22 @@
           <div class="body" role="main">
             
   <section id="click-interface">
-<h1>click interface<a class="headerlink" href="#click-interface" title="Permalink to this headline">¶</a></h1>
+<h1>click interface<a class="headerlink" href="#click-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">click</span></code> interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">click</span></code> interface binds the click event to any <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and so on). These interfaces call the registered handler function if you mouse down on that instance and mouse up.</p>
 <p>Conversely, the <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> interface unbinds the click event from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <p>The following page describes basic mouse event interfaces.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc std std-doc">Basic mouse event interfaces</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage-of-the-click-interface">
-<h2>Basic usage of the click interface<a class="headerlink" href="#basic-usage-of-the-click-interface" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage of the click interface<a class="headerlink" href="#basic-usage-of-the-click-interface" title="Permalink to this heading">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">click</span></code> method, and you can bind handlers by that.</p>
 <p>The following example binds the click event handler to the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -102,7 +104,7 @@
 <iframe src="static/click_basic_usage_of_the_click_interface/index.html" width="150" height="150"></iframe>
 </section>
 <section id="basic-usage-of-the-unbind-click-interface">
-<h2>Basic usage of the unbind_click interface<a class="headerlink" href="#basic-usage-of-the-unbind-click-interface" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage of the unbind_click interface<a class="headerlink" href="#basic-usage-of-the-unbind-click-interface" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> interface can remove the binded click event from a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 <p>The following example removes the click event by the <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> method, and nothing happens if you click the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -141,7 +143,7 @@
 <iframe src="static/click_basic_usage_of_the_unbind_click_interface/index.html" width="150" height="150"></iframe>
 </section>
 <section id="unbind-all-the-click-event-handlers">
-<h2>Unbind all the click event handlers<a class="headerlink" href="#unbind-all-the-click-event-handlers" title="Permalink to this headline">¶</a></h2>
+<h2>Unbind all the click event handlers<a class="headerlink" href="#unbind-all-the-click-event-handlers" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> interface can unbind all the click event handlers from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 <p>The following example removes all the click events by the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method (if you click the rectangle, nothing happens).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -180,7 +182,7 @@
 <iframe src="static/click_unbind_all_the_click_event_handlers/index.html" width="150" height="150"></iframe>
 </section>
 <section id="click-api">
-<h2>click API<a class="headerlink" href="#click-api" title="Permalink to this headline">¶</a></h2>
+<h2>click API<a class="headerlink" href="#click-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.click_mixin.ClickMixIn.click -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">click(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
@@ -230,7 +232,7 @@
 </ul>
 </section>
 <section id="unbind-click-api">
-<h2>unbind_click API<a class="headerlink" href="#unbind-click-api" title="Permalink to this headline">¶</a></h2>
+<h2>unbind_click API<a class="headerlink" href="#unbind-click-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.click_mixin.ClickMixIn.unbind_click -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_click(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -262,7 +264,7 @@
 </div>
 </section>
 <section id="unbind-click-all-api">
-<h2>unbind_click_all API<a class="headerlink" href="#unbind-click-all-api" title="Permalink to this headline">¶</a></h2>
+<h2>unbind_click_all API<a class="headerlink" href="#unbind-click-all-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.click_mixin.ClickMixIn.unbind_click_all -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_click_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -296,8 +298,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">click interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
@@ -311,22 +314,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="mouse_event_basic.html"
-                        title="previous chapter">Basic mouse event interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="dblclick.html"
-                        title="next chapter">dblclick interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="mouse_event_basic.html"
+                          title="previous chapter">Basic mouse event interfaces</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="dblclick.html"
+                          title="next chapter">dblclick interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -349,7 +357,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

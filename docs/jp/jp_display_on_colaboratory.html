@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,21 +50,21 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/display_on_colaboratory.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="display-on-colaboratory">
-<h1>display_on_colaboratory インターフェイス<a class="headerlink" href="#display-on-colaboratory" title="Permalink to this headline">¶</a></h1>
+<h1>display_on_colaboratory インターフェイス<a class="headerlink" href="#display-on-colaboratory" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code>関数のインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code>インターフェイスはapyscのHTMLをGoogle Colaboratory上で表示します。</p>
 </section>
 <section id="id2">
-<h2>必要とされるインストールなどの対応<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>必要とされるインストールなどの対応<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>利用するには事前にGoogle Colaboratory上でapyscをインストールする必要があります。<code class="docutils literal notranslate"><span class="pre">!</span></code>の記号とpip五万度でGoogle Colaboratory上にこのライブラリをインストールすることができます。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install apysc
 </pre></div>
 </div>
 </section>
 <section id="id3">
-<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code>関数の代わりに<code class="docutils literal notranslate"><span class="pre">display_on_colaboratory</span></code>関数のインターフェイスを使うことで出力結果のHTMLを表示することができます。</p>
 <p>このインターフェイスは複数の出力出力ファイルをユニークにするための<code class="docutils literal notranslate"><span class="pre">html_file_name</span></code>引数によるファイル名の指定が必要になります。ユニークに設定しないとHTMLファイルが上書きされてしまいます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -81,7 +83,7 @@
 <p><img alt="" src="images/colaboratory_interface.png" /></p>
 </section>
 <section id="display-on-colaboratory-api">
-<h2>display_on_colaboratory API<a class="headerlink" href="#display-on-colaboratory-api" title="Permalink to this headline">¶</a></h2>
+<h2>display_on_colaboratory API<a class="headerlink" href="#display-on-colaboratory-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">display_on_colaboratory(html_file_name:</span> <span class="pre">str,</span> <span class="pre">*,</span> <span class="pre">minify:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -112,8 +114,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">display_on_colaboratory インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">必要とされるインストールなどの対応</a></li>
@@ -123,22 +126,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_display_on_jupyter.html"
-                        title="previous chapter">display_on_jupyter インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_append_js_expression.html"
-                        title="next chapter">append_js_expression インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_display_on_jupyter.html"
+                          title="previous chapter">display_on_jupyter インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_append_js_expression.html"
+                          title="next chapter">append_js_expression インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -161,7 +169,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

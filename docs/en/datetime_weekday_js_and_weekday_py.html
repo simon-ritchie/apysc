@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,16 +50,16 @@
           <div class="body" role="main">
             
   <section id="datetime-class-weekday-js-and-weekday-py-properties">
-<h1>DateTime class weekday_js and weekday_py properties<a class="headerlink" href="#datetime-class-weekday-js-and-weekday-py-properties" title="Permalink to this headline">¶</a></h1>
+<h1>DateTime class weekday_js and weekday_py properties<a class="headerlink" href="#datetime-class-weekday-js-and-weekday-py-properties" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> class’s <code class="docutils literal notranslate"><span class="pre">weekday_js</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday_py</span></code> properties interfaces.</p>
 <section id="what-interface-are-these">
-<h2>What interface are these?<a class="headerlink" href="#what-interface-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interface are these?<a class="headerlink" href="#what-interface-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">weekday_js</span></code> property gets a JavaScript weekday value (Sunday is 0, and Saturday is 6).</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">weekday_py</span></code> property gets a Python weekday value (Monday is 0, and Sunday is 6).</p>
 <p>These interfaces have only the getter interface (there is no setter interface).</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> instance has these properties interfaces.</p>
 <p>These getter interfaces return a weekday’s <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -74,7 +76,7 @@
 </div>
 </section>
 <section id="weekday-js-property-api">
-<h2>weekday_js property API<a class="headerlink" href="#weekday-js-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>weekday_js property API<a class="headerlink" href="#weekday-js-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._time.datetime_.DateTime.weekday_js -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -101,7 +103,7 @@
 </div>
 </section>
 <section id="weekday-py-property-api">
-<h2>weekday_py property API<a class="headerlink" href="#weekday-py-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>weekday_py property API<a class="headerlink" href="#weekday-py-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._time.datetime_.DateTime.weekday_py -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -139,8 +141,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">DateTime class weekday_js and weekday_py properties</a><ul>
 <li><a class="reference internal" href="#what-interface-are-these">What interface are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -150,22 +153,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="datetime_millisecond.html"
-                        title="previous chapter">DateTime class millisecond property</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="datetime_now.html"
-                        title="next chapter">DateTime class now interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="datetime_millisecond.html"
+                          title="previous chapter">DateTime class millisecond property</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="datetime_now.html"
+                          title="next chapter">DateTime class now interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -188,7 +196,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

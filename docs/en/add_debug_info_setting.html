@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
           <div class="body" role="main">
             
   <section id="add-debug-info-setting-decorator-interface">
-<h1>add_debug_info_setting decorator interface<a class="headerlink" href="#add-debug-info-setting-decorator-interface" title="Permalink to this headline">¶</a></h1>
+<h1>add_debug_info_setting decorator interface<a class="headerlink" href="#add-debug-info-setting-decorator-interface" title="Permalink to this heading">¶</a></h1>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">add_debug_info_setting</span></code> decorator interface sets the debug information settings to a target function or method.</p>
 <p>A decorated function or method exports debug information when you enable the debug mode setting.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>It is necessary to set the debug mode setting with the <code class="docutils literal notranslate"><span class="pre">ap.set_debug_mode()</span></code> function at the first position.</p>
 <p>After that, You can set the <code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code> decorator settings to any function or method.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&#64;ap.add_debug_info_setting</span></code> needs to specify the <code class="docutils literal notranslate"><span class="pre">module_name</span></code> (this value becomes <code class="docutils literal notranslate"><span class="pre">__name__</span></code>).</p>
@@ -131,7 +133,7 @@
 </div>
 </section>
 <section id="notes-of-the-mypy-setting">
-<h2>Notes of the mypy setting<a class="headerlink" href="#notes-of-the-mypy-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Notes of the mypy setting<a class="headerlink" href="#notes-of-the-mypy-setting" title="Permalink to this heading">¶</a></h2>
 <p>This decorator settings currently raise a mypy error. To avoid this error, please set the <code class="docutils literal notranslate"><span class="pre">--disable-error-code</span> <span class="pre">misc</span></code> option.</p>
 <p>See also:</p>
 <ul class="simple">
@@ -139,7 +141,7 @@
 </ul>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="set_debug_mode.html"><span class="doc std std-doc">set_debug_mode interface</span></a></p></li>
 <li><p><a class="reference internal" href="unset_debug_mode.html"><span class="doc std std-doc">unset_debug_mode interface</span></a></p></li>
@@ -157,8 +159,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">add_debug_info_setting decorator interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -168,22 +171,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="unset_debug_mode.html"
-                        title="previous chapter">unset_debug_mode interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="variable_name_suffix.html"
-                        title="next chapter">variable_name_suffix argument setting</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="unset_debug_mode.html"
+                          title="previous chapter">unset_debug_mode interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="variable_name_suffix.html"
+                          title="next chapter">variable_name_suffix argument setting</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -206,7 +214,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

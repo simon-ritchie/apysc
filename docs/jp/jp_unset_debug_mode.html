@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,19 +50,19 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/unset_debug_mode.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="unset-debug-mode">
-<h1>unset_debug_mode インターフェイス<a class="headerlink" href="#unset-debug-mode" title="Permalink to this headline">¶</a></h1>
+<h1>unset_debug_mode インターフェイス<a class="headerlink" href="#unset-debug-mode" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>関数のインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>関数のインターフェイスはデバッグモードの設定を解除します。この関数はデバッグ情報の追加を停止します。</p>
 <p>デバッグモードの設定は大量の情報を出力します。時折これは煩雑な（情報が多すぎる）状態になることがあります。そのような場合にデバッグモードが不要になったタイミングで設定を解除すると役に立つことがあります。</p>
 </section>
 <section id="id2">
-<h2>特記事項<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>特記事項<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>もしも出力のインターフェイス（例 : <code class="docutils literal notranslate"><span class="pre">ap.save_overall_html</span></code>など）の<code class="docutils literal notranslate"><span class="pre">minify</span></code>のオプションが有効になっていると、デバッグモードの情報なども削除されてしまいます。そのため<code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>インターフェイスでデバッグモードを解除した場合には<code class="docutils literal notranslate"><span class="pre">minify=False</span></code>の引数設定が必要になります。</p>
 </section>
 <section id="id3">
-<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code>インターフェイスは引数の指定を必要としません。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">int_1</span></code>の変数のインスタンス化と10の加算処理の箇所のみデバッグ情報の追加を有効化しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -138,13 +140,13 @@
 </div>
 </section>
 <section id="id4">
-<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_set_debug_mode.html"><span class="doc std std-doc">set_debug_mode インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="unset-debug-mode-api">
-<h2>unset_debug_mode API<a class="headerlink" href="#unset-debug-mode-api" title="Permalink to this headline">¶</a></h2>
+<h2>unset_debug_mode API<a class="headerlink" href="#unset-debug-mode-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unset_debug_mode()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -170,8 +172,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">unset_debug_mode インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">特記事項</a></li>
@@ -182,22 +185,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_set_debug_mode.html"
-                        title="previous chapter">set_debug_mode インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_add_debug_info_setting.html"
-                        title="next chapter">add_debug_info_setting のデコレーターのインターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_set_debug_mode.html"
+                          title="previous chapter">set_debug_mode インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_add_debug_info_setting.html"
+                          title="next chapter">add_debug_info_setting のデコレーターのインターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -220,7 +228,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

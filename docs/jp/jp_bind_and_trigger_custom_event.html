@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +50,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/bind_and_trigger_custom_event.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="id1">
-<h1>カスタムイベントの登録とイベントの発生（発火）制御<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>カスタムイベントの登録とイベントの発生（発火）制御<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code>と<code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code>の各インターフェイスについて説明します。</p>
 <section id="id2">
-<h2>各インターフェイスの概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>各インターフェイスの概要<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code>インターフェイスは対象のインスタンスに独自のイベントを登録し、<code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code>インターフェイスは任意の箇所でカスタムイベントの発生（発火）の制御を行います。</p>
 </section>
 <section id="id3">
-<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code>と<code class="docutils literal notranslate"><span class="pre">handler</span></code>、<code class="docutils literal notranslate"><span class="pre">e</span></code>、そして<code class="docutils literal notranslate"><span class="pre">options</span></code>引数を持っています（<code class="docutils literal notranslate"><span class="pre">options</span></code>引数は省略可です）。</p>
 <p><code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code>引数は独自のイベントの種類の文字列です。この引数の文字列は<code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code>インターフェイスでの指定時でも同じ値を設定する必要があります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">e</span></code>引数はイベントのインスタンスです。場合によっては<code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>クラスや<code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code>クラスなどの<code class="docutils literal notranslate"><span class="pre">Event</span></code>クラスのサブクラスを指定します。</p>
@@ -163,12 +165,12 @@
 <iframe src="static/bind_and_trigger_custom_event_basic_usage/index.html" width="250" height="150"></iframe>
 </section>
 <section id="id4">
-<h2>カスタムイベントの設定の解除<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>カスタムイベントの設定の解除<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_custom_event</span></code>メソッドのインターフェイスは単体のカスタムイベントの解除を行います。</p>
 <p>同様に、<code class="docutils literal notranslate"><span class="pre">unbind_custom_event_all</span></code>メソッドのインターフェイスは全てのカスタムイベントの解除を行います。</p>
 </section>
 <section id="bind-custom-event-api">
-<h2>bind_custom_event API<a class="headerlink" href="#bind-custom-event-api" title="Permalink to this headline">¶</a></h2>
+<h2>bind_custom_event API<a class="headerlink" href="#bind-custom-event-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">bind_custom_event(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str],</span> <span class="pre">handler:</span> <span class="pre">Callable[[Any,</span> <span class="pre">Any],</span> <span class="pre">NoneType],</span> <span class="pre">e:</span> <span class="pre">apysc._event.event.Event,</span> <span class="pre">options:</span> <span class="pre">Union[Any,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">in_handler_head_expression:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -237,7 +239,7 @@
 </ul>
 </section>
 <section id="trigger-custom-event-api">
-<h2>trigger_custom_event API<a class="headerlink" href="#trigger-custom-event-api" title="Permalink to this headline">¶</a></h2>
+<h2>trigger_custom_event API<a class="headerlink" href="#trigger-custom-event-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">trigger_custom_event(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -272,7 +274,7 @@
 </div>
 </section>
 <section id="unbind-custom-event-api">
-<h2>unbind_custom_event のAPI<a class="headerlink" href="#unbind-custom-event-api" title="Permalink to this headline">¶</a></h2>
+<h2>unbind_custom_event のAPI<a class="headerlink" href="#unbind-custom-event-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_custom_event(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str],</span> <span class="pre">handler:</span> <span class="pre">Callable[[Any,</span> <span class="pre">Any],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -324,7 +326,7 @@
 </div>
 </section>
 <section id="unbind-custom-event-all-api">
-<h2>unbind_custom_event_all のAPI<a class="headerlink" href="#unbind-custom-event-all-api" title="Permalink to this headline">¶</a></h2>
+<h2>unbind_custom_event_all のAPI<a class="headerlink" href="#unbind-custom-event-all-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_custom_event_all(self,</span> <span class="pre">*,</span> <span class="pre">custom_event_type:</span> <span class="pre">Union[apysc._event.custom_event_type.CustomEventType,</span> <span class="pre">str])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -371,8 +373,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">カスタムイベントの登録とイベントの発生（発火）制御</a><ul>
 <li><a class="reference internal" href="#id2">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#id3">基本的な使い方</a></li>
@@ -385,22 +388,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_event_prevent_default_and_stop_propagation.html"
-                        title="previous chapter">Event クラスの prevent_default と stop_propagation のインターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_mouse_event_abstract.html"
-                        title="next chapter">MouseEvent の各インターフェイスの概要</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_event_prevent_default_and_stop_propagation.html"
+                          title="previous chapter">Event クラスの prevent_default と stop_propagation のインターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_mouse_event_abstract.html"
+                          title="next chapter">MouseEvent の各インターフェイスの概要</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -423,7 +431,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

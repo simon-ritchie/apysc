@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +50,15 @@
           <div class="body" role="main">
             
   <section id="animationbase-class-animation-complete-interface">
-<h1>AnimationBase class animation_complete interface<a class="headerlink" href="#animationbase-class-animation-complete-interface" title="Permalink to this headline">¶</a></h1>
+<h1>AnimationBase class animation_complete interface<a class="headerlink" href="#animationbase-class-animation-complete-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method binds a handler that the animation calls when its end.</p>
 <p>The handler’s arguments require the event instance (<code class="docutils literal notranslate"><span class="pre">ap.AnimationEvent</span></code>) at the first argument and the options dictionary at the second argument.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method requires a handler at the first argument and the optional options dictionary at the second argument.</p>
 <p>The following example calls the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method at the x-coordinate animation end. It starts another animation to reset the x-coordinate:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -116,7 +118,7 @@
 <iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe>
 </section>
 <section id="notes-about-the-other-interface-calling-order">
-<h2>Notes about the other interface calling order<a class="headerlink" href="#notes-about-the-other-interface-calling-order" title="Permalink to this headline">¶</a></h2>
+<h2>Notes about the other interface calling order<a class="headerlink" href="#notes-about-the-other-interface-calling-order" title="Permalink to this heading">¶</a></h2>
 <p>You can only call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> before the animation start, so if you call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method after the <code class="docutils literal notranslate"><span class="pre">start</span></code> method, it raises an exception:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -183,7 +185,7 @@
 </div>
 </section>
 <section id="animation-complete-api">
-<h2>animation_complete API<a class="headerlink" href="#animation-complete-api" title="Permalink to this headline">¶</a></h2>
+<h2>animation_complete API<a class="headerlink" href="#animation-complete-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._animation.animation_base.AnimationBase.animation_complete -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_complete(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[ForwardRef('animation_event.AnimationEvent'),</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">'AnimationBase'</span></code><hr></p>
@@ -258,8 +260,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">AnimationBase class animation_complete interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -269,22 +272,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_base_start.html"
-                        title="previous chapter">AnimationBase class start interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_method_chaining.html"
-                        title="next chapter">AnimationBase class interfaces method chaining</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="animation_base_start.html"
+                          title="previous chapter">AnimationBase class start interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animation_method_chaining.html"
+                          title="next chapter">AnimationBase class interfaces method chaining</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -307,7 +315,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

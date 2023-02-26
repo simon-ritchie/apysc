@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,7 +15,9 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
+    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,18 +50,18 @@
           <div class="body" role="main">
             
   <section id="elif-class">
-<h1>Elif class<a class="headerlink" href="#elif-class" title="Permalink to this headline">¶</a></h1>
+<h1>Elif class<a class="headerlink" href="#elif-class" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class.</p>
 <p>Before reading on, maybe it is helpful to read the following page (the apysc uses the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class for the same reason as each other data type):</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
 </ul>
 <section id="what-is-the-elif-class">
-<h2>What is the Elif class?<a class="headerlink" href="#what-is-the-elif-class" title="Permalink to this headline">¶</a></h2>
+<h2>What is the Elif class?<a class="headerlink" href="#what-is-the-elif-class" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class is the apysc branch instruction class. It behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class requires using the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. Also, The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class statement is only acceptable to implement right after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> classes statement.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -76,7 +78,7 @@
 </div>
 </section>
 <section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h2>
 <p>If you insert the code between the <code class="docutils literal notranslate"><span class="pre">If</span></code> (or <code class="docutils literal notranslate"><span class="pre">Elif</span></code>) and <code class="docutils literal notranslate"><span class="pre">Elif</span></code> statements, then it raises exceptions:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -119,7 +121,7 @@ with Elif(condition, ...):
 </div>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="if.html"><span class="doc std std-doc">If class</span></a></p></li>
 <li><p><a class="reference internal" href="else.html"><span class="doc std std-doc">Else class</span></a></p></li>
@@ -127,7 +129,7 @@ with Elif(condition, ...):
 </ul>
 </section>
 <section id="elif-constructor-api">
-<h2>Elif constructor API<a class="headerlink" href="#elif-constructor-api" title="Permalink to this headline">¶</a></h2>
+<h2>Elif constructor API<a class="headerlink" href="#elif-constructor-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._branch._elif.Elif.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">condition:</span> <span class="pre">Union[apysc._type.boolean.Boolean,</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">locals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">globals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -189,8 +191,9 @@ with Elif(condition, ...):
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Elif class</a><ul>
 <li><a class="reference internal" href="#what-is-the-elif-class">What is the Elif class?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -201,22 +204,27 @@ with Elif(condition, ...):
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="if.html"
-                        title="previous chapter">If class</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="else.html"
-                        title="next chapter">Else class</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="if.html"
+                          title="previous chapter">If class</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="else.html"
+                          title="next chapter">Else class</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -239,7 +247,7 @@ with Elif(condition, ...):
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

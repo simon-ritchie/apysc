@@ -640,3 +640,10 @@ def test__apply_black_formatting_to_code_block() -> None:
     assert result_md_str == expected_str
 
     file_util.remove_file_if_exists(file_path=tmp_md_path)
+
+
+@apply_test_settings()
+def test__delete_unnecessary_js_files() -> None:
+    build_docs._delete_unnecessary_js_files()
+    assert not os.path.exists("docs/en/static/jquery-3.5.1.js")
+    assert not os.path.exists("docs/jp/static/jquery-3.5.1.js")

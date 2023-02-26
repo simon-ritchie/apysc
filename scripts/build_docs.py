@@ -25,6 +25,8 @@ from typing import Optional as Op
 from typing_extensions import Final
 from typing_extensions import TypedDict
 
+from apysc._file import file_util
+
 sys.path.append("./")
 
 from apysc._console import loggers
@@ -89,12 +91,25 @@ def _main() -> None:
         print(stdout)
 
     _move_and_adjust_updated_files()
+    _delete_unnecessary_js_files()
 
     logger.info(msg="Synchronizing keyword link mapping scripts...")
     for lang in Lang:
         sync_docs_keyword_link_mapping.sync(lang=lang)
 
     logger.info(msg="Build completed!")
+
+
+def _delete_unnecessary_js_files() -> None:
+    """
+    Delete unnecessary (and automatically exporting) JavaScript files.
+    """
+    FILE_PATHS: List[str] = [
+        "docs/en/static/jquery-3.5.1.js",
+        "docs/jp/static/jquery-3.5.1.js",
+    ]
+    for file_path in FILE_PATHS:
+        file_util.delete_file_if_exists(file_path=file_path)
 
 
 def _sync_js_libs() -> None:

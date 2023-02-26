@@ -126,7 +126,7 @@ class TestLine:
             end_point=ap.Point2D(x=30, y=40),
         )
         repr_str: str = repr(line)
-        expected: str = f"Line('{line.variable_name}')"
+        expected: str = f'Line("{line.variable_name}")'
         assert repr_str == expected
 
     @apply_test_settings()

@@ -251,10 +251,10 @@ class TestString:
     @apply_test_settings()
     def test___repr__(self) -> None:
         string_1: ap.String = ap.String(value="Hello!")
-        assert repr(string_1) == "String('Hello!')"
+        assert repr(string_1) == 'String("Hello!")'
 
         del string_1._value
-        assert repr(string_1) == "String('')"
+        assert repr(string_1) == 'String("")'
 
     @apply_test_settings()
     def test__make_snapshot(self) -> None:

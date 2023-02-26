@@ -84,7 +84,7 @@ class TestPolygon:
         )
         polygon: ap.Polygon = ap.Polygon(parent=sprite.graphics, points=points)
         repr_str: str = repr(polygon)
-        assert repr_str == f"Polygon('{polygon.variable_name}')"
+        assert repr_str == f'Polygon("{polygon.variable_name}")'
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:

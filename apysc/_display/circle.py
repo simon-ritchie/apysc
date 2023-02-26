@@ -377,7 +377,7 @@ class Circle(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Circle('<variable_name>')`).
+            (e.g., `Circle("<variable_name>")`).
         """
-        repr_str: str = f"Circle('{self.variable_name}')"
+        repr_str: str = f'{Circle.__name__}("{self.variable_name}")'
         return repr_str

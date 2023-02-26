@@ -108,7 +108,7 @@ class TestCircle:
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(parent=sprite.graphics, x=50, y=100, radius=30)
         repr_str: str = repr(circle)
-        assert repr_str == f"Circle('{circle.variable_name}')"
+        assert repr_str == f'Circle("{circle.variable_name}")'
 
     @apply_test_settings()
     def test__set_center_coordinates(self) -> None:

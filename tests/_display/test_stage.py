@@ -110,7 +110,7 @@ class TestStage:
     def test___repr__(self) -> None:
         stage_: ap.Stage = ap.Stage(stage_elem_id="stage_1")
         repr_str: str = repr(stage_)
-        assert repr_str == "Stage('stage_1')"
+        assert repr_str == 'Stage("stage_1")'
 
 
 @apply_test_settings()

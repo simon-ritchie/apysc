@@ -93,7 +93,7 @@ class TestGraphics:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         repr_str: str = repr(sprite.graphics)
-        assert repr_str == f"Graphics('{sprite.graphics.variable_name}')"
+        assert repr_str == f'Graphics("{sprite.graphics.variable_name}")'
 
     @apply_test_settings()
     def test_line_to(self) -> None:

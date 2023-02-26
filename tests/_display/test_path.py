@@ -86,7 +86,7 @@ class TestPath:
         ]
         path: ap.Path = sprite.graphics.draw_path(path_data_list=path_data_list)
         repr_str: str = repr(path)
-        assert repr_str == f"Path('{path.variable_name}')"
+        assert repr_str == f'Path("{path.variable_name}")'
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:

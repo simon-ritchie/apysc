@@ -1317,7 +1317,7 @@ class Graphics(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Graphics('<variable_name>')`).
+            (e.g., `Graphics("<variable_name>")`).
         """
-        repr_str: str = f"Graphics('{self.variable_name}')"
+        repr_str: str = f'{Graphics.__name__}("{self.variable_name}")'
         return repr_str

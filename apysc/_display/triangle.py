@@ -396,7 +396,7 @@ class Triangle(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Triangle('<variable_name>')`).
+            (e.g., `Triangle("<variable_name>")`).
         """
-        repr_str: str = f"Triangle('{self.variable_name}')"
+        repr_str: str = f'{Triangle.__name__}("{self.variable_name}")'
         return repr_str

@@ -796,9 +796,9 @@ class String(
             Representation string of this instance.
         """
         if not hasattr(self, "_value"):
-            repr_str: str = "String('')"
+            repr_str: str = 'String("")'
         else:
-            repr_str = f"String('{self._value}')"
+            repr_str = f'String("{self._value}")'
         return repr_str
 
     _value_snapshots: Dict[str, str]

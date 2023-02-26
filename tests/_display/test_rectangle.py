@@ -107,7 +107,7 @@ class TestRectangle:
             x=50, y=50, width=50, height=50
         )
         repr_str: str = repr(rectangle_)
-        assert repr_str == f"Rectangle('{rectangle_.variable_name}')"
+        assert repr_str == f'Rectangle("{rectangle_.variable_name}")'
 
     @apply_test_settings()
     def test_append_constructor_expression(self) -> None:

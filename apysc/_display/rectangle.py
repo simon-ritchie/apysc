@@ -382,9 +382,9 @@ class Rectangle(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Rectangle('<variable_name>')`).
+            (e.g., `Rectangle("<variable_name>")`).
         """
-        repr_str: str = f"Rectangle('{self.variable_name}')"
+        repr_str: str = f'{Rectangle.__name__}("{self.variable_name}")'
         return repr_str
 
     @final

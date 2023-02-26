@@ -371,7 +371,7 @@ class Ellipse(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Ellipse('<variable_name>')`).
+            (e.g., `Ellipse("<variable_name>")`).
         """
-        repr_str: str = f"Ellipse('{self.variable_name}')"
+        repr_str: str = f'{Ellipse.__name__}("{self.variable_name}")'
         return repr_str

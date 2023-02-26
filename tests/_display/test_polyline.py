@@ -105,7 +105,7 @@ class TestPolyline:
         points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
         polyline: ap.Polyline = ap.Polyline(parent=sprite.graphics, points=points)
         repr_str: str = repr(polyline)
-        expected: str = f"Polyline('{polyline.variable_name}')"
+        expected: str = f'Polyline("{polyline.variable_name}")'
         assert repr_str == expected
 
     @apply_test_settings()

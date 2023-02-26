@@ -315,9 +315,9 @@ class Polyline(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Polyline('<variable_name>')`).
+            (e.g., `Polyline("<variable_name>")`).
         """
-        repr_str: str = f"Polyline('{self.variable_name}')"
+        repr_str: str = f'{Polyline.__name__}("{self.variable_name}")'
         return repr_str
 
     @final

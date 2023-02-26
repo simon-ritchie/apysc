@@ -272,9 +272,9 @@ class Stage(
         -------
         repr_str : str
             Type name and elem id will be set
-            (e.g., `Stage('<stage_elem_id>')`).
+            (e.g., `Stage("<stage_elem_id>")`).
         """
-        repr_str: str = f"Stage('{self.stage_elem_id}')"
+        repr_str: str = f'{Stage.__name__}("{self.stage_elem_id}")'
         return repr_str
 
 

@@ -91,4 +91,4 @@ class TestSprite:
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         repr_str: str = repr(sprite)
-        assert repr_str == f"Sprite('{sprite.variable_name}')"
+        assert repr_str == f'Sprite("{sprite.variable_name}")'

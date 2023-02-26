@@ -52,7 +52,7 @@ class TestTriangle:
             y3=50,
         )
         repr_str: str = repr(triangle)
-        expected: str = f"Triangle('{triangle.variable_name}')"
+        expected: str = f'Triangle("{triangle.variable_name}")'
         assert repr_str == expected
 
     @apply_test_settings()

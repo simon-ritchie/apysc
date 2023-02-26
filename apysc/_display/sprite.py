@@ -186,7 +186,7 @@ class Sprite(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Sprite('<variable_name>')`).
+            (e.g., `Sprite("<variable_name>")`).
         """
-        repr_str: str = f"Sprite('{self.variable_name}')"
+        repr_str: str = f'{Sprite.__name__}("{self.variable_name}")'
         return repr_str

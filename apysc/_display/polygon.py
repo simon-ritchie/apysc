@@ -319,7 +319,7 @@ class Polygon(
         -------
         repr_str : str
             Type name and variable name will be set
-            (e.g., `Polygon('<variable_name>')`).
+            (e.g., `Polygon("<variable_name>")`).
         """
-        repr_str: str = f"Polygon('{self.variable_name}')"
+        repr_str: str = f'{Polygon.__name__}("{self.variable_name}")'
         return repr_str

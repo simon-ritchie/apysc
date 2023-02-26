@@ -853,5 +853,5 @@ ap.save_overall_html(dest_dir_path="polygon_skew_y/")
 ...     fill_color="#00aaff",
 ... )
 >>> polygon.fill_color
-String('#00aaff')
+String("#00aaff")
 ```

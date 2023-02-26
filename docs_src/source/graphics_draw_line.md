@@ -126,7 +126,7 @@ Draw a normal line vector graphic.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_thickness
 Int(5)

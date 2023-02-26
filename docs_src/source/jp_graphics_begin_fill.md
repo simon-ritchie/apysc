@@ -181,7 +181,7 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 ## fill_color 属性のAPI
@@ -210,7 +210,7 @@ String('#00aaff')
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 ## fill_alpha 属性のAPI

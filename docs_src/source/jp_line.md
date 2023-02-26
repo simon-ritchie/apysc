@@ -762,7 +762,7 @@ ap.save_overall_html(dest_dir_path="line_skew_y/")
 ...     line_thickness=3,
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_thickness
 Int(3)

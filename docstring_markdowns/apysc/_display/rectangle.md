@@ -31,7 +31,7 @@ Int(100)
 Int(75)
 
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>
@@ -109,7 +109,7 @@ Int(100)
 Int(100)
 
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>

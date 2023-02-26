@@ -142,5 +142,5 @@ Number(50.0)
 Int(50)
 
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```

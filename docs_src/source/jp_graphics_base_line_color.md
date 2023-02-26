@@ -80,5 +80,5 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_color_basic_usage/")
 ... )
 >>> line.line_color = ap.String("#0af")
 >>> line.line_color
-String('#00aaff')
+String("#00aaff")
 ```

@@ -93,7 +93,7 @@ CSSの設定値の文字列を取得します。<hr>
 >>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> sprite.set_css(name="display", value="none")
 >>> sprite.get_css(name="display")
-String('none')
+String("none")
 ```
 
 ## set_css API
@@ -125,5 +125,5 @@ CSSに指定された文字列の値を設定します。<hr>
 >>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
 >>> sprite.set_css(name="display", value="none")
 >>> sprite.get_css(name="display")
-String('none')
+String("none")
 ```

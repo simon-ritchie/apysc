@@ -498,7 +498,7 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dash_dot_setting/")
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_thickness
 Int(5)
@@ -507,7 +507,7 @@ Int(5)
 Number(0.5)
 
 >>> line.line_cap
-String('round')
+String("round")
 ```
 
 ## line_color 属性のAPI
@@ -535,7 +535,7 @@ String('round')
 ...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
 ... )
 >>> sprite.graphics.line_color
-String('#ffffff')
+String("#ffffff")
 ```
 
 ## line_thickness 属性のAPI
@@ -617,7 +617,7 @@ Number(0.5)
 ...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
 ... )
 >>> sprite.graphics.line_cap
-String('round')
+String("round")
 ```
 
 ## line_joints 属性のAPI
@@ -645,7 +645,7 @@ String('round')
 ...     color="#fff", thickness=5, joints=ap.LineJoints.ROUND
 ... )
 >>> sprite.graphics.line_joints
-String('round')
+String("round")
 ```
 
 ## line_dot_setting 属性のAPI

@@ -63,11 +63,11 @@ apyscライブラリにおける文字列用のクラスです。<hr>
 >>> import apysc as ap
 >>> string: ap.String = ap.String("Hello")
 >>> string
-String('Hello')
+String("Hello")
 
 >>> string += " World!"
 >>> string
-String('Hello World!')
+String("Hello World!")
 ```
 
 <hr>

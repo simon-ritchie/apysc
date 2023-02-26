@@ -18,20 +18,20 @@ The `Str` class is the alias of `String`.<hr>
 >>> import apysc as ap
 >>> string: ap.String = ap.String("Hello")
 >>> string
-String('Hello')
+String("Hello")
 
 >>> string += " World!"
 >>> string
-String('Hello World!')
+String("Hello World!")
 
 >>> string.value = "World!"
 >>> string
-String('World!')
+String("World!")
 
 >>> string.value = "Hello!"
 >>> string *= 3
 >>> string
-String('Hello!Hello!Hello!')
+String("Hello!Hello!Hello!")
 ```
 
 <hr>
@@ -172,11 +172,11 @@ The `Str` class is the alias of `String`.<hr>
 >>> import apysc as ap
 >>> string: ap.String = ap.String("Hello")
 >>> string
-String('Hello')
+String("Hello")
 
 >>> string += " World!"
 >>> string
-String('Hello World!')
+String("Hello World!")
 ```
 
 <hr>

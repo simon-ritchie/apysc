@@ -81,5 +81,5 @@ Get this instance's line color.<hr>
 ... )
 >>> line.line_color = ap.String("#0af")
 >>> line.line_color
-String('#00aaff')
+String("#00aaff")
 ```

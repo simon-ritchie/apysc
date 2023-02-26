@@ -890,7 +890,7 @@ ap.save_overall_html(dest_dir_path="polyline_skew_y/")
 ...     line_thickness=3,
 ... )
 >>> polyline.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> polyline.line_thickness
 Int(3)

@@ -23,14 +23,14 @@ Clear all graphics and reset fill and line settings.<hr>
 Int(2)
 
 >>> sprite.graphics.fill_color
-String('#00aaff')
+String("#00aaff")
 
 >>> sprite.graphics.clear()
 >>> sprite.graphics.num_children
 Int(0)
 
 >>> sprite.graphics.fill_color
-String('')
+String("")
 ```
 
 <hr>

@@ -194,7 +194,7 @@ Move a line position to a specified point.<hr>
 True
 
 >>> line_1.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)
@@ -244,7 +244,7 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
 True
 
 >>> line_1.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)

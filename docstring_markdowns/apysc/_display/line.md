@@ -19,7 +19,7 @@ The line vector graphics class.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_thickness
 Int(5)
@@ -81,7 +81,7 @@ Create a line vector graphic.<hr>
 ...     line_thickness=3,
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_thickness
 Int(3)

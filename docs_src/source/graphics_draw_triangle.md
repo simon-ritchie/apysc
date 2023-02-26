@@ -148,7 +148,7 @@ Number(75.0)
 Number(30.0)
 
 >>> triangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>

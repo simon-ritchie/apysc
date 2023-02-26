@@ -195,7 +195,7 @@ ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_polyline/")
 True
 
 >>> line_1.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)
@@ -245,7 +245,7 @@ Int(5)
 True
 
 >>> line_1.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)

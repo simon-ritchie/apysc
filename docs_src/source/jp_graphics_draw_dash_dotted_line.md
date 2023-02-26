@@ -101,7 +101,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dash_dotted_line_basic_usage/"
 ...     space_size=3,
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_dash_dot_setting.dot_size
 Int(2)

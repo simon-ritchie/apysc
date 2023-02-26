@@ -179,7 +179,7 @@ Set single color value for fill.<hr>
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 ## fill_color property API
@@ -210,7 +210,7 @@ Get current fill color.<hr>
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 ## fill_alpha property API

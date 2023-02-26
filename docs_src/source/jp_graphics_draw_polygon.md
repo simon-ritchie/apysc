@@ -204,5 +204,5 @@ ap.save_overall_html(dest_dir_path="graphics_draw_polygon_append_line_point/")
 ...     ]
 ... )
 >>> polygon.fill_color
-String('#00aaff')
+String("#00aaff")
 ```

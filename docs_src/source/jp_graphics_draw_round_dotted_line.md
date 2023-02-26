@@ -124,7 +124,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_round_dotted_line_notes/")
 ...     x_start=50, y_start=50, x_end=150, y_end=50, round_size=6, space_size=3
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_round_dot_setting.round_size
 Int(6)

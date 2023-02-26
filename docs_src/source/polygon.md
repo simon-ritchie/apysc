@@ -840,5 +840,5 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 ...     fill_color="#00aaff",
 ... )
 >>> polygon.fill_color
-String('#00aaff')
+String("#00aaff")
 ```

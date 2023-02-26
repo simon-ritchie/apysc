@@ -79,5 +79,5 @@ Get this instance's fill color.<hr>
 ... )
 >>> rectangle.fill_color = ap.String("#f0a")
 >>> rectangle.fill_color
-String('#ff00aa')
+String("#ff00aa")
 ```

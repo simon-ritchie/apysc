@@ -877,7 +877,7 @@ Create a polyline vector graphic.<hr>
 ...     line_thickness=3,
 ... )
 >>> polyline.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> polyline.line_thickness
 Int(3)

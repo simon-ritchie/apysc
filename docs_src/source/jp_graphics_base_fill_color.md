@@ -78,5 +78,5 @@ ap.save_overall_html(dest_dir_path="./graphics_base_fill_color_basic_usage/")
 ... )
 >>> rectangle.fill_color = ap.String("#f0a")
 >>> rectangle.fill_color
-String('#ff00aa')
+String("#ff00aa")
 ```

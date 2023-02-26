@@ -114,7 +114,7 @@ Number(100.0)
 Int(50)
 
 >>> circle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>
@@ -172,7 +172,7 @@ Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
 ...     space_size=3,
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_dash_dot_setting.dot_size
 Int(2)
@@ -235,7 +235,7 @@ Draw a dashed line vector graphics.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50, dash_size=5, space_size=2
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_dash_setting.dash_size
 Int(5)
@@ -293,7 +293,7 @@ Draw a dotted line vector graphics.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50, dot_size=5
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_thickness
 Int(5)
@@ -357,7 +357,7 @@ Int(100)
 Int(50)
 
 >>> ellipse.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>
@@ -407,7 +407,7 @@ Draw a normal line vector graphic.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_thickness
 Int(5)
@@ -505,7 +505,7 @@ Draw a polygon vector graphic. This interface is similar to the Polyline class (
 ...     ]
 ... )
 >>> polygon.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>
@@ -557,7 +557,7 @@ Number(50.0)
 Int(50)
 
 >>> rectangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>
@@ -611,7 +611,7 @@ This interface ignores line settings, like the `LineDotSetting`, except `LineRou
 ...     x_start=50, y_start=50, x_end=150, y_end=50, round_size=6, space_size=3
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_round_dot_setting.round_size
 Int(6)
@@ -733,7 +733,7 @@ Number(75.0)
 Number(30.0)
 
 >>> triangle.fill_color
-String('#00aaff')
+String("#00aaff")
 ```
 
 <hr>
@@ -779,7 +779,7 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
 True
 
 >>> line_1.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)
@@ -826,7 +826,7 @@ Move a line position to a specified point.<hr>
 True
 
 >>> line_1.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)

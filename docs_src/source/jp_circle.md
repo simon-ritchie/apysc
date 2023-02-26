@@ -734,7 +734,7 @@ Number(100.0)
 Int(50)
 
 >>> circle.fill_color
-String('#00aaff')
+String("#00aaff")
 
 >>> circle = ap.Circle(
 ...     x=100,
@@ -745,7 +745,7 @@ String('#00aaff')
 ...     line_dot_setting=ap.LineDotSetting(dot_size=10),
 ... )
 >>> circle.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> circle.line_thickness
 Int(3)

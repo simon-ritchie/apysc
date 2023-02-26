@@ -89,7 +89,7 @@ Draw a dashed line vector graphics.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50, dash_size=5, space_size=2
 ... )
 >>> line.line_color
-String('#ffffff')
+String("#ffffff")
 
 >>> line.line_dash_setting.dash_size
 Int(5)

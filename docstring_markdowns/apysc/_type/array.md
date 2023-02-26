@@ -707,7 +707,7 @@ Join this array value with a specified separator string.<hr>
 >>> import apysc as ap
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.join(sep=", ")
-String('1, 2, 3')
+String("1, 2, 3")
 ```
 
 <hr>

@@ -75,7 +75,7 @@ Get the JavaScript libraries file's names.<hr>
 **[Returns]**
 
 - `jslib_file_names`: list of str
-  - JavaScript libraries file names existing in this module's directory. e.g., ['jquery-3.5.1.min.js', 'svg-3.1.2.min.js']
+  - JavaScript libraries file names existing in this module's directory. e.g., ['jquery-3.6.3.min.js', 'svg-3.1.2.min.js']
 
 ## `read_jslib_str` function docstring
 

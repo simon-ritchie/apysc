@@ -16,7 +16,7 @@ def test_get_module_paths_recursively() -> None:
     )
     assert "./apysc/_jslib/jslib_util.py" in module_paths
     assert "./apysc/_jslib/__init__.py" not in module_paths
-    assert "./apysc/_jslib/jquery-3.5.1.min.js" not in module_paths
+    assert "./apysc/_jslib/jquery-3.6.3.min.js" not in module_paths
 
     module_paths = module_util.get_module_paths_recursively(dir_path="./tests/")
     assert "./tests/_file/test_module_util.py" in module_paths

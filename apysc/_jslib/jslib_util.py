@@ -32,7 +32,7 @@ def get_jslib_file_names() -> List[str]:
     jslib_file_names : list of str
         JavaScript libraries file names existing in this module's
         directory.
-        e.g., ['jquery-3.5.1.min.js', 'svg-3.1.2.min.js']
+        e.g., ['jquery-3.6.3.min.js', 'svg-3.1.2.min.js']
     """
     this_modules_dir_path: str = get_jslib_abs_dir_path()
     jslib_file_names: List[str] = []

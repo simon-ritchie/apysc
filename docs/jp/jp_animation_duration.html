@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,15 +48,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/animation_duration.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="duration">
-<h1>各アニメーションのインターフェイスのduration設定<a class="headerlink" href="#duration" title="Permalink to this heading">¶</a></h1>
+<h1>各アニメーションのインターフェイスのduration設定<a class="headerlink" href="#duration" title="Permalink to this headline">¶</a></h1>
 <p>このページでは各アニメーションのインターフェイスの<code class="docutils literal notranslate"><span class="pre">duration</span></code>設定について説明します。</p>
 <section id="id1">
-<h2>設定概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>設定概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">duration</span></code>設定はアニメーションの開始から終了までにかける時間を設定します。単位はミリ秒です。例えば<code class="docutils literal notranslate"><span class="pre">duration</span></code>引数に3000を指定したらアニメーションが完了するまで3秒必要とする設定になります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">animation_move</span></code>などの各アニメーションのインターフェイスはこの<code class="docutils literal notranslate"><span class="pre">duration</span></code>引数を持っています。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下の例ではX座標のアニメーションで<code class="docutils literal notranslate"><span class="pre">duration</span></code>の設定に3秒を設定しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -134,9 +132,8 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="jp_index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">各アニメーションのインターフェイスのduration設定</a><ul>
 <li><a class="reference internal" href="#id1">設定概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -144,17 +141,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_animation_event.html"
-                          title="previous chapter">AnimationEvent クラス</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="jp_animation_delay.html"
-                          title="next chapter">各アニメーションのインターフェイスのdelayの設定</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_animation_event.html"
+                        title="previous chapter">AnimationEvent クラス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_animation_delay.html"
+                        title="next chapter">各アニメーションのインターフェイスのdelayの設定</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -164,7 +156,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -187,7 +179,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

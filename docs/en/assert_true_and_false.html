@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,20 +48,20 @@
           <div class="body" role="main">
             
   <section id="assert-true-and-assert-false-interfaces">
-<h1>assert_true and assert_false interfaces<a class="headerlink" href="#assert-true-and-assert-false-interfaces" title="Permalink to this heading">¶</a></h1>
+<h1>assert_true and assert_false interfaces<a class="headerlink" href="#assert-true-and-assert-false-interfaces" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> function interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> function interface asserts a specified <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value is true. Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> function interface asserts a specified <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value is false.</p>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="assertion_basic_behavior.html"><span class="doc std std-doc">JavaScript assertion interface basic behavior</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> interfaces require <code class="docutils literal notranslate"><span class="pre">value</span></code> argument. The <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> and <code class="docutils literal notranslate"><span class="pre">msg</span></code> arguments are optional (default value of the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the assertion will use the JavaScript strict comparison operator (<code class="docutils literal notranslate"><span class="pre">===</span></code>). For instance, if the <code class="docutils literal notranslate"><span class="pre">value</span></code> is <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> and the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, an assertion will fail (because of the comparison between the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>). Conversely, if the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> will pass the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> assertion.</p>
 <p>These interfaces display an assertion result on the browser console.</p>
@@ -173,7 +171,7 @@ Assertion failed: Value is not Boolean(True)!
 <iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe>
 </section>
 <section id="assert-true-api">
-<h2>assert_true API<a class="headerlink" href="#assert-true-api" title="Permalink to this heading">¶</a></h2>
+<h2>assert_true API<a class="headerlink" href="#assert-true-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._console.assertion.assert_true -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_true(value:</span> <span class="pre">Any,</span> <span class="pre">*,</span> <span class="pre">type_strict:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -207,7 +205,7 @@ Assertion failed: Value is not Boolean(True)!
 </div>
 </section>
 <section id="assert-false-api">
-<h2>assert_false API<a class="headerlink" href="#assert-false-api" title="Permalink to this heading">¶</a></h2>
+<h2>assert_false API<a class="headerlink" href="#assert-false-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._console.assertion.assert_false -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_false(value:</span> <span class="pre">Any,</span> <span class="pre">*,</span> <span class="pre">type_strict:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -252,9 +250,8 @@ Assertion failed: Value is not Boolean(True)!
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">assert_true and assert_false interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
@@ -265,17 +262,12 @@ Assertion failed: Value is not Boolean(True)!
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="assert_equal_and_not_equal.html"
-                          title="previous chapter">assert_equal and assert_not_equal interfaces</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="assert_greater_and_greater_equal.html"
-                          title="next chapter">assert_greater and assert_greater_equal interfaces</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="assert_equal_and_not_equal.html"
+                        title="previous chapter">assert_equal and assert_not_equal interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="assert_greater_and_greater_equal.html"
+                        title="next chapter">assert_greater and assert_greater_equal interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -285,7 +277,7 @@ Assertion failed: Value is not Boolean(True)!
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -308,7 +300,7 @@ Assertion failed: Value is not Boolean(True)!
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

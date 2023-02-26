@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,14 +48,14 @@
           <div class="body" role="main">
             
   <section id="easing-enum">
-<h1>Easing enum<a class="headerlink" href="#easing-enum" title="Permalink to this heading">¶</a></h1>
+<h1>Easing enum<a class="headerlink" href="#easing-enum" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Easing</span></code> enum class.</p>
 <section id="what-class-is-this">
-<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this heading">¶</a></h2>
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Easing</span></code> enum class defines each easing function. These are used at the animation interfaces, for example, the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code> interface.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Each animation method interface, such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, has the <code class="docutils literal notranslate"><span class="pre">easing</span></code> argument. You can specify any of the <code class="docutils literal notranslate"><span class="pre">Easing</span></code> enums, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -174,7 +172,7 @@
 <iframe src="static/easing_enum_default_setting/index.html" width="200" height="200"></iframe>
 </section>
 <section id="what-difference-between-the-ease-in-ease-out-and-ease-in-out">
-<h2>What difference between the ease-in, ease-out, and ease-in-out<a class="headerlink" href="#what-difference-between-the-ease-in-ease-out-and-ease-in-out" title="Permalink to this heading">¶</a></h2>
+<h2>What difference between the ease-in, ease-out, and ease-in-out<a class="headerlink" href="#what-difference-between-the-ease-in-ease-out-and-ease-in-out" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ease-in starts with slow speed and stops with fast speed.</p></li>
 <li><p>Ease-out starts with fast speed and stops with slow speed.</p></li>
@@ -273,7 +271,7 @@
 <iframe src="static/easing_enum_ease_difference/index.html" width="200" height="350"></iframe>
 </section>
 <section id="ease-in-examples">
-<h2>Ease-in examples<a class="headerlink" href="#ease-in-examples" title="Permalink to this heading">¶</a></h2>
+<h2>Ease-in examples<a class="headerlink" href="#ease-in-examples" title="Permalink to this headline">¶</a></h2>
 <p>This section shows each ease-in setting result with the x-coordinate animation.</p>
 <p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_QUAD</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_CUBIC</span></code>:</p>
 <details>
@@ -629,7 +627,7 @@
 <iframe src="static/easing_enum_ease_in_4/index.html" width="200" height="250"></iframe>
 </section>
 <section id="ease-out-examples">
-<h2>Ease-out examples<a class="headerlink" href="#ease-out-examples" title="Permalink to this heading">¶</a></h2>
+<h2>Ease-out examples<a class="headerlink" href="#ease-out-examples" title="Permalink to this headline">¶</a></h2>
 <p>This section shows each ease-out result with the x-coordinate animation.</p>
 <p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_OUT_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUAD</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_OUT_CUBIC</span></code>:</p>
 <details>
@@ -985,7 +983,7 @@
 <iframe src="static/easing_enum_ease_out_4/index.html" width="200" height="250"></iframe>
 </section>
 <section id="ease-in-out-examples">
-<h2>Ease-in-out examples<a class="headerlink" href="#ease-in-out-examples" title="Permalink to this heading">¶</a></h2>
+<h2>Ease-in-out examples<a class="headerlink" href="#ease-in-out-examples" title="Permalink to this headline">¶</a></h2>
 <p>This section shows each ease-in-out setting result with the x-coordinate animation.</p>
 <p>The following is the example of the <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_SINE</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_QUAD</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_CUBIC</span></code>:</p>
 <details>
@@ -1351,9 +1349,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Easing enum</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -1365,17 +1362,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="animation_time.html"
-                          title="previous chapter">animation_time interface</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="sequential_animation.html"
-                          title="next chapter">Sequential animation setting</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="animation_time.html"
+                        title="previous chapter">animation_time interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sequential_animation.html"
+                        title="next chapter">Sequential animation setting</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -1385,7 +1377,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1408,7 +1400,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

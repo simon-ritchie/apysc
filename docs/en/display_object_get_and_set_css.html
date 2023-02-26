@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,14 +48,14 @@
           <div class="body" role="main">
             
   <section id="displayobject-class-get-css-and-set-css-interfaces">
-<h1>DisplayObject class get_css and set_css interfaces<a class="headerlink" href="#displayobject-class-get-css-and-set-css-interfaces" title="Permalink to this heading">¶</a></h1>
+<h1>DisplayObject class get_css and set_css interfaces<a class="headerlink" href="#displayobject-class-get-css-and-set-css-interfaces" title="Permalink to this headline">¶</a></h1>
 <p>This page will explain the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class <code class="docutils literal notranslate"><span class="pre">get_css</span></code> and <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_css</span></code> method will return a CSS string, and the <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method will set the CSS setting to a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Each interface requires the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument as the CSS name. In addition, the <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method interface also requires the <code class="docutils literal notranslate"><span class="pre">value</span></code> argument as the CSS value string.</p>
 <p>The following example sets the <code class="docutils literal notranslate"><span class="pre">none</span></code> value to the <code class="docutils literal notranslate"><span class="pre">display</span></code> CSS if the current CSS value is the default (blank string, <code class="docutils literal notranslate"><span class="pre">''</span></code>). Otherwise, revert the value to default (<code class="docutils literal notranslate"><span class="pre">Else</span></code> case) by the timer event (ticks every second).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -106,7 +104,7 @@
 <iframe src="static/display_object_get_and_set_css_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="get-css-api">
-<h2>get_css API<a class="headerlink" href="#get-css-api" title="Permalink to this heading">¶</a></h2>
+<h2>get_css API<a class="headerlink" href="#get-css-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.css_mixin.CssMixIn.get_css -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_css(self,</span> <span class="pre">*,</span> <span class="pre">name:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.string.String</span></code><hr></p>
@@ -142,7 +140,7 @@
 </div>
 </section>
 <section id="set-css-api">
-<h2>set_css API<a class="headerlink" href="#set-css-api" title="Permalink to this heading">¶</a></h2>
+<h2>set_css API<a class="headerlink" href="#set-css-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.css_mixin.CssMixIn.set_css -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">set_css(self,</span> <span class="pre">*,</span> <span class="pre">name:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">value:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -185,9 +183,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">DisplayObject class get_css and set_css interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -197,17 +194,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="display_object_visible.html"
-                          title="previous chapter">DisplayObject class visible interface</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="display_object_mouse_event.html"
-                          title="next chapter">DisplayObject class mouse event binding interfaces</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="display_object_visible.html"
+                        title="previous chapter">DisplayObject class visible interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="display_object_mouse_event.html"
+                        title="next chapter">DisplayObject class mouse event binding interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -217,7 +209,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -240,7 +232,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

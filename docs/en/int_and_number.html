@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,14 +48,14 @@
           <div class="body" role="main">
             
   <section id="int-and-number-classes">
-<h1>Int and Number classes<a class="headerlink" href="#int-and-number-classes" title="Permalink to this heading">¶</a></h1>
+<h1>Int and Number classes<a class="headerlink" href="#int-and-number-classes" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes.</p>
 <p>Before reading on, maybe it is helpful to read the following page:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
 </ul>
 <section id="int-class">
-<h2>Int class<a class="headerlink" href="#int-class" title="Permalink to this heading">¶</a></h2>
+<h2>Int class<a class="headerlink" href="#int-class" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Int</span></code> class is the apysc integer type. It can accept numeric values at the constructor, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -92,7 +90,7 @@
 </div>
 </section>
 <section id="number-class">
-<h2>Number class<a class="headerlink" href="#number-class" title="Permalink to this heading">¶</a></h2>
+<h2>Number class<a class="headerlink" href="#number-class" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Number</span></code> class is the apysc float type. It can accept numeric values at the constructor, same as <code class="docutils literal notranslate"><span class="pre">Int</span></code>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -107,7 +105,7 @@
 </div>
 </section>
 <section id="note-for-the-float-class-alias">
-<h2>Note for the Float class alias<a class="headerlink" href="#note-for-the-float-class-alias" title="Permalink to this heading">¶</a></h2>
+<h2>Note for the Float class alias<a class="headerlink" href="#note-for-the-float-class-alias" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Float</span></code> class is the alias of the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. It behaves the same as the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. Maybe a Python developer is familiar with its name rather than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>. On the other hand, the <code class="docutils literal notranslate"><span class="pre">Number</span></code> is more common in JavaScript than the <code class="docutils literal notranslate"><span class="pre">Float</span></code>.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -118,7 +116,7 @@
 </div>
 </section>
 <section id="int-and-number-classes-basic-interfaces">
-<h2>Int and Number classes basic interfaces<a class="headerlink" href="#int-and-number-classes-basic-interfaces" title="Permalink to this heading">¶</a></h2>
+<h2>Int and Number classes basic interfaces<a class="headerlink" href="#int-and-number-classes-basic-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes have the same interfaces. For more details, please see:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="int_and_number_arithmetic_operations.html"><span class="doc std std-doc">Int and Number classes basic arithmetic operations</span></a></p></li>
@@ -127,7 +125,7 @@
 </ul>
 </section>
 <section id="int-class-constructor-api">
-<h2>Int class constructor API<a class="headerlink" href="#int-class-constructor-api" title="Permalink to this heading">¶</a></h2>
+<h2>Int class constructor API<a class="headerlink" href="#int-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._type.int.Int.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_mixin.NumberValueMixIn],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -184,7 +182,7 @@
 </ul>
 </section>
 <section id="number-class-constructor-api">
-<h2>Number class constructor API<a class="headerlink" href="#number-class-constructor-api" title="Permalink to this heading">¶</a></h2>
+<h2>Number class constructor API<a class="headerlink" href="#number-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._type.number.Number.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_mixin.NumberValueMixIn],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -239,7 +237,7 @@
 </ul>
 </section>
 <section id="value-property-api">
-<h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this heading">¶</a></h2>
+<h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._type.number_value_mixin.NumberValueMixIn.value -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -286,9 +284,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Int and Number classes</a><ul>
 <li><a class="reference internal" href="#int-class">Int class</a></li>
 <li><a class="reference internal" href="#number-class">Number class</a></li>
@@ -301,17 +298,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="fundamental_data_classes_value_interface.html"
-                          title="previous chapter">apysc fundamental data classes value interface</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="int_and_number_arithmetic_operations.html"
-                          title="next chapter">Int and Number basic arithmetic operations</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fundamental_data_classes_value_interface.html"
+                        title="previous chapter">apysc fundamental data classes value interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="int_and_number_arithmetic_operations.html"
+                        title="next chapter">Int and Number basic arithmetic operations</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -321,7 +313,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -344,7 +336,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

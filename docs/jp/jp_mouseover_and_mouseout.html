@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,21 +48,21 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/mouseover_and_mouseout.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="mouseover-mouseout">
-<h1>mouseover と mouseout のインターフェイス<a class="headerlink" href="#mouseover-mouseout" title="Permalink to this heading">¶</a></h1>
+<h1>mouseover と mouseout のインターフェイス<a class="headerlink" href="#mouseover-mouseout" title="Permalink to this headline">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>と<code class="docutils literal notranslate"><span class="pre">mouseout</span></code>の各インターフェイスについて説明します。</p>
 <section id="id1">
-<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">mouseover</span></code>インターフェイスはマウスカーソルが対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>インスタンス上に乗った時のイベントのハンドラを設定します。逆に<code class="docutils literal notranslate"><span class="pre">mouseout</span></code>インターフェイスはマウスカーソルが対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>上から離れた時のイベントのハンドラを設定します。</p>
 </section>
 <section id="id2">
-<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下のページでは基本的なマウスイベントの各インターフェイスについて説明しています。</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc std std-doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="id3">
-<h2>mouseover と mouseout の各インターフェイスの基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>mouseover と mouseout の各インターフェイスの基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスは<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>と<code class="docutils literal notranslate"><span class="pre">mouseout</span></code>の各インターフェイスを持っており、それらを使ってハンドラを設定することができます。</p>
 <p>以下のコード例ではマウスが乗った時と離れた時のイベントのハンドラを四角に対して設定しています。四角にマウスカーソルが乗った時に四角の色が変更され、カーソルが離れた時に色が戻されるように設定してあります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -124,7 +122,7 @@
 <iframe src="static/mouseover_and_mouseout_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id4">
-<h2>解除用のインターフェイス<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<h2>解除用のインターフェイス<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_mouseover</span></code>と<code class="docutils literal notranslate"><span class="pre">unbind_mouseout</span></code>の各インターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>から登録されているハンドラの設定を解除します。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">on_mouseover</span></code>と<code class="docutils literal notranslate"><span class="pre">on_mouseout</span></code>のハンドラの関数内でハンドラの設定を解除しているためこれらのハンドラは最初の1回のみ呼ばれます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -185,7 +183,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">unbind_mouseover_all</span></code>と<code class="docutils literal notranslate"><span class="pre">unbind_mouseout_all</span></code>の各インターフェイスも存在します。これらのインターフェイスは対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスから対象のイベントのハンドラ設定を全て解除します。</p>
 </section>
 <section id="mouseover-api">
-<h2>mouseover API<a class="headerlink" href="#mouseover-api" title="Permalink to this heading">¶</a></h2>
+<h2>mouseover API<a class="headerlink" href="#mouseover-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -234,7 +232,7 @@
 </ul>
 </section>
 <section id="unbind-mouseover-api">
-<h2>unbind_mouseover API<a class="headerlink" href="#unbind-mouseover-api" title="Permalink to this heading">¶</a></h2>
+<h2>unbind_mouseover API<a class="headerlink" href="#unbind-mouseover-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseover(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -265,7 +263,7 @@
 </div>
 </section>
 <section id="unbind-mouseover-all-api">
-<h2>unbind_mouseover_all API<a class="headerlink" href="#unbind-mouseover-all-api" title="Permalink to this heading">¶</a></h2>
+<h2>unbind_mouseover_all API<a class="headerlink" href="#unbind-mouseover-all-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseover_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -287,7 +285,7 @@
 </div>
 </section>
 <section id="mouseout-api">
-<h2>mouseout API<a class="headerlink" href="#mouseout-api" title="Permalink to this heading">¶</a></h2>
+<h2>mouseout API<a class="headerlink" href="#mouseout-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -336,7 +334,7 @@
 </ul>
 </section>
 <section id="unbind-mouseout-api">
-<h2>unbind_mouseout API<a class="headerlink" href="#unbind-mouseout-api" title="Permalink to this heading">¶</a></h2>
+<h2>unbind_mouseout API<a class="headerlink" href="#unbind-mouseout-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseout(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -367,7 +365,7 @@
 </div>
 </section>
 <section id="unbind-mouseout-all-api">
-<h2>unbind_mouseout_all API<a class="headerlink" href="#unbind-mouseout-all-api" title="Permalink to this heading">¶</a></h2>
+<h2>unbind_mouseout_all API<a class="headerlink" href="#unbind-mouseout-all-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mouseout_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -400,9 +398,8 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="jp_index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">mouseover と mouseout のインターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#id2">関連資料</a></li>
@@ -418,17 +415,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_mousedown_and_mouseup.html"
-                          title="previous chapter">mousedown と mouseup のインターフェイス</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="jp_mousemove.html"
-                          title="next chapter">mousemove インターフェイス</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_mousedown_and_mouseup.html"
+                        title="previous chapter">mousedown と mouseup のインターフェイス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_mousemove.html"
+                        title="next chapter">mousemove インターフェイス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -438,7 +430,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -461,7 +453,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

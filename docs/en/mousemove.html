@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,21 +48,21 @@
           <div class="body" role="main">
             
   <section id="mousemove-interface">
-<h1>mousemove interface<a class="headerlink" href="#mousemove-interface" title="Permalink to this heading">¶</a></h1>
+<h1>mousemove interface<a class="headerlink" href="#mousemove-interface" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">mousemove</span></code> interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">mousemove</span></code> interface binds the mouse moving event handler to any <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. If you move the mouse cursor on that instance, the interface calls the registered handler.</p>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <p>The following page describes the basic mouse event interfaces.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="mouse_event_basic.html"><span class="doc std std-doc">Basic mouse event interfaces</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">mousemove</span></code> method, and you can bind handlers by that.</p>
 <p>The following example binds the mouse move event handler to the circle. So if you move a mouse cursor on that, the circle follows the cursor position.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -102,7 +100,7 @@
 <iframe src="static/mousemove_basic_usage/index.html" width="200" height="200"></iframe>
 </section>
 <section id="unbind-interfaces">
-<h2>Unbind interfaces<a class="headerlink" href="#unbind-interfaces" title="Permalink to this heading">¶</a></h2>
+<h2>Unbind interfaces<a class="headerlink" href="#unbind-interfaces" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_mousemove</span></code> interface can remove the binding of the mouse move event from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>.</p>
 <p>In the following example, the interface removes the mouse move event handler if you click the circle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -157,7 +155,7 @@
 <p>There are also existing the <code class="docutils literal notranslate"><span class="pre">unbind_mousemove_all</span></code> interface. This interface unbinds all the handlers from the target <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 </section>
 <section id="mousemove-api">
-<h2>mousemove API<a class="headerlink" href="#mousemove-api" title="Permalink to this heading">¶</a></h2>
+<h2>mousemove API<a class="headerlink" href="#mousemove-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_move_mixin.MouseMoveMixIn.mousemove -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">mousemove(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
@@ -207,7 +205,7 @@
 </ul>
 </section>
 <section id="unbind-mousemove-api">
-<h2>unbind_mousemove API<a class="headerlink" href="#unbind-mousemove-api" title="Permalink to this heading">¶</a></h2>
+<h2>unbind_mousemove API<a class="headerlink" href="#unbind-mousemove-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_move_mixin.MouseMoveMixIn.unbind_mousemove -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mousemove(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -242,7 +240,7 @@
 </div>
 </section>
 <section id="unbind-mousemove-all-api">
-<h2>unbind_mousemove_all API<a class="headerlink" href="#unbind-mousemove-all-api" title="Permalink to this heading">¶</a></h2>
+<h2>unbind_mousemove_all API<a class="headerlink" href="#unbind-mousemove-all-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_move_mixin.MouseMoveMixIn.unbind_mousemove_all -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mousemove_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -279,9 +277,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">mousemove interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
@@ -294,17 +291,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="mouseover_and_mouseout.html"
-                          title="previous chapter">mouseover and mouseout interfaces</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="if.html"
-                          title="next chapter">If class</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mouseover_and_mouseout.html"
+                        title="previous chapter">mouseover and mouseout interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="if.html"
+                        title="next chapter">If class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -314,7 +306,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -337,7 +329,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

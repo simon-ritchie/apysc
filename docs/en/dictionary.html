@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,18 +48,18 @@
           <div class="body" role="main">
             
   <section id="dictionary-class">
-<h1>Dictionary class<a class="headerlink" href="#dictionary-class" title="Permalink to this heading">¶</a></h1>
+<h1>Dictionary class<a class="headerlink" href="#dictionary-class" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class.</p>
 <p>Before reading on, maybe it is helpful to read the following page:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
 </ul>
 <section id="what-is-the-dictionary">
-<h2>What is the Dictionary?<a class="headerlink" href="#what-is-the-dictionary" title="Permalink to this heading">¶</a></h2>
+<h2>What is the Dictionary?<a class="headerlink" href="#what-is-the-dictionary" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class is the apysc dictionary class. It behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> value.</p>
 </section>
 <section id="constructor-method">
-<h2>Constructor method<a class="headerlink" href="#constructor-method" title="Permalink to this heading">¶</a></h2>
+<h2>Constructor method<a class="headerlink" href="#constructor-method" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class constructor method requires a Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> or <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -75,7 +73,7 @@
 </div>
 </section>
 <section id="value-setter-interface">
-<h2>Value setter interface<a class="headerlink" href="#value-setter-interface" title="Permalink to this heading">¶</a></h2>
+<h2>Value setter interface<a class="headerlink" href="#value-setter-interface" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value can be updated by indexing, like the Python built-in <code class="docutils literal notranslate"><span class="pre">dict</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -87,7 +85,7 @@
 </div>
 </section>
 <section id="value-getter-interface">
-<h2>Value getter interface<a class="headerlink" href="#value-getter-interface" title="Permalink to this heading">¶</a></h2>
+<h2>Value getter interface<a class="headerlink" href="#value-getter-interface" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value also can be retrieved by indexing:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -101,7 +99,7 @@
 </div>
 </section>
 <section id="notes-of-the-getter-interface">
-<h2>Notes of the getter interface<a class="headerlink" href="#notes-of-the-getter-interface" title="Permalink to this heading">¶</a></h2>
+<h2>Notes of the getter interface<a class="headerlink" href="#notes-of-the-getter-interface" title="Permalink to this headline">¶</a></h2>
 <p>If a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value doesn’t have the specified key, a retrieved value type becomes the <code class="docutils literal notranslate"><span class="pre">AnyValue</span></code> type. This behavior occasionally is helpful when a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value is updated dynamically (e.g., updating by the JavaScript event handler).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -114,7 +112,7 @@
 </div>
 </section>
 <section id="value-deletion-interface">
-<h2>Value deletion interface<a class="headerlink" href="#value-deletion-interface" title="Permalink to this heading">¶</a></h2>
+<h2>Value deletion interface<a class="headerlink" href="#value-deletion-interface" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value can be deleted by the <code class="docutils literal notranslate"><span class="pre">del</span></code> statement, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -127,7 +125,7 @@
 </div>
 </section>
 <section id="dictionary-class-constructor-api">
-<h2>Dictionary class constructor API<a class="headerlink" href="#dictionary-class-constructor-api" title="Permalink to this heading">¶</a></h2>
+<h2>Dictionary class constructor API<a class="headerlink" href="#dictionary-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._type.dictionary.Dictionary.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[Dict[~_Key,</span> <span class="pre">~_Value],</span> <span class="pre">ForwardRef('Dictionary')],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -173,7 +171,7 @@
 </ul>
 </section>
 <section id="value-attribute-api">
-<h2>value attribute API<a class="headerlink" href="#value-attribute-api" title="Permalink to this heading">¶</a></h2>
+<h2>value attribute API<a class="headerlink" href="#value-attribute-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._type.dictionary.Dictionary.value -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -213,9 +211,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Dictionary class</a><ul>
 <li><a class="reference internal" href="#what-is-the-dictionary">What is the Dictionary?</a></li>
 <li><a class="reference internal" href="#constructor-method">Constructor method</a></li>
@@ -229,17 +226,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="array_comparison.html"
-                          title="previous chapter">Array class comparison interfaces</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="dictionary_generic.html"
-                          title="next chapter">Dictionary class generic type settings</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="array_comparison.html"
+                        title="previous chapter">Array class comparison interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dictionary_generic.html"
+                        title="next chapter">Dictionary class generic type settings</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -249,7 +241,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -272,7 +264,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

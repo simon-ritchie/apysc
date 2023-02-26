@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,18 +48,18 @@
           <div class="body" role="main">
             
   <section id="return-class">
-<h1>Return class<a class="headerlink" href="#return-class" title="Permalink to this heading">¶</a></h1>
+<h1>Return class<a class="headerlink" href="#return-class" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Return</span></code> class.</p>
 <p>Before reading on, maybe it is helpful to read the following page (the apysc uses the <code class="docutils literal notranslate"><span class="pre">Return</span></code> class for the same reason of each apysc data type):</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
 </ul>
 <section id="what-is-the-return-class">
-<h2>What is the Return class?<a class="headerlink" href="#what-is-the-return-class" title="Permalink to this heading">¶</a></h2>
+<h2>What is the Return class?<a class="headerlink" href="#what-is-the-return-class" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Return</span></code> class behaves to append the <code class="docutils literal notranslate"><span class="pre">return;</span></code> JavaScript code. Therefore, this class can be used only in an event handler (function or method) scope.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Return</span></code> class constructor accepts no arguments. You can use this interface with the branch condition, for example, the <code class="docutils literal notranslate"><span class="pre">ap.If</span></code> class.</p>
 <p>The following example changes the rectangle fill color when you click it. Each <code class="docutils literal notranslate"><span class="pre">ap.If</span></code> branch instantiate <code class="docutils literal notranslate"><span class="pre">Return</span></code> class, so the code applies the changing of fill color one by one:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -106,7 +104,7 @@
 <iframe src="static/return_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="return-api">
-<h2>Return API<a class="headerlink" href="#return-api" title="Permalink to this heading">¶</a></h2>
+<h2>Return API<a class="headerlink" href="#return-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._type._return.Return.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -135,9 +133,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Return class</a><ul>
 <li><a class="reference internal" href="#what-is-the-return-class">What is the Return class?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -146,17 +143,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="branch_instruction_variables_reverting_setting.html"
-                          title="previous chapter">Each branch instruction class’s scope variable reverting setting</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="for.html"
-                          title="next chapter">For class</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="branch_instruction_variables_reverting_setting.html"
+                        title="previous chapter">Each branch instruction class’s scope variable reverting setting</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="for.html"
+                        title="next chapter">For class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -166,7 +158,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -189,7 +181,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

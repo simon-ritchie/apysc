@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,18 +48,18 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/array.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="array">
-<h1>Array クラス<a class="headerlink" href="#array" title="Permalink to this heading">¶</a></h1>
+<h1>Array クラス<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Array</span></code>クラスについて説明します。</p>
 <p>事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
 </ul>
 <section id="id1">
-<h2>Array クラスとは<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>Array クラスとは<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Array</span></code>クラスはapyscの配列のクラスです。このクラスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">list</span></code>のように動作します。</p>
 </section>
 <section id="id2">
-<h2>コンストラクタメソッド<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>コンストラクタメソッド<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Array</span></code>クラスのコンストラクタでは<code class="docutils literal notranslate"><span class="pre">list</span></code>や<code class="docutils literal notranslate"><span class="pre">tuple</span></code>、<code class="docutils literal notranslate"><span class="pre">range</span></code>、<code class="docutils literal notranslate"><span class="pre">Array</span></code>などのイテラブルなオブジェクトが引数に必要となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -79,7 +77,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>ジェネリックの型アノテーション<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>ジェネリックの型アノテーション<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>もし<code class="docutils literal notranslate"><span class="pre">Array</span></code>クラスの値の型が一意な場合は配列に対してジェネリックの型の指定を行うことができます。この型アノテーションはIDE上などで便利なケースがあります（型チェックのライブラリなどを使う場合に）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -91,7 +89,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_fundamental_data_classes_value_interface.html"><span class="doc std std-doc">基本的なデータクラスの共通の value インターフェイス</span></a></p></li>
 <li><p><a class="reference internal" href="jp_array_append_and_push.html"><span class="doc std std-doc">Array クラスの append と push のインターフェイス</span></a></p></li>
@@ -109,7 +107,7 @@
 </ul>
 </section>
 <section id="array-api">
-<h2>Array クラスのコンストラクタのAPI<a class="headerlink" href="#array-api" title="Permalink to this heading">¶</a></h2>
+<h2>Array クラスのコンストラクタのAPI<a class="headerlink" href="#array-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[List[~_ArrValue],</span> <span class="pre">tuple,</span> <span class="pre">range,</span> <span class="pre">ForwardRef('Array')],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -161,7 +159,7 @@
 </ul>
 </section>
 <section id="value-api">
-<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this heading">¶</a></h2>
+<h2>value 属性のAPI<a class="headerlink" href="#value-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の配列の値を取得します。<hr></p>
@@ -200,9 +198,8 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="jp_index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Array クラス</a><ul>
 <li><a class="reference internal" href="#id1">Array クラスとは</a></li>
 <li><a class="reference internal" href="#id2">コンストラクタメソッド</a></li>
@@ -214,17 +211,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_boolean.html"
-                          title="previous chapter">Boolean クラス</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="jp_array_append_and_push.html"
-                          title="next chapter">Array クラスの append と push のインターフェイス</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_boolean.html"
+                        title="previous chapter">Boolean クラス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_array_append_and_push.html"
+                        title="next chapter">Array クラスの append と push のインターフェイス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -234,7 +226,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -257,7 +249,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

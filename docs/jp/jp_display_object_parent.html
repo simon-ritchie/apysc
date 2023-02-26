@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,10 +48,10 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/display_object_parent.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="displayobject-parent">
-<h1>DisplayObject クラスの parent インターフェイス<a class="headerlink" href="#displayobject-parent" title="Permalink to this heading">¶</a></h1>
+<h1>DisplayObject クラスの parent インターフェイス<a class="headerlink" href="#displayobject-parent" title="Permalink to this headline">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">parent</span></code>関係のインターフェイス（<code class="docutils literal notranslate"><span class="pre">parent</span></code>属性と<code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code>メソッド）について説明します。</p>
 <section id="id1">
-<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">parent</span></code>属性はgetterのみのインターフェイスとなります。この属性値は<code class="docutils literal notranslate"><span class="pre">Stage</span></code>のインスタンスもしくは<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>などのコンテナのインスタンスとなります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -73,7 +71,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code>インターフェイスは自身のインスタンスを親のインスタンスから取り除き、画面上に表示されない状態にします。</p>
 </section>
 <section id="remove-from-parent">
-<h2>remove_from_parent インターフェイスの基本的な使い方<a class="headerlink" href="#remove-from-parent" title="Permalink to this heading">¶</a></h2>
+<h2>remove_from_parent インターフェイスの基本的な使い方<a class="headerlink" href="#remove-from-parent" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">remove_from_parent</span></code>メソッドのインターフェイス（引数を必要としません）は自身のインスタンスを親のインスタンスから取り除きます。取り除かれたインスタンスは他の親（コンテナ）のインスタンスへと追加されるまで画面に表示されません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -95,13 +93,13 @@
 <iframe src="static/display_object_remove_from_parent_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id2">
-<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_add_child_and_remove_child.html"><span class="doc std std-doc">add_child （子の追加）と remove_child （子の削除）のインターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="parent-api">
-<h2>parent API<a class="headerlink" href="#parent-api" title="Permalink to this heading">¶</a></h2>
+<h2>parent API<a class="headerlink" href="#parent-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>add_childやremove_childなどのインターフェイスを持った親のインスタンスを取得します。<hr></p>
@@ -130,7 +128,7 @@
 </div>
 </section>
 <section id="remove-from-parent-api">
-<h2>remove_from_parent API<a class="headerlink" href="#remove-from-parent-api" title="Permalink to this heading">¶</a></h2>
+<h2>remove_from_parent API<a class="headerlink" href="#remove-from-parent-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">remove_from_parent(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -152,9 +150,8 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="jp_index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">DisplayObject クラスの parent インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#remove-from-parent">remove_from_parent インターフェイスの基本的な使い方</a></li>
@@ -165,17 +162,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_display_object_x_and_y.html"
-                          title="previous chapter">DisplayObject クラスの x と y のインターフェイス</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="jp_display_object_visible.html"
-                          title="next chapter">DisplayObject クラスの visible インターフェイス</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_display_object_x_and_y.html"
+                        title="previous chapter">DisplayObject クラスの x と y のインターフェイス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_display_object_visible.html"
+                        title="next chapter">DisplayObject クラスの visible インターフェイス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -185,7 +177,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -208,7 +200,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

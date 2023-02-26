@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,16 +48,16 @@
           <div class="body" role="main">
             
   <section id="pathmoveto-class">
-<h1>PathMoveTo class<a class="headerlink" href="#pathmoveto-class" title="Permalink to this heading">¶</a></h1>
+<h1>PathMoveTo class<a class="headerlink" href="#pathmoveto-class" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code> class.</p>
 <section id="what-class-is-this">
-<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this heading">¶</a></h2>
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code> class is the class to set a new position on a path.</p>
 <p>This setting only sets coordinates and does not append any vector graphics.</p>
 <p>Mainly, the <code class="docutils literal notranslate"><span class="pre">Path</span></code> class constructor or <code class="docutils literal notranslate"><span class="pre">draw_path</span></code> interfaces use this setting.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Path</span></code> class constructor or <code class="docutils literal notranslate"><span class="pre">draw_path</span></code> interfaces’ <code class="docutils literal notranslate"><span class="pre">path_data_list</span></code> argument requires its instance.</p>
 <p>The following example sets the x=50 and y=50 coordinates with the <code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code> instance and then draws the line to x=150 and y=50:</p>
@@ -84,7 +82,7 @@
 <iframe src="static/path_move_to_basic_usage/index.html" width="200" height="100"></iframe>
 </section>
 <section id="relative-position-setting">
-<h2>Relative position setting<a class="headerlink" href="#relative-position-setting" title="Permalink to this heading">¶</a></h2>
+<h2>Relative position setting<a class="headerlink" href="#relative-position-setting" title="Permalink to this headline">¶</a></h2>
 <p>The constructor’s <code class="docutils literal notranslate"><span class="pre">relative</span></code> optional argument changes its behavior.</p>
 <p>For example, if you set True to its argument, coordinates become relative.</p>
 <p>The default setting is False, and it becomes absolute.</p>
@@ -112,7 +110,7 @@
 <iframe src="static/path_move_to_relative/index.html" width="200" height="200"></iframe>
 </section>
 <section id="pathmoveto-class-constructor-api">
-<h2>PathMoveTo class constructor API<a class="headerlink" href="#pathmoveto-class-constructor-api" title="Permalink to this heading">¶</a></h2>
+<h2>PathMoveTo class constructor API<a class="headerlink" href="#pathmoveto-class-constructor-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._geom.path_move_to.PathMoveTo.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">relative:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -174,9 +172,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">PathMoveTo class</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -186,17 +183,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="point2d.html"
-                          title="previous chapter">Point2D class</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="path_line_to.html"
-                          title="next chapter">PathLineTo class</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="point2d.html"
+                        title="previous chapter">Point2D class</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="path_line_to.html"
+                        title="next chapter">PathLineTo class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -206,7 +198,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -229,7 +221,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

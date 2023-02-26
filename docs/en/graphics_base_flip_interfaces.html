@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,14 +48,14 @@
           <div class="body" role="main">
             
   <section id="graphicsbase-flip-x-and-flip-y-interfaces">
-<h1>GraphicsBase flip_x and flip_y interfaces<a class="headerlink" href="#graphicsbase-flip-x-and-flip-y-interfaces" title="Permalink to this heading">¶</a></h1>
+<h1>GraphicsBase flip_x and flip_y interfaces<a class="headerlink" href="#graphicsbase-flip-x-and-flip-y-interfaces" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphic, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> and <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> property flips an object in the x-axis direction, and the <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property flips in the y-axis direction.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> and <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> can be set a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value. If you set the <code class="docutils literal notranslate"><span class="pre">True</span></code>, an object becomes flipped. Conversely, if you set the <code class="docutils literal notranslate"><span class="pre">False</span></code>, an object resets flipping.</p>
 <p>The getter interface returns a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value of a current flipping value.</p>
 <p>The following example flips the triangle polygon in the x-axis direction and resets per second:</p>
@@ -112,7 +110,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> interface behaves the same as the <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> interface, except the axis direction.</p>
 </section>
 <section id="flip-x-property-api">
-<h2>flip_x property API<a class="headerlink" href="#flip-x-property-api" title="Permalink to this heading">¶</a></h2>
+<h2>flip_x property API<a class="headerlink" href="#flip-x-property-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.flip_x_mixin.FlipXMixIn.flip_x -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -145,7 +143,7 @@
 </div>
 </section>
 <section id="flip-y-property-api">
-<h2>flip_y property API<a class="headerlink" href="#flip-y-property-api" title="Permalink to this heading">¶</a></h2>
+<h2>flip_y property API<a class="headerlink" href="#flip-y-property-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.flip_y_mixin.FlipYMixIn.flip_y -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -189,9 +187,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">GraphicsBase flip_x and flip_y interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -201,17 +198,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="graphics_base_scale_from_point.html"
-                          title="previous chapter">GraphicsBase get_scale_from_point and set_scale_from_point interfaces</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="graphics_base_skew.html"
-                          title="next chapter">GraphicsBase skew_x and skew_y interfaces</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="graphics_base_scale_from_point.html"
+                        title="previous chapter">GraphicsBase get_scale_from_point and set_scale_from_point interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="graphics_base_skew.html"
+                        title="next chapter">GraphicsBase skew_x and skew_y interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -221,7 +213,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -244,7 +236,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

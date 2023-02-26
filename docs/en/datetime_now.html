@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,14 +48,14 @@
           <div class="body" role="main">
             
   <section id="datetime-class-now-interface">
-<h1>DateTime class now interface<a class="headerlink" href="#datetime-class-now-interface" title="Permalink to this heading">¶</a></h1>
+<h1>DateTime class now interface<a class="headerlink" href="#datetime-class-now-interface" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> class <code class="docutils literal notranslate"><span class="pre">now</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">DateTime</span></code>’s <code class="docutils literal notranslate"><span class="pre">now</span></code> class method returns a current time <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> instance.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> class has the <code class="docutils literal notranslate"><span class="pre">now</span></code> method defined as a class method.</p>
 <p>It returns a <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> instance, and its values become a current time.</p>
 <p>In the following example, if you click the rectangle, the click handler displays a current year, month, and day on the browser console.</p>
@@ -96,7 +94,7 @@
 <iframe src="static/datetime_now_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="now-class-method-api">
-<h2>now class method API<a class="headerlink" href="#now-class-method-api" title="Permalink to this heading">¶</a></h2>
+<h2>now class method API<a class="headerlink" href="#now-class-method-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._time.datetime_.DateTime.now -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">now(*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'DateTime'</span></code><hr></p>
@@ -148,9 +146,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">DateTime class now interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -159,17 +156,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="datetime_weekday_js_and_weekday_py.html"
-                          title="previous chapter">DateTime class weekday_js and weekday_py properties</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="datetime_set_month_end.html"
-                          title="next chapter">DateTime class set_month_end interface</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="datetime_weekday_js_and_weekday_py.html"
+                        title="previous chapter">DateTime class weekday_js and weekday_py properties</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="datetime_set_month_end.html"
+                        title="next chapter">DateTime class set_month_end interface</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -179,7 +171,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -202,7 +194,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

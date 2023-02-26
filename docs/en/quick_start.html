@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,10 +48,10 @@
           <div class="body" role="main">
             
   <section id="quick-start-guide">
-<h1>Quick start guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this heading">¶</a></h1>
+<h1>Quick start guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the first step of the apysc library journey.</p>
 <section id="installing">
-<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this heading">¶</a></h2>
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
 <p>To use apysc library Python 3.7 or the later version is required.</p>
 <p>You can use the pip command to install apysc.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install apysc
@@ -61,7 +59,7 @@
 </div>
 </section>
 <section id="create-stage-and-export-html">
-<h2>Create stage and export HTML<a class="headerlink" href="#create-stage-and-export-html" title="Permalink to this heading">¶</a></h2>
+<h2>Create stage and export HTML<a class="headerlink" href="#create-stage-and-export-html" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Stage</span></code> instance is apysc’s space for displaying each graphic. You can set arguments of <code class="docutils literal notranslate"><span class="pre">stage_width</span></code> for width setting, <code class="docutils literal notranslate"><span class="pre">stage_height</span></code> for height setting, and <code class="docutils literal notranslate"><span class="pre">background_color</span></code> for background.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -83,7 +81,7 @@
 <iframe src="static/quick_start_stage_creation/index.html" width="300" height="180"></iframe>
 </section>
 <section id="add-sprite-container-and-vector-graphics">
-<h2>Add sprite container and vector graphics<a class="headerlink" href="#add-sprite-container-and-vector-graphics" title="Permalink to this heading">¶</a></h2>
+<h2>Add sprite container and vector graphics<a class="headerlink" href="#add-sprite-container-and-vector-graphics" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is the container object of each display object, and it can make vector graphics with the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> property.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -111,7 +109,7 @@
 <p>Please see each interface documentation page for more details of <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> and <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>.</p>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="sprite.html"><span class="doc std std-doc">Sprite class</span></a></p></li>
 <li><p><a class="reference internal" href="draw_interfaces_abstract.html"><span class="doc std std-doc">Draw interfaces abstract</span></a></p></li>
@@ -129,9 +127,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Quick start guide</a><ul>
 <li><a class="reference internal" href="#installing">Installing</a></li>
 <li><a class="reference internal" href="#create-stage-and-export-html">Create stage and export HTML</a></li>
@@ -141,17 +138,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="what_apysc_can_do.html"
-                          title="previous chapter">What apysc can do in its current implementation</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="import_conventions.html"
-                          title="next chapter">import conventions</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="what_apysc_can_do.html"
+                        title="previous chapter">What apysc can do in its current implementation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="import_conventions.html"
+                        title="next chapter">import conventions</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -161,7 +153,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -184,7 +176,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

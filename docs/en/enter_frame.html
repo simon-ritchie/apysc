@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,15 +48,15 @@
           <div class="body" role="main">
             
   <section id="enter-frame-interface">
-<h1>enter_frame interface<a class="headerlink" href="#enter-frame-interface" title="Permalink to this heading">¶</a></h1>
+<h1>enter_frame interface<a class="headerlink" href="#enter-frame-interface" title="Permalink to this headline">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">enter_frame</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">enter_frame</span></code> interface sets a handler for an animation.</p>
 <p>This interface calls a specified handler at each frame.</p>
 </section>
 <section id="which-should-we-use-the-timer-class-or-the-enter-frame-interface">
-<h2>Which should we use, the Timer class or the enter_frame interface?<a class="headerlink" href="#which-should-we-use-the-timer-class-or-the-enter-frame-interface" title="Permalink to this heading">¶</a></h2>
+<h2>Which should we use, the Timer class or the enter_frame interface?<a class="headerlink" href="#which-should-we-use-the-timer-class-or-the-enter-frame-interface" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class also can handle animation.</p>
 <p>So, Which should we use, the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class or the <code class="docutils literal notranslate"><span class="pre">enter_frame</span></code> interface for an animation?</p>
 <p>The answer is, basically, the <code class="docutils literal notranslate"><span class="pre">enter_frame</span></code>.</p>
@@ -66,7 +64,7 @@
 <p>On the other hand, the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class’s calling timing can be off if a CPU is busy.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">enter_frame</span></code> interface exists in classes, such as the <code class="docutils literal notranslate"><span class="pre">Stage</span></code> or <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">enter_frame</span></code> interface requires the <code class="docutils literal notranslate"><span class="pre">handler</span></code> argument (callable object, such as the function or method).</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">fps</span></code> argument is optional and determines an animation’s frame rate (it accepts the <code class="docutils literal notranslate"><span class="pre">FPS</span></code> enum).</p>
@@ -106,14 +104,14 @@
 <iframe src="static/enter_frame_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="timer.html"><span class="doc std std-doc">Timer class</span></a></p></li>
 <li><p><a class="reference internal" href="fps.html"><span class="doc std std-doc">FPS enum</span></a></p></li>
 </ul>
 </section>
 <section id="enter-frame-api">
-<h2>enter_frame API<a class="headerlink" href="#enter-frame-api" title="Permalink to this heading">¶</a></h2>
+<h2>enter_frame API<a class="headerlink" href="#enter-frame-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.enter_frame_mixin.EnterFrameMixIn.enter_frame -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">enter_frame(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.enter_frame_event.EnterFrameEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">fps:</span> <span class="pre">apysc._time.fps.FPS</span> <span class="pre">=</span> <span class="pre">&lt;FPS.FPS_60:</span> <span class="pre">&lt;apysc._time.fps.FPSDefinition</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7fcb77776110&gt;&gt;,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -164,9 +162,8 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">enter_frame interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#which-should-we-use-the-timer-class-or-the-enter-frame-interface">Which should we use, the Timer class or the enter_frame interface?</a></li>
@@ -177,17 +174,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="timer_reset.html"
-                          title="previous chapter">Timer class reset interface</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="unbind_enter_frame_and_unbind_enter_frame_all.html"
-                          title="next chapter">unbind_enter_frame and unbind_enter_frame_all interfaces</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="timer_reset.html"
+                        title="previous chapter">Timer class reset interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="unbind_enter_frame_and_unbind_enter_frame_all.html"
+                        title="next chapter">unbind_enter_frame and unbind_enter_frame_all interfaces</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -197,7 +189,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -220,7 +212,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

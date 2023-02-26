@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,15 +48,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/display_object_mouse_event.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="displayobject">
-<h1>DisplayObject クラスのマウスイベント設定の各インターフェイス<a class="headerlink" href="#displayobject" title="Permalink to this heading">¶</a></h1>
+<h1>DisplayObject クラスのマウスイベント設定の各インターフェイス<a class="headerlink" href="#displayobject" title="Permalink to this headline">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスのマウスイベントの登録の各インターフェイスについて説明します。</p>
 <section id="id1">
-<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>各<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスはクリックやマウスオーバーなどのマウスイベント登録用の各インターフェイスを持っています。</p>
 <p>これらのインターフェイスは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>にマウスイベントを設定でき、例えばクリック時に実行したい関数などを登録することができます。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">click</span></code>や<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>などの各インターフェイスで任意のイベントハンドラ（Callableオブジェクト）を登録することができます。</p>
 <p>以下のコード例ではクリックのイベントハンドラを設定しており、四角をクリックすると色が変わるようにしています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -95,7 +93,7 @@
 <iframe src="static/display_object_mouse_event_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>詳細については以下の各ページをご確認ください:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_mouse_event_basic.html"><span class="doc std std-doc">基本的なマウスイベントの各インターフェイス</span></a></p></li>
@@ -117,9 +115,8 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="jp_index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">DisplayObject クラスのマウスイベント設定の各インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -128,17 +125,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_display_object_get_and_set_css.html"
-                          title="previous chapter">DisplayObject クラスの get_css と set_css メソッドのインターフェイス</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="jp_graphics_base_fill_color.html"
-                          title="next chapter">GraphicsBase クラスの fill_color インターフェイス</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_display_object_get_and_set_css.html"
+                        title="previous chapter">DisplayObject クラスの get_css と set_css メソッドのインターフェイス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_graphics_base_fill_color.html"
+                        title="next chapter">GraphicsBase クラスの fill_color インターフェイス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -148,7 +140,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -171,7 +163,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

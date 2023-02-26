@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,15 +48,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/event_prevent_default_and_stop_propagation.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="event-prevent-default-stop-propagation">
-<h1>Event クラスの prevent_default と stop_propagation のインターフェイス<a class="headerlink" href="#event-prevent-default-stop-propagation" title="Permalink to this heading">¶</a></h1>
+<h1>Event クラスの prevent_default と stop_propagation のインターフェイス<a class="headerlink" href="#event-prevent-default-stop-propagation" title="Permalink to this headline">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Event</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>と<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドの各インターフェイスについて説明します。</p>
 <section id="id1">
-<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドのインターフェイスはJavaScriptの<code class="docutils literal notranslate"><span class="pre">preventDefault</span></code>メソッドに該当するコード表現を加えます。このインターフェイスはイベントにおけるブラウザのデフォルトの挙動を無効化します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドのインターフェイスはイベントの伝搬を停止します。例えば、このインスタンス上で実行（発火）されたイベントは親のインスタンスへは伝搬しなくなります（親のイベントは無視されるようになります）。</p>
 </section>
 <section id="prevent-default">
-<h2>prevent_default インターフェイスの基本的な使い方<a class="headerlink" href="#prevent-default" title="Permalink to this heading">¶</a></h2>
+<h2>prevent_default インターフェイスの基本的な使い方<a class="headerlink" href="#prevent-default" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Event</span></code>のサブクラスのインスタンスは<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドを持っています（注: このインターフェイスを持っていないサブクラスも存在します）。<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドは特に引数を必要としません。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -91,7 +89,7 @@
 </div>
 </section>
 <section id="stop-propagation">
-<h2>stop_propagation インターフェイスの基本的な使い方<a class="headerlink" href="#stop-propagation" title="Permalink to this heading">¶</a></h2>
+<h2>stop_propagation インターフェイスの基本的な使い方<a class="headerlink" href="#stop-propagation" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Event</span></code>のサブクラスのインスタンスは<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドを持っています（注: このメソッドを持っていないサブクラスも存在します）。<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">prevent_default</span></code>メソッドと同様に引数を必要としません。</p>
 <p>以下のコード例ではクリックイベントをSpriteの親のインスタンスと四角の子のインスタンスにそれぞれ設定しています。四角の子のインスタンスのクリックのハンドラでは<code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code>メソッドを読んでいるため、親のSpriteのハンドラは呼ばれません（イベントが伝搬しません）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -143,7 +141,7 @@
 <iframe src="static/event_stop_propagation_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="prevent-default-api">
-<h2>prevent_default API<a class="headerlink" href="#prevent-default-api" title="Permalink to this heading">¶</a></h2>
+<h2>prevent_default API<a class="headerlink" href="#prevent-default-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">prevent_default(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -166,7 +164,7 @@
 </div>
 </section>
 <section id="stop-propagation-api">
-<h2>stop_propagation API<a class="headerlink" href="#stop-propagation-api" title="Permalink to this heading">¶</a></h2>
+<h2>stop_propagation API<a class="headerlink" href="#stop-propagation-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">stop_propagation(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -199,9 +197,8 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="jp_index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Event クラスの prevent_default と stop_propagation のインターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#prevent-default">prevent_default インターフェイスの基本的な使い方</a></li>
@@ -212,17 +209,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_about_handler_options_type.html"
-                          title="previous chapter">ハンドラのoptions引数の型について</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="jp_bind_and_trigger_custom_event.html"
-                          title="next chapter">カスタムイベントの登録とイベントの発生（発火）制御</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_about_handler_options_type.html"
+                        title="previous chapter">ハンドラのoptions引数の型について</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_bind_and_trigger_custom_event.html"
+                        title="next chapter">カスタムイベントの登録とイベントの発生（発火）制御</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -232,7 +224,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -255,7 +247,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

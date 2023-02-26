@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -15,9 +15,7 @@
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
     <script src="static/jquery.js"></script>
     <script src="static/underscore.js"></script>
-    <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="static/doctools.js"></script>
-    <script src="static/sphinx_highlight.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -50,16 +48,16 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/display_object_and_graphics_base_prop_abstract.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="displayobject-graphicsbase">
-<h1>DisplayObject と GraphicsBase クラスの基本的な属性の概要<a class="headerlink" href="#displayobject-graphicsbase" title="Permalink to this heading">¶</a></h1>
+<h1>DisplayObject と GraphicsBase クラスの基本的な属性の概要<a class="headerlink" href="#displayobject-graphicsbase" title="Permalink to this headline">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>や<code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code>の各サブクラスのxやvisibleなどの基本的な属性の概要について説明します。</p>
 <section id="apysc">
-<h2>それらの属性でapyscができること<a class="headerlink" href="#apysc" title="Permalink to this heading">¶</a></h2>
+<h2>それらの属性でapyscができること<a class="headerlink" href="#apysc" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>xやy, visibleなどの属性の取得や更新を行うことができます。</p></li>
 </ul>
 </section>
 <section id="x-y">
-<h2>x と y 属性<a class="headerlink" href="#x-y" title="Permalink to this heading">¶</a></h2>
+<h2>x と y 属性<a class="headerlink" href="#x-y" title="Permalink to this headline">¶</a></h2>
 <p>xとy属性ではXとY座標を更新・取得することができます。</p>
 <details>
 <summary>コードブロックを表示:</summary>
@@ -121,7 +119,7 @@
 </ul>
 </section>
 <section id="visible">
-<h2>visible 属性<a class="headerlink" href="#visible" title="Permalink to this heading">¶</a></h2>
+<h2>visible 属性<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">visible</span></code>属性ではオブジェクトの表示・非表示の属性値を取得・更新することができます。</p>
 <details>
 <summary>コードブロックを表示:</summary>
@@ -171,7 +169,7 @@
 </ul>
 </section>
 <section id="id1">
-<h2>回転の各インターフェイス<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>回転の各インターフェイス<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code>属性、<code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code>メソッド、そして<code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code>メソッドでは回転の角度の値の取得と更新を行うことができます。</p>
 <details>
 <summary>コードブロックを表示:</summary>
@@ -222,7 +220,7 @@
 </ul>
 </section>
 <section id="id2">
-<h2>拡縮の各インターフェイス<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>拡縮の各インターフェイス<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code>属性、<code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code>属性、<code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code>メソッド、<code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code>メソッド、<code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code>メソッド、そして<code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code>メソッドの各インターフェイスでは拡縮の値の取得と更新を行うことができます。</p>
 <details>
 <summary>コードブロックを表示:</summary>
@@ -285,7 +283,7 @@
 </ul>
 </section>
 <section id="id3">
-<h2>反転の各属性<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>反転の各属性<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">flip_x</span></code>と<code class="docutils literal notranslate"><span class="pre">flip_y</span></code>の属性では反転の属性値の取得と更新を行うことができます。</p>
 <details>
 <summary>コードブロックを表示:</summary>
@@ -335,7 +333,7 @@
 </ul>
 </section>
 <section id="id4">
-<h2>歪みの各属性<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<h2>歪みの各属性<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">skew_x</span></code>と<code class="docutils literal notranslate"><span class="pre">skew_y</span></code>の各属性では歪みの値を取得・更新することができます。</p>
 <details>
 <summary>コードブロックを表示:</summary>
@@ -385,7 +383,7 @@
 </ul>
 </section>
 <section id="id5">
-<h2>関連資料<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="jp_display_object.html"><span class="doc std std-doc">DisplayObject クラス</span></a></p></li>
 <li><p><a class="reference internal" href="jp_display_object_parent.html"><span class="doc std std-doc">DisplayObjectクラス parent （親要素属性）のインターフェイス</span></a></p></li>
@@ -403,9 +401,8 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <div>
-    <h3><a href="jp_index.html">Table of Contents</a></h3>
-    <ul>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">DisplayObject と GraphicsBase クラスの基本的な属性の概要</a><ul>
 <li><a class="reference internal" href="#apysc">それらの属性でapyscができること</a></li>
 <li><a class="reference internal" href="#x-y">x と y 属性</a></li>
@@ -419,17 +416,12 @@
 </li>
 </ul>
 
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_display_object.html"
-                          title="previous chapter">DisplayObject クラス</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="jp_display_object_x_and_y.html"
-                          title="next chapter">DisplayObject クラスの x と y のインターフェイス</a></p>
-  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_display_object.html"
+                        title="previous chapter">DisplayObject クラス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_display_object_x_and_y.html"
+                        title="next chapter">DisplayObject クラスの x と y のインターフェイス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -439,7 +431,7 @@
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -462,7 +454,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

@@ -221,7 +221,7 @@ class Graphics(
         Int(50)
 
         >>> rectangle.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         rectangle: Rectangle = Rectangle._create_with_graphics(
             graphics=self,
@@ -382,7 +382,7 @@ class Graphics(
         Int(50)
 
         >>> circle.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         circle: _circle.Circle = _circle.Circle._create_with_graphics(
             graphics=self,
@@ -460,7 +460,7 @@ class Graphics(
         Int(50)
 
         >>> ellipse.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         ellipse: _ellipse.Ellipse = _ellipse.Ellipse._create_with_graphics(
             graphics=self,
@@ -521,7 +521,7 @@ class Graphics(
         True
 
         >>> line_1.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line_1.line_thickness
         Int(5)
@@ -591,7 +591,7 @@ class Graphics(
         True
 
         >>> line_1.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line_1.line_thickness
         Int(5)
@@ -676,7 +676,7 @@ class Graphics(
         ...     x_start=50, y_start=50, x_end=150, y_end=50
         ... )
         >>> line.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line.line_thickness
         Int(5)
@@ -760,7 +760,7 @@ class Graphics(
         ...     x_start=50, y_start=50, x_end=150, y_end=50, dot_size=5
         ... )
         >>> line.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line.line_thickness
         Int(5)
@@ -857,7 +857,7 @@ class Graphics(
         ...     x_start=50, y_start=50, x_end=150, y_end=50, dash_size=5, space_size=2
         ... )
         >>> line.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line.line_dash_setting.dash_size
         Int(5)
@@ -956,7 +956,7 @@ class Graphics(
         ...     x_start=50, y_start=50, x_end=150, y_end=50, round_size=6, space_size=3
         ... )
         >>> line.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line.line_round_dot_setting.round_size
         Int(6)
@@ -1061,7 +1061,7 @@ class Graphics(
         ...     space_size=3,
         ... )
         >>> line.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line.line_dash_dot_setting.dot_size
         Int(2)
@@ -1144,7 +1144,7 @@ class Graphics(
         ...     ]
         ... )
         >>> polygon.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         polygon: _polyg.Polygon = _polyg.Polygon._create_with_graphics(
             graphics=self, points=points, variable_name_suffix=variable_name_suffix
@@ -1225,7 +1225,7 @@ class Graphics(
         >>> triangle.y1
         Number(30.0)
         >>> triangle.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         triangle: _triangle.Triangle = _triangle.Triangle._create_with_graphics(
             graphics=self,

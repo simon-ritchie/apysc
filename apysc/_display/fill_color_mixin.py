@@ -54,7 +54,7 @@ class FillColorMixIn(
         ... )
         >>> rectangle.fill_color = ap.String("#f0a")
         >>> rectangle.fill_color
-        String('#ff00aa')
+        String("#ff00aa")
         """
         import apysc as ap
         from apysc._type import value_util

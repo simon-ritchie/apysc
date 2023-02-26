@@ -54,7 +54,7 @@ class LineColorMixIn(
         ... )
         >>> line.line_color = ap.String("#0af")
         >>> line.line_color
-        String('#00aaff')
+        String("#00aaff")
         """
         import apysc as ap
         from apysc._type import value_util

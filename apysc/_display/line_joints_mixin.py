@@ -60,7 +60,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         >>> line: ap.Polyline = sprite.graphics.line_to(x=150, y=100)
         >>> line.line_joints = ap.LineJoints.ROUND
         >>> line.line_joints
-        String('round')
+        String("round")
         """
         self._initialize_line_joints_if_not_initialized()
         return self._line_joints._copy()

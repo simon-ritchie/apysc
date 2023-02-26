@@ -60,7 +60,7 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         >>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         >>> sprite.set_css(name="display", value="none")
         >>> sprite.get_css(name="display")
-        String('none')
+        String("none")
         """
         import apysc as ap
         from apysc._converter import to_builtin_val_from_apysc
@@ -129,7 +129,7 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         >>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         >>> sprite.set_css(name="display", value="none")
         >>> sprite.get_css(name="display")
-        String('none')
+        String("none")
         """
         import apysc as ap
         from apysc._converter import to_builtin_val_from_apysc

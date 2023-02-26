@@ -106,7 +106,7 @@ class Polygon(
     ...     ]
     ... )
     >>> polygon.fill_color
-    String('#00aaff')
+    String("#00aaff")
     """
 
     # self
@@ -218,7 +218,7 @@ class Polygon(
         ...     fill_color="#00aaff",
         ... )
         >>> polygon.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

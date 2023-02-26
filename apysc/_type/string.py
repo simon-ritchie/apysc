@@ -47,20 +47,20 @@ class String(
     >>> import apysc as ap
     >>> string: ap.String = ap.String("Hello")
     >>> string
-    String('Hello')
+    String("Hello")
 
     >>> string += " World!"
     >>> string
-    String('Hello World!')
+    String("Hello World!")
 
     >>> string.value = "World!"
     >>> string
-    String('World!')
+    String("World!")
 
     >>> string.value = "Hello!"
     >>> string *= 3
     >>> string
-    String('Hello!Hello!Hello!')
+    String("Hello!Hello!Hello!")
     """
 
     _initial_value: Union[str, "String"]
@@ -108,11 +108,11 @@ class String(
         >>> import apysc as ap
         >>> string: ap.String = ap.String("Hello")
         >>> string
-        String('Hello')
+        String("Hello")
 
         >>> string += " World!"
         >>> string
-        String('Hello World!')
+        String("Hello World!")
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

@@ -58,7 +58,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         ...     x=50, y=50, width=50, height=50
         ... )
         >>> rectangle.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         import apysc as ap
         from apysc._color import color_util
@@ -98,7 +98,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         ...     x=50, y=50, width=50, height=50
         ... )
         >>> rectangle.fill_color
-        String('#00aaff')
+        String("#00aaff")
         """
         import apysc as ap
         from apysc._type import value_util

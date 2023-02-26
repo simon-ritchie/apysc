@@ -128,7 +128,7 @@ class LineStyleMixIn(
         ...     x_start=50, y_start=50, x_end=150, y_end=50
         ... )
         >>> line.line_color
-        String('#ffffff')
+        String("#ffffff")
 
         >>> line.line_thickness
         Int(5)
@@ -137,7 +137,7 @@ class LineStyleMixIn(
         Number(0.5)
 
         >>> line.line_cap
-        String('round')
+        String("round")
         """
         from apysc._color import color_util
 
@@ -401,7 +401,7 @@ class LineStyleMixIn(
         ...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
         ... )
         >>> sprite.graphics.line_color
-        String('#ffffff')
+        String("#ffffff")
         """
         from apysc._type import value_util
 
@@ -480,7 +480,7 @@ class LineStyleMixIn(
         ...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
         ... )
         >>> sprite.graphics.line_cap
-        String('round')
+        String("round")
         """
         self._initialize_line_cap_if_not_initialized()
         return self._line_cap
@@ -505,7 +505,7 @@ class LineStyleMixIn(
         ...     color="#fff", thickness=5, joints=ap.LineJoints.ROUND
         ... )
         >>> sprite.graphics.line_joints
-        String('round')
+        String("round")
         """
         self._initialize_line_joints_if_not_initialized()
         return self._line_joints

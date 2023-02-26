@@ -60,7 +60,7 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         ... )
         >>> line.line_cap = ap.LineCaps.ROUND
         >>> line.line_cap
-        String('round')
+        String("round")
         """
         self._initialize_line_cap_if_not_initialized()
         return self._line_cap._copy()

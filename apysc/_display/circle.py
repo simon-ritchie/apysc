@@ -102,7 +102,7 @@ class Circle(
     Int(50)
 
     >>> circle.fill_color
-    String('#00aaff')
+    String("#00aaff")
     """
 
     # self
@@ -222,7 +222,7 @@ class Circle(
         >>> circle.radius
         Int(50)
         >>> circle.fill_color
-        String('#00aaff')
+        String("#00aaff")
 
         >>> circle = ap.Circle(
         ...     x=100,
@@ -233,7 +233,7 @@ class Circle(
         ...     line_dot_setting=ap.LineDotSetting(dot_size=10),
         ... )
         >>> circle.line_color
-        String('#ffffff')
+        String("#ffffff")
         >>> circle.line_thickness
         Int(3)
         """

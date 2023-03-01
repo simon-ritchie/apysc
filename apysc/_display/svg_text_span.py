@@ -28,9 +28,6 @@ from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 
-if TYPE_CHECKING:
-    from apysc._display.svg_text import SVGText
-
 
 class SVGTextSpan(
     XMixIn,
@@ -118,4 +115,62 @@ class SVGTextSpan(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._display.svg_text import SVGText
+        from apysc._display.svg_text_singleton_for_text_span import (
+            SVGTextSingletonForTextSpan
+        )
+
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.SVG_TEXT_SPAN,
+        )
+        self.variable_name = variable_name
+        self._variable_name_suffix = variable_name_suffix
+        self._set_initial_basic_values(
+            fill_color=fill_color,
+            fill_alpha=fill_alpha,
+            line_color=line_color,
+            line_thickness=line_thickness,
+            line_alpha=line_alpha,
+            line_cap=None,
+            line_joints=None,
+        )
+        parent: SVGText = SVGTextSingletonForTextSpan.get_instance()
+        self._append_constructor_expression()
         pass
+
+    @final
+    def _append_constructor_expression(self) -> None:
+        """
+        Append a constructor expression string.
+        """
+        import apysc as ap
+        from apysc._display.svg_text_singleton_for_text_span import (
+            SVGTextSingletonForTextSpan
+        )
+
+        parent: ap.SVGText = SVGTextSingletonForTextSpan.get_instance()
+        variable_name: str = self.variable_name
+        expression: str = (
+            f"var {variable_name} = {parent.variable_name}" "\n  .tspan()\n  .attr({"
+        )
+        expression = self._append_basic_vals_expression(
+            expression=expression, indent_num=2
+        )
+        expression += "\n});"
+        ap.append_js_expression(expression=expression)
+
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            This interface returns a type name and variable name
+            (e.g., `SVGTextSpan("<variable_name>")`).
+        """
+        repr_str: str = f'{SVGTextSpan.__name__}("{self.variable_name}")'
+        return repr_str

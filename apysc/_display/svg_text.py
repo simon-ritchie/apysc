@@ -215,7 +215,7 @@ class SVGText(
         variable_name: str = self.variable_name
         stage: ap.Stage = ap.get_stage()
         expression: str = (
-            f"var {variable_name} = {stage.variable_name}" "\n  .text()" "\n  .attr({"
+            f"var {variable_name} = {stage.variable_name}" "\n  .text()\n  .attr({"
         )
         expression = self._append_basic_vals_expression(
             expression=expression, indent_num=2

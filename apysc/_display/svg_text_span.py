@@ -103,7 +103,7 @@ class SVGTextSpan(
         line_thickness : Union[int, Int], optional
             A line-thickness (line-width) to set.
         bold : Union[bool, Boolean], optional
-            A boolean whether this text is bold style or not.
+            A boolean, whether this text is bold style or not.
         italic : Union[bool, Boolean], optional
             A boolean, whether a text is an italic style or not (normal).
         variable_name_suffix : str, optional

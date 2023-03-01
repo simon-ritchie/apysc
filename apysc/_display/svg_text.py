@@ -156,9 +156,9 @@ class SVGText(
         align : SVGTextAlign, default SVGTextAlign.LEFT
             A text-align setting.
         bold : Union[bool, Boolean], default False
-            A boolean whether this text is bold style or not.
+            A boolean, whether this text is bold style or not.
         italic : Union[bool, Boolean], default False
-            A boolean indicating whether a text is italic style or not (normal).
+            A boolean, whether a text is an italic style or not (normal).
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If a specified value is None, this interface uses

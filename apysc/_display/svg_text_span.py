@@ -25,6 +25,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class SVGTextSpan(
@@ -67,6 +68,7 @@ class SVGTextSpan(
     @arg_validation_decos.is_boolean(arg_position_index=10)
     # variable_name_suffix
     @arg_validation_decos.is_builtin_string(arg_position_index=11, optional=False)
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         *,
@@ -134,6 +136,7 @@ class SVGTextSpan(
         pass
 
     @final
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression string.

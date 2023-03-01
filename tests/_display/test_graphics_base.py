@@ -42,9 +42,13 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
+from apysc._display.x_mixin import XMixIn
+from apysc._display.y_mixin import YMixIn
 
 
 class _TestGraphic(
+    XMixIn,
+    YMixIn,
     GraphicsBase,
     RotationAroundCenterMixIn,
     RotationAroundPointMixIn,
@@ -125,46 +129,6 @@ class _TestGraphic(
             Y-coordinate value.
         """
         self._y = value
-
-    def _update_x_and_skip_appending_exp(self, *, x: Union[float, ap.Number]) -> None:
-        """
-        Update x-coordinate and skip appending an expression.
-
-        Parameters
-        ----------
-        x : float or Number
-            X-coordinate value.
-        """
-        self._x = ap.Number(x)
-
-    def _update_y_and_skip_appending_exp(self, *, y: Union[float, ap.Number]) -> None:
-        """
-        Update y-coordinate and skip appending an expression.
-
-        Parameters
-        ----------
-        y : float or Number
-            Y-coordinate value.
-        """
-        self._y = ap.Number(y)
-
-    def _initialize_x_if_not_initialized(self) -> None:
-        """
-        Initialize the _x attribute if this instance does not
-        initialize it yet.
-        """
-        if hasattr(self, "_x"):
-            return
-        self._x = ap.Number(0)
-
-    def _initialize_y_if_not_initialized(self) -> None:
-        """
-        Initialize the _y attribute if this instance does not
-        initialize it yet.
-        """
-        if hasattr(self, "_y"):
-            return
-        self._y = ap.Number(0)
 
 
 class TestGraphicsBase:

@@ -25,8 +25,8 @@ class TestSVGTextSetTextValueMixIn:
         mixin_1._variable_name_suffix = "test_suffix"
         mixin_1._set_text_value(text="test text 1")
         assert mixin_1.text == ap.String("test text 1")
-        assert "test_suffix" in mixin_1._variable_name_suffix
-        assert "text" in mixin_1._variable_name_suffix
+        assert "test_suffix" in mixin_1.text._variable_name_suffix
+        assert "text" in mixin_1.text._variable_name_suffix
 
         mixin_1._set_text_value(text=ap.String("test text 2"))
         assert mixin_1.text == ap.String("test text 2")

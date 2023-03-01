@@ -32,7 +32,7 @@ class SVGTextSetTextValueMixIn:
         )
         from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 
-        if isinstance(self, SVGTextTextMixIn):
+        if not isinstance(self, SVGTextTextMixIn):
             raise TypeError(
                 f"This method is only supported a {SVGTextTextMixIn.__name__} "
                 f"instance: {type(self)}"

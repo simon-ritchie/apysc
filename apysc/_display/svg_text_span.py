@@ -15,8 +15,6 @@ from apysc._type.int import Int
 from apysc._type.array import Array
 from apysc._type.number import Number
 from apysc._type.boolean import Boolean
-from apysc._display.x_mixin import XMixIn
-from apysc._display.y_mixin import YMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
@@ -30,8 +28,6 @@ from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 
 
 class SVGTextSpan(
-    XMixIn,
-    YMixIn,
     GraphicsBase,
     FillColorMixIn,
     FillAlphaMixIn,
@@ -117,10 +113,6 @@ class SVGTextSpan(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._display.svg_text import SVGText
-        from apysc._display.svg_text_singleton_for_text_span import (
-            SVGTextSingletonForTextSpan
-        )
 
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.SVG_TEXT_SPAN,
@@ -136,7 +128,6 @@ class SVGTextSpan(
             line_cap=None,
             line_joints=None,
         )
-        parent: SVGText = SVGTextSingletonForTextSpan.get_instance()
         self._append_constructor_expression()
         pass
 

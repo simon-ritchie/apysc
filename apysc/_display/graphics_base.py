@@ -22,6 +22,8 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.x_interface import XInterface
+from apysc._display.y_interface import YInterface
 
 
 class GraphicsBase(
@@ -270,15 +272,17 @@ class GraphicsBase(
                 indent_num=indent_num,
             )
 
-        self._initialize_x_if_not_initialized()
-        expression = graphics_expression.append_x_expression(
-            x=self._x, expression=expression, indent_num=indent_num
-        )
+        if isinstance(self, XInterface):
+            self._initialize_x_if_not_initialized()
+            expression = graphics_expression.append_x_expression(
+                x=self._x, expression=expression, indent_num=indent_num
+            )
 
-        self._initialize_y_if_not_initialized()
-        expression = graphics_expression.append_y_expression(
-            y=self._y, expression=expression, indent_num=indent_num
-        )
+        if isinstance(self, YInterface):
+            self._initialize_y_if_not_initialized()
+            expression = graphics_expression.append_y_expression(
+                y=self._y, expression=expression, indent_num=indent_num
+            )
         return expression
 
     @abstractmethod

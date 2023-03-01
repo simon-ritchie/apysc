@@ -9,8 +9,6 @@ from apysc._animation.animation_parallel_mixin import AnimationParallelMixIn
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.parent_mixin import ParentMixIn
 from apysc._display.visible_mixin import VisibleMixIn
-from apysc._display.x_interface import XInterface
-from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.mouse_event_mixins import MouseEventMixIns
 from apysc._html.debug_mode import add_debug_info_setting
@@ -21,8 +19,6 @@ if TYPE_CHECKING:
 
 
 class DisplayObject(
-    XInterface,
-    YInterface,
     ParentMixIn,
     MouseEventMixIns,
     VisibleMixIn,

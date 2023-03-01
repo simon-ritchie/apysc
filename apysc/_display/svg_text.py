@@ -30,6 +30,7 @@ from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -59,6 +60,7 @@ class SVGText(
     LineAlphaMixIn,
     LineThicknessMixIn,
     SVGTextTextMixIn,
+    SVGTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextLeadingMixIn,
@@ -333,34 +335,6 @@ class SVGText(
         else:
             font_size_ = font_size
         self.font_size = font_size_
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_text_value(self, *, text: Union[str, String]) -> None:
-        """
-        Set a text value.
-
-        Parameters
-        ----------
-        text : Union[str, String]
-            A target text.
-
-        Returns
-        -------
-        text_ : String
-            A set text.
-        """
-        from apysc._string import string_util
-
-        if isinstance(text, str):
-            text = string_util.escape_str(string=text)
-            text_: String = String(
-                text,
-                variable_name_suffix=self._variable_name_suffix,
-            )
-        else:
-            text_ = text
-        self.text = text_
 
     @final
     @add_debug_info_setting(module_name=__name__)

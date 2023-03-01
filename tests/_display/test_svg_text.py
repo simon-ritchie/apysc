@@ -60,23 +60,6 @@ class TestSVGText:
         assert_stroke_width_attr_expression_exists(expression=expression)
 
     @apply_test_settings()
-    def test__set_text_value(self) -> None:
-        ap.Stage()
-        svg_text: SVGText = SVGText(
-            text="test text 1",
-            variable_name_suffix="test_suffix",
-        )
-        assert svg_text.text == ap.String("test text 1")
-        assert svg_text._text == "test text 1"
-
-        svg_text._set_text_value(text="test text 2")
-        assert svg_text.text == ap.String("test text 2")
-
-        ap.Stage()
-        svg_text = SVGText(text=ap.String("test text 3"))
-        assert svg_text.text == ap.String("test text 3")
-
-    @apply_test_settings()
     def test___repr__(self) -> None:
         ap.Stage()
         svg_text: SVGText = SVGText(

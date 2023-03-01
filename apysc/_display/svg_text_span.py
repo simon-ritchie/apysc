@@ -18,6 +18,7 @@ from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -34,6 +35,7 @@ class SVGTextSpan(
     LineAlphaMixIn,
     LineThicknessMixIn,
     SVGTextTextMixIn,
+    SVGTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextItalicMixIn,
@@ -128,6 +130,8 @@ class SVGTextSpan(
             line_joints=None,
         )
         self._append_constructor_expression()
+        self._set_text_value(text=text)
+        pass
 
     @final
     def _append_constructor_expression(self) -> None:

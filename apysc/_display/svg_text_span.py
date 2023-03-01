@@ -26,6 +26,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._display.svg_text_set_font_size_value_mixin import (
+    SVGTextSetFontSizeValueMixIn
+)
 
 
 class SVGTextSpan(
@@ -39,6 +42,7 @@ class SVGTextSpan(
     SVGTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
     SVGTextFontSizeMixIn,
+    SVGTextSetFontSizeValueMixIn,
     SVGTextItalicMixIn,
     SVGTextBoldMixIn,
 ):

@@ -31,6 +31,9 @@ from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
+from apysc._display.svg_text_set_font_size_value_mixin import (
+    SVGTextSetFontSizeValueMixIn
+)
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -63,6 +66,7 @@ class SVGText(
     SVGTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
     SVGTextFontSizeMixIn,
+    SVGTextSetFontSizeValueMixIn,
     SVGTextLeadingMixIn,
     SVGTextAlignMixIn,
     SVGTextItalicMixIn,
@@ -311,30 +315,6 @@ class SVGText(
         else:
             leading_ = leading
         self.leading = leading_
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_font_size_value(self, *, font_size: Union[int, Int]) -> None:
-        """
-        Set a font-size value.
-
-        Parameters
-        ----------
-        font_size : Union[int, Int]
-            A target font-size value.
-        """
-        from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix,
-        )
-
-        if isinstance(font_size, int):
-            suffix: str = get_attr_or_variable_name_suffix(
-                instance=self, value_identifier="font_size"
-            )
-            font_size_: Int = Int(font_size, variable_name_suffix=suffix)
-        else:
-            font_size_ = font_size
-        self.font_size = font_size_
 
     @final
     @add_debug_info_setting(module_name=__name__)

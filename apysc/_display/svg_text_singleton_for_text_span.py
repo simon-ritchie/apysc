@@ -30,5 +30,6 @@ class SVGTextSingletonForTextSpan:
             return cls._stage_id_key_svg_texts[stage_id]
 
         svg_text: ap.SVGText = ap.SVGText(text="")
+        svg_text.visible = ap.Boolean(False)
         cls._stage_id_key_svg_texts[stage_id] = svg_text
         return svg_text

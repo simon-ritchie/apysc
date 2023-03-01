@@ -11,6 +11,7 @@ class TestSVGTextSingletonForTextSpan:
         stage: ap.Stage = ap.Stage()
         instance_1: ap.SVGText = SVGTextSingletonForTextSpan.get_instance()
         assert instance_1.text == ap.String("")
+        assert instance_1.visible == ap.Boolean(False)
         assert SVGTextSingletonForTextSpan._stage_id_key_svg_texts[
             id(stage)
         ] == instance_1

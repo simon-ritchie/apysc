@@ -2,7 +2,8 @@
 text span instance.
 """
 
-from typing import Dict, Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import Dict
 
 if TYPE_CHECKING:
     from apysc._display.svg_text import SVGText

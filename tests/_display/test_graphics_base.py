@@ -1,4 +1,3 @@
-from typing import Union
 
 import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
@@ -21,6 +20,8 @@ from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
+from apysc._display.x_mixin import XMixIn
+from apysc._display.y_mixin import YMixIn
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
@@ -42,8 +43,6 @@ from tests._display.test_graphics_expression import (
 )
 from tests._display.test_graphics_expression import assert_x_attr_expression_exists
 from tests._display.test_graphics_expression import assert_y_attr_expression_exists
-from apysc._display.x_mixin import XMixIn
-from apysc._display.y_mixin import YMixIn
 
 
 class _TestGraphic(

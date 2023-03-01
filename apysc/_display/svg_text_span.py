@@ -1,30 +1,29 @@
-"""Class implementation for a SVG text-span.
+"""Class implementation for an SVG text-span.
 """
 
 from typing import List
 from typing import Optional
-from typing import Union, TYPE_CHECKING
+from typing import Union
 
 from typing_extensions import final
 
-from apysc._html.debug_mode import add_debug_info_setting
-from apysc._validation import arg_validation_decos
-from apysc._display.graphics_base import GraphicsBase
-from apysc._type.string import String
-from apysc._type.int import Int
-from apysc._type.array import Array
-from apysc._type.number import Number
-from apysc._type.boolean import Boolean
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
-from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
+from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._type.array import Array
+from apysc._type.boolean import Boolean
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class SVGTextSpan(
@@ -82,7 +81,7 @@ class SVGTextSpan(
         variable_name_suffix: str = "",
     ) -> None:
         """
-        The class for a SVG text-span (the child class of `SVGText`).
+        The class for an SVG text-span (the child class of `SVGText`).
 
         Parameters
         ----------
@@ -106,7 +105,7 @@ class SVGTextSpan(
         bold : Union[bool, Boolean], optional
             A boolean whether this text is bold style or not.
         italic : Union[bool, Boolean], optional
-            A boolean indicating whether a text is italic style or not (normal).
+            A boolean, whether a text is an italic style or not (normal).
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -129,7 +128,6 @@ class SVGTextSpan(
             line_joints=None,
         )
         self._append_constructor_expression()
-        pass
 
     @final
     def _append_constructor_expression(self) -> None:
@@ -138,7 +136,7 @@ class SVGTextSpan(
         """
         import apysc as ap
         from apysc._display.svg_text_singleton_for_text_span import (
-            SVGTextSingletonForTextSpan
+            SVGTextSingletonForTextSpan,
         )
 
         parent: ap.SVGText = SVGTextSingletonForTextSpan.get_instance()

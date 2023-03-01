@@ -1,10 +1,7 @@
-from typing import List
 import apysc as ap
+from apysc._display.svg_text_singleton_for_text_span import SVGTextSingletonForTextSpan
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.svg_text_singleton_for_text_span import (
-    SVGTextSingletonForTextSpan
-)
 
 
 class TestSVGTextSpan:

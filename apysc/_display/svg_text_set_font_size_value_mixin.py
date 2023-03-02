@@ -1,4 +1,4 @@
-"""The mix-in class implementation for the `_set_font_size_value` method.
+"""The mix-in class implementation for the `SVGText`'s `_set_font_size_value` method.
 """
 
 from typing import Union
@@ -29,7 +29,7 @@ class SVGTextSetFontSizeValueMixIn:
         if not isinstance(self, SVGTextFontSizeMixIn):
             raise TypeError(
                 f"This method is only supported a {SVGTextFontSizeMixIn.__name__} "
-                f"instance: {type(self)}"
+                f"instance: {type(self).__name__}"
             )
 
         if isinstance(font_size, int):

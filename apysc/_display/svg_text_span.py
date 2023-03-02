@@ -29,6 +29,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._display.svg_text_set_font_size_value_mixin import (
     SVGTextSetFontSizeValueMixIn
 )
+from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
 
 
 class SVGTextSpan(
@@ -41,6 +42,7 @@ class SVGTextSpan(
     SVGTextTextMixIn,
     SVGTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
+    SVGTextSetFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextSetFontSizeValueMixIn,
     SVGTextItalicMixIn,
@@ -137,6 +139,8 @@ class SVGTextSpan(
         )
         self._append_constructor_expression()
         self._set_text_value(text=text)
+        self._set_font_size_value(font_size=font_size)
+        self._set_font_family(font_family=font_family)
         pass
 
     @final

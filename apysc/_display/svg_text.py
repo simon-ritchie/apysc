@@ -34,6 +34,7 @@ from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixI
 from apysc._display.svg_text_set_font_size_value_mixin import (
     SVGTextSetFontSizeValueMixIn
 )
+from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -65,6 +66,7 @@ class SVGText(
     SVGTextTextMixIn,
     SVGTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
+    SVGTextSetFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextSetFontSizeValueMixIn,
     SVGTextLeadingMixIn,
@@ -315,40 +317,6 @@ class SVGText(
         else:
             leading_ = leading
         self.leading = leading_
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_font_family(
-        self,
-        *,
-        font_family: Optional[Union[Array[String], List[str]]],
-    ) -> None:
-        """
-        Set a font-family value.
-
-        Parameters
-        ----------
-        font_family : Optional[Array[String]]
-            A font-family setting.
-        """
-        from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix,
-        )
-
-        if font_family is None:
-            return
-        if isinstance(font_family, list):
-            suffix: str = get_attr_or_variable_name_suffix(
-                instance=self,
-                value_identifier="font_family",
-            )
-            font_family_: Array[String] = Array(
-                [String(font_name) for font_name in font_family],
-                variable_name_suffix=suffix,
-            )
-        else:
-            font_family_ = font_family
-        self.font_family = font_family_
 
     def __repr__(self) -> str:
         """

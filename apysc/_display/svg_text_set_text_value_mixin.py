@@ -1,4 +1,4 @@
-"""The mix-in class implementation for the `_set_text_value` method.
+"""The mix-in class implementation for the `SVGText`'s `_set_text_value` method.
 """
 
 from typing import Union
@@ -35,7 +35,7 @@ class SVGTextSetTextValueMixIn:
         if not isinstance(self, SVGTextTextMixIn):
             raise TypeError(
                 f"This method is only supported a {SVGTextTextMixIn.__name__} "
-                f"instance: {type(self)}"
+                f"instance: {type(self).__name__}"
             )
 
         if isinstance(text, str):

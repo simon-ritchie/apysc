@@ -35,6 +35,7 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
     SVGTextSetFontSizeValueMixIn
 )
 from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
+from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -70,6 +71,7 @@ class SVGText(
     SVGTextFontSizeMixIn,
     SVGTextSetFontSizeValueMixIn,
     SVGTextLeadingMixIn,
+    SVGTextSetLeadingMixIn,
     SVGTextAlignMixIn,
     SVGTextItalicMixIn,
     SVGTextBoldMixIn,
@@ -293,30 +295,6 @@ class SVGText(
             A text-align setting.
         """
         self.align = align
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_leading(self, *, leading: Union[float, Number]) -> None:
-        """
-        Set a leading value.
-
-        Parameters
-        ----------
-        leading : Union[float, Number]
-            A text-leading value.
-        """
-        from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix,
-        )
-
-        if isinstance(leading, float):
-            suffix: str = get_attr_or_variable_name_suffix(
-                instance=self, value_identifier="leading"
-            )
-            leading_: Number = Number(leading, variable_name_suffix=suffix)
-        else:
-            leading_ = leading
-        self.leading = leading_
 
     def __repr__(self) -> str:
         """

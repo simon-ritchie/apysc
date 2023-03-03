@@ -36,6 +36,7 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
 )
 from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
 from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
+from apysc._display.svg_text_set_align_mixin import SVGTextSetAlignMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -73,6 +74,7 @@ class SVGText(
     SVGTextLeadingMixIn,
     SVGTextSetLeadingMixIn,
     SVGTextAlignMixIn,
+    SVGTextSetAlignMixIn,
     SVGTextItalicMixIn,
     SVGTextBoldMixIn,
 ):
@@ -282,19 +284,6 @@ class SVGText(
         else:
             italic_ = italic
         self.italic = italic_
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_align(self, *, align: SVGTextAlign) -> None:
-        """
-        Set a text-align setting.
-
-        Parameters
-        ----------
-        align : SVGTextAlign
-            A text-align setting.
-        """
-        self.align = align
 
     def __repr__(self) -> str:
         """

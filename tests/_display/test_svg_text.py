@@ -94,24 +94,6 @@ class TestSVGText:
         assert expected in expression
 
     @apply_test_settings()
-    def test__set_leading(self) -> None:
-        ap.Stage()
-        svg_text: SVGText = SVGText(
-            text="test text 1",
-            leading=1.8,
-        )
-        assert svg_text.leading == ap.Number(1.8)
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = f'{svg_text.variable_name}.font("leading", '
-        assert expected in expression
-
-        svg_text = SVGText(
-            text="test text 1",
-            leading=ap.Number(2.0),
-        )
-        assert svg_text.leading == ap.Number(2.0)
-
-    @apply_test_settings()
     def test__set_align(self) -> None:
         ap.Stage()
         svg_text: SVGText = SVGText(

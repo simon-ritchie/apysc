@@ -48,6 +48,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.svg_text_span import SVGTextSpan
 
 
 class SVGText(
@@ -140,6 +141,7 @@ class SVGText(
         italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
+        skip_init_constructor_and_text_settings: bool = False,
     ) -> None:
         """
         The class for a SVG text.
@@ -182,6 +184,9 @@ class SVGText(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+        skip_init_constructor_and_text_settings : bool, default False
+            A boolean, whether to skip a constuctor's expression and
+            text settings. The `SVGText` class uses this option internally.
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -202,24 +207,27 @@ class SVGText(
             line_cap=None,
             line_joints=None,
         )
-        self._append_constructor_expression()
-        self._set_text_value(text=text)
-        self._set_font_size_value(font_size=font_size)
-        self._set_font_family(font_family=font_family)
-        self._set_leading(leading=leading)
-        self._set_align(align=align)
-        self._set_bold(bold=bold)
-        self._set_italic(italic=italic)
+
+        super(SVGText, self).__init__(
+            variable_name=variable_name,
+        )
+
+        if not skip_init_constructor_and_text_settings:
+            self._append_constructor_expression()
+            self._set_text_value(text=text)
+            self._set_font_size_value(font_size=font_size)
+            self._set_font_family(font_family=font_family)
+            self._set_leading(leading=leading)
+            self._set_align(align=align)
+            self._set_bold(bold=bold)
+            self._set_italic(italic=italic)
+            self._add_to_parent(parent=parent)
+            self._set_overflow_visible_setting()
 
         # Since the SVG-text constructor's y-coordinate is different from
         # the y-attribute updating, this class sets the y-coordinate attribute
         # value after the constructor.
         self.y = self.y
-
-        super(SVGText, self).__init__(
-            variable_name=variable_name,
-        )
-        self._add_to_parent(parent=parent)
 
     @final
     def _append_constructor_expression(self) -> None:
@@ -238,6 +246,14 @@ class SVGText(
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
+
+    @classmethod
+    def create_with_svg_text_spans(
+        cls,
+        *,
+        text_spans: Union[List[SVGTextSpan], Array[SVGTextSpan]],
+    ) -> "SVGText":
+        pass
 
     def __repr__(self) -> str:
         """

@@ -293,6 +293,7 @@ class Triangle(
         )
         self._set_x_and_y_with_minimum_point()
         super(Triangle, self).__init__(variable_name=variable_name)
+        self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
 
     @final

@@ -227,6 +227,7 @@ class Line(
         )
         self._set_initial_x_and_y_with_minimum_point()
         super(Line, self).__init__(variable_name=variable_name)
+        self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
 
     @final

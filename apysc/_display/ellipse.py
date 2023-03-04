@@ -280,6 +280,7 @@ class Ellipse(
             line_dash_dot_setting=line_dash_dot_setting,
         )
         super(Ellipse, self).__init__(variable_name=variable_name)
+        self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
 
     @classmethod

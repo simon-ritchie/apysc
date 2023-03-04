@@ -149,6 +149,7 @@ class SVGTextSpan(
         self._set_italic(italic=italic)
 
         super(SVGTextSpan, self).__init__(variable_name=variable_name)
+        self._set_overflow_visible_setting()
 
     @final
     @add_debug_info_setting(module_name=__name__)

@@ -285,6 +285,7 @@ class Rectangle(
             ellipse_width=ellipse_width, ellipse_height=ellipse_height
         )
         super(Rectangle, self).__init__(variable_name=variable_name)
+        self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
 
     @final

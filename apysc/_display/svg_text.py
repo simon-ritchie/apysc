@@ -38,6 +38,7 @@ from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMi
 from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
 from apysc._display.svg_text_set_align_mixin import SVGTextSetAlignMixIn
 from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
+from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -77,6 +78,7 @@ class SVGText(
     SVGTextAlignMixIn,
     SVGTextSetAlignMixIn,
     SVGTextItalicMixIn,
+    SVGTextSetItalicMixIn,
     SVGTextBoldMixIn,
     SVGTextSetBoldMixIn,
 ):
@@ -236,31 +238,6 @@ class SVGText(
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_italic(self, *, italic: Union[bool, Boolean]) -> None:
-        """
-        Set an italic style setting.
-
-        Parameters
-        ----------
-        italic : Union[bool, Boolean]
-            A boolean whether a text is in an italic style or not (normal).
-        """
-        from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix,
-        )
-
-        if isinstance(italic, bool):
-            suffix: str = get_attr_or_variable_name_suffix(
-                instance=self,
-                value_identifier="italic",
-            )
-            italic_: Boolean = Boolean(italic, variable_name_suffix=suffix)
-        else:
-            italic_ = italic
-        self.italic = italic_
 
     def __repr__(self) -> str:
         """

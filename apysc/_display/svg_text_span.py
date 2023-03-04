@@ -30,6 +30,7 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
     SVGTextSetFontSizeValueMixIn
 )
 from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
+from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
 
 
 class SVGTextSpan(
@@ -47,6 +48,7 @@ class SVGTextSpan(
     SVGTextSetFontSizeValueMixIn,
     SVGTextItalicMixIn,
     SVGTextBoldMixIn,
+    SVGTextSetBoldMixIn,
 ):
 
     # text
@@ -141,6 +143,7 @@ class SVGTextSpan(
         self._set_text_value(text=text)
         self._set_font_size_value(font_size=font_size)
         self._set_font_family(font_family=font_family)
+        self._set_bold(bold=bold)
         pass
 
     @final

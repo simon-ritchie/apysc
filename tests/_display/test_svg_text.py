@@ -124,21 +124,3 @@ class TestSVGText:
             italic=ap.Boolean(True),
         )
         assert svg_text.italic
-
-    @apply_test_settings()
-    def test__set_bold(self) -> None:
-        ap.Stage()
-        svg_text: SVGText = SVGText(
-            text="test text 1",
-            bold=True,
-        )
-        assert svg_text.bold
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = f'{svg_text.variable_name}.font("weight", "bold");'
-        assert expected in expression
-
-        svg_text = SVGText(
-            text="test text 1",
-            bold=ap.Boolean(True),
-        )
-        assert svg_text.bold

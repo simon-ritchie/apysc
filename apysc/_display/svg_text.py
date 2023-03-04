@@ -37,6 +37,7 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
 from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
 from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
 from apysc._display.svg_text_set_align_mixin import SVGTextSetAlignMixIn
+from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -77,6 +78,7 @@ class SVGText(
     SVGTextSetAlignMixIn,
     SVGTextItalicMixIn,
     SVGTextBoldMixIn,
+    SVGTextSetBoldMixIn,
 ):
 
     # text
@@ -234,31 +236,6 @@ class SVGText(
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_bold(self, *, bold: Union[bool, Boolean]) -> None:
-        """
-        Set a bold style setting.
-
-        Parameters
-        ----------
-        bold : Union[bool, Boolean]
-            A boolean, whether a text is a bold style or not (normal).
-        """
-        from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix,
-        )
-
-        if isinstance(bold, bool):
-            suffix: str = get_attr_or_variable_name_suffix(
-                instance=self,
-                value_identifier="bold",
-            )
-            bold_: Boolean = Boolean(bold, variable_name_suffix=suffix)
-        else:
-            bold_ = bold
-        self.bold = bold_
 
     @final
     @add_debug_info_setting(module_name=__name__)

@@ -33,29 +33,36 @@ class GraphicsBase(
 
     _variable_name: str
 
-    @arg_validation_decos.is_display_object_container(
-        arg_position_index=1, optional=True
-    )
-    @arg_validation_decos.not_empty_string(arg_position_index=2)
+    @arg_validation_decos.not_empty_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def __init__(self, *, parent: Optional[ChildMixIn], variable_name: str) -> None:
+    def __init__(self, *, variable_name: str) -> None:
         """
         Vector graphic base class.
 
         Parameters
         ----------
-        parent : ChildMixIn or None
-            Parent instance. If a specified value is None,
-            this interface uses a stage instance.
         variable_name : str
             Variable name of this instance. This will be used to
             js expression.
         """
         super(GraphicsBase, self).__init__(variable_name=variable_name)
+        self._set_overflow_visible_setting()
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _add_to_parent(self, *, parent: Optional[ChildMixIn]) -> None:
+        """
+        Add this instance to a specified parent instance.
+
+        Parameters
+        ----------
+        parent : Optional[ChildMixIn]
+            A parent instance. If a specified value is None,
+            this interface uses a stage instance.
+        """
         if parent is None:
             parent = get_stage()
         parent.add_child(child=self)
-        self._set_overflow_visible_setting()
 
     @final
     @add_debug_info_setting(module_name=__name__)

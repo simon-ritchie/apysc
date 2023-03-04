@@ -263,7 +263,8 @@ class Circle(
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting,
         )
-        super(Circle, self).__init__(parent=parent, variable_name=variable_name)
+        super(Circle, self).__init__(variable_name=variable_name)
+        self._add_to_parent(parent=parent)
 
         self._append_applying_new_attr_val_exp(
             new_attr=self._radius, attr_name="radius"

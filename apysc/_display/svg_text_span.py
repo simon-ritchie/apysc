@@ -146,7 +146,9 @@ class SVGTextSpan(
         self._set_font_size_value(font_size=font_size)
         self._set_font_family(font_family=font_family)
         self._set_bold(bold=bold)
-        pass
+        self._set_italic(italic=italic)
+
+        super(SVGTextSpan, self).__init__(variable_name=variable_name)
 
     @final
     @add_debug_info_setting(module_name=__name__)

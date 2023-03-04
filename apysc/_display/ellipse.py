@@ -279,7 +279,8 @@ class Ellipse(
             line_round_dot_setting=line_round_dot_setting,
             line_dash_dot_setting=line_dash_dot_setting,
         )
-        super(Ellipse, self).__init__(parent=parent, variable_name=variable_name)
+        super(Ellipse, self).__init__(variable_name=variable_name)
+        self._add_to_parent(parent=parent)
 
     @classmethod
     @final

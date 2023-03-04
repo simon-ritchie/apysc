@@ -217,9 +217,9 @@ class SVGText(
         self.y = self.y
 
         super(SVGText, self).__init__(
-            parent=parent,
             variable_name=variable_name,
         )
+        self._add_to_parent(parent=parent)
 
     @final
     def _append_constructor_expression(self) -> None:

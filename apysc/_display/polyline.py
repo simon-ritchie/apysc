@@ -244,7 +244,8 @@ class Polyline(
             line_dash_dot_setting=line_dash_dot_setting,
         )
         self._set_x_and_y_with_minimum_point()
-        super(Polyline, self).__init__(parent=parent, variable_name=variable_name)
+        super(Polyline, self).__init__(variable_name=variable_name)
+        self._add_to_parent(parent=parent)
 
     @final
     def _set_x_and_y_with_minimum_point(self) -> None:

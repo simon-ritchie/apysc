@@ -284,7 +284,8 @@ class Rectangle(
         self._set_ellipse_settings_if_values_are_not_zero(
             ellipse_width=ellipse_width, ellipse_height=ellipse_height
         )
-        super(Rectangle, self).__init__(parent=parent, variable_name=variable_name)
+        super(Rectangle, self).__init__(variable_name=variable_name)
+        self._add_to_parent(parent=parent)
 
     @final
     def _set_ellipse_settings_if_values_are_not_zero(

@@ -133,25 +133,15 @@ class _TestGraphic(
 class TestGraphicsBase:
     @apply_test_settings()
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
 
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, variable_name="test_graphics_1"
+            variable_name="test_graphics_1"
         )
         testing_helper.assert_attrs(
             expected_attrs={
-                "_parent": stage,
                 "_variable_name": "test_graphics_1",
-            },
-            any_obj=graphics,
-        )
-
-        graphics = _TestGraphic(parent=sprite, variable_name="test_graphics_2")
-        testing_helper.assert_attrs(
-            expected_attrs={
-                "_parent": sprite,
-                "_variable_name": "test_graphics_2",
             },
             any_obj=graphics,
         )
@@ -160,7 +150,7 @@ class TestGraphicsBase:
     def test__set_initial_basic_values(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, variable_name="test_graphics_1"
+            variable_name="test_graphics_1"
         )
         graphics._set_initial_basic_values(
             fill_color="#00aaff",
@@ -188,7 +178,7 @@ class TestGraphicsBase:
     def test__set_line_setting_if_not_none_value_exists(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, variable_name="test_graphics"
+            variable_name="test_graphics"
         )
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=ap.LineDotSetting(dot_size=5),
@@ -198,7 +188,7 @@ class TestGraphicsBase:
         )
         assert graphics.line_dot_setting == ap.LineDotSetting(dot_size=5)
 
-        graphics = _TestGraphic(parent=None, variable_name="test_graphics")
+        graphics = _TestGraphic(variable_name="test_graphics")
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=None,
             line_dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),
@@ -209,7 +199,7 @@ class TestGraphicsBase:
             dash_size=10, space_size=5
         )
 
-        graphics = _TestGraphic(parent=None, variable_name="test_graphics")
+        graphics = _TestGraphic(variable_name="test_graphics")
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=None,
             line_dash_setting=None,
@@ -220,7 +210,7 @@ class TestGraphicsBase:
             round_size=10, space_size=5
         )
 
-        graphics = _TestGraphic(parent=None, variable_name="test_graphics")
+        graphics = _TestGraphic(variable_name="test_graphics")
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=None,
             line_dash_setting=None,
@@ -237,7 +227,7 @@ class TestGraphicsBase:
     def test__append_basic_vals_expression(self) -> None:
         ap.Stage()
         graphics: _TestGraphic = _TestGraphic(
-            parent=None, variable_name="test_graphics_1"
+            variable_name="test_graphics_1"
         )
         graphics._set_initial_basic_values(
             fill_color="#00aaff",
@@ -263,3 +253,19 @@ class TestGraphicsBase:
         assert_stroke_width_attr_expression_exists(expression=expression)
         assert_x_attr_expression_exists(expression=expression)
         assert_y_attr_expression_exists(expression=expression)
+
+    @apply_test_settings()
+    def test__add_to_parent(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        graphics: _TestGraphic = _TestGraphic(
+            variable_name="test_graphics_1"
+        )
+        graphics._add_to_parent(parent=None)
+        assert graphics.parent == stage
+
+        sprite: ap.Sprite = ap.Sprite()
+        graphics = _TestGraphic(
+            variable_name="test_graphics_1"
+        )
+        graphics._add_to_parent(parent=sprite)
+        assert graphics.parent == sprite

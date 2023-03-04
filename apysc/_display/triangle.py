@@ -292,7 +292,8 @@ class Triangle(
             line_dash_dot_setting=line_dash_dot_setting,
         )
         self._set_x_and_y_with_minimum_point()
-        super(Triangle, self).__init__(parent=parent, variable_name=variable_name)
+        super(Triangle, self).__init__(variable_name=variable_name)
+        self._add_to_parent(parent=parent)
 
     @final
     @add_debug_info_setting(module_name=__name__)

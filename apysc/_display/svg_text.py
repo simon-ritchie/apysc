@@ -129,7 +129,7 @@ class SVGText(
         font_size: Union[int, Int] = 16,
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
-        y: Union[float, Number] = 0.0,
+        y: Union[float, Number] = 16.0,
         fill_color: Union[str, String] = "#666",
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
@@ -141,10 +141,14 @@ class SVGText(
         italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
-        skip_init_constructor_and_text_settings: bool = False,
     ) -> None:
         """
         The class for a SVG text.
+
+        Notes
+        -----
+        - SVGText's y-coordinate zero-position starts at the bottom of a text.
+            So if you set y=0, a text becomes almost invisible.
 
         Parameters
         ----------
@@ -155,36 +159,36 @@ class SVGText(
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
-        x : float or Number, default 0.0
+        x : float or Number, optional
             X-coordinate to start drawing.
-        y : float or Number, default 0.0
-            Y-coordinate to start drawing.
-        fill_color : str or String, default '#666'
+        y : float or Number, optional
+            Y-coordinate to start drawing (please see also the `Notes` section).
+        fill_color : str or String, optional
             A fill-color to set.
-        fill_alpha : float or Number, default 1.0
+        fill_alpha : float or Number, optional
             A fill-alpha to set.
         line_color : str or String, default ''
             A line-color to set.
-        line_alpha : float or Number, default 1.0
+        line_alpha : float or Number, optional
             A line-alpha to set.
-        line_thickness : int or Int, default 1
+        line_thickness : int or Int, optional
             A line-thickness (line-width) to set.
-        leading : float or Number, default 1.5
+        leading : float or Number, optional
             A text-leading size.
         align : SVGTextAlign, default SVGTextAlign.LEFT
             A text-align setting.
-        bold : Union[bool, Boolean], default False
+        bold : Union[bool, Boolean], optional
             A boolean, whether this text is bold style or not.
-        italic : Union[bool, Boolean], default False
+        italic : Union[bool, Boolean], optional
             A boolean, whether a text is an italic style or not (normal).
-        parent : ChildMixIn or None, default None
+        parent : ChildMixIn or None, optional
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
-        skip_init_constructor_and_text_settings : bool, default False
+        skip_init_constructor_and_text_settings : bool, optional
             A boolean, whether to skip a constuctor's expression and
             text settings. The `SVGText` class uses this option internally.
         """
@@ -212,22 +216,16 @@ class SVGText(
             variable_name=variable_name,
         )
 
-        if not skip_init_constructor_and_text_settings:
-            self._append_constructor_expression()
-            self._set_text_value(text=text)
-            self._set_font_size_value(font_size=font_size)
-            self._set_font_family(font_family=font_family)
-            self._set_leading(leading=leading)
-            self._set_align(align=align)
-            self._set_bold(bold=bold)
-            self._set_italic(italic=italic)
-            self._add_to_parent(parent=parent)
-            self._set_overflow_visible_setting()
-
-        # Since the SVG-text constructor's y-coordinate is different from
-        # the y-attribute updating, this class sets the y-coordinate attribute
-        # value after the constructor.
-        self.y = self.y
+        self._append_constructor_expression()
+        self._set_text_value(text=text)
+        self._set_font_size_value(font_size=font_size)
+        self._set_font_family(font_family=font_family)
+        self._set_leading(leading=leading)
+        self._set_align(align=align)
+        self._set_bold(bold=bold)
+        self._set_italic(italic=italic)
+        self._add_to_parent(parent=parent)
+        self._set_overflow_visible_setting()
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -250,96 +248,59 @@ class SVGText(
 
     @classmethod
     # text_spans
-    # font_size
-    @arg_validation_decos.is_integer(arg_position_index=2)
     # font_family
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
-        arg_position_index=3, optional=True
+        arg_position_index=2, optional=True
     )
     # x
-    @arg_validation_decos.is_num(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=3)
     # y
-    @arg_validation_decos.is_num(arg_position_index=5)
-    # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
-    # fill_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
-    # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=8)
-    # line_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9)
-    # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=10)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=10)
+    @arg_validation_decos.is_num(arg_position_index=4)
     # leading
-    @arg_validation_decos.is_num(arg_position_index=11)
+    @arg_validation_decos.is_num(arg_position_index=5)
     # align
-    @arg_validation_decos.is_svg_text_align(arg_position_index=12)
-    # bold
-    @arg_validation_decos.is_boolean(arg_position_index=13)
-    # italic
-    @arg_validation_decos.is_boolean(arg_position_index=14)
+    @arg_validation_decos.is_svg_text_align(arg_position_index=6)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=15, optional=True
+        arg_position_index=7, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=16, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     def create_with_svg_text_spans(
         cls,
         *,
         text_spans: Union[List[SVGTextSpan], Array[SVGTextSpan]],
-        font_size: Union[int, Int] = 16,
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
-        y: Union[float, Number] = 0.0,
-        fill_color: Union[str, String] = "#666",
-        fill_alpha: Union[float, Number] = 1.0,
-        line_color: Union[str, String] = "",
-        line_alpha: Union[float, Number] = 1.0,
-        line_thickness: Union[int, Int] = 1,
+        y: Union[float, Number] = 16.0,
         leading: Union[float, Number] = 1.5,
         align: SVGTextAlign = SVGTextAlign.LEFT,
-        bold: Union[bool, Boolean] = False,
-        italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> "SVGText":
         """
         Create a `SVGText` instance with specified text spans.
 
+        Notes
+        -----
+        - SVGText's y-coordinate zero-position starts at the bottom of a text.
+            So if you set y=0, a text becomes almost invisible.
+        - You need to set text style settings, such as font_size or fill_color
+            with each `SVGTextSpan`'s constructor argument.
+
         Parameters
         ----------
         text_spans : Union[List[SVGTextSpan], Array[SVGTextSpan]]
             Text spans.
-        font_size : Union[int, Int], optional
-            A font-size setting for an overall text.
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting for an overall text.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
         x : Union[float, Number], optional
             X-coordinate to start drawing.
         y : Union[float, Number], optional
-            Y-coordinate to start drawing.
-        fill_color : Union[str, String], optional
-            A fill-color setting for an overall text.
-        fill_alpha : Union[float, Number], optional
-            A fill-alpha setting for an overall text.
-        line_color : Union[str, String], optional
-            A line-color setting for an overall text.
-        line_alpha : Union[float, Number], optional
-            A line-alpha setting for an overall text.
-        line_thickness : Union[int, Int], optional
-            A line-thickness setting for an overall text.
-        leading : Union[float, Number], optional
-            A text-leading size setting for an overall text.
+            Y-coordinate to start drawing (please see also the `Notes` section).
         align : SVGTextAlign, optional
             A text-align setting for an overall text.
-        bold : Union[bool, Boolean], optional
-            A boolean for an overall text, whether this text is bold style or not.
-        italic : Union[bool, Boolean], optional
-            A boolean for an overall text, whether a text is an italic
-            style or not (normal).
         parent : Optional[ChildMixIn], optional
             A parent instance to add this instance.
             If a specified value is None, this interface uses
@@ -353,37 +314,28 @@ class SVGText(
         svg_text : SVGText
             A created `SVGText` instance.
         """
+        import apysc as ap
         svg_text: SVGText = SVGText(
             text='',
-            font_size=font_size,
             font_family=font_family,
             x=x,
             y=y,
-            fill_color=fill_color,
-            fill_alpha=fill_alpha,
-            line_color=line_color,
-            line_alpha=line_alpha,
-            line_thickness=line_thickness,
             leading=leading,
             align=align,
-            bold=bold,
-            italic=italic,
             parent=parent,
             variable_name_suffix=variable_name_suffix,
         )
         text_spans_: Array[SVGTextSpan] = svg_text._convert_text_spans_list_to_array(
             text_spans=text_spans
         )
-        svg_text._append_constructor_expression_with_text_spans()
-        pass
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _append_constructor_expression_with_text_spans(self) -> None:
-        """
-        Append a constructor expression string with text spans.
-        """
-        pass
+        i: Int
+        with ap.For(arr_or_dict=text_spans_, locals_=locals(), globals_=globals()) as i:
+            text_span: SVGTextSpan = text_spans_[i]
+            expression: str = (
+                f"{svg_text.variable_name}.add({text_span.variable_name});"
+            )
+            ap.append_js_expression(expression=expression)
+        return svg_text
 
     @final
     @add_debug_info_setting(module_name=__name__)

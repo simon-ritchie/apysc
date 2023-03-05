@@ -80,3 +80,26 @@ class TestSVGText:
             f"var {svg_text.variable_name} = {stage.variable_name}" "\n  .text()"
         )
         assert expected in expression
+
+    @apply_test_settings()
+    def test__convert_text_spans_list_to_array(self) -> None:
+        ap.Stage()
+        svg_text: SVGText = SVGText(
+            text="test text 1",
+        )
+        text_spans_: ap.Array[
+            ap.SVGTextSpan
+        ] = svg_text._convert_text_spans_list_to_array(
+            text_spans=[
+                ap.SVGTextSpan(text="test text 2"),
+                ap.SVGTextSpan(text="test text 3"),
+            ],
+        )
+        assert len(text_spans_._value) == 2
+        assert text_spans_._value[0].text == "test text 2"
+        assert text_spans_._value[1].text == "test text 3"
+
+        text_spans__: ap.Array[
+            ap.SVGTextSpan
+        ] = svg_text._convert_text_spans_list_to_array(text_spans=text_spans_)
+        assert text_spans_ == text_spans__

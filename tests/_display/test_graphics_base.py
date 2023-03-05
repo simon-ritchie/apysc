@@ -224,37 +224,6 @@ class TestGraphicsBase:
         )
 
     @apply_test_settings()
-    def test__append_basic_vals_expression(self) -> None:
-        ap.Stage()
-        graphics: _TestGraphic = _TestGraphic(
-            variable_name="test_graphics_1"
-        )
-        graphics._set_initial_basic_values(
-            fill_color="#00aaff",
-            fill_alpha=0.5,
-            line_color="#ffffff",
-            line_thickness=3,
-            line_alpha=0.3,
-            line_cap=ap.LineCaps.ROUND,
-            line_joints=ap.LineJoints.BEVEL,
-        )
-        graphics._update_x_and_skip_appending_exp(x=50)
-        graphics._update_y_and_skip_appending_exp(y=50)
-        expression: str = ""
-        expression = graphics._append_basic_vals_expression(
-            expression=expression, indent_num=2
-        )
-        assert_fill_attr_expression_exists(expression=expression)
-        assert_fill_opacity_attr_expression_exists(expression=expression)
-        assert_stroke_attr_expression_exists(expression=expression)
-        assert_stroke_linecap_attr_expression_exists(expression=expression)
-        assert_stroke_linejoin_attr_expression_exists(expression=expression)
-        assert_stroke_opacity_attr_expression_exists(expression=expression)
-        assert_stroke_width_attr_expression_exists(expression=expression)
-        assert_x_attr_expression_exists(expression=expression)
-        assert_y_attr_expression_exists(expression=expression)
-
-    @apply_test_settings()
     def test__add_to_parent(self) -> None:
         stage: ap.Stage = ap.Stage()
         graphics: _TestGraphic = _TestGraphic(

@@ -18,7 +18,11 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         """
         import apysc as ap
         from apysc._display.graphics_base import GraphicsBase
+        from apysc._display.append_fill_color_expression_mixin import (
+            AppendFillColorAttrExpressionMixIn
+        )
 
+        INDENT_NUM: int = 2
         stage: ap.Stage = ap.get_stage()
         points_var_name: str
         points_expression: str
@@ -29,9 +33,13 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
             f"\n  .polygon({points_var_name})"
             "\n  .attr({"
         )
+        if isinstance(self, AppendFillColorAttrExpressionMixIn):
+            expression = self._append_fill_color_attr_expression(
+                expression=expression, indent_num=INDENT_NUM
+            )
         if isinstance(self, GraphicsBase):
             expression = self._append_basic_vals_expression(
-                expression=expression, indent_num=2
+                expression=expression, indent_num=INDENT_NUM
             )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)

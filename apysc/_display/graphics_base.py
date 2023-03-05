@@ -217,20 +217,11 @@ class GraphicsBase(
         """
         from apysc._display import graphics_expression
         from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-        from apysc._display.fill_color_mixin import FillColorMixIn
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display.line_joints_mixin import LineJointsMixIn
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
-
-        if isinstance(self, FillColorMixIn):
-            self._initialize_fill_color_if_not_initialized()
-            expression = graphics_expression.append_fill_expression(
-                fill_color=self._fill_color,
-                expression=expression,
-                indent_num=indent_num,
-            )
 
         if isinstance(self, FillAlphaMixIn):
             self._initialize_fill_alpha_if_not_initialized()

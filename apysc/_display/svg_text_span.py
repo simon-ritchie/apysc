@@ -32,11 +32,15 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
 from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
 from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
 from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn
+)
 
 
 class SVGTextSpan(
     GraphicsBase,
     FillColorMixIn,
+    AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
     LineColorMixIn,
     LineAlphaMixIn,
@@ -162,13 +166,17 @@ class SVGTextSpan(
             SVGTextSingletonForTextSpan,
         )
 
+        INDENT_NUM: int = 2
         parent: ap.SVGText = SVGTextSingletonForTextSpan.get_instance()
         variable_name: str = self.variable_name
         expression: str = (
             f"var {variable_name} = {parent.variable_name}" "\n  .tspan()\n  .attr({"
         )
+        expression = self._append_fill_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2
+            expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n});"
         ap.append_js_expression(expression=expression)

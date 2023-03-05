@@ -46,6 +46,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn
+)
 
 
 class Circle(
@@ -64,6 +67,7 @@ class Circle(
     SkewYMixIn,
     RadiusMixIn,
     FillColorMixIn,
+    AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
     LineColorMixIn,
     LineAlphaMixIn,
@@ -357,6 +361,7 @@ class Circle(
         import apysc as ap
         from apysc._type import value_util
 
+        INDENT_NUM: int = 2
         stage: ap.Stage = ap.get_stage()
         radius_str: str = value_util.get_value_str_for_expression(value=self._radius)
         expression: str = (
@@ -364,8 +369,11 @@ class Circle(
             f"\n  .circle({radius_str} * 2)"
             "\n  .attr({"
         )
+        expression = self._append_fill_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2
+            expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)

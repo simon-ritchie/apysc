@@ -52,6 +52,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn
+)
 
 
 class Polygon(
@@ -71,6 +74,7 @@ class Polygon(
     AppendLinePointMixIn,
     SetXAndYWithMinimumPointInterfaceBase,
     FillColorMixIn,
+    AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
     LineColorMixIn,
     LineAlphaMixIn,

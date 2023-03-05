@@ -49,6 +49,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._display.svg_text_span import SVGTextSpan
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn
+)
 
 
 class SVGText(
@@ -64,6 +67,7 @@ class SVGText(
     FlipXMixIn,
     FlipYMixIn,
     FillColorMixIn,
+    AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
     LineColorMixIn,
     LineAlphaMixIn,
@@ -235,19 +239,22 @@ class SVGText(
         """
         import apysc as ap
 
+        INDENT_NUM: int = 2
         variable_name: str = self.variable_name
         stage: ap.Stage = ap.get_stage()
         expression: str = (
             f"var {variable_name} = {stage.variable_name}" "\n  .text()\n  .attr({"
         )
+        expression = self._append_fill_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2
+            expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
 
     @classmethod
-    # text_spans
     # font_family
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
         arg_position_index=2, optional=True

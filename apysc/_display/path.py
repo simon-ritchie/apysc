@@ -44,6 +44,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn
+)
 
 
 class Path(
@@ -61,6 +64,7 @@ class Path(
     SkewXMixIn,
     SkewYMixIn,
     FillColorMixIn,
+    AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
     LineColorMixIn,
     LineAlphaMixIn,
@@ -340,6 +344,9 @@ class Path(
             f"var {self.variable_name} = {stage.variable_name}"
             f"\n  .path({path_data_expression})"
             "\n  .attr({"
+        )
+        expression = self._append_fill_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(
             expression=expression, indent_num=INDENT_NUM

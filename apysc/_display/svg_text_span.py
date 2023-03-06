@@ -35,6 +35,9 @@ from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
 from apysc._display.append_fill_color_expression_mixin import (
     AppendFillColorAttrExpressionMixIn
 )
+from apysc._display.append_fill_alpha_attr_expression_mixin import (
+    AppendFillAlphaAttrExpressionMixIn
+)
 
 
 class SVGTextSpan(
@@ -42,6 +45,7 @@ class SVGTextSpan(
     FillColorMixIn,
     AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
+    AppendFillAlphaAttrExpressionMixIn,
     LineColorMixIn,
     LineAlphaMixIn,
     LineThicknessMixIn,
@@ -173,6 +177,9 @@ class SVGTextSpan(
             f"var {variable_name} = {parent.variable_name}" "\n  .tspan()\n  .attr({"
         )
         expression = self._append_fill_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_fill_alpha_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

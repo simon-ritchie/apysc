@@ -216,20 +216,11 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
-        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display.line_joints_mixin import LineJointsMixIn
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
-
-        if isinstance(self, FillAlphaMixIn):
-            self._initialize_fill_alpha_if_not_initialized()
-            expression = graphics_expression.append_fill_opacity_expression(
-                fill_alpha=self._fill_alpha,
-                expression=expression,
-                indent_num=indent_num,
-            )
 
         if isinstance(self, LineColorMixIn):
             self._initialize_line_color_if_not_initialized()

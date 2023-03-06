@@ -52,6 +52,9 @@ from apysc._display.svg_text_span import SVGTextSpan
 from apysc._display.append_fill_color_expression_mixin import (
     AppendFillColorAttrExpressionMixIn
 )
+from apysc._display.append_fill_alpha_attr_expression_mixin import (
+    AppendFillAlphaAttrExpressionMixIn
+)
 
 
 class SVGText(
@@ -69,6 +72,7 @@ class SVGText(
     FillColorMixIn,
     AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
+    AppendFillAlphaAttrExpressionMixIn,
     LineColorMixIn,
     LineAlphaMixIn,
     LineThicknessMixIn,
@@ -246,6 +250,9 @@ class SVGText(
             f"var {variable_name} = {stage.variable_name}" "\n  .text()\n  .attr({"
         )
         expression = self._append_fill_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_fill_alpha_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

@@ -29,7 +29,7 @@ class TestAppendFillColorAttrExpressionMixIn:
 
         mixin_2: _TestMixIn = _TestMixIn()
         mixin_2.fill_color = ap.String("#0af")
-        expression = mixin_2._append_fill_color_attr_expression(
+        expression: str = mixin_2._append_fill_color_attr_expression(
             expression=".attr({\n",
             indent_num=2,
             skip_appending=True,

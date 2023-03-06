@@ -21,6 +21,9 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         from apysc._display.append_fill_color_expression_mixin import (
             AppendFillColorAttrExpressionMixIn
         )
+        from apysc._display.append_fill_alpha_attr_expression_mixin import (
+            AppendFillAlphaAttrExpressionMixIn
+        )
 
         INDENT_NUM: int = 2
         stage: ap.Stage = ap.get_stage()
@@ -35,6 +38,10 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         )
         if isinstance(self, AppendFillColorAttrExpressionMixIn):
             expression = self._append_fill_color_attr_expression(
+                expression=expression, indent_num=INDENT_NUM
+            )
+        if isinstance(self, AppendFillAlphaAttrExpressionMixIn):
+            expression = self._append_fill_alpha_attr_expression(
                 expression=expression, indent_num=INDENT_NUM
             )
         if isinstance(self, GraphicsBase):

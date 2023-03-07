@@ -58,6 +58,9 @@ from apysc._display.append_fill_color_expression_mixin import (
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
     AppendFillAlphaAttrExpressionMixIn
 )
+from apysc._display.append_line_color_attr_expression_mixin import (
+    AppendLineColorAttrExpressionMixIn
+)
 
 
 class Polygon(
@@ -81,6 +84,7 @@ class Polygon(
     FillAlphaMixIn,
     AppendFillAlphaAttrExpressionMixIn,
     LineColorMixIn,
+    AppendLineColorAttrExpressionMixIn,
     LineAlphaMixIn,
     LineJointsMixIn,
     LineDotSettingMixIn,

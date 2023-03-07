@@ -39,6 +39,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.append_line_color_attr_expression_mixin import (
+    AppendLineColorAttrExpressionMixIn
+)
 
 
 class Line(
@@ -56,6 +59,7 @@ class Line(
     SkewXMixIn,
     SkewYMixIn,
     LineColorMixIn,
+    AppendLineColorAttrExpressionMixIn,
     LineAlphaMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
@@ -296,6 +300,7 @@ class Line(
         """
         import apysc as ap
 
+        INDENT_NUM: int = 2
         stage: ap.Stage = ap.get_stage()
         points_str: str = self._make_points_expression()
         expression: str = (
@@ -303,8 +308,11 @@ class Line(
             f"\n  .line({points_str})"
             "\n  .attr({"
         )
+        expression = self._append_line_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2
+            expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)

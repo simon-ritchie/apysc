@@ -1,5 +1,5 @@
 """The mix-in class implementation for the
-`_append_fill_color_attr_expression` method.
+`_append_line_color_attr_expression` method.
 """
 
 from typing_extensions import final
@@ -7,10 +7,10 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-class AppendFillColorAttrExpressionMixIn:
+class AppendLineColorAttrExpressionMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _append_fill_color_attr_expression(
+    def _append_line_color_attr_expression(
         self,
         *,
         expression: str,
@@ -18,7 +18,7 @@ class AppendFillColorAttrExpressionMixIn:
         skip_appending: bool = False,
     ) -> str:
         """
-        Append a fill-color attribute expression to a specified
+        Append a line-color attribute expression to a specified
         expression string.
 
         Parameters
@@ -38,21 +38,22 @@ class AppendFillColorAttrExpressionMixIn:
         Raises
         ------
         TypeError
-            If this is not a `FillColorMixIn` instance.
+            If this is not a `LineColorMixIn` instance.
         """
-        from apysc._display.fill_color_mixin import FillColorMixIn
+        from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display import graphics_expression
 
-        if not isinstance(self, FillColorMixIn):
+        if not isinstance(self, LineColorMixIn):
             raise TypeError(
-                f"This instance is not a `{FillColorMixIn.__name__}` instance: "
+                f"This instance is not a `{LineColorMixIn.__name__}` instance: "
                 f"{type(self).__name__}"
             )
         if skip_appending:
             return expression
-        self._initialize_fill_color_if_not_initialized()
-        expression = graphics_expression.append_fill_expression(
-            fill_color=self._fill_color,
+
+        self._initialize_line_color_if_not_initialized()
+        expression = graphics_expression.append_stroke_expression(
+            line_color=self._line_color,
             expression=expression,
             indent_num=indent_num,
         )

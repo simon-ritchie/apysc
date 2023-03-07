@@ -54,6 +54,9 @@ from apysc._display.append_fill_color_expression_mixin import (
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
     AppendFillAlphaAttrExpressionMixIn
 )
+from apysc._display.append_line_color_attr_expression_mixin import (
+    AppendLineColorAttrExpressionMixIn
+)
 
 
 class Ellipse(
@@ -76,6 +79,7 @@ class Ellipse(
     FillAlphaMixIn,
     AppendFillAlphaAttrExpressionMixIn,
     LineColorMixIn,
+    AppendLineColorAttrExpressionMixIn,
     LineAlphaMixIn,
     LineJointsMixIn,
     LineDotSettingMixIn,
@@ -371,6 +375,9 @@ class Ellipse(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_fill_alpha_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_line_color_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

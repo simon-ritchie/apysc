@@ -53,6 +53,15 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn
+)
+from apysc._display.append_fill_alpha_attr_expression_mixin import (
+    AppendFillAlphaAttrExpressionMixIn
+)
+from apysc._display.append_line_color_attr_expression_mixin import (
+    AppendLineColorAttrExpressionMixIn
+)
 
 
 class Triangle(
@@ -76,8 +85,11 @@ class Triangle(
     SkewXMixIn,
     SkewYMixIn,
     FillColorMixIn,
+    AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
+    AppendFillAlphaAttrExpressionMixIn,
     LineColorMixIn,
+    AppendLineColorAttrExpressionMixIn,
     LineAlphaMixIn,
     LineJointsMixIn,
     LineDotSettingMixIn,

@@ -62,6 +62,9 @@ from apysc._display.append_line_color_attr_expression_mixin import (
 from apysc._display.append_line_thickness_attr_expression_mixin import (
     AppendLineThicknessAttrExpressionMixIn
 )
+from apysc._display.append_line_alpha_attr_expression_mixin import (
+    AppendLineAlphaAttrExpressionMixIn
+)
 
 
 class Polyline(
@@ -87,6 +90,7 @@ class Polyline(
     LineColorMixIn,
     AppendLineColorAttrExpressionMixIn,
     LineAlphaMixIn,
+    AppendLineAlphaAttrExpressionMixIn,
     AppendLineThicknessAttrExpressionMixIn,
     LineJointsMixIn,
     LineDotSettingMixIn,
@@ -367,6 +371,9 @@ class Polyline(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_line_thickness_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_line_alpha_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

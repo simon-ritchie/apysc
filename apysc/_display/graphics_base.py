@@ -216,17 +216,8 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
-        from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display.line_joints_mixin import LineJointsMixIn
-
-        if isinstance(self, LineAlphaMixIn):
-            self._initialize_line_alpha_if_not_initialized()
-            expression = graphics_expression.append_stroke_opacity_expression(
-                line_alpha=self._line_alpha,
-                expression=expression,
-                indent_num=indent_num,
-            )
 
         if isinstance(self, LineCapMixIn):
             self._initialize_line_cap_if_not_initialized()

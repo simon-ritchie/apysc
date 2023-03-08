@@ -30,6 +30,9 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         from apysc._display.append_line_thickness_attr_expression_mixin import (
             AppendLineThicknessAttrExpressionMixIn
         )
+        from apysc._display.append_line_alpha_attr_expression_mixin import (
+            AppendLineAlphaAttrExpressionMixIn
+        )
 
         INDENT_NUM: int = 2
         stage: ap.Stage = ap.get_stage()
@@ -56,6 +59,10 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
             )
         if isinstance(self, AppendLineThicknessAttrExpressionMixIn):
             expression = self._append_line_thickness_attr_expression(
+                expression=expression, indent_num=INDENT_NUM
+            )
+        if isinstance(self, AppendLineAlphaAttrExpressionMixIn):
+            expression = self._append_line_alpha_attr_expression(
                 expression=expression, indent_num=INDENT_NUM
             )
         if isinstance(self, GraphicsBase):

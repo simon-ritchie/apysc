@@ -73,10 +73,14 @@ from apysc._display.append_line_cap_attr_expression_mixin import (
 from apysc._display.append_line_joints_attr_expression_mixin import (
     AppendLineJointsAttrExpressionMixIn
 )
+from apysc._display.append_x_attr_expression_mixin import (
+    AppendXAttrExpressionMixIn
+)
 
 
 class Polygon(
     XMixIn,
+    AppendXAttrExpressionMixIn,
     YMixIn,
     GraphicsBase,
     RotationAroundCenterMixIn,

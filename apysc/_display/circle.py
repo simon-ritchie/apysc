@@ -67,10 +67,14 @@ from apysc._display.append_line_cap_attr_expression_mixin import (
 from apysc._display.append_line_joints_attr_expression_mixin import (
     AppendLineJointsAttrExpressionMixIn
 )
+from apysc._display.append_x_attr_expression_mixin import (
+    AppendXAttrExpressionMixIn
+)
 
 
 class Circle(
     CxMixIn,
+    AppendXAttrExpressionMixIn,
     CyMixIn,
     GraphicsBase,
     RotationAroundCenterMixIn,
@@ -412,6 +416,9 @@ class Circle(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_line_joints_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_x_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

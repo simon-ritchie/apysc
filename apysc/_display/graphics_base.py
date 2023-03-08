@@ -214,14 +214,7 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
-        from apysc._display.x_interface import XInterface
         from apysc._display.y_interface import YInterface
-
-        if isinstance(self, XInterface):
-            self._initialize_x_if_not_initialized()
-            expression = graphics_expression.append_x_expression(
-                x=self._x, expression=expression, indent_num=indent_num
-            )
 
         if isinstance(self, YInterface):
             self._initialize_y_if_not_initialized()

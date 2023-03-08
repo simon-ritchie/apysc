@@ -219,15 +219,6 @@ class GraphicsBase(
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display.line_joints_mixin import LineJointsMixIn
-        from apysc._display.line_thickness_mixin import LineThicknessMixIn
-
-        if isinstance(self, LineThicknessMixIn):
-            self._initialize_line_thickness_if_not_initialized()
-            expression = graphics_expression.append_stroke_width_expression(
-                line_thickness=self._line_thickness,
-                expression=expression,
-                indent_num=indent_num,
-            )
 
         if isinstance(self, LineAlphaMixIn):
             self._initialize_line_alpha_if_not_initialized()

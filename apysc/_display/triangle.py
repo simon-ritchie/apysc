@@ -62,6 +62,9 @@ from apysc._display.append_fill_alpha_attr_expression_mixin import (
 from apysc._display.append_line_color_attr_expression_mixin import (
     AppendLineColorAttrExpressionMixIn
 )
+from apysc._display.append_line_thickness_attr_expression_mixin import (
+    AppendLineThicknessAttrExpressionMixIn
+)
 
 
 class Triangle(
@@ -91,6 +94,7 @@ class Triangle(
     LineColorMixIn,
     AppendLineColorAttrExpressionMixIn,
     LineAlphaMixIn,
+    AppendLineThicknessAttrExpressionMixIn,
     LineJointsMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,

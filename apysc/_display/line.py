@@ -42,6 +42,9 @@ from apysc._validation import arg_validation_decos
 from apysc._display.append_line_color_attr_expression_mixin import (
     AppendLineColorAttrExpressionMixIn
 )
+from apysc._display.append_line_thickness_attr_expression_mixin import (
+    AppendLineThicknessAttrExpressionMixIn
+)
 
 
 class Line(
@@ -61,6 +64,7 @@ class Line(
     LineColorMixIn,
     AppendLineColorAttrExpressionMixIn,
     LineAlphaMixIn,
+    AppendLineThicknessAttrExpressionMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,
@@ -309,6 +313,9 @@ class Line(
             "\n  .attr({"
         )
         expression = self._append_line_color_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_line_thickness_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

@@ -17,8 +17,6 @@ from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.stage import get_stage
-from apysc._display.x_interface import XInterface
-from apysc._display.y_interface import YInterface
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -216,14 +214,9 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
-        from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display.line_joints_mixin import LineJointsMixIn
-
-        if isinstance(self, LineCapMixIn):
-            self._initialize_line_cap_if_not_initialized()
-            expression = graphics_expression.append_stroke_linecap_expression(
-                line_cap=self._line_cap, expression=expression, indent_num=indent_num
-            )
+        from apysc._display.x_interface import XInterface
+        from apysc._display.y_interface import YInterface
 
         if isinstance(self, LineJointsMixIn):
             self._initialize_line_joints_if_not_initialized()

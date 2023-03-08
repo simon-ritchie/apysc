@@ -48,6 +48,9 @@ from apysc._display.append_line_thickness_attr_expression_mixin import (
 from apysc._display.append_line_alpha_attr_expression_mixin import (
     AppendLineAlphaAttrExpressionMixIn
 )
+from apysc._display.append_line_cap_attr_expression_mixin import (
+    AppendLineCapAttrExpressionMixIn
+)
 
 
 class Line(
@@ -69,6 +72,7 @@ class Line(
     LineAlphaMixIn,
     AppendLineAlphaAttrExpressionMixIn,
     AppendLineThicknessAttrExpressionMixIn,
+    AppendLineCapAttrExpressionMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,
@@ -323,6 +327,9 @@ class Line(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_line_alpha_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_line_cap_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

@@ -70,6 +70,9 @@ from apysc._display.append_line_alpha_attr_expression_mixin import (
 from apysc._display.append_line_cap_attr_expression_mixin import (
     AppendLineCapAttrExpressionMixIn
 )
+from apysc._display.append_line_joints_attr_expression_mixin import (
+    AppendLineJointsAttrExpressionMixIn
+)
 
 
 class Polygon(
@@ -99,6 +102,7 @@ class Polygon(
     AppendLineThicknessAttrExpressionMixIn,
     AppendLineCapAttrExpressionMixIn,
     LineJointsMixIn,
+    AppendLineJointsAttrExpressionMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,

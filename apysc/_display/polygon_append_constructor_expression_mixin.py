@@ -36,6 +36,9 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         from apysc._display.append_line_cap_attr_expression_mixin import (
             AppendLineCapAttrExpressionMixIn
         )
+        from apysc._display.append_line_joints_attr_expression_mixin import (
+            AppendLineJointsAttrExpressionMixIn
+        )
 
         INDENT_NUM: int = 2
         stage: ap.Stage = ap.get_stage()
@@ -70,6 +73,10 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
             )
         if isinstance(self, AppendLineCapAttrExpressionMixIn):
             expression = self._append_line_cap_attr_expression(
+                expression=expression, indent_num=INDENT_NUM
+            )
+        if isinstance(self, AppendLineJointsAttrExpressionMixIn):
+            expression = self._append_line_joints_attr_expression(
                 expression=expression, indent_num=INDENT_NUM
             )
         if isinstance(self, GraphicsBase):

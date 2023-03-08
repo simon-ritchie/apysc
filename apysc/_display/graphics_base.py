@@ -214,17 +214,8 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
-        from apysc._display.line_joints_mixin import LineJointsMixIn
         from apysc._display.x_interface import XInterface
         from apysc._display.y_interface import YInterface
-
-        if isinstance(self, LineJointsMixIn):
-            self._initialize_line_joints_if_not_initialized()
-            expression = graphics_expression.append_stroke_linejoin_expression(
-                line_joints=self._line_joints,
-                expression=expression,
-                indent_num=indent_num,
-            )
 
         if isinstance(self, XInterface):
             self._initialize_x_if_not_initialized()

@@ -66,6 +66,9 @@ from apysc._display.append_line_alpha_attr_expression_mixin import (
 from apysc._display.append_line_cap_attr_expression_mixin import (
     AppendLineCapAttrExpressionMixIn
 )
+from apysc._display.append_line_joints_attr_expression_mixin import (
+    AppendLineJointsAttrExpressionMixIn
+)
 
 
 class Ellipse(
@@ -94,6 +97,7 @@ class Ellipse(
     AppendLineThicknessAttrExpressionMixIn,
     AppendLineCapAttrExpressionMixIn,
     LineJointsMixIn,
+    AppendLineJointsAttrExpressionMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,
@@ -399,6 +403,9 @@ class Ellipse(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_line_cap_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_line_joints_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

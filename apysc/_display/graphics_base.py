@@ -214,13 +214,7 @@ class GraphicsBase(
             After appending expression.
         """
         from apysc._display import graphics_expression
-        from apysc._display.y_interface import YInterface
 
-        if isinstance(self, YInterface):
-            self._initialize_y_if_not_initialized()
-            expression = graphics_expression.append_y_expression(
-                y=self._y, expression=expression, indent_num=indent_num
-            )
         return expression
 
     @abstractmethod

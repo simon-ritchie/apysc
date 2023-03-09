@@ -67,12 +67,16 @@ from apysc._display.append_line_alpha_attr_expression_mixin import (
 from apysc._display.append_x_attr_expression_mixin import (
     AppendXAttrExpressionMixIn
 )
+from apysc._display.append_y_attr_expression_mixin import (
+    AppendYAttrExpressionMixIn
+)
 
 
 class SVGText(
     XMixIn,
     AppendXAttrExpressionMixIn,
     YMixIn,
+    AppendYAttrExpressionMixIn,
     GraphicsBase,
     RotationAroundCenterMixIn,
     RotationAroundPointMixIn,
@@ -281,6 +285,9 @@ class SVGText(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_x_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_y_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

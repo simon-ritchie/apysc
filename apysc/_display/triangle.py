@@ -77,12 +77,16 @@ from apysc._display.append_line_joints_attr_expression_mixin import (
 from apysc._display.append_x_attr_expression_mixin import (
     AppendXAttrExpressionMixIn
 )
+from apysc._display.append_y_attr_expression_mixin import (
+    AppendYAttrExpressionMixIn
+)
 
 
 class Triangle(
     XMixIn,
     AppendXAttrExpressionMixIn,
     YMixIn,
+    AppendYAttrExpressionMixIn,
     PolygonX1MixIn,
     PolygonY1MixIn,
     PolygonX2MixIn,

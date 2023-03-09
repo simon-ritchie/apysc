@@ -74,12 +74,16 @@ from apysc._display.append_line_joints_attr_expression_mixin import (
 from apysc._display.append_x_attr_expression_mixin import (
     AppendXAttrExpressionMixIn
 )
+from apysc._display.append_y_attr_expression_mixin import (
+    AppendYAttrExpressionMixIn
+)
 
 
 class Polyline(
     XMixIn,
     AppendXAttrExpressionMixIn,
     YMixIn,
+    AppendYAttrExpressionMixIn,
     GraphicsBase,
     RotationAroundCenterMixIn,
     RotationAroundPointMixIn,
@@ -395,6 +399,9 @@ class Polyline(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_x_attr_expression(
+            expression=expression, indent_num=INDENT_NUM
+        )
+        expression = self._append_y_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_basic_vals_expression(

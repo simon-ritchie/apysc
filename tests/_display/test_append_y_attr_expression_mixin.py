@@ -1,10 +1,9 @@
 import apysc as ap
-from tests._display.test_graphics_expression import (
-    assert_y_attr_expression_exists
-)
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.y_mixin import YMixIn
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
+from tests._display.test_graphics_expression import assert_y_attr_expression_exists
 
 
 class _TestMixIn(AppendYAttrExpressionMixIn, YMixIn):

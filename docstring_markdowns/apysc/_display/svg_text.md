@@ -18,32 +18,38 @@ The class for a SVG text.<hr>
   - A font-size setting.
 - `font_family`: Optional[Union[Array[String], List[str]]], optional
   - A font-family setting. Each string in an array needs to be a font name (e.g., `Times New Roman`).
-- `x`: float or Number, default 0.0
+- `x`: float or Number, optional
   - X-coordinate to start drawing.
-- `y`: float or Number, default 0.0
-  - Y-coordinate to start drawing.
-- `fill_color`: str or String, default '#666'
+- `y`: float or Number, optional
+  - Y-coordinate to start drawing (please see also the `Notes` section).
+- `fill_color`: str or String, optional
   - A fill-color to set.
-- `fill_alpha`: float or Number, default 1.0
+- `fill_alpha`: float or Number, optional
   - A fill-alpha to set.
 - `line_color`: str or String, default ''
   - A line-color to set.
-- `line_alpha`: float or Number, default 1.0
+- `line_alpha`: float or Number, optional
   - A line-alpha to set.
-- `line_thickness`: int or Int, default 1
+- `line_thickness`: int or Int, optional
   - A line-thickness (line-width) to set.
-- `leading`: float or Number, default 1.5
+- `leading`: float or Number, optional
   - A text-leading size.
 - `align`: SVGTextAlign, default SVGTextAlign.LEFT
   - A text-align setting.
-- `bold`: Union[bool, Boolean], default False
+- `bold`: Union[bool, Boolean], optional
   - A boolean, whether this text is bold style or not.
-- `italic`: Union[bool, Boolean], default False
-  - A boolean indicating whether a text is italic style or not (normal).
-- `parent`: ChildMixIn or None, default None
+- `italic`: Union[bool, Boolean], optional
+  - A boolean, whether a text is an italic style or not (normal).
+- `parent`: ChildMixIn or None, optional
   - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Notes]**
+
+ ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.
 
 ### `__repr__` method docstring
 
@@ -58,72 +64,54 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 
 Append a constructor expression string.
 
-### `_set_align` method docstring
+### `_convert_text_spans_list_to_array` method docstring
 
-Set a text-align setting.<hr>
-
-**[Parameters]**
-
-- `align`: SVGTextAlign
-  - A text-align setting.
-
-### `_set_bold` method docstring
-
-Set a bold style setting.<hr>
+Convert text spans' list to an array.<hr>
 
 **[Parameters]**
 
-- `bold`: Union[bool, Boolean]
-  - A boolean, whether a text is a bold style or not (normal).
-
-### `_set_font_family` method docstring
-
-Set a font-family value.<hr>
-
-**[Parameters]**
-
-- `font_family`: Optional[Array[String]]
-  - A font-family setting.
-
-### `_set_font_size_value` method docstring
-
-Set a font-size value.<hr>
-
-**[Parameters]**
-
-- `font_size`: Union[int, Int]
-  - A target font-size value.
-
-### `_set_italic` method docstring
-
-Set an italic style setting.<hr>
-
-**[Parameters]**
-
-- `italic`: Union[bool, Boolean]
-  - A boolean whether a text is in an italic style or not (normal).
-
-### `_set_leading` method docstring
-
-Set a leading value.<hr>
-
-**[Parameters]**
-
-- `leading`: Union[float, Number]
-  - A text-leading value.
-
-### `_set_text_value` method docstring
-
-Set a text value.<hr>
-
-**[Parameters]**
-
-- `text`: Union[str, String]
-  - A target text.
+- `text_spans`: Union[List[SVGTextSpan], Array[SVGTextSpan]]
+  - Text spans.
 
 <hr>
 
 **[Returns]**
 
-- `text_`: String
-  - A set text.
+- `text_spans_`: Array[SVGTextSpan]
+  - A converted array.
+
+### `create_with_svg_text_spans` method docstring
+
+Create an `SVGText` instance with specified text spans.<hr>
+
+**[Parameters]**
+
+- `text_spans`: Union[List[SVGTextSpan], Array[SVGTextSpan]]
+  - Text spans.
+- `font_family`: Optional[Union[Array[String], List[str]]], optional
+  - A font-family setting for an overall text. Each string in an array needs to be a font name (e.g., `Times New Roman`).
+- `x`: Union[float, Number], optional
+  - X-coordinate to start drawing.
+- `y`: Union[float, Number], optional
+  - Y-coordinate to start drawing (please see also the `Notes` section).
+- `leading`: float or Number, optional
+  - A text-leading size for an overall text.
+- `align`: SVGTextAlign, optional
+  - A text-align setting for an overall text.
+- `parent`: Optional[ChildMixIn], optional
+  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
+- `variable_name_suffix`: str, optional
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Returns]**
+
+- `svg_text`: SVGText
+  - A created `SVGText` instance.
+
+<hr>
+
+**[Notes]**
+
+ ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible. <br> ・You need to set text style settings, such as font_size or fill_color, with each `SVGTextSpan`'s constructor argument.

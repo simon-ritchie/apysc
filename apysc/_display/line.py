@@ -7,6 +7,20 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._display import graphics
+from apysc._display.append_line_alpha_attr_expression_mixin import (
+    AppendLineAlphaAttrExpressionMixIn,
+)
+from apysc._display.append_line_cap_attr_expression_mixin import (
+    AppendLineCapAttrExpressionMixIn,
+)
+from apysc._display.append_line_color_attr_expression_mixin import (
+    AppendLineColorAttrExpressionMixIn,
+)
+from apysc._display.append_line_thickness_attr_expression_mixin import (
+    AppendLineThicknessAttrExpressionMixIn,
+)
+from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
+from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
@@ -39,24 +53,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.append_line_color_attr_expression_mixin import (
-    AppendLineColorAttrExpressionMixIn
-)
-from apysc._display.append_line_thickness_attr_expression_mixin import (
-    AppendLineThicknessAttrExpressionMixIn
-)
-from apysc._display.append_line_alpha_attr_expression_mixin import (
-    AppendLineAlphaAttrExpressionMixIn
-)
-from apysc._display.append_line_cap_attr_expression_mixin import (
-    AppendLineCapAttrExpressionMixIn
-)
-from apysc._display.append_x_attr_expression_mixin import (
-    AppendXAttrExpressionMixIn
-)
-from apysc._display.append_y_attr_expression_mixin import (
-    AppendYAttrExpressionMixIn
-)
 
 
 class Line(

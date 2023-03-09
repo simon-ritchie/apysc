@@ -7,6 +7,21 @@ from typing import Union
 
 from typing_extensions import final
 
+from apysc._display.append_fill_alpha_attr_expression_mixin import (
+    AppendFillAlphaAttrExpressionMixIn,
+)
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn,
+)
+from apysc._display.append_line_alpha_attr_expression_mixin import (
+    AppendLineAlphaAttrExpressionMixIn,
+)
+from apysc._display.append_line_color_attr_expression_mixin import (
+    AppendLineColorAttrExpressionMixIn,
+)
+from apysc._display.append_line_thickness_attr_expression_mixin import (
+    AppendLineThicknessAttrExpressionMixIn,
+)
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.graphics_base import GraphicsBase
@@ -17,36 +32,21 @@ from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
-from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
+from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
+from apysc._display.svg_text_set_font_size_value_mixin import (
+    SVGTextSetFontSizeValueMixIn,
+)
+from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
 from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
+from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._html.debug_mode import add_debug_info_setting
-from apysc._display.svg_text_set_font_size_value_mixin import (
-    SVGTextSetFontSizeValueMixIn
-)
-from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
-from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
-from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
-from apysc._display.append_fill_color_expression_mixin import (
-    AppendFillColorAttrExpressionMixIn
-)
-from apysc._display.append_fill_alpha_attr_expression_mixin import (
-    AppendFillAlphaAttrExpressionMixIn
-)
-from apysc._display.append_line_color_attr_expression_mixin import (
-    AppendLineColorAttrExpressionMixIn
-)
-from apysc._display.append_line_thickness_attr_expression_mixin import (
-    AppendLineThicknessAttrExpressionMixIn
-)
-from apysc._display.append_line_alpha_attr_expression_mixin import (
-    AppendLineAlphaAttrExpressionMixIn
-)
 
 
 class SVGTextSpan(

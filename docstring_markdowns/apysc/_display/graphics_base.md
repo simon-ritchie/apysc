@@ -12,8 +12,6 @@ Vector graphic base class.<hr>
 
 **[Parameters]**
 
-- `parent`: ChildMixIn or None
-  - Parent instance. If a specified value is None, this interface uses a stage instance.
 - `variable_name`: str
   - Variable name of this instance. This will be used to js expression.
 
@@ -21,23 +19,14 @@ Vector graphic base class.<hr>
 
 Get a string representation of this instance (for the sake of debugging).
 
-### `_append_basic_vals_expression` method docstring
+### `_add_to_parent` method docstring
 
-Append basic values expression to a specified one.<hr>
+Add this instance to a specified parent instance.<hr>
 
 **[Parameters]**
 
-- `expression`: str
-  - Target expression.
-- `indent_num`: int
-  - Indentation number.
-
-<hr>
-
-**[Returns]**
-
-- `expression`: str
-  - After appending expression.
+- `parent`: Optional[ChildMixIn]
+  - A parent instance. If a specified value is None, this interface uses a stage instance.
 
 ### `_set_initial_basic_values` method docstring
 

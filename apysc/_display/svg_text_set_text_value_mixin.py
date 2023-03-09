@@ -5,8 +5,8 @@ from typing import Union
 
 from typing_extensions import final
 
-from apysc._type.string import String
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.string import String
 
 
 class SVGTextSetTextValueMixIn:
@@ -20,17 +20,12 @@ class SVGTextSetTextValueMixIn:
         ----------
         text : Union[str, String]
             A target text.
-
-        Returns
-        -------
-        text_ : String
-            A set text.
         """
+        from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
         from apysc._string import string_util
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
-        from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 
         if not isinstance(self, SVGTextTextMixIn):
             raise TypeError(

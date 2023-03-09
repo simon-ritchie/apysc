@@ -33,15 +33,15 @@ class AppendFillAlphaAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this instance is not a `FillAlphaMixIn` instance.
         """
-        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
         from apysc._display import graphics_expression
+        from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 
         if not isinstance(self, FillAlphaMixIn):
             raise TypeError(

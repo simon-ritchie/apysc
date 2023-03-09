@@ -33,15 +33,15 @@ class AppendLineAlphaAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this is not a `LineAlphaMixIn` instance.
         """
-        from apysc._display.line_alpha_mixin import LineAlphaMixIn
         from apysc._display import graphics_expression
+        from apysc._display.line_alpha_mixin import LineAlphaMixIn
 
         if not isinstance(self, LineAlphaMixIn):
             raise TypeError(

@@ -17,32 +17,32 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         Append a polygon's constructor expression.
         """
         import apysc as ap
-        from apysc._display.append_fill_color_expression_mixin import (
-            AppendFillColorAttrExpressionMixIn
-        )
         from apysc._display.append_fill_alpha_attr_expression_mixin import (
-            AppendFillAlphaAttrExpressionMixIn
+            AppendFillAlphaAttrExpressionMixIn,
         )
-        from apysc._display.append_line_color_attr_expression_mixin import (
-            AppendLineColorAttrExpressionMixIn
-        )
-        from apysc._display.append_line_thickness_attr_expression_mixin import (
-            AppendLineThicknessAttrExpressionMixIn
+        from apysc._display.append_fill_color_expression_mixin import (
+            AppendFillColorAttrExpressionMixIn,
         )
         from apysc._display.append_line_alpha_attr_expression_mixin import (
-            AppendLineAlphaAttrExpressionMixIn
+            AppendLineAlphaAttrExpressionMixIn,
         )
         from apysc._display.append_line_cap_attr_expression_mixin import (
-            AppendLineCapAttrExpressionMixIn
+            AppendLineCapAttrExpressionMixIn,
+        )
+        from apysc._display.append_line_color_attr_expression_mixin import (
+            AppendLineColorAttrExpressionMixIn,
         )
         from apysc._display.append_line_joints_attr_expression_mixin import (
-            AppendLineJointsAttrExpressionMixIn
+            AppendLineJointsAttrExpressionMixIn,
+        )
+        from apysc._display.append_line_thickness_attr_expression_mixin import (
+            AppendLineThicknessAttrExpressionMixIn,
         )
         from apysc._display.append_x_attr_expression_mixin import (
-            AppendXAttrExpressionMixIn
+            AppendXAttrExpressionMixIn,
         )
         from apysc._display.append_y_attr_expression_mixin import (
-            AppendYAttrExpressionMixIn
+            AppendYAttrExpressionMixIn,
         )
 
         INDENT_NUM: int = 2

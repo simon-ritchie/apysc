@@ -33,15 +33,15 @@ class AppendLineThicknessAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this is not a `LineThicknessMixIn` instance.
         """
-        from apysc._display.line_thickness_mixin import LineThicknessMixIn
         from apysc._display import graphics_expression
+        from apysc._display.line_thickness_mixin import LineThicknessMixIn
 
         if not isinstance(self, LineThicknessMixIn):
             raise TypeError(

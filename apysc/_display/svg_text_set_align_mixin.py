@@ -1,12 +1,11 @@
 """The mix-in class implementation for the `SVGText`'s `_set_align` method.
 """
 
-from typing import Union
 
 from typing_extensions import final
 
-from apysc._html.debug_mode import add_debug_info_setting
 from apysc._display.svg_text_align_mixin import SVGTextAlign
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class SVGTextSetAlignMixIn:

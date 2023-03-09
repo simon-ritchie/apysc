@@ -33,15 +33,15 @@ class AppendYAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this is not a `YInterface` instance.
         """
-        from apysc._display.y_interface import YInterface
         from apysc._display import graphics_expression
+        from apysc._display.y_interface import YInterface
 
         if not isinstance(self, YInterface):
             raise TypeError(

@@ -32,7 +32,7 @@ def main() -> None:
         stage_elem_id="stage",
     )
 
-    svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+    _: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
         text_spans=[
             ap.SVGTextSpan(text="SVGTextSpan test 1 "),
             ap.SVGTextSpan(

@@ -1,12 +1,11 @@
 import apysc as ap
-from tests._display.test_graphics_expression import (
-    assert_stroke_attr_expression_exists
-)
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 from apysc._display.append_line_color_attr_expression_mixin import (
-    AppendLineColorAttrExpressionMixIn
+    AppendLineColorAttrExpressionMixIn,
 )
 from apysc._display.line_color_mixin import LineColorMixIn
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
+from tests._display.test_graphics_expression import assert_stroke_attr_expression_exists
 
 
 class _TestMixIn(AppendLineColorAttrExpressionMixIn, LineColorMixIn):

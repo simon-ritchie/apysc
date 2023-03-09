@@ -1,4 +1,3 @@
-
 import apysc as ap
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
@@ -24,25 +23,6 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
-from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
-from tests._display.test_graphics_expression import (
-    assert_fill_opacity_attr_expression_exists,
-)
-from tests._display.test_graphics_expression import assert_stroke_attr_expression_exists
-from tests._display.test_graphics_expression import (
-    assert_stroke_linecap_attr_expression_exists,
-)
-from tests._display.test_graphics_expression import (
-    assert_stroke_linejoin_attr_expression_exists,
-)
-from tests._display.test_graphics_expression import (
-    assert_stroke_opacity_attr_expression_exists,
-)
-from tests._display.test_graphics_expression import (
-    assert_stroke_width_attr_expression_exists,
-)
-from tests._display.test_graphics_expression import assert_x_attr_expression_exists
-from tests._display.test_graphics_expression import assert_y_attr_expression_exists
 
 
 class _TestGraphic(
@@ -134,11 +114,8 @@ class TestGraphicsBase:
     @apply_test_settings()
     def test___init__(self) -> None:
         ap.Stage()
-        sprite: ap.Sprite = ap.Sprite()
 
-        graphics: _TestGraphic = _TestGraphic(
-            variable_name="test_graphics_1"
-        )
+        graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics_1")
         testing_helper.assert_attrs(
             expected_attrs={
                 "_variable_name": "test_graphics_1",
@@ -149,9 +126,7 @@ class TestGraphicsBase:
     @apply_test_settings()
     def test__set_initial_basic_values(self) -> None:
         ap.Stage()
-        graphics: _TestGraphic = _TestGraphic(
-            variable_name="test_graphics_1"
-        )
+        graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics_1")
         graphics._set_initial_basic_values(
             fill_color="#00aaff",
             fill_alpha=0.5,
@@ -177,9 +152,7 @@ class TestGraphicsBase:
     @apply_test_settings()
     def test__set_line_setting_if_not_none_value_exists(self) -> None:
         ap.Stage()
-        graphics: _TestGraphic = _TestGraphic(
-            variable_name="test_graphics"
-        )
+        graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics")
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=ap.LineDotSetting(dot_size=5),
             line_dash_setting=None,
@@ -226,15 +199,11 @@ class TestGraphicsBase:
     @apply_test_settings()
     def test__add_to_parent(self) -> None:
         stage: ap.Stage = ap.Stage()
-        graphics: _TestGraphic = _TestGraphic(
-            variable_name="test_graphics_1"
-        )
+        graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics_1")
         graphics._add_to_parent(parent=None)
         assert graphics.parent == stage
 
         sprite: ap.Sprite = ap.Sprite()
-        graphics = _TestGraphic(
-            variable_name="test_graphics_1"
-        )
+        graphics = _TestGraphic(variable_name="test_graphics_1")
         graphics._add_to_parent(parent=sprite)
         assert graphics.parent == sprite

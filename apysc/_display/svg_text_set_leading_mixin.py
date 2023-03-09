@@ -21,10 +21,10 @@ class SVGTextSetLeadingMixIn:
         leading : Union[float, Number]
             A text-leading value.
         """
+        from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
-        from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
 
         if not isinstance(self, SVGTextLeadingMixIn):
             raise TypeError(

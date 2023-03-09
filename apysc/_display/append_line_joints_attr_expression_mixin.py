@@ -33,15 +33,15 @@ class AppendLineJointsAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this is not a `LineJointsMixIn` instance.
         """
-        from apysc._display.line_joints_mixin import LineJointsMixIn
         from apysc._display import graphics_expression
+        from apysc._display.line_joints_mixin import LineJointsMixIn
 
         if not isinstance(self, LineJointsMixIn):
             raise TypeError(

@@ -1,11 +1,12 @@
 import apysc as ap
-from tests._display.test_graphics_expression import (
-    assert_stroke_linecap_attr_expression_exists
-)
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
-from apysc._display.line_cap_mixin import LineCapMixIn
 from apysc._display.append_line_cap_attr_expression_mixin import (
-    AppendLineCapAttrExpressionMixIn
+    AppendLineCapAttrExpressionMixIn,
+)
+from apysc._display.line_cap_mixin import LineCapMixIn
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
+from tests._display.test_graphics_expression import (
+    assert_stroke_linecap_attr_expression_exists,
 )
 
 

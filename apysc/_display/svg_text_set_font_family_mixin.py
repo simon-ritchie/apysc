@@ -1,13 +1,15 @@
 """The mix-in class implementation for the `SVGText`'s `_set_font_family` method.
 """
 
-from typing import List, Optional, Union
+from typing import List
+from typing import Optional
+from typing import Union
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.string import String
 from apysc._type.array import Array
+from apysc._type.string import String
 
 
 class SVGTextSetFontFamilyMixIn:
@@ -26,10 +28,10 @@ class SVGTextSetFontFamilyMixIn:
         font_family : Optional[Array[String]]
             A font-family setting.
         """
+        from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
-        from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 
         if not isinstance(self, SVGTextFontFamilyMixIn):
             raise TypeError(

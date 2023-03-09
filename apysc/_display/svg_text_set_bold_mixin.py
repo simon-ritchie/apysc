@@ -21,10 +21,10 @@ class SVGTextSetBoldMixIn:
         bold : Union[bool, Boolean]
             A boolean, whether a text is a bold style or not (normal).
         """
+        from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
-        from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 
         if not isinstance(self, SVGTextBoldMixIn):
             raise TypeError(

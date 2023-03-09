@@ -33,15 +33,15 @@ class AppendFillColorAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this is not a `FillColorMixIn` instance.
         """
-        from apysc._display.fill_color_mixin import FillColorMixIn
         from apysc._display import graphics_expression
+        from apysc._display.fill_color_mixin import FillColorMixIn
 
         if not isinstance(self, FillColorMixIn):
             raise TypeError(

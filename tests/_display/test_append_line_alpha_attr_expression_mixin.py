@@ -1,12 +1,12 @@
 import apysc as ap
-from tests._display.test_graphics_expression import (
-    assert_stroke_opacity_attr_expression_exists
+from apysc._display.append_line_alpha_attr_expression_mixin import (
+    AppendLineAlphaAttrExpressionMixIn,
 )
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
-from apysc._display.append_line_alpha_attr_expression_mixin import (
-    AppendLineAlphaAttrExpressionMixIn
+from apysc._testing.testing_helper import assert_raises
+from tests._display.test_graphics_expression import (
+    assert_stroke_opacity_attr_expression_exists,
 )
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 
 
 class _TestMixIn(AppendLineAlphaAttrExpressionMixIn, LineAlphaMixIn):

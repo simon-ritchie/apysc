@@ -1,11 +1,12 @@
 import apysc as ap
-from tests._display.test_graphics_expression import (
-    assert_fill_opacity_attr_expression_exists
-)
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
-from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
-    AppendFillAlphaAttrExpressionMixIn
+    AppendFillAlphaAttrExpressionMixIn,
+)
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
+from tests._display.test_graphics_expression import (
+    assert_fill_opacity_attr_expression_exists,
 )
 
 

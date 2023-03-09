@@ -21,10 +21,10 @@ class SVGTextSetFontSizeValueMixIn:
         font_size : Union[int, Int]
             A target font-size value.
         """
+        from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
-        from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 
         if not isinstance(self, SVGTextFontSizeMixIn):
             raise TypeError(

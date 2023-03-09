@@ -33,15 +33,15 @@ class AppendLineColorAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this is not a `LineColorMixIn` instance.
         """
-        from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display import graphics_expression
+        from apysc._display.line_color_mixin import LineColorMixIn
 
         if not isinstance(self, LineColorMixIn):
             raise TypeError(

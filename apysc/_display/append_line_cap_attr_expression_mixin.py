@@ -33,15 +33,15 @@ class AppendLineCapAttrExpressionMixIn:
         Returns
         -------
         expression : str
-            After appending expression string.
+            After an appending expression string.
 
         Raises
         ------
         TypeError
             If this is not a `LineCapMixIn` instance.
         """
-        from apysc._display.line_cap_mixin import LineCapMixIn
         from apysc._display import graphics_expression
+        from apysc._display.line_cap_mixin import LineCapMixIn
 
         if not isinstance(self, LineCapMixIn):
             raise TypeError(

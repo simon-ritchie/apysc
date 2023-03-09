@@ -7,6 +7,23 @@ from typing import Union
 
 from typing_extensions import final
 
+from apysc._display.append_fill_alpha_attr_expression_mixin import (
+    AppendFillAlphaAttrExpressionMixIn,
+)
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn,
+)
+from apysc._display.append_line_alpha_attr_expression_mixin import (
+    AppendLineAlphaAttrExpressionMixIn,
+)
+from apysc._display.append_line_color_attr_expression_mixin import (
+    AppendLineColorAttrExpressionMixIn,
+)
+from apysc._display.append_line_thickness_attr_expression_mixin import (
+    AppendLineThicknessAttrExpressionMixIn,
+)
+from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
+from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
@@ -29,16 +46,17 @@ from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
-from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
-from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
-from apysc._display.svg_text_set_font_size_value_mixin import (
-    SVGTextSetFontSizeValueMixIn
-)
-from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
-from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
 from apysc._display.svg_text_set_align_mixin import SVGTextSetAlignMixIn
 from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
+from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
+from apysc._display.svg_text_set_font_size_value_mixin import (
+    SVGTextSetFontSizeValueMixIn,
+)
 from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
+from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
+from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
+from apysc._display.svg_text_span import SVGTextSpan
+from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -48,28 +66,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._display.svg_text_span import SVGTextSpan
-from apysc._display.append_fill_color_expression_mixin import (
-    AppendFillColorAttrExpressionMixIn
-)
-from apysc._display.append_fill_alpha_attr_expression_mixin import (
-    AppendFillAlphaAttrExpressionMixIn
-)
-from apysc._display.append_line_color_attr_expression_mixin import (
-    AppendLineColorAttrExpressionMixIn
-)
-from apysc._display.append_line_thickness_attr_expression_mixin import (
-    AppendLineThicknessAttrExpressionMixIn
-)
-from apysc._display.append_line_alpha_attr_expression_mixin import (
-    AppendLineAlphaAttrExpressionMixIn
-)
-from apysc._display.append_x_attr_expression_mixin import (
-    AppendXAttrExpressionMixIn
-)
-from apysc._display.append_y_attr_expression_mixin import (
-    AppendYAttrExpressionMixIn
-)
 
 
 class SVGText(
@@ -216,9 +212,6 @@ class SVGText(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
-        skip_init_constructor_and_text_settings : bool, optional
-            A boolean, whether to skip a constuctor's expression and
-            text settings. The `SVGText` class uses this option internally.
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -325,13 +318,13 @@ class SVGText(
         variable_name_suffix: str = "",
     ) -> "SVGText":
         """
-        Create a `SVGText` instance with specified text spans.
+        Create an `SVGText` instance with specified text spans.
 
         Notes
         -----
         - SVGText's y-coordinate zero-position starts at the bottom of a text.
             So if you set y=0, a text becomes almost invisible.
-        - You need to set text style settings, such as font_size or fill_color
+        - You need to set text style settings, such as font_size or fill_color,
             with each `SVGTextSpan`'s constructor argument.
 
         Parameters
@@ -345,6 +338,8 @@ class SVGText(
             X-coordinate to start drawing.
         y : Union[float, Number], optional
             Y-coordinate to start drawing (please see also the `Notes` section).
+        leading : float or Number, optional
+            A text-leading size for an overall text.
         align : SVGTextAlign, optional
             A text-align setting for an overall text.
         parent : Optional[ChildMixIn], optional
@@ -361,8 +356,9 @@ class SVGText(
             A created `SVGText` instance.
         """
         import apysc as ap
+
         svg_text: SVGText = SVGText(
-            text='',
+            text="",
             font_family=font_family,
             x=x,
             y=y,
@@ -406,6 +402,7 @@ class SVGText(
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
+
         if isinstance(text_spans, Array):
             return text_spans
         suffix: str = get_attr_or_variable_name_suffix(

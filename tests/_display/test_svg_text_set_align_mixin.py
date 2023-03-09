@@ -1,9 +1,9 @@
-import apysc as ap
-from apysc._expression import expression_data_util
+from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 from apysc._display.svg_text_set_align_mixin import SVGTextSetAlignMixIn
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
-from apysc._display.svg_text_align_mixin import SVGTextAlign
+from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 class _TestMixIn(

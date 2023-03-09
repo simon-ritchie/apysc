@@ -1,13 +1,14 @@
 import apysc as ap
+from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_set_font_size_value_mixin import (
-    SVGTextSetFontSizeValueMixIn
+    SVGTextSetFontSizeValueMixIn,
 )
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 
 
 class _TestMixIn(

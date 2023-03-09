@@ -21,10 +21,10 @@ class SVGTextSetItalicMixIn:
         italic : Union[bool, Boolean]
             A boolean whether a text is in an italic style or not (normal).
         """
+        from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
-        from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 
         if not isinstance(self, SVGTextItalicMixIn):
             raise TypeError(

@@ -404,9 +404,6 @@ class Path(
         expression = self._append_y_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
-        expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=INDENT_NUM
-        )
         spaces: str = indent_util.make_spaces_for_html(indent_num=INDENT_NUM)
         if self._fill_color._value == "":
             expression += f'\n{spaces}fill: "transparent",'

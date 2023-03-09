@@ -428,9 +428,6 @@ class Circle(
         expression = self._append_y_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
-        expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=INDENT_NUM
-        )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
 

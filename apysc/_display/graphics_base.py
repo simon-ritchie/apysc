@@ -195,28 +195,6 @@ class GraphicsBase(
             self.line_dash_dot_setting = line_dash_dot_setting
             return
 
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _append_basic_vals_expression(self, *, expression: str, indent_num: int) -> str:
-        """
-        Append basic values expression to a specified one.
-
-        Parameters
-        ----------
-        expression : str
-            Target expression.
-        indent_num : int
-            Indentation number.
-
-        Returns
-        -------
-        expression : str
-            After appending expression.
-        """
-        from apysc._display import graphics_expression
-
-        return expression
-
     @abstractmethod
     def __repr__(self) -> str:
         """

@@ -17,7 +17,6 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         Append a polygon's constructor expression.
         """
         import apysc as ap
-        from apysc._display.graphics_base import GraphicsBase
         from apysc._display.append_fill_color_expression_mixin import (
             AppendFillColorAttrExpressionMixIn
         )
@@ -83,10 +82,6 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
             )
         if isinstance(self, AppendLineJointsAttrExpressionMixIn):
             expression = self._append_line_joints_attr_expression(
-                expression=expression, indent_num=INDENT_NUM
-            )
-        if isinstance(self, GraphicsBase):
-            expression = self._append_basic_vals_expression(
                 expression=expression, indent_num=INDENT_NUM
             )
         if isinstance(self, AppendXAttrExpressionMixIn):

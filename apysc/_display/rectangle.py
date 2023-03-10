@@ -151,16 +151,16 @@ class Rectangle(
     # y
     @arg_validation_decos.is_num(arg_position_index=2)
     # width
-    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
     # height
-    @arg_validation_decos.is_integer(arg_position_index=4)
+    @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
     # ellipse_width
-    @arg_validation_decos.is_integer(arg_position_index=5)
+    @arg_validation_decos.is_integer(arg_position_index=5, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5)
     # ellipse_height
-    @arg_validation_decos.is_integer(arg_position_index=6)
+    @arg_validation_decos.is_integer(arg_position_index=6, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
@@ -171,7 +171,7 @@ class Rectangle(
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=10)
     # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=11)
+    @arg_validation_decos.is_integer(arg_position_index=11, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=11)
     # line_cap
     @arg_validation_decos.is_line_cap(arg_position_index=12, optional=True)

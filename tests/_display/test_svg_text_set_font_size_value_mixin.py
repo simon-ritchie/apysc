@@ -34,6 +34,9 @@ class TestSVGTextSetFontSizeValueMixIn:
         mixin_1._set_font_size_value(font_size=ap.Int(25))
         assert mixin_1.font_size == ap.Int(25)
 
+        mixin_1._set_font_size_value(font_size=None)
+        assert mixin_1.font_size == ap.Int(25)
+
         mixin_2: SVGTextSetFontSizeValueMixIn = SVGTextSetFontSizeValueMixIn()
         assert_raises(
             expected_error_class=TypeError,

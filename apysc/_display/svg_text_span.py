@@ -76,7 +76,7 @@ class SVGTextSpan(
     # text
     @arg_validation_decos.is_string(arg_position_index=1)
     # font_size
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=2, optional=True)
     # font_family
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
         arg_position_index=3, optional=True
@@ -90,7 +90,7 @@ class SVGTextSpan(
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
     # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=8)
+    @arg_validation_decos.is_integer(arg_position_index=8, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
     # bold
     @arg_validation_decos.is_boolean(arg_position_index=9)
@@ -103,7 +103,7 @@ class SVGTextSpan(
         self,
         *,
         text: Union[str, String],
-        font_size: Union[int, Int] = 16,
+        font_size: Optional[Union[int, Int]] = None,
         font_family: Optional[Union[Array[String], List[str]]] = None,
         fill_color: Union[str, String] = "#666",
         fill_alpha: Union[float, Number] = 1.0,
@@ -121,7 +121,7 @@ class SVGTextSpan(
         ----------
         text : Union[str, String]
             A text to use in this class.
-        font_size : Union[int, Int], optional
+        font_size : Optional[Union[int, Int]], optional
             A font-size setting.
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting.

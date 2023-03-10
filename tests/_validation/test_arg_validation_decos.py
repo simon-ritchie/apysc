@@ -163,7 +163,7 @@ def test__get_callable_and_arg_names_msg() -> None:
 
 @apply_test_settings()
 def test_is_integer() -> None:
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
     def _test_func(*, a: str, b: Union[int, ap.Int]) -> None:
         ...
 

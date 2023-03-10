@@ -17,10 +17,10 @@ from apysc._validation import arg_validation_decos
 
 class AnimationRotationAroundCenterMixIn(AnimationMixIns):
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
-    @arg_validation_decos.is_integer(arg_position_index=2)
+    @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_integer(arg_position_index=2, optional=False)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2)
-    @arg_validation_decos.is_integer(arg_position_index=3)
+    @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
     @arg_validation_decos.is_easing(arg_position_index=4)
     def animation_rotation_around_center(
         self,

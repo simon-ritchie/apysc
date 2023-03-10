@@ -261,7 +261,7 @@ class ChildMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """

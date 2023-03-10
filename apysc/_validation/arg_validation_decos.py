@@ -557,7 +557,7 @@ def is_apysc_num(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_integer(*, arg_position_index: int) -> _Callable:
+def is_integer(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the `int` or `ap.Int`.
@@ -566,6 +566,9 @@ def is_integer(*, arg_position_index: int) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean, whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -584,6 +587,8 @@ def is_integer(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+            if optional and integer is None:
+                return callable_(*args, **kwargs)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
@@ -1035,7 +1040,7 @@ def is_builtin_string(*, arg_position_index: int, optional: bool) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool, optional
+    optional : bool
         A boolean indicating whether a target argument accepts
         optional None value or not.
 
@@ -1342,8 +1347,8 @@ def is_display_object_container(
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool, optional
-        A boolean indicating whether a target argument accepts
+    optional : bool
+        A boolean, whether a target argument accepts
         optional None value or not.
 
     Returns
@@ -2654,7 +2659,7 @@ def is_builtin_str_list_or_apysc_str_arr(
     ----------
     arg_position_index : int
         A target argument position index.
-    optional : bool, optional
+    optional : bool
         A boolean indicating whether a target argument accepts
         optional None value or not.
 

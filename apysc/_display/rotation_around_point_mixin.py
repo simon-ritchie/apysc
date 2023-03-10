@@ -102,7 +102,7 @@ class RotationAroundPointMixIn(
         return rotation
 
     @final
-    @arg_validation_decos.is_integer(arg_position_index=1)
+    @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
     @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_num(arg_position_index=3)
     @add_debug_info_setting(module_name=__name__)

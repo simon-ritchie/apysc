@@ -37,15 +37,16 @@ def main() -> None:
             ap.SVGTextSpan(text="SVGTextSpan test 1 "),
             ap.SVGTextSpan(
                 text="SVGTextSpan test 2 ",
-                font_size=20,
+                font_size=16,
                 fill_color="#aaa",
                 font_family=["Arial"],
             ),
             ap.SVGTextSpan(text="SVGTextSpan test 3"),
         ],
+        font_size=12,
+        font_family=["Impact"],
         x=50,
         y=50,
-        font_family=["Impact"],
     )
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)

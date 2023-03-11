@@ -287,28 +287,31 @@ class SVGText(
         ap.append_js_expression(expression=expression)
 
     @classmethod
+    # font_size
+    @arg_validation_decos.is_integer(arg_position_index=2, optional=False)
     # font_family
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
-        arg_position_index=2, optional=True
+        arg_position_index=3, optional=True
     )
     # x
-    @arg_validation_decos.is_num(arg_position_index=3)
-    # y
     @arg_validation_decos.is_num(arg_position_index=4)
-    # leading
+    # y
     @arg_validation_decos.is_num(arg_position_index=5)
+    # leading
+    @arg_validation_decos.is_num(arg_position_index=6)
     # align
-    @arg_validation_decos.is_svg_text_align(arg_position_index=6)
+    @arg_validation_decos.is_svg_text_align(arg_position_index=7)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=7, optional=True
+        arg_position_index=8, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=9, optional=False)
     def create_with_svg_text_spans(
         cls,
         *,
         text_spans: Union[List[SVGTextSpan], Array[SVGTextSpan]],
+        font_size: Union[int, Int] = 16,
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 16.0,
@@ -324,13 +327,13 @@ class SVGText(
         -----
         - SVGText's y-coordinate zero-position starts at the bottom of a text.
             So if you set y=0, a text becomes almost invisible.
-        - You need to set text style settings, such as font_size or fill_color,
-            with each `SVGTextSpan`'s constructor argument.
 
         Parameters
         ----------
         text_spans : Union[List[SVGTextSpan], Array[SVGTextSpan]]
             Text spans.
+        font_size : Union[int, Int], optional
+            A font-size setting.
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting for an overall text.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
@@ -359,6 +362,7 @@ class SVGText(
 
         svg_text: SVGText = SVGText(
             text="",
+            font_size=font_size,
             font_family=font_family,
             x=x,
             y=y,

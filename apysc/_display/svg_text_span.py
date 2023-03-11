@@ -82,11 +82,11 @@ class SVGTextSpan(
         arg_position_index=3, optional=True
     )
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
     # line_thickness

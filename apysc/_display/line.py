@@ -127,7 +127,7 @@ class Line(
     # end_point
     @arg_validation_decos.is_point_2d(arg_position_index=2)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=3)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=3, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=4)
     # line_thickness

@@ -152,11 +152,11 @@ class Path(
     # path_data_list
     @arg_validation_decos.is_valid_path_data_list(arg_position_index=1)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=2)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=2, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5)
     # line_thickness

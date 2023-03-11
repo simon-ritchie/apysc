@@ -121,11 +121,11 @@ class SVGText(
     # y
     @arg_validation_decos.is_num(arg_position_index=5)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=8)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=8, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9)
     # line_thickness
@@ -298,7 +298,7 @@ class SVGText(
     # y
     @arg_validation_decos.is_num(arg_position_index=5)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
     # leading
     @arg_validation_decos.is_num(arg_position_index=7)
     # align

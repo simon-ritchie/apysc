@@ -248,16 +248,27 @@ def test_is_num() -> None:
 
 @apply_test_settings()
 def test_is_hex_color_code_format() -> None:
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=0)
-    def _test_func(*, a: str) -> None:
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=0, optional=False)
+    def _test_func_1(*, a: str) -> None:
         ...
 
-    _test_func(a="#a")
-    _test_func(a="0af")
-    _test_func(a="#0af")
-    _test_func(a="#00aaff")
+    _test_func_1(a="#a")
+    _test_func_1(a="0af")
+    _test_func_1(a="#0af")
+    _test_func_1(a="#00aaff")
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a="Hello!")
+    assert_raises(expected_error_class=TypeError, callable_=_test_func_1, a=None)
 
-    assert_raises(expected_error_class=ValueError, callable_=_test_func, a="Hello!")
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[str]) -> None:
+        ...
+
+    _test_func_2(a="#a")
+    _test_func_2(a="0af")
+    _test_func_2(a="#0af")
+    _test_func_2(a="#00aaff")
+    _test_func_2(a=None)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a="Hello!")
 
 
 @apply_test_settings()

@@ -47,6 +47,7 @@ def main() -> None:
         font_family=["Impact"],
         x=50,
         y=50,
+        fill_color="#0af",
     )
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)

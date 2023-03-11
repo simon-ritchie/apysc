@@ -26,7 +26,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
     _fill_alpha: Number
 
     @final
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
     @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=2)
     @add_debug_info_setting(module_name=__name__)

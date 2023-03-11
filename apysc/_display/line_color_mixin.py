@@ -64,7 +64,7 @@ class LineColorMixIn(
         return line_color
 
     @line_color.setter
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def line_color(self, value: String) -> None:
         """

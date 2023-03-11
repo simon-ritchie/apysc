@@ -1124,7 +1124,7 @@ def is_apysc_string(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_hex_color_code_format(*, arg_position_index: int) -> _Callable:
+def is_hex_color_code_format(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's value
     in a hexadecimal color code format.
@@ -1133,6 +1133,9 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean, whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -1154,6 +1157,9 @@ def is_hex_color_code_format(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+
+            if optional and hex_color_code is None:
+                return callable_(*args, **kwargs)
 
             hex_color_code = color_util.remove_color_code_sharp_symbol(
                 hex_color_code=hex_color_code

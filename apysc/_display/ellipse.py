@@ -157,11 +157,11 @@ class Ellipse(
     @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=5)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=5, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8)
     # line_thickness

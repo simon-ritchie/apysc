@@ -164,15 +164,29 @@ def test__get_callable_and_arg_names_msg() -> None:
 @apply_test_settings()
 def test_is_integer() -> None:
     @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
-    def _test_func(*, a: str, b: Union[int, ap.Int]) -> None:
+    def _test_func_1(*, a: str, b: Union[int, ap.Int]) -> None:
         ...
 
     assert_raises(
-        expected_error_class=ValueError, callable_=_test_func, a="Hello!", b="World!"
+        expected_error_class=ValueError, callable_=_test_func_1, a="Hello!", b="World!"
+    )
+    assert_raises(
+        expected_error_class=ValueError, callable_=_test_func_1, a="Hello!", b=None
     )
 
-    _test_func(a="Hello!", b=10)
-    _test_func(a="Hello!", b=ap.Int(10))
+    _test_func_1(a="Hello!", b=10)
+    _test_func_1(a="Hello!", b=ap.Int(10))
+
+    @arg_validation_decos.is_integer(arg_position_index=1, optional=True)
+    def _test_func_2(*, a: str, b: Optional[Union[int, ap.Int]]) -> None:
+        ...
+
+    assert_raises(
+        expected_error_class=ValueError, callable_=_test_func_2, a="Hello!", b="World!"
+    )
+    _test_func_2(a="Hello!", b=10)
+    _test_func_2(a="Hello!", b=ap.Int(10))
+    _test_func_2(a="Hello!", b=None)
 
 
 @apply_test_settings()

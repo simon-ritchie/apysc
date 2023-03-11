@@ -105,7 +105,7 @@ class SVGTextSpan(
         text: Union[str, String],
         font_size: Optional[Union[int, Int]] = None,
         font_family: Optional[Union[Array[String], List[str]]] = None,
-        fill_color: Union[str, String] = "#666",
+        fill_color: Union[str, String] = "",
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
         line_alpha: Union[float, Number] = 1.0,

@@ -297,16 +297,18 @@ class SVGText(
     @arg_validation_decos.is_num(arg_position_index=4)
     # y
     @arg_validation_decos.is_num(arg_position_index=5)
+    # fill_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6)
     # leading
-    @arg_validation_decos.is_num(arg_position_index=6)
+    @arg_validation_decos.is_num(arg_position_index=7)
     # align
-    @arg_validation_decos.is_svg_text_align(arg_position_index=7)
+    @arg_validation_decos.is_svg_text_align(arg_position_index=8)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=8, optional=True
+        arg_position_index=9, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=9, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=10, optional=False)
     def create_with_svg_text_spans(
         cls,
         *,
@@ -315,6 +317,7 @@ class SVGText(
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 16.0,
+        fill_color: Union[str, String] = "#666",
         leading: Union[float, Number] = 1.5,
         align: SVGTextAlign = SVGTextAlign.LEFT,
         parent: Optional[ChildMixIn] = None,
@@ -333,7 +336,7 @@ class SVGText(
         text_spans : Union[List[SVGTextSpan], Array[SVGTextSpan]]
             Text spans.
         font_size : Union[int, Int], optional
-            A font-size setting.
+            A font-size setting for an overall text.
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting for an overall text.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
@@ -341,6 +344,8 @@ class SVGText(
             X-coordinate to start drawing.
         y : Union[float, Number], optional
             Y-coordinate to start drawing (please see also the `Notes` section).
+        fill_color : str or String, optional
+            A fill-color setting for an overall text.
         leading : float or Number, optional
             A text-leading size for an overall text.
         align : SVGTextAlign, optional
@@ -366,6 +371,7 @@ class SVGText(
             font_family=font_family,
             x=x,
             y=y,
+            fill_color=fill_color,
             leading=leading,
             align=align,
             parent=parent,

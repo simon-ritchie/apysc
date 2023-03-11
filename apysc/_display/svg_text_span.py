@@ -47,12 +47,16 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.svg_text_skip_fill_color_exp_appending_mixin import (
+    SVGTextSkipFillColorExpAppendingMixIn
+)
 
 
 class SVGTextSpan(
     GraphicsBase,
     FillColorMixIn,
     AppendFillColorAttrExpressionMixIn,
+    SVGTextSkipFillColorExpAppendingMixIn,
     FillAlphaMixIn,
     AppendFillAlphaAttrExpressionMixIn,
     LineColorMixIn,
@@ -82,7 +86,7 @@ class SVGTextSpan(
         arg_position_index=3, optional=True
     )
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=False)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=True)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5)
     # line_color
@@ -105,7 +109,7 @@ class SVGTextSpan(
         text: Union[str, String],
         font_size: Optional[Union[int, Int]] = None,
         font_family: Optional[Union[Array[String], List[str]]] = None,
-        fill_color: Union[str, String] = "",
+        fill_color: Optional[Union[str, String]] = None,
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
         line_alpha: Union[float, Number] = 1.0,
@@ -126,14 +130,14 @@ class SVGTextSpan(
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
-        fill_color : Union[str, String], optional
-            A fill-color to set.
+        fill_color : Optional[Union[str, String]], optional
+            A fill-color setting.
         fill_alpha : Union[float, Number], optional
-            A fill-alpha to set.
+            A fill-alpha setting.
         line_color : Union[str, String], optional
-            A line-color to set.
+            A line-color setting.
         line_alpha : Union[float, Number], optional
-            A line-alpha to set.
+            A line-alpha setting.
         line_thickness : Union[int, Int], optional
             A line-thickness (line-width) to set.
         bold : Union[bool, Boolean], optional
@@ -152,8 +156,12 @@ class SVGTextSpan(
         )
         self.variable_name = variable_name
         self._variable_name_suffix = variable_name_suffix
+        self._set_fill_color_expression_skipping_attr(fill_color=fill_color)
+        fill_color_: Union[str, String] = _get_init_fill_color_str(
+            fill_color=fill_color
+        )
         self._set_initial_basic_values(
-            fill_color=fill_color,
+            fill_color=fill_color_,
             fill_alpha=fill_alpha,
             line_color=line_color,
             line_thickness=line_thickness,
@@ -189,7 +197,9 @@ class SVGTextSpan(
             f"var {variable_name} = {parent.variable_name}" "\n  .tspan()\n  .attr({"
         )
         expression = self._append_fill_color_attr_expression(
-            expression=expression, indent_num=INDENT_NUM
+            expression=expression,
+            indent_num=INDENT_NUM,
+            skip_appending=self._skip_fill_color_expression_appending,
         )
         expression = self._append_fill_alpha_attr_expression(
             expression=expression, indent_num=INDENT_NUM
@@ -219,3 +229,24 @@ class SVGTextSpan(
         """
         repr_str: str = f'{SVGTextSpan.__name__}("{self.variable_name}")'
         return repr_str
+
+
+def _get_init_fill_color_str(
+    *, fill_color: Optional[Union[str, String]]
+) -> Union[str, String]:
+    """
+    Get an initial fill-color string.
+
+    Parameters
+    ----------
+    fill_color : Optional[Union[str, String]]
+        A fill-color setting.
+
+    Returns
+    -------
+    fill_color_ : Union[str, String]
+        If a specified value is None, this interface returns an empty string.
+    """
+    if fill_color is None:
+        return ""
+    return fill_color

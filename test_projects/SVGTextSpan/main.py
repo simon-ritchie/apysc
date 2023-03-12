@@ -50,6 +50,24 @@ def main() -> None:
         fill_color="#0af",
     )
 
+    _ = ap.SVGText.create_with_svg_text_spans(
+        text_spans=[
+            ap.SVGTextSpan(text="fill_alpha test 1 "),
+            ap.SVGTextSpan(
+                text="fill_alpha test 2 ",
+                fill_alpha=1.0,
+            ),
+            ap.SVGTextSpan(
+                text="fill_alpha test 3",
+                fill_alpha=0.2,
+            ),
+        ],
+        x=50,
+        y=80,
+        fill_color="#0af",
+        fill_alpha=0.5,
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

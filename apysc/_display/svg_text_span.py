@@ -161,6 +161,7 @@ class SVGTextSpan(
         self.variable_name = variable_name
         self._variable_name_suffix = variable_name_suffix
         self._set_fill_color_expression_skipping_attr(fill_color=fill_color)
+        self._set_fill_alpha_expression_skipping_attr(fill_alpha=fill_alpha)
         fill_color_: Union[str, String] = _get_init_fill_color_str(
             fill_color=fill_color
         )

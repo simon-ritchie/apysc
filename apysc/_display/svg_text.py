@@ -188,15 +188,15 @@ class SVGText(
         y : float or Number, optional
             Y-coordinate to start drawing (please see also the `Notes` section).
         fill_color : str or String, optional
-            A fill-color to set.
+            A fill-color setting.
         fill_alpha : float or Number, optional
-            A fill-alpha to set.
+            A fill-alpha setting.
         line_color : str or String, default ''
-            A line-color to set.
+            A line-color setting.
         line_alpha : float or Number, optional
-            A line-alpha to set.
+            A line-alpha setting.
         line_thickness : int or Int, optional
-            A line-thickness (line-width) to set.
+            A line-thickness (line-width) setting.
         leading : float or Number, optional
             A text-leading size.
         align : SVGTextAlign, default SVGTextAlign.LEFT
@@ -299,16 +299,18 @@ class SVGText(
     @arg_validation_decos.is_num(arg_position_index=5)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
+    # fill_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
     # leading
-    @arg_validation_decos.is_num(arg_position_index=7)
+    @arg_validation_decos.is_num(arg_position_index=8)
     # align
-    @arg_validation_decos.is_svg_text_align(arg_position_index=8)
+    @arg_validation_decos.is_svg_text_align(arg_position_index=9)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=9, optional=True
+        arg_position_index=10, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=10, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=11, optional=False)
     def create_with_svg_text_spans(
         cls,
         *,
@@ -318,6 +320,7 @@ class SVGText(
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 16.0,
         fill_color: Union[str, String] = "#666",
+        fill_alpha: Union[float, Number] = 1.0,
         leading: Union[float, Number] = 1.5,
         align: SVGTextAlign = SVGTextAlign.LEFT,
         parent: Optional[ChildMixIn] = None,
@@ -346,6 +349,8 @@ class SVGText(
             Y-coordinate to start drawing (please see also the `Notes` section).
         fill_color : str or String, optional
             A fill-color setting for an overall text.
+        fill_alpha : float or Number, optional
+            A fill-alpha setting for an overall text.
         leading : float or Number, optional
             A text-leading size for an overall text.
         align : SVGTextAlign, optional
@@ -372,6 +377,7 @@ class SVGText(
             x=x,
             y=y,
             fill_color=fill_color,
+            fill_alpha=fill_alpha,
             leading=leading,
             align=align,
             parent=parent,

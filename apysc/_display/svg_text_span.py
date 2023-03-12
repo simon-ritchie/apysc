@@ -209,7 +209,9 @@ class SVGTextSpan(
             skip_appending=self._skip_fill_color_expression_appending,
         )
         expression = self._append_fill_alpha_attr_expression(
-            expression=expression, indent_num=INDENT_NUM
+            expression=expression,
+            indent_num=INDENT_NUM,
+            skip_appending=self._skip_fill_alpha_expression_appending,
         )
         expression = self._append_line_color_attr_expression(
             expression=expression, indent_num=INDENT_NUM

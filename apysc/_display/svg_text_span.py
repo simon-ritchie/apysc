@@ -53,6 +53,9 @@ from apysc._display.svg_text_skip_fill_color_exp_appending_mixin import (
 from apysc._display.svg_text_skip_fill_alpha_exp_appending_mixin import (
     SVGTextSkipFillAlphaExpAppendingMixIn
 )
+from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
+    SVGTextSkipLineColorExpAppendingMixIn
+)
 
 
 class SVGTextSpan(
@@ -65,6 +68,7 @@ class SVGTextSpan(
     SVGTextSkipFillAlphaExpAppendingMixIn,
     LineColorMixIn,
     AppendLineColorAttrExpressionMixIn,
+    SVGTextSkipLineColorExpAppendingMixIn,
     LineAlphaMixIn,
     AppendLineAlphaAttrExpressionMixIn,
     AppendLineThicknessAttrExpressionMixIn,
@@ -94,7 +98,7 @@ class SVGTextSpan(
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5, optional=True)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=True)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
     # line_thickness
@@ -115,7 +119,7 @@ class SVGTextSpan(
         font_family: Optional[Union[Array[String], List[str]]] = None,
         fill_color: Optional[Union[str, String]] = None,
         fill_alpha: Optional[Union[float, Number]] = None,
-        line_color: Union[str, String] = "",
+        line_color: Optional[Union[str, String]] = None,
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         bold: Union[bool, Boolean] = False,
@@ -138,7 +142,7 @@ class SVGTextSpan(
             A fill-color setting.
         fill_alpha : Optional[Union[float, Number]], optional
             A fill-alpha setting.
-        line_color : Union[str, String], optional
+        line_color : Optional[Union[str, String]], optional
             A line-color setting.
         line_alpha : Union[float, Number], optional
             A line-alpha setting.
@@ -162,16 +166,11 @@ class SVGTextSpan(
         self._variable_name_suffix = variable_name_suffix
         self._set_fill_color_expression_skipping_attr(fill_color=fill_color)
         self._set_fill_alpha_expression_skipping_attr(fill_alpha=fill_alpha)
-        fill_color_: Union[str, String] = _get_init_fill_color_str(
-            fill_color=fill_color
-        )
-        fill_alpha_: Union[float, Number] = _get_init_fill_alpha_num(
-            fill_alpha=fill_alpha
-        )
+        self._set_line_color_expression_skipping_attr(line_color=line_color)
         self._set_initial_basic_values(
-            fill_color=fill_color_,
-            fill_alpha=fill_alpha_,
-            line_color=line_color,
+            fill_color=_get_init_fill_color_str(fill_color=fill_color),
+            fill_alpha=_get_init_fill_alpha_num(fill_alpha=fill_alpha),
+            line_color=_get_init_line_color_str(line_color=line_color),
             line_thickness=line_thickness,
             line_alpha=line_alpha,
             line_cap=None,
@@ -215,7 +214,9 @@ class SVGTextSpan(
             skip_appending=self._skip_fill_alpha_expression_appending,
         )
         expression = self._append_line_color_attr_expression(
-            expression=expression, indent_num=INDENT_NUM
+            expression=expression,
+            indent_num=INDENT_NUM,
+            skip_appending=self._skip_line_color_expression_appending,
         )
         expression = self._append_line_thickness_attr_expression(
             expression=expression, indent_num=INDENT_NUM
@@ -239,6 +240,27 @@ class SVGTextSpan(
         """
         repr_str: str = f'{SVGTextSpan.__name__}("{self.variable_name}")'
         return repr_str
+
+
+def _get_init_line_color_str(
+    *, line_color: Optional[Union[str, String]]
+) -> Union[str, String]:
+    """
+    Get an initial line-color string.
+
+    Parameters
+    ----------
+    line_color : Optional[Union[str, String]]
+        A line-color setting.
+
+    Returns
+    -------
+    line_color_ : Union[str, String]
+        If a specified value is None, this interface returns an empty string.
+    """
+    if line_color is None:
+        return ""
+    return line_color
 
 
 def _get_init_fill_alpha_num(

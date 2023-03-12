@@ -59,3 +59,17 @@ def test__get_init_fill_alpha_num() -> None:
 
     fill_alpha_ = svg_text_span._get_init_fill_alpha_num(fill_alpha=None)
     assert fill_alpha_ == 1.0
+
+
+@apply_test_settings()
+def test__get_init_line_color_str() -> None:
+    line_color_: Union[str, ap.String] = svg_text_span._get_init_line_color_str(
+        line_color="#0af",
+    )
+    assert line_color_ == "#0af"
+
+    line_color_ = svg_text_span._get_init_line_color_str(line_color=ap.String("#0af"))
+    assert line_color_ == ap.String("#0af")
+
+    line_color_ = svg_text_span._get_init_line_color_str(line_color=None)
+    assert line_color_ == ""

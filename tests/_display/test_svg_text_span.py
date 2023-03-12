@@ -45,3 +45,17 @@ def test__get_init_fill_color_str() -> None:
 
     fill_color_ = svg_text_span._get_init_fill_color_str(fill_color=None)
     assert fill_color_ == ""
+
+
+@apply_test_settings()
+def test__get_init_fill_alpha_num() -> None:
+    fill_alpha_: Union[float, ap.Number] = svg_text_span._get_init_fill_alpha_num(
+        fill_alpha=0.5,
+    )
+    assert fill_alpha_ == 0.5
+
+    fill_alpha_ = svg_text_span._get_init_fill_alpha_num(fill_alpha=ap.Number(0.8))
+    assert fill_alpha_ == ap.Number(0.8)
+
+    fill_alpha_ = svg_text_span._get_init_fill_alpha_num(fill_alpha=None)
+    assert fill_alpha_ == 1.0

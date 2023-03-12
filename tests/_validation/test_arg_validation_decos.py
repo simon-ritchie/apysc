@@ -284,15 +284,25 @@ def test_num_is_gte_zero() -> None:
 
 @apply_test_settings()
 def test_num_is_0_to_1_range() -> None:
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=0)
-    def _test_func(*, a: float) -> None:
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=0, optional=False)
+    def _test_func_1(*, a: float) -> None:
         ...
 
-    assert_raises(expected_error_class=ValueError, callable_=_test_func, a=-0.1)
-    assert_raises(expected_error_class=ValueError, callable_=_test_func, a=1.1)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=-0.1)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=1.1)
+    assert_raises(expected_error_class=TypeError, callable_=_test_func_1, a=None)
+    _test_func_1(a=0.0)
+    _test_func_1(a=1.0)
 
-    _test_func(a=0.0)
-    _test_func(a=1.0)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[float]) -> None:
+        ...
+
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=-0.1)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=1.1)
+    _test_func_2(a=0.0)
+    _test_func_2(a=1.0)
+    _test_func_2(a=None)
 
 
 @apply_test_settings()

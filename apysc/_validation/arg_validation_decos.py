@@ -775,7 +775,7 @@ def num_is_gte_zero(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def num_is_0_to_1_range(*, arg_position_index: int) -> _Callable:
+def num_is_0_to_1_range(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check that a specified argument's value
     is 0.0 to 1.0 range.
@@ -784,6 +784,9 @@ def num_is_0_to_1_range(*, arg_position_index: int) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean, whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -802,6 +805,9 @@ def num_is_0_to_1_range(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+
+            if optional and num is None:
+                return callable_(*args, **kwargs)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index

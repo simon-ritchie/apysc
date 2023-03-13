@@ -73,3 +73,17 @@ def test__get_init_line_color_str() -> None:
 
     line_color_ = svg_text_span._get_init_line_color_str(line_color=None)
     assert line_color_ == ""
+
+
+@apply_test_settings()
+def test__get_init_line_alpha_num() -> None:
+    line_alpha_: Union[float, ap.Number] = svg_text_span._get_init_line_alpha_num(
+        line_alpha=0.5
+    )
+    assert line_alpha_ == 0.5
+
+    line_alpha_ = svg_text_span._get_init_line_alpha_num(line_alpha=ap.Number(0.8))
+    assert line_alpha_ == ap.Number(0.8)
+
+    line_alpha_ = svg_text_span._get_init_line_alpha_num(line_alpha=None)
+    assert line_alpha_ == 1.0

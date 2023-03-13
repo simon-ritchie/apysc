@@ -56,6 +56,9 @@ from apysc._display.svg_text_skip_fill_alpha_exp_appending_mixin import (
 from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
     SVGTextSkipLineColorExpAppendingMixIn
 )
+from apysc._display.svg_text_skip_line_alpha_exp_appending_mixin import (
+    SVGTextSkipLineAlphaExpAppendingMixIn
+)
 
 
 class SVGTextSpan(
@@ -71,6 +74,7 @@ class SVGTextSpan(
     SVGTextSkipLineColorExpAppendingMixIn,
     LineAlphaMixIn,
     AppendLineAlphaAttrExpressionMixIn,
+    SVGTextSkipLineAlphaExpAppendingMixIn,
     AppendLineThicknessAttrExpressionMixIn,
     LineThicknessMixIn,
     SVGTextTextMixIn,
@@ -100,7 +104,7 @@ class SVGTextSpan(
     # line_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=True)
     # line_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=True)
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=8, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
@@ -120,7 +124,7 @@ class SVGTextSpan(
         fill_color: Optional[Union[str, String]] = None,
         fill_alpha: Optional[Union[float, Number]] = None,
         line_color: Optional[Union[str, String]] = None,
-        line_alpha: Union[float, Number] = 1.0,
+        line_alpha: Optional[Union[float, Number]] = None,
         line_thickness: Union[int, Int] = 1,
         bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
@@ -144,7 +148,7 @@ class SVGTextSpan(
             A fill-alpha setting.
         line_color : Optional[Union[str, String]], optional
             A line-color setting.
-        line_alpha : Union[float, Number], optional
+        line_alpha : Optional[Union[float, Number]], optional
             A line-alpha setting.
         line_thickness : Union[int, Int], optional
             A line-thickness (line-width) to set.
@@ -167,12 +171,13 @@ class SVGTextSpan(
         self._set_fill_color_expression_skipping_attr(fill_color=fill_color)
         self._set_fill_alpha_expression_skipping_attr(fill_alpha=fill_alpha)
         self._set_line_color_expression_skipping_attr(line_color=line_color)
+        self._set_line_alpha_expression_skipping_attr(line_alpha=line_alpha)
         self._set_initial_basic_values(
             fill_color=_get_init_fill_color_str(fill_color=fill_color),
             fill_alpha=_get_init_fill_alpha_num(fill_alpha=fill_alpha),
             line_color=_get_init_line_color_str(line_color=line_color),
             line_thickness=line_thickness,
-            line_alpha=line_alpha,
+            line_alpha=_get_init_line_alpha_num(line_alpha=line_alpha),
             line_cap=None,
             line_joints=None,
         )
@@ -303,3 +308,25 @@ def _get_init_fill_color_str(
     if fill_color is None:
         return ""
     return fill_color
+
+
+def _get_init_line_alpha_num(
+    *,
+    line_alpha: Optional[Union[float, Number]],
+) -> Union[float, Number]:
+    """
+    Get an initial line-alpha number.
+
+    Parameters
+    ----------
+    line_alpha : Optional[Union[float, Number]]
+        A line-alpha setting.
+
+    Returns
+    -------
+    line_alpha_ : Union[float, Number]
+        If a specified value is None, this interface returns 1.0 number.
+    """
+    if line_alpha is None:
+        return 1.0
+    return line_alpha

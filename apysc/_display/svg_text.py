@@ -303,16 +303,18 @@ class SVGText(
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
     # line_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=8, optional=False)
+    # line_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9, optional=False)
     # leading
-    @arg_validation_decos.is_num(arg_position_index=9)
+    @arg_validation_decos.is_num(arg_position_index=10)
     # align
-    @arg_validation_decos.is_svg_text_align(arg_position_index=10)
+    @arg_validation_decos.is_svg_text_align(arg_position_index=11)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=11, optional=True
+        arg_position_index=12, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=12, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=13, optional=False)
     def create_with_svg_text_spans(
         cls,
         *,
@@ -324,6 +326,7 @@ class SVGText(
         fill_color: Union[str, String] = "#666",
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
+        line_alpha: Union[float, Number] = 1.0,
         leading: Union[float, Number] = 1.5,
         align: SVGTextAlign = SVGTextAlign.LEFT,
         parent: Optional[ChildMixIn] = None,
@@ -356,6 +359,8 @@ class SVGText(
             A fill-alpha setting for an overall text.
         line_color : str or String, optional
             A line-color setting for an overall text.
+        line_alpha : float or Number, optional
+            A line-alpha setting.
         leading : float or Number, optional
             A text-leading size for an overall text.
         align : SVGTextAlign, optional
@@ -384,6 +389,7 @@ class SVGText(
             fill_color=fill_color,
             fill_alpha=fill_alpha,
             line_color=line_color,
+            line_alpha=line_alpha,
             leading=leading,
             align=align,
             parent=parent,

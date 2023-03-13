@@ -227,7 +227,9 @@ class SVGTextSpan(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_line_alpha_attr_expression(
-            expression=expression, indent_num=INDENT_NUM
+            expression=expression,
+            indent_num=INDENT_NUM,
+            skip_appending=self._skip_line_alpha_expression_appending,
         )
         expression += "\n});"
         ap.append_js_expression(expression=expression)

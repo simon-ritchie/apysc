@@ -62,6 +62,7 @@ from apysc._display.svg_text_skip_line_alpha_exp_appending_mixin import (
 from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
     SVGTextSkipLineThicknessExpAppendingMixIn
 )
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class SVGTextSpan(
@@ -91,6 +92,7 @@ class SVGTextSpan(
     SVGTextSetItalicMixIn,
     SVGTextBoldMixIn,
     SVGTextSetBoldMixIn,
+    VariableNameSuffixMixIn,
 ):
 
     # text

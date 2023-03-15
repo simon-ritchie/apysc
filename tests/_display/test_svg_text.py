@@ -13,6 +13,7 @@ from tests._display.test_graphics_expression import (
 from tests._display.test_graphics_expression import (
     assert_stroke_width_attr_expression_exists,
 )
+from apysc._expression import var_names
 
 
 class TestSVGText:
@@ -51,6 +52,8 @@ class TestSVGText:
             any_obj=svg_text,
         )
         assert svg_text._variable_name_suffix == "test_suffix"
+        assert "test_suffix" in svg_text.variable_name
+        assert var_names.SVG_TEXT in svg_text.variable_name
 
         expression: str = expression_data_util.get_current_expression()
         assert "text(" in expression

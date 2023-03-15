@@ -5,6 +5,7 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._display import svg_text_span
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
+from apysc._expression import var_names
 
 
 class TestSVGTextSpan:
@@ -31,6 +32,54 @@ class TestSVGTextSpan:
         svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(text="test_text_span")
         repr_str: str = repr(svg_text_span)
         assert repr_str == f'SVGTextSpan("{svg_text_span.variable_name}")'
+
+    @apply_test_settings()
+    def test___init__(self) -> None:
+        ap.Stage()
+        svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(
+            text="test_text_span",
+            variable_name_suffix="test_span",
+        )
+        assert svg_text_span._skip_fill_color_expression_appending
+        assert svg_text_span._skip_fill_alpha_expression_appending
+        assert svg_text_span._skip_line_color_expression_appending
+        assert svg_text_span._skip_line_alpha_expression_appending
+        assert svg_text_span._skip_line_thickness_expression_appending
+        expression: str = expression_data_util.get_current_expression()
+        assert ".tspan" in expression
+        assert svg_text_span.text == "test_text_span"
+        assert var_names.SVG_TEXT_SPAN in svg_text_span.variable_name
+        assert "test_span" in svg_text_span.variable_name
+
+        svg_text_span = ap.SVGTextSpan(
+            text="test_text_span",
+            fill_color="#0af",
+        )
+        assert not svg_text_span._skip_fill_color_expression_appending
+
+        svg_text_span = ap.SVGTextSpan(
+            text="test_text_span",
+            fill_alpha=0.5,
+        )
+        assert not svg_text_span._skip_fill_alpha_expression_appending
+
+        svg_text_span = ap.SVGTextSpan(
+            text="test_text_span",
+            line_color="#0af",
+        )
+        assert not svg_text_span._skip_line_color_expression_appending
+
+        svg_text_span = ap.SVGTextSpan(
+            text="test_text_span",
+            line_alpha=0.3,
+        )
+        assert not svg_text_span._skip_line_alpha_expression_appending
+
+        svg_text_span = ap.SVGTextSpan(
+            text="test_text_span",
+            line_thickness=3,
+        )
+        assert not svg_text_span._skip_line_thickness_expression_appending
 
 
 @apply_test_settings()

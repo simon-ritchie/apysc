@@ -137,6 +137,11 @@ class SVGTextSpan(
         """
         The class for an SVG text-span (the child class of `SVGText`).
 
+        Notes
+        -----
+        - If style settings are `None`, its styles inherits parent
+            style settings.
+
         Parameters
         ----------
         text : Union[str, String]

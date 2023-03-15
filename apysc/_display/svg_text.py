@@ -305,16 +305,19 @@ class SVGText(
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=8, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9, optional=False)
+    # line_thickness
+    @arg_validation_decos.is_integer(arg_position_index=10, optional=False)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=10, optional=False)
     # leading
-    @arg_validation_decos.is_num(arg_position_index=10)
+    @arg_validation_decos.is_num(arg_position_index=11)
     # align
-    @arg_validation_decos.is_svg_text_align(arg_position_index=11)
+    @arg_validation_decos.is_svg_text_align(arg_position_index=12)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=12, optional=True
+        arg_position_index=13, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=13, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=14, optional=False)
     def create_with_svg_text_spans(
         cls,
         *,
@@ -327,6 +330,7 @@ class SVGText(
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Union[str, String] = "",
         line_alpha: Union[float, Number] = 1.0,
+        line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
         align: SVGTextAlign = SVGTextAlign.LEFT,
         parent: Optional[ChildMixIn] = None,
@@ -361,6 +365,8 @@ class SVGText(
             A line-color setting for an overall text.
         line_alpha : float or Number, optional
             A line-alpha setting.
+        line_thickness : int or Int, optional
+            A line-thickness (line-width) setting.
         leading : float or Number, optional
             A text-leading size for an overall text.
         align : SVGTextAlign, optional
@@ -390,6 +396,7 @@ class SVGText(
             fill_alpha=fill_alpha,
             line_color=line_color,
             line_alpha=line_alpha,
+            line_thickness=line_thickness,
             leading=leading,
             align=align,
             parent=parent,

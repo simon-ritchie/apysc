@@ -121,6 +121,23 @@ def main() -> None:
         line_thickness=3,
     )
 
+    _ = ap.SVGText.create_with_svg_text_spans(
+        text_spans=[
+            ap.SVGTextSpan(text="bold test 1 "),
+            ap.SVGTextSpan(
+                text="bold test 2 ",
+                bold=False,
+            ),
+            ap.SVGTextSpan(
+                text="bold test 3",
+            ),
+        ],
+        x=50,
+        y=170,
+        fill_color="#aaa",
+        bold=True,
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

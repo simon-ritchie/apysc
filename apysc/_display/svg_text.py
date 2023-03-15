@@ -312,12 +312,14 @@ class SVGText(
     @arg_validation_decos.is_num(arg_position_index=11)
     # align
     @arg_validation_decos.is_svg_text_align(arg_position_index=12)
+    # bold
+    @arg_validation_decos.is_boolean(arg_position_index=13, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=13, optional=True
+        arg_position_index=14, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=14, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=15, optional=False)
     def create_with_svg_text_spans(
         cls,
         *,
@@ -333,6 +335,7 @@ class SVGText(
         line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
         align: SVGTextAlign = SVGTextAlign.LEFT,
+        bold: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> "SVGText":
@@ -371,6 +374,8 @@ class SVGText(
             A text-leading size for an overall text.
         align : SVGTextAlign, optional
             A text-align setting for an overall text.
+        bold : Union[bool, Boolean], optional
+            A boolean, whether this text is bold style or not.
         parent : Optional[ChildMixIn], optional
             A parent instance to add this instance.
             If a specified value is None, this interface uses
@@ -399,6 +404,7 @@ class SVGText(
             line_thickness=line_thickness,
             leading=leading,
             align=align,
+            bold=bold,
             parent=parent,
             variable_name_suffix=variable_name_suffix,
         )

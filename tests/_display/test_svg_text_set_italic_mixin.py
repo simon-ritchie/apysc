@@ -47,3 +47,8 @@ class TestSVGTextSetItalicMixIn:
         expression = expression_data_util.get_current_expression()
         expected = f'{mixin_2.variable_name}.font("style", "italic");'
         assert expected in expression
+
+        expression_data_util.empty_expression()
+        mixin_2._set_italic(italic=None)
+        expression = expression_data_util.get_current_expression()
+        assert ".font" not in expression

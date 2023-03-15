@@ -115,7 +115,7 @@ class SVGTextSpan(
     # bold
     @arg_validation_decos.is_boolean(arg_position_index=9, optional=True)
     # italic
-    @arg_validation_decos.is_boolean(arg_position_index=10, optional=False)
+    @arg_validation_decos.is_boolean(arg_position_index=10, optional=True)
     # variable_name_suffix
     @arg_validation_decos.is_builtin_string(arg_position_index=11, optional=False)
     @add_debug_info_setting(module_name=__name__)
@@ -131,7 +131,7 @@ class SVGTextSpan(
         line_alpha: Optional[Union[float, Number]] = None,
         line_thickness: Optional[Union[int, Int]] = None,
         bold: Optional[Union[bool, Boolean]] = None,
-        italic: Union[bool, Boolean] = False,
+        italic: Optional[Union[bool, Boolean]] = None,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -158,7 +158,7 @@ class SVGTextSpan(
             A line-thickness (line-width) to set.
         bold : Optional[Union[bool, Boolean]], optional
             A boolean, whether this text is bold style or not.
-        italic : Union[bool, Boolean], optional
+        italic : Optional[Union[bool, Boolean]], optional
             A boolean, whether a text is an italic style or not (normal).
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.

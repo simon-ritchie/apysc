@@ -173,7 +173,7 @@ class Triangle(
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=10, optional=False)
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=11, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=11)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=11, optional=False)
     # line_cap
     @arg_validation_decos.is_line_cap(arg_position_index=12, optional=True)
     # line_joints

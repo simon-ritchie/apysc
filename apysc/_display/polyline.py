@@ -150,7 +150,7 @@ class Polyline(
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5, optional=False)
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=6, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=6)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=6, optional=False)
     # line_cap
     @arg_validation_decos.is_line_cap(arg_position_index=7, optional=True)
     # line_joints

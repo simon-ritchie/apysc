@@ -130,7 +130,7 @@ class SVGText(
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9, optional=False)
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=10, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=10)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=10, optional=False)
     # leading
     @arg_validation_decos.is_num(arg_position_index=11)
     # align

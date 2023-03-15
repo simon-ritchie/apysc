@@ -46,7 +46,7 @@ class LineDotSetting(
 
     @final
     @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=1, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(

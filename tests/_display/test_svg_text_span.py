@@ -87,3 +87,20 @@ def test__get_init_line_alpha_num() -> None:
 
     line_alpha_ = svg_text_span._get_init_line_alpha_num(line_alpha=None)
     assert line_alpha_ == 1.0
+
+
+@apply_test_settings()
+def test__get_init_line_thickness_num() -> None:
+    """_get_init_line_thickness_num 関数のテスト。"""
+    line_thickness_: Union[int, ap.Int] = svg_text_span._get_init_line_thickness_num(
+        line_thickness=3,
+    )
+    assert line_thickness_ == 3
+
+    line_thickness_ = svg_text_span._get_init_line_thickness_num(
+        line_thickness=ap.Int(5)
+    )
+    assert line_thickness_ == ap.Int(5)
+
+    line_thickness_ = svg_text_span._get_init_line_thickness_num(line_thickness=None)
+    assert line_thickness_ == 1

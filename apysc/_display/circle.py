@@ -145,7 +145,7 @@ class Circle(
     @arg_validation_decos.is_num(arg_position_index=2)
     # radius
     @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=3)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=3, optional=False)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=False)
     # fill_alpha
@@ -156,7 +156,7 @@ class Circle(
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=8, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=8, optional=False)
     # line_cap
     @arg_validation_decos.is_line_cap(arg_position_index=9, optional=True)
     # line_joints

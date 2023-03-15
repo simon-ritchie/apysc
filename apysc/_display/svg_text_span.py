@@ -59,6 +59,9 @@ from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
 from apysc._display.svg_text_skip_line_alpha_exp_appending_mixin import (
     SVGTextSkipLineAlphaExpAppendingMixIn
 )
+from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
+    SVGTextSkipLineThicknessExpAppendingMixIn
+)
 
 
 class SVGTextSpan(
@@ -77,6 +80,7 @@ class SVGTextSpan(
     SVGTextSkipLineAlphaExpAppendingMixIn,
     AppendLineThicknessAttrExpressionMixIn,
     LineThicknessMixIn,
+    SVGTextSkipLineThicknessExpAppendingMixIn,
     SVGTextTextMixIn,
     SVGTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
@@ -106,8 +110,8 @@ class SVGTextSpan(
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=True)
     # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=8, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=8)
+    @arg_validation_decos.is_integer(arg_position_index=8, optional=True)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=8, optional=True)
     # bold
     @arg_validation_decos.is_boolean(arg_position_index=9)
     # italic
@@ -125,7 +129,7 @@ class SVGTextSpan(
         fill_alpha: Optional[Union[float, Number]] = None,
         line_color: Optional[Union[str, String]] = None,
         line_alpha: Optional[Union[float, Number]] = None,
-        line_thickness: Union[int, Int] = 1,
+        line_thickness: Optional[Union[int, Int]] = None,
         bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
         variable_name_suffix: str = "",
@@ -150,7 +154,7 @@ class SVGTextSpan(
             A line-color setting.
         line_alpha : Optional[Union[float, Number]], optional
             A line-alpha setting.
-        line_thickness : Union[int, Int], optional
+        line_thickness : Optional[Union[int, Int]], optional
             A line-thickness (line-width) to set.
         bold : Union[bool, Boolean], optional
             A boolean, whether this text is bold style or not.
@@ -172,11 +176,12 @@ class SVGTextSpan(
         self._set_fill_alpha_expression_skipping_attr(fill_alpha=fill_alpha)
         self._set_line_color_expression_skipping_attr(line_color=line_color)
         self._set_line_alpha_expression_skipping_attr(line_alpha=line_alpha)
+        self._set_line_thickness_expression_skipping_attr(line_thickness=line_thickness)
         self._set_initial_basic_values(
             fill_color=_get_init_fill_color_str(fill_color=fill_color),
             fill_alpha=_get_init_fill_alpha_num(fill_alpha=fill_alpha),
             line_color=_get_init_line_color_str(line_color=line_color),
-            line_thickness=line_thickness,
+            line_thickness=_get_init_line_thickness_num(line_thickness=line_thickness),
             line_alpha=_get_init_line_alpha_num(line_alpha=line_alpha),
             line_cap=None,
             line_joints=None,
@@ -224,7 +229,9 @@ class SVGTextSpan(
             skip_appending=self._skip_line_color_expression_appending,
         )
         expression = self._append_line_thickness_attr_expression(
-            expression=expression, indent_num=INDENT_NUM
+            expression=expression,
+            indent_num=INDENT_NUM,
+            skip_appending=self._skip_line_thickness_expression_appending,
         )
         expression = self._append_line_alpha_attr_expression(
             expression=expression,
@@ -332,3 +339,25 @@ def _get_init_line_alpha_num(
     if line_alpha is None:
         return 1.0
     return line_alpha
+
+
+def _get_init_line_thickness_num(
+    *,
+    line_thickness: Optional[Union[int, Int]],
+) -> Union[int, Int]:
+    """
+    Get an initial line-thickness (line-width) number.
+
+    Parameters
+    ----------
+    line_thickness : Optional[Union[int, Int]]
+        A line-thickness (line-width) setting.
+
+    Returns
+    -------
+    line_thickness_ : Union[int, Int]
+        If a specified value is None, this interface return 1 number.
+    """
+    if line_thickness is None:
+        return 1
+    return line_thickness

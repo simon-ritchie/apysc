@@ -273,13 +273,23 @@ def test_is_hex_color_code_format() -> None:
 
 @apply_test_settings()
 def test_num_is_gte_zero() -> None:
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=0)
-    def _test_func(*, a: int) -> None:
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=0, optional=False)
+    def _test_func_1(*, a: int) -> None:
         ...
 
-    _test_func(a=0)
-    _test_func(a=1)
-    assert_raises(expected_error_class=ValueError, callable_=_test_func, a=-1)
+    _test_func_1(a=0)
+    _test_func_1(a=1)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=-1)
+    assert_raises(expected_error_class=TypeError, callable_=_test_func_1, a=None)
+
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[int]) -> None:
+        ...
+
+    _test_func_2(a=0)
+    _test_func_2(a=1)
+    _test_func_2(a=None)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=-1)
 
 
 @apply_test_settings()

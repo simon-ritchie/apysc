@@ -43,7 +43,7 @@ class SVGTextFontSizeMixIn(
         return font_size
 
     @font_size.setter
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=1, optional=False)
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
     def font_size(self, value: Int) -> None:
         """

@@ -87,7 +87,7 @@ class HeightMixIn(
 
     @height.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=1)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def height(self, value: Int) -> None:
         """

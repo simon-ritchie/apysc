@@ -22,7 +22,7 @@ class AnimationRotationAroundPointMixIn(AnimationMixIns):
     @arg_validation_decos.is_num(arg_position_index=2)
     @arg_validation_decos.is_num(arg_position_index=3)
     @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
-    @arg_validation_decos.num_is_gt_zero(arg_position_index=4)
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=4, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=5, optional=False)
     @arg_validation_decos.is_easing(arg_position_index=6)
     def animation_rotation_around_point(

@@ -191,13 +191,23 @@ def test_is_integer() -> None:
 
 @apply_test_settings()
 def test_num_is_gt_zero() -> None:
-    @arg_validation_decos.num_is_gt_zero(arg_position_index=0)
-    def _test_func(*, a: Union[int, ap.Int]) -> None:
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=0, optional=False)
+    def _test_func_1(*, a: Union[int, ap.Int]) -> None:
         ...
 
-    _test_func(a=1)
-    _test_func(a=ap.Int(1))
-    assert_raises(expected_error_class=ValueError, callable_=_test_func, a=0)
+    _test_func_1(a=1)
+    _test_func_1(a=ap.Int(1))
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=0)
+    assert_raises(expected_error_class=TypeError, callable_=_test_func_1, a=None)
+
+    @arg_validation_decos.num_is_gt_zero(arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[Union[int, ap.Int]]) -> None:
+        ...
+
+    _test_func_2(a=1)
+    _test_func_2(a=ap.Int(1))
+    _test_func_2(a=None)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=0)
 
 
 @apply_test_settings()

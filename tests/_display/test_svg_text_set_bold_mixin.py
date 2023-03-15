@@ -46,3 +46,8 @@ class TestSVGTextSetBoldMixIn:
         expected = f'{mixin_2.variable_name}.font("weight", "bold");'
         assert expected in expression
         assert mixin_2.bold
+
+        expression_data_util.empty_expression()
+        mixin_2._set_bold(bold=None)
+        expression = expression_data_util.get_current_expression()
+        assert ".font" not in expression

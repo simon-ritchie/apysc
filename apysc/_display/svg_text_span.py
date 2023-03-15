@@ -113,7 +113,7 @@ class SVGTextSpan(
     @arg_validation_decos.is_integer(arg_position_index=8, optional=True)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=8, optional=True)
     # bold
-    @arg_validation_decos.is_boolean(arg_position_index=9, optional=False)
+    @arg_validation_decos.is_boolean(arg_position_index=9, optional=True)
     # italic
     @arg_validation_decos.is_boolean(arg_position_index=10, optional=False)
     # variable_name_suffix
@@ -130,7 +130,7 @@ class SVGTextSpan(
         line_color: Optional[Union[str, String]] = None,
         line_alpha: Optional[Union[float, Number]] = None,
         line_thickness: Optional[Union[int, Int]] = None,
-        bold: Union[bool, Boolean] = False,
+        bold: Optional[Union[bool, Boolean]] = None,
         italic: Union[bool, Boolean] = False,
         variable_name_suffix: str = "",
     ) -> None:
@@ -156,7 +156,7 @@ class SVGTextSpan(
             A line-alpha setting.
         line_thickness : Optional[Union[int, Int]], optional
             A line-thickness (line-width) to set.
-        bold : Union[bool, Boolean], optional
+        bold : Optional[Union[bool, Boolean]], optional
             A boolean, whether this text is bold style or not.
         italic : Union[bool, Boolean], optional
             A boolean, whether a text is an italic style or not (normal).

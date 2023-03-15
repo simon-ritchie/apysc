@@ -75,7 +75,7 @@ class PathBezier3D(
     @arg_validation_decos.is_num(arg_position_index=4)
     @arg_validation_decos.is_num(arg_position_index=5)
     @arg_validation_decos.is_num(arg_position_index=6)
-    @arg_validation_decos.is_boolean(arg_position_index=7)
+    @arg_validation_decos.is_boolean(arg_position_index=7, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -211,7 +211,7 @@ class PathBezier3D(
     @arg_validation_decos.is_num(arg_position_index=4)
     @arg_validation_decos.is_num(arg_position_index=5)
     @arg_validation_decos.is_num(arg_position_index=6)
-    @arg_validation_decos.is_boolean(arg_position_index=7)
+    @arg_validation_decos.is_boolean(arg_position_index=7, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(
         self,

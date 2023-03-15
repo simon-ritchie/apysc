@@ -27,7 +27,7 @@ class PathDataBase(RelativeMixIn, AttrToApyscValFromBuiltinMixIn, ABC):
 
     _path_label: PathLabel
 
-    @arg_validation_decos.is_boolean(arg_position_index=2)
+    @arg_validation_decos.is_boolean(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self, *, path_label: PathLabel, relative: Union[bool, Boolean]

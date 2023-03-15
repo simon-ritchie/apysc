@@ -113,9 +113,9 @@ class SVGTextSpan(
     @arg_validation_decos.is_integer(arg_position_index=8, optional=True)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=8, optional=True)
     # bold
-    @arg_validation_decos.is_boolean(arg_position_index=9)
+    @arg_validation_decos.is_boolean(arg_position_index=9, optional=False)
     # italic
-    @arg_validation_decos.is_boolean(arg_position_index=10)
+    @arg_validation_decos.is_boolean(arg_position_index=10, optional=False)
     # variable_name_suffix
     @arg_validation_decos.is_builtin_string(arg_position_index=11, optional=False)
     @add_debug_info_setting(module_name=__name__)

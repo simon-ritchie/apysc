@@ -136,9 +136,9 @@ class SVGText(
     # align
     @arg_validation_decos.is_svg_text_align(arg_position_index=12)
     # bold
-    @arg_validation_decos.is_boolean(arg_position_index=13)
+    @arg_validation_decos.is_boolean(arg_position_index=13, optional=False)
     # italic
-    @arg_validation_decos.is_boolean(arg_position_index=14)
+    @arg_validation_decos.is_boolean(arg_position_index=14, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
         arg_position_index=15, optional=True

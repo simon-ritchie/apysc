@@ -835,7 +835,7 @@ def num_is_0_to_1_range(*, arg_position_index: int, optional: bool) -> _Callable
     return wrapped  # type: ignore
 
 
-def is_boolean(*, arg_position_index: int) -> _Callable:
+def is_boolean(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check that a specified argument's type
     is the `bool` or `ap.Boolean`.
@@ -844,6 +844,9 @@ def is_boolean(*, arg_position_index: int) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean, whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -862,6 +865,9 @@ def is_boolean(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+
+            if optional and boolean is None:
+                return callable_(*args, **kwargs)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index

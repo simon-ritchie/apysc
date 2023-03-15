@@ -732,13 +732,24 @@ def test_is_event() -> None:
 
 @apply_test_settings()
 def test_is_boolean() -> None:
-    @arg_validation_decos.is_boolean(arg_position_index=0)
-    def _test_func(*, a: Union[bool, ap.Boolean]) -> None:
+    @arg_validation_decos.is_boolean(arg_position_index=0, optional=False)
+    def _test_func_1(*, a: Union[bool, ap.Boolean]) -> None:
         ...
 
-    assert_raises(expected_error_class=ValueError, callable_=_test_func, a=100)
-    _test_func(a=True)
-    _test_func(a=ap.Boolean(True))
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=100)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=None)
+    _test_func_1(a=True)
+    _test_func_1(a=ap.Boolean(True))
+
+    @arg_validation_decos.is_boolean(arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[Union[bool, ap.Boolean]]) -> None:
+        ...
+
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=100)
+    _test_func_2(a=True)
+    _test_func_2(a=ap.Boolean(True))
+    _test_func_2(a=True)
+    _test_func_2(a=None)
 
 
 @apply_test_settings()

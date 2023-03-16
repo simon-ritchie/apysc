@@ -1,3 +1,4 @@
+from typing import List
 import apysc as ap
 from apysc._display.svg_text import SVGText
 from apysc._expression import expression_data_util
@@ -106,3 +107,51 @@ class TestSVGText:
             ap.SVGTextSpan
         ] = svg_text._convert_text_spans_list_to_array(text_spans=text_spans_)
         assert text_spans_ == text_spans__
+
+    @apply_test_settings()
+    def test_create_with_svg_text_spans(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        text_spans: List[ap.SVGTextSpan] = [
+            ap.SVGTextSpan(text="a"),
+            ap.SVGTextSpan(text="b"),
+            ap.SVGTextSpan(text="c"),
+        ]
+        svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+            text_spans=text_spans,
+            font_size=14,
+            font_family=["Arial", "Helvetica"],
+            x=50,
+            y=100,
+            fill_color="#fff",
+            fill_alpha=0.5,
+            line_color="#0af",
+            line_alpha=0.3,
+            line_thickness=2,
+            leading=1.8,
+            align=ap.SVGTextAlign.CENTER,
+            bold=True,
+            italic=True,
+            variable_name_suffix="test_svg_text",
+        )
+        expression: str = expression_data_util.get_current_expression()
+        assert f"{svg_text.variable_name}.add(" in expression
+        assert var_names.SVG_TEXT in svg_text.variable_name
+        assert "test_svg_text" in svg_text.variable_name
+        assert_attrs(
+            expected_attrs={
+                "_font_size": 14,
+                "_x": 50,
+                "_y": 100,
+                "_fill_color": "#ffffff",
+                "_fill_alpha": 0.5,
+                "_line_color": "#00aaff",
+                "_line_alpha": 0.3,
+                "_line_thickness": 2,
+                "_leading": 1.8,
+                "_align": ap.SVGTextAlign.CENTER,
+                "_bold": True,
+                "_italic": True,
+                "_parent": stage,
+            },
+            any_obj=svg_text,
+        )

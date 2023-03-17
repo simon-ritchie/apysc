@@ -139,7 +139,7 @@ class Polyline(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # points
-    @arg_validation_decos.is_point_2ds(arg_position_index=1)
+    @arg_validation_decos.are_point_2ds(arg_position_index=1)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=2, optional=False)
     # fill_alpha

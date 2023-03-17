@@ -79,7 +79,7 @@ Mainly the following decorators exist.
 - is_point_2d
     - Set a validation to check a specified argument's type
         is the `ap.Point2D`.
-- is_point_2ds
+- are_point_2ds
     - Set a validation to check a specified argument's type
         is the list of `ap.Point2D`.
 - is_valid_path_data_list
@@ -1463,7 +1463,7 @@ def is_point_2d(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_point_2ds(*, arg_position_index: int) -> _Callable:
+def are_point_2ds(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the list of `ap.Point`.

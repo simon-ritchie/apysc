@@ -66,7 +66,7 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         return self._points
 
     @points.setter
-    @arg_validation_decos.is_point_2ds(arg_position_index=1)
+    @arg_validation_decos.are_point_2ds(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def points(self, value: Array[Point2D]) -> None:
         """

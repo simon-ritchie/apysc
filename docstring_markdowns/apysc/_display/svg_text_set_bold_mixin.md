@@ -12,5 +12,5 @@ Set a bold style setting.<hr>
 
 **[Parameters]**
 
-- `bold`: Union[bool, Boolean]
-  - A boolean, whether a text is a bold style or not (normal).
+- `bold`: Optional[Union[bool, Boolean]]
+  - A boolean, whether a text is a bold style or not (normal). If a specified value is `None`, this interface ignores the setting.

@@ -1,7 +1,8 @@
 """The mix-in class implementation for the `SVGText`'s `_set_italic` method.
 """
 
-from typing import Optional, Union
+from typing import Optional
+from typing import Union
 
 from typing_extensions import final
 
@@ -24,7 +25,7 @@ class SVGTextSetItalicMixIn:
         ----------
         italic : Optional[Union[bool, Boolean]]
             A boolean whether a text is in an italic style or not (normal).
-            If a specified value is `None`, this interface ignores setting.
+            If a specified value is `None`, this interface ignores the setting.
         """
         from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
         from apysc._type.variable_name_suffix_utils import (

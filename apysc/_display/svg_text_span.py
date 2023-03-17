@@ -39,6 +39,21 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
 )
 from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
 from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
+from apysc._display.svg_text_skip_fill_alpha_exp_appending_mixin import (
+    SVGTextSkipFillAlphaExpAppendingMixIn,
+)
+from apysc._display.svg_text_skip_fill_color_exp_appending_mixin import (
+    SVGTextSkipFillColorExpAppendingMixIn,
+)
+from apysc._display.svg_text_skip_line_alpha_exp_appending_mixin import (
+    SVGTextSkipLineAlphaExpAppendingMixIn,
+)
+from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
+    SVGTextSkipLineColorExpAppendingMixIn,
+)
+from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
+    SVGTextSkipLineThicknessExpAppendingMixIn,
+)
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
@@ -46,23 +61,8 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._validation import arg_validation_decos
-from apysc._display.svg_text_skip_fill_color_exp_appending_mixin import (
-    SVGTextSkipFillColorExpAppendingMixIn
-)
-from apysc._display.svg_text_skip_fill_alpha_exp_appending_mixin import (
-    SVGTextSkipFillAlphaExpAppendingMixIn
-)
-from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
-    SVGTextSkipLineColorExpAppendingMixIn
-)
-from apysc._display.svg_text_skip_line_alpha_exp_appending_mixin import (
-    SVGTextSkipLineAlphaExpAppendingMixIn
-)
-from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
-    SVGTextSkipLineThicknessExpAppendingMixIn
-)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._validation import arg_validation_decos
 
 
 class SVGTextSpan(
@@ -141,7 +141,7 @@ class SVGTextSpan(
 
         Notes
         -----
-        - If style settings are `None`, its styles inherits parent
+        - If style settings are `None`, its styles inherit parent
             style settings.
 
         Parameters
@@ -363,7 +363,7 @@ def _get_init_line_thickness_num(
     Returns
     -------
     line_thickness_ : Union[int, Int]
-        If a specified value is None, this interface return 1 number.
+        If a specified value is None, this interface returns 1 number.
     """
     if line_thickness is None:
         return 1

@@ -1,7 +1,8 @@
 """The mix-in class implementation for the `SVGText`'s `_set_font_size_value` method.
 """
 
-from typing import Union, Optional
+from typing import Optional
+from typing import Union
 
 from typing_extensions import final
 

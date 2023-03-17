@@ -1,4 +1,5 @@
 from typing import List
+
 import apysc as ap
 from apysc._display.svg_text import SVGText
 from apysc._expression import expression_data_util
@@ -14,7 +15,6 @@ from tests._display.test_graphics_expression import (
 from tests._display.test_graphics_expression import (
     assert_stroke_width_attr_expression_exists,
 )
-from apysc._expression import var_names
 
 
 class TestSVGText:

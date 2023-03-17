@@ -12,5 +12,5 @@ Set a font-size value.<hr>
 
 **[Parameters]**
 
-- `font_size`: Union[int, Int]
-  - A target font-size value.
+- `font_size`: Optional[Union[int, Int]]
+  - A target font-size value. If this value is None, this method does not set a font-size value.

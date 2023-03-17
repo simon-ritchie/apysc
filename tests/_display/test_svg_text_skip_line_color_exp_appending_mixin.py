@@ -1,7 +1,7 @@
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
-    SVGTextSkipLineColorExpAppendingMixIn
+    SVGTextSkipLineColorExpAppendingMixIn,
 )
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestSVGTextSkipLineColorExpAppendingMixIn:

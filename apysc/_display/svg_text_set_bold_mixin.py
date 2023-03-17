@@ -1,7 +1,8 @@
 """The mix-in class implementation for the `SVGText`'s `_set_bold` method.
 """
 
-from typing import Union, Optional
+from typing import Optional
+from typing import Union
 
 from typing_extensions import final
 
@@ -20,7 +21,7 @@ class SVGTextSetBoldMixIn:
         ----------
         bold : Optional[Union[bool, Boolean]]
             A boolean, whether a text is a bold style or not (normal).
-            If a specified value is `None`, this interface ignores setting.
+            If a specified value is `None`, this interface ignores the setting.
         """
         from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
         from apysc._type.variable_name_suffix_utils import (

@@ -2,7 +2,8 @@
 `_skip_line_alpha_expression_appending` attribute.
 """
 
-from typing import Union, Optional
+from typing import Optional
+from typing import Union
 
 from typing_extensions import final
 

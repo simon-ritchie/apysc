@@ -1,11 +1,12 @@
 from typing import Union
+
 import apysc as ap
+from apysc._display import svg_text_span
 from apysc._display.svg_text_singleton_for_text_span import SVGTextSingletonForTextSpan
 from apysc._expression import expression_data_util
-from apysc._testing.testing_helper import apply_test_settings
-from apysc._display import svg_text_span
-from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
 from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
+from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
 
 
 class TestSVGTextSpan:

@@ -282,6 +282,8 @@ Set a validation to check that a specified argument's type is the `bool` or `ap.
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 
@@ -346,7 +348,7 @@ Set a validation to check a specified argument's type is list of Python's str or
 
 - `arg_position_index`: int
   - A target argument position index.
-- `optional`: bool, optional
+- `optional`: bool
   - A boolean indicating whether a target argument accepts optional None value or not.
 
 <hr>
@@ -364,7 +366,7 @@ Set a validation to check a specified argument's type is the Python built-in's `
 
 - `arg_position_index`: int
   - A target argument position index.
-- `optional`: bool, optional
+- `optional`: bool
   - A boolean indicating whether a target argument accepts optional None value or not.
 
 <hr>
@@ -414,8 +416,8 @@ Set a validation to check a specified argument's type is a container of a displa
 
 - `arg_position_index`: int
   - A target argument position index.
-- `optional`: bool, optional
-  - A boolean indicating whether a target argument accepts optional None value or not.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 
@@ -496,6 +498,8 @@ Set a validation to check a specified argument's value in a hexadecimal color co
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 
@@ -528,6 +532,8 @@ Set a validation to check a specified argument's type is the `int` or `ap.Int`.<
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 
@@ -886,6 +892,8 @@ Set a validation to check that a specified argument's value is 0.0 to 1.0 range.
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 
@@ -902,6 +910,8 @@ Set a validation to check that a specified argument's value is greater than zero
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 
@@ -918,6 +928,8 @@ Set a validation to check that a specified argument's value is greater than or e
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 

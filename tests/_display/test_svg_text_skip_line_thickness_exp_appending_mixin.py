@@ -1,7 +1,7 @@
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
-    SVGTextSkipLineThicknessExpAppendingMixIn
+    SVGTextSkipLineThicknessExpAppendingMixIn,
 )
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestSVGTextSkipLineThicknessExpAppendingMixIn:

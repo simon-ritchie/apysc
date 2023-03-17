@@ -12,5 +12,5 @@ Set an italic style setting.<hr>
 
 **[Parameters]**
 
-- `italic`: Union[bool, Boolean]
-  - A boolean whether a text is in an italic style or not (normal).
+- `italic`: Optional[Union[bool, Boolean]]
+  - A boolean whether a text is in an italic style or not (normal). If a specified value is `None`, this interface ignores the setting.

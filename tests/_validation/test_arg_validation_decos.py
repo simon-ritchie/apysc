@@ -326,8 +326,8 @@ def test_num_is_0_to_1_range() -> None:
 
 
 @apply_test_settings()
-def test_is_animations() -> None:
-    @arg_validation_decos.is_animations(arg_position_index=0)
+def test_are_animations() -> None:
+    @arg_validation_decos.are_animations(arg_position_index=0)
     def _test_func(*, a: List[ap.AnimationBase]) -> None:
         ...
 

@@ -64,7 +64,7 @@ Mainly the following decorators exist.
 - is_hex_color_code_format
     - Set a validation to check a specified argument's value
         is a hexadecimal color code format.
-- is_animations
+- are_animations
     - Set a validation to check a specified argument's type
         is the list of `ap.AnimationBase`.
 - is_vars_dict
@@ -1203,7 +1203,7 @@ def is_hex_color_code_format(*, arg_position_index: int, optional: bool) -> _Cal
     return wrapped  # type: ignore
 
 
-def is_animations(*, arg_position_index: int) -> _Callable:
+def are_animations(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is the list of `ap.AnimationBase`.

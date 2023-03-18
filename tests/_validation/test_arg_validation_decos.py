@@ -1270,3 +1270,43 @@ def test_is_svg_text_align() -> None:
     )
     result: int = _test_func(align=ap.SVGTextAlign.CENTER)
     assert result == 200
+
+
+@apply_test_settings()
+def test_are_text_spans() -> None:
+    @arg_validation_decos.are_text_spans(arg_position_index=0)
+    def _test_func(
+        *,
+        text_spans: Union[List[ap.SVGTextSpan], ap.Array[ap.SVGTextSpan]],
+    ) -> int:
+        return 210
+
+    ap.Stage()
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        text_spans=10,
+        match="A specified argument is not a list or `Array` instance: ",
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        text_spans=[ap.SVGTextSpan(text="Lorem ipsum"), 20],
+        match="There is a non-`SVGTextSpan` instance in a list: ",
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        text_spans=ap.Array([ap.SVGTextSpan(text="Lorem ipsum"), 30]),
+        match="There is a non-`SVGTextSpan` instance in an array: ",
+    )
+    result: int = _test_func(
+        text_spans=[ap.SVGTextSpan(text="Lorem"), ap.SVGTextSpan(text=" ipsum")],
+    )
+    assert result == 210
+    result = _test_func(
+        text_spans=ap.Array(
+            [ap.SVGTextSpan(text="Lorem"), ap.SVGTextSpan(text=" ipsum")]
+        ),
+    )
+    assert result == 210

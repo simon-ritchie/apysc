@@ -160,6 +160,9 @@ Mainly the following decorators exist.
 - is_svg_text_align
     - Set a validation to check a specified argument's type
         is the `SVGTextAlign`.
+- are_text_spans
+    - Set a validation to check a specified argument's type
+        is the list or `ap.Array` of `ap.SVGTextSpan`.
 """
 
 import functools
@@ -2783,6 +2786,66 @@ def is_svg_text_align(*, arg_position_index: int) -> _Callable:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def are_text_spans(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is the list or `ap.Array` of `ap.SVGTextSpan`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            text_spans: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if not isinstance(text_spans, (list, ap.Array)):
+                raise TypeError(
+                    "A specified argument is not a list or `Array` instance: "
+                    f"{type(text_spans)}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+            if isinstance(text_spans, list):
+                for i, text_span in enumerate(text_spans):
+                    if isinstance(text_span, ap.SVGTextSpan):
+                        continue
+                    raise TypeError(
+                        "There is a non-`SVGTextSpan` instance in a list: "
+                        f"{type(text_span)}\nIndex: {i}"
+                        f"\n{callable_and_arg_names_msg}"
+                    )
+            if isinstance(text_spans, ap.Array):
+                for i, text_span in enumerate(text_spans._value):
+                    if isinstance(text_span, ap.SVGTextSpan):
+                        continue
+                    raise TypeError(
+                        "There is a non-`SVGTextSpan` instance in an array: "
+                        f"{type(text_span)}\nIndex: {i}"
+                        f"\n{callable_and_arg_names_msg}"
+                    )
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

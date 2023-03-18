@@ -35,8 +35,6 @@ class DisplayObject(
         - https://simon-ritchie.github.io/apysc/en/display_object.html
     """
 
-    stage: "Stage"
-
     @arg_validation_decos.not_empty_string(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def __init__(self, *, variable_name: str) -> None:
@@ -54,10 +52,6 @@ class DisplayObject(
         - DisplayObject
             - https://simon-ritchie.github.io/apysc/en/display_object.html
         """
-        import apysc as ap
-
-        stage: ap.Stage = ap.get_stage()
-        self.stage: ap.Stage = stage
         self._variable_name = variable_name
 
     @final

@@ -43,3 +43,21 @@ class SVGTextDeltaXMixIn(
         expression: str = f"{delta_x.variable_name} = {self.variable_name}.dx();"
         ap.append_js_expression(expression=expression)
         return delta_x
+
+    @delta_x.setter
+    @arg_validation_decos.is_apysc_num(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def delta_x(self, value: Number) -> None:
+        """
+        Set a position's delta-x value.
+
+        Parameters
+        ----------
+        value : Number
+            A delta-x value.
+        """
+        import apysc as ap
+
+        self._delta_x = value._value
+        expression: str = f"{self.variable_name}.dx({value.variable_name});"
+        ap.append_js_expression(expression=expression)

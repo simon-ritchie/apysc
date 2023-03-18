@@ -289,6 +289,8 @@ class SVGText(
         ap.append_js_expression(expression=expression)
 
     @classmethod
+    # text_spans
+    @arg_validation_decos.are_text_spans(arg_position_index=1)
     # font_size
     @arg_validation_decos.is_integer(arg_position_index=2, optional=False)
     # font_family

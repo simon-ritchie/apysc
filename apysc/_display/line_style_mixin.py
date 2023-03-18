@@ -53,7 +53,7 @@ class LineStyleMixIn(
     @arg_validation_decos.is_num(arg_position_index=3)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3, optional=False)
     @arg_validation_decos.is_line_cap(arg_position_index=4, optional=True)
-    @arg_validation_decos.is_line_joints(arg_position_index=5, optional=True)
+    @arg_validation_decos.are_line_joints(arg_position_index=5, optional=True)
     @arg_validation_decos.is_line_dot_setting(arg_position_index=6)
     @arg_validation_decos.is_line_dash_setting(arg_position_index=7)
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=8)

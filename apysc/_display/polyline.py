@@ -154,7 +154,7 @@ class Polyline(
     # line_cap
     @arg_validation_decos.is_line_cap(arg_position_index=7, optional=True)
     # line_joints
-    @arg_validation_decos.is_line_joints(arg_position_index=8, optional=True)
+    @arg_validation_decos.are_line_joints(arg_position_index=8, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=9)
     # line_dash_setting

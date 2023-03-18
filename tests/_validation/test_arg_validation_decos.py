@@ -606,8 +606,8 @@ def test_is_line_dot_setting() -> None:
 
 
 @apply_test_settings()
-def test_is_line_joints() -> None:
-    @arg_validation_decos.is_line_joints(arg_position_index=0, optional=True)
+def test_are_line_joints() -> None:
+    @arg_validation_decos.are_line_joints(arg_position_index=0, optional=True)
     def _test_func_1(*, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
         ...
 
@@ -616,7 +616,7 @@ def test_is_line_joints() -> None:
     _test_func_1(a=None)
     _test_func_1(a=ap.String(ap.LineJoints.BEVEL.value))
 
-    @arg_validation_decos.is_line_joints(arg_position_index=0, optional=False)
+    @arg_validation_decos.are_line_joints(arg_position_index=0, optional=False)
     def _test_func_2(*, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
         ...
 

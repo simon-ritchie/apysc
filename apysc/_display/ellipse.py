@@ -170,7 +170,7 @@ class Ellipse(
     # line_cap
     @arg_validation_decos.is_line_cap(arg_position_index=10, optional=True)
     # line_joints
-    @arg_validation_decos.is_line_joints(arg_position_index=11, optional=True)
+    @arg_validation_decos.are_line_joints(arg_position_index=11, optional=True)
     # line_dot_setting
     @arg_validation_decos.is_line_dot_setting(arg_position_index=12)
     # line_dash_setting

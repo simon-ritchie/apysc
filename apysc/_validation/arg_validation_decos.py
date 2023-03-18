@@ -88,7 +88,7 @@ Mainly the following decorators exist.
 - is_line_cap
     - Set a validation to check a specified argument's type
         is a line cap-related type.
-- is_line_joints
+- are_line_joints
     - Set a validation to check a specified argument's type
         is a line joints-related type.
 - multiple_line_settings_are_not_set
@@ -1626,7 +1626,7 @@ def is_line_cap(*, arg_position_index: int, optional: bool) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_line_joints(*, arg_position_index: int, optional: bool) -> _Callable:
+def are_line_joints(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is a line joints-related type.

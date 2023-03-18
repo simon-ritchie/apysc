@@ -66,7 +66,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         return self._line_joints._copy()
 
     @line_joints.setter
-    @arg_validation_decos.is_line_joints(arg_position_index=1, optional=False)
+    @arg_validation_decos.are_line_joints(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def line_joints(self, value: Union[String, LineJoints]) -> None:
         """

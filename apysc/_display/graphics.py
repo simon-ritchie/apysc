@@ -156,8 +156,8 @@ class Graphics(
         """
         import apysc as ap
 
-        stage_name: str = self.parent_sprite.stage.variable_name
-        expression: str = f"var {self.variable_name} = {stage_name}.nested();"
+        stage: ap.Stage = ap.get_stage()
+        expression: str = f"var {self.variable_name} = {stage.variable_name}.nested();"
         ap.append_js_expression(expression=expression)
 
     @final

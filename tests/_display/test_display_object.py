@@ -12,12 +12,7 @@ class TestDisplayObject:
         display_object: AnyDisplayObject = AnyDisplayObject(
             variable_name="test_display_object"
         )
-        testing_helper.assert_attrs(
-            expected_attrs={
-                "stage": stage,
-            },
-            any_obj=display_object,
-        )
+        assert display_object.variable_name == "test_display_object"
 
     @apply_test_settings()
     def test_variable_name(self) -> None:

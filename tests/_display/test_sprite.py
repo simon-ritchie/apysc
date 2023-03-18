@@ -10,11 +10,10 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestSprite:
     @apply_test_settings()
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
+        _ = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(variable_name_suffix="test_sprite")
         testing_helper.assert_attrs(
             expected_attrs={
-                "stage": stage,
                 "_variable_name_suffix": "test_sprite",
             },
             any_obj=sprite,

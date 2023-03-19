@@ -65,6 +65,8 @@ class TestFillAlphaMixIn:
         fill_alpha_interface.fill_alpha = ap.Number(0.5)
         snapshot_name: str = "snapshot_1"
         fill_alpha_interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if fill_alpha_interface._fill_alpha_snapshots is None:
+            raise AssertionError()
         assert fill_alpha_interface._fill_alpha_snapshots[snapshot_name] == 0.5
 
         fill_alpha_interface.fill_alpha = ap.Number(0.3)

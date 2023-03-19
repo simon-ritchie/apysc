@@ -67,6 +67,8 @@ class TestHeightMixIn:
         height_mixin.height = ap.Int(10)
         snapshot_name: str = "snapshot_1"
         height_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if height_mixin._height_snapshots is None:
+            raise AssertionError()
         assert height_mixin._height_snapshots[snapshot_name] == 10
 
         height_mixin.height = ap.Int(5)

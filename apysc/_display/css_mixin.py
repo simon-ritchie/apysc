@@ -2,7 +2,7 @@
 """
 
 from typing import Dict
-from typing import Union
+from typing import Union, Optional
 
 from typing_extensions import final
 
@@ -167,7 +167,7 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         expression: str = f"{self.variable_name}.css({name_value_str}, {value_str});"
         ap.append_js_expression(expression=expression)
 
-    _css_snapshot: Dict[str, Dict[str, String]]
+    _css_snapshot: Optional[Dict[str, Dict[str, String]]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -192,6 +192,8 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._css = self._css_snapshot[snapshot_name]
+        self._css = self._get_snapshot_val_if_exists(
+            current_value=self._css,
+            snapshot_dict=self._css_snapshot,
+            snapshot_name=snapshot_name,
+        )

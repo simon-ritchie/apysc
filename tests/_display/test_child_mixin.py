@@ -158,8 +158,12 @@ class TestChildMixIn:
 
         snapshot_name_1: str = stage._get_next_snapshot_name()
         stage._run_all_make_snapshot_methods(snapshot_name=snapshot_name_1)
+        if stage._children_snapshots is None:
+            raise AssertionError()
         assert stage._children_snapshots[snapshot_name_1] == [sprite_1, 100]
         assert stage._snapshot_exists(snapshot_name=snapshot_name_1)
+        if sprite_1._children_snapshots is None:
+            raise AssertionError()
         assert sprite_1._children_snapshots[snapshot_name_1] == [
             sprite_1.graphics,
             sprite_2,

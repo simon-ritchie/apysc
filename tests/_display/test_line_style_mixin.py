@@ -150,29 +150,47 @@ class TestLineStyleMixIn:
         line_style_mixin._line_dash_dot_setting = line_dash_dot_setting
         snapshot_name: str = "snapshot_1"
         line_style_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if line_style_mixin._line_color_snapshots is None:
+            raise AssertionError()
         assert line_style_mixin._line_color_snapshots[snapshot_name] == "#333333"
+        if line_style_mixin._line_thickness_snapshots is None:
+            raise AssertionError()
         assert line_style_mixin._line_thickness_snapshots[snapshot_name] == 3
+        if line_style_mixin._line_alpha_snapshots is None:
+            raise AssertionError()
         assert line_style_mixin._line_alpha_snapshots[snapshot_name] == 0.5
+        if line_style_mixin._line_cap_snapshots is None:
+            raise AssertionError()
         assert (
             line_style_mixin._line_cap_snapshots[snapshot_name]
             == ap.LineCaps.ROUND.value
         )
+        if line_style_mixin._line_joints_snapshots is None:
+            raise AssertionError()
         assert (
             line_style_mixin._line_joints_snapshots[snapshot_name]
             == ap.LineJoints.BEVEL.value
         )
+        if line_style_mixin._line_dot_setting_snapshots is None:
+            raise AssertionError()
         assert (
             line_style_mixin._line_dot_setting_snapshots[snapshot_name]
             == line_dot_setting
         )
+        if line_style_mixin._line_dash_setting_snapshots is None:
+            raise AssertionError()
         assert (
             line_style_mixin._line_dash_setting_snapshots[snapshot_name]
             == line_dash_setting
         )
+        if line_style_mixin._line_round_dot_setting_snapshots is None:
+            raise AssertionError()
         assert (
             line_style_mixin._line_round_dot_setting_snapshots[snapshot_name]
             == line_round_dot_setting
         )
+        if line_style_mixin._line_dash_dot_setting_snapshots is None:
+            raise AssertionError()
         assert (
             line_style_mixin._line_dash_dot_setting_snapshots[snapshot_name]
             == line_dash_dot_setting

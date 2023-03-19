@@ -69,6 +69,8 @@ class TestLineColorMixIn:
         line_color_interface.line_color = ap.String("#333")
         snapshot_name: str = "snapshot_1"
         line_color_interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if line_color_interface._line_color_snapshots is None:
+            raise AssertionError()
         assert line_color_interface._line_color_snapshots[snapshot_name] == "#333333"
 
         line_color_interface.line_color = ap.String("#222")

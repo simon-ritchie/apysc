@@ -94,6 +94,8 @@ class TestLineDashSettingMixIn:
         interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if interface._line_dash_setting_snapshots is None:
+            raise AssertionError()
         assert isinstance(
             interface._line_dash_setting_snapshots[snapshot_name], LineDashSetting
         )

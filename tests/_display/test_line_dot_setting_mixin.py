@@ -95,6 +95,8 @@ class TestLineDotSettingMixIn:
         mixin.line_dot_setting = ap.LineDotSetting(dot_size=10)
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin._line_dot_setting_snapshots is None:
+            raise AssertionError()
         assert isinstance(
             mixin._line_dot_setting_snapshots[snapshot_name], ap.LineDotSetting
         )

@@ -2,7 +2,7 @@
 """
 
 from typing import TYPE_CHECKING
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import List
 from typing import Union
@@ -387,7 +387,7 @@ class ChildMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _children_snapshots: Dict[str, List[Any]]
+    _children_snapshots: Optional[Dict[str, List[Any]]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -424,6 +424,8 @@ class ChildMixIn(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        if self._children_snapshots is None:
+            self._children_snapshots = {}
         self._children._value = [*self._children_snapshots[snapshot_name]]
 
         for child in self._children.value:  # type: ignore

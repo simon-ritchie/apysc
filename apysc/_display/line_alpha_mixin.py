@@ -1,7 +1,7 @@
 """Class implementation for line alpha mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -155,7 +155,7 @@ class LineAlphaMixIn(
             value_ = Number(value, variable_name_suffix=suffix)
         self._line_alpha = value_
 
-    _line_alpha_snapshots: Dict[str, float]
+    _line_alpha_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -182,6 +182,8 @@ class LineAlphaMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_alpha._value = self._line_alpha_snapshots[snapshot_name]
+        self._line_alpha._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_alpha._value,
+            snapshot_dict=self._line_alpha_snapshots,
+            snapshot_name=snapshot_name,
+        )

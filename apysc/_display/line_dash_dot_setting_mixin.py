@@ -148,7 +148,9 @@ class LineDashDotSettingMixIn(VariableNameMixIn, RevertMixIn):
         self._update_line_dash_dot_setting_and_skip_appending_exp(value=None)
         self._append_line_dash_dot_setting_update_expression()
 
-    _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
+    _line_dash_dot_setting_snapshots: Optional[
+        Dict[str, Optional[LineDashDotSetting]]
+    ] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -175,8 +177,9 @@ class LineDashDotSettingMixIn(VariableNameMixIn, RevertMixIn):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_dash_dot_setting = self._line_dash_dot_setting_snapshots[
-            snapshot_name
-        ]
+        self._initialize_line_dash_dot_setting_if_not_initialized()
+        self._line_dash_dot_setting = self._get_snapshot_val_if_exists(
+            current_value=self._line_dash_dot_setting,
+            snapshot_dict=self._line_dash_dot_setting_snapshots,
+            snapshot_name=snapshot_name,
+        )

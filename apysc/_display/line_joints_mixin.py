@@ -1,7 +1,7 @@
 """Class implementation for line joints mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -120,7 +120,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         )
         ap.append_js_expression(expression=expression)
 
-    _line_joints_snapshots: Dict[str, str]
+    _line_joints_snapshots: Optional[Dict[str, str]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -147,6 +147,9 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_joints._value = self._line_joints_snapshots[snapshot_name]
+        self._initialize_line_joints_if_not_initialized()
+        self._line_joints._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_joints._value,
+            snapshot_dict=self._line_joints_snapshots,
+            snapshot_name=snapshot_name,
+        )

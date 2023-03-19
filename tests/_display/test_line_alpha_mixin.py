@@ -67,6 +67,8 @@ class TestLineAlphaMixIn:
         line_alpha_mixin.line_alpha = ap.Number(0.5)
         snapshot_name: str = "snapshot_1"
         line_alpha_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if line_alpha_mixin._line_alpha_snapshots is None:
+            raise AssertionError()
         assert line_alpha_mixin._line_alpha_snapshots[snapshot_name] == 0.5
 
         line_alpha_mixin.line_alpha = ap.Number(0.3)

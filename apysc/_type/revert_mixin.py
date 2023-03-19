@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Tuple
-from typing import Type, TypeVar
+from typing import Type, TypeVar, Optional
 
 from typing_extensions import final
 
@@ -197,11 +197,13 @@ class RevertMixIn(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, dict_name):
+        if not hasattr(self, dict_name) or getattr(self, dict_name) is None:
             setattr(self, dict_name, {})
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        target_dict: Dict[str, Any] = getattr(self, dict_name)
+        target_dict: Optional[Dict[str, Any]] = getattr(self, dict_name)
+        if target_dict is None:
+            target_dict = {}
         target_dict[snapshot_name] = value
 
     @final
@@ -209,7 +211,7 @@ class RevertMixIn(RevertInterface):
         self,
         *,
         current_value: _SnapshotValue,
-        snapshot_dict: Dict[str, _SnapshotValue],
+        snapshot_dict: Optional[Dict[str, _SnapshotValue]],
         snapshot_name: str,
     ) -> _SnapshotValue:
         """
@@ -219,7 +221,7 @@ class RevertMixIn(RevertInterface):
         ----------
         current_value : _SnapshotValue
             A current value.
-        snapshot_dict : Dict[str, _SnapshotValue]
+        snapshot_dict : Optional[Dict[str, _SnapshotValue]]
             A dictionary which contains a snapshot value.
         snapshot_name : str
             A target snapshot name.
@@ -230,6 +232,8 @@ class RevertMixIn(RevertInterface):
             A snapshot value. If a snapshot value does not exist,
             this interface returns a current value.
         """
+        if snapshot_dict is None:
+            snapshot_dict = {}
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return current_value
         snapshot_value: _SnapshotValue = snapshot_dict[snapshot_name]

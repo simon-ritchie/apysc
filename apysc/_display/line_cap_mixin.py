@@ -1,7 +1,7 @@
 """Class implementation for line cap mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -112,7 +112,7 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         else:
             self._line_cap = String(value.value)
 
-    _line_cap_snapshots: Dict[str, str]
+    _line_cap_snapshots: Optional[Dict[str, str]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -139,6 +139,9 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_cap._value = self._line_cap_snapshots[snapshot_name]
+        self._initialize_line_cap_if_not_initialized()
+        self._line_cap._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_cap._value,
+            snapshot_dict=self._line_cap_snapshots,
+            snapshot_name=snapshot_name,
+        )

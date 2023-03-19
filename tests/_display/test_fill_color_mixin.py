@@ -56,6 +56,8 @@ class TestFillColorMixIn:
         fill_color_mixin.fill_color = ap.String("#333333")
         snapshot_name: str = "snapshot_1"
         fill_color_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if fill_color_mixin._fill_color_snapshots is None:
+            raise AssertionError()
         assert fill_color_mixin._fill_color_snapshots[snapshot_name] == "#333333"
 
         fill_color_mixin.fill_color = ap.String("#222222")

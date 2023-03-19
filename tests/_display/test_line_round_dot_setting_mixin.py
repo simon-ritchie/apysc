@@ -103,6 +103,8 @@ class TestLineRoundDotSettingMixIn:
         mixin.line_round_dot_setting = line_round_dot_setting
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin._line_round_dot_setting_snapshots is None:
+            raise AssertionError()
         assert (
             mixin._line_round_dot_setting_snapshots[snapshot_name]
             == line_round_dot_setting

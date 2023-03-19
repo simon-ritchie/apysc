@@ -71,10 +71,13 @@ class TestCssMixIn:
         interface.set_css(name="display", value="none")
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if interface._css_snapshot is None:
+            raise AssertionError()
         assert interface._css_snapshot[snapshot_name] == {"display": ap.String("none")}
 
         interface.set_css(name="display", value="none")
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+
         assert interface._css_snapshot[snapshot_name] == {"display": ap.String("none")}
 
     @apply_test_settings()

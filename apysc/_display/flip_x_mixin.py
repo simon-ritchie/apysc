@@ -1,7 +1,7 @@
 """Class implementation for the flip_x interface.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -141,7 +141,7 @@ class FlipXMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _flip_x_snapshots: Dict[str, bool]
+    _flip_x_snapshots: Optional[Dict[str, bool]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -168,6 +168,8 @@ class FlipXMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._flip_x._value = self._flip_x_snapshots[snapshot_name]
+        self._flip_x._value = self._get_snapshot_val_if_exists(
+            current_value=self._flip_x._value,
+            snapshot_dict=self._flip_x_snapshots,
+            snapshot_name=snapshot_name,
+        )

@@ -630,15 +630,19 @@ class LineStyleMixIn(
         self._initialize_line_dash_dot_setting_if_not_initialized()
         return self._line_dash_dot_setting
 
-    _line_color_snapshots: Dict[str, str]
-    _line_thickness_snapshots: Dict[str, int]
-    _line_alpha_snapshots: Dict[str, float]
-    _line_cap_snapshots: Dict[str, str]
-    _line_joints_snapshots: Dict[str, str]
-    _line_dot_setting_snapshots: Dict[str, Optional[LineDotSetting]]
-    _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
-    _line_round_dot_setting_snapshots: Dict[str, Optional[LineRoundDotSetting]]
-    _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
+    _line_color_snapshots: Optional[Dict[str, str]] = None
+    _line_thickness_snapshots: Optional[Dict[str, int]] = None
+    _line_alpha_snapshots: Optional[Dict[str, float]] = None
+    _line_cap_snapshots: Optional[Dict[str, str]] = None
+    _line_joints_snapshots: Optional[Dict[str, str]] = None
+    _line_dot_setting_snapshots: Optional[Dict[str, Optional[LineDotSetting]]] = None
+    _line_dash_setting_snapshots: Optional[Dict[str, Optional[LineDashSetting]]] = None
+    _line_round_dot_setting_snapshots: Optional[
+        Dict[str, Optional[LineRoundDotSetting]]
+    ] = None
+    _line_dash_dot_setting_snapshots: Optional[
+        Dict[str, Optional[LineDashDotSetting]]
+    ] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -713,19 +717,48 @@ class LineStyleMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_color._value = self._line_color_snapshots[snapshot_name]
-        self._line_thickness._value = self._line_thickness_snapshots[snapshot_name]
-        self._line_alpha._value = self._line_alpha_snapshots[snapshot_name]
-        self._line_cap._value = self._line_cap_snapshots[snapshot_name]
-        self._line_joints._value = self._line_joints_snapshots[snapshot_name]
-
-        self._line_dot_setting = self._line_dot_setting_snapshots[snapshot_name]
-        self._line_dash_setting = self._line_dash_setting_snapshots[snapshot_name]
-        self._line_round_dot_setting = self._line_round_dot_setting_snapshots[
-            snapshot_name
-        ]
-        self._line_dash_dot_setting = self._line_dash_dot_setting_snapshots[
-            snapshot_name
-        ]
+        self._line_color._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_color._value,
+            snapshot_dict=self._line_color_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_thickness._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_thickness._value,
+            snapshot_dict=self._line_thickness_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_alpha._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_alpha._value,
+            snapshot_dict=self._line_alpha_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_cap._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_cap._value,
+            snapshot_dict=self._line_cap_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_joints._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_joints._value,
+            snapshot_dict=self._line_joints_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_dot_setting = self._get_snapshot_val_if_exists(
+            current_value=self._line_dot_setting,
+            snapshot_dict=self._line_dot_setting_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_dash_setting = self._get_snapshot_val_if_exists(
+            current_value=self._line_dash_setting,
+            snapshot_dict=self._line_dash_setting_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_round_dot_setting = self._get_snapshot_val_if_exists(
+            current_value=self._line_round_dot_setting,
+            snapshot_dict=self._line_round_dot_setting_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._line_dash_dot_setting = self._get_snapshot_val_if_exists(
+            current_value=self._line_dash_dot_setting,
+            snapshot_dict=self._line_dash_dot_setting_snapshots,
+            snapshot_name=snapshot_name,
+        )

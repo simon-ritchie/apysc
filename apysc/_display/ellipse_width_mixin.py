@@ -1,7 +1,7 @@
 """Class implementation for the ellipse width mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -129,7 +129,7 @@ class EllipseWidthMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _ellipse_width_snapshots: Dict[str, int]
+    _ellipse_width_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -156,6 +156,8 @@ class EllipseWidthMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._ellipse_width._value = self._ellipse_width_snapshots[snapshot_name]
+        self._ellipse_width._value = self._get_snapshot_val_if_exists(
+            current_value=self._ellipse_width._value,
+            snapshot_dict=self._ellipse_width_snapshots,
+            snapshot_name=snapshot_name,
+        )

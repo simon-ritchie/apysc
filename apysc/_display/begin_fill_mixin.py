@@ -4,7 +4,7 @@
 
 from typing import Dict
 from typing import TypeVar
-from typing import Union
+from typing import Union, Optional
 
 from typing_extensions import final
 
@@ -172,8 +172,8 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
             skip_init_substitution_expression_appending=True,
         )
 
-    _fill_color_snapshots: Dict[str, str]
-    _fill_alpha_snapshots: Dict[str, float]
+    _fill_color_snapshots: Optional[Dict[str, str]] = None
+    _fill_alpha_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -206,7 +206,13 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._fill_color._value = self._fill_color_snapshots[snapshot_name]
-        self._fill_alpha._value = self._fill_alpha_snapshots[snapshot_name]
+        self._fill_color._value = self._get_snapshot_val_if_exists(
+            current_value=self._fill_color._value,
+            snapshot_dict=self._fill_color_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._fill_alpha._value = self._get_snapshot_val_if_exists(
+            current_value=self._fill_alpha._value,
+            snapshot_dict=self._fill_alpha_snapshots,
+            snapshot_name=snapshot_name,
+        )

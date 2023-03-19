@@ -71,7 +71,11 @@ class TestBeginFillMixIn:
         begin_fill_mixin.begin_fill(color="#333333", alpha=0.5)
         snapshot_name_1: str = begin_fill_mixin._get_next_snapshot_name()
         begin_fill_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name_1)
+        if begin_fill_mixin._fill_color_snapshots is None:
+            raise AssertionError()
         assert begin_fill_mixin._fill_color_snapshots[snapshot_name_1] == "#333333"
+        if begin_fill_mixin._fill_alpha_snapshots is None:
+            raise AssertionError()
         assert begin_fill_mixin._fill_alpha_snapshots[snapshot_name_1] == 0.5
         assert begin_fill_mixin._snapshot_exists(snapshot_name=snapshot_name_1)
 

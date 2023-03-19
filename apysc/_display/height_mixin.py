@@ -1,7 +1,7 @@
 """Class implementation for height mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -141,7 +141,7 @@ class HeightMixIn(
             value_ = Int(value, variable_name_suffix=suffix)
         self._height = value_
 
-    _height_snapshots: Dict[str, int]
+    _height_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -168,6 +168,8 @@ class HeightMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._height._value = self._height_snapshots[snapshot_name]
+        self._height._value = self._get_snapshot_val_if_exists(
+            current_value=self._height._value,
+            snapshot_dict=self._height_snapshots,
+            snapshot_name=snapshot_name,
+        )

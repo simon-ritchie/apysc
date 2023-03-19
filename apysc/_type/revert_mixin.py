@@ -5,11 +5,13 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Tuple
-from typing import Type
+from typing import Type, TypeVar
 
 from typing_extensions import final
 
 from apysc._type.revert_interface import RevertInterface
+
+_SnapshotValue = TypeVar("_SnapshotValue")
 
 
 class RevertMixIn(RevertInterface):
@@ -201,6 +203,37 @@ class RevertMixIn(RevertInterface):
             return
         target_dict: Dict[str, Any] = getattr(self, dict_name)
         target_dict[snapshot_name] = value
+
+    @final
+    def _get_snapshot_val_if_exists(
+        self,
+        *,
+        current_value: _SnapshotValue,
+        snapshot_dict: Dict[str, _SnapshotValue],
+        snapshot_name: str,
+    ) -> _SnapshotValue:
+        """
+        Get a snapshot value from a specified dictionary if a snapshot exists.
+
+        Parameters
+        ----------
+        current_value : _SnapshotValue
+            A current value.
+        snapshot_dict : Dict[str, _SnapshotValue]
+            A dictionary which contains a snapshot value.
+        snapshot_name : str
+            A target snapshot name.
+
+        Returns
+        -------
+        snapshot_value : _SnapshotValue
+            A snapshot value. If a snapshot value does not exist,
+            this interface returns a current value.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return current_value
+        snapshot_value: _SnapshotValue = snapshot_dict[snapshot_name]
+        return snapshot_value
 
 
 def make_snapshots_of_each_scope_vars(

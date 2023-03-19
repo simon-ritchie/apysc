@@ -212,6 +212,26 @@ class TestRevertMixIn:
         )
         assert revertable_value._snapshots1[snapshot_name] == 10
 
+    @apply_test_settings()
+    def test__get_snapshot_val_if_exists(self) -> None:
+        revertable_value: RevertableValue1 = RevertableValue1()
+        revertable_value._value1 = 20
+        revertable_value._run_all_make_snapshot_methods(snapshot_name="snapshot_1")
+        revertable_value._value1 = 30
+        revertable_value._value1 = revertable_value._get_snapshot_val_if_exists(
+            current_value=revertable_value._value1,
+            snapshot_dict=revertable_value._snapshots1,
+            snapshot_name="snapshot_1",
+        )
+        assert revertable_value._value1 == 20
+
+        revertable_value._value1 = revertable_value._get_snapshot_val_if_exists(
+            current_value=revertable_value._value1,
+            snapshot_dict=revertable_value._snapshots1,
+            snapshot_name="not_existing_snapshot",
+        )
+        assert revertable_value._value1 == 20
+
 
 def test_make_snapshots_of_each_scope_vars() -> None:
     int_1: ap.Int = ap.Int(10)

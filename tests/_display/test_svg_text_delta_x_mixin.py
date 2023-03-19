@@ -37,3 +37,17 @@ class TestSVGTextDeltaXMixIn:
         assert mixin.delta_x == ap.Number(50.5)
         expression = expression_data_util.get_current_expression()
         expected = f"{mixin.variable_name}.dx({delta_x.variable_name});"
+
+    @apply_test_settings()
+    def test__make_snapshot_and__revert(self) -> None:
+        mixin: _TestMixIn = _TestMixIn()
+        mixin._delta_x = 50.5
+        snapshot_name: str = mixin._get_next_snapshot_name()
+        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        mixin._delta_x = 60.5
+        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert mixin._delta_x == 50.5
+
+        mixin._delta_x = 70.5
+        mixin._run_all_revert_methods(snapshot_name="not_existing_snapshot")
+        assert mixin._delta_x == 70.5

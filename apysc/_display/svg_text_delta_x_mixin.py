@@ -61,3 +61,33 @@ class SVGTextDeltaXMixIn(
         self._delta_x = value._value
         expression: str = f"{self.variable_name}.dx({value.variable_name});"
         ap.append_js_expression(expression=expression)
+
+    _delta_x_snapshots: Dict[str, float]
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._set_single_snapshot_val_to_dict(
+            dict_name="_delta_x_snapshots",
+            value=self._delta_x,
+            snapshot_name=snapshot_name,
+        )
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._delta_x = self._delta_x_snapshots[snapshot_name]

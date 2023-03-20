@@ -61,7 +61,11 @@ class TestSprite:
         sprite.graphics.begin_fill(color="#333", alpha=0.5)
         snapshot_name: str = "snapshot_1"
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if sprite.graphics._fill_color_snapshots is None:
+            raise AssertionError()
         assert sprite.graphics._fill_color_snapshots[snapshot_name] == "#333333"
+        if sprite.graphics._fill_alpha_snapshots is None:
+            raise AssertionError()
         assert sprite.graphics._fill_alpha_snapshots[snapshot_name] == 0.5
 
         sprite.graphics.clear()

@@ -1,7 +1,7 @@
 """Class implementation for the skew x mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -140,7 +140,7 @@ class SkewXMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _skew_x_snapshots: Dict[str, int]
+    _skew_x_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -167,6 +167,8 @@ class SkewXMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._skew_x._value = self._skew_x_snapshots[snapshot_name]
+        self._skew_x._value = self._get_snapshot_val_if_exists(
+            current_value=self._skew_x._value,
+            snapshot_dict=self._skew_x_snapshots,
+            snapshot_name=snapshot_name,
+        )

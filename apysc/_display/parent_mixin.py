@@ -109,7 +109,7 @@ class ParentMixIn(RevertMixIn):
         else:
             append_expression_of_remove_child(child=child)
 
-    _parent_snapshots: Dict[str, Optional["ChildMixIn"]]
+    _parent_snapshots: Optional[Dict[str, Optional["ChildMixIn"]]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -135,6 +135,8 @@ class ParentMixIn(RevertMixIn):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._parent = self._parent_snapshots[snapshot_name]
+        self._parent = self._get_snapshot_val_if_exists(
+            current_value=self._parent,
+            snapshot_dict=self._parent_snapshots,
+            snapshot_name=snapshot_name,
+        )

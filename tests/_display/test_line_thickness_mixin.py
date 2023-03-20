@@ -67,6 +67,8 @@ class TestLineThicknessMixIn:
         line_thickness_mixin.line_thickness = ap.Int(3)
         snapshot_name: str = "snapshot_1"
         line_thickness_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if line_thickness_mixin._line_thickness_snapshots is None:
+            raise AssertionError()
         assert line_thickness_mixin._line_thickness_snapshots[snapshot_name] == 3
 
         line_thickness_mixin.line_thickness = ap.Int(2)

@@ -2,7 +2,7 @@
 """
 
 from enum import Enum
-from typing import Dict
+from typing import Dict, Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
@@ -67,7 +67,7 @@ class SVGTextAlignMixIn(
         expression: str = f'{self.variable_name}.font("anchor", "{value.value}");'
         ap.append_js_expression(expression=expression)
 
-    _align_snapshots: Dict[str, SVGTextAlign]
+    _align_snapshots: Optional[Dict[str, SVGTextAlign]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -93,6 +93,8 @@ class SVGTextAlignMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._align = self._align_snapshots[snapshot_name]
+        self._align = self._get_snapshot_val_if_exists(
+            current_value=self._align,
+            snapshot_dict=self._align_snapshots,
+            snapshot_name=snapshot_name,
+        )

@@ -1,7 +1,7 @@
 """Class implementation for 2-dimensional points mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Tuple
 
 from typing_extensions import final
@@ -141,7 +141,7 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         expression: str = f"{self._points.variable_name} = {value.variable_name};"
         ap.append_js_expression(expression=expression)
 
-    _points_snapshots: Dict[str, Array]
+    _points_snapshots: Optional[Dict[str, Array]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -169,7 +169,9 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._points = self._points_snapshots[snapshot_name]
+        self._points = self._get_snapshot_val_if_exists(
+            current_value=self._points,
+            snapshot_dict=self._points_snapshots,
+            snapshot_name=snapshot_name,
+        )
         self._points._run_all_revert_methods(snapshot_name=snapshot_name)

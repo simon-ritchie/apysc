@@ -1,7 +1,7 @@
 """Class implementation for the scale_x_from_point mix-in.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 
 from typing_extensions import final
@@ -177,7 +177,7 @@ class ScaleXFromPointMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _scale_x_from_point_snapshots: Dict[str, Dict[str, Any]]
+    _scale_x_from_point_snapshots: Optional[Dict[str, Dict[str, Any]]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -204,8 +204,8 @@ class ScaleXFromPointMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._scale_x_from_point._value = self._scale_x_from_point_snapshots[
-            snapshot_name
-        ]
+        self._scale_x_from_point._value = self._get_snapshot_val_if_exists(
+            current_value=self._scale_x_from_point._value,
+            snapshot_dict=self._scale_x_from_point_snapshots,
+            snapshot_name=snapshot_name,
+        )

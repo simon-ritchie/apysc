@@ -1,7 +1,7 @@
 """Class implementation for the scale_y_from_center mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -163,7 +163,7 @@ class ScaleYFromCenterMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _scale_y_from_center_snapshots: Dict[str, float]
+    _scale_y_from_center_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -190,8 +190,8 @@ class ScaleYFromCenterMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._scale_y_from_center._value = self._scale_y_from_center_snapshots[
-            snapshot_name
-        ]
+        self._scale_y_from_center._value = self._get_snapshot_val_if_exists(
+            current_value=self._scale_y_from_center._value,
+            snapshot_dict=self._scale_y_from_center_snapshots,
+            snapshot_name=snapshot_name,
+        )

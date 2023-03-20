@@ -53,6 +53,8 @@ class TestRotationAroundCenterMixIn:
         mixin.rotation_around_center = ap.Int(10)
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin._rotation_around_center_snapshots is None:
+            raise AssertionError()
         mixin._rotation_around_center_snapshots[snapshot_name] == 10
 
         mixin.rotation_around_center = ap.Int(20)

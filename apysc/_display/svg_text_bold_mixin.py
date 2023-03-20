@@ -1,7 +1,7 @@
 """Class implementation for the SVG text's bold mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -65,7 +65,7 @@ class SVGTextBoldMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _bold_snapshots: Dict[str, bool]
+    _bold_snapshots: Optional[Dict[str, bool]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -91,6 +91,8 @@ class SVGTextBoldMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._bold = self._bold_snapshots[snapshot_name]
+        self._bold = self._get_snapshot_val_if_exists(
+            current_value=self._bold,
+            snapshot_dict=self._bold_snapshots,
+            snapshot_name=snapshot_name,
+        )

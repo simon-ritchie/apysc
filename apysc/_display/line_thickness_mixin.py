@@ -1,7 +1,7 @@
 """Class implementation for line thickness mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -154,7 +154,7 @@ class LineThicknessMixIn(
             value_ = Int(value, variable_name_suffix=suffix)
         self._line_thickness = value_
 
-    _line_thickness_snapshots: Dict[str, int]
+    _line_thickness_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -181,6 +181,8 @@ class LineThicknessMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_thickness._value = self._line_thickness_snapshots[snapshot_name]
+        self._line_thickness._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_thickness._value,
+            snapshot_dict=self._line_thickness_snapshots,
+            snapshot_name=snapshot_name,
+        )

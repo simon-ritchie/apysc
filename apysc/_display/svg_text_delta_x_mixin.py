@@ -1,7 +1,7 @@
 """Class implementation for the SVG text's delta-x mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -62,7 +62,7 @@ class SVGTextDeltaXMixIn(
         expression: str = f"{self.variable_name}.dx({value.variable_name});"
         ap.append_js_expression(expression=expression)
 
-    _delta_x_snapshots: Dict[str, float]
+    _delta_x_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -88,6 +88,8 @@ class SVGTextDeltaXMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._delta_x = self._delta_x_snapshots[snapshot_name]
+        self._delta_x = self._get_snapshot_val_if_exists(
+            current_value=self._delta_x,
+            snapshot_dict=self._delta_x_snapshots,
+            snapshot_name=snapshot_name,
+        )

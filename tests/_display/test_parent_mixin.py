@@ -36,6 +36,8 @@ class TestParentMixIn:
         stage.add_child(child=sprite)
         snapshot_name: str = "snapshot_1"
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if sprite._parent_snapshots is None:
+            raise AssertionError()
         assert sprite._parent_snapshots[snapshot_name] == stage
 
         stage.remove_child(child=sprite)

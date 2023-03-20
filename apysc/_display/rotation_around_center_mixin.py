@@ -2,7 +2,7 @@
 interface.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -150,7 +150,7 @@ class RotationAroundCenterMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _rotation_around_center_snapshots: Dict[str, int]
+    _rotation_around_center_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -177,8 +177,8 @@ class RotationAroundCenterMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._rotation_around_center._value = self._rotation_around_center_snapshots[
-            snapshot_name
-        ]
+        self._rotation_around_center._value = self._get_snapshot_val_if_exists(
+            current_value=self._rotation_around_center._value,
+            snapshot_dict=self._rotation_around_center_snapshots,
+            snapshot_name=snapshot_name,
+        )

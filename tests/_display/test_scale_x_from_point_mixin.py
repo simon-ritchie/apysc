@@ -105,6 +105,8 @@ class TestScaleXFromPointMixIn:
                 coordinate=float(x._value)
             )
         )
+        if interface._scale_x_from_point_snapshots is None:
+            raise AssertionError()
         assert interface._scale_x_from_point_snapshots[snapshot_name] == {
             key_exp_str.value: 0.5
         }

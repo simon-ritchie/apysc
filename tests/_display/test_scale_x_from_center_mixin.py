@@ -51,6 +51,8 @@ class TestScaleXFromCenterMixIn:
         mixin.scale_x_from_center = ap.Number(0.5)
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin._scale_x_from_center_snapshots is None:
+            raise AssertionError()
         assert mixin._scale_x_from_center_snapshots[snapshot_name] == 0.5
         mixin.scale_x_from_center = ap.Number(0.3)
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

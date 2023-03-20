@@ -54,6 +54,8 @@ class TestSkewXMixIn:
         interface.skew_x = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if interface._skew_x_snapshots is None:
+            raise AssertionError()
         assert interface._skew_x_snapshots[snapshot_name] == 10
 
         interface.skew_x = ap.Int(20)

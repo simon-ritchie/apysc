@@ -155,6 +155,24 @@ def main() -> None:
         italic=True,
     )
 
+    _ = ap.SVGText.create_with_svg_text_spans(
+        text_spans=[
+            ap.SVGTextSpan(text="delta-x test 1"),
+            ap.SVGTextSpan(
+                text="delta-x test 2",
+                delta_x=-20,
+            ),
+            ap.SVGTextSpan(text="delta-x test 3"),
+            ap.SVGTextSpan(
+                text="delta-x test 4",
+                delta_x=20,
+            ),
+        ],
+        x=50,
+        y=210,
+        fill_color="#aaa",
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

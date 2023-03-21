@@ -64,6 +64,7 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
+from apysc._display.svg_text_set_delta_x_mixin import SVGTextSetDeltaXMixIn
 
 
 class SVGTextSpan(
@@ -94,6 +95,7 @@ class SVGTextSpan(
     SVGTextBoldMixIn,
     SVGTextSetBoldMixIn,
     SVGTextDeltaXMixIn,
+    SVGTextSetDeltaXMixIn,
     VariableNameSuffixMixIn,
 ):
 

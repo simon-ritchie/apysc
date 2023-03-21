@@ -17,6 +17,8 @@ class TestPathControlY1MixIn:
         mixin._control_y1 = ap.Number(10)
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin._control_y1_snapshots is None:
+            raise AssertionError()
         assert mixin._control_y1_snapshots[snapshot_name] == 10
 
     @apply_test_settings()

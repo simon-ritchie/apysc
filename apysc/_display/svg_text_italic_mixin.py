@@ -1,7 +1,7 @@
 """Class implementation for the SVG text's italic mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -61,7 +61,7 @@ class SVGTextItalicMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _italic_snapshots: Dict[str, bool]
+    _italic_snapshots: Optional[Dict[str, bool]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -87,6 +87,8 @@ class SVGTextItalicMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._italic = self._italic_snapshots[snapshot_name]
+        self._italic = self._get_snapshot_val_if_exists(
+            current_value=self._italic,
+            snapshot_dict=self._italic_snapshots,
+            snapshot_name=snapshot_name,
+        )

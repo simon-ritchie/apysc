@@ -7,7 +7,7 @@ A Subclass that inherits the normal WidthMixIn and
 HeightMixIn can't use this interface.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -202,8 +202,8 @@ class WidthAndHeightMixInForEllipse(
         )
         ap.append_js_expression(expression=expression)
 
-    _width_snapshots: Dict[str, int]
-    _height_snapshots: Dict[str, int]
+    _width_snapshots: Optional[Dict[str, int]] = None
+    _height_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -235,7 +235,13 @@ class WidthAndHeightMixInForEllipse(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._width._value = self._width_snapshots[snapshot_name]
-        self._height._value = self._height_snapshots[snapshot_name]
+        self._width._value = self._get_snapshot_val_if_exists(
+            current_value=self._width._value,
+            snapshot_dict=self._width_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._height._value = self._get_snapshot_val_if_exists(
+            current_value=self._height._value,
+            snapshot_dict=self._height_snapshots,
+            snapshot_name=snapshot_name,
+        )

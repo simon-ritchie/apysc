@@ -13,6 +13,8 @@ class TestExpressionString:
         exp_str: ExpressionString = ExpressionString(value="Hello!")
         snapshot_name: str = exp_str._get_next_snapshot_name()
         exp_str._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if exp_str._value_snapshots is None:
+            raise AssertionError()
         assert exp_str._value_snapshots[snapshot_name] == "Hello!"
 
         exp_str._value = "World!"

@@ -1,7 +1,7 @@
 """Mix-in class implementation for the relative value.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -76,7 +76,7 @@ class RelativeMixIn(
         self._initialize_relative_if_not_initialized()
         self._relative.value = value
 
-    _relative_snapshots: Dict[str, bool]
+    _relative_snapshots: Optional[Dict[str, bool]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -103,7 +103,9 @@ class RelativeMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_relative_if_not_initialized()
-        self._relative._value = self._relative_snapshots[snapshot_name]
+        self._relative._value = self._get_snapshot_val_if_exists(
+            current_value=self._relative._value,
+            snapshot_dict=self._relative_snapshots,
+            snapshot_name=snapshot_name,
+        )

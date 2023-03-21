@@ -647,6 +647,8 @@ class TestNumberValueMixIn:
         mixin_1.variable_name = "test_mixin_1"
         snapshot_name: str = "snapshot_1"
         mixin_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin_1._value_snapshots is None:
+            raise AssertionError()
         assert mixin_1._value_snapshots[snapshot_name] == 10.5
 
         mixin_1.value = 20

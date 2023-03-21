@@ -261,6 +261,8 @@ class TestString:
         string_1: ap.String = ap.String(value="Hello!")
         snapshot_name: str = "snapshot_1"
         string_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if string_1._value_snapshots is None:
+            raise AssertionError()
         assert string_1._value_snapshots[snapshot_name] == "Hello!"
 
         string_1.value = "World!"

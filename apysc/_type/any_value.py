@@ -1,7 +1,7 @@
 """Class implementation of any value.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 
 from typing_extensions import final
@@ -578,7 +578,7 @@ class AnyValue(CopyMixIn, RevertMixIn, CustomEventMixIn, VariableNameSuffixMixIn
         )
         return result
 
-    _any_value_snapshots: Dict[str, Any]
+    _any_value_snapshots: Optional[Dict[str, Any]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -604,6 +604,8 @@ class AnyValue(CopyMixIn, RevertMixIn, CustomEventMixIn, VariableNameSuffixMixIn
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._value = self._any_value_snapshots[snapshot_name]
+        self._value = self._get_snapshot_val_if_exists(
+            current_value=self._value,
+            snapshot_dict=self._any_value_snapshots,
+            snapshot_name=snapshot_name,
+        )

@@ -3,7 +3,7 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import Generic
 from typing import TypeVar
@@ -1022,7 +1022,7 @@ class NumberValueMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _value_snapshots: Dict[str, _ValueType]
+    _value_snapshots: Optional[Dict[str, _ValueType]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -1046,6 +1046,8 @@ class NumberValueMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._value = self._value_snapshots[snapshot_name]
+        self._value = self._get_snapshot_val_if_exists(
+            current_value=self._value,
+            snapshot_dict=self._value_snapshots,
+            snapshot_name=snapshot_name,
+        )

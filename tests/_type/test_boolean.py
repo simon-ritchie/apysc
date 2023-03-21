@@ -135,6 +135,8 @@ class TestBoolean:
         boolean: ap.Boolean = ap.Boolean(True)
         snapshot_name: str = "snapshot_1"
         boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if boolean._value_snapshots is None:
+            raise AssertionError()
         assert boolean._value_snapshots[snapshot_name]
 
         boolean.value = False

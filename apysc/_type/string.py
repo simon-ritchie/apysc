@@ -1,7 +1,7 @@
 """Class implementation for the string class.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import Union
 
@@ -801,7 +801,7 @@ class String(
             repr_str = f'String("{self._value}")'
         return repr_str
 
-    _value_snapshots: Dict[str, str]
+    _value_snapshots: Optional[Dict[str, str]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -825,6 +825,8 @@ class String(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._value = self._value_snapshots[snapshot_name]
+        self._value = self._get_snapshot_val_if_exists(
+            current_value=self._value,
+            snapshot_dict=self._value_snapshots,
+            snapshot_name=snapshot_name,
+        )

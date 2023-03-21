@@ -583,6 +583,8 @@ class TestArray:
         array_1: ap.Array = ap.Array([1, 2, 3])
         snapshot_name: str = "snapshot_1"
         array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if array_1._value_snapshots is None:
+            raise AssertionError()
         assert array_1._value_snapshots[snapshot_name] == [1, 2, 3]
 
         array_1.value = [4, 5, 6]

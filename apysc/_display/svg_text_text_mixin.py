@@ -1,7 +1,7 @@
 """Class implementation for the SVG text's text mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -89,7 +89,7 @@ class SVGTextTextMixIn(
         expression: str = f"{self.variable_name}.text({text.variable_name});"
         ap.append_js_expression(expression=expression)
 
-    _text_snapshots: Dict[str, str]
+    _text_snapshots: Optional[Dict[str, str]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -115,6 +115,8 @@ class SVGTextTextMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._text = self._text_snapshots[snapshot_name]
+        self._text = self._get_snapshot_val_if_exists(
+            current_value=self._text,
+            snapshot_dict=self._text_snapshots,
+            snapshot_name=snapshot_name,
+        )

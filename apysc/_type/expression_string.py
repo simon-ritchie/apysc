@@ -1,7 +1,7 @@
 """Class implementation for the JavaScript expression string.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -27,7 +27,7 @@ class ExpressionString(RevertMixIn):
         """
         self._value = value
 
-    _value_snapshots: Dict[str, str]
+    _value_snapshots: Optional[Dict[str, str]] = None
 
     @property
     def value(self) -> str:
@@ -63,6 +63,8 @@ class ExpressionString(RevertMixIn):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._value = self._value_snapshots[snapshot_name]
+        self._value = self._get_snapshot_val_if_exists(
+            current_value=self._value,
+            snapshot_dict=self._value_snapshots,
+            snapshot_name=snapshot_name,
+        )

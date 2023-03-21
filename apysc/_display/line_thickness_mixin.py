@@ -181,6 +181,7 @@ class LineThicknessMixIn(
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_line_thickness_if_not_initialized()
         self._line_thickness._value = self._get_snapshot_val_if_exists(
             current_value=self._line_thickness._value,
             snapshot_dict=self._line_thickness_snapshots,

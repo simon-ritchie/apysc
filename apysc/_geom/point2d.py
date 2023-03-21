@@ -1,7 +1,7 @@
 """2-dimensional geometry point class implementation.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import Union
 
@@ -361,8 +361,8 @@ class Point2D(
         repr_str: str = f"Point2D({x_repr}, {y_repr})"
         return repr_str
 
-    _x_snapshots: Dict[str, float]
-    _y_snapshots: Dict[str, float]
+    _x_snapshots: Optional[Dict[str, float]] = None
+    _y_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -393,7 +393,13 @@ class Point2D(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._x._value = self._x_snapshots[snapshot_name]
-        self._y._value = self._y_snapshots[snapshot_name]
+        self._x._value = self._get_snapshot_val_if_exists(
+            current_value=self._x._value,
+            snapshot_dict=self._x_snapshots,
+            snapshot_name=snapshot_name,
+        )
+        self._y._value = self._get_snapshot_val_if_exists(
+            current_value=self._y._value,
+            snapshot_dict=self._y_snapshots,
+            snapshot_name=snapshot_name,
+        )

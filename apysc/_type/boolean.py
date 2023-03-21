@@ -1,7 +1,7 @@
 """Class implementation for boolean.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import Union
 
@@ -308,7 +308,7 @@ class Boolean(
             repr_str = f"Boolean({self._value})"
         return repr_str
 
-    _value_snapshots: Dict[str, bool]
+    _value_snapshots: Optional[Dict[str, bool]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -332,9 +332,11 @@ class Boolean(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._value = self._value_snapshots[snapshot_name]
+        self._value = self._get_snapshot_val_if_exists(
+            current_value=self._value,
+            snapshot_dict=self._value_snapshots,
+            snapshot_name=snapshot_name,
+        )
 
     @final
     @add_debug_info_setting(module_name=__name__)

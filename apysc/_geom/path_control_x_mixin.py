@@ -1,7 +1,7 @@
 """Mix-in class implementation for the control x path data.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -96,7 +96,7 @@ class PathControlXMixIn(
 
         self._append_control_x_linking_setting()
 
-    _control_x_snapshots: Dict[str, int]
+    _control_x_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -123,7 +123,8 @@ class PathControlXMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._initialize_control_x_if_not_initialized()
-        self._control_x._value = self._control_x_snapshots[snapshot_name]
+        self._control_x._value = self._get_snapshot_val_if_exists(
+            current_value=self._control_x._value,
+            snapshot_dict=self._control_x_snapshots,
+            snapshot_name=snapshot_name,
+        )

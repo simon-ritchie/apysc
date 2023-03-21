@@ -1,7 +1,7 @@
 """Mix-in class implementation for the control y path data.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -96,7 +96,7 @@ class PathControlMixIn(
 
         self._append_control_y_linking_setting()
 
-    _control_y_snapshots: Dict[str, float]
+    _control_y_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -123,7 +123,9 @@ class PathControlMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_control_y_if_not_initialized()
-        self._control_y._value = self._control_y_snapshots[snapshot_name]
+        self._control_y._value = self._get_snapshot_val_if_exists(
+            current_value=self._control_y._value,
+            snapshot_dict=self._control_y_snapshots,
+            snapshot_name=snapshot_name,
+        )

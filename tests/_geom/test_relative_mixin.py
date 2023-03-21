@@ -17,6 +17,8 @@ class TestRelativeMixIn:
         mixin._relative = ap.Boolean(True)
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin._relative_snapshots is None:
+            raise AssertionError()
         assert mixin._relative_snapshots[snapshot_name]
 
     @apply_test_settings()

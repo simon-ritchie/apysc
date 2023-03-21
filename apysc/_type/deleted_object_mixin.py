@@ -3,7 +3,7 @@ the `DeletedObjectMixIn`.
 """
 
 import inspect
-from typing import Any
+from typing import Any, Optional
 from typing import Callable
 from typing import Dict
 from typing import List
@@ -28,6 +28,7 @@ _EXCLUDING_TARGET_METHOD_NAMES: List[str] = [
     "_initialize_ss_exists_val_if_not_initialized",
     "_disable_each_method",
     "_disabled_method",
+    "_get_snapshot_val_if_exists",
 ]
 
 
@@ -96,7 +97,7 @@ class DeletedObjectMixIn(RevertMixIn):
                 continue
             setattr(self, method_name, self._disabled_method)
 
-    _is_deleted_object_snapshot: Dict[str, bool]
+    _is_deleted_object_snapshot: Optional[Dict[str, bool]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -122,6 +123,8 @@ class DeletedObjectMixIn(RevertMixIn):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self.__is_deleted_object = self._is_deleted_object_snapshot[snapshot_name]
+        self.__is_deleted_object = self._get_snapshot_val_if_exists(
+            current_value=self.__is_deleted_object,
+            snapshot_dict=self._is_deleted_object_snapshot,
+            snapshot_name=snapshot_name,
+        )

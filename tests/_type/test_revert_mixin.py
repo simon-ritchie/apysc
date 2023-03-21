@@ -269,8 +269,14 @@ def test_make_snapshots_of_each_scope_vars() -> None:
     snapshot_name: str = revert_mixin.make_snapshots_of_each_scope_vars(
         locals_=locals_, globals_=globals_
     )
+    if int_1._value_snapshots is None:
+        raise AssertionError()
     assert int_1._value_snapshots[snapshot_name] == 10
+    if int_2._value_snapshots is None:
+        raise AssertionError()
     assert int_2._value_snapshots[snapshot_name] == 20
+    if int_3._value_snapshots is None:
+        raise AssertionError()
     assert int_3._value_snapshots[snapshot_name] == 40
 
 

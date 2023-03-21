@@ -1,7 +1,7 @@
 """Class implementation for the SVG text's font-size mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -78,7 +78,7 @@ class SVGTextFontSizeMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _font_size_snapshots: Dict[str, int]
+    _font_size_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -104,6 +104,8 @@ class SVGTextFontSizeMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._font_size = self._font_size_snapshots[snapshot_name]
+        self._font_size = self._get_snapshot_val_if_exists(
+            current_value=self._font_size,
+            snapshot_dict=self._font_size_snapshots,
+            snapshot_name=snapshot_name,
+        )

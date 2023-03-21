@@ -46,6 +46,8 @@ class TestXMixIn:
         x_mixin.x = ap.Number(100)
         snapshot_name: str = "snapshot_1"
         x_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if x_mixin._x_snapshots is None:
+            raise AssertionError()
         assert x_mixin._x_snapshots[snapshot_name] == 100
 
         x_mixin.x = ap.Number(150)

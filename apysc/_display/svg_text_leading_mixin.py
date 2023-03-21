@@ -1,7 +1,7 @@
 """Class implementation for the SVG text's leading mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
@@ -64,7 +64,7 @@ class SVGTextLeadingMixIn(
         )
         ap.append_js_expression(expression=expression)
 
-    _leading_snapshots: Dict[str, float]
+    _leading_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -90,6 +90,8 @@ class SVGTextLeadingMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._leading = self._leading_snapshots[snapshot_name]
+        self._leading = self._get_snapshot_val_if_exists(
+            current_value=self._leading,
+            snapshot_dict=self._leading_snapshots,
+            snapshot_name=snapshot_name,
+        )

@@ -1,7 +1,7 @@
 """Class implementation for width mix-in.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -139,7 +139,7 @@ class WidthMixIn(
             value_ = Int(value, variable_name_suffix=suffix)
         self._width = value_
 
-    _width_snapshots: Dict[str, int]
+    _width_snapshots: Optional[Dict[str, int]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -166,6 +166,8 @@ class WidthMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._width._value = self._width_snapshots[snapshot_name]
+        self._width._value = self._get_snapshot_val_if_exists(
+            current_value=self._width._value,
+            snapshot_dict=self._width_snapshots,
+            snapshot_name=snapshot_name,
+        )

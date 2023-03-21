@@ -260,7 +260,7 @@ class Dictionary(
         expression: str = f"{self.variable_name} = {value_str};"
         ap.append_js_expression(expression=expression)
 
-    _value_snapshot: Dict[str, Dict[_Key, _Value]]
+    _value_snapshot: Optional[Dict[str, Dict[_Key, _Value]]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -286,9 +286,11 @@ class Dictionary(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._value = self._value_snapshot[snapshot_name]
+        self._value = self._get_snapshot_val_if_exists(
+            current_value=self._value,
+            snapshot_dict=self._value_snapshot,
+            snapshot_name=snapshot_name,
+        )
 
     def __str__(self) -> str:
         """

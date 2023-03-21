@@ -31,6 +31,8 @@ class TestDeletedObjectMixIn:
         mixin._is_deleted_object = True
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        if mixin._is_deleted_object_snapshot is None:
+            raise AssertionError()
         mixin._is_deleted_object_snapshot[snapshot_name] = True
 
     @apply_test_settings()

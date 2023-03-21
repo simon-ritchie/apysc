@@ -1,7 +1,7 @@
 """Mix-in class implementation for the destination x path data.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from typing_extensions import final
 
@@ -94,7 +94,7 @@ class PathDestXMixIn(
 
         self._append_dest_x_linking_setting()
 
-    _dest_x_snapshots: Dict[str, float]
+    _dest_x_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -121,7 +121,9 @@ class PathDestXMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_dest_x_if_not_initialized()
-        self._dest_x._value = self._dest_x_snapshots[snapshot_name]
+        self._dest_x._value = self._get_snapshot_val_if_exists(
+            current_value=self._dest_x._value,
+            snapshot_dict=self._dest_x_snapshots,
+            snapshot_name=snapshot_name,
+        )

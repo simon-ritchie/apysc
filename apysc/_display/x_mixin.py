@@ -1,7 +1,7 @@
 """Class implementation for the x-coordinate interface.
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import Union
 
 from typing_extensions import final
@@ -145,7 +145,7 @@ class XMixIn(
             x_ = Number(x, variable_name_suffix=suffix)
         self._x = x_
 
-    _x_snapshots: Dict[str, float]
+    _x_snapshots: Optional[Dict[str, float]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -172,6 +172,8 @@ class XMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._x._value = self._x_snapshots[snapshot_name]
+        self._x._value = self._get_snapshot_val_if_exists(
+            current_value=self._x._value,
+            snapshot_dict=self._x_snapshots,
+            snapshot_name=snapshot_name,
+        )

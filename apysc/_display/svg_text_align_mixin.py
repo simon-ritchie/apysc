@@ -2,7 +2,8 @@
 """
 
 from enum import Enum
-from typing import Dict, Optional
+from typing import Dict
+from typing import Optional
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn

@@ -38,8 +38,12 @@ class TestIf:
         with ap.If(condition=boolean_1, locals_=locals_, globals_=globals_):
             current_indent_num: int = indent_num.get_current_indent_num()
             assert current_indent_num == 1
+        if int_1._value_snapshots is None:
+            raise AssertionError()
         snapshot_name: str = list(int_1._value_snapshots.keys())[0]
         assert int_1._value_snapshots[snapshot_name] == 10
+        if int_2._value_snapshots is None:
+            raise AssertionError()
         assert int_2._value_snapshots[snapshot_name] == 20
 
     @apply_test_settings()

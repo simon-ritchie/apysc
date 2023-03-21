@@ -1,7 +1,8 @@
 """Class implementation for the JavaScript expression string.
 """
 
-from typing import Dict, Optional
+from typing import Dict
+from typing import Optional
 
 from typing_extensions import final
 

@@ -68,7 +68,7 @@ class TestWidthMixIn:
         snapshot_name: str = "snapshot_1"
         width_interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         if width_interface._width_snapshots is None:
-            raise  AssertionError()
+            raise AssertionError()
         assert width_interface._width_snapshots[snapshot_name] == 10
 
         width_interface.width = ap.Int(15)

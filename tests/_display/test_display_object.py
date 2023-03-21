@@ -1,14 +1,12 @@
 import apysc as ap
 from apysc._display.any_display_object import AnyDisplayObject
 from apysc._expression import expression_data_util
-from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestDisplayObject:
     @apply_test_settings()
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject(
             variable_name="test_display_object"
         )

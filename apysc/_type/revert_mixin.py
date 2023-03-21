@@ -4,8 +4,10 @@
 from typing import Any
 from typing import Dict
 from typing import List
+from typing import Optional
 from typing import Tuple
-from typing import Type, TypeVar, Optional
+from typing import Type
+from typing import TypeVar
 
 from typing_extensions import final
 
@@ -222,7 +224,7 @@ class RevertMixIn(RevertInterface):
         current_value : _SnapshotValue
             A current value.
         snapshot_dict : Optional[Dict[str, _SnapshotValue]]
-            A dictionary which contains a snapshot value.
+            A dictionary that contains a snapshot value.
         snapshot_name : str
             A target snapshot name.
 

@@ -15,7 +15,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
-    from apysc._display.stage import Stage
+    pass
 
 
 class DisplayObject(

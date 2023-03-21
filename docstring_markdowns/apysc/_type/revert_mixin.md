@@ -82,6 +82,26 @@ Get the next snapshot name.<hr>
 - `snapshot_name`: str
   - Next snapshot name.
 
+### `_get_snapshot_val_if_exists` method docstring
+
+Get a snapshot value from a specified dictionary if a snapshot exists.<hr>
+
+**[Parameters]**
+
+- `current_value`: _SnapshotValue
+  - A current value.
+- `snapshot_dict`: Optional[Dict[str, _SnapshotValue]]
+  - A dictionary that contains a snapshot value.
+- `snapshot_name`: str
+  - A target snapshot name.
+
+<hr>
+
+**[Returns]**
+
+- `snapshot_value`: _SnapshotValue
+  - A snapshot value. If a snapshot value does not exist, this interface returns a current value.
+
 ### `_initialize_ss_exists_val_if_not_initialized` method docstring
 
 Initialize _snapshot_exists_ value if this instance does not initialize it yet.

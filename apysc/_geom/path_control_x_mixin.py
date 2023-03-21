@@ -1,7 +1,8 @@
 """Mix-in class implementation for the control x path data.
 """
 
-from typing import Dict, Optional
+from typing import Dict
+from typing import Optional
 
 from typing_extensions import final
 

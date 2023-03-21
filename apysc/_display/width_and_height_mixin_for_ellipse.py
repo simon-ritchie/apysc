@@ -7,7 +7,8 @@ A Subclass that inherits the normal WidthMixIn and
 HeightMixIn can't use this interface.
 """
 
-from typing import Dict, Optional
+from typing import Dict
+from typing import Optional
 
 from typing_extensions import final
 

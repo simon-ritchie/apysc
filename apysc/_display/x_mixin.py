@@ -1,7 +1,8 @@
 """Class implementation for the x-coordinate interface.
 """
 
-from typing import Dict, Optional
+from typing import Dict
+from typing import Optional
 from typing import Union
 
 from typing_extensions import final

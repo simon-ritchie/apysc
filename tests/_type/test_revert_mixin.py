@@ -1,6 +1,7 @@
 from typing import Any
 from typing import Dict
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings

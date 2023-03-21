@@ -20,7 +20,7 @@ class TestSVGTextSetAlignMixIn:
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_align,
-            match="This method is only supported a ",
+            match="This method is only supported an ",
             align=SVGTextAlign.CENTER,
         )
 

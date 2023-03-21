@@ -37,7 +37,7 @@ class SVGTextSetItalicMixIn:
 
         if not isinstance(self, SVGTextItalicMixIn):
             raise TypeError(
-                f"This method is only supported a {SVGTextItalicMixIn.__name__} "
+                f"This method is only supported an {SVGTextItalicMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

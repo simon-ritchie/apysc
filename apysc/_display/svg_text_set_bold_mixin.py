@@ -33,7 +33,7 @@ class SVGTextSetBoldMixIn:
 
         if not isinstance(self, SVGTextBoldMixIn):
             raise TypeError(
-                f"This method is only supported a {SVGTextBoldMixIn.__name__} "
+                f"This method is only supported an {SVGTextBoldMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

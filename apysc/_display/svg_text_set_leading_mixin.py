@@ -28,7 +28,7 @@ class SVGTextSetLeadingMixIn:
 
         if not isinstance(self, SVGTextLeadingMixIn):
             raise TypeError(
-                f"This method is only supported a {SVGTextLeadingMixIn.__name__} "
+                f"This method is only supported an {SVGTextLeadingMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

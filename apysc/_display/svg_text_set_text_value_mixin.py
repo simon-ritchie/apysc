@@ -29,7 +29,7 @@ class SVGTextSetTextValueMixIn:
 
         if not isinstance(self, SVGTextTextMixIn):
             raise TypeError(
-                f"This method is only supported a {SVGTextTextMixIn.__name__} "
+                f"This method is only supported an {SVGTextTextMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

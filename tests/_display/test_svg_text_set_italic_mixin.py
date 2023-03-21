@@ -27,7 +27,7 @@ class TestSVGTextSetItalicMixIn:
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_italic,
-            match="This method is only supported a ",
+            match="This method is only supported an ",
             italic=True,
         )
 

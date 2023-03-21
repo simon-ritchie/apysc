@@ -24,7 +24,7 @@ class SVGTextSetAlignMixIn:
 
         if not isinstance(self, SVGTextAlignMixIn):
             raise TypeError(
-                f"This method is only supported a {SVGTextAlignMixIn.__name__} "
+                f"This method is only supported an {SVGTextAlignMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

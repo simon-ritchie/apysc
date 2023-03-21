@@ -32,7 +32,7 @@ class SVGTextSetFontSizeValueMixIn:
             return
         if not isinstance(self, SVGTextFontSizeMixIn):
             raise TypeError(
-                f"This method is only supported a {SVGTextFontSizeMixIn.__name__} "
+                f"This method is only supported an {SVGTextFontSizeMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

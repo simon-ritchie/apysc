@@ -27,7 +27,7 @@ class TestSVGTextSetFontFamilyMixIn:
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_font_family,
-            match="This method is only supported a ",
+            match="This method is only supported an ",
             font_family=None,
         )
 

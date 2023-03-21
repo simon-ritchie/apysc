@@ -35,7 +35,7 @@ class SVGTextSetFontFamilyMixIn:
 
         if not isinstance(self, SVGTextFontFamilyMixIn):
             raise TypeError(
-                f"This method is only supported a {SVGTextFontFamilyMixIn.__name__} "
+                f"This method is only supported an {SVGTextFontFamilyMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

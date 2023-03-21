@@ -36,6 +36,6 @@ class TestSVGTextSetTextValueMixIn:
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_2._set_text_value,
-            match="This method is only supported a ",
+            match="This method is only supported an ",
             text="test text 3",
         )

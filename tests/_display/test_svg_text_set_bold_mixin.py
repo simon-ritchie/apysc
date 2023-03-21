@@ -26,7 +26,7 @@ class TestSVGTextSetBoldMixIn:
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_bold,
-            match="This method is only supported a ",
+            match="This method is only supported an ",
             bold=True,
         )
 

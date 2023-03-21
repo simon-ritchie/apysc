@@ -63,6 +63,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
 
 
 class SVGTextSpan(
@@ -92,6 +93,7 @@ class SVGTextSpan(
     SVGTextSetItalicMixIn,
     SVGTextBoldMixIn,
     SVGTextSetBoldMixIn,
+    SVGTextDeltaXMixIn,
     VariableNameSuffixMixIn,
 ):
 
@@ -118,8 +120,10 @@ class SVGTextSpan(
     @arg_validation_decos.is_boolean(arg_position_index=9, optional=True)
     # italic
     @arg_validation_decos.is_boolean(arg_position_index=10, optional=True)
+    # delta_x
+    @arg_validation_decos.is_num(arg_position_index=11)
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=11, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=12, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -134,6 +138,7 @@ class SVGTextSpan(
         line_thickness: Optional[Union[int, Int]] = None,
         bold: Optional[Union[bool, Boolean]] = None,
         italic: Optional[Union[bool, Boolean]] = None,
+        delta_x: Union[float, Number] = 0.0,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -167,6 +172,8 @@ class SVGTextSpan(
             A boolean, whether this text is bold style or not.
         italic : Optional[Union[bool, Boolean]], optional
             A boolean, whether a text is an italic style or not (normal).
+        delta_x : Union[float, Number], optional
+            A coordinate delta-x setting.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -199,6 +206,7 @@ class SVGTextSpan(
         self._set_font_family(font_family=font_family)
         self._set_bold(bold=bold)
         self._set_italic(italic=italic)
+        self._set_delta_x(delta_x=delta_x)
 
         super(SVGTextSpan, self).__init__(variable_name=variable_name)
         self._set_overflow_visible_setting()

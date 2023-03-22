@@ -60,3 +60,35 @@ class SVGTextDeltaYMixIn(
         self._delta_y = value._value
         expression: str = f"{self.variable_name}.dy({value.variable_name});"
         ap.append_js_expression(expression=expression)
+
+    _delta_y_snapshots: Optional[Dict[str, float]] = None
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make a value snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._set_single_snapshot_val_to_dict(
+            dict_name="_delta_y_snapshots",
+            value=self._delta_y,
+            snapshot_name=snapshot_name,
+        )
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert a value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._delta_y = self._get_snapshot_val_if_exists(
+            current_value=self._delta_y,
+            snapshot_dict=self._delta_y_snapshots,
+            snapshot_name=snapshot_name,
+        )

@@ -31,3 +31,9 @@ class TestSVGTextDeltaYMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{delta_y.variable_name} = {mixin.variable_name}.dy();"
         assert expected in expression
+
+        delta_y = ap.Number(50.5)
+        mixin.delta_y = delta_y
+        assert mixin.delta_y == ap.Number(50.5)
+        expression = expression_data_util.get_current_expression()
+        expected = f"{mixin.variable_name}.dy({delta_y.variable_name});"

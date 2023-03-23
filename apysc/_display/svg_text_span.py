@@ -66,6 +66,7 @@ from apysc._validation import arg_validation_decos
 from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
 from apysc._display.svg_text_set_delta_x_mixin import SVGTextSetDeltaXMixIn
 from apysc._display.svg_text_delta_y_mixin import SVGTextDeltaYMixIn
+from apysc._display.svg_text_set_delta_y_mixin import SVGTextSetDeltaYMixIn
 
 
 class SVGTextSpan(
@@ -98,6 +99,7 @@ class SVGTextSpan(
     SVGTextDeltaXMixIn,
     SVGTextSetDeltaXMixIn,
     SVGTextDeltaYMixIn,
+    SVGTextSetDeltaYMixIn,
     VariableNameSuffixMixIn,
 ):
 
@@ -126,8 +128,10 @@ class SVGTextSpan(
     @arg_validation_decos.is_boolean(arg_position_index=10, optional=True)
     # delta_x
     @arg_validation_decos.is_num(arg_position_index=11)
+    # delta_y
+    @arg_validation_decos.is_num(arg_position_index=12)
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=12, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=13, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -143,6 +147,7 @@ class SVGTextSpan(
         bold: Optional[Union[bool, Boolean]] = None,
         italic: Optional[Union[bool, Boolean]] = None,
         delta_x: Union[float, Number] = 0.0,
+        delta_y: Union[float, Number] = 0.0,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -211,6 +216,7 @@ class SVGTextSpan(
         self._set_bold(bold=bold)
         self._set_italic(italic=italic)
         self._set_delta_x(delta_x=delta_x)
+        self._set_delta_y(delta_y=delta_y)
 
         super(SVGTextSpan, self).__init__(variable_name=variable_name)
         self._set_overflow_visible_setting()

@@ -82,6 +82,18 @@ class TestSVGTextSpan:
         )
         assert not svg_text_span._skip_line_thickness_expression_appending
 
+        svg_text_span = ap.SVGTextSpan(
+            text="test_text_span",
+            delta_x=50.5,
+        )
+        assert svg_text_span.delta_x == ap.Number(50.5)
+
+        svg_text_span = ap.SVGTextSpan(
+            text="test_text_span",
+            delta_y=60.5,
+        )
+        assert svg_text_span.delta_x == ap.Number(60.5)
+
 
 @apply_test_settings()
 def test__get_init_fill_color_str() -> None:

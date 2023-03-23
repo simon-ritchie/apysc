@@ -1,5 +1,4 @@
 import apysc as ap
-from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
@@ -20,7 +19,7 @@ class _TestMixIn(
 
 
 class TestSVGTextSetDeltaXMixIn:
-    # @apply_test_settings()
+    @apply_test_settings()
     def test__set_delta_x(self) -> None:
         mixin_1: SVGTextSetDeltaXMixIn = SVGTextSetDeltaXMixIn()
         assert_raises(

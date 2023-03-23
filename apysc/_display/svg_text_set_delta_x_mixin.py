@@ -19,7 +19,7 @@ class SVGTextSetDeltaXMixIn:
         Parameters
         ----------
         delta_x : Union[float, Number]
-            _description_
+            A delta-x value.
         """
         from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
         from apysc._type.variable_name_suffix_utils import (

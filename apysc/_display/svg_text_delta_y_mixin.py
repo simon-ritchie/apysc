@@ -39,7 +39,7 @@ class SVGTextDeltaYMixIn(
             value_identifier="delta_y",
         )
         delta_y: Number = Number(self._delta_y, variable_name_suffix=suffix)
-        expression: str= f"{delta_y.variable_name} = {self.variable_name}.dy();"
+        expression: str = f"{delta_y.variable_name} = {self.variable_name}.dy();"
         ap.append_js_expression(expression=expression)
         return delta_y
 
@@ -57,8 +57,8 @@ class SVGTextDeltaYMixIn(
 
         Notes
         -----
-        This setting also changes a coodinate of subsequent
-        `SVGTextSpan` instance.
+        This setting also changes a coordinate of subsequent
+        `SVGTextSpan`'s instance.
         """
         import apysc as ap
 

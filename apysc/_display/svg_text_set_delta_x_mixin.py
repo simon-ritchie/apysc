@@ -34,7 +34,7 @@ class SVGTextSetDeltaXMixIn:
 
         if not isinstance(delta_x, Number):
             suffix: str = get_attr_or_variable_name_suffix(
-                instance=self, value_identifier='delta_x'
+                instance=self, value_identifier="delta_x"
             )
             delta_x_: Number = Number(delta_x, variable_name_suffix=suffix)
         else:

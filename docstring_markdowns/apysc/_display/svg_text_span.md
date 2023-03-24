@@ -112,6 +112,10 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
   - A boolean, whether this text is bold style or not.
 - `italic`: Optional[Union[bool, Boolean]], optional
   - A boolean, whether a text is an italic style or not (normal).
+- `delta_x`: Union[float, Number], optional
+  - A coordinate delta-x setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`'s instance.
+- `delta_y`: Union[float, Number], optional
+  - A coordinate delta-y setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`'s instance.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 

@@ -29,10 +29,14 @@ from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
 from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
+from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
+from apysc._display.svg_text_delta_y_mixin import SVGTextDeltaYMixIn
 from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
+from apysc._display.svg_text_set_delta_x_mixin import SVGTextSetDeltaXMixIn
+from apysc._display.svg_text_set_delta_y_mixin import SVGTextSetDeltaYMixIn
 from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
 from apysc._display.svg_text_set_font_size_value_mixin import (
     SVGTextSetFontSizeValueMixIn,
@@ -63,10 +67,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
-from apysc._display.svg_text_set_delta_x_mixin import SVGTextSetDeltaXMixIn
-from apysc._display.svg_text_delta_y_mixin import SVGTextDeltaYMixIn
-from apysc._display.svg_text_set_delta_y_mixin import SVGTextSetDeltaYMixIn
 
 
 class SVGTextSpan(
@@ -183,12 +183,12 @@ class SVGTextSpan(
             A boolean, whether a text is an italic style or not (normal).
         delta_x : Union[float, Number], optional
             A coordinate delta-x setting.
-            Notes: this setting also changes a coodinate of subsequent
-            `SVGTextSpan` instance.
+            Notes: This setting also changes a coordinate of subsequent
+            `SVGTextSpan`'s instance.
         delta_y : Union[float, Number], optional
             A coordinate delta-y setting.
-            Notes: this setting also changes a coodinate of subsequent
-            `SVGTextSpan` instance.
+            Notes: This setting also changes a coordinate of subsequent
+            `SVGTextSpan`'s instance.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

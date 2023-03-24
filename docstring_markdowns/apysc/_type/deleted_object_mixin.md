@@ -8,7 +8,11 @@ This module is for the class implementation of the `DeletedObjectMixIn`.
 
 ### `_disable_each_method` method docstring
 
-Disable each method of this instance.
+Disable each method of this instance.<hr>
+
+**[Notes]**
+
+This method disables only public methods (this method skips methods which starts with the single underscore character).
 
 ### `_disabled_method` method docstring
 

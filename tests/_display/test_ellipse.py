@@ -47,7 +47,6 @@ class TestEllipse:
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
-            line_joints=ap.LineJoints.BEVEL,
             line_dot_setting=ap.LineDotSetting(dot_size=10),
             variable_name_suffix="test_ellipse",
         )
@@ -63,7 +62,6 @@ class TestEllipse:
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,
-                "_line_joints": ap.LineJoints.BEVEL.value,
                 "_line_dot_setting": ap.LineDotSetting(dot_size=10),
                 "_parent": stage,
                 "_variable_name_suffix": "test_ellipse",
@@ -156,7 +154,6 @@ class TestEllipse:
                 "_line_thickness": 3,
                 "_line_alpha": 0.3,
                 "_line_cap": ap.LineCaps.ROUND.value,
-                "_line_joints": ap.LineJoints.BEVEL.value,
                 "_line_dash_setting": ap.LineDashSetting(dash_size=10, space_size=5),
                 "_variable_name_suffix": "test_ellipse",
             },

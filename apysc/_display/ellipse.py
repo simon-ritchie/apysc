@@ -22,9 +22,6 @@ from apysc._display.append_line_cap_attr_expression_mixin import (
 from apysc._display.append_line_color_attr_expression_mixin import (
     AppendLineColorAttrExpressionMixIn,
 )
-from apysc._display.append_line_joints_attr_expression_mixin import (
-    AppendLineJointsAttrExpressionMixIn,
-)
 from apysc._display.append_line_thickness_attr_expression_mixin import (
     AppendLineThicknessAttrExpressionMixIn,
 )
@@ -47,8 +44,6 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_dot_setting_mixin import LineDotSettingMixIn
-from apysc._display.line_joints import LineJoints
-from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_round_dot_setting_mixin import LineRoundDotSettingMixIn
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
@@ -100,8 +95,6 @@ class Ellipse(
     AppendLineAlphaAttrExpressionMixIn,
     AppendLineThicknessAttrExpressionMixIn,
     AppendLineCapAttrExpressionMixIn,
-    LineJointsMixIn,
-    AppendLineJointsAttrExpressionMixIn,
     LineDotSettingMixIn,
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,
@@ -169,22 +162,20 @@ class Ellipse(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=9, optional=False)
     # line_cap
     @arg_validation_decos.is_line_cap(arg_position_index=10, optional=True)
-    # line_joints
-    @arg_validation_decos.are_line_joints(arg_position_index=11, optional=True)
     # line_dot_setting
-    @arg_validation_decos.is_line_dot_setting(arg_position_index=12)
+    @arg_validation_decos.is_line_dot_setting(arg_position_index=11)
     # line_dash_setting
-    @arg_validation_decos.is_line_dash_setting(arg_position_index=13)
+    @arg_validation_decos.is_line_dash_setting(arg_position_index=12)
     # line_round_dot_setting
-    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=14)
+    @arg_validation_decos.is_line_round_dot_setting(arg_position_index=13)
     # line_dash_dot_setting
-    @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=15)
+    @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=14)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=16, optional=True
+        arg_position_index=15, optional=True
     )
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=17, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=16, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -199,7 +190,6 @@ class Ellipse(
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         line_cap: Optional[Union[String, LineCaps]] = None,
-        line_joints: Optional[Union[String, LineJoints]] = None,
         line_dot_setting: Optional[LineDotSetting] = None,
         line_dash_setting: Optional[LineDashSetting] = None,
         line_round_dot_setting: Optional[LineRoundDotSetting] = None,
@@ -232,8 +222,6 @@ class Ellipse(
             A line-thickness (line-width) to set.
         line_cap : String or LineCaps or None, default None
             A line-cap setting to set.
-        line_joints : String or LineJoints or None, default None
-            A line-joints setting to set.
         line_dot_setting : LineDotSetting or None, default None
             A dot setting to set.
         line_dash_setting : LineDashSetting or None, default None
@@ -296,7 +284,7 @@ class Ellipse(
             line_thickness=line_thickness,
             line_alpha=line_alpha,
             line_cap=line_cap,
-            line_joints=line_joints,
+            line_joints=None,
         )
         self._append_constructor_expression()
         self.x = self._get_copied_number_from_builtin_val(
@@ -363,7 +351,6 @@ class Ellipse(
             line_alpha=graphics._line_alpha,
             line_thickness=graphics._line_thickness,
             line_cap=graphics._line_cap,
-            line_joints=graphics._line_joints,
             line_dot_setting=graphics._line_dot_setting,
             line_dash_setting=graphics._line_dash_setting,
             line_round_dot_setting=graphics._line_round_dot_setting,
@@ -407,9 +394,6 @@ class Ellipse(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_line_cap_attr_expression(
-            expression=expression, indent_num=INDENT_NUM
-        )
-        expression = self._append_line_joints_attr_expression(
             expression=expression, indent_num=INDENT_NUM
         )
         expression = self._append_x_attr_expression(

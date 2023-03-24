@@ -14,14 +14,14 @@ class TestDeletedObjectMixIn:
         assert mixin._is_deleted_object
 
         class _TestClass(DeletedObjectMixIn):
-            def _test_func(self, a: int) -> int:
+            def test_func(self, a: int) -> int:
                 return a * 2
 
         instance: _TestClass = _TestClass()
         instance._is_deleted_object = True
         assert_raises(
             expected_error_class=_DisabledObjectError,
-            callable_=instance._test_func,
+            callable_=instance.test_func,
             a=100,
         )
 
@@ -52,16 +52,21 @@ class TestDeletedObjectMixIn:
     @apply_test_settings()
     def test__disable_each_methods(self) -> None:
         class _TestClass(DeletedObjectMixIn):
-            def _test_func(self, a: int) -> int:
+            def test_func_1(self, a: int) -> int:
                 return a * 2
+
+            def _test_func_2(self, a: int) -> int:
+                return a * 3
 
         test_instance: _TestClass = _TestClass()
         test_instance._disable_each_method()
         assert_raises(
             expected_error_class=_DisabledObjectError,
-            callable_=test_instance._test_func,
+            callable_=test_instance.test_func_1,
             a=100,
         )
+        result: int = test_instance._test_func_2(a=100)
+        assert result == 300
 
     @apply_test_settings()
     def test__disabled_method(self) -> None:

@@ -89,12 +89,19 @@ class DeletedObjectMixIn(RevertMixIn):
     def _disable_each_method(self) -> None:
         """
         Disable each method of this instance.
+
+        Notes
+        -----
+        This method disables only public methods (this method skips
+        methods which starts with the single underscore character).
         """
         method_members: List[Tuple[str, Callable]] = inspect.getmembers(
             self, predicate=inspect.ismethod
         )
         for method_name, _ in method_members:
             if method_name in _EXCLUDING_TARGET_METHOD_NAMES:
+                continue
+            if method_name.startswith("_") and not method_name.startswith("__"):
                 continue
             setattr(self, method_name, self._disabled_method)
 

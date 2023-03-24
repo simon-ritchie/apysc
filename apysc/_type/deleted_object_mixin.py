@@ -14,24 +14,6 @@ from typing_extensions import final
 
 from apysc._type.revert_mixin import RevertMixIn
 
-_EXCLUDING_TARGET_METHOD_NAMES: List[str] = [
-    "_make_snapshot",
-    "_revert",
-    "_set_single_snapshot_val_to_dict",
-    "_snapshot_exists",
-    "_get_next_snapshot_name",
-    "_run_all_make_snapshot_methods",
-    "_run_all_revert_methods",
-    "_delete_snapshot_exists_val",
-    "_run_base_cls_revert_methods_recursively",
-    "_run_base_cls_make_snapshot_methods_recursively",
-    "_set_snapshot_exists_val",
-    "_initialize_ss_exists_val_if_not_initialized",
-    "_disable_each_method",
-    "_disabled_method",
-    "_get_snapshot_val_if_exists",
-]
-
 
 class _DisabledObjectError(Exception):
     pass
@@ -99,8 +81,6 @@ class DeletedObjectMixIn(RevertMixIn):
             self, predicate=inspect.ismethod
         )
         for method_name, _ in method_members:
-            if method_name in _EXCLUDING_TARGET_METHOD_NAMES:
-                continue
             if method_name.startswith("_") and not method_name.startswith("__"):
                 continue
             setattr(self, method_name, self._disabled_method)

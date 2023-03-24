@@ -92,7 +92,7 @@ class TestSVGTextSpan:
             text="test_text_span",
             delta_y=60.5,
         )
-        assert svg_text_span.delta_x == ap.Number(60.5)
+        assert svg_text_span.delta_y == ap.Number(60.5)
 
 
 @apply_test_settings()

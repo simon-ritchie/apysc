@@ -183,6 +183,12 @@ class SVGTextSpan(
             A boolean, whether a text is an italic style or not (normal).
         delta_x : Union[float, Number], optional
             A coordinate delta-x setting.
+            Notes: this setting also changes a coodinate of subsequent
+            `SVGTextSpan` instance.
+        delta_y : Union[float, Number], optional
+            A coordinate delta-y setting.
+            Notes: this setting also changes a coodinate of subsequent
+            `SVGTextSpan` instance.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

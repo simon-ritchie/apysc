@@ -54,6 +54,11 @@ class SVGTextDeltaYMixIn(
         ----------
         value : Number
             A delta-y value.
+
+        Notes
+        -----
+        This setting also changes a coodinate of subsequent
+        `SVGTextSpan` instance.
         """
         import apysc as ap
 

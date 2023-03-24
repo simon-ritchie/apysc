@@ -41,7 +41,6 @@ class TestCircle:
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
-            line_joints=ap.LineJoints.BEVEL,
             line_dot_setting=ap.LineDotSetting(dot_size=10),
             variable_name_suffix="test_circle_1",
         )
@@ -56,7 +55,6 @@ class TestCircle:
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,
-                "_line_joints": ap.LineJoints.BEVEL.value,
                 "_line_dot_setting": ap.LineDotSetting(dot_size=10),
                 "_parent": stage,
                 "_variable_name_suffix": "test_circle_1",
@@ -153,7 +151,6 @@ class TestCircle:
                 "_line_thickness": 3,
                 "_line_alpha": 0.3,
                 "_line_cap": ap.LineCaps.ROUND.value,
-                "_line_joints": ap.LineJoints.BEVEL.value,
                 "_line_dot_setting": ap.LineDotSetting(dot_size=10),
                 "_parent": sprite.graphics,
                 "_variable_name_suffix": "test_circle",

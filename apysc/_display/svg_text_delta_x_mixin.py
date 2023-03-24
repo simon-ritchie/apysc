@@ -57,8 +57,8 @@ class SVGTextDeltaXMixIn(
 
         Notes
         -----
-        This setting also changes a coodinate of subsequent
-        `SVGTextSpan` instance.
+        This setting also changes a coordinate of subsequent
+        `SVGTextSpan`'s instance.
         """
         import apysc as ap
 

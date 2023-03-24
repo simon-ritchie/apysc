@@ -67,8 +67,6 @@ Create an ellipse vector graphic.<hr>
   - A line-thickness (line-width) to set.
 - `line_cap`: String or LineCaps or None, default None
   - A line-cap setting to set.
-- `line_joints`: String or LineJoints or None, default None
-  - A line-joints setting to set.
 - `line_dot_setting`: LineDotSetting or None, default None
   - A dot setting to set.
 - `line_dash_setting`: LineDashSetting or None, default None

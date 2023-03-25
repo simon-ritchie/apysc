@@ -79,6 +79,7 @@ int_and_number_comparison_operations
 string
 string_comparison_operations
 string_addition_and_multiplication
+string_split
 ```
 
 ### Boolean class

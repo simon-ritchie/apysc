@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -47,7 +47,27 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## apysc basic data classes": "## apyscの基本的な各データクラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nwhy_apysc_doesnt_use_python_builtin_data_type\nfundamental_data_classes_value_interface\nint_and_number\nint_and_number_arithmetic_operations\nint_and_number_comparison_operations\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nboolean\narray\narray_append_and_push\narray_extend_and_concat\narray_insert_and_insert_at\narray_pop\narray_remove_and_remove_at\narray_sort\narray_reverse\narray_slice\narray_length\narray_join\narray_index_of\narray_clear\narray_comparison\ndictionary\ndictionary_generic\ndictionary_get\ndictionary_length\n```": "```{toctree}\n:maxdepth: 1\njp_why_apysc_doesnt_use_python_builtin_data_type\njp_fundamental_data_classes_value_interface\njp_int_and_number\njp_int_and_number_arithmetic_operations\njp_int_and_number_comparison_operations\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_boolean\njp_array\njp_array_append_and_push\njp_array_extend_and_concat\njp_array_insert_and_insert_at\njp_array_pop\njp_array_remove_and_remove_at\njp_array_sort\njp_array_reverse\njp_array_slice\njp_array_length\njp_array_join\njp_array_index_of\njp_array_clear\njp_array_comparison\njp_dictionary\njp_dictionary_generic\njp_dictionary_get\njp_dictionary_length\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nwhy_apysc_doesnt_use_python_builtin_data_type\nfundamental_data_classes_value_interface\n```": "```{toctree}\n:maxdepth: 1\njp_why_apysc_doesnt_use_python_builtin_data_type\njp_fundamental_data_classes_value_interface\n```",  # noqa
+    ##################################################
+    "### Int and Number classes": "### Int と Number クラス",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\nint_and_number\nint_and_number_arithmetic_operations\nint_and_number_comparison_operations\n```": "```{toctree}\n:maxdepth: 1\njp_int_and_number\njp_int_and_number_arithmetic_operations\njp_int_and_number_comparison_operations\n```",  # noqa
+    ##################################################
+    "### String class": "### String クラス",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nstring_split\n```": "```{toctree}\n:maxdepth: 1\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_string_split\n```",  # noqa
+    ##################################################
+    "### Boolean class": "### Boolean クラス",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\nboolean\n```": "```{toctree}\n:maxdepth: 1\njp_boolean\n```",  # noqa
+    ##################################################
+    "### Array class": "### Array クラス",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\narray\narray_append_and_push\narray_extend_and_concat\narray_insert_and_insert_at\narray_pop\narray_remove_and_remove_at\narray_sort\narray_reverse\narray_slice\narray_length\narray_join\narray_index_of\narray_clear\narray_comparison\n```": "```{toctree}\n:maxdepth: 1\njp_array\njp_array_append_and_push\njp_array_extend_and_concat\njp_array_insert_and_insert_at\njp_array_pop\njp_array_remove_and_remove_at\njp_array_sort\njp_array_reverse\njp_array_slice\njp_array_length\njp_array_join\njp_array_index_of\njp_array_clear\njp_array_comparison\n```",  # noqa
+    ##################################################
+    "### Dictionary class": "### Dictionary クラス",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\ndictionary\ndictionary_generic\ndictionary_get\ndictionary_length\n```": "```{toctree}\n:maxdepth: 1\njp_dictionary\njp_dictionary_generic\njp_dictionary_get\njp_dictionary_length\n```",  # noqa
     ##################################################
     "## DisplayObject and GraphicsBase classes": "## DisplayObject と GraphicsBase の各クラス",  # noqa
     ##################################################

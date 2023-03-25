@@ -26,6 +26,11 @@ class StringSplitMixIn(VariableNameMixIn):
         splitted_strs : Array[String]
             A splitted strings' array.
 
+        References
+        ----------
+        - String class split interface
+            - https://simon-ritchie.github.io/apysc/en/string_split.html
+
         Examples
         --------
         >>> import apysc as ap

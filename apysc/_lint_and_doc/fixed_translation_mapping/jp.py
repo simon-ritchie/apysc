@@ -3434,5 +3434,41 @@ MAPPINGS: Mappings = Mappings(
             key="Unbind (remove) custom event listener settings.<hr>",
             val="カスタムイベントのリスナー設定を一通り解除します。<hr>",
         ),
+        Mapping(
+            key="## split API",
+            val="## split API",
+        ),
+        Mapping(
+            key="Split a current string with a separator string.<hr>",
+            val="現在の文字列を指定された区切り文字（列）を使って分割します。<hr>",
+        ),
+        Mapping(
+            key="  - A separator string.",
+            val="  - 区切り文字（列）。",
+        ),
+        Mapping(
+            key="  - A splitted strings\' array.",
+            val="  - 分割された文字列を格納した配列。",
+        ),
+        Mapping(
+            key="### Int and Number classes",
+            val="### Int と Number クラス",
+        ),
+        Mapping(
+            key="### String class",
+            val="### String クラス",
+        ),
+        Mapping(
+            key="### Boolean class",
+            val="### Boolean クラス",
+        ),
+        Mapping(
+            key="### Array class",
+            val="### Array クラス",
+        ),
+        Mapping(
+            key="### Dictionary class",
+            val="### Dictionary クラス",
+        ),
     ]
 )

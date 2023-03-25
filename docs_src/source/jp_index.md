@@ -64,13 +64,38 @@ jp_get_child_at
 :maxdepth: 1
 jp_why_apysc_doesnt_use_python_builtin_data_type
 jp_fundamental_data_classes_value_interface
+```
+
+### Int と Number クラス
+
+```{toctree}
+:maxdepth: 1
 jp_int_and_number
 jp_int_and_number_arithmetic_operations
 jp_int_and_number_comparison_operations
+```
+
+### String クラス
+
+```{toctree}
+:maxdepth: 1
 jp_string
 jp_string_comparison_operations
 jp_string_addition_and_multiplication
+jp_string_split
+```
+
+### Boolean クラス
+
+```{toctree}
+:maxdepth: 1
 jp_boolean
+```
+
+### Array クラス
+
+```{toctree}
+:maxdepth: 1
 jp_array
 jp_array_append_and_push
 jp_array_extend_and_concat
@@ -85,6 +110,12 @@ jp_array_join
 jp_array_index_of
 jp_array_clear
 jp_array_comparison
+```
+
+### Dictionary クラス
+
+```{toctree}
+:maxdepth: 1
 jp_dictionary
 jp_dictionary_generic
 jp_dictionary_get

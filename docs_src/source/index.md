@@ -61,13 +61,37 @@ get_child_at
 :maxdepth: 1
 why_apysc_doesnt_use_python_builtin_data_type
 fundamental_data_classes_value_interface
+```
+
+### Int and Number classes
+
+```{toctree}
+:maxdepth: 1
 int_and_number
 int_and_number_arithmetic_operations
 int_and_number_comparison_operations
+```
+
+### String class
+
+```{toctree}
+:maxdepth: 1
 string
 string_comparison_operations
 string_addition_and_multiplication
+```
+
+### Boolean class
+
+```{toctree}
+:maxdepth: 1
 boolean
+```
+
+### Array class
+
+```{toctree}
+:maxdepth: 1
 array
 array_append_and_push
 array_extend_and_concat
@@ -82,6 +106,12 @@ array_join
 array_index_of
 array_clear
 array_comparison
+```
+
+### Dictionary class
+
+```{toctree}
+:maxdepth: 1
 dictionary
 dictionary_generic
 dictionary_get

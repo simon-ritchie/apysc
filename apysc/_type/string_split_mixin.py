@@ -25,6 +25,13 @@ class StringSplitMixIn(VariableNameMixIn):
         -------
         splitted_strs : Array[String]
             A splitted strings' array.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> str_value: ap.String = ap.String("Lorem ipsum dolor sit")
+        >>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))
+        >>> ap.assert_arrays_equal(splitted_strs, ["Lorem", "ipsum", "dolor", "sit"])
         """
         from apysc._type.array import Array
         from apysc._type.variable_name_suffix_utils import (

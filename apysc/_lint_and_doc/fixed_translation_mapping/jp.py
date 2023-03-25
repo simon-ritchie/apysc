@@ -3447,7 +3447,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - 区切り文字（列）。",
         ),
         Mapping(
-            key="  - A splitted strings\' array.",
+            key="  - A splitted strings' array.",
             val="  - 分割された文字列を格納した配列。",
         ),
         Mapping(

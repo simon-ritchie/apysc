@@ -11,7 +11,6 @@ if TYPE_CHECKING:
 
 
 class StringSplitMixIn(VariableNameMixIn):
-
     def split(self, *, sep: "String") -> "Array[String]":
         """
         Split a current string with a separator string.

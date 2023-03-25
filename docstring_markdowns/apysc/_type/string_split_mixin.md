@@ -32,3 +32,20 @@ Split a current string with a separator string.<hr>
 
 - `splitted_strs`: Array[String]
   - A splitted strings' array.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> str_value: ap.String = ap.String("Lorem ipsum dolor sit")
+>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))
+>>> ap.assert_arrays_equal(splitted_strs, ["Lorem", "ipsum", "dolor", "sit"])
+```
+
+<hr>
+
+**[References]**
+
+- [String class split interface](https://simon-ritchie.github.io/apysc/en/string_split.html)

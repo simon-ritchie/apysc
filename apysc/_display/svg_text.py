@@ -67,6 +67,8 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.skew_x_mixin import SkewXMixIn
+from apysc._display.skew_y_mixin import SkewYMixIn
 
 
 class SVGText(
@@ -83,6 +85,8 @@ class SVGText(
     ScaleYFromPointMixIn,
     FlipXMixIn,
     FlipYMixIn,
+    SkewXMixIn,
+    SkewYMixIn,
     FillColorMixIn,
     AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,

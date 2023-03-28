@@ -37,8 +37,6 @@ from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixI
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
-from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
-from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
 from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
@@ -80,9 +78,7 @@ class SVGText(
     RotationAroundCenterMixIn,
     RotationAroundPointMixIn,
     ScaleXFromCenterMixIn,
-    ScaleYFromCenterMixIn,
     ScaleXFromPointMixIn,
-    ScaleYFromPointMixIn,
     FlipXMixIn,
     FlipYMixIn,
     SkewXMixIn,
@@ -173,7 +169,7 @@ class SVGText(
         variable_name_suffix: str = "",
     ) -> None:
         """
-        The class for a SVG text.
+        The class for an SVG text.
 
         Notes
         -----

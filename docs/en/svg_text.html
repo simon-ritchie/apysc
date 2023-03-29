@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>SVGText class &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <script src="static/add_en_to_ja_link.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Point2D class" href="point2d.html" />
+    <link rel="prev" title="Graphics clear interface" href="graphics_clear.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="point2d.html" title="Point2D class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="graphics_clear.html" title="Graphics clear interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SVGText class</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="svgtext-class">
+<h1>SVGText class<a class="headerlink" href="#svgtext-class" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> class.</p>
+<section id="what-class-is-this">
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> class creates an SVG text object.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">text</span></code> argument.</p>
+<p>The constructor also accepts each font’s and style’s argument, such as the <code class="docutils literal notranslate"><span class="pre">font_size</span></code>, <code class="docutils literal notranslate"><span class="pre">font_family</span></code>, <code class="docutils literal notranslate"><span class="pre">fill_color</span></code>, and <code class="docutils literal notranslate"><span class="pre">bold</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_basic_usage/index.html" width="200" height="50"></iframe>
+</section>
+<section id="note-on-the-baseline-of-a-text-s-y-coordinate">
+<h2>Note on the baseline of a text’s y-coordinate<a class="headerlink" href="#note-on-the-baseline-of-a-text-s-y-coordinate" title="Permalink to this headline">¶</a></h2>
+<p>The baseline of a text’s y-coordinate is the text’s bottom position (this is the specification of the SVG text).</p>
+<p>So if you specify <code class="docutils literal notranslate"><span class="pre">y=0</span></code> as the coordinate, you can see almost nothing of a text’s content (barely see the bottom of the comma in the following example).</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_note_on_the_y_baseline/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_note_on_the_y_baseline/index.html" width="200" height="50"></iframe>
+</section>
+<section id="text-property-interface-example">
+<h2>text property interface example<a class="headerlink" href="#text-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">text</span></code> property updates or gets the instance’s text.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Lorem ipsum&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_text/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_text/index.html" width="200" height="50"></iframe>
+</section>
+<section id="font-size-property-interface-example">
+<h2>font_size property interface example<a class="headerlink" href="#font-size-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">font_size</span></code> property updates or gets the instance’s font size.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">font_size</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_font_size/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_font_size/index.html" width="200" height="50"></iframe>
+</section>
+<section id="font-family-property-interface-example">
+<h2>font_family property interface example<a class="headerlink" href="#font-family-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">font_family</span></code> property updates or gets the instance’s font family.</p>
+<p>This property requires an <code class="docutils literal notranslate"><span class="pre">Array</span></code> of each font name <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">font_family</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Impact&quot;</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Times New Roman&quot;</span><span class="p">)])</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_font_family/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_font_family/index.html" width="200" height="50"></iframe>
+</section>
+<section id="x-property-interface-example">
+<h2>x property interface example<a class="headerlink" href="#x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> property updates or gets the instance’s x-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_x/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_x/index.html" width="200" height="50"></iframe>
+</section>
+<section id="y-property-interface-example">
+<h2>y property interface example<a class="headerlink" href="#y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">y</span></code> property updates or gets the instance’s y-coordinate:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_y/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_y/index.html" width="200" height="70"></iframe>
+</section>
+<section id="fill-color-property-interface-example">
+<h2>fill_color property interface example<a class="headerlink" href="#fill-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> property updates or gets the instance’s fill color:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_fill_color/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_fill_color/index.html" width="200" height="50"></iframe>
+</section>
+<section id="fill-alpha-property-interface-example">
+<h2>fill_alpha property interface example<a class="headerlink" href="#fill-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code> property updates or gets the instance’s fill alpha (opacity):</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_fill_alpha/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_fill_alpha/index.html" width="200" height="50"></iframe>
+</section>
+<section id="line-color-property-interface-example">
+<h2>line_color property interface example<a class="headerlink" href="#line-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property updates or gets the instance’s line color:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_line_color/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_line_color/index.html" width="200" height="50"></iframe>
+</section>
+<section id="line-alpha-property-interface-example">
+<h2>line_alpha property interface example<a class="headerlink" href="#line-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_alpha</span></code> property updates or gets the instance’s line alpha (opacity):</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">line_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_line_alpha/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_line_alpha/index.html" width="200" height="50"></iframe>
+</section>
+<section id="line-thickness-property-interface-example">
+<h2>line_thickness property interface example<a class="headerlink" href="#line-thickness-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_thickness</span></code> property updates or gets the instance’s line thickness (line width):</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">line_thickness</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_line_thickness/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_line_thickness/index.html" width="200" height="50"></iframe>
+</section>
+<section id="leading-property-interface-example">
+<h2>leading property interface example<a class="headerlink" href="#leading-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">leading</span></code> property updates or gets the instance’s text leading (line height).</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet,</span><span class="se">\n</span><span class="s2">consectetur adipiscing elit,</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="s2">&quot;sed do eiusmod tempor incididunt&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">leading</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_leading/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_leading/index.html" width="500" height="120"></iframe>
+</section>
+<section id="align-property-interface-example">
+<h2>align property interface example<a class="headerlink" href="#align-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">align</span></code> property updates or gets the instance’s horizontal text alignment (left, center, or right).</p>
+<p>This property requires the <code class="docutils literal notranslate"><span class="pre">SVGTextAlign</span></code> enum.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet,</span><span class="se">\n</span><span class="s2">consectetur adipiscing elit,</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="s2">&quot;sed do eiusmod tempor incididunt&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_align/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_align/index.html" width="500" height="100"></iframe>
+<p>Note: This property setting changes x coordinate baseline (position of <code class="docutils literal notranslate"><span class="pre">x=0</span></code>), as follows:</p>
+<ul class="simple">
+<li><p>SVGTextAlign.CENTER: X coordinate baseline becomes the text’s center position.</p></li>
+<li><p>SVGTextAlign.RIGHT: X coordinate baseline becomes the text’s right position.</p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">STAGE_WIDTH</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">STAGE_HEIGHT</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="n">STAGE_WIDTH</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="n">STAGE_HEIGHT</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">container_sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">container_sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">STAGE_WIDTH</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">vertical_x0_line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span>
+    <span class="n">start_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">end_point</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">STAGE_HEIGHT</span><span class="p">),</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#666&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">x0_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Text&#39;s x=0 position&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#666&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">left_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Left align sample (default)&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">52</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">center_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Center align sample&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">center_align_sample_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
+
+<span class="n">right_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Right align sample&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">92</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">right_align_sample_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">RIGHT</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_align_note/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_align_note/index.html" width="500" height="120"></iframe>
+</section>
+<section id="bold-property-interface-example">
+<h2>bold property interface example<a class="headerlink" href="#bold-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">bold</span></code> property updates or gets the instance’s <code class="docutils literal notranslate"><span class="pre">bold</span></code> text setting.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Bold style sample&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_bold/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_bold/index.html" width="200" height="50"></iframe>
+</section>
+<section id="italic-property-interface-example">
+<h2>italic property interface example<a class="headerlink" href="#italic-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">italic</span></code> property updates or gets the instance’s <code class="docutils literal notranslate"><span class="pre">italic</span></code> style setting.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Italic style sample&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_italic/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_text_italic/index.html" width="200" height="50"></iframe>
+</section>
+<section id="rotation-around-center-property-interface-example">
+<h2>rotation_around_center property interface example<a class="headerlink" href="#rotation-around-center-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property updates or gets the instance’s rotation value (0 to 359) from the center point:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+    <span class="n">align</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_enter_frame</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">EnterFrameEvent</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler to handle a timer event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.EnterFrameEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    optional : dict</span>
+<span class="sd">        Optional argument dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">svg_text</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">stage</span><span class="o">.</span><span class="n">enter_frame</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_enter_frame</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_rotation_around_center/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_rotation_around_center/index.html" width="200" height="50"></iframe>
+</section>
+<section id="set-rotation-around-point-and-get-rotation-around-point-methods-interface-example">
+<h2>set_rotation_around_point and get_rotation_around_point methods interface example<a class="headerlink" href="#set-rotation-around-point-and-get-rotation-around-point-methods-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method updates the instance’s rotation value (0 to 359) from a specified point.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method gets the instance’s rotation value (0 to 359) from a specified point:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">X</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">Y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_enter_frame</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">EnterFrameEvent</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler to handle a timer event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.EnterFrameEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    optional : dict</span>
+<span class="sd">        Optional argument dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rotation</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">svg_text</span><span class="o">.</span><span class="n">get_rotation_around_point</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="n">svg_text</span><span class="o">.</span><span class="n">set_rotation_around_point</span><span class="p">(</span>
+        <span class="n">rotation</span><span class="o">=</span><span class="n">rotation</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="n">stage</span><span class="o">.</span><span class="n">enter_frame</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_enter_frame</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_rotation_around_point/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_rotation_around_point/index.html" width="200" height="120"></iframe>
+</section>
+<section id="scale-related-interfaces-note">
+<h2>Scale-related interfaces note<a class="headerlink" href="#scale-related-interfaces-note" title="Permalink to this headline">¶</a></h2>
+<p>The scale-related interfaces are not recommended as the display may become distorted depending on the settings.</p>
+</section>
+<section id="scale-x-from-center-property-interface-example">
+<h2>scale_x_from_center property interface example<a class="headerlink" href="#scale-x-from-center-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> property updates or gets the instance’s scale-x from the center point:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_enter_frame</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">EnterFrameEvent</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler to handle a timer event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.EnterFrameEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    optional : dict</span>
+<span class="sd">        Optional argument dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">svg_text</span><span class="o">.</span><span class="n">scale_x_from_center</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&lt;=</span> <span class="mf">0.3</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">scale</span> <span class="o">+=</span> <span class="n">direction</span> <span class="o">*</span> <span class="mf">0.005</span>
+    <span class="n">svg_text</span><span class="o">.</span><span class="n">scale_x_from_center</span> <span class="o">=</span> <span class="n">scale</span>
+
+
+<span class="n">stage</span><span class="o">.</span><span class="n">enter_frame</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_enter_frame</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_scale_x_from_center/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_scale_x_from_center/index.html" width="200" height="50"></iframe>
+</section>
+<section id="set-scale-x-from-point-and-get-scale-x-from-point-methods-interface-example">
+<h2>set_scale_x_from_point and get_scale_x_from_point methods interface example<a class="headerlink" href="#set-scale-x-from-point-and-get-scale-x-from-point-methods-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> method updates the instance’s scale-x from a specified point.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> method gets the instance’s scale-x from a specified point:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">X</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_enter_frame</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">EnterFrameEvent</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler to handle a timer event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.EnterFrameEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    optional : dict</span>
+<span class="sd">        Optional argument dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">svg_text</span><span class="o">.</span><span class="n">get_scale_x_from_point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scale</span> <span class="o">&lt;=</span> <span class="mf">0.3</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">scale</span> <span class="o">+=</span> <span class="n">direction</span> <span class="o">*</span> <span class="mf">0.005</span>
+    <span class="n">svg_text</span><span class="o">.</span><span class="n">set_scale_x_from_point</span><span class="p">(</span><span class="n">scale_x</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+
+
+<span class="n">stage</span><span class="o">.</span><span class="n">enter_frame</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_enter_frame</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_scale_x_from_point/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_scale_x_from_point/index.html" width="200" height="50"></iframe>
+</section>
+<section id="flip-x-property-interface-example">
+<h2>flip_x property interface example<a class="headerlink" href="#flip-x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> property updates or gets the instance’s flip-x (reflecting state) boolean value:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler to handle a timer event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional argument dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">svg_text</span><span class="o">.</span><span class="n">flip_x</span> <span class="o">=</span> <span class="n">svg_text</span><span class="o">.</span><span class="n">flip_x</span><span class="o">.</span><span class="n">not_</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_flip_x/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_flip_x/index.html" width="200" height="50"></iframe>
+</section>
+<section id="flip-y-property-interface-example">
+<h2>flip_y property interface example<a class="headerlink" href="#flip-y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property updates or gets the instance’s flip-y (reflecting state) boolean value:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler to handle a timer event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional argument dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">svg_text</span><span class="o">.</span><span class="n">flip_y</span> <span class="o">=</span> <span class="n">svg_text</span><span class="o">.</span><span class="n">flip_y</span><span class="o">.</span><span class="n">not_</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_flip_y/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_flip_y/index.html" width="200" height="50"></iframe>
+</section>
+<section id="svgtext-constructor-api">
+<h2>SVGText constructor API<a class="headerlink" href="#svgtext-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.svg_text.SVGText.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'#666',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong></p>
+<p>The class for an SVG text.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Union[str, String]</p>
+<ul>
+<li><p>A text to use in this class.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font_size</span></code>: Union[int, Int], optional</p>
+<ul>
+<li><p>A font-size setting.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font_family</span></code>: Optional[Union[Array[String], List[str]]], optional</p>
+<ul>
+<li><p>A font-family setting. Each string in an array needs to be a font name (e.g., <code class="docutils literal notranslate"><span class="pre">Times</span> <span class="pre">New</span> <span class="pre">Roman</span></code>).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: float or Number, optional</p>
+<ul>
+<li><p>X-coordinate to start drawing.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: float or Number, optional</p>
+<ul>
+<li><p>Y-coordinate to start drawing (please see also the <code class="docutils literal notranslate"><span class="pre">Notes</span></code> section).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>: str or String, optional</p>
+<ul>
+<li><p>A fill-color setting.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>: float or Number, optional</p>
+<ul>
+<li><p>A fill-alpha setting.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>: str or String, default ‘’</p>
+<ul>
+<li><p>A line-color setting.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>: float or Number, optional</p>
+<ul>
+<li><p>A line-alpha setting.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: int or Int, optional</p>
+<ul>
+<li><p>A line-thickness (line-width) setting.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leading</span></code>: float or Number, optional</p>
+<ul>
+<li><p>A text-leading size.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align</span></code>: SVGTextAlign, default SVGTextAlign.LEFT</p>
+<ul>
+<li><p>A text-align setting.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code>: Union[bool, Boolean], optional</p>
+<ul>
+<li><p>A boolean, whether this text is bold style or not.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">italic</span></code>: Union[bool, Boolean], optional</p>
+<ul>
+<li><p>A boolean, whether a text is an italic style or not (normal).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: ChildMixIn or None, optional</p>
+<ul>
+<li><p>A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
+<ul>
+<li><p>A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Notes]</strong></p>
+<p>・SVGText’s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SVGText class</a><ul>
+<li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#note-on-the-baseline-of-a-text-s-y-coordinate">Note on the baseline of a text’s y-coordinate</a></li>
+<li><a class="reference internal" href="#text-property-interface-example">text property interface example</a></li>
+<li><a class="reference internal" href="#font-size-property-interface-example">font_size property interface example</a></li>
+<li><a class="reference internal" href="#font-family-property-interface-example">font_family property interface example</a></li>
+<li><a class="reference internal" href="#x-property-interface-example">x property interface example</a></li>
+<li><a class="reference internal" href="#y-property-interface-example">y property interface example</a></li>
+<li><a class="reference internal" href="#fill-color-property-interface-example">fill_color property interface example</a></li>
+<li><a class="reference internal" href="#fill-alpha-property-interface-example">fill_alpha property interface example</a></li>
+<li><a class="reference internal" href="#line-color-property-interface-example">line_color property interface example</a></li>
+<li><a class="reference internal" href="#line-alpha-property-interface-example">line_alpha property interface example</a></li>
+<li><a class="reference internal" href="#line-thickness-property-interface-example">line_thickness property interface example</a></li>
+<li><a class="reference internal" href="#leading-property-interface-example">leading property interface example</a></li>
+<li><a class="reference internal" href="#align-property-interface-example">align property interface example</a></li>
+<li><a class="reference internal" href="#bold-property-interface-example">bold property interface example</a></li>
+<li><a class="reference internal" href="#italic-property-interface-example">italic property interface example</a></li>
+<li><a class="reference internal" href="#rotation-around-center-property-interface-example">rotation_around_center property interface example</a></li>
+<li><a class="reference internal" href="#set-rotation-around-point-and-get-rotation-around-point-methods-interface-example">set_rotation_around_point and get_rotation_around_point methods interface example</a></li>
+<li><a class="reference internal" href="#scale-related-interfaces-note">Scale-related interfaces note</a></li>
+<li><a class="reference internal" href="#scale-x-from-center-property-interface-example">scale_x_from_center property interface example</a></li>
+<li><a class="reference internal" href="#set-scale-x-from-point-and-get-scale-x-from-point-methods-interface-example">set_scale_x_from_point and get_scale_x_from_point methods interface example</a></li>
+<li><a class="reference internal" href="#flip-x-property-interface-example">flip_x property interface example</a></li>
+<li><a class="reference internal" href="#flip-y-property-interface-example">flip_y property interface example</a></li>
+<li><a class="reference internal" href="#svgtext-constructor-api">SVGText constructor API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="graphics_clear.html"
+                        title="previous chapter">Graphics clear interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="point2d.html"
+                        title="next chapter">Point2D class</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="point2d.html" title="Point2D class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="graphics_clear.html" title="Graphics clear interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SVGText class</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

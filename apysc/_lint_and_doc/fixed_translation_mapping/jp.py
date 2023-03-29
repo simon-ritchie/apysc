@@ -2034,7 +2034,7 @@ MAPPINGS: Mappings = Mappings(
             val="`rotation_around_center`属性ではインスタンスの中央座標での回転量（0～359）の更新もしくは取得を行えます:",
         ),
         Mapping(
-            key="## set_rotation_around_point and get_rotation_around_point methods interfaces example",
+            key="## set_rotation_around_point and get_rotation_around_point methods interface example",
             val="## set_rotation_around_pointとget_rotation_around_pointメソッドのインターフェイス例",
         ),
         Mapping(
@@ -2110,7 +2110,7 @@ MAPPINGS: Mappings = Mappings(
             val="`scale_y_from_center`属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:",
         ),
         Mapping(
-            key="## set_scale_x_from_point and get_scale_x_from_point methods interfaces example",
+            key="## set_scale_x_from_point and get_scale_x_from_point methods interface example",
             val="## set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例",
         ),
         Mapping(
@@ -2122,7 +2122,7 @@ MAPPINGS: Mappings = Mappings(
             val="同様に、`get_scale_x_from_point`メソッドでは指定されたX座標を基準としたX軸の拡縮値を取得します:",
         ),
         Mapping(
-            key="## set_scale_y_from_point and get_scale_y_from_point methods interfaces example",
+            key="## set_scale_y_from_point and get_scale_y_from_point methods interface example",
             val="## set_scale_y_from_pointとget_scale_y_from_pointメソッドのインターフェイス例",
         ),
         Mapping(
@@ -3469,6 +3469,170 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="### Dictionary class",
             val="### Dictionary クラス",
+        ),
+        Mapping(
+            key="## text property interface example",
+            val="## text 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `text` property updates or gets the instance\'s text.",
+            val="`text`属性ではインスタンスのテキストの更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="## font_size property interface example",
+            val="## font_size 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `font_size` property updates or gets the instance\'s font size.",
+            val="`font_size`属性ではインスタンスのフォントサイズの更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="## font_size property interface example",
+            val="## font_size 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="## font_family property interface example",
+            val="## font_family 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `font_family` property updates or gets the instance\'s font family.",
+            val="`font_family`属性ではインスタンスのフォントファミリー（フォントの指定）の更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="This property requires an `Array` of each font name `String`.",
+            val="この属性は各フォント名の`String`型の文字列を格納した`Array`型の配列を必要とします。",
+        ),
+        Mapping(
+            key="## leading property interface example",
+            val="## leading 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `leading` property updates or gets the instance\'s text leading (line height).",
+            val="`leading`属性ではインスタンスの行間の更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="## align property interface example",
+            val="## align 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `align` property updates or gets the instance\'s horizontal text alignment (left, center, or right).",
+            val="`align`属性ではインスタンスの水平方向の行揃えの設定（左端、中央、右端）の更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="This property requires the `SVGTextAlign` enum.",
+            val="この属性は`SVGTextAlign`のenumの値を必要とします。",
+        ),
+        Mapping(
+            key="Note: This property setting changes x coordinate baseline (position of `x=0`), as follows:",
+            val="特記事項: この属性はX座標の基準位置（`x=0`の位置）を以下のように変更します:",
+        ),
+        Mapping(
+            key="- SVGTextAlign.CENTER: X coordinate baseline becomes the text\'s center position.",
+            val="- SVGTextAlign.CENTER: X座標の基準位置はテキストの中央位置になります。",
+        ),
+        Mapping(
+            key="- SVGTextAlign.RIGHT: X coordinate baseline becomes the text\'s right position.",
+            val="- SVGTextAlign.RIGHT: X座標の基準位置はテキストの右端の位置になります。",
+        ),
+        Mapping(
+            key="This property requires the `SVGTextAlign` enum.",
+            val="この属性は`SVGTextAlign`のenumの値を必要とします。",
+        ),
+        Mapping(
+            key="## bold property interface example",
+            val="## bold 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `bold` property updates or gets the instance\'s `bold` text setting.",
+            val="`bold`属性ではインスタンスの太字設定の更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="## italic property interface example",
+            val="## italic 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `italic` property updates or gets the instance\'s `italic` style setting.",
+            val="`italic`属性ではインスタンスの斜体の設定の更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="## SVGText constructor API",
+            val="## SVGText クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="The class for an SVG text.<hr>",
+            val="SVGテキストのためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - A text to use in this class.",
+            val="  - このクラスで使用するテキスト。",
+        ),
+        Mapping(
+            key="  - A font-size setting.",
+            val="  - フォントサイズ設定。",
+        ),
+        Mapping(
+            key="  - A font-family setting. Each string in an array needs to be a font name (e.g., `Times New Roman`).",
+            val="  - フォントファミリー設定。配列内の各文字列には個別のフォント名を指定する必要があります（例: `Times New Roman`）。",
+        ),
+        Mapping(
+            key="  - Y-coordinate to start drawing (please see also the `Notes` section).",
+            val="  - 描画を開始するY座標（`特記事項`の節も確認をお願いします）。",
+        ),
+        Mapping(
+            key="  - A fill-color setting.",
+            val="  - 塗りの色の設定。",
+        ),
+        Mapping(
+            key="  - A fill-alpha setting.",
+            val="  - 塗りの透明度の設定。",
+        ),
+        Mapping(
+            key="  - A line-color setting.",
+            val="  - 線の色の設定。",
+        ),
+        Mapping(
+            key="  - A line-alpha setting.",
+            val="  - 線の透明度の設定。",
+        ),
+        Mapping(
+            key="  - A line-thickness (line-width) setting.",
+            val="  - 線幅の設定。",
+        ),
+        Mapping(
+            key="  - A text-leading size.",
+            val="  - テキストの行間のサイズ。",
+        ),
+        Mapping(
+            key="  - A text-align setting.",
+            val="  - テキストの行揃えの設定。",
+        ),
+        Mapping(
+            key="  - A boolean, whether this text is bold style or not.",
+            val="  - テキストに太字のスタイル設定を行うかどうかの真偽値。",
+        ),
+        Mapping(
+            key="  - A boolean, whether a text is an italic style or not (normal).",
+            val="  - テキストを斜体表示のスタイル設定を行うかどうかの真偽値。",
+        ),
+        Mapping(
+            key=" ・SVGText\'s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.",
+            val=" ・SVGTextの0の位置のY座標はテキストの下部からスタートします。そのため、もしy=0の座標を指定した場合テキストはほとんど見えなくなります。",
+        ),
+        Mapping(
+            key="## SVG text",
+            val="## SVG テキスト",
+        ),
+        Mapping(
+            key="Please see also the following:",
+            val="関連資料:",
+        ),
+        Mapping(
+            key="## Scale-related interfaces note",
+            val="## 拡縮関係のインターフェイスに対する特記事項",
+        ),
+        Mapping(
+            key="The scale-related interfaces are not recommended as the display may become distorted depending on the settings.",
+            val="拡縮関係のインターフェイスは設定次第では表示が崩れたりするため利用は非推奨です。",
         ),
     ]
 )

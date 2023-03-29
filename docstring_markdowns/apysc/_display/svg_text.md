@@ -8,7 +8,7 @@ Class implementation for a SVG text.
 
 ### `__init__` method docstring
 
-The class for a SVG text.<hr>
+The class for an SVG text.<hr>
 
 **[Parameters]**
 

@@ -191,6 +191,13 @@ graphics_draw_path
 graphics_clear
 ```
 
+## SVG text
+
+```{toctree}
+:maxdepth: 1
+svg_text
+```
+
 ## Geometry-related classes
 
 ```{toctree}

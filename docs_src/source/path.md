@@ -495,7 +495,7 @@ ap.save_overall_html(dest_dir_path="path_rotation_around_center/")
 
 <iframe src="static/path_rotation_around_center/index.html" width="150" height="150"></iframe>
 
-## set_rotation_around_point and get_rotation_around_point methods interfaces example
+## set_rotation_around_point and get_rotation_around_point methods interface example
 
 The `set_rotation_around_point` method updates the instance's rotation value (0 to 359) from a specified point.
 
@@ -647,7 +647,7 @@ ap.save_overall_html(dest_dir_path="path_scale_y_from_center/")
 
 <iframe src="static/path_scale_y_from_center/index.html" width="150" height="150"></iframe>
 
-## set_scale_x_from_point and get_scale_x_from_point methods interfaces example
+## set_scale_x_from_point and get_scale_x_from_point methods interface example
 
 The `set_scale_x_from_point` method updates the instance's scale-x from a specified point.
 
@@ -702,7 +702,7 @@ ap.save_overall_html(dest_dir_path="path_scale_x_from_point/")
 
 <iframe src="static/path_scale_x_from_point/index.html" width="150" height="150"></iframe>
 
-## set_scale_y_from_point and get_scale_y_from_point methods interfaces example
+## set_scale_y_from_point and get_scale_y_from_point methods interface example
 
 The `set_scale_y_from_point` method updates the instance's scale-y from a specified point.
 

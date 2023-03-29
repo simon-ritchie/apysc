@@ -85,6 +85,10 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```{toctree}\n:maxdepth: 1\ndraw_interfaces_abstract\ngraphics\ngraphics_begin_fill\ngraphics_line_style\ngraphics_draw_triangle\ngraphics_draw_rect\ngraphics_draw_round_rect\ngraphics_draw_circle\ngraphics_draw_ellipse\ngraphics_move_to_and_line_to\ngraphics_draw_line\ngraphics_draw_dotted_line\ngraphics_draw_dashed_line\ngraphics_draw_round_dotted_line\ngraphics_draw_dash_dotted_line\ngraphics_draw_polygon\ngraphics_draw_path\ngraphics_clear\n```": "```{toctree}\n:maxdepth: 1\njp_draw_interfaces_abstract\njp_graphics\njp_graphics_begin_fill\njp_graphics_line_style\njp_graphics_draw_triangle\njp_graphics_draw_rect\njp_graphics_draw_round_rect\njp_graphics_draw_circle\njp_graphics_draw_ellipse\njp_graphics_move_to_and_line_to\njp_graphics_draw_line\njp_graphics_draw_dotted_line\njp_graphics_draw_dashed_line\njp_graphics_draw_round_dotted_line\njp_graphics_draw_dash_dotted_line\njp_graphics_draw_polygon\njp_graphics_draw_path\njp_graphics_clear\n```",  # noqa
     ##################################################
+    "## SVG text": "## SVG テキスト",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\nsvg_text\n```": "```{toctree}\n:maxdepth: 1\njp_svg_text\n```",  # noqa
+    ##################################################
     "## Geometry-related classes": "## 座標・サイズ等のデータの各クラス",
     ##################################################
     "```{toctree}\n:maxdepth: 1\npoint2d\npath_move_to\npath_line_to\npath_horizontal\npath_vertical\npath_close\npath_bezier_2d\npath_bezier_2d_continual\npath_bezier_3d\npath_bezier_3d_continual\n```": "```{toctree}\n:maxdepth: 1\njp_point2d\njp_path_move_to\njp_path_line_to\njp_path_horizontal\njp_path_vertical\njp_path_close\njp_path_bezier_2d\njp_path_bezier_2d_continual\njp_path_bezier_3d\njp_path_bezier_3d_continual\n```",  # noqa

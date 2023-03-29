@@ -194,6 +194,13 @@ jp_graphics_draw_path
 jp_graphics_clear
 ```
 
+## SVG テキスト
+
+```{toctree}
+:maxdepth: 1
+jp_svg_text
+```
+
 ## 座標・サイズ等のデータの各クラス
 
 ```{toctree}

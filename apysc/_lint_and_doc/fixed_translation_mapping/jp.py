@@ -3475,7 +3475,7 @@ MAPPINGS: Mappings = Mappings(
             val="## text 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `text` property updates or gets the instance\'s text.",
+            key="The `text` property updates or gets the instance's text.",
             val="`text`属性ではインスタンスのテキストの更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3483,7 +3483,7 @@ MAPPINGS: Mappings = Mappings(
             val="## font_size 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `font_size` property updates or gets the instance\'s font size.",
+            key="The `font_size` property updates or gets the instance's font size.",
             val="`font_size`属性ではインスタンスのフォントサイズの更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3495,7 +3495,7 @@ MAPPINGS: Mappings = Mappings(
             val="## font_family 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `font_family` property updates or gets the instance\'s font family.",
+            key="The `font_family` property updates or gets the instance's font family.",
             val="`font_family`属性ではインスタンスのフォントファミリー（フォントの指定）の更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3507,7 +3507,7 @@ MAPPINGS: Mappings = Mappings(
             val="## leading 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `leading` property updates or gets the instance\'s text leading (line height).",
+            key="The `leading` property updates or gets the instance's text leading (line height).",
             val="`leading`属性ではインスタンスの行間の更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3515,7 +3515,7 @@ MAPPINGS: Mappings = Mappings(
             val="## align 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `align` property updates or gets the instance\'s horizontal text alignment (left, center, or right).",
+            key="The `align` property updates or gets the instance's horizontal text alignment (left, center, or right).",
             val="`align`属性ではインスタンスの水平方向の行揃えの設定（左端、中央、右端）の更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3527,11 +3527,11 @@ MAPPINGS: Mappings = Mappings(
             val="特記事項: この属性はX座標の基準位置（`x=0`の位置）を以下のように変更します:",
         ),
         Mapping(
-            key="- SVGTextAlign.CENTER: X coordinate baseline becomes the text\'s center position.",
+            key="- SVGTextAlign.CENTER: X coordinate baseline becomes the text's center position.",
             val="- SVGTextAlign.CENTER: X座標の基準位置はテキストの中央位置になります。",
         ),
         Mapping(
-            key="- SVGTextAlign.RIGHT: X coordinate baseline becomes the text\'s right position.",
+            key="- SVGTextAlign.RIGHT: X coordinate baseline becomes the text's right position.",
             val="- SVGTextAlign.RIGHT: X座標の基準位置はテキストの右端の位置になります。",
         ),
         Mapping(
@@ -3543,7 +3543,7 @@ MAPPINGS: Mappings = Mappings(
             val="## bold 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `bold` property updates or gets the instance\'s `bold` text setting.",
+            key="The `bold` property updates or gets the instance's `bold` text setting.",
             val="`bold`属性ではインスタンスの太字設定の更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3551,7 +3551,7 @@ MAPPINGS: Mappings = Mappings(
             val="## italic 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `italic` property updates or gets the instance\'s `italic` style setting.",
+            key="The `italic` property updates or gets the instance's `italic` style setting.",
             val="`italic`属性ではインスタンスの斜体の設定の更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3615,7 +3615,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - テキストを斜体表示のスタイル設定を行うかどうかの真偽値。",
         ),
         Mapping(
-            key=" ・SVGText\'s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.",
+            key=" ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.",
             val=" ・SVGTextの0の位置のY座標はテキストの下部からスタートします。そのため、もしy=0の座標を指定した場合テキストはほとんど見えなくなります。",
         ),
         Mapping(

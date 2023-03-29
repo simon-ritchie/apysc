@@ -95,32 +95,20 @@ def main() -> None:
     svg_text.scale_x_from_center = ap.Number(0.5)
 
     svg_text = ap.SVGText(
-        text="scale_y_from_center test",
-        y=220,
-    )
-    svg_text.scale_y_from_center = ap.Number(0.5)
-
-    svg_text = ap.SVGText(
         text="scale_x_from_point test",
-        y=240,
+        y=220,
     )
     svg_text.set_scale_x_from_point(scale_x=ap.Number(0.5), x=ap.Number(0))
 
     svg_text = ap.SVGText(
-        text="scale_y_from_point test",
-        y=260,
-    )
-    svg_text.set_scale_y_from_point(scale_y=ap.Number(0.5), y=ap.Number(260))
-
-    svg_text = ap.SVGText(
         text="rotation_around_center test",
-        y=300,
+        y=240,
     )
     svg_text.rotation_around_center = ap.Int(15)
 
     svg_text = ap.SVGText(
         text="set_rotation_around_point test",
-        y=340,
+        y=280,
     )
     svg_text.set_rotation_around_point(
         rotation=ap.Int(15), x=ap.Number(0), y=ap.Number(340)
@@ -128,25 +116,25 @@ def main() -> None:
 
     svg_text = ap.SVGText(
         text="flip_x test",
-        y=380,
+        y=320,
     )
     svg_text.flip_x = ap.Boolean(True)
 
     svg_text = ap.SVGText(
         text="flip_y test",
-        y=400,
+        y=340,
     )
     svg_text.flip_y = ap.Boolean(True)
 
     svg_text = ap.SVGText(
         text="animation_x test",
-        y=420,
+        y=360,
     )
     svg_text.animation_x(x=100, duration=2000, easing=ap.Easing.EASE_OUT_QUINT).start()
 
     svg_text = ap.SVGText(
         text="font_family test 1",
-        y=440,
+        y=380,
     )
     svg_text.font_family = ap.Array([ap.String("Impact"), ap.String("Georgia")])
     ap.assert_arrays_equal(
@@ -156,37 +144,37 @@ def main() -> None:
 
     svg_text = ap.SVGText(
         text="font_family test 2",
-        y=460,
+        y=400,
         font_family=["Times New Roman", "Arial"],
     )
 
     svg_text = ap.SVGText(
         text="remove test",
-        y=480,
+        y=420,
     )
     svg_text.remove_from_parent()
 
     svg_text = ap.SVGText(
         text="font_size test 1",
-        y=500,
+        y=440,
         font_size=20,
     )
 
     svg_text = ap.SVGText(
         text="font_size test 2",
-        y=520,
+        y=460,
     )
     svg_text.font_size = ap.Int(12)
 
     svg_text = ap.SVGText(
         text="leading test 1\nleading test 1\nleading test 1",
-        y=540,
+        y=480,
         leading=1.0,
     )
 
     svg_text = ap.SVGText(
         text="leading test 2\nleading test 2\nleading test 2",
-        y=600,
+        y=500,
     )
     svg_text.leading = ap.Number(2.0)
 

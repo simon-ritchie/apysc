@@ -37,6 +37,8 @@ from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixI
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
+from apysc._display.skew_x_mixin import SkewXMixIn
+from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
@@ -65,8 +67,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.skew_x_mixin import SkewXMixIn
-from apysc._display.skew_y_mixin import SkewYMixIn
 
 
 class SVGText(

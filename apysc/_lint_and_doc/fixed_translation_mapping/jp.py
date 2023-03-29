@@ -3487,10 +3487,6 @@ MAPPINGS: Mappings = Mappings(
             val="`font_size`属性ではインスタンスのフォントサイズの更新もしくは取得を行えます。",
         ),
         Mapping(
-            key="## font_size property interface example",
-            val="## font_size 属性のインターフェイス例",
-        ),
-        Mapping(
             key="## font_family property interface example",
             val="## font_family 属性のインターフェイス例",
         ),

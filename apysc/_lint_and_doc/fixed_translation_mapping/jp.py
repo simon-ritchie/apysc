@@ -3515,10 +3515,6 @@ MAPPINGS: Mappings = Mappings(
             val="`align`属性ではインスタンスの水平方向の行揃えの設定（左端、中央、右端）の更新もしくは取得を行えます。",
         ),
         Mapping(
-            key="This property requires the `SVGTextAlign` enum.",
-            val="この属性は`SVGTextAlign`のenumの値を必要とします。",
-        ),
-        Mapping(
             key="Note: This property setting changes x coordinate baseline (position of `x=0`), as follows:",
             val="特記事項: この属性はX座標の基準位置（`x=0`の位置）を以下のように変更します:",
         ),

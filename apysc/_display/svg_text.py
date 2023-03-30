@@ -374,9 +374,9 @@ class SVGText(
         line_color : str or String, optional
             A line-color setting for an overall text.
         line_alpha : float or Number, optional
-            A line-alpha setting.
+            A line-alpha setting for an overall text.
         line_thickness : int or Int, optional
-            A line-thickness (line-width) setting.
+            A line-thickness (line-width) setting for an overall text.
         leading : float or Number, optional
             A text-leading size for an overall text.
         align : SVGTextAlign, optional

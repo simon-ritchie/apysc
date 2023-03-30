@@ -196,6 +196,7 @@ graphics_clear
 ```{toctree}
 :maxdepth: 1
 svg_text
+svg_text_span
 ```
 
 ## Geometry-related classes

@@ -87,7 +87,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## SVG text": "## SVG テキスト",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nsvg_text\n```": "```{toctree}\n:maxdepth: 1\njp_svg_text\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nsvg_text\nsvg_text_span\n```": "```{toctree}\n:maxdepth: 1\njp_svg_text\njp_svg_text_span\n```",  # noqa
     ##################################################
     "## Geometry-related classes": "## 座標・サイズ等のデータの各クラス",
     ##################################################

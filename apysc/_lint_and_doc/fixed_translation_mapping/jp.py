@@ -3626,5 +3626,102 @@ MAPPINGS: Mappings = Mappings(
             key="The scale-related interfaces are not recommended as the display may become distorted depending on the settings.",
             val="拡縮関係のインターフェイスは設定次第では表示が崩れたりするため利用は非推奨です。",
         ),
+        Mapping(
+            key="## Notes of the line breaking",
+            val="## 改行に対する特記事項",
+        ),
+        Mapping(
+            key="## delta_x property interface example",
+            val="## delta_x 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `delta_x` property updates or gets the instance\'s "
+            "delta-x (x-coordinate adjustment).",
+            val="`delta_x`属性ではインスタンスのX座標の調整値の更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="## delta_y property interface example",
+            val="## delta_y 属性のインターフェイス例",
+        ),
+        Mapping(
+            key="The `delta_y` property updates or gets the instance\'s delta-y (y-coordinate adjustment)",
+            val="`delta_y`属性ではインスタンスのY座標の調整値の更新もしくは取得を行えます。",
+        ),
+        Mapping(
+            key="## SVGTextSpan constructor API",
+            val="## SVGTextSpan クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="The class for an SVG text-span (the child class of `SVGText`).<hr>",
+            val="`SVGText`の子となるSVGのtext-span要素のためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - A coordinate delta-x setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`\'s instance.",
+            val="  - X座標の調整値の設定。特記事項 : この設定は後に続く`SVGTextSpan`のインスタンスの座標も変更します。",
+        ),
+        Mapping(
+            key="  - A coordinate delta-y setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`\'s instance.",
+            val="  - Y座標の調整値の設定。特記事項 : この設定は後に続く`SVGTextSpan`のインスタンスの座標も更新します。",
+        ),
+        Mapping(
+            key=" ・If style settings are `None`, its styles inherit parent style settings.",
+            val=" ・もしも各設定に`None`が指定された場合、それらのスタイル設定は親のスタイル設定を引き継ぎます。",
+        ),
+        Mapping(
+            key="## SVGText create_with_svg_text_spans class method API",
+            val="## SVGText クラスの create_with_svg_text_spans クラスメソッドのAPI",
+        ),
+        Mapping(
+            key="Create an `SVGText` instance with specified text spans.<hr>",
+            val="指定された各text spanのインスタンスを使用して`SVGText`のインスタンスを生成します。<hr>",
+        ),
+        Mapping(
+            key="  - Text spans.",
+            val="  - 各text span。",
+        ),
+        Mapping(
+            key="  - A font-size setting for an overall text.",
+            val="  - テキスト全体に設定するフォントサイズの設定。",
+        ),
+        Mapping(
+            key="  - A font-family setting for an overall text. Each string in an array needs to be a font name (e.g., `Times New Roman`).",
+            val="  - テキスト全体に設定するフォント設定。配列内の各文字列はフォント名を指定する必要があります（例 : `Times New Roman`）。",
+        ),
+        Mapping(
+            key="  - A fill-color setting for an overall text.",
+            val="  - テキスト全体に設定する塗りの色。",
+        ),
+        Mapping(
+            key="  - A fill-alpha setting for an overall text.",
+            val="  - テキスト全体に設定する塗りの透明度。",
+        ),
+        Mapping(
+            key="  - A line-color setting for an overall text.",
+            val="  - テキスト全体に設定する線の色。",
+        ),
+        Mapping(
+            key="  - A line-alpha setting for an overall text.",
+            val="  - テキスト全体に設定する線の透明度。",
+        ),
+        Mapping(
+            key="  - A line-thickness (line-width) setting for an overall text.",
+            val="  - テキスト全体に設定する線幅。",
+        ),
+        Mapping(
+            key="  - A text-leading size for an overall text.",
+            val="  - テキスト全体に設定する行間設定。",
+        ),
+        Mapping(
+            key="  - A text-align setting for an overall text.",
+            val="  - テキスト全体に設定する行揃え設定。",
+        ),
+        Mapping(
+            key="  - A created `SVGText` instance.",
+            val="  - 生成された`SVGText`のインスタンス。",
+        ),
+        Mapping(
+            key="The `delta_y` property updates or gets the instance\'s delta-y (y-coordinate adjustment).",
+            val="`delta_y`属性ではインスタンスのY座標の調整値の更新もくしは取得を行えます。",
+        ),
     ]
 )

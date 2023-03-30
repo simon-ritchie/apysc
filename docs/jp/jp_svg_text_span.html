@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>SVGTextSpan クラス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Point2D クラス" href="jp_point2d.html" />
+    <link rel="prev" title="SVGText クラス" href="jp_svg_text.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_point2d.html" title="Point2D クラス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_svg_text.html" title="SVGText クラス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SVGTextSpan クラス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_text_span.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="svgtextspan">
+<h1>SVGTextSpan クラス<a class="headerlink" href="#svgtextspan" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>は<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>の子となるテキスト要素を作成するためのクラスです。</p>
+<p>複数の<code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>クラスのインスタンスを使ってそれぞれに異なるテキストのスタイルを設定した状態の<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>のインスタンスを作成することができます。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>クラスのコンストラクタには<code class="docutils literal notranslate"><span class="pre">text</span></code>引数を必要とします。</p>
+<p>コンストラクタでは<code class="docutils literal notranslate"><span class="pre">font_size</span></code>や<code class="docutils literal notranslate"><span class="pre">font_family</span></code>、<code class="docutils literal notranslate"><span class="pre">fill_color</span></code>、<code class="docutils literal notranslate"><span class="pre">bold</span></code>などの各スタイル設定の引数を受け付けます。</p>
+<p>もしもそれらのスタイル設定の引数指定を省略した場合、親のSVGTextのインスタンスのスタイルが反映されます。</p>
+<p>また、複数の<code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>のインスタンスを使って<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>のインスタンスの作成するには<code class="docutils literal notranslate"><span class="pre">create_with_svg_text_spans</span></code>のクラスメソッドを使うことで対応ができます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum &quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;dolor &quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_basic_usage/index.html" width="200" height="50"></iframe>
+</section>
+<section id="id3">
+<h2>改行に対する特記事項<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>クラスは改行設定を無視します。</p>
+<p>例えば、以下の例では改行用の文字列（<code class="docutils literal notranslate"> </code>）を含んでいますがテキストの行は単一行になっています。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem </span>
+<span class="s2">&quot;),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum </span>
+<span class="s2">&quot;),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;dolor&quot;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_notes_of_the_line_break/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_notes_of_the_line_break/index.html" width="200" height="50"></iframe>
+<p>もしも改行を加えたい場合には<code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>クラスではなく<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>クラスを使用するか、もしくは複数のインスタンスを作成して対応をお願いします。</p>
+</section>
+<section id="text">
+<h2>text 属性のインターフェイス例<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">text</span></code>属性ではインスタンスのテキストの更新もしくは取得を行えます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;dolor&quot;</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_text/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_text/index.html" width="200" height="50"></iframe>
+</section>
+<section id="font-size">
+<h2>font_size 属性のインターフェイス例<a class="headerlink" href="#font-size" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">font_size</span></code>属性ではインスタンスのフォントサイズの更新もしくは取得を行えます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">font_size</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_font_size/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_font_size/index.html" width="200" height="50"></iframe>
+</section>
+<section id="font-family">
+<h2>font_family 属性のインターフェイス例<a class="headerlink" href="#font-family" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">font_family</span></code>属性ではインスタンスのフォントファミリー（フォントの指定）の更新もしくは取得を行えます。</p>
+<p>この属性は各フォント名の<code class="docutils literal notranslate"><span class="pre">String</span></code>型の文字列を格納した<code class="docutils literal notranslate"><span class="pre">Array</span></code>型の配列を必要とします。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">font_family</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Impact&quot;</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">)])</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_font_family/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_font_family/index.html" width="200" height="50"></iframe>
+</section>
+<section id="fill-color">
+<h2>fill_color属性のインターフェイス例<a class="headerlink" href="#fill-color" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>属性は塗りの色の値の更新もしくは取得を行えます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_fill_color/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_fill_color/index.html" width="200" height="50"></iframe>
+</section>
+<section id="fill-alpha">
+<h2>fill_alpha属性のインターフェイス例<a class="headerlink" href="#fill-alpha" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>属性は塗りの透明度の値の更新もしくは取得を行えます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_fill_alpha/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_fill_alpha/index.html" width="200" height="50"></iframe>
+</section>
+<section id="line-color">
+<h2>line_color属性のインターフェイス例<a class="headerlink" href="#line-color" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>属性では線の色の値の更新もしくは取得を行えます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">,</span> <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">,</span> <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_line_color/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_line_color/index.html" width="200" height="50"></iframe>
+</section>
+<section id="line-alpha">
+<h2>line_alpha属性のインターフェイス例<a class="headerlink" href="#line-alpha" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>属性では線の透明度の値の更新もしくは取得を行えます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">line_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_line_alpha/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_line_alpha/index.html" width="200" height="50"></iframe>
+</section>
+<section id="line-thickness">
+<h2>line_thickness属性のインターフェイス例<a class="headerlink" href="#line-thickness" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>属性では線の幅の更新もしくは取得を行えます:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="o">.</span><span class="n">line_thickness</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">line_thickness</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_line_thickness/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_line_thickness/index.html" width="200" height="50"></iframe>
+</section>
+<section id="bold">
+<h2>bold 属性のインターフェイス例<a class="headerlink" href="#bold" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">bold</span></code>属性ではインスタンスの太字設定の更新もしくは取得を行えます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_bold/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_bold/index.html" width="200" height="50"></iframe>
+</section>
+<section id="italic">
+<h2>italic 属性のインターフェイス例<a class="headerlink" href="#italic" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">italic</span></code>属性ではインスタンスの斜体の設定の更新もしくは取得を行えます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_italic/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_italic/index.html" width="200" height="50"></iframe>
+</section>
+<section id="delta-x">
+<h2>delta_x 属性のインターフェイス例<a class="headerlink" href="#delta-x" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">delta_x</span></code>属性ではインスタンスのX座標の調整値の更新もしくは取得を行えます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">delta_x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_delta_x/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_delta_x/index.html" width="200" height="50"></iframe>
+</section>
+<section id="delta-y">
+<h2>delta_y 属性のインターフェイス例<a class="headerlink" href="#delta-y" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">delta_y</span></code>属性ではインスタンスのY座標の調整値の更新もくしは取得を行えます。</p>
+<p>特記事項: この設定は直前の<code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>インスタンスの設定を引き継ぎます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">text_span_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">)</span>
+<span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum &quot;</span><span class="p">)</span>
+<span class="n">text_span_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;dolar&quot;</span><span class="p">)</span>
+
+<span class="n">text_span_2</span><span class="o">.</span><span class="n">delta_y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">text_span_3</span><span class="o">.</span><span class="n">delta_y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_txt_span_delta_y/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_txt_span_delta_y/index.html" width="200" height="80"></iframe>
+</section>
+<section id="svgtextspan-api">
+<h2>SVGTextSpan クラスのコンストラクタのAPI<a class="headerlink" href="#svgtextspan-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">delta_x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">delta_y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">SVGText</span></code>の子となるSVGのtext-span要素のためのクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Union[str, String]</p>
+<ul>
+<li><p>このクラスで使用するテキスト。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font_size</span></code>: Optional[Union[int, Int]], optional</p>
+<ul>
+<li><p>フォントサイズ設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font_family</span></code>: Optional[Union[Array[String], List[str]]], optional</p>
+<ul>
+<li><p>フォントファミリー設定。配列内の各文字列には個別のフォント名を指定する必要があります（例: <code class="docutils literal notranslate"><span class="pre">Times</span> <span class="pre">New</span> <span class="pre">Roman</span></code>）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>: Optional[Union[str, String]], optional</p>
+<ul>
+<li><p>塗りの色の設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>: Optional[Union[float, Number]], optional</p>
+<ul>
+<li><p>塗りの透明度の設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>: Optional[Union[str, String]], optional</p>
+<ul>
+<li><p>線の色の設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>: Optional[Union[float, Number]], optional</p>
+<ul>
+<li><p>線の透明度の設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: Optional[Union[int, Int]], optional</p>
+<ul>
+<li><p>設定の線幅。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code>: Optional[Union[bool, Boolean]], optional</p>
+<ul>
+<li><p>テキストに太字のスタイル設定を行うかどうかの真偽値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">italic</span></code>: Optional[Union[bool, Boolean]], optional</p>
+<ul>
+<li><p>テキストを斜体表示のスタイル設定を行うかどうかの真偽値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_x</span></code>: Union[float, Number], optional</p>
+<ul>
+<li><p>X座標の調整値の設定。特記事項 : この設定は後に続く<code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>のインスタンスの座標も変更します。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_y</span></code>: Union[float, Number], optional</p>
+<ul>
+<li><p>Y座標の調整値の設定。特記事項 : この設定は後に続く<code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>のインスタンスの座標も更新します。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[特記事項]</strong></p>
+<p>・もしも各設定に<code class="docutils literal notranslate"><span class="pre">None</span></code>が指定された場合、それらのスタイル設定は親のスタイル設定を引き継ぎます。</p>
+</section>
+<section id="svgtext-create-with-svg-text-spans-api">
+<h2>SVGText クラスの create_with_svg_text_spans クラスメソッドのAPI<a class="headerlink" href="#svgtext-create-with-svg-text-spans-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">create_with_svg_text_spans(*,</span> <span class="pre">text_spans:</span> <span class="pre">Union[List[apysc._display.svg_text_span.SVGTextSpan],</span> <span class="pre">apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'#666',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'SVGText'</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>指定された各text spanのインスタンスを使用して<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>のインスタンスを生成します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text_spans</span></code>: Union[List[SVGTextSpan], Array[SVGTextSpan]]</p>
+<ul>
+<li><p>各text span。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font_size</span></code>: Union[int, Int], optional</p>
+<ul>
+<li><p>テキスト全体に設定するフォントサイズの設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font_family</span></code>: Optional[Union[Array[String], List[str]]], optional</p>
+<ul>
+<li><p>テキスト全体に設定するフォント設定。配列内の各文字列はフォント名を指定する必要があります（例 : <code class="docutils literal notranslate"><span class="pre">Times</span> <span class="pre">New</span> <span class="pre">Roman</span></code>）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Union[float, Number], optional</p>
+<ul>
+<li><p>描画を開始するX座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Union[float, Number], optional</p>
+<ul>
+<li><p>描画を開始するY座標（<code class="docutils literal notranslate"><span class="pre">特記事項</span></code>の節も確認をお願いします）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>: str or String, optional</p>
+<ul>
+<li><p>テキスト全体に設定する塗りの色。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>: float or Number, optional</p>
+<ul>
+<li><p>テキスト全体に設定する塗りの透明度。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>: str or String, optional</p>
+<ul>
+<li><p>テキスト全体に設定する線の色。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>: float or Number, optional</p>
+<ul>
+<li><p>テキスト全体に設定する線の透明度。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: int or Int, optional</p>
+<ul>
+<li><p>テキスト全体に設定する線幅。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leading</span></code>: float or Number, optional</p>
+<ul>
+<li><p>テキスト全体に設定する行間設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align</span></code>: SVGTextAlign, optional</p>
+<ul>
+<li><p>テキスト全体に設定する行揃え設定。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code>: Union[bool, Boolean], optional</p>
+<ul>
+<li><p>テキストに太字のスタイル設定を行うかどうかの真偽値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">italic</span></code>: Union[bool, Boolean], optional</p>
+<ul>
+<li><p>テキストを斜体表示のスタイル設定を行うかどうかの真偽値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: Optional[ChildMixIn], optional</p>
+<ul>
+<li><p>このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">svg_text</span></code>: SVGText</p>
+<ul>
+<li><p>生成された<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>のインスタンス。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[特記事項]</strong></p>
+<p>・SVGTextの0の位置のY座標はテキストの下部からスタートします。そのため、もしy=0の座標を指定した場合テキストはほとんど見えなくなります。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SVGTextSpan クラス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">改行に対する特記事項</a></li>
+<li><a class="reference internal" href="#text">text 属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#font-size">font_size 属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#font-family">font_family 属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#fill-color">fill_color属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#fill-alpha">fill_alpha属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-color">line_color属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-alpha">line_alpha属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#line-thickness">line_thickness属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#bold">bold 属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#italic">italic 属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#delta-x">delta_x 属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#delta-y">delta_y 属性のインターフェイス例</a></li>
+<li><a class="reference internal" href="#svgtextspan-api">SVGTextSpan クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#svgtext-create-with-svg-text-spans-api">SVGText クラスの create_with_svg_text_spans クラスメソッドのAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_svg_text.html"
+                        title="previous chapter">SVGText クラス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_point2d.html"
+                        title="next chapter">Point2D クラス</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_point2d.html" title="Point2D クラス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_svg_text.html" title="SVGText クラス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SVGTextSpan クラス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

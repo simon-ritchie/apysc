@@ -199,6 +199,7 @@ jp_graphics_clear
 ```{toctree}
 :maxdepth: 1
 jp_svg_text
+jp_svg_text_span
 ```
 
 ## 座標・サイズ等のデータの各クラス

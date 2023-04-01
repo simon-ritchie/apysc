@@ -102,6 +102,21 @@ class SVGTextSpan(
     SVGTextSetDeltaYMixIn,
     VariableNameSuffixMixIn,
 ):
+    """
+    The class for an SVG text-span (the child class of `SVGText`).
+
+    Notes
+    -----
+    - If style settings are `None`, its styles inherit parent
+        style settings.
+
+    References
+    ----------
+    - SVGText class
+        - https://simon-ritchie.github.io/apysc/en/svg_text.html
+    - SVGTextSpan class
+        - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
+    """
 
     # text
     @arg_validation_decos.is_string(arg_position_index=1)
@@ -157,6 +172,13 @@ class SVGTextSpan(
         -----
         - If style settings are `None`, its styles inherit parent
             style settings.
+
+        References
+        ----------
+        - SVGText class
+            - https://simon-ritchie.github.io/apysc/en/svg_text.html
+        - SVGTextSpan class
+            - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
 
         Parameters
         ----------

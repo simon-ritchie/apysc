@@ -109,6 +109,19 @@ class SVGText(
     SVGTextSetBoldMixIn,
     VariableNameSuffixMixIn,
 ):
+    """
+    The class for an SVG text.
+
+    Notes
+    -----
+    - SVGText's y-coordinate zero-position starts at the bottom of a text.
+        So if you set y=0, a text becomes almost invisible.
+
+    References
+    ----------
+    - SVGText class
+        - https://simon-ritchie.github.io/apysc/en/svg_text.html
+    """
 
     # text
     @arg_validation_decos.is_string(arg_position_index=1)
@@ -175,6 +188,11 @@ class SVGText(
         -----
         - SVGText's y-coordinate zero-position starts at the bottom of a text.
             So if you set y=0, a text becomes almost invisible.
+
+        References
+        ----------
+        - SVGText class
+            - https://simon-ritchie.github.io/apysc/en/svg_text.html
 
         Parameters
         ----------
@@ -353,6 +371,13 @@ class SVGText(
         -----
         - SVGText's y-coordinate zero-position starts at the bottom of a text.
             So if you set y=0, a text becomes almost invisible.
+
+        References
+        ----------
+        - SVGText class
+            - https://simon-ritchie.github.io/apysc/en/svg_text.html
+        - SVGTextSpan class
+            - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
 
         Parameters
         ----------

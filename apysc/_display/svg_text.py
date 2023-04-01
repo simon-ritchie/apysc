@@ -1,4 +1,4 @@
-"""Class implementation for a SVG text.
+"""Class implementation for an SVG text.
 """
 
 from typing import List

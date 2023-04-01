@@ -344,7 +344,7 @@ def _get_init_fill_alpha_num(
     Returns
     -------
     fill_alpha_ : Union[float, Number]
-        If a specified value is None, this interface returns 1.0 number.
+        If a specified value is None, this interface returns a 1.0 number.
     """
     if fill_alpha is None:
         return 1.0
@@ -387,7 +387,7 @@ def _get_init_line_alpha_num(
     Returns
     -------
     line_alpha_ : Union[float, Number]
-        If a specified value is None, this interface returns 1.0 number.
+        If a specified value is None, this interface returns a 1.0 number.
     """
     if line_alpha is None:
         return 1.0

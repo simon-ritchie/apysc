@@ -18,7 +18,7 @@ Get an initial fill-alpha number.<hr>
 **[Returns]**
 
 - `fill_alpha_`: Union[float, Number]
-  - If a specified value is None, this interface returns 1.0 number.
+  - If a specified value is None, this interface returns a 1.0 number.
 
 ## `_get_init_fill_color_str` function docstring
 
@@ -50,7 +50,7 @@ Get an initial line-alpha number.<hr>
 **[Returns]**
 
 - `line_alpha_`: Union[float, Number]
-  - If a specified value is None, this interface returns 1.0 number.
+  - If a specified value is None, this interface returns a 1.0 number.
 
 ## `_get_init_line_color_str` function docstring
 
@@ -85,6 +85,17 @@ Get an initial line-thickness (line-width) number.<hr>
   - If a specified value is None, this interface returns 1 number.
 
 ## `SVGTextSpan` class docstring
+
+The class for an SVG text-span (the child class of `SVGText`).<hr>
+
+**[Notes]**
+
+ ・If style settings are `None`, its styles inherit parent style settings.<hr>
+
+**[References]**
+
+- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SVGTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)
 
 ### `__init__` method docstring
 
@@ -123,7 +134,12 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 
 **[Notes]**
 
- ・If style settings are `None`, its styles inherit parent style settings.
+ ・If style settings are `None`, its styles inherit parent style settings.<hr>
+
+**[References]**
+
+- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SVGTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)
 
 ### `__repr__` method docstring
 

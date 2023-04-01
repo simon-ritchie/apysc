@@ -2,9 +2,19 @@
 
 ## Module summary
 
-Class implementation for a SVG text.
+Class implementation for an SVG text.
 
 ## `SVGText` class docstring
+
+The class for an SVG text.<hr>
+
+**[Notes]**
+
+ ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+
+**[References]**
+
+- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 
 ### `__init__` method docstring
 
@@ -49,7 +59,11 @@ The class for an SVG text.<hr>
 
 **[Notes]**
 
- ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.
+ ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+
+**[References]**
+
+- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 
 ### `__repr__` method docstring
 
@@ -103,9 +117,9 @@ Create an `SVGText` instance with specified text spans.<hr>
 - `line_color`: str or String, optional
   - A line-color setting for an overall text.
 - `line_alpha`: float or Number, optional
-  - A line-alpha setting.
+  - A line-alpha setting for an overall text.
 - `line_thickness`: int or Int, optional
-  - A line-thickness (line-width) setting.
+  - A line-thickness (line-width) setting for an overall text.
 - `leading`: float or Number, optional
   - A text-leading size for an overall text.
 - `align`: SVGTextAlign, optional
@@ -130,4 +144,9 @@ Create an `SVGText` instance with specified text spans.<hr>
 
 **[Notes]**
 
- ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.
+ ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+
+**[References]**
+
+- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SVGTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)

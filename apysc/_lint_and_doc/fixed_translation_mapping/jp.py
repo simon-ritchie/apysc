@@ -3635,7 +3635,7 @@ MAPPINGS: Mappings = Mappings(
             val="## delta_x 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `delta_x` property updates or gets the instance\'s "
+            key="The `delta_x` property updates or gets the instance's "
             "delta-x (x-coordinate adjustment).",
             val="`delta_x`属性ではインスタンスのX座標の調整値の更新もしくは取得を行えます。",
         ),
@@ -3644,7 +3644,7 @@ MAPPINGS: Mappings = Mappings(
             val="## delta_y 属性のインターフェイス例",
         ),
         Mapping(
-            key="The `delta_y` property updates or gets the instance\'s delta-y (y-coordinate adjustment)",
+            key="The `delta_y` property updates or gets the instance's delta-y (y-coordinate adjustment)",
             val="`delta_y`属性ではインスタンスのY座標の調整値の更新もしくは取得を行えます。",
         ),
         Mapping(
@@ -3656,11 +3656,11 @@ MAPPINGS: Mappings = Mappings(
             val="`SVGText`の子となるSVGのtext-span要素のためのクラスです。<hr>",
         ),
         Mapping(
-            key="  - A coordinate delta-x setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`\'s instance.",
+            key="  - A coordinate delta-x setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`'s instance.",
             val="  - X座標の調整値の設定。特記事項 : この設定は後に続く`SVGTextSpan`のインスタンスの座標も変更します。",
         ),
         Mapping(
-            key="  - A coordinate delta-y setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`\'s instance.",
+            key="  - A coordinate delta-y setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`'s instance.",
             val="  - Y座標の調整値の設定。特記事項 : この設定は後に続く`SVGTextSpan`のインスタンスの座標も更新します。",
         ),
         Mapping(
@@ -3720,8 +3720,24 @@ MAPPINGS: Mappings = Mappings(
             val="  - 生成された`SVGText`のインスタンス。",
         ),
         Mapping(
-            key="The `delta_y` property updates or gets the instance\'s delta-y (y-coordinate adjustment).",
+            key="The `delta_y` property updates or gets the instance's delta-y (y-coordinate adjustment).",
             val="`delta_y`属性ではインスタンスのY座標の調整値の更新もくしは取得を行えます。",
+        ),
+        Mapping(
+            key=" ・If style settings are `None`, its styles inherit parent style settings.<hr>",
+            val=" ・もしも各種スタイル設定に`None`が指定された場合、そのスタイルは親のスタイル設定を引き継ぎます。<hr>",
+        ),
+        Mapping(
+            key="SVGText class",
+            val="SVGText クラス",
+        ),
+        Mapping(
+            key="SVGTextSpan class",
+            val="SVGTextSpan クラス",
+        ),
+        Mapping(
+            key=" ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>",
+            val=" ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>",
         ),
     ]
 )

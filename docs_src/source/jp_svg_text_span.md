@@ -504,7 +504,11 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 **[特記事項]**
 
- ・もしも各設定に`None`が指定された場合、それらのスタイル設定は親のスタイル設定を引き継ぎます。
+ ・もしも各種スタイル設定に`None`が指定された場合、そのスタイルは親のスタイル設定を引き継ぎます。<hr>
+
+**[関連資料]**
+
+- [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)
 
 ## SVGText クラスの create_with_svg_text_spans クラスメソッドのAPI
 
@@ -577,4 +581,8 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 **[特記事項]**
 
- ・SVGTextの0の位置のY座標はテキストの下部からスタートします。そのため、もしy=0の座標を指定した場合テキストはほとんど見えなくなります。
+ ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>
+
+**[関連資料]**
+
+- [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)

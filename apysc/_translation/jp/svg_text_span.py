@@ -183,7 +183,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Notes]**": "**[特記事項]**",
     ##################################################
-    " ・If style settings are `None`, its styles inherit parent style settings.": " ・もしも各設定に`None`が指定された場合、それらのスタイル設定は親のスタイル設定を引き継ぎます。",  # noqa
+    " ・If style settings are `None`, its styles inherit parent style settings.<hr>": " ・もしも各種スタイル設定に`None`が指定された場合、そのスタイルは親のスタイル設定を引き継ぎます。<hr>",  # noqa
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)": "- [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)",  # noqa
     ##################################################
     "## SVGText create_with_svg_text_spans class method API": "## SVGText クラスの create_with_svg_text_spans クラスメソッドのAPI",  # noqa
     ##################################################
@@ -271,5 +275,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Notes]**": "**[特記事項]**",
     ##################################################
-    " ・SVGText\'s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.": " ・SVGTextの0の位置のY座標はテキストの下部からスタートします。そのため、もしy=0の座標を指定した場合テキストはほとんど見えなくなります。",  # noqa
+    " ・SVGText\'s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>": " ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>",  # noqa
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)": "- [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)",  # noqa
 }

@@ -489,7 +489,11 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 
 **[Notes]**
 
- ・If style settings are `None`, its styles inherit parent style settings.
+ ・If style settings are `None`, its styles inherit parent style settings.<hr>
+
+**[References]**
+
+- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 
 ## SVGText create_with_svg_text_spans class method API
 
@@ -549,4 +553,8 @@ Create an `SVGText` instance with specified text spans.<hr>
 
 **[Notes]**
 
- ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.
+ ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+
+**[References]**
+
+- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)

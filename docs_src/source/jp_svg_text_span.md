@@ -506,6 +506,25 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
  ・もしも各種スタイル設定に`None`が指定された場合、そのスタイルは親のスタイル設定を引き継ぎます。<hr>
 
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=200, stage_height=50
+... )
+>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+...     text_spans=[
+...         ap.SVGTextSpan(text="Hello, "),
+...         ap.SVGTextSpan(text="Hello, ", font_size=14),
+...     ],
+...     font_size=20,
+...     fill_color="#0af",
+... )
+```
+
+<hr>
+
 **[関連資料]**
 
 - [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)
@@ -582,6 +601,25 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 **[特記事項]**
 
  ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=200, stage_height=50,
+... )
+>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+...     text_spans=[
+...         ap.SVGTextSpan(text="Hello, "),
+...         ap.SVGTextSpan(text="Hello, ", font_size=14),
+...     ],
+...     font_size=20,
+...     fill_color="#0af",
+... )
+```
+
+<hr>
 
 **[関連資料]**
 

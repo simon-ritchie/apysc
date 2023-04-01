@@ -535,6 +535,22 @@
 <hr>
 <p><strong>[特記事項]</strong></p>
 <p>・もしも各種スタイル設定に<code class="docutils literal notranslate"><span class="pre">None</span></code>が指定された場合、そのスタイルは親のスタイル設定を引き継ぎます。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<hr>
 <p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html">SVGText クラス</a></p></li>
@@ -641,6 +657,22 @@
 <hr>
 <p><strong>[特記事項]</strong></p>
 <p>・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr></p>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<hr>
 <p><strong>[関連資料]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html">SVGText クラス</a></p></li>

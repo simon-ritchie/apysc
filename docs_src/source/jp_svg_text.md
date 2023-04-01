@@ -798,4 +798,26 @@ SVGテキストのためのクラスです。<hr>
 
 **[特記事項]**
 
- ・SVGTextの0の位置のY座標はテキストの下部からスタートします。そのため、もしy=0の座標を指定した場合テキストはほとんど見えなくなります。
+ ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+... )
+>>> svg_text: ap.SVGText = ap.SVGText(
+...     text="Hello, world!",
+...     font_size=20,
+...     fill_color="#0af",
+... )
+>>> svg_text.text
+String("Hello, world!")
+
+>>> svg_text.font_size
+Int(20)
+
+>>> svg_text.fill_color
+String("#00aaff")
+```

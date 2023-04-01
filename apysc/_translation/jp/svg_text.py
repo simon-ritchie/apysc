@@ -251,5 +251,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Notes]**": "**[特記事項]**",
     ##################################################
-    " ・SVGText\'s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.": " ・SVGTextの0の位置のY座標はテキストの下部からスタートします。そのため、もしy=0の座標を指定した場合テキストはほとんど見えなくなります。",  # noqa
+    " ・SVGText\'s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>": " ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>",  # noqa
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=200, stage_height=50, stage_elem_id=\"stage\"\n... )\n>>> svg_text: ap.SVGText = ap.SVGText(\n...     text=\"Hello, world!\",\n...     font_size=20,\n...     fill_color=\"#0af\",\n... )\n>>> svg_text.text\nString(\"Hello, world!\")\n\n>>> svg_text.font_size\nInt(20)\n\n>>> svg_text.fill_color\nString(\"#00aaff\")\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=200, stage_height=50, stage_elem_id=\"stage\"\n... )\n>>> svg_text: ap.SVGText = ap.SVGText(\n...     text=\"Hello, world!\",\n...     font_size=20,\n...     fill_color=\"#0af\",\n... )\n>>> svg_text.text\nString(\"Hello, world!\")\n\n>>> svg_text.font_size\nInt(20)\n\n>>> svg_text.fill_color\nString(\"#00aaff\")\n```",  # noqa
 }

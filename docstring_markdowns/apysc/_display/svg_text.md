@@ -12,6 +12,30 @@ The class for an SVG text.<hr>
 
  ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
 
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=200, stage_height=50,
+... )
+>>> svg_text: ap.SVGText = ap.SVGText(
+...     text="Hello, world!",
+...     font_size=20,
+...     fill_color="#0af",
+... )
+>>> svg_text.text
+String("Hello, world!")
+
+>>> svg_text.font_size
+Int(20)
+
+>>> svg_text.fill_color
+String("#00aaff")
+```
+
+<hr>
+
 **[References]**
 
 - [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
@@ -60,6 +84,30 @@ The class for an SVG text.<hr>
 **[Notes]**
 
  ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+... )
+>>> svg_text: ap.SVGText = ap.SVGText(
+...     text="Hello, world!",
+...     font_size=20,
+...     fill_color="#0af",
+... )
+>>> svg_text.text
+String("Hello, world!")
+
+>>> svg_text.font_size
+Int(20)
+
+>>> svg_text.fill_color
+String("#00aaff")
+```
+
+<hr>
 
 **[References]**
 
@@ -145,6 +193,25 @@ Create an `SVGText` instance with specified text spans.<hr>
 **[Notes]**
 
  ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=200, stage_height=50,
+... )
+>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+...     text_spans=[
+...         ap.SVGTextSpan(text="Hello, "),
+...         ap.SVGTextSpan(text="Hello, ", font_size=14),
+...     ],
+...     font_size=20,
+...     fill_color="#0af",
+... )
+```
+
+<hr>
 
 **[References]**
 

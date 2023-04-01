@@ -136,6 +136,25 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 
  ・If style settings are `None`, its styles inherit parent style settings.<hr>
 
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=200, stage_height=50
+... )
+>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+...     text_spans=[
+...         ap.SVGTextSpan(text="Hello, "),
+...         ap.SVGTextSpan(text="Hello, ", font_size=14),
+...     ],
+...     font_size=20,
+...     fill_color="#0af",
+... )
+```
+
+<hr>
+
 **[References]**
 
 - [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)

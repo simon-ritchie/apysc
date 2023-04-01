@@ -185,6 +185,12 @@ MAPPING: Dict[str, str] = {
     ##################################################
     " ・If style settings are `None`, its styles inherit parent style settings.<hr>": " ・もしも各種スタイル設定に`None`が指定された場合、そのスタイルは親のスタイル設定を引き継ぎます。<hr>",  # noqa
     ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=200, stage_height=50\n... )\n>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(\n...     text_spans=[\n...         ap.SVGTextSpan(text=\"Hello, \"),\n...         ap.SVGTextSpan(text=\"Hello, \", font_size=14),\n...     ],\n...     font_size=20,\n...     fill_color=\"#0af\",\n... )\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=200, stage_height=50\n... )\n>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(\n...     text_spans=[\n...         ap.SVGTextSpan(text=\"Hello, \"),\n...         ap.SVGTextSpan(text=\"Hello, \", font_size=14),\n...     ],\n...     font_size=20,\n...     fill_color=\"#0af\",\n... )\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################
     "- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)": "- [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)",  # noqa
@@ -276,6 +282,12 @@ MAPPING: Dict[str, str] = {
     "**[Notes]**": "**[特記事項]**",
     ##################################################
     " ・SVGText\'s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>": " ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>",  # noqa
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=200, stage_height=50,\n... )\n>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(\n...     text_spans=[\n...         ap.SVGTextSpan(text=\"Hello, \"),\n...         ap.SVGTextSpan(text=\"Hello, \", font_size=14),\n...     ],\n...     font_size=20,\n...     fill_color=\"#0af\",\n... )\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=200, stage_height=50,\n... )\n>>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(\n...     text_spans=[\n...         ap.SVGTextSpan(text=\"Hello, \"),\n...         ap.SVGTextSpan(text=\"Hello, \", font_size=14),\n...     ],\n...     font_size=20,\n...     fill_color=\"#0af\",\n... )\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
     ##################################################
     "**[References]**": "**[関連資料]**",
     ##################################################

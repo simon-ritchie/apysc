@@ -20,6 +20,7 @@ from apysc._geom.rectangle_geom_left_x_mixin import RectangleGeomLeftXMixIn
 from apysc._geom.rectangle_geom_center_x_mixin import RectangleGeomCenterXMixIn
 from apysc._geom.rectangle_geom_right_x_mixin import RectangleGeomRightXMixIn
 from apysc._geom.rectangle_geom_top_y_mixin import RectangleGeomTopYMixIn
+from apysc._geom.rectangle_geom_center_y_mixin import RectangleGeomCenterYMixIn
 
 
 class RectangleGeom(
@@ -30,6 +31,7 @@ class RectangleGeom(
     RectangleGeomCenterXMixIn,
     RectangleGeomRightXMixIn,
     RectangleGeomTopYMixIn,
+    RectangleGeomCenterYMixIn,
 ):
     """
     The rectangle's geometry class.
@@ -91,3 +93,4 @@ class RectangleGeom(
         self._center_x = center_x
         self._right_x = right_x
         self._top_y = top_y
+        self._center_y = center_y

@@ -19,6 +19,7 @@ from apysc._validation import arg_validation_decos
 from apysc._geom.rectangle_geom_left_x_mixin import RectangleGeomLeftXMixIn
 from apysc._geom.rectangle_geom_center_x_mixin import RectangleGeomCenterXMixIn
 from apysc._geom.rectangle_geom_right_x_mixin import RectangleGeomRightXMixIn
+from apysc._geom.rectangle_geom_top_y_mixin import RectangleGeomTopYMixIn
 
 
 class RectangleGeom(
@@ -28,6 +29,7 @@ class RectangleGeom(
     RectangleGeomLeftXMixIn,
     RectangleGeomCenterXMixIn,
     RectangleGeomRightXMixIn,
+    RectangleGeomTopYMixIn,
 ):
     """
     The rectangle's geometry class.
@@ -88,3 +90,4 @@ class RectangleGeom(
         self._left_x = left_x
         self._center_x = center_x
         self._right_x = right_x
+        self._top_y = top_y

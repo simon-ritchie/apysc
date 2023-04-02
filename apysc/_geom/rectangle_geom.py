@@ -17,6 +17,7 @@ from apysc._type.int import Int
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 from apysc._geom.rectangle_geom_left_x_mixin import RectangleGeomLeftXMixIn
+from apysc._geom.rectangle_geom_center_x_mixin import RectangleGeomCenterXMixIn
 
 
 class RectangleGeom(
@@ -24,6 +25,7 @@ class RectangleGeom(
     VariableNameMixIn,
     VariableNameSuffixMixIn,
     RectangleGeomLeftXMixIn,
+    RectangleGeomCenterXMixIn,
 ):
     """
     The rectangle's geometry class.
@@ -81,3 +83,5 @@ class RectangleGeom(
         height : Int
             The Rectangle height.
         """
+        self._left_x = left_x
+        self._center_x = center_x

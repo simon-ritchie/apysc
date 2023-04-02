@@ -1,5 +1,4 @@
 import apysc as ap
-from apysc._expression import expression_data_util
 from apysc._geom.rectangle_geom_left_x_mixin import RectangleGeomLeftXMixIn
 from apysc._testing.testing_helper import apply_test_settings
 

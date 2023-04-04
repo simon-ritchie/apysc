@@ -77,7 +77,7 @@ ap.save_overall_html(dest_dir_path="./animation_y_basic_usage/")
 
 ## Notes for the Circle and Ellipse classes
 
-The `Circle` and `Ellipse` classes' `animation_y` interface will return an `AnimationCy` (center-y) class instance, instead of a `AnimationY` instance, for internal implementation reason.
+The `Circle` and `Ellipse` classes' `animation_y` interface will return an `AnimationCy` (center y) class instance, instead of a `AnimationY` instance, for internal implementation reason.
 
 ```py
 # runnable

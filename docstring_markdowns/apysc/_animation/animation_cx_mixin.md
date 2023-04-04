@@ -2,18 +2,18 @@
 
 ## Module summary
 
-Class implementation for the animation_x mix-in (using center-x coordinate internally).
+Class implementation for the animation_x mix-in (using center x coordinate internally).
 
 ## `AnimationCxMixIn` class docstring
 
 ### `animation_x` method docstring
 
-Set the center-x coordinate animation setting.<hr>
+Set the center x coordinate animation setting.<hr>
 
 **[Parameters]**
 
 - `x`: float or Number
-  - Destination of the center-x coordinate.
+  - Destination of the center x coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
 - `delay`: Int or int, default 0

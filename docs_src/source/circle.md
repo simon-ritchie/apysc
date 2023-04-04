@@ -8,7 +8,7 @@ The `Circle` class creates a circle vector graphics object.
 
 ## Basic usage
 
-The `Circle` class constructor requires the `x` (center-x), `y` (center-y), and `radius` arguments.
+The `Circle` class constructor requires the `x` (center x), `y` (center y), and `radius` arguments.
 
 The constructor also accepts each style's argument, such as the `fill_color`.
 

@@ -5,8 +5,8 @@ from typing_extensions import final
 
 from apysc._geom.rectangle_geom import RectangleGeom
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.number import Number
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
@@ -105,23 +105,24 @@ class GetBoundsMixIn(VariableNameMixIn):
         Parameters
         ----------
         left_x : Number
-            The rectangle left-x coodinate.
+            The rectangle left x coordinate.
         center_x : Number
-            The rectangle center-x coodinate.
+            The rectangle center x coordinate.
         right_x : Number
-            The rectangle right-x coodinate.
+            The rectangle right x coordinate.
         top_y : Number
-            The rectangle top-y coodinate.
+            The rectangle top y coordinate.
         center_y : Number
-            The rectangle center-y coodinate.
+            The rectangle center y coordinate.
         bottom_y : Number
-            The rectangle bottom-y coodinate.
+            The rectangle bottom y coordinate.
         width : Int
             The rectangle width.
         height : Int
             The Rectangle height.
         """
         import apysc as ap
+
         stage: ap.Stage = ap.get_stage()
         expression: str = (
             f"var box = {self.variable_name}.rbox({stage.variable_name});"

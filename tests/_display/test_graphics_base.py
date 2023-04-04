@@ -3,6 +3,7 @@ from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
+from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
@@ -23,7 +24,6 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.get_bounds_mixin import GetBoundsMixIn
 
 
 class _TestGraphic(

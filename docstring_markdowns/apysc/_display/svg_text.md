@@ -17,7 +17,9 @@ The class for an SVG text.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=200, stage_height=50,
+...     background_color="#333",
+...     stage_width=200,
+...     stage_height=50,
 ... )
 >>> svg_text: ap.SVGText = ap.SVGText(
 ...     text="Hello, world!",
@@ -90,7 +92,10 @@ The class for an SVG text.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+...     background_color="#333",
+...     stage_width=200,
+...     stage_height=50,
+...     stage_elem_id="stage",
 ... )
 >>> svg_text: ap.SVGText = ap.SVGText(
 ...     text="Hello, world!",
@@ -199,7 +204,9 @@ Create an `SVGText` instance with specified text spans.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=200, stage_height=50,
+...     background_color="#333",
+...     stage_width=200,
+...     stage_height=50,
 ... )
 >>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
 ...     text_spans=[

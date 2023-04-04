@@ -786,7 +786,10 @@ The class for an SVG text.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+...     background_color="#333",
+...     stage_width=200,
+...     stage_height=50,
+...     stage_elem_id="stage",
 ... )
 >>> svg_text: ap.SVGText = ap.SVGText(
 ...     text="Hello, world!",

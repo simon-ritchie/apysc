@@ -16,7 +16,7 @@ Return value is set for each coordinate. For example, if you set the scale-x val
 
 The `get_scale_x_from_point` method requires the `x` argument (`Int` value), and the `set_scale_x_from_point` requires the `scale_x` (`Number` value) and `x` arguments.
 
-The following example creates three rectangles and increments (or decrements) for each rectangle scale-x value. The top rectangle scales from the left-x position. The middle one scales from the center-x. And the bottom one scales from the right-x.
+The following example creates three rectangles and increments (or decrements) for each rectangle scale-x value. The top rectangle scales from the left x position. The middle one scales from the center x. And the bottom one scales from the right x.
 
 ```py
 # runnable

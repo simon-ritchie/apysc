@@ -1,5 +1,5 @@
 """Class implementation for the animation_y interface
-(using center-y coordinate internally).
+(using center y coordinate internally).
 """
 
 from typing import Union
@@ -30,7 +30,7 @@ class AnimationCyMixIn(AnimationMixIns):
         easing: Easing = Easing.LINEAR
     ) -> AnimationCy:
         """
-        Set the center-y coordinate animation setting.
+        Set the center y coordinate animation setting.
 
         Notes
         -----
@@ -40,7 +40,7 @@ class AnimationCyMixIn(AnimationMixIns):
         Parameters
         ----------
         y : float or Number
-            Destination of the center-y coordinate.
+            Destination of the center y coordinate.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.
         delay : Int or int, default 0

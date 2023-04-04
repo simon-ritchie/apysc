@@ -8,7 +8,7 @@ The `Ellipse` class creates an ellipse vector graphics object.
 
 ## Basic usage
 
-The `Ellipse` class constructor requires the `x` (center-x), `y` (center-y), `width`, and `height` arguments.
+The `Ellipse` class constructor requires the `x` (center x), `y` (center y), `width`, and `height` arguments.
 
 The constructor also accepts each style's argument, such as the `fill_color`.
 

@@ -1,11 +1,11 @@
 import apysc as ap
+from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.get_bounds_mixin import GetBoundsMixIn
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class _TestMixIn(

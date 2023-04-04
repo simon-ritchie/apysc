@@ -24,6 +24,7 @@ from apysc._display.append_line_thickness_attr_expression_mixin import (
 )
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
@@ -67,7 +68,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.get_bounds_mixin import GetBoundsMixIn
 
 
 class SVGTextSpan(

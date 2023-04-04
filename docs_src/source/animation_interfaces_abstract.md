@@ -137,7 +137,7 @@ sprite.graphics.draw_rect(x=150, y=50, width=50, height=50,).animation_y(
 
 def on_cx_animation_complete_1(e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler that the center-x animation calls when its end.
+    The handler that the center x animation calls when its end.
 
     Parameters
     ----------
@@ -156,7 +156,7 @@ def on_cx_animation_complete_1(e: ap.AnimationEvent[ap.Circle], options: dict) -
 
 def on_cx_animation_complete_2(e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler that the center-x animation calls when its end.
+    The handler that the center x animation calls when its end.
 
     Parameters
     ----------
@@ -183,7 +183,7 @@ sprite.graphics.draw_circle(x=275, y=75, radius=25,).animation_x(
 
 def on_cy_animation_complete_1(e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler that the center-y animation calls when its end.
+    The handler that the center y animation calls when its end.
 
     Parameters
     ----------
@@ -202,7 +202,7 @@ def on_cy_animation_complete_1(e: ap.AnimationEvent[ap.Circle], options: dict) -
 
 def on_cy_animation_complete_2(e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler that the center-y animation calls when its end.
+    The handler that the center y animation calls when its end.
 
     Parameters
     ----------

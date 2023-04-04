@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The `Circle` class constructor requires the `x` (center-x), `y` (center-y), and `radius` arguments.": "`Circle`クラスのコンストラクタでは`x`（円の中央のX座標）、`y`（円の中央のY座標）、そして半径としての`radius`引数が必要となります。",  # noqa
+    "The `Circle` class constructor requires the `x` (center x), `y` (center y), and `radius` arguments.": "`Circle`クラスのコンストラクタでは`x`（円の中央のX座標）、`y`（円の中央のY座標）、そして半径としての`radius`引数が必要となります。",  # noqa
     ##################################################
     "The constructor also accepts each style's argument, such as the `fill_color`.": "コンストラクタでは他の`fill_color`などのスタイル設定の各引数も受け付けます。",  # noqa
     ##################################################

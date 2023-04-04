@@ -2,18 +2,18 @@
 
 ## Module summary
 
-Class implementation for the animation_y interface (using center-y coordinate internally).
+Class implementation for the animation_y interface (using center y coordinate internally).
 
 ## `AnimationCyMixIn` class docstring
 
 ### `animation_y` method docstring
 
-Set the center-y coordinate animation setting.<hr>
+Set the center y coordinate animation setting.<hr>
 
 **[Parameters]**
 
 - `y`: float or Number
-  - Destination of the center-y coordinate.
+  - Destination of the center y coordinate.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
 - `delay`: Int or int, default 0

@@ -61,7 +61,7 @@ def main() -> None:
         options={
             "circle": circle,
             "bounding_box_rectangle": bounding_box_rectangle,
-        }
+        },
     )
     timer.start()
 

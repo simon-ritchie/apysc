@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Class implementation for the center-x animation value.
+Class implementation for the center x animation value.
 
 ## `AnimationCx` class docstring
 
-The animation class for a center-x coordinate.<hr>
+The animation class for a center x coordinate.<hr>
 
 **[Examples]**
 
@@ -38,7 +38,7 @@ The animation class for a center-x coordinate.<hr>
 
 ### `__init__` method docstring
 
-The animation class for a center-x coordinate.<hr>
+The animation class for a center x coordinate.<hr>
 
 **[Parameters]**
 

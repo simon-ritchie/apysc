@@ -2,11 +2,11 @@
 
 ## Module summary
 
-Class implementation for the center-y animation value.
+Class implementation for the center y animation value.
 
 ## `AnimationCy` class docstring
 
-The animation class for a center-y coordinate.<hr>
+The animation class for a center y coordinate.<hr>
 
 **[Examples]**
 
@@ -38,7 +38,7 @@ The animation class for a center-y coordinate.<hr>
 
 ### `__init__` method docstring
 
-The animation class for a center-y coordinate.<hr>
+The animation class for a center y coordinate.<hr>
 
 **[Parameters]**
 

@@ -1,4 +1,4 @@
-"""Class implementation for the center-x animation value.
+"""Class implementation for the center x animation value.
 """
 
 from typing import Generic
@@ -19,7 +19,7 @@ _Target = TypeVar("_Target", bound=VariableNameMixIn)
 
 class AnimationCx(AnimationBase[_Target], Generic[_Target]):
     """
-    The animation class for a center-x coordinate.
+    The animation class for a center x coordinate.
 
     References
     ----------
@@ -67,7 +67,7 @@ class AnimationCx(AnimationBase[_Target], Generic[_Target]):
         easing: Easing = Easing.LINEAR,
     ) -> None:
         """
-        The animation class for a center-x coordinate.
+        The animation class for a center x coordinate.
 
         Parameters
         ----------

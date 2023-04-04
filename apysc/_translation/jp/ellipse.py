@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The `Ellipse` class constructor requires the `x` (center-x), `y` (center-y), `width`, and `height` arguments.": "`Ellipse`クラスのコンストラクタでは`x`（楕円の中央のX座標）、`y`（楕円の中央のY座標）、`width`、`height`の各引数の指定が必要です。",  # noqa
+    "The `Ellipse` class constructor requires the `x` (center x), `y` (center y), `width`, and `height` arguments.": "`Ellipse`クラスのコンストラクタでは`x`（楕円の中央のX座標）、`y`（楕円の中央のY座標）、`width`、`height`の各引数の指定が必要です。",  # noqa
     ##################################################
     "The constructor also accepts each style's argument, such as the `fill_color`.": "コンストラクタでは他の`fill_color`などのスタイル設定の各引数も受け付けます。",  # noqa
     ##################################################

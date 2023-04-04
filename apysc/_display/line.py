@@ -24,6 +24,7 @@ from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionM
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
 from apysc._display.flip_y_mixin import FlipYMixIn
+from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_caps import LineCaps
@@ -53,7 +54,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.get_bounds_mixin import GetBoundsMixIn
 
 
 class Line(

@@ -1,29 +1,26 @@
 """The rectangle's geometry class implementation.
 """
 
-from typing import Any
-from typing import Dict
-from typing import Optional
-from typing import Union
 
 from typing_extensions import final
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+
+from apysc._geom.rectangle_geom_bottom_y_mixin import RectangleGeomBottomYMixIn
+from apysc._geom.rectangle_geom_center_x_mixin import RectangleGeomCenterXMixIn
+from apysc._geom.rectangle_geom_center_y_mixin import RectangleGeomCenterYMixIn
+from apysc._geom.rectangle_geom_height_mixin import RectangleGeomHeightMixIn
+from apysc._geom.rectangle_geom_left_x_mixin import RectangleGeomLeftXMixIn
+from apysc._geom.rectangle_geom_right_x_mixin import RectangleGeomRightXMixIn
+from apysc._geom.rectangle_geom_top_y_mixin import RectangleGeomTopYMixIn
+from apysc._geom.rectangle_geom_width_mixin import RectangleGeomWidthMixIn
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
-from apysc._type.number import Number
-from apysc._type.int import Int
-from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._geom.rectangle_geom_left_x_mixin import RectangleGeomLeftXMixIn
-from apysc._geom.rectangle_geom_center_x_mixin import RectangleGeomCenterXMixIn
-from apysc._geom.rectangle_geom_right_x_mixin import RectangleGeomRightXMixIn
-from apysc._geom.rectangle_geom_top_y_mixin import RectangleGeomTopYMixIn
-from apysc._geom.rectangle_geom_center_y_mixin import RectangleGeomCenterYMixIn
-from apysc._geom.rectangle_geom_bottom_y_mixin import RectangleGeomBottomYMixIn
-from apysc._geom.rectangle_geom_width_mixin import RectangleGeomWidthMixIn
-from apysc._geom.rectangle_geom_height_mixin import RectangleGeomHeightMixIn
 
 
 class RectangleGeom(
@@ -79,17 +76,17 @@ class RectangleGeom(
         Parameters
         ----------
         left_x : Number
-            The rectangle left-x coodinate.
+            The rectangle left x coordinate.
         center_x : Number
-            The rectangle center-x coodinate.
+            The rectangle center x coordinate.
         right_x : Number
-            The rectangle right-x coodinate.
+            The rectangle right x coordinate.
         top_y : Number
-            The rectangle top-y coodinate.
+            The rectangle top y coordinate.
         center_y : Number
-            The rectangle center-y coodinate.
+            The rectangle center y coordinate.
         bottom_y : Number
-            The rectangle bottom-y coodinate.
+            The rectangle bottom y coordinate.
         width : Int
             The rectangle width.
         height : Int

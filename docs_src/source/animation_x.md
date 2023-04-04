@@ -77,7 +77,7 @@ ap.save_overall_html(dest_dir_path="./animation_x_basic_usage/")
 
 ## Notes for the Circle and Ellipse classes
 
-The `Circle` and `Ellipse` classes' `animation_x` interface will return an `AnimationCx` (center-x) class instance, instead of a `AnimationX` instance, for internal implementation reason.
+The `Circle` and `Ellipse` classes' `animation_x` interface will return an `AnimationCx` (center x) class instance, instead of an `AnimationX` instance, for internal implementation reasons.
 
 ```py
 # runnable

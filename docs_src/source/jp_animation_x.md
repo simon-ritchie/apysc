@@ -79,7 +79,7 @@ ap.save_overall_html(dest_dir_path="./animation_x_basic_usage/")
 
 ## Circle と Ellipse の各クラスの特記事項
 
-内部実装が異なるため`Circle`と`Ellipse`の各クラスの`animation_x`インターフェイスは`AnimationX`の代わりに`AnimationCx`クラス（center-x）のインスタンスを返却します。
+内部実装が異なるため`Circle`と`Ellipse`の各クラスの`animation_x`インターフェイスは`AnimationX`の代わりに`AnimationCx`クラス（center x）のインスタンスを返却します。
 
 ```py
 # runnable

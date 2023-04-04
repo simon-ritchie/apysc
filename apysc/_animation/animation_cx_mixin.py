@@ -1,5 +1,5 @@
 """Class implementation for the animation_x mix-in
-(using center-x coordinate internally).
+(using center x coordinate internally).
 """
 
 from typing import Union
@@ -30,7 +30,7 @@ class AnimationCxMixIn(AnimationMixIns):
         easing: Easing = Easing.LINEAR
     ) -> AnimationCx:
         """
-        Set the center-x coordinate animation setting.
+        Set the center x coordinate animation setting.
 
         Notes
         -----
@@ -40,7 +40,7 @@ class AnimationCxMixIn(AnimationMixIns):
         Parameters
         ----------
         x : float or Number
-            Destination of the center-x coordinate.
+            Destination of the center x coordinate.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.
         delay : Int or int, default 0

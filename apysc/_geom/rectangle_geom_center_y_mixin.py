@@ -1,8 +1,8 @@
-"""The center-y geometry mix-in implementation for the `RectangleGeom`.
+"""The center y geometry mix-in implementation for the `RectangleGeom`.
 """
 
-from apysc._type.number import Number
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.number import Number
 
 
 class RectangleGeomCenterYMixIn:
@@ -13,11 +13,11 @@ class RectangleGeomCenterYMixIn:
     @add_debug_info_setting(module_name=__name__)
     def center_y(self) -> Number:
         """
-        Get the rectangle center-y coordinate.
+        Get the rectangle center y coordinate.
 
         Returns
         -------
         center_y : Number
-            The rectangle center-y coordinate.
+            The rectangle center y coordinate.
         """
         return self._center_y

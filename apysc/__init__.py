@@ -53,6 +53,7 @@ from apysc._geom.path_bezier_2d_continual import PathBezier2DContinual
 from apysc._geom.path_bezier_3d import PathBezier3D
 from apysc._geom.path_bezier_3d_continual import PathBezier3DContinual
 from apysc._geom.path_data import PathData
+from apysc._geom.rectangle_geom import RectangleGeom
 from apysc._event.event import Event
 from apysc._event.mouse_event import MouseEvent
 from apysc._event.wheel_event import WheelEvent

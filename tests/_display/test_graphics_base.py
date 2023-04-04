@@ -23,6 +23,7 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._display.get_bounds_mixin import GetBoundsMixIn
 
 
 class _TestGraphic(
@@ -48,6 +49,7 @@ class _TestGraphic(
     LineDashSettingMixIn,
     LineRoundDotSettingMixIn,
     LineDashDotSettingMixIn,
+    GetBoundsMixIn,
 ):
     def __repr__(self) -> str:
         """

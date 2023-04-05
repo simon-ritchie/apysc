@@ -3744,7 +3744,7 @@ MAPPINGS: Mappings = Mappings(
             val="## RectangleGeom クラスのコンストラクタのAPI",
         ),
         Mapping(
-            key="The rectangle\'s geometry class.<hr>",
+            key="The rectangle's geometry class.<hr>",
             val="四角の幾何学情報を扱うためのクラスです。<hr>",
         ),
         Mapping(
@@ -3856,11 +3856,11 @@ MAPPINGS: Mappings = Mappings(
             val="## get_bounds メソッドのAPI",
         ),
         Mapping(
-            key="Get an instance\'s bounding-box geometry data.<hr>",
+            key="Get an instance's bounding-box geometry data.<hr>",
             val="インスタンスのバウンディングボックスの幾何データを取得します。<hr>",
         ),
         Mapping(
-            key="  - An instance\'s bounding-box geometry data.",
+            key="  - An instance's bounding-box geometry data.",
             val="  - インスタンスのバウンディングボックスの幾何データ。",
         ),
     ]

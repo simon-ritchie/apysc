@@ -19,6 +19,16 @@ class ToStringMixIn(VariableNameMixIn):
         -------
         string : String
             A converted string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage(
+        ...     background_color="#333", stage_width=200, stage_height=200
+        ... )
+        >>> int_value: ap.Int = ap.Int(value=100)
+        >>> string: ap.String = int_value.to_string()
+        >>> ap.assert_equal(string, "100")
         """
         import apysc as ap
         from apysc._type.variable_name_suffix_utils import (

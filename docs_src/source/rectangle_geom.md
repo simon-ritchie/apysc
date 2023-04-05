@@ -8,7 +8,7 @@ The `RectangleGeom` class has the rectangle's geometry interfaces, such as the `
 
 ## Basic usage
 
-Mainly, the apysc initializes the `RectangleGeom` class.
+In most cases, the apysc initializes the `RectangleGeom` class internally.
 
 For instance, the `get_bounds` method returns a `RectangleGeom` instance; and sets its instance's rectangle geometry data (bounding box).
 
@@ -173,6 +173,126 @@ The rectangle's geometry class.<hr>
   - The rectangle width.
 - `height`: Int
   - The Rectangle height.
+
+## RectangleGeom left_x property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_left_x_mixin.RectangleGeomLeftXMixIn.left_x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle left x coordinate.<hr>
+
+**[Returns]**
+
+- `left_x`: Number
+  - The rectangle left x coordinate.
+
+## RectangleGeom center_x property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_center_x_mixin.RectangleGeomCenterXMixIn.center_x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle center x coordinate.<hr>
+
+**[Returns]**
+
+- `center_x`: Number
+  - The rectangle center x coordinate.
+
+## RectangleGeom right_x property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_right_x_mixin.RectangleGeomRightXMixIn.right_x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle right x coordinate.<hr>
+
+**[Returns]**
+
+- `right_x`: Number
+  - The rectangle right x coordinate.
+
+## RectangleGeom top_y property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_top_y_mixin.RectangleGeomTopYMixIn.top_y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle top y coordinate.<hr>
+
+**[Returns]**
+
+- `top_y`: Number
+  - The rectangle top y coordinate.
+
+## RectangleGeom center_y property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_center_y_mixin.RectangleGeomCenterYMixIn.center_y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle center y coordinate.<hr>
+
+**[Returns]**
+
+- `center_y`: Number
+  - The rectangle center y coordinate.
+
+## RectangleGeom bottom_y property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_bottom_y_mixin.RectangleGeomBottomYMixIn.bottom_y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle bottom y coordinate.<hr>
+
+**[Returns]**
+
+- `bottom_y`: Number
+  - The rectangle bottom y coordinate.
+
+## RectangleGeom width property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_width_mixin.RectangleGeomWidthMixIn.width -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle geometry width.<hr>
+
+**[Returns]**
+
+- `width`: Int
+  - The rectangle geometry width.
+
+## RectangleGeom height property API
+
+<!-- Docstring: apysc._geom.rectangle_geom_height_mixin.RectangleGeomHeightMixIn.height -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]**
+
+Get the rectangle geometry height.<hr>
+
+**[Returns]**
+
+- `height`: Int
+  - The rectangle geometry height.
 
 ## get_bounds method API
 

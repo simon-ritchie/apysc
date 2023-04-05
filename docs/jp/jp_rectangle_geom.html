@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>RectangleGeom クラス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ハンドラのoptions引数の型について" href="jp_about_handler_options_type.html" />
+    <link rel="prev" title="PathBezier3DContinual クラス" href="jp_path_bezier_3d_continual.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_path_bezier_3d_continual.html" title="PathBezier3DContinual クラス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">RectangleGeom クラス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/rectangle_geom.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="rectanglegeom">
+<h1>RectangleGeom クラス<a class="headerlink" href="#rectanglegeom" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">RectangleGeom</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">RectangleGeom</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">lext_x</span></code>や<code class="docutils literal notranslate"><span class="pre">center_x</span></code>、<code class="docutils literal notranslate"><span class="pre">right_x</span></code>、<code class="docutils literal notranslate"><span class="pre">top_y</span></code>、<code class="docutils literal notranslate"><span class="pre">center_y</span></code>、<code class="docutils literal notranslate"><span class="pre">bottom_y</span></code>、<code class="docutils literal notranslate"><span class="pre">width</span></code>、<code class="docutils literal notranslate"><span class="pre">height</span></code>といった四角の幾何学（座標やサイズなど）の各インターフェイスを持ちます。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>多くのケースでは、apyscが内部で<code class="docutils literal notranslate"><span class="pre">RectangleGeom</span></code>クラスを初期化します。</p>
+<p>例えば、<code class="docutils literal notranslate"><span class="pre">get_bounds</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">RectangleGeom</span></code>インスタンスを返却し、且つそのインスタンスに四角の幾何学のデータ（バウンディングボックス）を設定します。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">bounding_box</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">RectangleGeom</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+<span class="n">text_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="p">(</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Left x: &quot;</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+        <span class="o">+</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot; width: &quot;</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">bounding_box</span><span class="o">.</span><span class="n">width</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+    <span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;rectangle_geom_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/rectangle_geom_basic_usage/index.html" width="300" height="200"></iframe>
+</section>
+<section id="id3">
+<h2>各属性の座標<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>以下の例では各属性の座標を表示しています:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">440</span><span class="p">)</span>
+<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">220</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">bounding_box</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">RectangleGeom</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+
+<span class="n">LINE_COLOR</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;#aaa&quot;</span>
+<span class="n">box_rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="n">LINE_COLOR</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">POINT_RADIUS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">fill_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;#fd63c3&quot;</span>
+<span class="n">left_x_and_top_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="n">POINT_RADIUS</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">left_x_and_top_y_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;left_x and top_y&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span> <span class="o">-</span> <span class="mi">15</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#ae59e3&quot;</span>
+<span class="n">right_x_and_top_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">right_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="n">POINT_RADIUS</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">right_x_and_top_y_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;right_x and top_y&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">right_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span> <span class="o">-</span> <span class="mi">15</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#726efa&quot;</span>
+<span class="n">left_x_and_bottom_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">bottom_y</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="n">POINT_RADIUS</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">left_x_and_bottom_y_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;left_x and bottom_y&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">bottom_y</span> <span class="o">+</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#6eaee6&quot;</span>
+<span class="n">right_x_and_bottom_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">right_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">bottom_y</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="n">POINT_RADIUS</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">right_x_and_bottom_y_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;right_x and bottom_y&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">right_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">bottom_y</span> <span class="o">+</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#ffffff&quot;</span>
+<span class="n">center_x_and_center_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">center_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">center_y</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="n">POINT_RADIUS</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">center_x_and_center_y_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;center_x and center_y&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">center_x</span> <span class="o">+</span> <span class="mi">25</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">center_y</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;rectangle_geom_each_attribute_point/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/rectangle_geom_each_attribute_point/index.html" width="600" height="440"></iframe>
+</section>
+<section id="rectanglegeom-api">
+<h2>RectangleGeom クラスのコンストラクタのAPI<a class="headerlink" href="#rectanglegeom-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">left_x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">center_x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">right_x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">top_y:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">center_y:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">bottom_y:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">width:</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">height:</span> <span class="pre">apysc._type.int.Int)</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の幾何学情報を扱うためのクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left_x</span></code>: Number</p>
+<ul>
+<li><p>四角の左端のX座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center_x</span></code>: Number</p>
+<ul>
+<li><p>四角の中央のX座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right_x</span></code>: Number</p>
+<ul>
+<li><p>四角の右端のX座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">top_y</span></code>: Number</p>
+<ul>
+<li><p>四角の上端のY座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center_y</span></code>: Number</p>
+<ul>
+<li><p>四角の中央のY座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bottom_y</span></code>: Number</p>
+<ul>
+<li><p>四角の下端のY座標。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Int</p>
+<ul>
+<li><p>四角の幅。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: Int</p>
+<ul>
+<li><p>四角の高さ。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-left-x-api">
+<h2>RectangleGeom クラスの left_x 属性のAPI<a class="headerlink" href="#rectanglegeom-left-x-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の左端のX座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left_x</span></code>: Number</p>
+<ul>
+<li><p>四角の左端のX座標。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-center-x-api">
+<h2>RectangleGeom クラスの center_x 属性のAPI<a class="headerlink" href="#rectanglegeom-center-x-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の中央のX座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">center_x</span></code>: Number</p>
+<ul>
+<li><p>四角の中央のX座標。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-right-x-api">
+<h2>RectangleGeom クラスの right_x 属性のAPI<a class="headerlink" href="#rectanglegeom-right-x-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の右端のX座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">right_x</span></code>: Number</p>
+<ul>
+<li><p>四角の右端のX座標。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-top-y-api">
+<h2>RectangleGeom クラスの top_y 属性のAPI<a class="headerlink" href="#rectanglegeom-top-y-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の上端のY座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">top_y</span></code>: Number</p>
+<ul>
+<li><p>四角の上端のY座標。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-center-y-api">
+<h2>RectangleGeom クラスの center_y 属性のAPI<a class="headerlink" href="#rectanglegeom-center-y-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の中央のY座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">center_y</span></code>: Number</p>
+<ul>
+<li><p>四角の中央のY座標。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-bottom-y-api">
+<h2>RectangleGeom クラスの bottom_y 属性のAPI<a class="headerlink" href="#rectanglegeom-bottom-y-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の下端のY座標を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bottom_y</span></code>: Number</p>
+<ul>
+<li><p>四角の下端のY座標。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-width-api">
+<h2>RectangleGeom クラスの width 属性のAPI<a class="headerlink" href="#rectanglegeom-width-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の幅の値を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Int</p>
+<ul>
+<li><p>四角の幅の値。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rectanglegeom-height-api">
+<h2>RectangleGeom の height 属性のAPI<a class="headerlink" href="#rectanglegeom-height-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>四角の高さの値を取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: Int</p>
+<ul>
+<li><p>四角の高さの値。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="get-bounds-api">
+<h2>get_bounds メソッドのAPI<a class="headerlink" href="#get-bounds-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_bounds(self)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._geom.rectangle_geom.RectangleGeom</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>インスタンスのバウンディングボックスの幾何データを取得します。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bounding_box</span></code>: RectangleGeom</p>
+<ul>
+<li><p>インスタンスのバウンディングボックスの幾何データ。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RectangleGeom クラス</a><ul>
+<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">各属性の座標</a></li>
+<li><a class="reference internal" href="#rectanglegeom-api">RectangleGeom クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-left-x-api">RectangleGeom クラスの left_x 属性のAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-center-x-api">RectangleGeom クラスの center_x 属性のAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-right-x-api">RectangleGeom クラスの right_x 属性のAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-top-y-api">RectangleGeom クラスの top_y 属性のAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-center-y-api">RectangleGeom クラスの center_y 属性のAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-bottom-y-api">RectangleGeom クラスの bottom_y 属性のAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-width-api">RectangleGeom クラスの width 属性のAPI</a></li>
+<li><a class="reference internal" href="#rectanglegeom-height-api">RectangleGeom の height 属性のAPI</a></li>
+<li><a class="reference internal" href="#get-bounds-api">get_bounds メソッドのAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_path_bezier_3d_continual.html"
+                        title="previous chapter">PathBezier3DContinual クラス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_about_handler_options_type.html"
+                        title="next chapter">ハンドラのoptions引数の型について</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_path_bezier_3d_continual.html" title="PathBezier3DContinual クラス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">RectangleGeom クラス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

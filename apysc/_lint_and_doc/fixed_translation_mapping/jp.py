@@ -3739,5 +3739,129 @@ MAPPINGS: Mappings = Mappings(
             key=" ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>",
             val=" ・SVGTextクラスの座標の0の位置はテキストの下部からスタートします。そのためもしもy=0を指定した場合、テキストはほとんど見えない状態になります。<hr>",
         ),
+        Mapping(
+            key="## RectangleGeom constructor API",
+            val="## RectangleGeom クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="The rectangle\'s geometry class.<hr>",
+            val="四角の幾何学情報を扱うためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - The rectangle left x coordinate.",
+            val="  - 四角の左端のX座標。",
+        ),
+        Mapping(
+            key="  - The rectangle center x coordinate.",
+            val="  - 四角の中央のX座標。",
+        ),
+        Mapping(
+            key="  - The rectangle right x coordinate.",
+            val="  - 四角の右端のX座標。",
+        ),
+        Mapping(
+            key="  - The rectangle top y coordinate.",
+            val="  - 四角の上端のY座標。",
+        ),
+        Mapping(
+            key="  - The rectangle center y coordinate.",
+            val="  - 四角の中央のY座標。",
+        ),
+        Mapping(
+            key="  - The rectangle bottom y coordinate.",
+            val="  - 四角の下端のY座標。",
+        ),
+        Mapping(
+            key="  - The rectangle width.",
+            val="  - 四角の幅。",
+        ),
+        Mapping(
+            key="  - The Rectangle height.",
+            val="  - 四角の高さ。",
+        ),
+        Mapping(
+            key="## RectangleGeom left_x property API",
+            val="## RectangleGeom クラスの left_x 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle left x coordinate.<hr>",
+            val="四角の左端のX座標を取得します。<hr>",
+        ),
+        Mapping(
+            key="## RectangleGeom center_x property API",
+            val="## RectangleGeom クラスの center_x 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle center x coordinate.<hr>",
+            val="四角の中央のX座標を取得します。<hr>",
+        ),
+        Mapping(
+            key="## RectangleGeom right_x property API",
+            val="## RectangleGeom クラスの right_x 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle right x coordinate.<hr>",
+            val="四角の右端のX座標を取得します。<hr>",
+        ),
+        Mapping(
+            key="## RectangleGeom top_y property API",
+            val="## RectangleGeom クラスの top_y 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle top y coordinate.<hr>",
+            val="四角の上端のY座標を取得します。<hr>",
+        ),
+        Mapping(
+            key="## RectangleGeom center_y property API",
+            val="## RectangleGeom クラスの center_y 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle center y coordinate.<hr>",
+            val="四角の中央のY座標を取得します。<hr>",
+        ),
+        Mapping(
+            key="## RectangleGeom bottom_y property API",
+            val="## RectangleGeom クラスの bottom_y 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle bottom y coordinate.<hr>",
+            val="四角の下端のY座標を取得します。<hr>",
+        ),
+        Mapping(
+            key="## RectangleGeom width property API",
+            val="## RectangleGeom クラスの width 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle geometry width.<hr>",
+            val="四角の幅の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - The rectangle geometry width.",
+            val="  - 四角の幅の値。",
+        ),
+        Mapping(
+            key="## RectangleGeom height property API",
+            val="## RectangleGeom の height 属性のAPI",
+        ),
+        Mapping(
+            key="Get the rectangle geometry height.<hr>",
+            val="四角の高さの値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - The rectangle geometry height.",
+            val="  - 四角の高さの値。",
+        ),
+        Mapping(
+            key="## get_bounds method API",
+            val="## get_bounds メソッドのAPI",
+        ),
+        Mapping(
+            key="Get an instance\'s bounding-box geometry data.<hr>",
+            val="インスタンスのバウンディングボックスの幾何データを取得します。<hr>",
+        ),
+        Mapping(
+            key="  - An instance\'s bounding-box geometry data.",
+            val="  - インスタンスのバウンディングボックスの幾何データ。",
+        ),
     ]
 )

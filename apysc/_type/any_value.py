@@ -15,9 +15,16 @@ from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.to_string_mixin import ToStringMixIn
 
 
-class AnyValue(CopyMixIn, RevertMixIn, CustomEventMixIn, VariableNameSuffixMixIn):
+class AnyValue(
+    ToStringMixIn,
+    CopyMixIn,
+    RevertMixIn,
+    CustomEventMixIn,
+    VariableNameSuffixMixIn,
+):
     """
     Class implementation of any value (a value that can't
     determine type).

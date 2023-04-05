@@ -38,6 +38,25 @@ class RectangleGeom(
 ):
     """
     The rectangle's geometry class.
+
+    Attributes
+    ----------
+    left_x : Number
+        The rectangle left x coordinate.
+    center_x : Number
+        The rectangle center x coordinate.
+    right_x : Number
+        The rectangle right x coordinate.
+    top_y : Number
+        The rectangle top y coordinate.
+    center_y : Number
+        The rectangle center y coordinate.
+    bottom_y : Number
+        The rectangle bottom y coordinate.
+    width : Int
+        The rectangle width.
+    height : Int
+        The Rectangle height.
     """
 
     @final

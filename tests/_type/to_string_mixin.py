@@ -12,7 +12,5 @@ class TestToStringMixIn:
         mixin.variable_name = "test_mixin"
         string: ap.String = mixin.to_string()
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{string.variable_name} = String({mixin.variable_name});"
-        )
+        expected: str = f"{string.variable_name} = String({mixin.variable_name});"
         assert expected in expression

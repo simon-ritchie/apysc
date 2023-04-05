@@ -34,12 +34,11 @@ class ToStringMixIn(VariableNameMixIn):
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
+
         suffix: str = get_attr_or_variable_name_suffix(
             instance=self, value_identifier="string"
         )
         string: String = String("", variable_name_suffix=suffix)
-        expression: str = (
-            f"{string.variable_name} = String({self.variable_name});"
-        )
+        expression: str = f"{string.variable_name} = String({self.variable_name});"
         ap.append_js_expression(expression=expression)
         return string

@@ -43,6 +43,10 @@ def main() -> None:
     string_3: ap.String = arr_1.to_string()
     ap.assert_equal(string_3, "1,2,3")
 
+    bool_1: ap.Boolean = ap.Boolean(True)
+    string_4: ap.String = bool_1.to_string()
+    ap.assert_equal(string_4, "true")
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

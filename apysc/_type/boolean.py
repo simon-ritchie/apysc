@@ -18,9 +18,11 @@ from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.to_string_mixin import ToStringMixIn
 
 
 class Boolean(
+    ToStringMixIn,
     CopyMixIn,
     RevertMixIn,
     CustomEventMixIn,

@@ -9,9 +9,13 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.to_string_mixin import ToStringMixIn
 
 
-class Number(NumberValueMixIn[float, "Number"]):
+class Number(
+    NumberValueMixIn[float, "Number"],
+    ToStringMixIn,
+):
     """
     Floating point number class for the apysc library.
 

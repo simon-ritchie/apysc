@@ -35,6 +35,10 @@ def main() -> None:
     string_1: ap.String = int_1.to_string()
     ap.assert_equal(string_1, "10")
 
+    number_1: ap.Number = ap.Number(10.5)
+    string_2: ap.String = number_1.to_string()
+    ap.assert_equal(string_2, "10.5")
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

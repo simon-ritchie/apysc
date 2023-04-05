@@ -23,11 +23,13 @@ from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.to_string_mixin import ToStringMixIn
 
 _ArrValue = TypeVar("_ArrValue")
 
 
 class Array(
+    ToStringMixIn,
     CopyMixIn,
     RevertMixIn,
     CustomEventMixIn,

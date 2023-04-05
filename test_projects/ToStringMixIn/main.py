@@ -39,6 +39,10 @@ def main() -> None:
     string_2: ap.String = number_1.to_string()
     ap.assert_equal(string_2, "10.5")
 
+    arr_1: ap.Array = ap.Array([1, 2, 3])
+    string_3: ap.String = arr_1.to_string()
+    ap.assert_equal(string_3, "1,2,3")
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

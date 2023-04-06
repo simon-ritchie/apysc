@@ -198,4 +198,16 @@ MAPPING: Dict[str, str] = {
     "- `bounding_box`: RectangleGeom": "- `bounding_box`: RectangleGeom",
     ##################################################
     "  - An instance\'s bounding-box geometry data.": "  - インスタンスのバウンディングボックスの幾何データ。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=250, stage_height=350\n... )\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=100, width=150, height=200, fill_color=\"#0af\",\n... )\n>>> bounding_box: ap.RectangleGeom = rectangle.get_bounds()\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=\"#333\", stage_width=250, stage_height=350\n... )\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=100, width=150, height=200, fill_color=\"#0af\",\n... )\n>>> bounding_box: ap.RectangleGeom = rectangle.get_bounds()\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [get_bounds interface](https://simon-ritchie.github.io/apysc/en/get_bounds.md)": "- [get_bounds インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_get_bounds.md)",  # noqa
 }

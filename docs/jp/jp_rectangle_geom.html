@@ -21,7 +21,7 @@
     <script src="static/keyword_link_mapping.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ハンドラのoptions引数の型について" href="jp_about_handler_options_type.html" />
+    <link rel="next" title="get_bounds インターフェイス" href="jp_get_bounds.html" />
     <link rel="prev" title="PathBezier3DContinual クラス" href="jp_path_bezier_3d_continual.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -31,7 +31,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
+          <a href="jp_get_bounds.html" title="get_bounds インターフェイス"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="jp_path_bezier_3d_continual.html" title="PathBezier3DContinual クラス"
@@ -362,6 +362,23 @@
 </ul>
 </li>
 </ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">350</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bounding_box</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">RectangleGeom</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr>
+<p><strong>[関連資料]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/jp/jp_get_bounds.md">get_bounds インターフェイス</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -399,8 +416,8 @@
   <p class="topless"><a href="jp_path_bezier_3d_continual.html"
                         title="previous chapter">PathBezier3DContinual クラス</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="jp_about_handler_options_type.html"
-                        title="next chapter">ハンドラのoptions引数の型について</a></p>
+  <p class="topless"><a href="jp_get_bounds.html"
+                        title="next chapter">get_bounds インターフェイス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -422,7 +439,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
+          <a href="jp_get_bounds.html" title="get_bounds インターフェイス"
              >next</a> |</li>
         <li class="right" >
           <a href="jp_path_bezier_3d_continual.html" title="PathBezier3DContinual クラス"

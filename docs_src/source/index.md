@@ -214,6 +214,7 @@ path_bezier_2d_continual
 path_bezier_3d
 path_bezier_3d_continual
 rectangle_geom
+get_bounds
 ```
 
 ## Common event interfaces

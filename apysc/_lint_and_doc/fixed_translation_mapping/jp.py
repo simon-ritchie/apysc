@@ -3863,5 +3863,13 @@ MAPPINGS: Mappings = Mappings(
             key="  - An instance's bounding-box geometry data.",
             val="  - インスタンスのバウンディングボックスの幾何データ。",
         ),
+        Mapping(
+            key="RectangleGeom class",
+            val="RectangleGeom クラス",
+        ),
+        Mapping(
+            key="get_bounds interface",
+            val="get_bounds インターフェイス",
+        ),
     ]
 )

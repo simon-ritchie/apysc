@@ -217,6 +217,7 @@ jp_path_bezier_2d_continual
 jp_path_bezier_3d
 jp_path_bezier_3d_continual
 jp_rectangle_geom
+jp_get_bounds
 ```
 
 ## イベントの共通の各インターフェイス

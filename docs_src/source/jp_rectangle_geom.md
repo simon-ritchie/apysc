@@ -299,3 +299,24 @@ ap.save_overall_html(dest_dir_path="rectangle_geom_each_attribute_point/")
 
 - `bounding_box`: RectangleGeom
   - インスタンスのバウンディングボックスの幾何データ。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color="#333", stage_width=250, stage_height=350
+... )
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50, y=100, width=150, height=200, fill_color="#0af",
+... )
+>>> bounding_box: ap.RectangleGeom = rectangle.get_bounds()
+```
+
+<hr>
+
+**[関連資料]**
+
+- [get_bounds インターフェイス](https://simon-ritchie.github.io/apysc/jp/jp_get_bounds.md)

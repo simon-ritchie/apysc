@@ -57,6 +57,11 @@ class RectangleGeom(
         The rectangle width.
     height : Int
         The Rectangle height.
+
+    References
+    ----------
+    - RectangleGeom class
+        - https://simon-ritchie.github.io/apysc/en/rectangle_geom.html
     """
 
     @final
@@ -110,6 +115,11 @@ class RectangleGeom(
             The rectangle width.
         height : Int
             The Rectangle height.
+
+        References
+        ----------
+        - RectangleGeom class
+            - https://simon-ritchie.github.io/apysc/en/rectangle_geom.html
         """
         self._left_x = left_x
         self._center_x = center_x

@@ -21,6 +21,13 @@ class GetBoundsMixIn(VariableNameMixIn):
         -------
         bounding_box : RectangleGeom
             An instance's bounding-box geometry data.
+
+        References
+        ----------
+        - get_bounds interface
+            - https://simon-ritchie.github.io/apysc/en/get_bounds.md
+        - RectangleGeom class
+            - https://simon-ritchie.github.io/apysc/en/rectangle_geom.html
         """
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,

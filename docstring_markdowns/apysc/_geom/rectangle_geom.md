@@ -6,7 +6,11 @@ The rectangle's geometry class implementation.
 
 ## `RectangleGeom` class docstring
 
-The rectangle's geometry class.
+The rectangle's geometry class.<hr>
+
+**[References]**
+
+- [RectangleGeom class](https://simon-ritchie.github.io/apysc/en/rectangle_geom.html)
 
 ### `__init__` method docstring
 
@@ -30,3 +34,9 @@ The rectangle's geometry class.<hr>
   - The rectangle width.
 - `height`: Int
   - The Rectangle height.
+
+<hr>
+
+**[References]**
+
+- [RectangleGeom class](https://simon-ritchie.github.io/apysc/en/rectangle_geom.html)

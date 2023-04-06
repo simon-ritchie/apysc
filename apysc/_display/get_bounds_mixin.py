@@ -37,7 +37,11 @@ class GetBoundsMixIn(VariableNameMixIn):
         ...     background_color="#333", stage_width=250, stage_height=350
         ... )
         >>> rectangle: ap.Rectangle = ap.Rectangle(
-        ...     x=50, y=100, width=150, height=200, fill_color="#0af",
+        ...     x=50,
+        ...     y=100,
+        ...     width=150,
+        ...     height=200,
+        ...     fill_color="#0af",
         ... )
         >>> bounding_box: ap.RectangleGeom = rectangle.get_bounds()
         """

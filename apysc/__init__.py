@@ -121,4 +121,4 @@ from apysc._animation.animation_parallel import AnimationParallel
 from apysc._math.math import Math
 from apysc._auto_reloading.auto_reloading_decorator import set_auto_reloading
 
-__version__: str = "2.7.16"
+__version__: str = "2.7.17"

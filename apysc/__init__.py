@@ -119,5 +119,6 @@ from apysc._animation.animation_scale_x_from_point import AnimationScaleXFromPoi
 from apysc._animation.animation_scale_y_from_point import AnimationScaleYFromPoint
 from apysc._animation.animation_parallel import AnimationParallel
 from apysc._math.math import Math
+from apysc._auto_reloading.auto_reloading_decorator import set_auto_reloading
 
 __version__: str = "2.7.16"

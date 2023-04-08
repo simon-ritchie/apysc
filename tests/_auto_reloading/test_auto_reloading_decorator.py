@@ -28,6 +28,11 @@ def test__are_files_updated() -> None:
         txt="print(20)",
         file_path=file_path_2,
     )
+    file_path_3: str = os.path.join(test_root_dir_path, "test_3.txt")
+    file_util.save_plain_txt(
+        txt="Test",
+        file_path=file_path_3,
+    )
 
     now: datetime = datetime.now()
     last_executed_time: datetime = now + timedelta(minutes=3)
@@ -50,6 +55,13 @@ def test__are_files_updated() -> None:
         checking_dir_paths=[test_root_dir_path],
     )
     assert result
+
+    file_util.delete_file_if_exists(file_path=file_path_2)
+    result = auto_reloading_decorator._are_files_updated(
+        last_executed_time=last_executed_time,
+        checking_dir_paths=[test_root_dir_path],
+    )
+    assert not result
 
     shutil.rmtree(test_root_dir_path, ignore_errors=True)
 

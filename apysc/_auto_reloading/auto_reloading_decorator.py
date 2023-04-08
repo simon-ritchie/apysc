@@ -24,6 +24,10 @@ def set_auto_reloading(
     """
     Set an auto-reloading setting as a decorator.
 
+    Notes
+    -----
+    Currently this setting checks only `.py` files.
+
     Parameters
     ----------
     checking_dir_paths : List[str]
@@ -108,10 +112,12 @@ def _are_files_updated(
                     return True
                 continue
 
+            if not file_or_dir_path.endswith(".py"):
+                continue
+
             last_modified: datetime = datetime.fromtimestamp(
                 os.stat(file_or_dir_path).st_mtime,
             )
-            print(last_modified, last_executed_time)
             if last_modified >= last_executed_time - timedelta_:
                 return True
     return False

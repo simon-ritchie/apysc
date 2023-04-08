@@ -1,16 +1,18 @@
 # mypy: disable-error-code=type-var
 
-"""The decorator implementation for the auto reloading.
+"""The decorator implementation for the auto-reloading.
 """
 
 import functools
-from typing import Any, List, Optional
-from typing import Callable
-from typing import Dict
-from typing import TypeVar
-from datetime import datetime, timedelta
-import time
 import os
+import time
+from datetime import datetime
+from datetime import timedelta
+from typing import Any
+from typing import Callable
+from typing import List
+from typing import Optional
+from typing import TypeVar
 
 # pyright: reportInvalidTypeVarUse=false
 _Callable = TypeVar("_Callable", bound=Callable)
@@ -26,12 +28,12 @@ def set_auto_reloading(
 
     Notes
     -----
-    Currently this setting checks only `.py` files.
+    Currently, this setting checks only `.py` files.
 
     Parameters
     ----------
     checking_dir_paths : List[str]
-        Directory paths to check for files' changes.
+        Directory paths to check for file changes.
     max_checking_num : Optional[int], optional
         Maximum checking attempts number.
         Mainly this interface uses this setting for the testing.
@@ -51,10 +53,7 @@ def set_auto_reloading(
 
             checking_count: int = 0
             while True:
-                if (
-                    max_checking_num is not None
-                    and checking_count >= max_checking_num
-                ):
+                if max_checking_num is not None and checking_count >= max_checking_num:
                     break
                 if not _are_files_updated(
                     last_executed_time=last_executed_time,
@@ -67,7 +66,7 @@ def set_auto_reloading(
                     result = callable_(*args, **kwargs)
                     last_executed_time = datetime.now()
                     time.sleep(1.0)
-                except:
+                except Exception:
                     pass
                 finally:
                     checking_count += 1
@@ -91,7 +90,7 @@ def _are_files_updated(
     last_executed_time : datetime
         A last execution time.
     checking_dir_paths : List[str]
-        Directory paths to check for files' changes.
+        Directory paths to check for file changes.
 
     Returns
     -------

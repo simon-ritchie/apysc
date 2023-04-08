@@ -28,3 +28,9 @@ Convert this instance to a string.<hr>
 >>> string: ap.String = int_value.to_string()
 >>> ap.assert_equal(string, "100")
 ```
+
+<hr>
+
+**[References]**
+
+- [to_string interface](https://simon-ritchie.github.io/apysc/en/to_string.html)

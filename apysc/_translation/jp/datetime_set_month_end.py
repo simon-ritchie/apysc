@@ -11,11 +11,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "# DateTime class set_month_end interface": "# DateTime クラスの set_month_end インターフェイス",  # noqa
     ##################################################
-    "This page explains the `DateTime` class's `set_month_end` method interface.": "このページでは`DateTime`クラスの`set_month_end`メソッドのインターフェイスについて説明します。",  # noqa
+    "This page explains the `DateTime` class\'s `set_month_end` method interface.": "このページでは`DateTime`クラスの`set_month_end`メソッドのインターフェイスについて説明します。",  # noqa
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `set_month_end` method interface sets the current month's end date.": "`set_month_end`メソッドのインターフェイスでは現在の月の月末の日付を設定します。",  # noqa
+    "The `set_month_end` method interface sets the current month\'s end date.": "`set_month_end`メソッドのインターフェイスでは現在の月の月末の日付を設定します。",  # noqa
     ##################################################
     "For instance, if the current date is 05/12/2022, this method sets 31/12/2022.": "例えば、もし現在の日付が2022-12-05であればこのメソッドによって2022-12-31が設定されます。",  # noqa
     ##################################################

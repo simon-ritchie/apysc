@@ -20,7 +20,12 @@
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(background_color="#333", stage_width=500, stage_height=440)
+stage: ap.Stage = ap.Stage(
+    background_color="#333",
+    stage_width=500,
+    stage_height=440,
+    stage_elem_id="stage",
+)
 circle: ap.Circle = ap.Circle(
     x=250,
     y=220,
@@ -82,7 +87,11 @@ ap.save_overall_html(dest_dir_path="get_bounds_basic_usage/")
 ...     background_color="#333", stage_width=250, stage_height=350
 ... )
 >>> rectangle: ap.Rectangle = ap.Rectangle(
-...     x=50, y=100, width=150, height=200, fill_color="#0af",
+...     x=50,
+...     y=100,
+...     width=150,
+...     height=200,
+...     fill_color="#0af",
 ... )
 >>> bounding_box: ap.RectangleGeom = rectangle.get_bounds()
 ```

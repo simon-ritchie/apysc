@@ -61,6 +61,7 @@ get_child_at
 :maxdepth: 1
 why_apysc_doesnt_use_python_builtin_data_type
 fundamental_data_classes_value_interface
+to_string
 ```
 
 ### Int and Number classes

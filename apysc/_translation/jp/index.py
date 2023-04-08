@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -47,7 +47,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## apysc basic data classes": "## apyscの基本的な各データクラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nwhy_apysc_doesnt_use_python_builtin_data_type\nfundamental_data_classes_value_interface\n```": "```{toctree}\n:maxdepth: 1\njp_why_apysc_doesnt_use_python_builtin_data_type\njp_fundamental_data_classes_value_interface\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nwhy_apysc_doesnt_use_python_builtin_data_type\nfundamental_data_classes_value_interface\nto_string\n```": "```{toctree}\n:maxdepth: 1\njp_why_apysc_doesnt_use_python_builtin_data_type\njp_fundamental_data_classes_value_interface\njp_to_string\n```",  # noqa
     ##################################################
     "### Int and Number classes": "### Int と Number クラス",
     ##################################################

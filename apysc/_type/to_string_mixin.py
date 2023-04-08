@@ -20,6 +20,11 @@ class ToStringMixIn(VariableNameMixIn):
         string : String
             A converted string.
 
+        References
+        ----------
+        - to_string interface
+            - https://simon-ritchie.github.io/apysc/en/to_string.html
+
         Examples
         --------
         >>> import apysc as ap

@@ -197,4 +197,5 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "create_with_svg_text_spans": "svg_text_span",
     "get_bounds": "get_bounds",
     "RectangleGeom": "rectangle_geom",
+    "to_string": "to_string",
 }

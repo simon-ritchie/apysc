@@ -3871,5 +3871,17 @@ MAPPINGS: Mappings = Mappings(
             key="get_bounds interface",
             val="get_bounds インターフェイス",
         ),
+        Mapping(
+            key="## to_string method API",
+            val="## to_string メソッドのAPI",
+        ),
+        Mapping(
+            key="Convert this instance to a string.<hr>",
+            val="このインスタンスを文字列へと変換します。<hr>",
+        ),
+        Mapping(
+            key="  - A converted string.",
+            val="  - 変換された文字列。",
+        ),
     ]
 )

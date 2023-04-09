@@ -54,6 +54,10 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.css_mixin import CssMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn
+)
 
 
 class Line(
@@ -61,6 +65,8 @@ class Line(
     AppendXAttrExpressionMixIn,
     YMixIn,
     AppendYAttrExpressionMixIn,
+    SetOverflowVisibleSettingMixIn,
+    CssMixIn,
     GraphicsBase,
     RotationAroundCenterMixIn,
     RotationAroundPointMixIn,

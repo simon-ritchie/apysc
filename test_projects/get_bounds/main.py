@@ -75,11 +75,10 @@ def on_timer(e: ap.TimerEvent, options: _TimerOptions) -> None:
     Parameters
     ----------
     e : ap.TimerEvent
-        _description_
+        Event instance.
     options : _TimerOptions
-        _description_
+        Optional argument dictionary.
     """
-    stage: ap.Stage = ap.get_stage()
     timer: ap.Timer = e.this
     circle: ap.Circle = options["circle"]
     bounding_box_rectangle = options["bounding_box_rectangle"]
@@ -92,23 +91,11 @@ def on_timer(e: ap.TimerEvent, options: _TimerOptions) -> None:
         circle.rotation_around_center = ap.Int(30)
     with ap.If(timer.current_count == 5):
         circle.rotation_around_center = ap.Int(90)
-
-    x: ap.Number = ap.Number(0)
-    y: ap.Number = ap.Number(0)
-    width: ap.Int = ap.Int(0)
-    height: ap.Int = ap.Int(0)
-    expression: str = (
-        f"var box = {circle.variable_name}.rbox({stage.variable_name});"
-        f"\n{x.variable_name} = box.x;"
-        f"\n{y.variable_name} = box.y;"
-        f"\n{width.variable_name} = box.width;"
-        f"\n{height.variable_name} = box.height;"
-    )
-    ap.append_js_expression(expression=expression)
-    bounding_box_rectangle.x = x
-    bounding_box_rectangle.y = y
-    bounding_box_rectangle.width = width
-    bounding_box_rectangle.height = height
+    bounding_box: ap.RectangleGeom = circle.get_bounds()
+    bounding_box_rectangle.x = bounding_box.left_x
+    bounding_box_rectangle.y = bounding_box.top_y
+    bounding_box_rectangle.width = bounding_box.width
+    bounding_box_rectangle.height = bounding_box.height
 
 
 if __name__ == "__main__":

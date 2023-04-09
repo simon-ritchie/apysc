@@ -69,9 +69,11 @@ from apysc._display.css_mixin import CssMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn
 )
+from apysc._type.repr_interface import ReprInterface
 
 
 class Circle(
+    ReprInterface,
     CxMixIn,
     AppendXAttrExpressionMixIn,
     CyMixIn,

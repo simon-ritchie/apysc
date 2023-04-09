@@ -1,8 +1,6 @@
 """Class implementation for graphic's base class.
 """
 
-from abc import ABC
-from abc import abstractmethod
 from typing import Optional
 from typing import Union
 
@@ -26,7 +24,6 @@ from apysc._validation import arg_validation_decos
 
 class GraphicsBase(
     DisplayObject,
-    ABC,
 ):
 
     _variable_name: str
@@ -194,10 +191,3 @@ class GraphicsBase(
         if line_dash_dot_setting is not None:
             self.line_dash_dot_setting = line_dash_dot_setting
             return
-
-    @abstractmethod
-    def __repr__(self) -> str:
-        """
-        Get a string representation of this instance (for the sake of
-        debugging).
-        """

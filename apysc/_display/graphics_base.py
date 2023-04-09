@@ -29,8 +29,8 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 
 
 class GraphicsBase(
-    CssMixIn,
     SetOverflowVisibleSettingMixIn,
+    CssMixIn,
     DisplayObject,
     ABC,
 ):

@@ -1,4 +1,5 @@
 import apysc as ap
+from apysc._display.css_mixin import CssMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.flip_x_mixin import FlipXMixIn
@@ -18,16 +19,15 @@ from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.css_mixin import CssMixIn
-from apysc._display.set_overflow_visible_setting_mixin import (
-    SetOverflowVisibleSettingMixIn
-)
 from apysc._type.repr_interface import ReprInterface
 
 

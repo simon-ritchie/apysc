@@ -1,10 +1,11 @@
-from abc import abstractmethod, ABC
+from abc import ABC
+from abc import abstractmethod
 from typing import Union
+
 from apysc._type.string import String
 
 
 class CssInterface(ABC):
-
     @abstractmethod
     def get_css(self, *, name: Union[str, String]) -> String:
         """

@@ -31,6 +31,7 @@ from apysc._display.append_line_thickness_attr_expression_mixin import (
 from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
 from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.child_mixin import ChildMixIn
+from apysc._display.css_mixin import CssMixIn
 from apysc._display.ellipse_height_mixin import EllipseHeightMixIn
 from apysc._display.ellipse_width_mixin import EllipseWidthMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
@@ -59,6 +60,9 @@ from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.width_mixin import WidthMixIn
@@ -67,14 +71,10 @@ from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
+from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.css_mixin import CssMixIn
-from apysc._display.set_overflow_visible_setting_mixin import (
-    SetOverflowVisibleSettingMixIn
-)
-from apysc._type.repr_interface import ReprInterface
 
 
 class Rectangle(

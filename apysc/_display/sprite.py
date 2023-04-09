@@ -5,7 +5,11 @@ from typing_extensions import final
 
 from apysc._display import graphics
 from apysc._display.child_mixin import ChildMixIn
+from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
@@ -13,10 +17,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.css_mixin import CssMixIn
-from apysc._display.set_overflow_visible_setting_mixin import (
-    SetOverflowVisibleSettingMixIn
-)
 
 _Graphics = graphics.Graphics
 

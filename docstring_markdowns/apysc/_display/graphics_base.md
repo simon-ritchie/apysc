@@ -15,10 +15,6 @@ Vector graphic base class.<hr>
 - `variable_name`: str
   - Variable name of this instance. This will be used to js expression.
 
-### `__repr__` method docstring
-
-Get a string representation of this instance (for the sake of debugging).
-
 ### `_add_to_parent` method docstring
 
 Add this instance to a specified parent instance.<hr>

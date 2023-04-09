@@ -22,6 +22,7 @@ from apysc._display.append_line_color_attr_expression_mixin import (
 from apysc._display.append_line_thickness_attr_expression_mixin import (
     AppendLineThicknessAttrExpressionMixIn,
 )
+from apysc._display.css_mixin import CssMixIn
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.get_bounds_mixin import GetBoundsMixIn
@@ -29,6 +30,9 @@ from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_mixin import LineAlphaMixIn
 from apysc._display.line_color_mixin import LineColorMixIn
 from apysc._display.line_thickness_mixin import LineThicknessMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
 from apysc._display.svg_text_delta_y_mixin import SVGTextDeltaYMixIn
@@ -65,14 +69,10 @@ from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
+from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.css_mixin import CssMixIn
-from apysc._display.set_overflow_visible_setting_mixin import (
-    SetOverflowVisibleSettingMixIn
-)
-from apysc._type.repr_interface import ReprInterface
 
 
 class SVGTextSpan(

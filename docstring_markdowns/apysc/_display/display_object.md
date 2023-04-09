@@ -26,7 +26,3 @@ Display object (base) class for the common interfaces.<hr>
 **[References]**
 
 - [DisplayObject](https://simon-ritchie.github.io/apysc/en/display_object.html)
-
-### `_set_overflow_visible_setting` method docstring
-
-Set the `visible` value to the `overflow` CSS property.

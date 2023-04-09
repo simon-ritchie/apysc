@@ -17,10 +17,14 @@ from apysc._display import sprite
 from apysc._display import triangle as _triangle
 from apysc._display.begin_fill_mixin import BeginFillMixIn
 from apysc._display.child_mixin import ChildMixIn
+from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.graphics_clear_mixin import GraphicsClearMixIn
 from apysc._display.line_style_mixin import LineStyleMixIn
 from apysc._display.rectangle import Rectangle
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._geom.path_data_base import PathDataBase
@@ -30,10 +34,6 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
-from apysc._display.css_mixin import CssMixIn
-from apysc._display.set_overflow_visible_setting_mixin import (
-    SetOverflowVisibleSettingMixIn
-)
 
 
 class Graphics(

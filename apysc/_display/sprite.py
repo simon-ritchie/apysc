@@ -14,6 +14,9 @@ from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 from apysc._display.css_mixin import CssMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn
+)
 
 _Graphics = graphics.Graphics
 
@@ -23,6 +26,7 @@ class Sprite(
     YMixIn,
     EnterFrameMixIn,
     CssMixIn,
+    SetOverflowVisibleSettingMixIn,
     DisplayObject,
     ChildMixIn,
     RevertMixIn,

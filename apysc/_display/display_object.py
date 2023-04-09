@@ -3,8 +3,6 @@
 
 from typing import TYPE_CHECKING
 
-from typing_extensions import final
-
 from apysc._animation.animation_parallel_mixin import AnimationParallelMixIn
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.parent_mixin import ParentMixIn
@@ -54,11 +52,3 @@ class DisplayObject(
             - https://simon-ritchie.github.io/apysc/en/display_object.html
         """
         self._variable_name = variable_name
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _set_overflow_visible_setting(self) -> None:
-        """
-        Set the `visible` value to the `overflow` CSS property.
-        """
-        self.set_css(name="overflow", value="visible")

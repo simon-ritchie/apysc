@@ -13,6 +13,7 @@ from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.mouse_event_mixins import MouseEventMixIns
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
+from apysc._display.css_interface import CssInterface
 
 if TYPE_CHECKING:
     pass
@@ -23,7 +24,7 @@ class DisplayObject(
     MouseEventMixIns,
     VisibleMixIn,
     CustomEventMixIn,
-    CssMixIn,
+    CssInterface,
     AnimationParallelMixIn,
 ):
     """

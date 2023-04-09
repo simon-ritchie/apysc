@@ -30,11 +30,13 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
+from apysc._display.css_mixin import CssMixIn
 
 
 class Graphics(
     XMixIn,
     YMixIn,
+    CssMixIn,
     DisplayObject,
     BeginFillMixIn,
     LineStyleMixIn,

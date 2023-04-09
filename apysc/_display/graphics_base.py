@@ -22,9 +22,11 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._display.css_mixin import CssMixIn
 
 
 class GraphicsBase(
+    CssMixIn,
     DisplayObject,
     ABC,
 ):

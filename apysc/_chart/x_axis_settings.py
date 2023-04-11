@@ -10,10 +10,12 @@ from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
+from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
 
 
 class XAxisSettings(
     XAxisColumnNameMixIn,
+    TickCullingMaxMixIn,
 ):
     def __init__(
         self,
@@ -90,5 +92,9 @@ class XAxisSettings(
         """
         self._set_initial_x_axis_column_name(
             x_axis_column_name=x_axis_column_name,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_tick_culling_max(
+            tick_culling_max=tick_culling_max,
             variable_name_suffix=variable_name_suffix,
         )

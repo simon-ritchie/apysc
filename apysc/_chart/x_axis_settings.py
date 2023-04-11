@@ -9,9 +9,12 @@ from apysc._type.number import Number
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
+from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
 
 
-class XAxisSettings:
+class XAxisSettings(
+    XAxisColumnNameMixIn,
+):
     def __init__(
         self,
         *,
@@ -34,6 +37,7 @@ class XAxisSettings:
         axis_label_fill_alpha: Union[float, Number] = 1.0,
         axis_label_bold: Union[bool, Boolean] = False,
         axis_label_italic: Union[bool, Boolean] = False,
+        variable_name_suffix: str = "",
     ) -> None:
         """
         X-axis settings class.
@@ -80,4 +84,11 @@ class XAxisSettings:
             A boolean, whether an axis label is bold style or not.
         axis_label_italic : Union[bool, Boolean], optional
             A boolean, whether an axis label is an italic style or not (normal).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
         """
+        self._set_initial_x_axis_column_name(
+            x_axis_column_name=x_axis_column_name,
+            variable_name_suffix=variable_name_suffix,
+        )

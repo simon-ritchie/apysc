@@ -11,11 +11,13 @@ from apysc._type.boolean import Boolean
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
 from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
+from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 
 
 class XAxisSettings(
     XAxisColumnNameMixIn,
     TickCullingMaxMixIn,
+    TickTextFontSizeMixIn,
 ):
     def __init__(
         self,
@@ -96,5 +98,9 @@ class XAxisSettings(
         )
         self._set_initial_tick_culling_max(
             tick_culling_max=tick_culling_max,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_tick_text_font_size(
+            tick_text_font_size=tick_text_font_size,
             variable_name_suffix=variable_name_suffix,
         )

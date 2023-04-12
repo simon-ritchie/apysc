@@ -2,16 +2,13 @@
 """
 
 from typing import Dict, Optional, Union
-from apysc._type.revert_mixin import RevertMixIn
 from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 from apysc._type.int import Int
 
 
-class TickCullingMaxMixIn(
-    RevertMixIn,
-):
+class TickCullingMaxMixIn:
 
     _tick_culling_max: Optional[Int]
 
@@ -43,39 +40,3 @@ class TickCullingMaxMixIn(
         else:
             tick_culling_max_ = tick_culling_max
         self._tick_culling_max = tick_culling_max_
-
-    _tick_culling_max_snapshots: Optional[Dict[str, int]] = None
-
-    def _make_snapshot(self, *, snapshot_name: str) -> None:
-        """
-        Make a value snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if self._tick_culling_max is None:
-            return
-        self._set_single_snapshot_val_to_dict(
-            dict_name="_tick_culling_max_snapshots",
-            value=self._tick_culling_max._value,
-            snapshot_name=snapshot_name,
-        )
-
-    def _revert(self, *, snapshot_name: str) -> None:
-        """
-        Revert a value if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if self._tick_culling_max is None:
-            return
-        self._tick_culling_max._value = self._get_snapshot_val_if_exists(
-            current_value=self._tick_culling_max._value,
-            snapshot_dict=self._tick_culling_max_snapshots,
-            snapshot_name=snapshot_name,
-        )

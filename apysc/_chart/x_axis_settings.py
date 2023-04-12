@@ -12,12 +12,14 @@ from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
 from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
 from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
+from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
 
 
 class XAxisSettings(
     XAxisColumnNameMixIn,
     TickCullingMaxMixIn,
     TickTextFontSizeMixIn,
+    TickTextFontFamilyMixIn,
 ):
     def __init__(
         self,
@@ -102,5 +104,9 @@ class XAxisSettings(
         )
         self._set_initial_tick_text_font_size(
             tick_text_font_size=tick_text_font_size,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_tick_text_font_family(
+            tick_text_font_family=tick_text_font_family,
             variable_name_suffix=variable_name_suffix,
         )

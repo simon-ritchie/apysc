@@ -2,6 +2,7 @@
 """
 
 from typing import Optional, Union, List
+from typing import TypeVar
 
 from apysc._type.string import String
 from apysc._type.int import Int
@@ -13,6 +14,9 @@ from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
 from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
 from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
+from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
+
+_StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class XAxisSettings(
@@ -20,6 +24,7 @@ class XAxisSettings(
     TickCullingMaxMixIn,
     TickTextFontSizeMixIn,
     TickTextFontFamilyMixIn,
+    TickTextFillColorMixIn,
 ):
     def __init__(
         self,
@@ -28,18 +33,18 @@ class XAxisSettings(
         tick_culling_max: Optional[Union[int, Int]] = None,
         tick_text_font_size: Union[int, Int] = 12,
         tick_text_font_family: Optional[Union[Array[String], List[str]]] = None,
-        tick_text_fill_color: Union[str, String] = "#666666",
+        tick_text_fill_color: _StrOrString = "#666666",
         tick_text_fill_alpha: Union[float, Number] = 1.0,
         tick_text_bold: Union[bool, Boolean] = False,
         tick_text_italic: Union[bool, Boolean] = False,
-        line_color: Union[str, String] = "#666666",
+        line_color: _StrOrString = "#666666",
         line_thickness: Union[int, Int] = 1,
         line_alpha: Union[float, Number] = 1.0,
         is_display_axis_label: Union[bool, Boolean] = True,
         axis_label_position: XAxisLabelPosition = XAxisLabelPosition.OUTER_RIGHT,
         axis_label_font_size: Union[int, Int] = 12,
         axis_label_font_family: Optional[Union[Array[String], List[str]]] = None,
-        axis_label_fill_color: Union[str, String] = "#666666",
+        axis_label_fill_color: _StrOrString = "#666666",
         axis_label_fill_alpha: Union[float, Number] = 1.0,
         axis_label_bold: Union[bool, Boolean] = False,
         axis_label_italic: Union[bool, Boolean] = False,
@@ -60,7 +65,7 @@ class XAxisSettings(
         tick_text_font_family : Optional[Union[Array[String], List[str]]], optional
             A tick text font family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
-        tick_text_fill_color : Union[str, String], optional
+        tick_text_fill_color : _StrOrString, optional
             A tick text fill color setting.
         tick_text_fill_alpha : Union[float, Number], optional
             A tick text fill alpha setting.
@@ -68,7 +73,7 @@ class XAxisSettings(
             A boolean, whether a tick text is bold style or not.
         tick_text_italic : Union[bool, Boolean], optional
             A boolean, whether a tick text is an italic style or not (normal).
-        line_color : Union[str, String], optional
+        line_color : _StrOrString, optional
             An axis line color setting.
         line_thickness : Union[int, Int], optional
             An axis line thickness (line width) setting.
@@ -82,7 +87,7 @@ class XAxisSettings(
             An axis label font size setting.
         axis_label_font_family : Optional[Union[Array[String], List[str]]], optional
             An axis label font family setting.
-        axis_label_fill_color : Union[str, String], optional
+        axis_label_fill_color : _StrOrString, optional
             An axis label fill color setting.
         axis_label_fill_alpha : Union[float, Number], optional
             An axis label fill alpha setting.
@@ -108,5 +113,9 @@ class XAxisSettings(
         )
         self._set_initial_tick_text_font_family(
             tick_text_font_family=tick_text_font_family,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_tick_text_fill_color(
+            tick_text_fill_color=tick_text_fill_color,
             variable_name_suffix=variable_name_suffix,
         )

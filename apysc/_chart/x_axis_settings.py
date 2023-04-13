@@ -16,6 +16,7 @@ from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
 from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
 from apysc._chart.tick_text_fill_alpha_mixin import TickTextFillAlphaMixIn
+from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -27,6 +28,7 @@ class XAxisSettings(
     TickTextFontFamilyMixIn,
     TickTextFillColorMixIn,
     TickTextFillAlphaMixIn,
+    TickTextBoldMixIn,
 ):
     def __init__(
         self,
@@ -123,5 +125,9 @@ class XAxisSettings(
         )
         self._set_initial_tick_text_fill_alpha(
             tick_text_fill_alpha=tick_text_fill_alpha,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_tick_text_bold(
+            tick_text_bold=tick_text_bold,
             variable_name_suffix=variable_name_suffix,
         )

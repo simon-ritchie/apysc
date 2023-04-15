@@ -1310,3 +1310,21 @@ def test_are_text_spans() -> None:
         ),
     )
     assert result == 210
+
+
+@apply_test_settings()
+def test_is_x_axis_label_position() -> None:
+
+    @arg_validation_decos.is_x_axis_label_position(arg_position_index=0)
+    def _test_func(*, position: ap.XAxisLabelPosition) -> int:
+        return 220
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        match="A specified argument is not a `XAxisLabelPosition` value: ",
+        position=100,
+    )
+
+    result: int = _test_func(position=ap.XAxisLabelPosition.OUTER_RIGHT)
+    assert result == 220

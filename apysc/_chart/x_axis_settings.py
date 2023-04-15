@@ -18,6 +18,7 @@ from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
 from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
+from apysc._chart.is_display_axis_label_mixin import IsDisplayAxisLabelMixIn
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -39,6 +40,7 @@ class XAxisSettings(
     AxisLineColorMixIn,
     AxisLineThicknessMixIn,
     AxisLineAlphaMixIn,
+    IsDisplayAxisLabelMixIn,
 ):
     def __init__(
         self,
@@ -155,5 +157,9 @@ class XAxisSettings(
         )
         self._set_initial_line_alpha(
             line_alpha=line_alpha,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_is_display_axis_label(
+            is_display_axis_label=is_display_axis_label,
             variable_name_suffix=variable_name_suffix,
         )

@@ -20,6 +20,7 @@ from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
 from apysc._chart.axis_line_color_mixin import AxisLineColorMixIn
 from apysc._chart.axis_line_thickness_mixin import AxisLineThicknessMixIn
+from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -35,6 +36,7 @@ class XAxisSettings(
     TickTextItalicMixIn,
     AxisLineColorMixIn,
     AxisLineThicknessMixIn,
+    AxisLineAlphaMixIn,
 ):
     def __init__(
         self,
@@ -147,5 +149,9 @@ class XAxisSettings(
         )
         self._set_initial_line_thickness(
             line_thickness=line_thickness,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_line_alpha(
+            line_alpha=line_alpha,
             variable_name_suffix=variable_name_suffix,
         )

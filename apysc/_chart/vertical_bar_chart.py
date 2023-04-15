@@ -12,7 +12,7 @@ from apysc._type.string import String
 from apysc._chart.x_axis_settings import XAxisSettings
 
 
-class VarticalBarChart:
+class VerticalBarChart:
 
     _container: Sprite
 

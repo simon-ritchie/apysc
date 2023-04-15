@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestXAxisSettings:

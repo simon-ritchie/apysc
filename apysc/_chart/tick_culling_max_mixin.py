@@ -1,11 +1,14 @@
 """The mix-in class implementation for the `tick_culling_max_mixin` value.
 """
 
-from typing import Dict, Optional, Union
+from typing import Optional
+from typing import Union
+
 from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._validation import arg_validation_decos
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class TickCullingMaxMixIn:

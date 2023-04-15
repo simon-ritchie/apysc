@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestTickTextFontFamilyMixIn:

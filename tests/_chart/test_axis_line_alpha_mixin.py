@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAxisLineAlphaMixIn:

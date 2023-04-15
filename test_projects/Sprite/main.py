@@ -33,11 +33,12 @@ def main() -> None:
 
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     sprite.graphics.draw_rect(
-        x=50, y=50, width=50, height=50
-    )
-    sprite.graphics.draw_rect(
-        x=150, y=50, width=50, height=50,
+        x=150,
+        y=50,
+        width=50,
+        height=50,
     )
     sprite.x = ap.Number(50)
 

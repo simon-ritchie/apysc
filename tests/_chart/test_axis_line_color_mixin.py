@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._chart.axis_line_color_mixin import AxisLineColorMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestAxisLineColorMixIn:

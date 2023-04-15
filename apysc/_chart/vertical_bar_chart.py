@@ -3,13 +3,13 @@
 
 from typing import Union
 
+from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._display.sprite import Sprite
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._chart.x_axis_settings import XAxisSettings
 
 
 class VerticalBarChart:

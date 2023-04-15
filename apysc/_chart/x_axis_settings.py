@@ -1,26 +1,28 @@
 """Class implementation for the x-axis settings.
 """
 
-from typing import Optional, Union, List
+from typing import List
+from typing import Optional
 from typing import TypeVar
+from typing import Union
 
-from apysc._type.string import String
-from apysc._type.int import Int
-from apysc._type.number import Number
-from apysc._type.array import Array
-from apysc._type.boolean import Boolean
-from apysc._chart.x_axis_label_position import XAxisLabelPosition
-from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
-from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
-from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
-from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
-from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
-from apysc._chart.tick_text_fill_alpha_mixin import TickTextFillAlphaMixIn
-from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
-from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
+from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
 from apysc._chart.axis_line_color_mixin import AxisLineColorMixIn
 from apysc._chart.axis_line_thickness_mixin import AxisLineThicknessMixIn
-from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
+from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
+from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
+from apysc._chart.tick_text_fill_alpha_mixin import TickTextFillAlphaMixIn
+from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
+from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
+from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
+from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
+from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
+from apysc._chart.x_axis_label_position import XAxisLabelPosition
+from apysc._type.array import Array
+from apysc._type.boolean import Boolean
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -78,11 +80,11 @@ class XAxisSettings(
             A tick text font family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
         tick_text_fill_color : _StrOrString, optional
-            A tick text fill color setting.
+            A tick text fill-color setting.
         tick_text_fill_alpha : Union[float, Number], optional
-            A tick text fill alpha setting.
+            A tick text fill-alpha setting.
         tick_text_bold : Union[bool, Boolean], optional
-            A boolean, whether a tick text is bold style or not.
+            A boolean, whether a tick text is a bold style or not.
         tick_text_italic : Union[bool, Boolean], optional
             A boolean, whether a tick text is an italic style or not (normal).
         line_color : _StrOrString, optional
@@ -100,9 +102,9 @@ class XAxisSettings(
         axis_label_font_family : Optional[Union[Array[String], List[str]]], optional
             An axis label font family setting.
         axis_label_fill_color : _StrOrString, optional
-            An axis label fill color setting.
+            An axis label fill-color setting.
         axis_label_fill_alpha : Union[float, Number], optional
-            An axis label fill alpha setting.
+            An axis label fill-alpha setting.
         axis_label_bold : Union[bool, Boolean], optional
             A boolean, whether an axis label is bold style or not.
         axis_label_italic : Union[bool, Boolean], optional

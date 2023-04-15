@@ -2,9 +2,11 @@
 """
 
 from typing import Union
-from apysc._type.number import Number
+
 from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
@@ -27,7 +29,7 @@ class TickTextFillAlphaMixIn:
         Parameters
         ----------
         tick_text_fill_alpha : Union[float, Number]
-            A tick text fill alpha setting.
+            A tick text fill-alpha setting.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

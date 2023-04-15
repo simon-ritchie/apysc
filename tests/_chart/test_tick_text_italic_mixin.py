@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestTickTextItalicMixIn:

@@ -1,6 +1,6 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestTickCullingMaxMixIn:

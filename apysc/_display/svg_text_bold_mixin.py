@@ -26,7 +26,7 @@ class SVGTextBoldMixIn(
         Returns
         -------
         bold_ : Boolean
-            A boolean, whether this text is bold style or not.
+            A boolean, whether this text is a bold style or not.
         """
         import apysc as ap
         from apysc._type.variable_name_suffix_utils import (
@@ -52,7 +52,7 @@ class SVGTextBoldMixIn(
         Parameters
         ----------
         value : Boolean
-            A boolean, whether this text is bold style or not.
+            A boolean, whether this text is a bold style or not.
         """
         import apysc as ap
 

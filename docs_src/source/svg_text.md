@@ -767,7 +767,7 @@ The class for an SVG text.<hr>
 - `align`: SVGTextAlign, default SVGTextAlign.LEFT
   - A text-align setting.
 - `bold`: Union[bool, Boolean], optional
-  - A boolean, whether this text is bold style or not.
+  - A boolean, whether this text is a bold style or not.
 - `italic`: Union[bool, Boolean], optional
   - A boolean, whether a text is an italic style or not (normal).
 - `parent`: ChildMixIn or None, optional

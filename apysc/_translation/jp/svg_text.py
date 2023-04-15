@@ -233,7 +233,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `bold`: Union[bool, Boolean], optional": "- `bold`: Union[bool, Boolean], optional",  # noqa
     ##################################################
-    "  - A boolean, whether this text is bold style or not.": "  - テキストに太字のスタイル設定を行うかどうかの真偽値。",  # noqa
+    "  - A boolean, whether this text is a bold style or not.": "  - テキストに太字のスタイル設定を行うかどうかの真偽値。",  # noqa
     ##################################################
     "- `italic`: Union[bool, Boolean], optional": "- `italic`: Union[bool, Boolean], optional",  # noqa
     ##################################################

@@ -3599,7 +3599,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - テキストの行揃えの設定。",
         ),
         Mapping(
-            key="  - A boolean, whether this text is bold style or not.",
+            key="  - A boolean, whether this text is a bold style or not.",
             val="  - テキストに太字のスタイル設定を行うかどうかの真偽値。",
         ),
         Mapping(

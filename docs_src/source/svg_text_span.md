@@ -475,7 +475,7 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 - `line_thickness`: Optional[Union[int, Int]], optional
   - A line-thickness (line-width) to set.
 - `bold`: Optional[Union[bool, Boolean]], optional
-  - A boolean, whether this text is bold style or not.
+  - A boolean, whether this text is a bold style or not.
 - `italic`: Optional[Union[bool, Boolean]], optional
   - A boolean, whether a text is an italic style or not (normal).
 - `delta_x`: Union[float, Number], optional
@@ -553,7 +553,7 @@ Create an `SVGText` instance with specified text spans.<hr>
 - `align`: SVGTextAlign, optional
   - A text-align setting for an overall text.
 - `bold`: Union[bool, Boolean], optional
-  - A boolean, whether this text is bold style or not.
+  - A boolean, whether this text is a bold style or not.
 - `italic`: Union[bool, Boolean], optional
   - A boolean, whether a text is an italic style or not (normal).
 - `parent`: Optional[ChildMixIn], optional

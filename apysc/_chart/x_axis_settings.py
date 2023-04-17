@@ -22,6 +22,7 @@ from apysc._chart.is_display_axis_label_mixin import IsDisplayAxisLabelMixIn
 from apysc._chart.x_axis_label_position_mixin import XAxisLabelPositionMixIn
 from apysc._chart.axis_label_font_size_mixin import AxisLabelFontSizeMixIn
 from apysc._chart.axis_label_font_family_mixin import AxisLabelFontFamilyMixIn
+from apysc._chart.axis_label_fill_color_mixin import AxisLabelFillColorMixIn
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -47,6 +48,7 @@ class XAxisSettings(
     XAxisLabelPositionMixIn,
     AxisLabelFontSizeMixIn,
     AxisLabelFontFamilyMixIn,
+    AxisLabelFillColorMixIn,
 ):
     def __init__(
         self,
@@ -178,5 +180,9 @@ class XAxisSettings(
         )
         self._set_initial_axis_label_font_family(
             axis_label_font_family=axis_label_font_family,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_axis_label_fill_color(
+            axis_label_fill_color=axis_label_fill_color,
             variable_name_suffix=variable_name_suffix,
         )

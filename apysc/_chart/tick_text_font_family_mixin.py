@@ -44,7 +44,7 @@ class TickTextFontFamilyMixIn:
             tick_text_font_family, Array
         ):
             tick_text_font_family_: Optional[Array[String]] = Array(
-                [String(font_name) for font_name in tick_text_font_family],
+                [String(font_name) for font_name in tick_text_font_family],  # type: ignore[union-attr] # noqa
                 variable_name_suffix=variable_name_suffix,
             )
         else:

@@ -3,7 +3,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestXAxisSettings:
-    # @apply_test_settings()
+    @apply_test_settings()
     def test___init__(self) -> None:
         setting: ap.XAxisSettings = ap.XAxisSettings(
             x_axis_column_name="test_column",

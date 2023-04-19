@@ -1,11 +1,12 @@
 """The mix-in class implementation for the `axis_label_font_family` value.
 """
 
-from typing import Union
 from typing import List
 from typing import Optional
+from typing import Union
 
 from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.string import String
@@ -43,7 +44,7 @@ class AxisLabelFontFamilyMixIn:
             axis_label_font_family, Array
         ):
             axis_label_font_family_: Optional[Array[String]] = Array(
-                [String(font_name) for font_name in axis_label_font_family],
+                [String(font_name) for font_name in axis_label_font_family],  # type: ignore[union-attr] # noqa
                 variable_name_suffix=variable_name_suffix,
             )
         else:

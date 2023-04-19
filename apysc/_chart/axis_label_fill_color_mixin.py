@@ -1,7 +1,6 @@
 """The mix-in class implementation for the `axis_label_fill_color`.
 """
 
-from typing import Union
 from typing import TypeVar
 
 from typing_extensions import final
@@ -18,9 +17,7 @@ class AxisLabelFillColorMixIn:
     _axis_label_fill_color: String
 
     @final
-    @arg_validation_decos.is_hex_color_code_format(
-        arg_position_index=1, optional=False
-    )
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_axis_label_fill_color(
         self,

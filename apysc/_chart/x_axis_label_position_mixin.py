@@ -3,9 +3,9 @@
 
 from typing_extensions import final
 
+from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
-from apysc._chart.x_axis_label_position import XAxisLabelPosition
 
 
 class XAxisLabelPositionMixIn:

@@ -1314,7 +1314,6 @@ def test_are_text_spans() -> None:
 
 @apply_test_settings()
 def test_is_x_axis_label_position() -> None:
-
     @arg_validation_decos.is_x_axis_label_position(arg_position_index=0)
     def _test_func(*, position: ap.XAxisLabelPosition) -> int:
         return 220

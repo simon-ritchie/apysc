@@ -33,6 +33,8 @@ from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
 from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
 from apysc._chart.y_axis_column_name_mixin import YAxisColumnNameMixIn
+from apysc._chart.y_axis_label_position import YAxisLabelPosition
+from apysc._chart.y_axis_label_position_mixin import YAxisLabelPositionMixIn
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -56,6 +58,7 @@ class YAxisSingleColumnSettings(
     AxisLineThicknessMixIn,
     AxisLineAlphaMixIn,
     IsDisplayAxisLabelMixIn,
+    YAxisLabelPositionMixIn,
     AxisLabelFontSizeMixIn,
     AxisLabelFontFamilyMixIn,
     AxisLabelFillColorMixIn,
@@ -78,7 +81,7 @@ class YAxisSingleColumnSettings(
         line_thickness: Union[int, Int] = 1,
         line_alpha: Union[float, Number] = 1.0,
         is_display_axis_label: Union[bool, Boolean] = True,
-        # axis_label_position: ,
+        axis_label_position: YAxisLabelPosition,
         axis_label_font_size: Union[int, Int] = 12,
         axis_label_font_family: Optional[Union[Array[String], List[str]]] = None,
         axis_label_fill_color: _StrOrString = "#666666",
@@ -134,6 +137,9 @@ class YAxisSingleColumnSettings(
         self._set_initial_is_display_axis_label(
             is_display_axis_label=is_display_axis_label,
             variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_y_axis_label_position(
+            y_axis_label_position=axis_label_position,
         )
         self._set_initial_axis_label_font_size(
             axis_label_font_size=axis_label_font_size,

@@ -122,5 +122,6 @@ from apysc._math.math import Math
 from apysc._auto_reloading.auto_reloading_decorator import set_auto_reloading
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
+from apysc._chart.y_axis_label_position import YAxisLabelPosition
 
 __version__: str = "2.7.20"

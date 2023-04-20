@@ -1,4 +1,4 @@
-"""The mix-in class implementation for the `x_axis_label_position`
+"""The mix-in class implementation for the `x_axis_label_position`.
 """
 
 from typing_extensions import final

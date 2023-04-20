@@ -1327,3 +1327,20 @@ def test_is_x_axis_label_position() -> None:
 
     result: int = _test_func(position=ap.XAxisLabelPosition.OUTER_RIGHT)
     assert result == 220
+
+
+@apply_test_settings()
+def test_is_y_axis_label_position() -> None:
+    @arg_validation_decos.is_y_axis_label_position(arg_position_index=0)
+    def _test_func(*, position: ap.YAxisLabelPosition) -> int:
+        return 230
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        match="A specified argument is not a `YAxisLabelPosition` value: ",
+        position=200,
+    )
+
+    result: int = _test_func(position=ap.YAxisLabelPosition.OUTER_TOP)
+    assert result == 230

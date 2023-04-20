@@ -166,6 +166,9 @@ Mainly the following decorators exist.
 - is_x_axis_label_position
     - Set a validation to check a specified argument's type
         is the `XAxisLabelPosition`.
+- is_y_axis_label_position
+    - Set a validation to check a specified argument's type
+        is the `YAxisLabelPosition`.
 """
 
 import functools
@@ -2891,6 +2894,49 @@ def is_x_axis_label_position(*, arg_position_index: int) -> _Callable:
                 raise TypeError(
                     "A specified argument is not a `XAxisLabelPosition` value: "
                     f"{type(x_axis_label_position).__name__}, {x_axis_label_position}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_y_axis_label_position(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is the `YAxisLabelPosition`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            y_axis_label_position: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(y_axis_label_position, ap.YAxisLabelPosition):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "A specified argument is not a `YAxisLabelPosition` value: "
+                    f"{type(y_axis_label_position).__name__}, {y_axis_label_position}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)

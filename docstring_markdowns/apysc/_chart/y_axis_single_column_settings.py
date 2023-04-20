@@ -32,6 +32,7 @@ from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
 from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
 from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
+from apysc._chart.y_axis_column_name_mixin import YAxisColumnNameMixIn
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -43,6 +44,7 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class YAxisSingleColumnSettings(
+    YAxisColumnNameMixIn,
     TickCullingMaxMixIn,
     TickTextFontSizeMixIn,
     TickTextFontFamilyMixIn,
@@ -76,6 +78,7 @@ class YAxisSingleColumnSettings(
         line_thickness: Union[int, Int] = 1,
         line_alpha: Union[float, Number] = 1.0,
         is_display_axis_label: Union[bool, Boolean] = True,
+        # axis_label_position: ,
         axis_label_font_size: Union[int, Int] = 12,
         axis_label_font_family: Optional[Union[Array[String], List[str]]] = None,
         axis_label_fill_color: _StrOrString = "#666666",
@@ -84,6 +87,10 @@ class YAxisSingleColumnSettings(
         axis_label_italic: Union[bool, Boolean] = False,
         variable_name_suffix: str = "",
     ):
+        self._set_initial_y_axis_column_name(
+            y_axis_column_name=y_axis_column_name,
+            variable_name_suffix=variable_name_suffix,
+        )
         self._set_initial_tick_culling_max(
             tick_culling_max=tick_culling_max,
             variable_name_suffix=variable_name_suffix,

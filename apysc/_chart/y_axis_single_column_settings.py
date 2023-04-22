@@ -66,6 +66,55 @@ class YAxisSingleColumnSettings(
     AxisLabelBoldMixIn,
     AxisLabelItalicMixIn,
 ):
+    # y_axis_column_name
+    @arg_validation_decos.is_string(arg_position_index=1)
+    # tick_culling_max
+    @arg_validation_decos.is_integer(arg_position_index=2, optional=True)
+    # tick_text_font_size
+    @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
+    # tick_text_font_family
+    @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
+        arg_position_index=4, optional=True
+    )
+    # tick_text_fill_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=5, optional=False)
+    # tick_text_fill_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6, optional=False)
+    # tick_text_bold
+    @arg_validation_decos.is_boolean(arg_position_index=7, optional=False)
+    # tick_text_italic
+    @arg_validation_decos.is_boolean(arg_position_index=8, optional=False)
+    # line_color
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=9, optional=False)
+    # line_thickness
+    @arg_validation_decos.is_integer(arg_position_index=10, optional=False)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=10, optional=False)
+    # line_alpha
+    @arg_validation_decos.is_num(arg_position_index=11)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=11, optional=False)
+    # is_display_axis_label
+    @arg_validation_decos.is_boolean(arg_position_index=12, optional=False)
+    # axis_label_position
+    @arg_validation_decos.is_y_axis_label_position(arg_position_index=13)
+    # axis_label_font_size
+    @arg_validation_decos.is_integer(arg_position_index=14, optional=False)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=14, optional=False)
+    # axis_label_font_family
+    @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
+        arg_position_index=15, optional=True
+    )
+    # axis_label_fill_color
+    @arg_validation_decos.is_hex_color_code_format(
+        arg_position_index=16, optional=False
+    )
+    # axis_label_fill_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=17, optional=False)
+    # axis_label_bold
+    @arg_validation_decos.is_boolean(arg_position_index=18, optional=False)
+    # axis_label_italic
+    @arg_validation_decos.is_boolean(arg_position_index=19, optional=False)
+    # variable_name_suffix
+    @arg_validation_decos.is_builtin_string(arg_position_index=20, optional=False)
     def __init__(
         self,
         *,
@@ -81,7 +130,7 @@ class YAxisSingleColumnSettings(
         line_thickness: Union[int, Int] = 1,
         line_alpha: Union[float, Number] = 1.0,
         is_display_axis_label: Union[bool, Boolean] = True,
-        axis_label_position: YAxisLabelPosition,
+        axis_label_position: YAxisLabelPosition = YAxisLabelPosition.OUTER_TOP,
         axis_label_font_size: Union[int, Int] = 12,
         axis_label_font_family: Optional[Union[Array[String], List[str]]] = None,
         axis_label_fill_color: _StrOrString = "#666666",

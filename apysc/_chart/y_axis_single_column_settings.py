@@ -17,13 +17,6 @@ from apysc._chart.axis_label_italic_mixin import AxisLabelItalicMixIn
 from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
 from apysc._chart.axis_line_color_mixin import AxisLineColorMixIn
 from apysc._chart.axis_line_thickness_mixin import AxisLineThicknessMixIn
-from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
-from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
-from apysc._chart.tick_text_fill_alpha_mixin import TickTextFillAlphaMixIn
-from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
-from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
-from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
-from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
 from apysc._chart.is_display_axis_label_mixin import IsDisplayAxisLabelMixIn
 from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
 from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn

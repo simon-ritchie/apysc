@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The mix-in class implementation for the `x_axis_label_position`
+The mix-in class implementation for the `x_axis_label_position`.
 
 ## `XAxisLabelPositionMixIn` class docstring
 

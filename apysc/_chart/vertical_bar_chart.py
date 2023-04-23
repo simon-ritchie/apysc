@@ -48,7 +48,7 @@ class VerticalBarChart(
         data: _DataType,
         x_axis_settings: XAxisSettings,
         y_axis_settings: YAxisSingleColumnSettings,
-        x: Union[int, Int] = 0,
+        x: Union[float, Number] = 0,
         y: Union[float, Number] = 0,
         width: Union[int, Int] = 640,
         height: Union[int, Int] = 395,
@@ -69,7 +69,7 @@ class VerticalBarChart(
             An x-axis settings.
         y_axis_settings : YAxisSingleColumnSettings
             A y-axis settings.
-        x : Union[int, Int]
+        x : Union[Number]
             A chart's x-coordinate.
         y : Union[float, Number]
             A chart's y-coordinate.

@@ -2,6 +2,7 @@
 """
 
 from typing import Union, List, Dict
+from typing import TypeVar
 
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
@@ -14,21 +15,28 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._chart.set_initial_width_mixin import SetInitialWidthMixIn
 from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
+from apysc._chart.set_initial_background_color_mixin import (
+    SetInitialBackgroundColorMixIn
+)
 
 _DataType = Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]
+_StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class VerticalBarChart(
     VariableNameSuffixMixIn,
     SetInitialWidthMixIn,
     SetInitialHeightMixIn,
+    SetInitialBackgroundColorMixIn,
 ):
+    """
+    The class for the vertical bar chart.
+    """
 
     _container: Sprite
     _data: _DataType
     _x_axis_settings: XAxisSettings
     _y_axis_settings: YAxisSingleColumnSettings
-    _background_color: Union[str, String]
 
     def __init__(
         self,
@@ -38,7 +46,7 @@ class VerticalBarChart(
         y_axis_settings: YAxisSingleColumnSettings,
         width: Union[int, Int] = 640,
         height: Union[int, Int] = 395,
-        background_color: Union[str, String] = "#ffffff",
+        background_color: _StrOrString = "#ffffff",
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -59,7 +67,7 @@ class VerticalBarChart(
             A chart's width.
         height : Union[int, Int], default 395
             A chart's height.
-        background_color : Union[str, String]
+        background_color : str or String, default '#ffffff'
             A chart's background color.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
@@ -72,6 +80,9 @@ class VerticalBarChart(
         self._set_initial_height(
             height=height, variable_name_suffix=variable_name_suffix
         )
-        self._background_color = background_color
+        self._set_initial_background_color(
+            background_color=background_color,
+            variable_name_suffix=variable_name_suffix,
+        )
         self._variable_name_suffix = variable_name_suffix
         self._container = Sprite(variable_name_suffix=variable_name_suffix)

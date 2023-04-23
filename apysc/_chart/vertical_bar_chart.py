@@ -13,6 +13,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._chart.set_initial_width_mixin import SetInitialWidthMixIn
+from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
 
 _DataType = Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]
 
@@ -20,13 +21,13 @@ _DataType = Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Di
 class VerticalBarChart(
     VariableNameSuffixMixIn,
     SetInitialWidthMixIn,
+    SetInitialHeightMixIn,
 ):
 
     _container: Sprite
     _data: _DataType
     _x_axis_settings: XAxisSettings
     _y_axis_settings: YAxisSingleColumnSettings
-    _height: Union[int, Int]
     _background_color: Union[str, String]
 
     def __init__(
@@ -68,7 +69,9 @@ class VerticalBarChart(
         self._x_axis_settings = x_axis_settings
         self._y_axis_settings = y_axis_settings
         self._set_initial_width(width=width, variable_name_suffix=variable_name_suffix)
-        self._height = height
+        self._set_initial_height(
+            height=height, variable_name_suffix=variable_name_suffix
+        )
         self._background_color = background_color
         self._variable_name_suffix = variable_name_suffix
         self._container = Sprite(variable_name_suffix=variable_name_suffix)

@@ -19,6 +19,7 @@ from apysc._chart.set_initial_background_color_mixin import (
     SetInitialBackgroundColorMixIn
 )
 from apysc._chart.set_initial_x_mixin import SetInitialXMixIn
+from apysc._chart.set_initial_y_mixin import SetInitialYMixIn
 
 _DataType = Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]
 _StrOrString = TypeVar("_StrOrString", str, String)
@@ -27,6 +28,7 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 class VerticalBarChart(
     VariableNameSuffixMixIn,
     SetInitialXMixIn,
+    SetInitialYMixIn,
     SetInitialWidthMixIn,
     SetInitialHeightMixIn,
     SetInitialBackgroundColorMixIn,
@@ -47,7 +49,7 @@ class VerticalBarChart(
         x_axis_settings: XAxisSettings,
         y_axis_settings: YAxisSingleColumnSettings,
         x: Union[int, Int] = 0,
-        y: Union[int, Int] = 0,
+        y: Union[float, Number] = 0,
         width: Union[int, Int] = 640,
         height: Union[int, Int] = 395,
         background_color: _StrOrString = "#ffffff",
@@ -69,7 +71,7 @@ class VerticalBarChart(
             A y-axis settings.
         x : Union[int, Int]
             A chart's x-coordinate.
-        y : Union[int, Int]
+        y : Union[float, Number]
             A chart's y-coordinate.
         width : Union[int, Int], default 640
             A chart's width.
@@ -85,6 +87,7 @@ class VerticalBarChart(
         self._x_axis_settings = x_axis_settings
         self._y_axis_settings = y_axis_settings
         self._set_initial_x(x=x, variable_name_suffix=variable_name_suffix)
+        self._set_initial_y(y=y, variable_name_suffix=variable_name_suffix)
         self._set_initial_width(width=width, variable_name_suffix=variable_name_suffix)
         self._set_initial_height(
             height=height, variable_name_suffix=variable_name_suffix

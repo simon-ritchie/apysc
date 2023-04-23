@@ -8,8 +8,8 @@ from typing import List
 from typing import TypeVar
 from typing import Union
 
-from apysc._chart.set_initial_background_color_mixin import (
-    SetInitialBackgroundColorMixIn,
+from apysc._chart.set_initial_background_fill_color_mixin import (
+    SetInitialBackgroundFillColorMixIn,
 )
 from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
 from apysc._chart.set_initial_width_mixin import SetInitialWidthMixIn
@@ -38,7 +38,7 @@ class VerticalBarChart(
     SetInitialYMixIn,
     SetInitialWidthMixIn,
     SetInitialHeightMixIn,
-    SetInitialBackgroundColorMixIn,
+    SetInitialBackgroundFillColorMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -59,7 +59,7 @@ class VerticalBarChart(
         y: Union[float, Number] = 0,
         width: Union[int, Int] = 640,
         height: Union[int, Int] = 395,
-        background_color: _StrOrString = "#ffffff",
+        background_fill_color: _StrOrString = "#ffffff",
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -84,8 +84,8 @@ class VerticalBarChart(
             A chart's width.
         height : Union[int, Int], default 395
             A chart's height.
-        background_color : str or String, default '#ffffff'
-            A chart's background color.
+        background_fill_color : str or String, default '#ffffff'
+            A chart's background fill-color.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -99,8 +99,8 @@ class VerticalBarChart(
         self._set_initial_height(
             height=height, variable_name_suffix=variable_name_suffix
         )
-        self._set_initial_background_color(
-            background_color=background_color,
+        self._set_initial_background_fill_color(
+            background_fill_color=background_fill_color,
             variable_name_suffix=variable_name_suffix,
         )
         self._variable_name_suffix = variable_name_suffix

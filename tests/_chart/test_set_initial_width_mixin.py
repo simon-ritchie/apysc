@@ -11,8 +11,6 @@ class TestSetInitialWidthMixIn:
         assert mixin._width == ap.Int(10)
         assert mixin._width._variable_name_suffix == "test_suffix_1"
 
-        mixin._set_initial_width(
-            width=ap.Int(20, variable_name_suffix="test_suffix_2")
-        )
+        mixin._set_initial_width(width=ap.Int(20, variable_name_suffix="test_suffix_2"))
         assert mixin._width == ap.Int(20)
         assert mixin._width._variable_name_suffix == "test_suffix_2"

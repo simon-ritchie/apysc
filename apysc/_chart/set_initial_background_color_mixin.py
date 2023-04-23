@@ -1,7 +1,6 @@
 """Mix-in class implementation for the `_set_initial_background_color` method.
 """
 
-from typing import Union
 from typing import TypeVar
 
 from typing_extensions import final

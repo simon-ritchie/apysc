@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._chart.set_initial_background_color_mixin import (
-    SetInitialBackgroundColorMixIn
+    SetInitialBackgroundColorMixIn,
 )
 from apysc._testing.testing_helper import apply_test_settings
 

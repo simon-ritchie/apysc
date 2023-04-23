@@ -1,4 +1,3 @@
-import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 
 

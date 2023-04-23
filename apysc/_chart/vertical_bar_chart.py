@@ -1,9 +1,20 @@
+# mypy: disable-error-code=assignment
+
 """Class implementation for the vertical bar chart.
 """
 
-from typing import Union, List, Dict
+from typing import Dict
+from typing import List
 from typing import TypeVar
+from typing import Union
 
+from apysc._chart.set_initial_background_color_mixin import (
+    SetInitialBackgroundColorMixIn,
+)
+from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
+from apysc._chart.set_initial_width_mixin import SetInitialWidthMixIn
+from apysc._chart.set_initial_x_mixin import SetInitialXMixIn
+from apysc._chart.set_initial_y_mixin import SetInitialYMixIn
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._display.sprite import Sprite
@@ -13,15 +24,11 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._chart.set_initial_width_mixin import SetInitialWidthMixIn
-from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
-from apysc._chart.set_initial_background_color_mixin import (
-    SetInitialBackgroundColorMixIn
-)
-from apysc._chart.set_initial_x_mixin import SetInitialXMixIn
-from apysc._chart.set_initial_y_mixin import SetInitialYMixIn
 
-_DataType = Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]
+_DataType = Union[
+    Array[Dictionary[String, Union[Int, Number, String]]],
+    List[Dict[str, Union[int, float, str]]],
+]
 _StrOrString = TypeVar("_StrOrString", str, String)
 
 
@@ -61,14 +68,14 @@ class VerticalBarChart(
         Parameters
         ----------
         data : Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]  # noqa
-            A data array, which contains 1-dimentional string key dictionary.
-            A list of dictionary or an `ap.Array` of `ap.Dictionary` values
+            A data array, which contains a 1-dimensional string key dictionary.
+            A list of dictionaries or an `ap.Array` of `ap.Dictionary` values
             are acceptable.
             E.g., `[{"column_name_1": 10, "column_name_2"}]`
         x_axis_settings : XAxisSettings
-            An x-axis settings.
+            An x-axis setting.
         y_axis_settings : YAxisSingleColumnSettings
-            A y-axis settings.
+            A y-axis setting.
         x : Union[Number]
             A chart's x-coordinate.
         y : Union[float, Number]

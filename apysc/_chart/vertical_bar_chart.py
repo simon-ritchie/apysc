@@ -8,6 +8,9 @@ from typing import List
 from typing import TypeVar
 from typing import Union
 
+from apysc._chart.set_initial_background_fill_alpha_mixin import (
+    SetInitialBackgroundFillAlphaMixIn,
+)
 from apysc._chart.set_initial_background_fill_color_mixin import (
     SetInitialBackgroundFillColorMixIn,
 )
@@ -39,6 +42,7 @@ class VerticalBarChart(
     SetInitialWidthMixIn,
     SetInitialHeightMixIn,
     SetInitialBackgroundFillColorMixIn,
+    SetInitialBackgroundFillAlphaMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -60,6 +64,7 @@ class VerticalBarChart(
         width: Union[int, Int] = 640,
         height: Union[int, Int] = 395,
         background_fill_color: _StrOrString = "#ffffff",
+        background_fill_alpha: Union[float, Number] = 1.0,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -86,6 +91,8 @@ class VerticalBarChart(
             A chart's height.
         background_fill_color : str or String, default '#ffffff'
             A chart's background fill-color.
+        background_fill_alpha : Union[float, Number], default 1.0
+            A chart's background fill-alpha.
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -101,6 +108,10 @@ class VerticalBarChart(
         )
         self._set_initial_background_fill_color(
             background_fill_color=background_fill_color,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_background_fill_alpha(
+            background_fill_alpha=background_fill_alpha,
             variable_name_suffix=variable_name_suffix,
         )
         self._variable_name_suffix = variable_name_suffix

@@ -28,7 +28,7 @@ class SetInitialBackgroundFillColorMixIn:
         variable_name_suffix: str = "",
     ) -> None:
         """
-        Set a chart's initial background color.
+        Set a chart's initial background fill-color.
 
         Parameters
         ----------

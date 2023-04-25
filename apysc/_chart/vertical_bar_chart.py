@@ -22,6 +22,9 @@ from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._chart.set_initial_border_color_mixin import SetInitialBorderColorMixIn
 from apysc._chart.set_initial_border_alpha_mixin import SetInitialBorderAlphaMixIn
+from apysc._chart.set_initial_border_thickness_mixin import (
+    SetInitialBorderThicknessMixIn
+)
 from apysc._display.sprite import Sprite
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
@@ -47,6 +50,7 @@ class VerticalBarChart(
     SetInitialBackgroundFillAlphaMixIn,
     SetInitialBorderColorMixIn,
     SetInitialBorderAlphaMixIn,
+    SetInitialBorderThicknessMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -71,6 +75,7 @@ class VerticalBarChart(
         background_fill_alpha: Union[float, Number] = 1.0,
         border_color: _StrOrString = "",
         border_alpha: Union[float, Number] = 1.0,
+        border_thickness: Union[int, Int] = 1,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -103,6 +108,8 @@ class VerticalBarChart(
             A chart's border line color.
         border_alpha : Union[float, Number], default 1.0
             A chart's border line alpha.
+        border_thickness : Union[int, Int], default 1
+            A chart's border line thickness.
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -129,6 +136,9 @@ class VerticalBarChart(
         )
         self._set_initial_border_alpha(
             border_alpha=border_alpha, variable_name_suffix=variable_name_suffix
+        )
+        self._set_initial_border_thickness(
+            border_thickness=border_thickness, variable_name_suffix=variable_name_suffix
         )
         self._variable_name_suffix = variable_name_suffix
         self._container = Sprite(variable_name_suffix=variable_name_suffix)

@@ -20,6 +20,7 @@ from apysc._chart.set_initial_x_mixin import SetInitialXMixIn
 from apysc._chart.set_initial_y_mixin import SetInitialYMixIn
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
+from apysc._chart.set_initial_border_color_mixin import SetInitialBorderColorMixIn
 from apysc._display.sprite import Sprite
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
@@ -43,6 +44,7 @@ class VerticalBarChart(
     SetInitialHeightMixIn,
     SetInitialBackgroundFillColorMixIn,
     SetInitialBackgroundFillAlphaMixIn,
+    SetInitialBorderColorMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -65,6 +67,7 @@ class VerticalBarChart(
         height: Union[int, Int] = 395,
         background_fill_color: _StrOrString = "#ffffff",
         background_fill_alpha: Union[float, Number] = 1.0,
+        border_color: _StrOrString = "",
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -89,11 +92,13 @@ class VerticalBarChart(
             A chart's width.
         height : Union[int, Int], default 395
             A chart's height.
-        background_fill_color : str or String, default '#ffffff'
+        background_fill_color : str or String, default "#ffffff"
             A chart's background fill-color.
         background_fill_alpha : Union[float, Number], default 1.0
             A chart's background fill-alpha.
-        variable_name_suffix : str, default ''
+        border_color : str or String, default ""
+            A chart's border line color.
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
@@ -113,6 +118,9 @@ class VerticalBarChart(
         self._set_initial_background_fill_alpha(
             background_fill_alpha=background_fill_alpha,
             variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_border_color(
+            border_color=border_color, variable_name_suffix=variable_name_suffix
         )
         self._variable_name_suffix = variable_name_suffix
         self._container = Sprite(variable_name_suffix=variable_name_suffix)

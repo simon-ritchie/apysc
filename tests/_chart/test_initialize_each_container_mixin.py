@@ -3,11 +3,13 @@ from apysc._chart.initialize_each_container_mixin import InitializeEachContainer
 from apysc._testing.testing_helper import apply_test_settings, assert_raises
 from apysc._chart.overall_container_mixin import OverallContainerMixIn
 from apysc._chart.background_container_mixin import BackgroundContainerMixIn
+from apysc._chart.chart_container_mixin import ChartContainerMixIn
 
 
 class _TestMixIn(
     OverallContainerMixIn,
     BackgroundContainerMixIn,
+    ChartContainerMixIn,
     InitializeEachContainerMixIn,
 ):
     pass
@@ -30,3 +32,6 @@ class TestInitializeEachContainerMixIn:
 
         assert isinstance(mixin_2._background_container, ap.Sprite)
         assert mixin_2._background_container.parent == mixin_2._overall_container
+
+        assert isinstance(mixin_2._chart_container, ap.Sprite)
+        assert mixin_2._chart_container.parent == mixin_2._overall_container

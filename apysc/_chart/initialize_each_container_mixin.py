@@ -28,6 +28,7 @@ class InitializeEachContainerMixIn:
         """
         from apysc._chart.overall_container_mixin import OverallContainerMixIn
         from apysc._chart.background_container_mixin import BackgroundContainerMixIn
+        from apysc._chart.chart_container_mixin import ChartContainerMixIn
 
         if not isinstance(self, OverallContainerMixIn):
             raise TypeError(
@@ -40,4 +41,10 @@ class InitializeEachContainerMixIn:
             self._initialize_background_container(
                 overall_container=self._overall_container,
                 variable_name_suffix=variable_name_suffix
+            )
+
+        if isinstance(self, ChartContainerMixIn):
+            self._initialize_chart_container(
+                overall_container=self._overall_container,
+                variable_name_suffix=variable_name_suffix,
             )

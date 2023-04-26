@@ -31,7 +31,7 @@ class SetInitialBorderAlphaMixIn:
         Parameters
         ----------
         border_alpha : Union[float, Number]
-            A chart's border line alpha.
+            A chart's border alpha.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

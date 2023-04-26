@@ -32,7 +32,7 @@ class SetInitialBorderThicknessMixIn:
         Parameters
         ----------
         border_thickness : Union[int, Int]
-            A chart's border line thickness.
+            A chart's border thickness.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

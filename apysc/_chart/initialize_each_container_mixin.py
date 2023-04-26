@@ -38,6 +38,6 @@ class InitializeEachContainerMixIn:
 
         if isinstance(self, BackgroundContainerMixIn):
             self._initialize_background_container(
+                overall_container=self._overall_container,
                 variable_name_suffix=variable_name_suffix
             )
-            self._overall_container.add_child(self._background_container)

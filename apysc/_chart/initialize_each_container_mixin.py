@@ -5,7 +5,6 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
-from apysc._chart.overall_container_mixin import OverallContainerMixIn
 
 
 class InitializeEachContainerMixIn:
@@ -27,9 +26,18 @@ class InitializeEachContainerMixIn:
         TypeError
             If this instance is not an instance of `OverallContainerMixIn`.
         """
+        from apysc._chart.overall_container_mixin import OverallContainerMixIn
+        from apysc._chart.background_container_mixin import BackgroundContainerMixIn
+
         if not isinstance(self, OverallContainerMixIn):
             raise TypeError(
                 "This interface only supports an `OverallContainerMixIn` "
                 f"instance: {type(self).__name__}, {self}"
             )
         self._initialize_overall_container(variable_name_suffix=variable_name_suffix)
+
+        if isinstance(self, BackgroundContainerMixIn):
+            self._initialize_background_container(
+                variable_name_suffix=variable_name_suffix
+            )
+            self._overall_container.add_child(self._background_container)

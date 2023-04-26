@@ -25,13 +25,13 @@ from apysc._chart.set_initial_border_alpha_mixin import SetInitialBorderAlphaMix
 from apysc._chart.set_initial_border_thickness_mixin import (
     SetInitialBorderThicknessMixIn
 )
-from apysc._display.sprite import Sprite
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._chart.overall_container_mixin import OverallContainerMixIn
 
 _DataType = Union[
     Array[Dictionary[String, Union[Int, Number, String]]],
@@ -51,12 +51,12 @@ class VerticalBarChart(
     SetInitialBorderColorMixIn,
     SetInitialBorderAlphaMixIn,
     SetInitialBorderThicknessMixIn,
+    OverallContainerMixIn,
 ):
     """
     The class for the vertical bar chart.
     """
 
-    _container: Sprite
     _data: _DataType
     _x_axis_settings: XAxisSettings
     _y_axis_settings: YAxisSingleColumnSettings
@@ -141,4 +141,3 @@ class VerticalBarChart(
             border_thickness=border_thickness, variable_name_suffix=variable_name_suffix
         )
         self._variable_name_suffix = variable_name_suffix
-        self._container = Sprite(variable_name_suffix=variable_name_suffix)

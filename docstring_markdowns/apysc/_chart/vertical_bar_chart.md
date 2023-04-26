@@ -28,7 +28,15 @@ Create a vertical bar chart instance.<hr>
   - A chart's width.
 - `height`: Union[int, Int], default 395
   - A chart's height.
-- `background_color`: str or String, default '#ffffff'
-  - A chart's background color.
-- `variable_name_suffix`: str, default ''
+- `background_fill_color`: str or String, default "#ffffff"
+  - A chart's background fill-color.
+- `background_fill_alpha`: Union[float, Number], default 1.0
+  - A chart's background fill-alpha.
+- `border_color`: str or String, default ""
+  - A chart's border color.
+- `border_alpha`: Union[float, Number], default 1.0
+  - A chart's border alpha.
+- `border_thickness`: Union[int, Int], default 1
+  - A chart's border thickness.
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

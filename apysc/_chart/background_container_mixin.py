@@ -13,7 +13,9 @@ class BackgroundContainerMixIn:
     _background_container: Sprite
 
     @final
-    @arg_validation_decos.is_display_object_container(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=1, optional=False
+    )
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def _initialize_background_container(

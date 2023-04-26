@@ -26,25 +26,27 @@ class InitializeEachContainerMixIn:
         TypeError
             If this instance is not an instance of `OverallContainerMixIn`.
         """
-        from apysc._chart.overall_container_mixin import OverallContainerMixIn
         from apysc._chart.background_container_mixin import BackgroundContainerMixIn
         from apysc._chart.chart_container_mixin import ChartContainerMixIn
+        from apysc._chart.overall_container_mixin import OverallContainerMixIn
+        from apysc._display.sprite import Sprite
 
         if not isinstance(self, OverallContainerMixIn):
             raise TypeError(
                 "This interface only supports an `OverallContainerMixIn` "
                 f"instance: {type(self).__name__}, {self}"
             )
+        overall_container: Sprite = self._overall_container
         self._initialize_overall_container(variable_name_suffix=variable_name_suffix)
 
         if isinstance(self, BackgroundContainerMixIn):
             self._initialize_background_container(
-                overall_container=self._overall_container,
-                variable_name_suffix=variable_name_suffix
+                overall_container=overall_container,
+                variable_name_suffix=variable_name_suffix,
             )
 
         if isinstance(self, ChartContainerMixIn):
             self._initialize_chart_container(
-                overall_container=self._overall_container,
+                overall_container=overall_container,
                 variable_name_suffix=variable_name_suffix,
             )

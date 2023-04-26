@@ -32,6 +32,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._chart.overall_container_mixin import OverallContainerMixIn
+from apysc._chart.initialize_each_container_mixin import InitializeEachContainerMixIn
 
 _DataType = Union[
     Array[Dictionary[String, Union[Int, Number, String]]],
@@ -52,6 +53,7 @@ class VerticalBarChart(
     SetInitialBorderAlphaMixIn,
     SetInitialBorderThicknessMixIn,
     OverallContainerMixIn,
+    InitializeEachContainerMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -140,4 +142,5 @@ class VerticalBarChart(
         self._set_initial_border_thickness(
             border_thickness=border_thickness, variable_name_suffix=variable_name_suffix
         )
+        self._initialize_each_container(variable_name_suffix=variable_name_suffix)
         self._variable_name_suffix = variable_name_suffix

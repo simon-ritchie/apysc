@@ -31,6 +31,7 @@ class InitializeEachContainerMixIn:
         from apysc._chart.overall_container_mixin import OverallContainerMixIn
         from apysc._chart.x_axis_container_mixin import XAxisContainerMixIn
         from apysc._chart.y_axis_container_mixin import YAxisContainerMixIn
+        from apysc._chart.border_container_mixin import BorderContainerMixIn
         from apysc._display.sprite import Sprite
 
         if not isinstance(self, OverallContainerMixIn):
@@ -58,6 +59,11 @@ class InitializeEachContainerMixIn:
             )
         if isinstance(self, YAxisContainerMixIn):
             self._initialize_y_axis_container(
+                overall_container=overall_container,
+                variable_name_suffix=variable_name_suffix,
+            )
+        if isinstance(self, BorderContainerMixIn):
+            self._initialize_border_container(
                 overall_container=overall_container,
                 variable_name_suffix=variable_name_suffix,
             )

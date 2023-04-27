@@ -29,6 +29,7 @@ from apysc._chart.set_initial_x_mixin import SetInitialXMixIn
 from apysc._chart.set_initial_y_mixin import SetInitialYMixIn
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
+from apysc._chart.x_axis_container_mixin import XAxisContainerMixIn
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
@@ -58,6 +59,7 @@ class VerticalBarChart(
     BackgroundContainerMixIn,
     ChartContainerMixIn,
     InitializeEachContainerMixIn,
+    XAxisContainerMixIn,
 ):
     """
     The class for the vertical bar chart.

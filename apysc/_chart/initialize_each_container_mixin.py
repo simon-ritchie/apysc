@@ -36,8 +36,8 @@ class InitializeEachContainerMixIn:
                 "This interface only supports an `OverallContainerMixIn` "
                 f"instance: {type(self).__name__}, {self}"
             )
-        overall_container: Sprite = self._overall_container
         self._initialize_overall_container(variable_name_suffix=variable_name_suffix)
+        overall_container: Sprite = self._overall_container
 
         if isinstance(self, BackgroundContainerMixIn):
             self._initialize_background_container(

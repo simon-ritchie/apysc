@@ -38,6 +38,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._chart.add_background_mixin import AddBackgroundMixIn
 
 _DataType = Union[
     Array[Dictionary[String, Union[Int, Number, String]]],
@@ -64,6 +65,7 @@ class VerticalBarChart(
     YAxisContainerMixIn,
     BorderContainerMixIn,
     InitializeEachContainerMixIn,
+    AddBackgroundMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -126,6 +128,7 @@ class VerticalBarChart(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
+        self._variable_name_suffix = variable_name_suffix
         self._data = data
         self._x_axis_settings = x_axis_settings
         self._y_axis_settings = y_axis_settings
@@ -153,4 +156,11 @@ class VerticalBarChart(
             border_thickness=border_thickness, variable_name_suffix=variable_name_suffix
         )
         self._initialize_each_container(variable_name_suffix=variable_name_suffix)
-        self._variable_name_suffix = variable_name_suffix
+        self._add_background(
+            background_container=self._background_container,
+            width=self._width,
+            height=self._height,
+            background_fill_color=self._background_fill_color,
+            background_fill_alpha=self._background_fill_alpha,
+            variable_name_suffix=variable_name_suffix,
+        )

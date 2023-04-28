@@ -1,11 +1,11 @@
 import apysc as ap
 from apysc._chart.background_container_mixin import BackgroundContainerMixIn
+from apysc._chart.border_container_mixin import BorderContainerMixIn
 from apysc._chart.chart_container_mixin import ChartContainerMixIn
 from apysc._chart.initialize_each_container_mixin import InitializeEachContainerMixIn
 from apysc._chart.overall_container_mixin import OverallContainerMixIn
 from apysc._chart.x_axis_container_mixin import XAxisContainerMixIn
 from apysc._chart.y_axis_container_mixin import YAxisContainerMixIn
-from apysc._chart.border_container_mixin import BorderContainerMixIn
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 

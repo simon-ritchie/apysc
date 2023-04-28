@@ -27,7 +27,7 @@ class SetInitialBorderThicknessMixIn:
         variable_name_suffix: str = "",
     ) -> None:
         """
-        Set a chart's initial border line thickness.
+        Set a chart's initial border thickness.
 
         Parameters
         ----------

@@ -1,4 +1,4 @@
-"""The mix-in class implementation for `border_container`-related interface.
+"""The mix-in class implementation for `border_container`-related interfaces.
 """
 
 from typing_extensions import final

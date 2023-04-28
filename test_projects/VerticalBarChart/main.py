@@ -12,8 +12,8 @@ import os
 from types import ModuleType
 
 import apysc as ap
-from apysc._file import file_util
 from apysc._chart.vertical_bar_chart import VerticalBarChart
+from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -139,6 +139,8 @@ class YAxisSingleColumnSettings(
         ----------
         y_axis_column_name : Union[str, String]
             Y-axis column name.
+            Only a number (integer or float) column is a selectable
+            value (for example, price, sales, or percentage's column).
         tick_culling_max : Optional[Union[int, Int]], optional
             A tick max display number. Often tick display number
             becomes under this value.

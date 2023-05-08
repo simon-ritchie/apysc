@@ -30,6 +30,9 @@ from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
 from apysc._chart.set_initial_width_mixin import SetInitialWidthMixIn
 from apysc._chart.set_initial_x_mixin import SetInitialXMixIn
 from apysc._chart.set_initial_y_mixin import SetInitialYMixIn
+from apysc._chart.set_initial_overall_container_coordinates_mixin import (
+    SetInitialOverallContainerCoordinatesMixIn
+)
 from apysc._chart.x_axis_container_mixin import XAxisContainerMixIn
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_container_mixin import YAxisContainerMixIn
@@ -68,6 +71,7 @@ class VerticalBarChart(
     InitializeEachContainerMixIn,
     AddBackgroundMixIn,
     AddBorderMixIn,
+    SetInitialOverallContainerCoordinatesMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -174,4 +178,9 @@ class VerticalBarChart(
             border_alpha=self._border_alpha,
             border_thickness=self._border_thickness,
             variable_name_suffix=variable_name_suffix,
+        )
+        self._set_initial_overall_container_coordinates(
+            overall_container=self._overall_container,
+            x=self._x,
+            y=self._y,
         )

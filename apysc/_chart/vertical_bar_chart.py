@@ -9,6 +9,7 @@ from typing import TypeVar
 from typing import Union
 
 from apysc._chart.add_background_mixin import AddBackgroundMixIn
+from apysc._chart.add_border_mixin import AddBorderMixIn
 from apysc._chart.background_container_mixin import BackgroundContainerMixIn
 from apysc._chart.border_container_mixin import BorderContainerMixIn
 from apysc._chart.chart_container_mixin import ChartContainerMixIn
@@ -66,6 +67,7 @@ class VerticalBarChart(
     BorderContainerMixIn,
     InitializeEachContainerMixIn,
     AddBackgroundMixIn,
+    AddBorderMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -162,5 +164,14 @@ class VerticalBarChart(
             height=self._height,
             background_fill_color=self._background_fill_color,
             background_fill_alpha=self._background_fill_alpha,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self._add_border(
+            border_container=self._border_container,
+            width=self._width,
+            height=self._height,
+            border_color=self._border_color,
+            border_alpha=self._border_alpha,
+            border_thickness=self._border_thickness,
             variable_name_suffix=variable_name_suffix,
         )

@@ -1,4 +1,4 @@
-"""The mix-in class implementation for the `add_background` method.
+"""The mix-in class implementation for the `_add_background` method.
 """
 
 from typing_extensions import final

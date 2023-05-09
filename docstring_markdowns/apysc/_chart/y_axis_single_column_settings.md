@@ -13,7 +13,7 @@ Single column's y-axis settings class.<hr>
 **[Parameters]**
 
 - `y_axis_column_name`: Union[str, String]
-  - Y-axis column name.
+  - Y-axis column name. Only a number (integer or float) column is a selectable value (for example, price, sales, or percentage column).
 - `tick_culling_max`: Optional[Union[int, Int]], optional
   - A tick max display number. Often tick display number becomes under this value.
 - `tick_text_font_size`: Union[int, Int], optional
@@ -50,5 +50,9 @@ Single column's y-axis settings class.<hr>
   - A boolean, whether an axis label is a bold style or not.
 - `axis_label_italic`: Union[bool, Boolean], optional
   - A boolean, whether an axis label is an italic style or not (normal).
+- `top_margin`: Union[int, Int], optional
+  - A top margin setting.
+- `left_margin`: Union[int, Int], optional
+  - A left margin setting.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

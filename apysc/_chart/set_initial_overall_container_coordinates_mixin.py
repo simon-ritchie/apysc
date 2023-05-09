@@ -4,14 +4,13 @@ method.
 
 from typing_extensions import final
 
+from apysc._display.sprite import Sprite
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
-from apysc._display.sprite import Sprite
 
 
 class SetInitialOverallContainerCoordinatesMixIn:
-
     @final
     @arg_validation_decos.is_display_object_container(
         arg_position_index=1,
@@ -28,12 +27,12 @@ class SetInitialOverallContainerCoordinatesMixIn:
         y: Number,
     ) -> None:
         """
-        Set initial overall container's coordinates.
+        Set initial overall container coordinates.
 
         Parameters
         ----------
         overall_container : Sprite
-            A overall container.
+            An overall container.
         x : Number
             X-coordinate.
         y : Number

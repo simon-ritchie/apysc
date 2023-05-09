@@ -18,6 +18,7 @@ from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
 from apysc._chart.axis_line_color_mixin import AxisLineColorMixIn
 from apysc._chart.axis_line_thickness_mixin import AxisLineThicknessMixIn
 from apysc._chart.is_display_axis_label_mixin import IsDisplayAxisLabelMixIn
+from apysc._chart.left_margin_mixin import LeftMarginMixIn
 from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
 from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
 from apysc._chart.tick_text_fill_alpha_mixin import TickTextFillAlphaMixIn
@@ -25,6 +26,7 @@ from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
 from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
 from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
+from apysc._chart.top_margin_mixin import TopMarginMixIn
 from apysc._chart.y_axis_column_name_mixin import YAxisColumnNameMixIn
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
 from apysc._chart.y_axis_label_position_mixin import YAxisLabelPositionMixIn
@@ -34,8 +36,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._chart.top_margin_mixin import TopMarginMixIn
-from apysc._chart.left_margin_mixin import LeftMarginMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -150,7 +150,7 @@ class YAxisSingleColumnSettings(
         y_axis_column_name : Union[str, String]
             Y-axis column name.
             Only a number (integer or float) column is a selectable
-            value (for example, price, sales, or percentage's column).
+            value (for example, price, sales, or percentage column).
         tick_culling_max : Optional[Union[int, Int]], optional
             A tick max display number. Often tick display number
             becomes under this value.

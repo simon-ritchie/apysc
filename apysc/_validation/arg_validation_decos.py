@@ -169,6 +169,9 @@ Mainly the following decorators exist.
 - is_y_axis_label_position
     - Set a validation to check a specified argument's type
         is the `YAxisLabelPosition`.
+- _set_initial_matrix_data
+    - Set a validation to check a specified argument's type
+        is list of dicts or `ap.Array` of `ap.Dictionary`.
 """
 
 import functools
@@ -2941,6 +2944,55 @@ def is_y_axis_label_position(*, arg_position_index: int) -> _Callable:
                 )
             return callable_(*args, **kwargs)
 
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def _set_initial_matrix_data(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is list of dicts or `ap.Array` of `ap.Dictionary`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+            from apysc._validation import matrix_data_validation
+
+            matrix_data: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if isinstance(matrix_data, list):
+                matrix_data_validation.validate_matrix_list_data(
+                    matrix_list_data=matrix_data,
+                    additional_err_msg=callable_and_arg_names_msg,
+                )
+                return callable_(*args, **kwargs)
+            if isinstance(matrix_data, ap.Array):
+                return callable_(*args, **kwargs)
+            raise TypeError(
+                "A specified argument is not a list of dicts or "
+                f"`ap.Array` of `ap.Dictionary`: {type(matrix_data).__name__}, "
+                f"\n{callable_and_arg_names_msg}"
+            )
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore

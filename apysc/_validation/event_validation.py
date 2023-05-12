@@ -35,13 +35,15 @@ def validate_event(*, e: Any, additional_err_msg: str = "") -> Event:
     e : Event
         Event instance.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(e, Event):
         return e
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(
-        f"Specified instance is not Event type: {type(e)}" f"{additional_err_msg}"
+    err_msg: str = f"Specified instance is not Event type: {type(e)}"
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
     )
+    raise ValueError(err_msg)
 
 
 def validate_event_type(*, mouse_event_type: Any) -> MouseEventType:

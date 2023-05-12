@@ -29,11 +29,15 @@ def validate_variable_name_interface_type(
     TypeError
         If specified instance type isn't VariableNameMixIn.
     """
+    from apysc._validation import validation_common_utils
+
     if not isinstance(instance, VariableNameMixIn):
-        if additional_err_msg != "":
-            additional_err_msg = f"\n{additional_err_msg}"
-        raise TypeError(
+        err_msg: str = (
             "Specified instance type is not VariableNameMixIn : "
-            f"{type(instance)}{additional_err_msg}"
+            f"{type(instance)}"
         )
+        err_msg = validation_common_utils.append_additional_err_msg(
+            err_msg=err_msg, additional_err_msg=additional_err_msg
+        )
+        raise TypeError(err_msg)
     return instance

@@ -24,15 +24,17 @@ def validate_string_type(
     ValueError
         - If a non-string value is specified.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(string, str):
         return
     if isinstance(string, String):
         return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(
-        f"A specified value is not str type: {type(string)}" f"{additional_err_msg}"
+    err_msg: str = f"A specified value is not str type: {type(string)}"
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
     )
+    raise ValueError(err_msg)
 
 
 def validate_builtin_string_type(*, string: str, additional_err_msg: str = "") -> None:
@@ -51,13 +53,15 @@ def validate_builtin_string_type(*, string: str, additional_err_msg: str = "") -
     ValueError
         - If a non-string value is specified.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(string, str):
         return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(
-        f"A specified value is not str type: {type(string)}" f"{additional_err_msg}"
+    err_msg: str = f"A specified value is not str type: {type(string)}"
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
     )
+    raise ValueError(err_msg)
 
 
 def validate_not_empty_string(
@@ -79,6 +83,8 @@ def validate_not_empty_string(
         - If empty string ('' or "") is specified.
         - If specified value is not str type.
     """
+    from apysc._validation import validation_common_utils
+
     validate_string_type(string=string)
     if isinstance(string, str):
         if string != "":
@@ -86,6 +92,8 @@ def validate_not_empty_string(
     elif isinstance(string, String):
         if string._value != "":
             return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(f"Empty string is not acceptable.{additional_err_msg}")
+    err_msg: str = f"Empty string is not acceptable."
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
+    )
+    raise ValueError(err_msg)

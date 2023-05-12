@@ -44,14 +44,18 @@ def validate_num(
     ValueError
         If a specified value is not an integer and float value.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(num, (int, float, NumberValueMixIn)):
         return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(
+    err_msg: str = (
         f"Specified value is not iteger or float type: {num}"
-        f"({type(num)}){additional_err_msg}"
+        f"({type(num)})"
     )
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
+    )
+    raise ValueError(err_msg)
 
 
 def validate_integer(*, integer: Union[int, Int], additional_err_msg: str = "") -> None:
@@ -70,14 +74,15 @@ def validate_integer(*, integer: Union[int, Int], additional_err_msg: str = "") 
     ValueError
         If a specified value is not an integer.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(integer, (int, Int)):
         return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(
-        f"A specified value is not an integer: {integer}({type(integer)})"
-        f"{additional_err_msg}"
+    err_msg: str = f"A specified value is not an integer: {integer}({type(integer)})"
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
     )
+    raise ValueError(err_msg)
 
 
 def validate_builtin_integer(*, integer: int, additional_err_msg: str = "") -> None:
@@ -96,15 +101,18 @@ def validate_builtin_integer(*, integer: int, additional_err_msg: str = "") -> N
     ValueError
         If a specified value is not a built-in integer.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(integer, int):
         return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(
+    err_msg: str = (
         "A specified value is not a built-in integer: "
         f"{integer}({type(integer)})"
-        f"{additional_err_msg}"
     )
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
+    )
+    raise ValueError(err_msg)
 
 
 def validate_int_is_zero_or_one(*, integer: Union[int, Int]) -> None:
@@ -155,16 +163,20 @@ def validate_num_is_gt_zero(
     ValueError
         If a specified value is less than or equal to zero.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(num, NumberValueMixIn):
         if num._value > 0:
             return
     elif num > 0:
         return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(
-        f"Specified values is less than or equal to zero: {num}" f"{additional_err_msg}"
+    err_msg: str = (
+        f"Specified values is less than or equal to zero: {num}"
     )
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
+    )
+    raise ValueError(err_msg)
 
 
 def validate_num_is_gte_zero(
@@ -185,14 +197,18 @@ def validate_num_is_gte_zero(
     ValueError
         If a specified value is less than zero.
     """
+    from apysc._validation import validation_common_utils
+
     if isinstance(num, NumberValueMixIn):
         if num._value >= 0:
             return
     elif num >= 0:
         return
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
-    raise ValueError(f"Specified values is less than zero: {num}{additional_err_msg}")
+    err_msg: str = f"Specified values is less than zero: {num}"
+    err_msg = validation_common_utils.append_additional_err_msg(
+        err_msg=err_msg, additional_err_msg=additional_err_msg
+    )
+    raise ValueError(err_msg)
 
 
 def validate_num_is_0_to_1_range(
@@ -213,17 +229,33 @@ def validate_num_is_0_to_1_range(
     ValueError
         If a specified opacity is out of the 0.0 to 1.0 range.
     """
+    from apysc._validation import validation_common_utils
+
     lt_err_msg: str = "Can't specify number value less than 0.0: "
     gt_err_msg: str = "Can't specify number value greater than 1.0: "
-    if additional_err_msg != "":
-        additional_err_msg = f"\n{additional_err_msg}"
     if isinstance(num, NumberValueMixIn):
         if num._value < 0.0:
-            raise ValueError(f"{lt_err_msg}{num}{additional_err_msg}")
+            err_msg: str = f"{lt_err_msg}{num}"
+            err_msg = validation_common_utils.append_additional_err_msg(
+                err_msg=err_msg, additional_err_msg=additional_err_msg
+            )
+            raise ValueError(err_msg)
         if num._value > 1.0:
-            raise ValueError(f"{gt_err_msg}{num}{additional_err_msg}")
+            err_msg = f"{gt_err_msg}{num}"
+            err_msg = validation_common_utils.append_additional_err_msg(
+                err_msg=err_msg, additional_err_msg=additional_err_msg
+            )
+            raise ValueError(err_msg)
     else:
         if num < 0.0:
-            raise ValueError(f"{lt_err_msg}{num}{additional_err_msg}")
+            err_msg = f"{lt_err_msg}{num}"
+            err_msg = validation_common_utils.append_additional_err_msg(
+                err_msg=err_msg, additional_err_msg=additional_err_msg
+            )
+            raise ValueError(err_msg)
         if num > 1.0:
-            raise ValueError(f"{gt_err_msg}{num}{additional_err_msg}")
+            err_msg = f"{gt_err_msg}{num}"
+            err_msg = validation_common_utils.append_additional_err_msg(
+                err_msg=err_msg, additional_err_msg=additional_err_msg
+            )
+            raise ValueError(err_msg)

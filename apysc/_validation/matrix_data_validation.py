@@ -3,6 +3,12 @@
 
 from typing import Dict, List, Union
 
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
+from apysc._type.array import Array
+from apysc._type.dictionary import Dictionary
+
 
 def validate_matrix_list_data(
     *,
@@ -66,6 +72,76 @@ def validate_matrix_list_data(
                 err_msg = (
                     "A specified dict value type is not the int, float, or str: "
                     f"{type(value).__name__}\n{value}"
+                )
+                err_msg = validation_common_utils.append_additional_err_msg(
+                    err_msg=err_msg,
+                    additional_err_msg=additional_err_msg,
+                )
+                raise TypeError(err_msg)
+
+
+def validate_matrix_array_data(
+    *,
+    matrix_array_data: Array[Dictionary[str, Union[Int, Number, String]]],
+    additional_err_msg: str,
+) -> None:
+    """
+    Validate whether a specified matrix array data is valid type or not.
+
+    Parameters
+    ----------
+    matrix_array_data : Array[Dictionary[str, Union[Int, Number, String]]]
+        A matrix array data.
+    additional_err_msg : str
+        An additional error message to display.
+
+    Raises
+    ------
+    TypeError
+        - If a specified data type is not the `ap.Array`.
+        - If values are not type of the `ap.Dictionary`.
+        - If a dictionary key's type is not the str.
+        - If a dictionary value's type is not the `ap.Int`, `ap.Number`, or `ap.String`.
+    """
+    from apysc._validation import validation_common_utils
+
+    if not isinstance(matrix_array_data, Array):
+        err_msg: str = (
+            "A specified data type is not the `ap.Array`: "
+            f"{type(matrix_array_data).__name__}\n{matrix_array_data}"
+        )
+        err_msg = validation_common_utils.append_additional_err_msg(
+            err_msg=err_msg,
+            additional_err_msg=additional_err_msg,
+        )
+        raise TypeError(err_msg)
+
+    for data in matrix_array_data._value:
+        if not isinstance(data, Dictionary):
+            err_msg = (
+                "A specified `ap.Array` value's type is not the `ap.Dictionary`: "
+                f"{type(data).__name__}\n{data}"
+            )
+            err_msg = validation_common_utils.append_additional_err_msg(
+                err_msg=err_msg,
+                additional_err_msg=additional_err_msg,
+            )
+            raise TypeError(err_msg)
+        for key, value in data._value.items():
+            if not isinstance(key, str):
+                err_msg = (
+                    "A specified dictionary key type is not the `ap.String`: "
+                    f"{type(key).__name__}\n{key}"
+                )
+                err_msg = validation_common_utils.append_additional_err_msg(
+                    err_msg=err_msg,
+                    additional_err_msg=additional_err_msg,
+                )
+                raise TypeError(err_msg)
+            if not isinstance(value, (Int, Number, String)):
+                err_msg = (
+                    "A specified dictionary value type is not the `ap.Int`, "
+                    f"`ap.Number`, or `ap.String`: {type(value).__name__}\n{value}"
                 )
                 err_msg = validation_common_utils.append_additional_err_msg(
                     err_msg=err_msg,

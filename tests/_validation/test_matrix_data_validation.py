@@ -51,3 +51,47 @@ def test_validate_matrix_list_data() -> None:
             }
         ],
     )
+
+
+# @apply_test_settings()
+def test_validate_matrix_array_data() -> None:
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=matrix_data_validation.validate_matrix_array_data,
+        match="A specified data type is not the `ap.Array`: ",
+        matrix_array_data=100,
+        additional_err_msg="test message",
+    )
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=matrix_data_validation.validate_matrix_array_data,
+        match="A specified `ap.Array` value's type is not the `ap.Dictionary`: ",
+        matrix_array_data=ap.Array([10, 20]),
+        additional_err_msg="test message",
+    )
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=matrix_data_validation.validate_matrix_array_data,
+        match="A specified dictionary key type is not the `ap.String`: ",
+        matrix_array_data=ap.Array([ap.Dictionary({0: ap.Int(10)})]),
+        additional_err_msg="test message",
+    )
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=matrix_data_validation.validate_matrix_array_data,
+        match="A specified dictionary value type is not the `ap.Int`, ",
+        matrix_array_data=ap.Array([ap.Dictionary({"a": 10})]),
+        additional_err_msg="test message",
+    )
+
+    matrix_data_validation.validate_matrix_array_data(
+        matrix_array_data=ap.Array(
+            [
+                ap.Dictionary({"a": ap.Int(10)})
+            ]
+        ),
+        additional_err_msg="test message",
+    )

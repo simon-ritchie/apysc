@@ -43,6 +43,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._chart.set_initial_matrix_data_mixin import SetInitialMatrixDataMixIn
 
 _DataType = Union[
     Array[Dictionary[str, Union[Int, Number, String]]],
@@ -53,6 +54,7 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 class VerticalBarChart(
     VariableNameSuffixMixIn,
+    SetInitialMatrixDataMixIn,
     SetInitialXMixIn,
     SetInitialYMixIn,
     SetInitialWidthMixIn,
@@ -77,7 +79,6 @@ class VerticalBarChart(
     The class for the vertical bar chart.
     """
 
-    _data: _DataType
     _x_axis_settings: XAxisSettings
     _y_axis_settings: YAxisSingleColumnSettings
 
@@ -135,7 +136,9 @@ class VerticalBarChart(
             This setting is sometimes useful for JavaScript debugging.
         """
         self._variable_name_suffix = variable_name_suffix
-        self._data = data
+        self._set_initial_matrix_data(
+            data=data, variable_name_suffix=variable_name_suffix
+        )
         self._x_axis_settings = x_axis_settings
         self._y_axis_settings = y_axis_settings
         self._set_initial_x(x=x, variable_name_suffix=variable_name_suffix)

@@ -169,7 +169,7 @@ Mainly the following decorators exist.
 - is_y_axis_label_position
     - Set a validation to check a specified argument's type
         is the `YAxisLabelPosition`.
-- _set_initial_matrix_data
+- is_list_or_array_matrix_data
     - Set a validation to check a specified argument's type
         is list of dicts or `ap.Array` of `ap.Dictionary`.
 """
@@ -2949,7 +2949,7 @@ def is_y_axis_label_position(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def _set_initial_matrix_data(*, arg_position_index: int) -> _Callable:
+def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
     is list of dicts or `ap.Array` of `ap.Dictionary`.
@@ -2987,6 +2987,10 @@ def _set_initial_matrix_data(*, arg_position_index: int) -> _Callable:
                 )
                 return callable_(*args, **kwargs)
             if isinstance(matrix_data, ap.Array):
+                matrix_data_validation.validate_matrix_array_data(
+                    matrix_array_data=matrix_data,
+                    additional_err_msg=callable_and_arg_names_msg,
+                )
                 return callable_(*args, **kwargs)
             raise TypeError(
                 "A specified argument is not a list of dicts or "

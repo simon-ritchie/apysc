@@ -1357,4 +1357,32 @@ def test_is_list_or_array_matrix_data() -> None:
         callable_=_test_func_1,
         matrix_data=100,
     )
-    pass
+    result: int = _test_func_1(matrix_data=[{"a": 100, "b": 20.5, "c": "1970-01-01"}])
+    assert result == 240
+
+    @arg_validation_decos.is_list_or_array_matrix_data(arg_position_index=0)
+    def _test_func_2(
+        *,
+        matrix_data: ap.Array[ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]],
+    ) -> int:
+        return 250
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_2,
+        matrix_data=100,
+    )
+    result = _test_func_2(
+        matrix_data=ap.Array(
+            [
+                ap.Dictionary(
+                    {
+                        "a": ap.Int(100),
+                        "b": ap.Number(20.5),
+                        "c": ap.String("1970-01-01"),
+                    },
+                ),
+            ]
+        )
+    )
+    assert result == 250

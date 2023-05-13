@@ -54,7 +54,7 @@ class Number(
     Number(20.8)
     """
 
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -136,7 +136,7 @@ class Number(
         )
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     def _set_value_and_skip_expression_appending(
         self, *, value: Union[int, float, Any]
     ) -> None:

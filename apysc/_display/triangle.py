@@ -162,17 +162,17 @@ class Triangle(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x1
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     # y1
-    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     # x2
-    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=3, optional=False)
     # y2
-    @arg_validation_decos.is_num(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=4, optional=False)
     # x3
-    @arg_validation_decos.is_num(arg_position_index=5)
+    @arg_validation_decos.is_num(arg_position_index=5, optional=False)
     # y3
-    @arg_validation_decos.is_num(arg_position_index=6)
+    @arg_validation_decos.is_num(arg_position_index=6, optional=False)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=7, optional=False)
     # fill_alpha

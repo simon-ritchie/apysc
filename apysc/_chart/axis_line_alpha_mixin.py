@@ -15,7 +15,7 @@ class AxisLineAlphaMixIn:
     _line_alpha: Number
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)

@@ -62,8 +62,8 @@ class Point2D(
     _y: Number
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
-    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=True)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -164,7 +164,7 @@ class Point2D(
         return x
 
     @x.setter
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def x(self, value: Number) -> None:
         """
@@ -243,7 +243,7 @@ class Point2D(
         return y
 
     @y.setter
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def y(self, value: Number) -> None:
         """

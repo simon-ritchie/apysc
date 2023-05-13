@@ -39,7 +39,7 @@ class NumberValueMixIn(
     _initial_value: _NumType
     _value: _ValueType
 
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self, *, value: _NumType, type_name: str, variable_name_suffix: str = ""
@@ -130,7 +130,7 @@ class NumberValueMixIn(
         return self._value
 
     @value.setter
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def value(self, value: _NumType) -> None:
         """
@@ -184,7 +184,7 @@ class NumberValueMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: _NumType) -> Any:
         """
@@ -234,7 +234,7 @@ class NumberValueMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __sub__(self, other: _NumType) -> Any:
         """
@@ -284,7 +284,7 @@ class NumberValueMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __mul__(self, other: _NumType) -> _InstanceType:
         """
@@ -334,7 +334,7 @@ class NumberValueMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __truediv__(self, other: _NumType) -> Any:
         """
@@ -386,7 +386,7 @@ class NumberValueMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __floordiv__(self, other: _NumType) -> Any:
         """
@@ -456,7 +456,7 @@ class NumberValueMixIn(
         self._incremental_calc_prev_name = ""
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: _NumType) -> _InstanceType:
         """
@@ -483,7 +483,7 @@ class NumberValueMixIn(
         return result
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __isub__(self, other: _NumType) -> Any:
         """
@@ -510,7 +510,7 @@ class NumberValueMixIn(
         return result
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __imul__(self, other: _NumType) -> _InstanceType:
         """
@@ -537,7 +537,7 @@ class NumberValueMixIn(
         return result
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __itruediv__(self, other: _NumType) -> Any:
         """
@@ -565,7 +565,7 @@ class NumberValueMixIn(
         return result
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __mod__(self, other: _NumType) -> _InstanceType:
         """

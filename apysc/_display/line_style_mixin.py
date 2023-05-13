@@ -50,7 +50,7 @@ class LineStyleMixIn(
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=2, optional=False)
-    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=3, optional=False)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3, optional=False)
     @arg_validation_decos.is_line_cap(arg_position_index=4, optional=True)
     @arg_validation_decos.are_line_joints(arg_position_index=5, optional=True)

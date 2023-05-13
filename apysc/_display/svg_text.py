@@ -162,9 +162,9 @@ class SVGText(
         arg_position_index=3, optional=True
     )
     # x
-    @arg_validation_decos.is_num(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=4, optional=False)
     # y
-    @arg_validation_decos.is_num(arg_position_index=5)
+    @arg_validation_decos.is_num(arg_position_index=5, optional=False)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
     # fill_alpha
@@ -177,7 +177,7 @@ class SVGText(
     @arg_validation_decos.is_integer(arg_position_index=10, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=10, optional=False)
     # leading
-    @arg_validation_decos.is_num(arg_position_index=11)
+    @arg_validation_decos.is_num(arg_position_index=11, optional=False)
     # align
     @arg_validation_decos.is_svg_text_align(arg_position_index=12)
     # bold
@@ -367,9 +367,9 @@ class SVGText(
         arg_position_index=3, optional=True
     )
     # x
-    @arg_validation_decos.is_num(arg_position_index=4)
+    @arg_validation_decos.is_num(arg_position_index=4, optional=False)
     # y
-    @arg_validation_decos.is_num(arg_position_index=5)
+    @arg_validation_decos.is_num(arg_position_index=5, optional=False)
     # fill_color
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
     # fill_alpha
@@ -382,7 +382,7 @@ class SVGText(
     @arg_validation_decos.is_integer(arg_position_index=10, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=10, optional=False)
     # leading
-    @arg_validation_decos.is_num(arg_position_index=11)
+    @arg_validation_decos.is_num(arg_position_index=11, optional=False)
     # align
     @arg_validation_decos.is_svg_text_align(arg_position_index=12)
     # bold

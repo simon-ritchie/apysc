@@ -157,9 +157,9 @@ class Rectangle(
     # self
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
     # x
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     # y
-    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     # width
     @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3, optional=False)

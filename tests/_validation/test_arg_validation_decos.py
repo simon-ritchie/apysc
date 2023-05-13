@@ -244,7 +244,7 @@ def test__get_default_val_by_arg_name() -> None:
 
 @apply_test_settings()
 def test_is_num() -> None:
-    @arg_validation_decos.is_num(arg_position_index=0)
+    @arg_validation_decos.is_num(arg_position_index=0, optional=False)
     def _test_func_1(*, a: Union[int, float, ap.Int, ap.Number]) -> None:
         ...
 
@@ -252,8 +252,19 @@ def test_is_num() -> None:
     _test_func_1(a=1)
     _test_func_1(a=ap.Int(1))
     _test_func_1(a=ap.Number(1.5))
-
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a="Hello!")
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=None)
+
+    @arg_validation_decos.is_num(arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[Union[int, float, ap.Int, ap.Number]]) -> None:
+        ...
+
+    _test_func_2(a=1.5)
+    _test_func_2(a=1)
+    _test_func_2(a=ap.Int(1))
+    _test_func_2(a=ap.Number(1.5))
+    _test_func_2(a=None)
+    assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a="Hello!")
 
 
 @apply_test_settings()

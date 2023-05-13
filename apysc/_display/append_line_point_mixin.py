@@ -26,8 +26,8 @@ class AppendLinePointMixIn(
     PointsVarNameMixIn,
 ):
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
-    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def append_line_point(
         self,

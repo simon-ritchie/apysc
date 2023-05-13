@@ -87,7 +87,7 @@ class YAxisSingleColumnSettings(
     @arg_validation_decos.is_integer(arg_position_index=10, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=10, optional=False)
     # line_alpha
-    @arg_validation_decos.is_num(arg_position_index=11)
+    @arg_validation_decos.is_num(arg_position_index=11, optional=False)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=11, optional=False)
     # is_display_axis_label
     @arg_validation_decos.is_boolean(arg_position_index=12, optional=False)
@@ -120,6 +120,7 @@ class YAxisSingleColumnSettings(
         self,
         *,
         y_axis_column_name: Union[str, String],
+        # y_min: Optional[Union[float, Number]] = None,
         tick_culling_max: Optional[Union[int, Int]] = None,
         tick_text_font_size: Union[int, Int] = 12,
         tick_text_font_family: Optional[Union[Array[String], List[str]]] = None,

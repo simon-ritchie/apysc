@@ -45,8 +45,8 @@ class PathLineTo(PathDataBase, PathXMixIn, PathYMixIn):
     """
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
-    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     @arg_validation_decos.is_boolean(arg_position_index=3, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=4, optional=False)
     @add_debug_info_setting(module_name=__name__)
@@ -131,8 +131,8 @@ class PathLineTo(PathDataBase, PathXMixIn, PathYMixIn):
         return svg_str
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
-    @arg_validation_decos.is_num(arg_position_index=2)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     @arg_validation_decos.is_boolean(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def update_path_data(

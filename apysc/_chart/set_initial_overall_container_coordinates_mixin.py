@@ -16,8 +16,8 @@ class SetInitialOverallContainerCoordinatesMixIn:
         arg_position_index=1,
         optional=False,
     )
-    @arg_validation_decos.is_num(arg_position_index=2)
-    @arg_validation_decos.is_num(arg_position_index=3)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
+    @arg_validation_decos.is_num(arg_position_index=3, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_overall_container_coordinates(
         self,

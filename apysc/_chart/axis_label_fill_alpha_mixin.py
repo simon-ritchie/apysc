@@ -15,7 +15,7 @@ class AxisLabelFillAlphaMixIn:
     _axis_label_fill_alpha: Number
 
     @final
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_axis_label_fill_alpha(

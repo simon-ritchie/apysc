@@ -42,7 +42,7 @@ class _TestNumberClass(NumberValueMixIn):
             value=value, type_name=type_name, variable_name_suffix=variable_name_suffix
         )
 
-    @arg_validation_decos.is_num(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=1, optional=False)
     def _set_value_and_skip_expression_appending(
         self, *, value: number_value_mixin._NumType
     ) -> None:

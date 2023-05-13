@@ -1344,3 +1344,17 @@ def test_is_y_axis_label_position() -> None:
 
     result: int = _test_func(position=ap.YAxisLabelPosition.OUTER_TOP)
     assert result == 230
+
+
+@apply_test_settings()
+def test_is_list_or_array_matrix_data() -> None:
+    @arg_validation_decos.is_list_or_array_matrix_data(arg_position_index=0)
+    def _test_func_1(*, matrix_data: List[Dict[str, Union[int, float, str]]]) -> int:
+        return 240
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        matrix_data=100,
+    )
+    pass

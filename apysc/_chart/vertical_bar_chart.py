@@ -45,7 +45,7 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 _DataType = Union[
-    Array[Dictionary[String, Union[Int, Number, String]]],
+    Array[Dictionary[str, Union[Int, Number, String]]],
     List[Dict[str, Union[int, float, str]]],
 ]
 _StrOrString = TypeVar("_StrOrString", str, String)
@@ -103,7 +103,7 @@ class VerticalBarChart(
 
         Parameters
         ----------
-        data : Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]  # noqa
+        data : Union[Array[Dictionary[str, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]  # noqa
             A data array, which contains a 1-dimensional string key dictionary.
             A list of dictionaries or an `ap.Array` of `ap.Dictionary` values
             are acceptable.

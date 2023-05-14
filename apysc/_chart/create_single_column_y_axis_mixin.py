@@ -120,6 +120,41 @@ def _get_y_min_from_data(
     """
     import apysc as ap
 
+    values: Array[Union[Int, Number]] = _extract_column_values_from_data(
+        data=data,
+        column_name=y_axis_column_name,
+        variable_name_suffix=variable_name_suffix,
+    )
+    y_min: Number = ap.Math.min(values)
+    return y_min
+
+
+def _extract_column_values_from_data(
+    *,
+    data: Array[Dictionary[str, Union[Int, Number, String]]],
+    column_name: str,
+    variable_name_suffix: str,
+) -> Array[Union[Int, Number]]:
+    """
+    Get a specified column values array from a specified data.
+
+    Parameters
+    ----------
+    data : Array[Dictionary[str, Union[Int, Number, String]]]
+        A data array, which contains a 1-dimensional string key dictionary.
+    column_name : str
+        A y-axis column name.
+    variable_name_suffix : str, optional
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    values : Array[Union[Int, Number]]
+        A values array.
+    """
+    import apysc as ap
+
     values: Array[Union[Int, Number]] = Array(
         [], variable_name_suffix=variable_name_suffix
     )
@@ -128,6 +163,5 @@ def _get_y_min_from_data(
         dict_value: Dictionary[str, Union[Int, Number]] = cast(
             Dictionary[str, Union[Int, Number]], data[i]
         )
-        values.append(dict_value[y_axis_column_name])
-    y_min: Number = ap.Math.min(values)
-    return y_min
+        values.append(dict_value[column_name])
+    return values

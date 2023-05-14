@@ -31,3 +31,35 @@ def test__get_y_min() -> None:
     assert SUFFIX in y_min._variable_name_suffix
     expression: str = expression_data_util.get_current_expression()
     assert ".min" in expression
+
+
+@apply_test_settings()
+def test__extract_column_values_from_data() -> None:
+    expression_data_util.empty_expression()
+    data = ap.Array(
+        [
+            ap.Dictionary(
+                {
+                    "a": ap.Int(10, variable_name_suffix="test_suffix"),
+                    "b": ap.Number(20.5),
+                },
+            ),
+            ap.Dictionary(
+                {
+                    "a": ap.Int(30, variable_name_suffix="test_suffix"),
+                    "b": ap.Number(40.5),
+                },
+            ),
+        ]
+    )
+    values: ap.Array[
+        Union[ap.Int, ap.Number]
+    ] = create_single_column_y_axis_mixin._extract_column_values_from_data(
+        data=data,
+        column_name="a",
+        variable_name_suffix="test_suffix",
+    )
+    assert values._value[0] == ap.Int(10)
+    assert values._variable_name_suffix == "test_suffix"
+    expression: str = expression_data_util.get_current_expression()
+    assert "for (" in expression

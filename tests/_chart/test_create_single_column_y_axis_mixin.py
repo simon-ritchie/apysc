@@ -2,11 +2,13 @@ from typing import Union
 import apysc as ap
 from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAxisMixIn
 from apysc._chart import create_single_column_y_axis_mixin
+from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()
 def test__get_y_min() -> None:
+    expression_data_util.empty_expression()
     data: ap.Array[ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]]
     SUFFIX: str = "test_suffix"
     data = ap.Array(
@@ -27,3 +29,5 @@ def test__get_y_min() -> None:
     )
     assert isinstance(y_min, ap.Number)
     assert SUFFIX in y_min._variable_name_suffix
+    expression: str = expression_data_util.get_current_expression()
+    assert ".min" in expression

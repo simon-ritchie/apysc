@@ -2,7 +2,7 @@
 `_create_y_axis` method.
 """
 
-from typing import Union
+from typing import Union, cast
 
 from typing_extensions import final
 
@@ -50,7 +50,49 @@ class CreateSingleColumnYAxisMixIn:
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
         )
+        in_value_y_max: Number = _get_y_max_from_data(
+            data=data,
+            y_axis_column_name=y_axis_settings._y_axis_column_name,
+            variable_name_suffix=variable_name_suffix,
+        )
         pass
+
+
+def _get_y_max_from_data(
+    *,
+    data: Array[Dictionary[str, Union[Int, Number, String]]],
+    y_axis_column_name: str,
+    variable_name_suffix: str,
+) -> Number:
+    """
+    Get a y-axis maximum value from a specified data.
+
+    Parameters
+    ----------
+    data : Array[Dictionary[str, Union[Int, Number, String]]]
+        A data array, which contains a 1-dimensional string key dictionary.
+    y_axis_column_name : str
+        A y-axis column name.
+    variable_name_suffix : str
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    Number
+        A y-axis maximum value.
+    """
+    # import apysc as ap
+
+    # values: Array[Union[Int, Number]] = Array(
+    #     [], variable_name_suffix=variable_name_suffix
+    # )
+    # i: Int
+    # with ap.For(data) as i:
+    #     dict_value: Dictionary[str, Union[Int, Number]] = cast(
+    #         Dictionary[str, Union[Int, Number]], data[i]
+    #     )
+    pass
 
 def _get_y_min_from_data(
     *,
@@ -83,7 +125,9 @@ def _get_y_min_from_data(
     )
     i: Int
     with ap.For(data) as i:
-        dict_value: Dictionary[str, Union[Int, Number]] = data[i]  # type: ignore
+        dict_value: Dictionary[str, Union[Int, Number]] = cast(
+            Dictionary[str, Union[Int, Number]], data[i]
+        )
         values.append(dict_value[y_axis_column_name])
     y_min: Number = ap.Math.min(values)
     return y_min

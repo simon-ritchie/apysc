@@ -68,7 +68,7 @@ class YAxisSingleColumnSettings(
     LeftMarginMixIn,
 ):
     # y_axis_column_name
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
     # y_min
     @arg_validation_decos.is_num(arg_position_index=2, optional=True)
     # y_max
@@ -129,7 +129,7 @@ class YAxisSingleColumnSettings(
     def __init__(
         self,
         *,
-        y_axis_column_name: Union[str, String],
+        y_axis_column_name: str,
         y_min: Optional[Union[float, Number]] = None,
         y_max: Optional[Union[float, Number]] = None,
         tick_culling_max: Optional[Union[int, Int]] = None,
@@ -159,7 +159,7 @@ class YAxisSingleColumnSettings(
 
         Parameters
         ----------
-        y_axis_column_name : Union[str, String]
+        y_axis_column_name : str
             Y-axis column name.
             Only a number (integer or float) column is a selectable
             value (for example, price, sales, or percentage column).
@@ -215,7 +215,6 @@ class YAxisSingleColumnSettings(
         """
         self._set_initial_y_axis_column_name(
             y_axis_column_name=y_axis_column_name,
-            variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_y_min(y_min=y_min, variable_name_suffix=variable_name_suffix)
         self._set_initial_y_max(y_max=y_max, variable_name_suffix=variable_name_suffix)

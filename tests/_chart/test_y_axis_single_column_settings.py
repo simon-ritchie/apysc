@@ -30,10 +30,11 @@ class TestYAxisSingleColumnSettings:
             left_margin=30,
             variable_name_suffix="test_suffix",
         )
-        assert setting._y_axis_column_name == ap.String("test_column")
+        assert setting._y_axis_column_name == "test_column"
         assert setting._y_min == ap.Number(0)
+        if setting._y_min is not None:
+            assert setting._y_min._variable_name_suffix == "test_suffix"
         assert setting._y_max == ap.Number(100)
-        assert setting._y_axis_column_name._variable_name_suffix == "test_suffix"
         assert setting._tick_culling_max == ap.Int(20)
         assert setting._tick_text_font_family == ap.Array([ap.String("Arial")])
         assert setting._tick_text_fill_color == ap.String("#666666")

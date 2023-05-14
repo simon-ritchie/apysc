@@ -44,6 +44,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAxisMixIn
 
 _DataType = Union[
     Array[Dictionary[str, Union[Int, Number, String]]],
@@ -74,6 +75,7 @@ class VerticalBarChart(
     AddBackgroundMixIn,
     AddBorderMixIn,
     SetInitialOverallContainerCoordinatesMixIn,
+    CreateSingleColumnYAxisMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -186,4 +188,10 @@ class VerticalBarChart(
             overall_container=self._overall_container,
             x=self._x,
             y=self._y,
+        )
+        self._create_y_axis(
+            data=self._matrix_data,
+            y_axis_container=self._y_axis_container,
+            y_axis_settings=self._y_axis_settings,
+            variable_name_suffix=variable_name_suffix,
         )

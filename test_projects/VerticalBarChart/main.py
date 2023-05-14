@@ -44,6 +44,7 @@ def main() -> None:
             {"value": 10, "date": "2023-01-01"},
             {"value": 20, "data": "2023-01-02"},
             {"value": 40, "data": "2023-01-03"},
+            {"value": 5.5, "data": "2023-01-03"},
         ],
         x_axis_settings=x_axis_settings,
         y_axis_settings=y_axis_settings,

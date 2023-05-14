@@ -45,12 +45,12 @@ class CreateSingleColumnYAxisMixIn:
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
-        in_value_y_min: Number = _get_y_min_from_data(
+        in_value_y_min: Number = _calculate_y_min_from_data(
             data=data,
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
         )
-        in_value_y_max: Number = _get_y_max_from_data(
+        in_value_y_max: Number = _calculate_y_max_from_data(
             data=data,
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
@@ -58,7 +58,7 @@ class CreateSingleColumnYAxisMixIn:
         pass
 
 
-def _get_y_max_from_data(
+def _calculate_y_max_from_data(
     *,
     data: Array[Dictionary[str, Union[Int, Number, String]]],
     y_axis_column_name: str,
@@ -79,22 +79,21 @@ def _get_y_max_from_data(
 
     Returns
     -------
-    Number
+    y_max : Number
         A y-axis maximum value.
     """
-    # import apysc as ap
+    import apysc as ap
 
-    # values: Array[Union[Int, Number]] = Array(
-    #     [], variable_name_suffix=variable_name_suffix
-    # )
-    # i: Int
-    # with ap.For(data) as i:
-    #     dict_value: Dictionary[str, Union[Int, Number]] = cast(
-    #         Dictionary[str, Union[Int, Number]], data[i]
-    #     )
-    pass
+    values: Array[Union[Int, Number]] = _extract_column_values_from_data(
+        data=data,
+        column_name=y_axis_column_name,
+        variable_name_suffix=variable_name_suffix,
+    )
+    y_max: Number = ap.Math.max(values)
+    return y_max
 
-def _get_y_min_from_data(
+
+def _calculate_y_min_from_data(
     *,
     data: Array[Dictionary[str, Union[Int, Number, String]]],
     y_axis_column_name: str,

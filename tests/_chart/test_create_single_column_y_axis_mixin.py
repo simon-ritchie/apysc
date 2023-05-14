@@ -24,7 +24,7 @@ def test__get_y_min() -> None:
             ),
         ]
     )
-    y_min: ap.Number = create_single_column_y_axis_mixin._get_y_min_from_data(
+    y_min: ap.Number = create_single_column_y_axis_mixin._calculate_y_min_from_data(
         data=data, y_axis_column_name="a", variable_name_suffix="test_suffix"
     )
     assert isinstance(y_min, ap.Number)
@@ -63,3 +63,33 @@ def test__extract_column_values_from_data() -> None:
     assert values._variable_name_suffix == "test_suffix"
     expression: str = expression_data_util.get_current_expression()
     assert "for (" in expression
+
+
+@apply_test_settings()
+def test__calculate_y_max_from_data() -> None:
+    expression_data_util.empty_expression()
+    data = ap.Array(
+        [
+            ap.Dictionary(
+                {
+                    "a": ap.Int(10, variable_name_suffix="test_suffix"),
+                    "b": ap.Number(20.5),
+                },
+            ),
+            ap.Dictionary(
+                {
+                    "a": ap.Int(30, variable_name_suffix="test_suffix"),
+                    "b": ap.Number(40.5),
+                },
+            ),
+        ]
+    )
+    y_max: ap.Number = create_single_column_y_axis_mixin._calculate_y_max_from_data(
+        data=data,
+        y_axis_column_name="a",
+        variable_name_suffix="test_suffix",
+    )
+    assert isinstance(y_max, ap.Number)
+    assert "test_suffix" in y_max._variable_name_suffix
+    expression: str = expression_data_util.get_current_expression()
+    assert ".max" in expression

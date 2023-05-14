@@ -2,7 +2,6 @@ from typing import Union
 import apysc as ap
 from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAxisMixIn
 from apysc._testing.testing_helper import apply_test_settings
-# from apysc._
 
 
 class TestCreateSingleColumnYAxisMixIn:
@@ -24,7 +23,7 @@ class TestCreateSingleColumnYAxisMixIn:
                 ),
             ]
         )
-        y_min: ap.Number = mixin._get_y_min(
+        y_min: ap.Number = mixin._get_y_min_from_data(
             data=data, y_axis_column_name="a", variable_name_suffix="test_suffix"
         )
         assert isinstance(y_min, ap.Number)

@@ -45,14 +45,13 @@ class CreateSingleColumnYAxisMixIn:
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
-        y_min: Number = self._get_y_min(
+        in_value_y_min: Number = self._get_y_min_from_data(
             data=data,
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
         )
-        pass
 
-    def _get_y_min(
+    def _get_y_min_from_data(
         self,
         *,
         data: Array[Dictionary[str, Union[Int, Number, String]]],
@@ -60,7 +59,7 @@ class CreateSingleColumnYAxisMixIn:
         variable_name_suffix: str,
     ) -> Number:
         """
-        Get a y-axis minimum value.
+        Get a y-axis minimum value from specified data.
 
         Parameters
         ----------

@@ -60,7 +60,7 @@ class XAxisSettings(
     AxisLabelItalicMixIn,
 ):
     # x_axis_column_name
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
     # tick_culling_max
     @arg_validation_decos.is_integer(arg_position_index=2, optional=True)
     # tick_text_font_size
@@ -111,7 +111,7 @@ class XAxisSettings(
     def __init__(
         self,
         *,
-        x_axis_column_name: Union[str, String],
+        x_axis_column_name: str,
         tick_culling_max: Optional[Union[int, Int]] = None,
         tick_text_font_size: Union[int, Int] = 12,
         tick_text_font_family: Optional[Union[Array[String], List[str]]] = None,
@@ -137,7 +137,7 @@ class XAxisSettings(
 
         Parameters
         ----------
-        x_axis_column_name : Union[str, String]
+        x_axis_column_name : str
             X-axis column name.
         tick_culling_max : Optional[Union[int, Int]], optional
             A tick max display number. Often tick display number
@@ -183,7 +183,6 @@ class XAxisSettings(
         """
         self._set_initial_x_axis_column_name(
             x_axis_column_name=x_axis_column_name,
-            variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_tick_culling_max(
             tick_culling_max=tick_culling_max,

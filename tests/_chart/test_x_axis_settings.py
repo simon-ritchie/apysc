@@ -28,8 +28,9 @@ class TestXAxisSettings:
             variable_name_suffix="test_suffix",
         )
         assert setting._x_axis_column_name == ap.String("test_column")
-        assert setting._x_axis_column_name._variable_name_suffix == "test_suffix"
         assert setting._tick_culling_max == ap.Int(10)
+        if setting._tick_culling_max is not None:
+            assert setting._tick_culling_max._variable_name_suffix == "test_suffix"
         assert setting._tick_text_font_size == ap.Int(15)
         assert setting._tick_text_font_family == ap.Array([ap.String("Arial")])
         assert setting._tick_text_fill_color == ap.String("#00aaff")

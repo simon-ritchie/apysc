@@ -9,16 +9,5 @@ class TestXAxisSettings:
         mixin: XAxisColumnNameMixIn = XAxisColumnNameMixIn()
         mixin._set_initial_x_axis_column_name(
             x_axis_column_name="test_column_1",
-            variable_name_suffix="test_suffix_1",
         )
-        assert mixin._x_axis_column_name == ap.String("test_column_1")
-        assert mixin._x_axis_column_name._variable_name_suffix == "test_suffix_1"
-
-        mixin._set_initial_x_axis_column_name(
-            x_axis_column_name=ap.String(
-                value="test_column_2",
-                variable_name_suffix="test_suffix_2",
-            ),
-        )
-        assert mixin._x_axis_column_name == ap.String("test_column_2")
-        assert mixin._x_axis_column_name._variable_name_suffix == "test_suffix_2"
+        assert mixin._x_axis_column_name == "test_column_1"

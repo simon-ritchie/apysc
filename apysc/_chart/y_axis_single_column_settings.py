@@ -36,12 +36,14 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._chart.y_min_mixin import YMinMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class YAxisSingleColumnSettings(
     YAxisColumnNameMixIn,
+    YMinMixIn,
     TickCullingMaxMixIn,
     TickTextFontSizeMixIn,
     TickTextFontFamilyMixIn,
@@ -206,6 +208,7 @@ class YAxisSingleColumnSettings(
             y_axis_column_name=y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
         )
+        self._set_initial_y_min(y_min=y_min, variable_name_suffix=variable_name_suffix)
         self._set_initial_tick_culling_max(
             tick_culling_max=tick_culling_max,
             variable_name_suffix=variable_name_suffix,

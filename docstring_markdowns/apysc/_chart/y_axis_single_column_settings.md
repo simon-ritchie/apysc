@@ -14,6 +14,10 @@ Single column's y-axis settings class.<hr>
 
 - `y_axis_column_name`: Union[str, String]
   - Y-axis column name. Only a number (integer or float) column is a selectable value (for example, price, sales, or percentage column).
+- `y_min`: Optional[Union[float, Number]], optional
+  - A minumum y-axis value.
+- `y_max`: Optional[Union[float, Number]], optional
+  - A maximum y-axis value.
 - `tick_culling_max`: Optional[Union[int, Int]], optional
   - A tick max display number. Often tick display number becomes under this value.
 - `tick_text_font_size`: Union[int, Int], optional

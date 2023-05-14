@@ -1,8 +1,10 @@
-from typing import Union, List, Dict
+from typing import Dict
+from typing import List
+from typing import Union
 
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._chart import set_initial_matrix_data_mixin
+from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()

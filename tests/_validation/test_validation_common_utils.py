@@ -1,6 +1,5 @@
-import apysc as ap
-from apysc._validation import validation_common_utils
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._validation import validation_common_utils
 
 
 @apply_test_settings()

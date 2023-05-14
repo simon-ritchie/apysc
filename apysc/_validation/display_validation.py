@@ -69,8 +69,8 @@ def validate_display_object(
         If a specified instance is not `DisplayObject` type
         or its subclass type.
     """
-    from apysc._validation import validation_common_utils
     from apysc._display.display_object import DisplayObject
+    from apysc._validation import validation_common_utils
 
     if isinstance(display_object, DisplayObject):
         return
@@ -237,8 +237,7 @@ def validate_line_joints(*, joints: Any, additional_err_msg: str = "") -> None:
         raise ValueError(err_msg)
 
     err_msg = (
-        "Specified joints type is not LineJoints or String one: "
-        f"{type(joints)}"
+        "Specified joints type is not LineJoints or String one: " f"{type(joints)}"
     )
     err_msg = validation_common_utils.append_additional_err_msg(
         err_msg=err_msg, additional_err_msg=additional_err_msg

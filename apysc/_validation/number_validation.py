@@ -49,8 +49,7 @@ def validate_num(
     if isinstance(num, (int, float, NumberValueMixIn)):
         return
     err_msg: str = (
-        f"Specified value is not iteger or float type: {num}"
-        f"({type(num)})"
+        f"Specified value is not iteger or float type: {num}" f"({type(num)})"
     )
     err_msg = validation_common_utils.append_additional_err_msg(
         err_msg=err_msg, additional_err_msg=additional_err_msg
@@ -106,8 +105,7 @@ def validate_builtin_integer(*, integer: int, additional_err_msg: str = "") -> N
     if isinstance(integer, int):
         return
     err_msg: str = (
-        "A specified value is not a built-in integer: "
-        f"{integer}({type(integer)})"
+        "A specified value is not a built-in integer: " f"{integer}({type(integer)})"
     )
     err_msg = validation_common_utils.append_additional_err_msg(
         err_msg=err_msg, additional_err_msg=additional_err_msg
@@ -170,9 +168,7 @@ def validate_num_is_gt_zero(
             return
     elif num > 0:
         return
-    err_msg: str = (
-        f"Specified values is less than or equal to zero: {num}"
-    )
+    err_msg: str = f"Specified values is less than or equal to zero: {num}"
     err_msg = validation_common_utils.append_additional_err_msg(
         err_msg=err_msg, additional_err_msg=additional_err_msg
     )

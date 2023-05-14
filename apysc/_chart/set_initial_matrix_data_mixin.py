@@ -1,7 +1,10 @@
 """The mix-in class implementation for the `_set_initial_matrix_data` method.
 """
 
-from typing import Union, List, Dict
+from typing import Dict
+from typing import List
+from typing import Union
+from typing import cast
 
 from typing_extensions import final
 
@@ -12,7 +15,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-
 
 _DataType = Union[
     Array[Dictionary[str, Union[Int, Number, String]]],
@@ -52,7 +54,8 @@ class SetInitialMatrixDataMixIn:
             data_: Array[
                 Dictionary[str, Union[Int, Number, String]]
             ] = _convert_list_to_array(
-                data=data, variable_name_suffix=variable_name_suffix
+                data=cast(List[Dict[str, Union[int, float, str]]], data),
+                variable_name_suffix=variable_name_suffix,
             )
         else:
             data_ = data
@@ -98,7 +101,7 @@ def _convert_list_to_array(
                 )
                 continue
         data_.append(Dictionary(dict_data_, variable_name_suffix=variable_name_suffix))
-    data__: Array[
-        Dictionary[str, Union[Int, Number, String]]
-    ] = Array(data_, variable_name_suffix=variable_name_suffix)
+    data__: Array[Dictionary[str, Union[Int, Number, String]]] = Array(
+        data_, variable_name_suffix=variable_name_suffix
+    )
     return data__

@@ -92,7 +92,7 @@ def validate_not_empty_string(
     elif isinstance(string, String):
         if string._value != "":
             return
-    err_msg: str = f"Empty string is not acceptable."
+    err_msg: str = "Empty string is not acceptable."
     err_msg = validation_common_utils.append_additional_err_msg(
         err_msg=err_msg, additional_err_msg=additional_err_msg
     )

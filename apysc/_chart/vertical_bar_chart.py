@@ -27,6 +27,7 @@ from apysc._chart.set_initial_border_thickness_mixin import (
     SetInitialBorderThicknessMixIn,
 )
 from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
+from apysc._chart.set_initial_matrix_data_mixin import SetInitialMatrixDataMixIn
 from apysc._chart.set_initial_overall_container_coordinates_mixin import (
     SetInitialOverallContainerCoordinatesMixIn,
 )
@@ -43,7 +44,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._chart.set_initial_matrix_data_mixin import SetInitialMatrixDataMixIn
 
 _DataType = Union[
     Array[Dictionary[str, Union[Int, Number, String]]],

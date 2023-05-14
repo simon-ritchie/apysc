@@ -1,13 +1,15 @@
-"""The validation utilities for a matrix data.
+"""The validation utilities for matrix data.
 """
 
-from typing import Dict, List, Union
+from typing import Dict
+from typing import List
+from typing import Union
 
+from apysc._type.array import Array
+from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._type.array import Array
-from apysc._type.dictionary import Dictionary
 
 
 def validate_matrix_list_data(
@@ -16,7 +18,7 @@ def validate_matrix_list_data(
     additional_err_msg: str = "",
 ) -> None:
     """
-    Validate whether a specified matrix list data is valid type or not.
+    Validate whether a specified matrix list data is a valid type or not.
 
     Parameters
     ----------
@@ -28,16 +30,16 @@ def validate_matrix_list_data(
     Raises
     ------
     TypeError
-        - If a specified data type is not the list.
+        - If a specified data type is not a list.
         - If values are not type of dict.
-        - If a dictionary key's type is not the str.
-        - If a dictionary value's type is not the int, float, or str.
+        - If a dictionary key's type is not str.
+        - If a dictionary value's type is not int, float, or str.
     """
     from apysc._validation import validation_common_utils
 
     if not isinstance(matrix_list_data, list):
         err_msg: str = (
-            f"A specified data type is not the list: {type(matrix_list_data).__name__} "
+            f"A specified data type is not a list: {type(matrix_list_data).__name__} "
             f"\n{matrix_list_data}"
         )
         err_msg = validation_common_utils.append_additional_err_msg(
@@ -70,7 +72,7 @@ def validate_matrix_list_data(
                 raise TypeError(err_msg)
             if not isinstance(value, (int, float, str)):
                 err_msg = (
-                    "A specified dict value type is not the int, float, or str: "
+                    "A specified dict value type is not int, float, or str: "
                     f"{type(value).__name__}\n{value}"
                 )
                 err_msg = validation_common_utils.append_additional_err_msg(
@@ -86,7 +88,7 @@ def validate_matrix_array_data(
     additional_err_msg: str,
 ) -> None:
     """
-    Validate whether a specified matrix array data is valid type or not.
+    Validate whether a specified matrix array data is a valid type or not.
 
     Parameters
     ----------
@@ -98,16 +100,16 @@ def validate_matrix_array_data(
     Raises
     ------
     TypeError
-        - If a specified data type is not the `ap.Array`.
+        - If a specified data type is not `ap.Array`.
         - If values are not type of the `ap.Dictionary`.
-        - If a dictionary key's type is not the str.
-        - If a dictionary value's type is not the `ap.Int`, `ap.Number`, or `ap.String`.
+        - If a dictionary key's type is not str.
+        - If a dictionary value's type is not `ap.Int`, `ap.Number`, or `ap.String`.
     """
     from apysc._validation import validation_common_utils
 
     if not isinstance(matrix_array_data, Array):
         err_msg: str = (
-            "A specified data type is not the `ap.Array`: "
+            "A specified data type is not `ap.Array`: "
             f"{type(matrix_array_data).__name__}\n{matrix_array_data}"
         )
         err_msg = validation_common_utils.append_additional_err_msg(
@@ -140,7 +142,7 @@ def validate_matrix_array_data(
                 raise TypeError(err_msg)
             if not isinstance(value, (Int, Number, String)):
                 err_msg = (
-                    "A specified dictionary value type is not the `ap.Int`, "
+                    "A specified dictionary value type is not `ap.Int`, "
                     f"`ap.Number`, or `ap.String`: {type(value).__name__}\n{value}"
                 )
                 err_msg = validation_common_utils.append_additional_err_msg(

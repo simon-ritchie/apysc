@@ -30,14 +30,14 @@ from apysc._chart.top_margin_mixin import TopMarginMixIn
 from apysc._chart.y_axis_column_name_mixin import YAxisColumnNameMixIn
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
 from apysc._chart.y_axis_label_position_mixin import YAxisLabelPositionMixIn
+from apysc._chart.y_max_mixin import YMaxMixIn
+from apysc._chart.y_min_mixin import YMinMixIn
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._chart.y_min_mixin import YMinMixIn
-from apysc._chart.y_max_mixin import YMaxMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -90,7 +90,9 @@ class YAxisSingleColumnSettings(
     # tick_text_italic
     @arg_validation_decos.is_boolean(arg_position_index=10, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=11, optional=False)
+    @arg_validation_decos.is_hex_color_code_format(
+        arg_position_index=11, optional=False
+    )
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=12, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=12, optional=False)

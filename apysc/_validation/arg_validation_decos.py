@@ -562,7 +562,7 @@ def is_apysc_num(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(num, NumberValueMixIn):
                 raise TypeError(
-                    "A specified argument value is not the `ap.Int` or "
+                    "A specified argument value is not `ap.Int` or "
                     f"`ap.Number` type: {type(num)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -696,7 +696,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(integer, ap.Int):
                 raise TypeError(
-                    "A specified argument value is not the `ap.Int` "
+                    "A specified argument value is not `ap.Int` "
                     f"type: {type(integer)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -1513,7 +1513,7 @@ def are_point_2ds(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(points, list) and not isinstance(points, ap.Array):
                 raise TypeError(
-                    "A specified points argument type is not the list or "
+                    "A specified points argument type is not a list or "
                     f"ap.Array: {type(points)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -3002,6 +3002,7 @@ def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
                 f"`ap.Array` of `ap.Dictionary`: {type(matrix_data).__name__}, "
                 f"\n{callable_and_arg_names_msg}"
             )
+
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore

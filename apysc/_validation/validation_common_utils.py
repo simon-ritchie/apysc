@@ -1,6 +1,7 @@
 """Common utilities for each validation interface.
 """
 
+
 def append_additional_err_msg(
     *,
     err_msg: str,

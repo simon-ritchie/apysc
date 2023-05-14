@@ -15,7 +15,9 @@ class TestYMinMixIn:
         if mixin._y_min is not None:
             assert mixin._y_min._variable_name_suffix == "test_suffix_2"
 
-        mixin._set_initial_y_min(y_min=ap.Number(20, variable_name_suffix="test_suffix_3"))
+        mixin._set_initial_y_min(
+            y_min=ap.Number(20, variable_name_suffix="test_suffix_3")
+        )
         assert mixin._y_min == ap.Number(20)
         if mixin._y_min is not None:
             assert mixin._y_min._variable_name_suffix == "test_suffix_3"

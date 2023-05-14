@@ -33,8 +33,7 @@ def validate_variable_name_interface_type(
 
     if not isinstance(instance, VariableNameMixIn):
         err_msg: str = (
-            "Specified instance type is not VariableNameMixIn : "
-            f"{type(instance)}"
+            "Specified instance type is not VariableNameMixIn : " f"{type(instance)}"
         )
         err_msg = validation_common_utils.append_additional_err_msg(
             err_msg=err_msg, additional_err_msg=additional_err_msg

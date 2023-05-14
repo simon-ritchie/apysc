@@ -37,6 +37,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._chart.y_min_mixin import YMinMixIn
+from apysc._chart.y_max_mixin import YMaxMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -44,6 +45,7 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 class YAxisSingleColumnSettings(
     YAxisColumnNameMixIn,
     YMinMixIn,
+    YMaxMixIn,
     TickCullingMaxMixIn,
     TickTextFontSizeMixIn,
     TickTextFontFamilyMixIn,
@@ -69,62 +71,65 @@ class YAxisSingleColumnSettings(
     @arg_validation_decos.is_string(arg_position_index=1)
     # y_min
     @arg_validation_decos.is_num(arg_position_index=2, optional=True)
+    # y_max
+    @arg_validation_decos.is_num(arg_position_index=3, optional=True)
     # tick_culling_max
-    @arg_validation_decos.is_integer(arg_position_index=3, optional=True)
+    @arg_validation_decos.is_integer(arg_position_index=4, optional=True)
     # tick_text_font_size
-    @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
+    @arg_validation_decos.is_integer(arg_position_index=5, optional=False)
     # tick_text_font_family
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
-        arg_position_index=5, optional=True
+        arg_position_index=6, optional=True
     )
     # tick_text_fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7, optional=False)
     # tick_text_fill_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8, optional=False)
     # tick_text_bold
-    @arg_validation_decos.is_boolean(arg_position_index=8, optional=False)
-    # tick_text_italic
     @arg_validation_decos.is_boolean(arg_position_index=9, optional=False)
+    # tick_text_italic
+    @arg_validation_decos.is_boolean(arg_position_index=10, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=10, optional=False)
+    @arg_validation_decos.is_hex_color_code_format(arg_position_index=11, optional=False)
     # line_thickness
-    @arg_validation_decos.is_integer(arg_position_index=11, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=11, optional=False)
+    @arg_validation_decos.is_integer(arg_position_index=12, optional=False)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=12, optional=False)
     # line_alpha
-    @arg_validation_decos.is_num(arg_position_index=12, optional=False)
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=12, optional=False)
+    @arg_validation_decos.is_num(arg_position_index=13, optional=False)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=13, optional=False)
     # is_display_axis_label
-    @arg_validation_decos.is_boolean(arg_position_index=13, optional=False)
+    @arg_validation_decos.is_boolean(arg_position_index=14, optional=False)
     # axis_label_position
-    @arg_validation_decos.is_y_axis_label_position(arg_position_index=14)
+    @arg_validation_decos.is_y_axis_label_position(arg_position_index=15)
     # axis_label_font_size
-    @arg_validation_decos.is_integer(arg_position_index=15, optional=False)
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=15, optional=False)
+    @arg_validation_decos.is_integer(arg_position_index=16, optional=False)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=16, optional=False)
     # axis_label_font_family
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
-        arg_position_index=16, optional=True
+        arg_position_index=17, optional=True
     )
     # axis_label_fill_color
     @arg_validation_decos.is_hex_color_code_format(
-        arg_position_index=17, optional=False
+        arg_position_index=18, optional=False
     )
     # axis_label_fill_alpha
-    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=18, optional=False)
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=19, optional=False)
     # axis_label_bold
-    @arg_validation_decos.is_boolean(arg_position_index=19, optional=False)
-    # axis_label_italic
     @arg_validation_decos.is_boolean(arg_position_index=20, optional=False)
+    # axis_label_italic
+    @arg_validation_decos.is_boolean(arg_position_index=21, optional=False)
     # top_margin
-    @arg_validation_decos.is_integer(arg_position_index=21, optional=False)
-    # left_margin
     @arg_validation_decos.is_integer(arg_position_index=22, optional=False)
+    # left_margin
+    @arg_validation_decos.is_integer(arg_position_index=23, optional=False)
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=23, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=24, optional=False)
     def __init__(
         self,
         *,
         y_axis_column_name: Union[str, String],
         y_min: Optional[Union[float, Number]] = None,
+        y_max: Optional[Union[float, Number]] = None,
         tick_culling_max: Optional[Union[int, Int]] = None,
         tick_text_font_size: Union[int, Int] = 12,
         tick_text_font_family: Optional[Union[Array[String], List[str]]] = None,
@@ -158,6 +163,8 @@ class YAxisSingleColumnSettings(
             value (for example, price, sales, or percentage column).
         y_min : Optional[Union[float, Number]], optional
             A minumum y-axis value.
+        y_max : Optional[Union[float, Number]], optional
+            A maximum y-axis value.
         tick_culling_max : Optional[Union[int, Int]], optional
             A tick max display number. Often tick display number
             becomes under this value.
@@ -209,6 +216,7 @@ class YAxisSingleColumnSettings(
             variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_y_min(y_min=y_min, variable_name_suffix=variable_name_suffix)
+        self._set_initial_y_max(y_max=y_max, variable_name_suffix=variable_name_suffix)
         self._set_initial_tick_culling_max(
             tick_culling_max=tick_culling_max,
             variable_name_suffix=variable_name_suffix,

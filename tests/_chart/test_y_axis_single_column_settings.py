@@ -8,6 +8,7 @@ class TestYAxisSingleColumnSettings:
         setting: ap.YAxisSingleColumnSettings = ap.YAxisSingleColumnSettings(
             y_axis_column_name="test_column",
             y_min=0,
+            y_max=100,
             tick_culling_max=20,
             tick_text_font_family=["Arial"],
             tick_text_fill_color="#666",
@@ -31,6 +32,7 @@ class TestYAxisSingleColumnSettings:
         )
         assert setting._y_axis_column_name == ap.String("test_column")
         assert setting._y_min == ap.Number(0)
+        assert setting._y_max == ap.Number(100)
         assert setting._y_axis_column_name._variable_name_suffix == "test_suffix"
         assert setting._tick_culling_max == ap.Int(20)
         assert setting._tick_text_font_family == ap.Array([ap.String("Arial")])

@@ -9,7 +9,7 @@ class TestYAxisSingleColumnSettings:
             y_axis_column_name="test_column",
             y_min=0,
             y_max=100,
-            tick_culling_max=20,
+            tick_max_num=20,
             tick_text_font_family=["Arial"],
             tick_text_fill_color="#666",
             tick_text_fill_alpha=0.5,
@@ -35,7 +35,7 @@ class TestYAxisSingleColumnSettings:
         if setting._y_min is not None:
             assert setting._y_min._variable_name_suffix == "test_suffix"
         assert setting._y_max == ap.Number(100)
-        assert setting._tick_culling_max == ap.Int(20)
+        assert setting._tick_max_num == ap.Int(20)
         assert setting._tick_text_font_family == ap.Array([ap.String("Arial")])
         assert setting._tick_text_fill_color == ap.String("#666666")
         assert setting._tick_text_fill_alpha == ap.Number(0.5)

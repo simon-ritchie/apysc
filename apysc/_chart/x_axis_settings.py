@@ -18,7 +18,7 @@ from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
 from apysc._chart.axis_line_color_mixin import AxisLineColorMixIn
 from apysc._chart.axis_line_thickness_mixin import AxisLineThicknessMixIn
 from apysc._chart.is_display_axis_label_mixin import IsDisplayAxisLabelMixIn
-from apysc._chart.tick_culling_max_mixin import TickCullingMaxMixIn
+from apysc._chart.tick_max_num_mixin import TickMaxNumMixIn
 from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
 from apysc._chart.tick_text_fill_alpha_mixin import TickTextFillAlphaMixIn
 from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
@@ -40,7 +40,7 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 class XAxisSettings(
     XAxisColumnNameMixIn,
-    TickCullingMaxMixIn,
+    TickMaxNumMixIn,
     TickTextFontSizeMixIn,
     TickTextFontFamilyMixIn,
     TickTextFillColorMixIn,
@@ -61,7 +61,7 @@ class XAxisSettings(
 ):
     # x_axis_column_name
     @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
-    # tick_culling_max
+    # tick_max_num
     @arg_validation_decos.is_integer(arg_position_index=2, optional=True)
     # tick_text_font_size
     @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
@@ -112,7 +112,7 @@ class XAxisSettings(
         self,
         *,
         x_axis_column_name: str,
-        tick_culling_max: Optional[Union[int, Int]] = None,
+        tick_max_num: Optional[Union[int, Int]] = None,
         tick_text_font_size: Union[int, Int] = 12,
         tick_text_font_family: Optional[Union[Array[String], List[str]]] = None,
         tick_text_fill_color: _StrOrString = "#666666",
@@ -139,7 +139,7 @@ class XAxisSettings(
         ----------
         x_axis_column_name : str
             X-axis column name.
-        tick_culling_max : Optional[Union[int, Int]], optional
+        tick_max_num : Optional[Union[int, Int]], optional
             A tick max display number. Often tick display number
             becomes under this value.
         tick_text_font_size : Union[int, Int], optional
@@ -184,8 +184,8 @@ class XAxisSettings(
         self._set_initial_x_axis_column_name(
             x_axis_column_name=x_axis_column_name,
         )
-        self._set_initial_tick_culling_max(
-            tick_culling_max=tick_culling_max,
+        self._set_initial_tick_max_num(
+            tick_max_num=tick_max_num,
             variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_tick_text_font_size(

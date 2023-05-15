@@ -13,7 +13,7 @@ from apysc._validation import arg_validation_decos
 
 class TickMaxNumMixIn:
 
-    _tick_max_num: Optional[Int]tick_max_num
+    _tick_max_num: Optional[Int]
 
     @final
     @arg_validation_decos.is_integer(arg_position_index=1, optional=True)

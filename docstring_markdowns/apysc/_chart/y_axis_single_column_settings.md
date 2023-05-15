@@ -18,7 +18,7 @@ Single column's y-axis settings class.<hr>
   - A minumum y-axis value.
 - `y_max`: Optional[Union[float, Number]], optional
   - A maximum y-axis value.
-- `tick_culling_max`: Optional[Union[int, Int]], optional
+- `tick_max_num`: Optional[Union[int, Int]], optional
   - A tick max display number. Often tick display number becomes under this value.
 - `tick_text_font_size`: Union[int, Int], optional
   - A tick text font-size setting.

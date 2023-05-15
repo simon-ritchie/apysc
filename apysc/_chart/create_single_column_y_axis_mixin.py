@@ -2,7 +2,7 @@
 `_create_y_axis` method.
 """
 
-from typing import Union, cast
+from typing import Optional, Union, cast
 
 from typing_extensions import final
 
@@ -18,7 +18,10 @@ from apysc._type.string import String
 
 class CreateSingleColumnYAxisMixIn:
 
+    _in_value_y_min: Number
+    _in_value_y_max: Number
     _y_axis_text_container: Sprite
+    _y_axis_ticks_y_coordinates: Array[Number]
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -45,17 +48,47 @@ class CreateSingleColumnYAxisMixIn:
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
-        in_value_y_min: Number = _calculate_y_min_from_data(
+        self._in_value_y_min = _calculate_y_min_from_data(
             data=data,
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
         )
-        in_value_y_max: Number = _calculate_y_max_from_data(
+        self._in_value_y_max = _calculate_y_max_from_data(
             data=data,
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
+        )
+        self._y_axis_ticks_y_coordinates = _calculate_y_axis_ticks_y_coordinates(
+            tick_max_num=y_axis_settings._tick_max_num,
+            y_min=y_axis_settings._y_min,
+            y_max=y_axis_settings._y_max,
         )
         pass
+
+
+def _calculate_y_axis_ticks_y_coordinates(
+    *,
+    tick_max_num: Optional[Int],
+    y_min: Optional[Number],
+    y_max: Optional[Number],
+) -> Array[Number]:
+    """
+    _summary_
+
+    Parameters
+    ----------
+    tick_max_num : Int
+        _description_
+    y_min : Number
+        _description_
+    y_max : Number
+        _description_
+
+    Returns
+    -------
+    Array[Number]
+        _description_
+    """
 
 
 def _calculate_y_max_from_data(

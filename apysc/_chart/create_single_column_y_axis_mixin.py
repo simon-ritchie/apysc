@@ -7,6 +7,7 @@ from typing import Optional, Union, cast
 from typing_extensions import final
 
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
+from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._display.sprite import Sprite
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
@@ -14,12 +15,14 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._chart import chart_const
 
 
 class CreateSingleColumnYAxisMixIn:
 
     _in_value_y_min: Number
     _in_value_y_max: Number
+    _y_axis_height: Int
     _y_axis_text_container: Sprite
     _y_axis_ticks_y_coordinates: Array[Number]
 
@@ -30,6 +33,7 @@ class CreateSingleColumnYAxisMixIn:
         *,
         data: Array[Dictionary[str, Union[Int, Number, String]]],
         y_axis_container: Sprite,
+        x_axis_settings: XAxisSettings,
         y_axis_settings: YAxisSingleColumnSettings,
         variable_name_suffix: str,
     ) -> None:
@@ -42,6 +46,8 @@ class CreateSingleColumnYAxisMixIn:
             A data array, which contains a 1-dimensional string key dictionary.
         y_axis_container : Sprite
             A y-axis container instance.
+        x_axis_settings : XAxisSettings
+            An x-axis settings instance.
         y_axis_settings : YAxisSingleColumnSettings
             A y-axis settings instance.
         variable_name_suffix : str, optional
@@ -58,37 +64,48 @@ class CreateSingleColumnYAxisMixIn:
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
         )
-        self._y_axis_ticks_y_coordinates = _calculate_y_axis_ticks_y_coordinates(
-            tick_max_num=y_axis_settings._tick_max_num,
-            y_min=y_axis_settings._y_min,
-            y_max=y_axis_settings._y_max,
-        )
+        # self._y_axis_height = _calculate_y_axis_height(
+        #     top_margin=y_axis_settings._top_margin,
+        # )
+        # self._y_axis_ticks_y_coordinates = _calculate_y_axis_ticks_y_coordinates(
+        #     tick_max_num=y_axis_settings._tick_max_num,
+        #     y_min=y_axis_settings._y_min,
+        #     y_max=y_axis_settings._y_max,
+        #     x_axis_tick_text_font_size=x_axis_settings._tick_text_font_size,
+        #     y_axis_tick_text_font_size=y_axis_settings._tick_text_font_size,
+        # )
         pass
 
 
-def _calculate_y_axis_ticks_y_coordinates(
-    *,
-    tick_max_num: Optional[Int],
-    y_min: Optional[Number],
-    y_max: Optional[Number],
-) -> Array[Number]:
-    """
-    _summary_
+# def _calculate_y_axis_ticks_y_coordinates(
+#     *,
+#     tick_max_num: Optional[Int],
+#     y_min: Optional[Number],
+#     y_max: Optional[Number],
+#     x_axis_tick_text_font_size: Int,
+#     y_axis_tick_text_font_size: Int,
+# ) -> Array[Number]:
+#     """
+#     _summary_
 
-    Parameters
-    ----------
-    tick_max_num : Int
-        _description_
-    y_min : Number
-        _description_
-    y_max : Number
-        _description_
+#     Parameters
+#     ----------
+#     tick_max_num : Optional[Int]
+#         A tick max display number.
+#     y_min : Optional[Number]
+#         A y-axis minimum value.
+#     y_max : Optional[Number]
+#         A y-axis maximum value.
+#     x_axis_tick_text_font_size : Int
+#         An x-axis tick text font size.
+#     y_axis_tick_text_font_size : Int
+#         A y-axis tick text font size.
 
-    Returns
-    -------
-    Array[Number]
-        _description_
-    """
+#     Returns
+#     -------
+#     Array[Number]
+#         _description_
+#     """
 
 
 def _calculate_y_max_from_data(

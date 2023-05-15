@@ -192,6 +192,7 @@ class VerticalBarChart(
         self._create_y_axis(
             data=self._matrix_data,
             y_axis_container=self._y_axis_container,
+            x_axis_settings=self._x_axis_settings,
             y_axis_settings=self._y_axis_settings,
             variable_name_suffix=variable_name_suffix,
         )

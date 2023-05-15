@@ -18,7 +18,6 @@ from apysc._chart.axis_line_alpha_mixin import AxisLineAlphaMixIn
 from apysc._chart.axis_line_color_mixin import AxisLineColorMixIn
 from apysc._chart.axis_line_thickness_mixin import AxisLineThicknessMixIn
 from apysc._chart.is_display_axis_label_mixin import IsDisplayAxisLabelMixIn
-from apysc._chart.left_margin_mixin import LeftMarginMixIn
 from apysc._chart.tick_max_num_mixin import TickMaxNumMixIn
 from apysc._chart.tick_text_bold_mixin import TickTextBoldMixIn
 from apysc._chart.tick_text_fill_alpha_mixin import TickTextFillAlphaMixIn
@@ -26,7 +25,6 @@ from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
 from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
 from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
-from apysc._chart.top_margin_mixin import TopMarginMixIn
 from apysc._chart.y_axis_column_name_mixin import YAxisColumnNameMixIn
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
 from apysc._chart.y_axis_label_position_mixin import YAxisLabelPositionMixIn
@@ -64,8 +62,6 @@ class YAxisSingleColumnSettings(
     AxisLabelFillAlphaMixIn,
     AxisLabelBoldMixIn,
     AxisLabelItalicMixIn,
-    TopMarginMixIn,
-    LeftMarginMixIn,
 ):
     # y_axis_column_name
     @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
@@ -120,12 +116,8 @@ class YAxisSingleColumnSettings(
     @arg_validation_decos.is_boolean(arg_position_index=20, optional=False)
     # axis_label_italic
     @arg_validation_decos.is_boolean(arg_position_index=21, optional=False)
-    # top_margin
-    @arg_validation_decos.is_integer(arg_position_index=22, optional=False)
-    # left_margin
-    @arg_validation_decos.is_integer(arg_position_index=23, optional=False)
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=24, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=22, optional=False)
     def __init__(
         self,
         *,
@@ -150,8 +142,6 @@ class YAxisSingleColumnSettings(
         axis_label_fill_alpha: Union[float, Number] = 1.0,
         axis_label_bold: Union[bool, Boolean] = False,
         axis_label_italic: Union[bool, Boolean] = False,
-        top_margin: Union[int, Int] = 10,
-        left_margin: Union[int, Int] = 10,
         variable_name_suffix: str = "",
     ):
         """
@@ -205,10 +195,6 @@ class YAxisSingleColumnSettings(
             A boolean, whether an axis label is a bold style or not.
         axis_label_italic : Union[bool, Boolean], optional
             A boolean, whether an axis label is an italic style or not (normal).
-        top_margin : Union[int, Int], optional
-            A top margin setting.
-        left_margin : Union[int, Int], optional
-            A left margin setting.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -287,13 +273,5 @@ class YAxisSingleColumnSettings(
         )
         self._set_initial_axis_label_italic(
             axis_label_italic=axis_label_italic,
-            variable_name_suffix=variable_name_suffix,
-        )
-        self._set_initial_top_margin(
-            top_margin=top_margin,
-            variable_name_suffix=variable_name_suffix,
-        )
-        self._set_initial_left_margin(
-            left_margin=left_margin,
             variable_name_suffix=variable_name_suffix,
         )

@@ -54,9 +54,5 @@ Single column's y-axis settings class.<hr>
   - A boolean, whether an axis label is a bold style or not.
 - `axis_label_italic`: Union[bool, Boolean], optional
   - A boolean, whether an axis label is an italic style or not (normal).
-- `top_margin`: Union[int, Int], optional
-  - A top margin setting.
-- `left_margin`: Union[int, Int], optional
-  - A left margin setting.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

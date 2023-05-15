@@ -26,8 +26,6 @@ class TestYAxisSingleColumnSettings:
             axis_label_fill_alpha=0.9,
             axis_label_bold=True,
             axis_label_italic=True,
-            top_margin=20,
-            left_margin=30,
             variable_name_suffix="test_suffix",
         )
         assert setting._y_axis_column_name == "test_column"
@@ -51,6 +49,4 @@ class TestYAxisSingleColumnSettings:
         assert setting._axis_label_fill_color == ap.String("#777777")
         assert setting._axis_label_fill_alpha == ap.Number(0.9)
         assert setting._axis_label_bold == ap.Boolean(True)
-        assert setting._top_margin == ap.Int(20)
-        assert setting._left_margin == ap.Int(30)
         assert setting._axis_label_italic == ap.Boolean(True)

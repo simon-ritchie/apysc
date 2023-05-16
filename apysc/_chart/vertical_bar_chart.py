@@ -45,6 +45,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAxisMixIn
+from apysc._chart.set_initial_vertical_padding_mixin import (
+    SetInitialVerticalPaddingMixIn
+)
 
 _DataType = Union[
     Array[Dictionary[str, Union[Int, Number, String]]],
@@ -65,6 +68,7 @@ class VerticalBarChart(
     SetInitialBorderColorMixIn,
     SetInitialBorderAlphaMixIn,
     SetInitialBorderThicknessMixIn,
+    SetInitialVerticalPaddingMixIn,
     OverallContainerMixIn,
     BackgroundContainerMixIn,
     ChartContainerMixIn,
@@ -99,6 +103,8 @@ class VerticalBarChart(
         border_color: _StrOrString = "",
         border_alpha: Union[float, Number] = 1.0,
         border_thickness: Union[int, Int] = 1,
+        vertical_padding: Union[int, Int] = 10,
+        horizontal_padding: Union[int, Int] = 10,
         variable_name_suffix: str = "",
     ) -> None:
         """
@@ -133,6 +139,10 @@ class VerticalBarChart(
             A chart's border alpha.
         border_thickness : Union[int, Int], default 1
             A chart's border thickness.
+        vertical_padding : Union[int, Int], default 10
+            A chart's vertical padding between border and contents.
+        horizontal_padding : Union[int, Int], default 10
+            A chart's horizontal padding between border and contents.
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -165,6 +175,9 @@ class VerticalBarChart(
         )
         self._set_initial_border_thickness(
             border_thickness=border_thickness, variable_name_suffix=variable_name_suffix
+        )
+        self._set_initial_vertical_padding(
+            vertical_padding=vertical_padding, variable_name_suffix=variable_name_suffix
         )
         self._initialize_each_container(variable_name_suffix=variable_name_suffix)
         self._add_background(

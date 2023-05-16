@@ -48,6 +48,9 @@ from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAx
 from apysc._chart.set_initial_vertical_padding_mixin import (
     SetInitialVerticalPaddingMixIn
 )
+from apysc._chart.set_initial_horizontal_padding_mixin import (
+    SetInitialHorizontalPaddingMixIn
+)
 
 _DataType = Union[
     Array[Dictionary[str, Union[Int, Number, String]]],
@@ -69,6 +72,7 @@ class VerticalBarChart(
     SetInitialBorderAlphaMixIn,
     SetInitialBorderThicknessMixIn,
     SetInitialVerticalPaddingMixIn,
+    SetInitialHorizontalPaddingMixIn,
     OverallContainerMixIn,
     BackgroundContainerMixIn,
     ChartContainerMixIn,
@@ -178,6 +182,10 @@ class VerticalBarChart(
         )
         self._set_initial_vertical_padding(
             vertical_padding=vertical_padding, variable_name_suffix=variable_name_suffix
+        )
+        self._set_initial_horizontal_padding(
+            horizontal_padding=horizontal_padding,
+            variable_name_suffix=variable_name_suffix,
         )
         self._initialize_each_container(variable_name_suffix=variable_name_suffix)
         self._add_background(

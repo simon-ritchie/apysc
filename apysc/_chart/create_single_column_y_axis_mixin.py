@@ -16,6 +16,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._chart import chart_const
+from apysc._type.boolean import Boolean
 
 
 class CreateSingleColumnYAxisMixIn:
@@ -33,8 +34,11 @@ class CreateSingleColumnYAxisMixIn:
         *,
         data: Array[Dictionary[str, Union[Int, Number, String]]],
         y_axis_container: Sprite,
+        chart_height: Int,
         x_axis_settings: XAxisSettings,
         y_axis_settings: YAxisSingleColumnSettings,
+        vertical_padding: Int,
+        horizontal_padding: Int,
         variable_name_suffix: str,
     ) -> None:
         """
@@ -46,10 +50,16 @@ class CreateSingleColumnYAxisMixIn:
             A data array, which contains a 1-dimensional string key dictionary.
         y_axis_container : Sprite
             A y-axis container instance.
+        chart_height : Int
+            A chart height.
         x_axis_settings : XAxisSettings
             An x-axis settings instance.
         y_axis_settings : YAxisSingleColumnSettings
             A y-axis settings instance.
+        vertical_padding : Int
+            A chart's vertical padding between border and contents.
+        horizontal_padding : Int
+            A chart's horizontal padding between border and contents.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -64,9 +74,14 @@ class CreateSingleColumnYAxisMixIn:
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             variable_name_suffix=variable_name_suffix,
         )
-        # self._y_axis_height = _calculate_y_axis_height(
-        #     top_margin=y_axis_settings._top_margin,
-        # )
+        self._y_axis_height = _calculate_y_axis_height(
+            chart_height=chart_height,
+            vertical_padding=vertical_padding,
+            tick_text_font_size=x_axis_settings._tick_text_font_size,
+            axis_label_font_size=x_axis_settings._axis_label_font_size,
+            is_display_axis_label=x_axis_settings._is_display_axis_label,
+            variable_name_suffix=variable_name_suffix,
+        )
         # self._y_axis_ticks_y_coordinates = _calculate_y_axis_ticks_y_coordinates(
         #     tick_max_num=y_axis_settings._tick_max_num,
         #     y_min=y_axis_settings._y_min,
@@ -75,6 +90,52 @@ class CreateSingleColumnYAxisMixIn:
         #     y_axis_tick_text_font_size=y_axis_settings._tick_text_font_size,
         # )
         pass
+
+
+def _calculate_y_axis_height(
+    *,
+    chart_height: Int,
+    vertical_padding: Int,
+    tick_text_font_size: Int,
+    axis_label_font_size: Int,
+    is_display_axis_label: Boolean,
+    variable_name_suffix: str,
+) -> Int:
+    """
+    Calculate a y-axis height.
+
+    Parameters
+    ----------
+    chart_height : Int
+        A chart height.
+    vertical_padding : Int
+        A chart's vertical padding between border and contents.
+    tick_text_font_size : Int
+        A tick text font size.
+    axis_label_font_size : Int
+        An axis label font size.
+    is_display_axis_label : Boolean
+        A boolean, whether an axis label is visible or not.
+    variable_name_suffix : str, optional
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    y_axis_height : Int
+        A calculate height.
+    """
+    import apysc as ap
+
+    y_axis_height: Int = Int(chart_height, variable_name_suffix=variable_name_suffix)
+    y_axis_height -= vertical_padding * 2
+    y_axis_height -= axis_label_font_size
+    y_axis_height -= chart_const.SMALL_PADDING
+    y_axis_height -= chart_const.TICK_SIZE
+    with ap.If(is_display_axis_label):
+        y_axis_height -= chart_const.SMALL_PADDING * 2
+        y_axis_height -= tick_text_font_size
+    return y_axis_height
 
 
 # def _calculate_y_axis_ticks_y_coordinates(

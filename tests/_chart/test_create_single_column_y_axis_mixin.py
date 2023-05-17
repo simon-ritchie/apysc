@@ -4,6 +4,7 @@ from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAx
 from apysc._chart import create_single_column_y_axis_mixin
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._chart import chart_const
 
 
 @apply_test_settings()
@@ -93,3 +94,18 @@ def test__calculate_y_max_from_data() -> None:
     assert "test_suffix" in y_max._variable_name_suffix
     expression: str = expression_data_util.get_current_expression()
     assert ".max" in expression
+
+
+@apply_test_settings()
+def test__calculate_y_axis_height() -> None:
+    expression_data_util.empty_expression()
+    y_axis_height: ap.Int = create_single_column_y_axis_mixin._calculate_y_axis_height(
+        chart_height=ap.Int(500),
+        vertical_padding=ap.Int(10),
+        tick_text_font_size=ap.Int(10),
+        axis_label_font_size=ap.Int(20),
+        is_display_axis_label=ap.Boolean(False),
+        variable_name_suffix="test_suffix",
+    )
+    assert y_axis_height._variable_name_suffix == "test_suffix"
+    assert y_axis_height < 500

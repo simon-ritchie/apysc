@@ -24,6 +24,7 @@ class CreateSingleColumnYAxisMixIn:
     _in_value_y_min: Number
     _in_value_y_max: Number
     _y_axis_height: Int
+    _y_axis_ticks_num: Int
     _y_axis_text_container: Sprite
     _y_axis_ticks_y_coordinates: Array[Number]
 
@@ -82,6 +83,12 @@ class CreateSingleColumnYAxisMixIn:
             is_display_axis_label=x_axis_settings._is_display_axis_label,
             variable_name_suffix=variable_name_suffix,
         )
+        self._y_axis_ticks_num = _calculate_y_axis_ticks_num(
+            y_axis_height=self._y_axis_height,
+            tick_max_num=y_axis_settings._tick_max_num,
+            tick_text_font_size=y_axis_settings._tick_text_font_size,
+            variable_name_suffix=variable_name_suffix,
+        )
         # self._y_axis_ticks_y_coordinates = _calculate_y_axis_ticks_y_coordinates(
         #     tick_max_num=y_axis_settings._tick_max_num,
         #     y_min=y_axis_settings._y_min,
@@ -90,6 +97,50 @@ class CreateSingleColumnYAxisMixIn:
         #     y_axis_tick_text_font_size=y_axis_settings._tick_text_font_size,
         # )
         pass
+
+
+def _calculate_y_axis_ticks_num(
+    *,
+    y_axis_height: Int,
+    tick_max_num: Optional[Int],
+    tick_text_font_size: Int,
+    variable_name_suffix: str,
+) -> Int:
+    """
+    Calculate a y-axis ticks number.
+
+    Parameters
+    ----------
+    y_axis_height : Int
+        A y-axis height.
+    tick_max_num : Optional[Int]
+        A ticks maximum number.
+    tick_text_font_size : Int
+        A tick text font size.
+    variable_name_suffix : str, optional
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    y_axis_ticks_num : Int
+        A y-axis ticks number.
+    """
+    import apysc as ap
+
+    interval: Int = tick_text_font_size * 3
+    y_axis_ticks_num: Int = y_axis_height // interval
+    y_axis_ticks_num += 1
+    if tick_max_num is not None:
+        min_arr: ap.Array[Int] = ap.Array(
+            [y_axis_ticks_num, tick_max_num],
+            variable_name_suffix=variable_name_suffix,
+        )
+        y_axis_ticks_num = Int(
+            ap.Math.min(min_arr),
+            variable_name_suffix=variable_name_suffix
+        )
+    return y_axis_ticks_num
 
 
 def _calculate_y_axis_height(

@@ -109,3 +109,26 @@ def test__calculate_y_axis_height() -> None:
     )
     assert y_axis_height._variable_name_suffix == "test_suffix"
     assert y_axis_height < 500
+
+
+@apply_test_settings()
+def test__calculate_y_axis_ticks_num() -> None:
+    expression_data_util.empty_expression()
+    y_axis_ticks_num: ap.Int = (
+        create_single_column_y_axis_mixin._calculate_y_axis_ticks_num(
+            y_axis_height=ap.Int(500),
+            tick_max_num=None,
+            tick_text_font_size=ap.Int(20),
+            variable_name_suffix="test_suffix",
+        )
+    )
+    assert y_axis_ticks_num == ap.Int(9)
+
+    y_axis_ticks_num = create_single_column_y_axis_mixin._calculate_y_axis_ticks_num(
+        y_axis_height=ap.Int(500),
+        tick_max_num=ap.Int(5),
+        tick_text_font_size=ap.Int(20),
+        variable_name_suffix="test_suffix",
+    )
+    assert y_axis_ticks_num == ap.Int(5)
+    assert y_axis_ticks_num._variable_name_suffix == "test_suffix"

@@ -101,7 +101,7 @@ def validate_matrix_array_data(
     ------
     TypeError
         - If a specified data type is not `ap.Array`.
-        - If values are not type of the `ap.Dictionary`.
+        - If values are not the type of the `ap.Dictionary`.
         - If a dictionary key's type is not str.
         - If a dictionary value's type is not `ap.Int`, `ap.Number`, or `ap.String`.
     """

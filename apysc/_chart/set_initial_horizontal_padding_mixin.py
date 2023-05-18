@@ -30,7 +30,7 @@ class SetInitialHorizontalPaddingMixIn:
         Parameters
         ----------
         horizontal_padding : Union[int, Int]
-            A chart's horizontal padding between border and contents.
+            A chart's horizontal padding between borders and contents.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

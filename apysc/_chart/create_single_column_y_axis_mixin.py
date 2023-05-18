@@ -89,14 +89,6 @@ class CreateSingleColumnYAxisMixIn:
             tick_text_font_size=y_axis_settings._tick_text_font_size,
             variable_name_suffix=variable_name_suffix,
         )
-        # self._y_axis_ticks_y_coordinates = _calculate_y_axis_ticks_y_coordinates(
-        #     tick_max_num=y_axis_settings._tick_max_num,
-        #     y_min=y_axis_settings._y_min,
-        #     y_max=y_axis_settings._y_max,
-        #     x_axis_tick_text_font_size=x_axis_settings._tick_text_font_size,
-        #     y_axis_tick_text_font_size=y_axis_settings._tick_text_font_size,
-        # )
-        pass
 
 
 def _calculate_y_axis_ticks_num(
@@ -187,37 +179,6 @@ def _calculate_y_axis_height(
         y_axis_height -= chart_const.SMALL_PADDING * 2
         y_axis_height -= tick_text_font_size
     return y_axis_height
-
-
-# def _calculate_y_axis_ticks_y_coordinates(
-#     *,
-#     tick_max_num: Optional[Int],
-#     y_min: Optional[Number],
-#     y_max: Optional[Number],
-#     x_axis_tick_text_font_size: Int,
-#     y_axis_tick_text_font_size: Int,
-# ) -> Array[Number]:
-#     """
-#     _summary_
-
-#     Parameters
-#     ----------
-#     tick_max_num : Optional[Int]
-#         A tick max display number.
-#     y_min : Optional[Number]
-#         A y-axis minimum value.
-#     y_max : Optional[Number]
-#         A y-axis maximum value.
-#     x_axis_tick_text_font_size : Int
-#         An x-axis tick text font size.
-#     y_axis_tick_text_font_size : Int
-#         A y-axis tick text font size.
-
-#     Returns
-#     -------
-#     Array[Number]
-#         _description_
-#     """
 
 
 def _calculate_y_max_from_data(

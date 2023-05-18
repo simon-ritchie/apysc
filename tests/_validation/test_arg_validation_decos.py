@@ -5,6 +5,8 @@ from typing import List
 from typing import Optional
 from typing import Union
 
+import pytest
+
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -1397,3 +1399,24 @@ def test_is_list_or_array_matrix_data() -> None:
         )
     )
     assert result == 250
+
+
+@apply_test_settings()
+def test_variadic_args_len_is_between() -> None:
+    @arg_validation_decos.variadic_args_len_is_between(
+        min_length=1,
+        max_length=3,
+    )
+    def _test_func(*args: Any) -> int:
+        return 260
+
+    with pytest.raises(ValueError):  # type: ignore
+        _test_func()
+
+    result: int = _test_func(0)
+    assert result == 260
+
+    with pytest.raises(ValueError):  # type: ignore
+        _test_func(0, 1, 2, 3)
+
+    _test_func(0, 1, 2)

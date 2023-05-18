@@ -40,6 +40,9 @@ Mainly the following decorators exist.
 - num_is_0_to_1_range
     - Set a validation to check that a specified argument's value
         is 0.0 to 1.0 range.
+- variadic_args_len_is_between
+    - Set a validation to check a variadic arguments' length is
+        a range of minimum and maximum values.
 - is_boolean
     - Set a validation to check that a specified argument's type
         is the `bool` or `ap.Boolean`.
@@ -844,6 +847,50 @@ def num_is_0_to_1_range(*, arg_position_index: int, optional: bool) -> _Callable
             validate_num_is_0_to_1_range(
                 num=num, additional_err_msg=callable_and_arg_names_msg
             )
+
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def variadic_args_len_is_between(
+    *,
+    min_length: int,
+    max_length: int,
+) -> _Callable:
+    """
+    Set a validation to check a variadic arguments' length is
+    a range of minimum and maximum values.
+
+    Parameters
+    ----------
+    min_length : int
+        A minimum list length.
+    max_length : int
+        A maximum list length.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            args_len: int = len(args)
+            if args_len < min_length:
+                raise ValueError(
+                    "A specified variadic argument's length is less than "
+                    f"{min_length}.\nActual length: {args_len}"
+                )
+            if args_len > max_length:
+                raise ValueError(
+                    "A specified variadic argument's length is greater than "
+                    f"{max_length}.\nActual length: {args_len}"
+                )
 
             return callable_(*args, **kwargs)
 

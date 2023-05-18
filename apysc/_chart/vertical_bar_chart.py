@@ -13,6 +13,7 @@ from apysc._chart.add_border_mixin import AddBorderMixIn
 from apysc._chart.background_container_mixin import BackgroundContainerMixIn
 from apysc._chart.border_container_mixin import BorderContainerMixIn
 from apysc._chart.chart_container_mixin import ChartContainerMixIn
+from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAxisMixIn
 from apysc._chart.initialize_each_container_mixin import InitializeEachContainerMixIn
 from apysc._chart.overall_container_mixin import OverallContainerMixIn
 from apysc._chart.set_initial_background_fill_alpha_mixin import (
@@ -27,9 +28,15 @@ from apysc._chart.set_initial_border_thickness_mixin import (
     SetInitialBorderThicknessMixIn,
 )
 from apysc._chart.set_initial_height_mixin import SetInitialHeightMixIn
+from apysc._chart.set_initial_horizontal_padding_mixin import (
+    SetInitialHorizontalPaddingMixIn,
+)
 from apysc._chart.set_initial_matrix_data_mixin import SetInitialMatrixDataMixIn
 from apysc._chart.set_initial_overall_container_coordinates_mixin import (
     SetInitialOverallContainerCoordinatesMixIn,
+)
+from apysc._chart.set_initial_vertical_padding_mixin import (
+    SetInitialVerticalPaddingMixIn,
 )
 from apysc._chart.set_initial_width_mixin import SetInitialWidthMixIn
 from apysc._chart.set_initial_x_mixin import SetInitialXMixIn
@@ -44,13 +51,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAxisMixIn
-from apysc._chart.set_initial_vertical_padding_mixin import (
-    SetInitialVerticalPaddingMixIn
-)
-from apysc._chart.set_initial_horizontal_padding_mixin import (
-    SetInitialHorizontalPaddingMixIn
-)
 
 _DataType = Union[
     Array[Dictionary[str, Union[Int, Number, String]]],
@@ -144,9 +144,9 @@ class VerticalBarChart(
         border_thickness : Union[int, Int], default 1
             A chart's border thickness.
         vertical_padding : Union[int, Int], default 10
-            A chart's vertical padding between border and contents.
+            A chart's vertical padding between borders and contents.
         horizontal_padding : Union[int, Int], default 10
-            A chart's horizontal padding between border and contents.
+            A chart's horizontal padding between borders and contents.
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

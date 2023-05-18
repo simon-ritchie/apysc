@@ -2,21 +2,23 @@
 `_create_y_axis` method.
 """
 
-from typing import Optional, Union, cast
+from typing import Optional
+from typing import Union
+from typing import cast
 
 from typing_extensions import final
 
-from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
+from apysc._chart import chart_const
 from apysc._chart.x_axis_settings import XAxisSettings
+from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._display.sprite import Sprite
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
+from apysc._type.boolean import Boolean
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._chart import chart_const
-from apysc._type.boolean import Boolean
 
 
 class CreateSingleColumnYAxisMixIn:
@@ -58,9 +60,9 @@ class CreateSingleColumnYAxisMixIn:
         y_axis_settings : YAxisSingleColumnSettings
             A y-axis settings instance.
         vertical_padding : Int
-            A chart's vertical padding between border and contents.
+            A chart's vertical padding between borders and contents.
         horizontal_padding : Int
-            A chart's horizontal padding between border and contents.
+            A chart's horizontal padding between borders and contents.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -129,8 +131,7 @@ def _calculate_y_axis_ticks_num(
             variable_name_suffix=variable_name_suffix,
         )
         y_axis_ticks_num = Int(
-            ap.Math.min(min_arr),
-            variable_name_suffix=variable_name_suffix
+            ap.Math.min(min_arr), variable_name_suffix=variable_name_suffix
         )
     return y_axis_ticks_num
 
@@ -152,7 +153,7 @@ def _calculate_y_axis_height(
     chart_height : Int
         A chart height.
     vertical_padding : Int
-        A chart's vertical padding between border and contents.
+        A chart's vertical padding between borders and contents.
     tick_text_font_size : Int
         A tick text font size.
     axis_label_font_size : Int

@@ -1,10 +1,9 @@
 from typing import Union
+
 import apysc as ap
-from apysc._chart.create_single_column_y_axis_mixin import CreateSingleColumnYAxisMixIn
 from apysc._chart import create_single_column_y_axis_mixin
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._chart import chart_const
 
 
 @apply_test_settings()
@@ -37,7 +36,7 @@ def test__get_y_min() -> None:
 @apply_test_settings()
 def test__extract_column_values_from_data() -> None:
     expression_data_util.empty_expression()
-    data = ap.Array(
+    data: ap.Array[ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]] = ap.Array(
         [
             ap.Dictionary(
                 {
@@ -69,7 +68,7 @@ def test__extract_column_values_from_data() -> None:
 @apply_test_settings()
 def test__calculate_y_max_from_data() -> None:
     expression_data_util.empty_expression()
-    data = ap.Array(
+    data: ap.Array[ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]] = ap.Array(
         [
             ap.Dictionary(
                 {

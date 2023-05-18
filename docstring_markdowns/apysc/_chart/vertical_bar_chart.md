@@ -38,5 +38,9 @@ Create a vertical bar chart instance.<hr>
   - A chart's border alpha.
 - `border_thickness`: Union[int, Int], default 1
   - A chart's border thickness.
+- `vertical_padding`: Union[int, Int], default 10
+  - A chart's vertical padding between borders and contents.
+- `horizontal_padding`: Union[int, Int], default 10
+  - A chart's horizontal padding between borders and contents.
 - `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

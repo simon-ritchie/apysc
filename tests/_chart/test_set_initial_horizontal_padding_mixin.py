@@ -1,5 +1,7 @@
 import apysc as ap
-from apysc._chart.set_initial_horizontal_padding_mixin import SetInitialHorizontalPaddingMixIn
+from apysc._chart.set_initial_horizontal_padding_mixin import (
+    SetInitialHorizontalPaddingMixIn,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -12,7 +12,5 @@ Set an initial y-axis column name.<hr>
 
 **[Parameters]**
 
-- `y_axis_column_name`: Union[str, String]
+- `y_axis_column_name`: str
   - Y-axis column name.
-- `variable_name_suffix`: str, optional
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

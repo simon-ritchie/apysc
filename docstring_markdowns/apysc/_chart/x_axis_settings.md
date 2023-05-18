@@ -12,7 +12,7 @@ X-axis settings class.<hr>
 
 **[Parameters]**
 
-- `x_axis_column_name`: Union[str, String]
+- `x_axis_column_name`: str
   - X-axis column name.
 - `tick_max_num`: Optional[Union[int, Int]], optional
   - A tick max display number. Often tick display number becomes under this value.

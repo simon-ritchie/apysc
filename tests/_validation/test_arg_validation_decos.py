@@ -1420,3 +1420,26 @@ def test_variadic_args_len_is_between() -> None:
         _test_func(0, 1, 2, 3)
 
     _test_func(0, 1, 2)
+
+
+@apply_test_settings()
+def test_all_variadic_args_are_integers() -> None:
+    @arg_validation_decos.all_variadic_args_are_integers(optional=False)
+    def _test_func_1(*args: Any) -> int:
+        return 270
+
+    result: int = _test_func_1(10, ap.Int(20), 30)
+    assert result == 270
+    with pytest.raises(TypeError):  # type: ignore
+        _test_func_1(0, 1, None, 3)
+    with pytest.raises(TypeError):  # type: ignore
+        _test_func_1(0, 1, "test", 3)
+
+    @arg_validation_decos.all_variadic_args_are_integers(optional=True)
+    def _test_func_2(*args: Any) -> int:
+        return 280
+
+    result = _test_func_2(10, ap.Int(20), 30, None)
+    assert result == 280
+    with pytest.raises(TypeError):  # type: ignore
+        _test_func_2(0, 1, "test", 3)

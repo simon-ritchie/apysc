@@ -43,6 +43,9 @@ Mainly the following decorators exist.
 - variadic_args_len_is_between
     - Set a validation to check a variadic arguments' length is
         a range of minimum and maximum values.
+- all_variadic_args_are_integers
+    - Set a validation to check a specified variadic arguments'
+        types are all integers.
 - is_boolean
     - Set a validation to check that a specified argument's type
         is the `bool` or `ap.Boolean`.
@@ -892,6 +895,43 @@ def variadic_args_len_is_between(
                     f"{max_length}.\nActual length: {args_len}"
                 )
 
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def all_variadic_args_are_integers(*, optional: bool) -> _Callable:
+    """
+    Set a validation to check a specified variadic arguments'
+    types are all integers.
+
+    Parameters
+    ----------
+    optional : bool
+        A boolean, whether a target argument accepts
+        optional None value or not.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            for arg in args:
+                if optional and arg is None:
+                    continue
+                if isinstance(arg, (int, ap.Int)):
+                    continue
+                raise TypeError(
+                    "A specified variadic argument value is not `int` or "
+                    f"`ap.Int`: {type(arg)}, {arg}"
+                )
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

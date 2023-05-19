@@ -38,6 +38,49 @@ def range(*args: Any) -> Array[Int]:
         arr = _create_double_args_case_arr(start=start, end=end)
         return arr
 
+    start = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+        integer=args[0]
+    )
+    end = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+        integer=args[1]
+    )
+    step: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+        integer=args[2]
+    )
+    arr = _create_triple_args_case_arr(start=start, end=end, step=step)
+    return arr
+
+
+def _create_triple_args_case_arr(*, start: Int, end: Int, step: Int) -> Array[Int]:
+    """
+    Create a triple arguments case's array.
+
+    Parameters
+    ----------
+    start : Int
+        A start position argument.
+    end : Int
+        An end position argument.
+    step : Int
+        A step number argument.
+
+    Returns
+    -------
+    arr : Array[Int]
+        A created array of integers.
+    """
+    import apysc as ap
+
+    arr: Array[Int] = Array([])
+    expression: str = (
+        f"for (var i = {start.variable_name}; i < {end.variable_name}; "
+        f"i += {step.variable_name}) {{"
+        f"\n  {arr.variable_name}.push(i);"
+        "\n}"
+    )
+    ap.append_js_expression(expression=expression)
+    return arr
+
 
 def _create_double_args_case_arr(*, start: Int, end: Int) -> Array[Int]:
     """

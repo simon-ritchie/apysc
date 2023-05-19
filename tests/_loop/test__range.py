@@ -16,3 +16,18 @@ def test__create_single_arg_case_arr() -> None:
         "\n}"
     )
     assert expected in expression
+
+
+@apply_test_settings()
+def test__create_double_args_case_arr() -> None:
+    expression_data_util.empty_expression()
+    start: ap.Int = ap.Int(1)
+    end: ap.Int = ap.Int(5)
+    arr: ap.Array[ap.Int] = _range._create_double_args_case_arr(start=start, end=end)
+    expression: str = expression_data_util.get_current_expression()
+    expected: str = (
+        f"for (var i = {start.variable_name}; i < {end.variable_name}; i++) {{"
+        f"\n  {arr.variable_name}.push(i);"
+        "\n}"
+    )
+    assert expected in expression

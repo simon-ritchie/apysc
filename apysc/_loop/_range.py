@@ -27,7 +27,44 @@ def range(*args: Any) -> Array[Int]:
         )
         arr: Array[Int] = _create_single_arg_case_arr(end=end)
         return arr
-    pass
+
+    if len(args) == 2:
+        start: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=args[0]
+        )
+        end = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=args[1]
+        )
+        arr = _create_double_args_case_arr(start=start, end=end)
+        return arr
+
+
+def _create_double_args_case_arr(*, start: Int, end: Int) -> Array[Int]:
+    """
+    Create a double arguments case's array.
+
+    Parameters
+    ----------
+    start : Int
+        A start position argument.
+    end : Int
+        An end position argument.
+
+    Returns
+    -------
+    arr : Array[Int]
+        A created array of integers.
+    """
+    import apysc as ap
+
+    arr: Array[Int] = Array([])
+    expression: str = (
+        f"for (var i = {start.variable_name}; i < {end.variable_name}; i++) {{"
+        f"\n  {arr.variable_name}.push(i);"
+        "\n}"
+    )
+    ap.append_js_expression(expression=expression)
+    return arr
 
 
 def _create_single_arg_case_arr(*, end: Int) -> Array[Int]:

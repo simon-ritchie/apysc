@@ -18,6 +18,19 @@ def range(*args: Any) -> Array[Int]:
     -------
     arr : Array[Int]
         A create array.
+
+    Examples
+    --------
+    >>> import apysc as ap
+
+    >>> range_arr: ap.Array[ap.Int] = ap.range(5)
+    >>> ap.assert_equal(range_arr, [0, 1, 2, 3, 4])
+
+    >>> range_arr = ap.range(2, 4)
+    >>> ap.assert_equal(range_arr, [2, 3])
+
+    >>> range_arr = ap.range(2, 10, 2)
+    >>> ap.assert_equal(range_arr, [2, 4, 6, 8])
     """
     from apysc._converter import to_apysc_val_from_builtin
 

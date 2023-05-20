@@ -1,10 +1,10 @@
 """The implementation for the `range` function.
 """
 
-from typing import Optional, Union, Any
+from typing import Any
 
-from apysc._type.int import Int
 from apysc._type.array import Array
+from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
@@ -32,18 +32,12 @@ def range(*args: Any) -> Array[Int]:
         start: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
             integer=args[0]
         )
-        end = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
-            integer=args[1]
-        )
+        end = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=args[1])
         arr = _create_double_args_case_arr(start=start, end=end)
         return arr
 
-    start = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
-        integer=args[0]
-    )
-    end = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
-        integer=args[1]
-    )
+    start = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=args[0])
+    end = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(integer=args[1])
     step: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
         integer=args[2]
     )
@@ -53,7 +47,7 @@ def range(*args: Any) -> Array[Int]:
 
 def _create_triple_args_case_arr(*, start: Int, end: Int, step: Int) -> Array[Int]:
     """
-    Create a triple arguments case's array.
+    Create a triple arguments case array.
 
     Parameters
     ----------
@@ -84,7 +78,7 @@ def _create_triple_args_case_arr(*, start: Int, end: Int, step: Int) -> Array[In
 
 def _create_double_args_case_arr(*, start: Int, end: Int) -> Array[Int]:
     """
-    Create a double arguments case's array.
+    Create a double arguments case array.
 
     Parameters
     ----------
@@ -112,7 +106,7 @@ def _create_double_args_case_arr(*, start: Int, end: Int) -> Array[Int]:
 
 def _create_single_arg_case_arr(*, end: Int) -> Array[Int]:
     """
-    Create a single argument case's array.
+    Create a single argument case array.
 
     Parameters
     ----------

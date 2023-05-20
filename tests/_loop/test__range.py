@@ -1,12 +1,14 @@
 import re
-from typing import Match, Optional
+from typing import Match
+from typing import Optional
 
 import pytest
 
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
-from apysc._expression import expression_data_util, var_names
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 from apysc._loop import _range
+from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()

@@ -3883,5 +3883,21 @@ MAPPINGS: Mappings = Mappings(
             key="  - A converted string.",
             val="  - 変換された文字列。",
         ),
+        Mapping(
+            key="## What function is this?",
+            val="## 関数概要",
+        ),
+        Mapping(
+            key="## range function API",
+            val="## range 関数のAPI",
+        ),
+        Mapping(
+            key="Create a range array of integers.<hr>",
+            val="整数の指定範囲の配列を生成します。<hr>",
+        ),
+        Mapping(
+            key="  - A created array.",
+            val="  - 生成された配列。",
+        ),
     ]
 )

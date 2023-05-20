@@ -12,12 +12,12 @@ from apysc._validation import arg_validation_decos
 @arg_validation_decos.all_variadic_args_are_integers(optional=False)
 def range(*args: Any) -> Array[Int]:
     """
-    Create an array of integers from `start` to `end` - 1.
+    Create a range array of integers.
 
     Returns
     -------
     arr : Array[Int]
-        A create array.
+        A created array.
 
     Examples
     --------

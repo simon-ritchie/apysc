@@ -262,6 +262,7 @@ jp_return
 :maxdepth: 1
 jp_for
 jp_continue
+jp_range
 ```
 
 ## タイマーとenter frame

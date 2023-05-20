@@ -60,9 +60,29 @@ Create a triple arguments case array.<hr>
 
 ## `range` function docstring
 
-Create an array of integers from `start` to `end` - 1.<hr>
+Create a range array of integers.<hr>
 
 **[Returns]**
 
 - `arr`: Array[Int]
-  - A create array.
+  - A created array.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> range_arr: ap.Array[ap.Int] = ap.range(5)
+>>> ap.assert_equal(range_arr, [0, 1, 2, 3, 4])
+>>> range_arr = ap.range(2, 4)
+>>> ap.assert_equal(range_arr, [2, 3])
+>>> range_arr = ap.range(2, 10, 2)
+>>> ap.assert_equal(range_arr, [2, 4, 6, 8])
+```
+
+<hr>
+
+**[References]**
+
+- [range function](https://simon-ritchie.github.io/apysc/en/range.html)

@@ -19,6 +19,11 @@ def range(*args: Any) -> Array[Int]:
     arr : Array[Int]
         A created array.
 
+    References
+    ----------
+    - range function
+        - https://simon-ritchie.github.io/apysc/en/range.html
+
     Examples
     --------
     >>> import apysc as ap

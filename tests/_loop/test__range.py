@@ -1,6 +1,11 @@
+import re
+from typing import Match, Optional
+
+import pytest
+
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
-from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings, assert_raises
+from apysc._expression import expression_data_util, var_names
 from apysc._loop import _range
 
 
@@ -50,3 +55,58 @@ def test__create_triple_args_case_arr() -> None:
         "\n}"
     )
     assert expected in expression
+
+
+@apply_test_settings()
+def test_range() -> None:
+    with pytest.raises(ValueError):  # type: ignore
+        ap.range()
+
+    expression_data_util.empty_expression()
+    arr: ap.Array[ap.Int] = ap.range(5)
+    expression: str = expression_data_util.get_current_expression()
+    match_: Optional[Match[str]] = re.search(
+        pattern=rf"for \(var i = 0\; i \< {var_names.INT}\_.+?; i\+\+\) {{",
+        string=expression,
+    )
+    assert match_ is not None
+    match_ = re.search(
+        pattern=rf"\n  {arr.variable_name}\.push\(i\)\;",
+        string=expression,
+    )
+    assert match_ is not None
+
+    expression_data_util.empty_expression()
+    arr = ap.range(0, 10)
+    expression = expression_data_util.get_current_expression()
+    match_ = re.search(
+        pattern=(
+            rf"for \(var i = {var_names.INT}.+?\; i \< {var_names.INT}.+?\; i\+\+\) {{"
+        ),
+        string=expression,
+    )
+    assert match_ is not None
+    match_ = re.search(
+        pattern=rf"\n  {arr.variable_name}\.push\(i\)\;",
+        string=expression,
+    )
+    assert match_ is not None
+
+    expression_data_util.empty_expression()
+    arr = ap.range(0, 10, 2)
+    expression = expression_data_util.get_current_expression()
+    match_ = re.search(
+        pattern=(
+            rf"for \(var i = {var_names.INT}.+?; i \< {var_names.INT}.+?\; "
+            rf"i \+\= {var_names.INT}.+?\) {{"
+        ),
+        string=expression,
+    )
+    assert match_ is not None
+    match_ = re.search(
+        pattern=rf"\n  {arr.variable_name}\.push\(i\)\;",
+        string=expression,
+    )
+
+    with pytest.raises(ValueError):  # type: ignore
+        ap.range(0, 10, 2, 3)

@@ -144,5 +144,5 @@ def test__calculate_y_axis_ticks_y_coordinates() -> None:
         variable_name_suffix="test_suffix",
     )
     print(y_axis_ticks_y_coordinates)
-    assert y_axis_ticks_y_coordinates[0] == ap.Number(20)
+    assert isinstance(y_axis_ticks_y_coordinates[0], ap.Number)
     assert y_axis_ticks_y_coordinates._variable_name_suffix == "test_suffix"

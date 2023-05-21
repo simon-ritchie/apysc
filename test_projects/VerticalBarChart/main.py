@@ -39,7 +39,7 @@ def main() -> None:
     y_axis_settings: ap.YAxisSingleColumnSettings = ap.YAxisSingleColumnSettings(
         y_axis_column_name="value",
     )
-    VerticalBarChart(
+    chart: VerticalBarChart = VerticalBarChart(
         data=[
             {"value": 10, "date": "2023-01-01"},
             {"value": 20, "data": "2023-01-02"},
@@ -59,6 +59,7 @@ def main() -> None:
         border_thickness=1,
         variable_name_suffix="test_suffix",
     )
+    ap.trace(chart._y_axis_ticks_y_coordinates)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

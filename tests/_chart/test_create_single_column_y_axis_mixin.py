@@ -131,3 +131,18 @@ def test__calculate_y_axis_ticks_num() -> None:
     )
     assert y_axis_ticks_num == ap.Int(5)
     assert y_axis_ticks_num._variable_name_suffix == "test_suffix"
+
+
+@apply_test_settings()
+def test__calculate_y_axis_ticks_y_coordinates() -> None:
+    y_axis_ticks_y_coordinates: ap.Array[
+        ap.Number
+    ] = create_single_column_y_axis_mixin._calculate_y_axis_ticks_y_coordinates(
+        vertical_padding=ap.Int(20),
+        y_axis_height=ap.Int(600),
+        y_axis_ticks_num=ap.Int(5),
+        variable_name_suffix="test_suffix",
+    )
+    print(y_axis_ticks_y_coordinates)
+    assert y_axis_ticks_y_coordinates[0] == ap.Number(20)
+    assert y_axis_ticks_y_coordinates._variable_name_suffix == "test_suffix"

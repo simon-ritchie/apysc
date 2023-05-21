@@ -91,6 +91,59 @@ class CreateSingleColumnYAxisMixIn:
             tick_text_font_size=y_axis_settings._tick_text_font_size,
             variable_name_suffix=variable_name_suffix,
         )
+        self._y_axis_ticks_y_coordinates = _calculate_y_axis_ticks_y_coordinates(
+            vertical_padding=vertical_padding,
+            y_axis_height=self._y_axis_height,
+            y_axis_ticks_num=self._y_axis_ticks_num,
+            variable_name_suffix=variable_name_suffix,
+        )
+
+
+def _calculate_y_axis_ticks_y_coordinates(
+    *,
+    vertical_padding: Int,
+    y_axis_height: Int,
+    y_axis_ticks_num: Int,
+    variable_name_suffix: str,
+) -> Array[Number]:
+    """
+    Calculate a y-axis ticks' coordinates.
+
+    Parameters
+    ----------
+    vertical_padding : Int
+        A chart's vertical padding between border and contents.
+    y_axis_height : Int
+        An axis height.
+    y_axis_ticks_num : Int
+        Axis tick number.
+    variable_name_suffix : str
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    y_axis_ticks_y_coordinates : Array[Number]
+        A y-axis ticks' coordinates. The first index becomes the axis
+        starting coordinate (bottom position of a y-axis).
+    """
+    import apysc as ap
+
+    y_axis_ticks_y_coordinates: Array[Number] = Array(
+        [], variable_name_suffix=variable_name_suffix
+    )
+    y_start_coordinate: Int = Int(
+        vertical_padding,
+        variable_name_suffix=variable_name_suffix,
+    )
+    range_arr: Array[Int] = ap.range(y_axis_ticks_num)
+    i: Int
+    interval: Number = y_axis_height / (y_axis_ticks_num - 1)
+    with ap.For(range_arr) as i:
+        y_coordinate: Number = y_start_coordinate + i * interval
+        y_axis_ticks_y_coordinates.append(y_coordinate)
+    y_axis_ticks_y_coordinates.reverse()
+    return y_axis_ticks_y_coordinates
 
 
 def _calculate_y_axis_ticks_num(

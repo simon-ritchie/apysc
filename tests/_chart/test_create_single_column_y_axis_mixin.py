@@ -143,6 +143,52 @@ def test__calculate_y_axis_ticks_y_coordinates() -> None:
         y_axis_ticks_num=ap.Int(5),
         variable_name_suffix="test_suffix",
     )
-    print(y_axis_ticks_y_coordinates)
     assert isinstance(y_axis_ticks_y_coordinates[0], ap.Number)
     assert y_axis_ticks_y_coordinates._variable_name_suffix == "test_suffix"
+
+
+# @apply_test_settings()
+def test__extract_text_value_from_data_dict() -> None:
+    expression_data_util.empty_expression()
+    int_value: ap.Int = ap.Int(10)
+    number_value: ap.Number = ap.Number(20.5)
+    str_value: ap.String = ap.String("test")
+    text_value: ap.String = (
+        create_single_column_y_axis_mixin._extract_text_value_from_data_dict(
+            data_dict=ap.Dictionary(
+                {
+                    "a": int_value, "b": number_value, "c": str_value,
+                },
+            ),
+            y_axis_column_name="a",
+        )
+    )
+    assert isinstance(text_value, ap.String)
+    expression: str = expression_data_util.get_current_expression()
+    assert f"String({int_value.variable_name});" in expression
+
+    expression_data_util.empty_expression()
+    text_value = create_single_column_y_axis_mixin._extract_text_value_from_data_dict(
+        data_dict=ap.Dictionary(
+            {
+                "a": int_value, "b": number_value, "c": str_value,
+            },
+        ),
+        y_axis_column_name="b",
+    )
+    assert isinstance(text_value, ap.String)
+    expression: str = expression_data_util.get_current_expression()
+    assert f"String({number_value.variable_name});" in expression
+
+    expression_data_util.empty_expression()
+    text_value = create_single_column_y_axis_mixin._extract_text_value_from_data_dict(
+        data_dict=ap.Dictionary(
+            {
+                "a": int_value, "b": number_value, "c": str_value,
+            },
+        ),
+        y_axis_column_name="c",
+    )
+    assert isinstance(text_value, ap.String)
+    expression: str = expression_data_util.get_current_expression()
+    assert "String(" not in expression

@@ -147,7 +147,7 @@ def test__calculate_y_axis_ticks_y_coordinates() -> None:
     assert y_axis_ticks_y_coordinates._variable_name_suffix == "test_suffix"
 
 
-# @apply_test_settings()
+@apply_test_settings()
 def test__extract_text_value_from_data_dict() -> None:
     expression_data_util.empty_expression()
     int_value: ap.Int = ap.Int(10)
@@ -192,3 +192,8 @@ def test__extract_text_value_from_data_dict() -> None:
     assert isinstance(text_value, ap.String)
     expression: str = expression_data_util.get_current_expression()
     assert "String(" not in expression
+
+
+@apply_test_settings()
+def test__apply_x_coordinate_to_y_axis_ticks_texts() -> None:
+    pass

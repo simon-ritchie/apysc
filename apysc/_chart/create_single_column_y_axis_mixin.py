@@ -103,6 +103,7 @@ class CreateSingleColumnYAxisMixIn:
             y_axis_column_name=y_axis_settings._y_axis_column_name,
             data=data,
             y_axis_container=y_axis_container,
+            horizontal_padding=horizontal_padding,
             y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
             tick_text_fill_color=y_axis_settings._tick_text_fill_color,
             tick_text_fill_alpha=y_axis_settings._tick_text_fill_alpha,
@@ -119,6 +120,7 @@ def _create_y_axis_ticks_texts(
     y_axis_column_name: str,
     data: Array[Dictionary[str, Union[Int, Number, String]]],
     y_axis_container: Sprite,
+    horizontal_padding: Int,
     y_axis_ticks_y_coordinates: Array[Number],
     tick_text_fill_color: String,
     tick_text_fill_alpha: Number,
@@ -139,6 +141,8 @@ def _create_y_axis_ticks_texts(
         A data array, which contains a 1-dimensional string key dictionary.
     y_axis_container : Sprite
         A y-axis container instance.
+    horizontal_padding : Int
+        A chart horizontal padding.
     y_axis_ticks_y_coordinates : Array[Number]
         Y-axis ticks y-coordinates.
     tick_text_fill_color : String
@@ -172,7 +176,63 @@ def _create_y_axis_ticks_texts(
             data_dict=data_dict,
             y_axis_column_name=y_axis_column_name,
         )
-        # txt: SVGText = ap.SVGText(text, font_size, )
+        txt: SVGText = ap.SVGText(
+            text=text_value,
+            font_size=tick_text_font_size,
+            font_family=tick_text_font_family,
+            x=0,
+            y=y_coordinate + tick_text_font_size / 2,
+            fill_color=tick_text_fill_color,
+            fill_alpha=tick_text_fill_alpha,
+            align=ap.SVGTextAlign.RIGHT,
+            bold=tick_text_bold,
+            italic=tick_text_italic,
+            parent=y_axis_container,
+            variable_name_suffix=variable_name_suffix,
+        )
+        y_axis_ticks_texts.append(txt)
+    _apply_x_coordinate_to_y_axis_ticks_texts(
+        horizontal_padding=horizontal_padding,
+        y_axis_ticks_texts=y_axis_ticks_texts,
+        variable_name_suffix=variable_name_suffix,
+    )
+    pass
+
+
+def _apply_x_coordinate_to_y_axis_ticks_texts(
+    *,
+    horizontal_padding: Int,
+    y_axis_ticks_texts: Array[SVGText],
+    variable_name_suffix: str,
+) -> None:
+    """
+    Apply x-coordinate to y-axis ticks texts.
+
+    Parameters
+    ----------
+    horizontal_padding : Int
+        A chart horizontal padding.
+    y_axis_ticks_texts : Array[SVGText]
+        Y-axis ticks texts.
+    variable_name_suffix : str
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+    """
+    import apysc as ap
+
+    x: Number = horizontal_padding._copy()
+    i: Int
+    with ap.For(y_axis_ticks_texts) as i:
+        txt: ap.SVGText = y_axis_ticks_texts[i]
+        bounding_box: ap.RectangleGeom = txt.get_bounds()
+        max_arr: ap.Array[Union[Int, Number]] = ap.Array(
+            [x, bounding_box.width + horizontal_padding],
+            variable_name_suffix=variable_name_suffix,
+        )
+        x = ap.Math.max(max_arr)
+    with ap.For(y_axis_ticks_texts) as i:
+        txt: ap.SVGText = y_axis_ticks_texts[i]
+        txt.x = x
 
 
 def _extract_text_value_from_data_dict(

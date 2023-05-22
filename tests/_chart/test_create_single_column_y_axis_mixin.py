@@ -213,4 +213,14 @@ def test__calculate_y_axis_max() -> None:
 
 @apply_test_settings()
 def test__apply_x_coordinate_to_y_axis_ticks_texts() -> None:
-    pass
+    y_axis_min: ap.Number = create_single_column_y_axis_mixin._calculate_y_axis_min(
+        y_min=ap.Number(10.5),
+        in_value_y_min=ap.Number(20.5),
+    )
+    assert y_axis_min == ap.Number(10.5)
+
+    y_axis_min = create_single_column_y_axis_mixin._calculate_y_axis_min(
+        y_min=None,
+        in_value_y_min=ap.Number(20.5),
+    )
+    assert y_axis_min == ap.Number(20.5)

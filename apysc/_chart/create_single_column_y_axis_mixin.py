@@ -108,7 +108,6 @@ class CreateSingleColumnYAxisMixIn:
         self._y_axis_max = _calculate_y_axis_max(
             y_max=y_axis_settings._y_max,
             in_value_y_max=self._in_value_y_max,
-            variable_name_suffix=variable_name_suffix,
         )
         self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
             y_axis_column_name=y_axis_settings._y_axis_column_name,
@@ -132,7 +131,24 @@ def _calculate_y_axis_min(
     y_min: Optional[Number],
     in_value_y_min: Number,
 ) -> Number:
-    pass
+    """
+    Calculate a y-axis min value.
+
+    Parameters
+    ----------
+    y_min : Optional[Number]
+        A y-axis min setting.
+    in_value_y_min : Number
+        A minimum y value in data.
+
+    Returns
+    -------
+    y_axis_min : Number
+        A calculated y-axis min value.
+    """
+    if y_min is not None:
+        return y_min._copy()
+    return in_value_y_min
 
 
 def _calculate_y_axis_max(

@@ -28,7 +28,8 @@ class CreateSingleColumnYAxisMixIn:
     _in_value_y_max: Number
     _y_axis_height: Int
     _y_axis_ticks_num: Int
-    _y_axis_max: Union[Int, Number]
+    _y_axis_min: Number
+    _y_axis_max: Number
     _y_axis_text_container: Sprite
     _y_axis_ticks_y_coordinates: Array[Number]
     _y_axis_ticks_texts: Array[SVGText]
@@ -100,6 +101,10 @@ class CreateSingleColumnYAxisMixIn:
             y_axis_ticks_num=self._y_axis_ticks_num,
             variable_name_suffix=variable_name_suffix,
         )
+        self._y_axis_min = _calculate_y_axis_min(
+            y_min=y_axis_settings._y_min,
+            in_value_y_min=self._in_value_y_min,
+        )
         self._y_axis_max = _calculate_y_axis_max(
             y_max=y_axis_settings._y_max,
             in_value_y_max=self._in_value_y_max,
@@ -119,14 +124,22 @@ class CreateSingleColumnYAxisMixIn:
             tick_text_italic=y_axis_settings._tick_text_bold,
             variable_name_suffix=variable_name_suffix,
         )
+        y_axis_settings._y_min
+
+
+def _calculate_y_axis_min(
+    *,
+    y_min: Optional[Number],
+    in_value_y_min: Number,
+) -> Number:
+    pass
 
 
 def _calculate_y_axis_max(
     *,
     y_max: Optional[Number],
     in_value_y_max: Number,
-    variable_name_suffix: str,
-) -> Union[Int, Number]:
+) -> Number:
     """
     Calculate a y-axis max value.
 
@@ -136,25 +149,15 @@ def _calculate_y_axis_max(
         A y-axis max setting (limitation).
     in_value_y_max : Number
         A maximum y value in data.
-    variable_name_suffix : str
-        A JavaScript variable name suffix string.
-        This setting is sometimes useful for JavaScript debugging.
 
     Returns
     -------
-    y_axis_max : Union[Int, Number]
+    y_axis_max : Number
         A calculated y-axis max value.
     """
-    import apysc as ap
-
     if y_max is not None:
-        return y_max
-    y_axis_max: Union[Int, Number] = in_value_y_max * 1.1
-    condition: Boolean = in_value_y_max == Int(
-        in_value_y_max, variable_name_suffix=variable_name_suffix
-    )
-    with ap.If(condition):
-        y_axis_max = ap.Math.trunc(y_axis_max)
+        return y_max._copy()
+    y_axis_max: Number = in_value_y_max * 1.1
     return y_axis_max
 
 

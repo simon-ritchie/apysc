@@ -195,5 +195,24 @@ def test__extract_text_value_from_data_dict() -> None:
 
 
 @apply_test_settings()
+def test__calculate_y_axis_max() -> None:
+    y_axis_max: Union[
+        ap.Int, ap.Number
+    ] = create_single_column_y_axis_mixin._calculate_y_axis_max(
+        y_max=ap.Number(100),
+        in_value_y_max=ap.Number(80.5),
+        variable_name_suffix="test_suffix",
+    )
+    assert y_axis_max == ap.Number(100)
+
+    y_axis_max = create_single_column_y_axis_mixin._calculate_y_axis_max(
+        y_max=None,
+        in_value_y_max=ap.Number(80.5),
+        variable_name_suffix="test_suffix",
+    )
+    assert ap.Int(y_axis_max) == ap.Int(ap.Number(80.5) * 1.1)
+
+
+@apply_test_settings()
 def test__apply_x_coordinate_to_y_axis_ticks_texts() -> None:
     pass

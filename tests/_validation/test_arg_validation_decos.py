@@ -1479,3 +1479,20 @@ def test_num_is_between() -> None:
         num=101.5,
     )
     _test_func_1(num=ap.Int(101))
+
+
+@apply_test_settings()
+def test_is_apysc_int_or_number() -> None:
+    @arg_validation_decos.is_apysc_int_or_number(arg_position_index=0)
+    def _test_func_1(*, int_or_number: Union[ap.Int, ap.Number]) -> int:
+        return 300
+
+    result: int = _test_func_1(int_or_number=ap.Int(100))
+    assert result == 300
+    _test_func_1(int_or_number=ap.Number(50.5))
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        int_or_number=100,
+    )

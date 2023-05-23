@@ -31,6 +31,9 @@ Mainly the following decorators exist.
 - is_apysc_integer
     - Set a validation to check a specified argument's type
         is the `ap.Int`.
+- is_apysc_int_or_number
+    - Set a validation to check a specified argument's type
+        is the `ap.Int` or `ap.Number`.
 - num_is_gt_zero
     - Set a validation to check that a specified argument's value
         is greater than zero.
@@ -710,6 +713,49 @@ def is_apysc_integer(*, arg_position_index: int) -> _Callable:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_apysc_int_or_number(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is the `ap.Int` or `ap.Number`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            int_or_number: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(int_or_number, (ap.Int, ap.Number)):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    f"A specified argument is not `ap.Int` or `ap.Number` type: "
+                    f"{type(int_or_number).__name__}, {int_or_number}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

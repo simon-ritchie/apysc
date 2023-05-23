@@ -1443,3 +1443,39 @@ def test_all_variadic_args_are_integers() -> None:
     assert result == 280
     with pytest.raises(TypeError):  # type: ignore
         _test_func_2(0, 1, "test", 3)
+
+
+@apply_test_settings()
+def test_num_is_between() -> None:
+    @arg_validation_decos.num_is_between(
+        arg_position_index=0, min_value=50, max_value=100
+    )
+    def _test_func_1(num: Union[int, float, ap.Int]) -> int:
+        return 290
+
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        num=49,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        num=49.5,
+    )
+    result: int = _test_func_1(num=50)
+    assert result == 290
+    _test_func_1(num=50.5)
+    _test_func_1(num=100)
+    _test_func_1(num=99.5)
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        num=101,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        num=101.5,
+    )
+    _test_func_1(num=ap.Int(101))

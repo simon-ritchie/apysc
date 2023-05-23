@@ -32,6 +32,7 @@ class CreateSingleColumnYAxisMixIn:
     _y_axis_max: Number
     _y_axis_text_container: Sprite
     _y_axis_ticks_y_coordinates: Array[Number]
+    _y_axis_texts_values: Array[String]
     _y_axis_ticks_texts: Array[SVGText]
 
     @final
@@ -258,7 +259,7 @@ def _create_y_axis_ticks_texts(
         y_axis_ticks_texts=y_axis_ticks_texts,
         variable_name_suffix=variable_name_suffix,
     )
-    pass
+    return y_axis_ticks_texts
 
 
 def _apply_x_coordinate_to_y_axis_ticks_texts(

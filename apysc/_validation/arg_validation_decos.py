@@ -40,6 +40,9 @@ Mainly the following decorators exist.
 - num_is_0_to_1_range
     - Set a validation to check that a specified argument's value
         is 0.0 to 1.0 range.
+- num_is_between
+    - Set a validation to check whether a specified argument's value
+        is between minimum and maximum values.
 - variadic_args_len_is_between
     - Set a validation to check a variadic arguments' length is
         a range of minimum and maximum values.
@@ -183,7 +186,7 @@ Mainly the following decorators exist.
 import functools
 import inspect
 from inspect import Signature
-from typing import Any
+from typing import Any, Union
 from typing import Callable
 from typing import Dict
 from typing import List
@@ -851,6 +854,64 @@ def num_is_0_to_1_range(*, arg_position_index: int, optional: bool) -> _Callable
                 num=num, additional_err_msg=callable_and_arg_names_msg
             )
 
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def num_is_between(
+    *,
+    arg_position_index: int,
+    min_value: Union[int, float],
+    max_value: Union[int, float],
+) -> _Callable:
+    """
+    Set a validation to check whether a specified argument's value
+    is between minimum and maximum values.
+
+    Notes
+    -----
+    This decorator only checks `int` and `float` values.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    min_value : Union[int, float]
+        A minimum threshold value.
+    max_value : Union[int, float]
+        A maximum threshold value.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            num: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if isinstance(num, (int, float)):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                if num < min_value:
+                    raise ValueError(
+                        f"A specified argument value ({num}) is less than {min_value}."
+                        f"\n{callable_and_arg_names_msg}"
+                    )
+                if num > max_value:
+                    raise ValueError(
+                        f"A specified argument value ({num}) is greater than "
+                        f"{max_value}.\n{callable_and_arg_names_msg}"
+                    )
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

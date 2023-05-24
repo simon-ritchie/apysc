@@ -4,6 +4,7 @@ import apysc as ap
 from apysc._chart import create_single_column_y_axis_mixin
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 @apply_test_settings()
@@ -157,7 +158,9 @@ def test__extract_text_value_from_data_dict() -> None:
         create_single_column_y_axis_mixin._extract_text_value_from_data_dict(
             data_dict=ap.Dictionary(
                 {
-                    "a": int_value, "b": number_value, "c": str_value,
+                    "a": int_value,
+                    "b": number_value,
+                    "c": str_value,
                 },
             ),
             y_axis_column_name="a",
@@ -171,27 +174,43 @@ def test__extract_text_value_from_data_dict() -> None:
     text_value = create_single_column_y_axis_mixin._extract_text_value_from_data_dict(
         data_dict=ap.Dictionary(
             {
-                "a": int_value, "b": number_value, "c": str_value,
+                "a": int_value,
+                "b": number_value,
+                "c": str_value,
             },
         ),
         y_axis_column_name="b",
     )
     assert isinstance(text_value, ap.String)
-    expression: str = expression_data_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     assert f"String({number_value.variable_name});" in expression
 
     expression_data_util.empty_expression()
     text_value = create_single_column_y_axis_mixin._extract_text_value_from_data_dict(
         data_dict=ap.Dictionary(
             {
-                "a": int_value, "b": number_value, "c": str_value,
+                "a": int_value,
+                "b": number_value,
+                "c": str_value,
             },
         ),
         y_axis_column_name="c",
     )
     assert isinstance(text_value, ap.String)
-    expression: str = expression_data_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     assert "String(" not in expression
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=create_single_column_y_axis_mixin._extract_text_value_from_data_dict,
+        match="A specified dictionary's value must be an `ap.Int`,",
+        data_dict=ap.Dictionary(
+            {
+                "a": 10,
+            },
+        ),
+        y_axis_column_name="a",
+    )
 
 
 @apply_test_settings()

@@ -189,12 +189,13 @@ Mainly the following decorators exist.
 import functools
 import inspect
 from inspect import Signature
-from typing import Any, Union
+from typing import Any
 from typing import Callable
 from typing import Dict
 from typing import List
 from typing import Tuple
 from typing import TypeVar
+from typing import Union
 
 # pyright: reportInvalidTypeVarUse=false
 _Callable = TypeVar("_Callable", bound=Callable)
@@ -935,6 +936,7 @@ def num_is_between(
     wrapped : Callable
         Wrapped callable object.
     """
+
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:

@@ -26,12 +26,12 @@ class YMinMixIn:
         variable_name_suffix: str = "",
     ) -> None:
         """
-        Set an initial y-axis minimum value.
+        Set an initial minimum y-axis value.
 
         Parameters
         ----------
         y_min : Optional[Union[float, Number]]
-            A y-axis minimum value.
+            A minimum y-axis value.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

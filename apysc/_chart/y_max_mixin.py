@@ -26,12 +26,12 @@ class YMaxMixIn:
         variable_name_suffix: str = "",
     ) -> None:
         """
-        Set an initial y-axis maximum value.
+        Set an initial maximum y-axis value.
 
         Parameters
         ----------
         y_max : Optional[Union[float, Number]]
-            A y-axis maximum value.
+            A maximum y-axis value.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

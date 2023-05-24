@@ -8,11 +8,11 @@ The mix-in class implementation for the `y_min` value.
 
 ### `_set_initial_y_min` method docstring
 
-Set an initial y-axis minimum value.<hr>
+Set an initial minimum y-axis value.<hr>
 
 **[Parameters]**
 
 - `y_min`: Optional[Union[float, Number]]
-  - A y-axis minimum value.
+  - A minimum y-axis value.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

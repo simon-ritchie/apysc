@@ -1,11 +1,13 @@
 """The mix-in class implementation for the `to_fixed` method.
 """
 
-from typing import Union, Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import Union
+
 from typing_extensions import final
 
-from apysc._type.string import String
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:

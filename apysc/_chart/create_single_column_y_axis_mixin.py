@@ -12,6 +12,7 @@ from apysc._chart import chart_const
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._display.sprite import Sprite
+from apysc._display.svg_text import SVGText
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
@@ -19,7 +20,6 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._display.svg_text import SVGText
 
 
 class CreateSingleColumnYAxisMixIn:
@@ -276,7 +276,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     horizontal_padding : Int
         A chart horizontal padding.
     y_axis_ticks_texts : Array[SVGText]
-        Y-axis ticks texts.
+        Y-axis ticks' texts.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
@@ -294,7 +294,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
         )
         x = ap.Math.max(max_arr)
     with ap.For(y_axis_ticks_texts) as i:
-        txt: ap.SVGText = y_axis_ticks_texts[i]
+        txt = y_axis_ticks_texts[i]
         txt.x = x
 
 
@@ -309,7 +309,7 @@ def _extract_text_value_from_data_dict(
     Parameters
     ----------
     data_dict : Dictionary[str, Union[Int, Number, String]]
-        A single row data dictionary.
+        A single-row data dictionary.
     y_axis_column_name : str
         A y-axis column name.
 
@@ -321,8 +321,13 @@ def _extract_text_value_from_data_dict(
     value: Union[Int, Number, String] = data_dict[y_axis_column_name]
     if isinstance(value, (Int, Number)):
         text_value: String = value.to_string()
-    else:
+    elif isinstance(value, String):
         text_value = value
+    else:
+        raise TypeError(
+            "A specified dictionary's value must be an `ap.Int`, `ap.Number`, "
+            f"`ap.String` value.\nActual: {type(value).__name__}"
+        )
     return text_value
 
 
@@ -334,12 +339,12 @@ def _calculate_y_axis_ticks_y_coordinates(
     variable_name_suffix: str,
 ) -> Array[Number]:
     """
-    Calculate a y-axis ticks' coordinates.
+    Calculate y-axis ticks coordinates.
 
     Parameters
     ----------
     vertical_padding : Int
-        A chart's vertical padding between border and contents.
+        A chart's vertical padding between borders and contents.
     y_axis_height : Int
         An axis height.
     y_axis_ticks_num : Int
@@ -351,7 +356,7 @@ def _calculate_y_axis_ticks_y_coordinates(
     Returns
     -------
     y_axis_ticks_y_coordinates : Array[Number]
-        A y-axis ticks' coordinates. The first index becomes the axis
+        Y-axis ticks coordinates. The first index becomes the axis
         starting coordinate (bottom position of a y-axis).
     """
     import apysc as ap
@@ -381,14 +386,14 @@ def _calculate_y_axis_ticks_num(
     variable_name_suffix: str,
 ) -> Int:
     """
-    Calculate a y-axis ticks number.
+    Calculate y-axis ticks number.
 
     Parameters
     ----------
     y_axis_height : Int
         A y-axis height.
     tick_max_num : Optional[Int]
-        A ticks maximum number.
+        A maximum ticks number.
     tick_text_font_size : Int
         A tick text font size.
     variable_name_suffix : str, optional
@@ -398,7 +403,7 @@ def _calculate_y_axis_ticks_num(
     Returns
     -------
     y_axis_ticks_num : Int
-        A y-axis ticks number.
+        Y-axis ticks number.
     """
     import apysc as ap
 
@@ -447,7 +452,7 @@ def _calculate_y_axis_height(
     Returns
     -------
     y_axis_height : Int
-        A calculate height.
+        Calculate height.
     """
     import apysc as ap
 
@@ -469,7 +474,7 @@ def _calculate_y_max_from_data(
     variable_name_suffix: str,
 ) -> Number:
     """
-    Get a y-axis maximum value from a specified data.
+    Get a maximum y-axis value from specified data.
 
     Parameters
     ----------
@@ -484,7 +489,7 @@ def _calculate_y_max_from_data(
     Returns
     -------
     y_max : Number
-        A y-axis maximum value.
+        A maximum y-axis value.
     """
     import apysc as ap
 
@@ -504,7 +509,7 @@ def _calculate_y_min_from_data(
     variable_name_suffix: str,
 ) -> Number:
     """
-    Get a y-axis minimum value from specified data.
+    Get a minimum y-axis value from specified data.
 
     Parameters
     ----------
@@ -519,7 +524,7 @@ def _calculate_y_min_from_data(
     Returns
     -------
     y_min : Number
-        A y-axis minimum value.
+        A minimum y-axis value.
     """
     import apysc as ap
 

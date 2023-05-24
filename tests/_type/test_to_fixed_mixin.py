@@ -10,9 +10,7 @@ class TestToFixedMixIn:
         num: ap.Number = ap.Number(10.789789)
         result_str: ap.String = num.to_fixed(digits=2)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{result_str.variable_name} = {num.variable_name}.toFixed("
-        )
+        expected: str = f"{result_str.variable_name} = {num.variable_name}.toFixed("
         assert expected in expression
         assert result_str == ap.String("10.79")
 

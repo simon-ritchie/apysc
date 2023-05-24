@@ -7,9 +7,9 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number_value_mixin import NumberValueMixIn
+from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.to_fixed_mixin import ToFixedMixIn
 
 
 class Int(

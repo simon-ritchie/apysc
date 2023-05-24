@@ -58,7 +58,6 @@ class ToFixedMixIn:
         >>> fixed_float_str = num.to_fixed(digits=0)
         >>> fixed_float_str
         String("11")
-
         """
         import apysc as ap
         from apysc._type.variable_name_mixin import VariableNameMixIn

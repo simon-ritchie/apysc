@@ -22,6 +22,7 @@ class ToFixedMixIn:
     @add_debug_info_setting(module_name=__name__)
     def to_fixed(
         self,
+        *,
         digits: Union[int, "Int"],
         variable_name_suffix: str = "",
     ) -> String:
@@ -40,6 +41,24 @@ class ToFixedMixIn:
         -------
         result_str : String
             A converted string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> num: ap.Number = ap.Number(10.789)
+        >>> fixed_float_str: ap.String = num.to_fixed(digits=2)
+        >>> fixed_float_str
+        String("10.79")
+
+        >>> fixed_float_str = num.to_fixed(digits=5)
+        >>> fixed_float_str
+        String("10.78900")
+
+        >>> fixed_float_str = num.to_fixed(digits=0)
+        >>> fixed_float_str
+        String("11")
+
         """
         import apysc as ap
         from apysc._type.variable_name_mixin import VariableNameMixIn

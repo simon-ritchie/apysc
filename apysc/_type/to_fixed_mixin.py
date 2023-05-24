@@ -32,7 +32,7 @@ class ToFixedMixIn:
         Parameters
         ----------
         digits : int or Int
-            A floating point digits number (0 to 100 value is acceptable).
+            A floating point digit number (0 to 100 value is acceptable).
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

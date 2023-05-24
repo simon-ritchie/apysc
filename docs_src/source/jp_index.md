@@ -74,6 +74,7 @@ jp_to_string
 jp_int_and_number
 jp_int_and_number_arithmetic_operations
 jp_int_and_number_comparison_operations
+jp_int_and_number_to_fixed
 ```
 
 ### String クラス

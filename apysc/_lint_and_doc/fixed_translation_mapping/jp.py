@@ -3899,5 +3899,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A created array.",
             val="  - 生成された配列。",
         ),
+        Mapping(
+            key="## to_fixed API",
+            val="## to_fixed API",
+        ),
+        Mapping(
+            key="Convert value to fixed floating point string notation.<hr>",
+            val="値を固定の小数点以下の桁数の文字列へと変換します。<hr>",
+        ),
+        Mapping(
+            key="  - A floating point digit number (0 to 100 value is acceptable).",
+            val="  - 浮動小数点数の桁数（0～100の範囲の値を受け付けることができます）。",
+        ),
     ]
 )

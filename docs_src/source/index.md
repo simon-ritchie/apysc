@@ -71,6 +71,7 @@ to_string
 int_and_number
 int_and_number_arithmetic_operations
 int_and_number_comparison_operations
+int_and_number_to_fixed
 ```
 
 ### String class

@@ -198,4 +198,5 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "get_bounds": "get_bounds",
     "RectangleGeom": "rectangle_geom",
     "to_string": "to_string",
+    "range": "range",
 }

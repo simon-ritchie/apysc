@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Int and Number classes to_fixed interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <script src="static/add_en_to_ja_link.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="String class" href="string.html" />
+    <link rel="prev" title="Int and Number basic comparison operations" href="int_and_number_comparison_operations.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="string.html" title="String class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="int_and_number_comparison_operations.html" title="Int and Number basic comparison operations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Int and Number classes to_fixed interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="int-and-number-classes-to-fixed-interface">
+<h1>Int and Number classes to_fixed interface<a class="headerlink" href="#int-and-number-classes-to-fixed-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes <code class="docutils literal notranslate"><span class="pre">to_fixed</span></code> method interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">to_fixed</span></code> method converts a number to a fixed floating-point string notation.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">to_fixed</span></code> method requires a <code class="docutils literal notranslate"><span class="pre">digits</span></code> argument.</p>
+<p>Its argument accepts between 0 to 100 range value.</p>
+<p>If you specify 0 to the <code class="docutils literal notranslate"><span class="pre">digits</span></code> argument, a result string becomes an integer string.</p>
+<p>Also, if you set 2 to the <code class="docutils literal notranslate"><span class="pre">digits</span></code> argument, a result string becomes a number with two decimal places string (e.g., 10.34).</p>
+<p>This interface reflects even rounding to a truncated floating-point number.</p>
+<p>For example, if a number is 10.678, and a <code class="docutils literal notranslate"><span class="pre">digits</span></code> argument is 2, a result string becomes 10.68.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
+<span class="n">num</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.789</span><span class="p">)</span>
+<span class="n">fixed_float_str</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">to_fixed</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">fixed_float_str</span><span class="p">,</span> <span class="s2">&quot;10.79&quot;</span><span class="p">)</span>
+
+<span class="n">fixed_float_str</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">to_fixed</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">fixed_float_str</span><span class="p">,</span> <span class="s2">&quot;10.78900&quot;</span><span class="p">)</span>
+
+<span class="n">fixed_float_str</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">to_fixed</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">fixed_float_str</span><span class="p">,</span> <span class="s2">&quot;11&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;to_fixed_basics_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/to_fixed_basics_usage/index.html" width="0" height="0"></iframe>
+</section>
+<section id="to-fixed-api">
+<h2>to_fixed API<a class="headerlink" href="#to-fixed-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.to_fixed_mixin.ToFixedMixIn.to_fixed -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">to_fixed(self,</span> <span class="pre">*,</span> <span class="pre">digits:</span> <span class="pre">Union[int,</span> <span class="pre">ForwardRef('Int')],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.string.String</span></code><hr></p>
+<p><strong>[Interface summary]</strong></p>
+<p>Convert value to fixed floating point string notation.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">digits</span></code>: int or Int</p>
+<ul>
+<li><p>A floating point digit number (0 to 100 value is acceptable).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
+<ul>
+<li><p>A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">result_str</span></code>: String</p>
+<ul>
+<li><p>A converted string.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.789</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fixed_float_str</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">to_fixed</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fixed_float_str</span>
+<span class="go">String(&quot;10.79&quot;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fixed_float_str</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">to_fixed</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fixed_float_str</span>
+<span class="go">String(&quot;10.78900&quot;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fixed_float_str</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">to_fixed</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fixed_float_str</span>
+<span class="go">String(&quot;11&quot;)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Int and Number classes to_fixed interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#to-fixed-api">to_fixed API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="int_and_number_comparison_operations.html"
+                        title="previous chapter">Int and Number basic comparison operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="string.html"
+                        title="next chapter">String class</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="string.html" title="String class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="int_and_number_comparison_operations.html" title="Int and Number basic comparison operations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Int and Number classes to_fixed interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

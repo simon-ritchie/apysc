@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -51,7 +51,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "### Int and Number classes": "### Int と Number クラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nint_and_number\nint_and_number_arithmetic_operations\nint_and_number_comparison_operations\n```": "```{toctree}\n:maxdepth: 1\njp_int_and_number\njp_int_and_number_arithmetic_operations\njp_int_and_number_comparison_operations\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nint_and_number\nint_and_number_arithmetic_operations\nint_and_number_comparison_operations\nint_and_number_to_fixed\n```": "```{toctree}\n:maxdepth: 1\njp_int_and_number\njp_int_and_number_arithmetic_operations\njp_int_and_number_comparison_operations\njp_int_and_number_to_fixed\n```",  # noqa
     ##################################################
     "### String class": "### String クラス",
     ##################################################

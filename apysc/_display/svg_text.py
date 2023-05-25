@@ -567,5 +567,6 @@ class SVGText(
             This interface returns a type name and variable name
             (e.g., `SVGText("<variable_name>")`).
         """
-        repr_str: str = f'{SVGText.__name__}("{self._variable_name}")'
+
+        repr_str: str = f'{SVGText.__name__}("{self.variable_name}")'
         return repr_str

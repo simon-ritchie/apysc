@@ -57,11 +57,10 @@ def main() -> None:
         border_color="#aaa",
         border_alpha=0.5,
         border_thickness=1,
-        variable_name_suffix="test_suffix",
     )
     ap.trace(chart._y_axis_ticks_y_coordinates)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 if __name__ == "__main__":

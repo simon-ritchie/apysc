@@ -110,21 +110,20 @@ class CreateSingleColumnYAxisMixIn:
             y_max=y_axis_settings._y_max,
             in_value_y_max=self._in_value_y_max,
         )
-        self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
-            y_axis_column_name=y_axis_settings._y_axis_column_name,
-            data=data,
-            y_axis_container=y_axis_container,
-            horizontal_padding=horizontal_padding,
-            y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
-            tick_text_fill_color=y_axis_settings._tick_text_fill_color,
-            tick_text_fill_alpha=y_axis_settings._tick_text_fill_alpha,
-            tick_text_font_size=y_axis_settings._tick_text_font_size,
-            tick_text_font_family=y_axis_settings._tick_text_font_family,
-            tick_text_bold=y_axis_settings._tick_text_bold,
-            tick_text_italic=y_axis_settings._tick_text_bold,
-            variable_name_suffix=variable_name_suffix,
-        )
-        y_axis_settings._y_min
+        # self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
+        #     y_axis_column_name=y_axis_settings._y_axis_column_name,
+        #     data=data,
+        #     y_axis_container=y_axis_container,
+        #     horizontal_padding=horizontal_padding,
+        #     y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
+        #     tick_text_fill_color=y_axis_settings._tick_text_fill_color,
+        #     tick_text_fill_alpha=y_axis_settings._tick_text_fill_alpha,
+        #     tick_text_font_size=y_axis_settings._tick_text_font_size,
+        #     tick_text_font_family=y_axis_settings._tick_text_font_family,
+        #     tick_text_bold=y_axis_settings._tick_text_bold,
+        #     tick_text_italic=y_axis_settings._tick_text_bold,
+        #     variable_name_suffix=variable_name_suffix,
+        # )
 
 
 def _calculate_y_axis_min(

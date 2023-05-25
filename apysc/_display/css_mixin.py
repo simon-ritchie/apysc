@@ -32,7 +32,7 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         self._css = {}
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def get_css(self, *, name: Union[str, String]) -> String:
         """
@@ -103,8 +103,8 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
-    @arg_validation_decos.is_string(arg_position_index=2)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def set_css(self, *, name: Union[str, String], value: Union[str, String]) -> None:
         """

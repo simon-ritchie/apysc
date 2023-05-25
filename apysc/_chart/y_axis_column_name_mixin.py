@@ -13,7 +13,7 @@ class YAxisColumnNameMixIn:
     _y_axis_column_name: str
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_y_axis_column_name(
         self,

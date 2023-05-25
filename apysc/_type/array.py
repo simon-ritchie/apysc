@@ -1164,7 +1164,7 @@ class Array(
         )
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def join(self, sep: Union[str, String]) -> String:
         """

@@ -129,7 +129,7 @@ class SVGTextSpan(
     """
 
     # text
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     # font_size
     @arg_validation_decos.is_integer(arg_position_index=2, optional=True)
     # font_family

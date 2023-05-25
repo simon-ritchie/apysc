@@ -67,7 +67,7 @@ class String(
     _initial_value: Union[str, "String"]
     _value: str
 
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -209,7 +209,7 @@ class String(
         return self._value
 
     @value.setter
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def value(self, value: Union[str, "String"]) -> None:
         """
@@ -249,7 +249,7 @@ class String(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __add__(self, other: Union[str, "String"]) -> "String":
         """
@@ -355,7 +355,7 @@ class String(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __iadd__(self, other: Union[str, "String"]) -> Any:
         """
@@ -560,7 +560,7 @@ class String(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __lt__(self, other: Union[str, Any]) -> Any:
         """
@@ -611,7 +611,7 @@ class String(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __le__(self, other: Union[str, Any]) -> Any:
         """
@@ -662,7 +662,7 @@ class String(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
@@ -713,7 +713,7 @@ class String(
         ap.append_js_expression(expression=expression)
 
     @final
-    @arg_validation_decos.is_string(arg_position_index=1)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __ge__(self, other: Union[str, Any]) -> Any:
         """

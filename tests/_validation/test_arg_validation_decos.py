@@ -464,16 +464,36 @@ def test_is_display_object_container() -> None:
 
 @apply_test_settings()
 def test_is_string() -> None:
-    @arg_validation_decos.is_string(arg_position_index=0)
-    def _test_func(*, a: Union[str, ap.String]) -> None:
-        ...
+    @arg_validation_decos.is_string(arg_position_index=0, optional=False)
+    def _test_func_1(*, a: Union[str, ap.String]) -> int:
+        return 50
 
-    _test_func(a="Hello!")
-    _test_func(a=ap.String("Hello!"))
-
+    result: int = _test_func_1(a="Hello!")
+    assert result == 50
+    _test_func_1(a=ap.String("Hello!"))
     assert_raises(
         expected_error_class=ValueError,
-        callable_=_test_func,
+        callable_=_test_func_1,
+        a=100,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        a=None,
+    )
+
+    @arg_validation_decos.is_string(arg_position_index=0, optional=True)
+    def _test_func_2(*, a: Optional[Union[str, ap.String]]) -> int:
+        return 60
+
+    result = _test_func_2(a="Hello!")
+    assert result == 60
+    _test_func_2(a=ap.String("Hello!"))
+    result = _test_func_2(a=None)
+    assert result == 60
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
         a=100,
     )
 

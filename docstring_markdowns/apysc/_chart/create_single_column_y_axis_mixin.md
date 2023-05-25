@@ -81,14 +81,14 @@ Calculate a y-axis min value.<hr>
 
 ## `_calculate_y_axis_ticks_num` function docstring
 
-Calculate a y-axis ticks number.<hr>
+Calculate y-axis ticks number.<hr>
 
 **[Parameters]**
 
 - `y_axis_height`: Int
   - A y-axis height.
 - `tick_max_num`: Optional[Int]
-  - A maximum tick number.
+  - A maximum ticks number.
 - `tick_text_font_size`: Int
   - A tick text font size.
 - `variable_name_suffix`: str, optional

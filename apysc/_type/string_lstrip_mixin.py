@@ -107,6 +107,10 @@ def _get_py_str_from_current_value(
     return py_str
 
 
+@arg_validation_decos.is_apysc_string(arg_position_index=0)
+@arg_validation_decos.is_string(arg_position_index=1, optional=False)
+@arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
+@arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
 def _create_string_not_none_case_expression(
     *,
     result_string: "String",

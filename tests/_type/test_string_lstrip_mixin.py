@@ -76,5 +76,32 @@ class TestLStripMixIn:
     @apply_test_settings()
     def test_lstrip(self) -> None:
         expression_data_util.empty_expression()
-        string: ap.String = ap.String("aabbcc")
-        pass
+        string: ap.String = ap.String("aabbccaa")
+        result: ap.String = string.lstrip(
+            string="a", variable_name_suffix="test_suffix_1"
+        )
+        assert "test_suffix_1" in result.variable_name
+        assert result == ap.String("bbccaa")
+        expression: str = expression_data_util.get_current_expression()
+        assert f"{string.variable_name}.replace(" in expression
+
+        expression_data_util.empty_expression()
+        replacing_string: ap.String = ap.String("a")
+        result = string.lstrip(
+            string=replacing_string, variable_name_suffix="test_suffix_2"
+        )
+        assert "test_suffix_2" in result.variable_name
+        assert result == ap.String("bbccaa")
+        expression = expression_data_util.get_current_expression()
+        assert (
+            f"{string.variable_name}.replace(new RegExp("
+            f'`^(${replacing_string.variable_name})+`), "");'
+        ) in expression
+
+        expression_data_util.empty_expression()
+        string: ap.String = ap.String("  　aabbccaa\n ")
+        result = string.lstrip(string=None, variable_name_suffix="test_suffix_3")
+        assert "test_suffix_3" in result.variable_name
+        assert result == ap.String("aabbccaa\n ")
+        expression = expression_data_util.get_current_expression()
+        assert f"{string.variable_name}.trimStart();"

@@ -1,20 +1,19 @@
 """The mix-in class implementation for the `lstrip` method.
 """
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Any, Optional
 from typing import Union
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._type.string import String
 
 
-class LStripMixIn:
+class StringLStripMixIn:
     @final
     @arg_validation_decos.is_apysc_string(arg_position_index=0)
     @arg_validation_decos.is_string(arg_position_index=1, optional=True)
@@ -61,11 +60,51 @@ class LStripMixIn:
                 self_variable_name=self_variable_name,
                 variable_name_suffix=variable_name_suffix,
             )
-        # if not isinstance(string, ap.String):
-        #     string_: ap.String = ap.String(string, )
-        # expression: str = (
-        #     # f"{result.variable_name} = {variable_name}.replace(new RegExp(`^(${{{string.variable_name}}})`))"
-        # )
+        ap.append_js_expression(expression=expression)
+        py_str: str = _get_py_str_from_current_value(
+            self_str=self,
+            removing_string=string,
+        )
+        result._value = py_str
+        return result
+
+
+@arg_validation_decos.is_apysc_string(arg_position_index=0)
+@arg_validation_decos.is_string(arg_position_index=1, optional=True)
+def _get_py_str_from_current_value(
+    *,
+    self_str: Any,
+    removing_string: Optional[Union[str, "String"]],
+) -> str:
+    """
+    Get a Pyhthon string from a current string value.
+
+    Parameters
+    ----------
+    self_str : Any
+        A self string.
+    removing_string : Optional[Union[str, String]]
+        A removing target string.
+
+    Returns
+    -------
+    py_str : str
+        A Python string.
+    """
+    import apysc as ap
+
+    py_str: str = ""
+    if isinstance(self_str, ap.String):
+        py_str = self_str._value
+    if removing_string is None:
+        py_str = py_str.lstrip()
+        return py_str
+    if isinstance(removing_string, ap.String):
+        py_str = py_str.lstrip(removing_string._value)
+        return py_str
+    if isinstance(removing_string, str):
+        py_str = py_str.lstrip(removing_string)
+    return py_str
 
 
 def _create_string_not_none_case_expression(

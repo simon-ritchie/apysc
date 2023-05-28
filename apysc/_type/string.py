@@ -17,10 +17,12 @@ from apysc._type.string_split_mixin import StringSplitMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.string_lstrip_mixin import StringLStripMixIn
 
 
 class String(
     StringSplitMixIn,
+    StringLStripMixIn,
     CopyMixIn,
     RevertMixIn,
     CustomEventMixIn,

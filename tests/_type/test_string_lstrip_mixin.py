@@ -1,11 +1,12 @@
 import re
-from typing import Optional, Match
+from typing import Match
+from typing import Optional
 
 import apysc as ap
-from apysc._expression import expression_data_util, var_names
-from apysc._type.string_lstrip_mixin import StringLStripMixIn
-from apysc._type import string_lstrip_mixin
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
+from apysc._type import string_lstrip_mixin
 
 
 @apply_test_settings()
@@ -15,9 +16,7 @@ def test__create_string_none_case_expression() -> None:
         result_string=result_string,
         self_variable_name="test_string",
     )
-    expected: str = (
-        f"{result_string.variable_name} = test_string.trimStart();"
-    )
+    expected: str = f"{result_string.variable_name} = test_string.trimStart();"
     assert expected in expression
 
 
@@ -99,7 +98,7 @@ class TestLStripMixIn:
         ) in expression
 
         expression_data_util.empty_expression()
-        string: ap.String = ap.String("  aabbccaa\n ")
+        string = ap.String("  aabbccaa\n ")
         result = string.lstrip(string=None, variable_name_suffix="test_suffix_3")
         assert "test_suffix_3" in result.variable_name
         assert result == ap.String("aabbccaa\n ")

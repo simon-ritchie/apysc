@@ -13,11 +13,11 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.revert_mixin import RevertMixIn
+from apysc._type.string_lstrip_mixin import StringLStripMixIn
 from apysc._type.string_split_mixin import StringSplitMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.string_lstrip_mixin import StringLStripMixIn
 
 
 class String(
@@ -842,7 +842,7 @@ def _escape_str_value(*, value: Union[str, "String"]) -> Union[str, "String"]:
 
     Notes
     -----
-    This function only applies escaping only when a specified value type
+    This function only applies to escape only when a specified value type
     is `str`.
 
     Parameters

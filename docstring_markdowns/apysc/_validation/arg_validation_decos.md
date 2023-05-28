@@ -844,6 +844,8 @@ Set a validation to check a specified argument's type is the str or `ap.String`.
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean, whether a target argument accepts optional None value or not.
 
 <hr>
 

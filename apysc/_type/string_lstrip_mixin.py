@@ -1,7 +1,9 @@
 """The mix-in class implementation for the `lstrip` method.
 """
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import Optional
 from typing import Union
 
 from typing_extensions import final
@@ -79,12 +81,12 @@ def _get_py_str_from_current_value(
     removing_string: Optional[Union[str, "String"]],
 ) -> str:
     """
-    Get a Pyhthon string from a current string value.
+    Get a Python string from a current string value.
 
     Parameters
     ----------
     self_str : Any
-        A self string.
+        A self-string.
     removing_string : Optional[Union[str, String]]
         A removing target string.
 
@@ -130,7 +132,7 @@ def _create_string_not_none_case_expression(
     removing_string : Union[str, &quot;String&quot;]
         A removing target string.
     self_variable_name : str
-        An instance's self variable name.
+        An instance's self-variable name.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
@@ -168,7 +170,7 @@ def _create_string_none_case_expression(
     result_string : String
         A result string.
     self_variable_name : str
-        An instance's self variable name.
+        An instance's self-variable name.
 
     Returns
     -------

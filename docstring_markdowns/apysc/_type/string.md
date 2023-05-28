@@ -4,6 +4,28 @@
 
 Class implementation for the string class.
 
+## `_escape_str_value` function docstring
+
+Escape a specified string value.<hr>
+
+**[Parameters]**
+
+- `value`: Union[str, "String"]
+  - A specified string value.
+
+<hr>
+
+**[Returns]**
+
+- `value`: Unjion[str, "String"]
+  - An escaped string value.
+
+<hr>
+
+**[Notes]**
+
+This function only applies to escape only when a specified value type is `str`.
+
 ## `String` class docstring
 
 String class for apysc library.<hr>

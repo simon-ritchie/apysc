@@ -34,7 +34,7 @@ def test__create_string_not_none_case_expression() -> None:
     match_: Optional[Match] = re.search(
         pattern=(
             rf"{result_string.variable_name} = test_mixin\.replace"
-            rf'\(new RegExp\(`\^\(\${var_names.STRING}\_.+?\)\+`\), ""\)\;'
+            rf'\(new RegExp\(`\^\(\${{{var_names.STRING}\_.+?}}\)\+`\), ""\)\;'
         ),
         string=expression,
         flags=re.MULTILINE,
@@ -51,7 +51,7 @@ def test__create_string_not_none_case_expression() -> None:
     )
     expected: str = (
         f"{result_string.variable_name} = test_mixin.replace"
-        f'(new RegExp(`^(${removing_string.variable_name})+`), "");'
+        f'(new RegExp(`^(${{{removing_string.variable_name}}})+`), "");'
     )
     assert expected in expresion
 
@@ -95,11 +95,11 @@ class TestLStripMixIn:
         expression = expression_data_util.get_current_expression()
         assert (
             f"{string.variable_name}.replace(new RegExp("
-            f'`^(${replacing_string.variable_name})+`), "");'
+            f'`^(${{{replacing_string.variable_name}}})+`), "");'
         ) in expression
 
         expression_data_util.empty_expression()
-        string: ap.String = ap.String("  　aabbccaa\n ")
+        string: ap.String = ap.String("  aabbccaa\n ")
         result = string.lstrip(string=None, variable_name_suffix="test_suffix_3")
         assert "test_suffix_3" in result.variable_name
         assert result == ap.String("aabbccaa\n ")

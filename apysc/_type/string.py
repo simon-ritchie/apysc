@@ -122,6 +122,7 @@ class String(
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 
         with TemporaryNotHandlerScope():
+            value = _escape_str_value(value=value)
             self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.STRING
             self._initial_value = value
@@ -833,3 +834,31 @@ class String(
             snapshot_dict=self._value_snapshots,
             snapshot_name=snapshot_name,
         )
+
+
+def _escape_str_value(*, value: Union[str, "String"]) -> Union[str, "String"]:
+    """
+    Escape a specified string value.
+
+    Notes
+    -----
+    This function only applies escaping only when a specified value type
+    is `str`.
+
+    Parameters
+    ----------
+    value : Union[str, "String"]
+        A specified string value.
+
+    Returns
+    -------
+    value : Unjion[str, "String"]
+        An escaped string value.
+    """
+    from apysc._string import string_util
+
+    if isinstance(value, str):
+        value = string_util.escape_str(string=value)
+        return value
+
+    return value

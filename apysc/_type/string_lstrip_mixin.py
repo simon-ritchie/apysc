@@ -22,7 +22,7 @@ class StringLStripMixIn:
     def lstrip(
         self,
         *,
-        string: Optional[Union[str, "String"]],
+        string: Optional[Union[str, "String"]] = None,
         variable_name_suffix: str = "",
     ) -> "String":
         """
@@ -30,8 +30,10 @@ class StringLStripMixIn:
 
         Parameters
         ----------
-        string : Optional[Union[str, "String"]]
+        string : Optional[Union[str, "String"]], optional
             A character or string to remove from the beginning of this value.
+            If this argument is `None` (default), this method removes
+            spaces and line breaks.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -148,7 +150,7 @@ def _create_string_not_none_case_expression(
         removing_string_ = removing_string
     expression: str = (
         f"{result_string.variable_name} = {self_variable_name}"
-        f'.replace(new RegExp(`^(${removing_string_.variable_name})+`), "");'
+        f'.replace(new RegExp(`^(${{{removing_string_.variable_name}}})+`), "");'
     )
     return expression
 

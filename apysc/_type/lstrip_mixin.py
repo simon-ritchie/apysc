@@ -1,0 +1,136 @@
+"""The mix-in class implementation for the `lstrip` method.
+"""
+
+from typing import TYPE_CHECKING, Optional
+from typing import Union
+
+from typing_extensions import final
+
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
+
+if TYPE_CHECKING:
+    from apysc._type.string import String
+
+
+class LStripMixIn:
+    @final
+    @arg_validation_decos.is_apysc_string(arg_position_index=0)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=True)
+    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
+    @add_debug_info_setting(module_name=__name__)
+    def lstrip(
+        self,
+        *,
+        string: Optional[Union[str, "String"]],
+        variable_name_suffix: str = "",
+    ) -> "String":
+        """
+        Remove a specified character or string from this value.
+
+        Parameters
+        ----------
+        string : Optional[Union[str, "String"]]
+            A character or string to remove from the beginning of this value.
+        variable_name_suffix : str, optional
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
+
+        Returns
+        -------
+        result : String
+            A stripped result string.
+        """
+        import apysc as ap
+        from apysc._type.variable_name_mixin import VariableNameMixIn
+
+        result: ap.String = ap.String("", variable_name_suffix=variable_name_suffix)
+        self_variable_name: str = ""
+        if isinstance(self, VariableNameMixIn):
+            self_variable_name = self.variable_name
+        if string is None:
+            expression: str = _create_string_none_case_expression(
+                result_string=result,
+                self_variable_name=self_variable_name,
+            )
+        else:
+            expression = _create_string_not_none_case_expression(
+                result_string=result,
+                removing_string=string,
+                self_variable_name=self_variable_name,
+                variable_name_suffix=variable_name_suffix,
+            )
+        # if not isinstance(string, ap.String):
+        #     string_: ap.String = ap.String(string, )
+        # expression: str = (
+        #     # f"{result.variable_name} = {variable_name}.replace(new RegExp(`^(${{{string.variable_name}}})`))"
+        # )
+
+
+def _create_string_not_none_case_expression(
+    *,
+    result_string: "String",
+    removing_string: Union[str, "String"],
+    self_variable_name: str,
+    variable_name_suffix: str,
+) -> str:
+    """
+    Create an expression for the string's not `None` case.
+
+    Parameters
+    ----------
+    result_string : String
+        A result string.
+    removing_string : Union[str, &quot;String&quot;]
+        A removing target string.
+    self_variable_name : str
+        An instance's self variable name.
+    variable_name_suffix : str
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    expression : str
+        A created expression.
+    """
+    import apysc as ap
+
+    if not isinstance(removing_string, ap.String):
+        removing_string_: ap.String = ap.String(
+            removing_string, variable_name_suffix=variable_name_suffix
+        )
+    else:
+        removing_string_ = removing_string
+    expression: str = (
+        f"{result_string.variable_name} = {self_variable_name}"
+        f'.replace(new RegExp(`^(${removing_string_.variable_name})+`), "");'
+    )
+    return expression
+
+
+def _create_string_none_case_expression(
+    *,
+    result_string: "String",
+    self_variable_name: str,
+) -> str:
+    """
+    Create an expression for the string's `None` case.
+
+    Parameters
+    ----------
+    result_string : String
+        A result string.
+    self_variable_name : str
+        An instance's self variable name.
+
+    Returns
+    -------
+    expression : str
+        A created expression.
+    """
+    expression: str = (
+        f"{result_string.variable_name} = {self_variable_name}.trimStart();"
+    )
+    return expression

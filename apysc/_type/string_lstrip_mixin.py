@@ -28,7 +28,7 @@ class StringLStripMixIn:
         variable_name_suffix: str = "",
     ) -> "String":
         """
-        Remove a specified character or string from this value.
+        Remove a specified character or string from the beginning of this value.
 
         Parameters
         ----------
@@ -157,6 +157,8 @@ def _create_string_not_none_case_expression(
     return expression
 
 
+@arg_validation_decos.is_apysc_string(arg_position_index=0)
+@arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
 def _create_string_none_case_expression(
     *,
     result_string: "String",

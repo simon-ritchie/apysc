@@ -63,7 +63,50 @@ class StringRstripMixIn:
                 self_variable_name=self_variable_name,
                 variable_name_suffix=variable_name_suffix,
             )
+        ap.append_js_expression(expression=expression)
+        py_str: str = _get_py_str_from_current_value(
+            self_str=self,
+            removing_string=string,
+        )
         pass
+
+
+@arg_validation_decos.is_apysc_string(arg_position_index=0)
+@arg_validation_decos.is_string(arg_position_index=1, optional=True)
+def _get_py_str_from_current_value(
+    *,
+    self_str: Any,
+    removing_string: Optional[Union[str, "String"]],
+) -> str:
+    """
+    Get a Python string from a current string value.
+
+    Parameters
+    ----------
+    self_str : Any
+        A self-string.
+    removing_string : Optional[Union[str, "String"]]
+        A removing target string.
+
+    Returns
+    -------
+    py_str : str
+        A Python string.
+    """
+    import apysc as ap
+
+    py_str: str = ""
+    if isinstance(self_str, ap.String):
+        py_str = self_str._value
+    if removing_string is None:
+        py_str = py_str.rstrip().rstrip("\\r\\n").rstrip("\\n").rstrip("\\r").rstrip("\\t").rstrip()
+        return py_str
+    if isinstance(removing_string, ap.String):
+        py_str = py_str.rstrip(removing_string._value)
+        return py_str
+    if isinstance(removing_string, str):
+        py_str = py_str.rstrip(removing_string)
+    return py_str
 
 
 @arg_validation_decos.is_apysc_string(arg_position_index=0)

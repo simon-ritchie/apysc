@@ -101,7 +101,7 @@ def _get_py_str_from_current_value(
     if isinstance(self_str, ap.String):
         py_str = self_str._value
     if removing_string is None:
-        py_str = py_str.lstrip()
+        py_str = py_str.lstrip().lstrip("\\r\\n").lstrip("\\n").lstrip("\\r").lstrip("\\t").lstrip()
         return py_str
     if isinstance(removing_string, ap.String):
         py_str = py_str.lstrip(removing_string._value)

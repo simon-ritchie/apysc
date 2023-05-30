@@ -153,7 +153,7 @@ def _create_string_not_none_case_expression(
     expression: str = (
         f"{result_string.variable_name} = {self_variable_name}"
         f'.replace(new RegExp(`^(${{{removing_string_.variable_name}}})+`), "");'
-        f"\n{result_string.variable_name} = {self_variable_name}"
+        f"\n{result_string.variable_name} = {result_string.variable_name}"
         f'.replace(new RegExp(`(${{{removing_string_.variable_name}}})+$`), "");'
     )
     return expression

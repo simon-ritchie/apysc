@@ -181,7 +181,5 @@ def _create_string_none_case_expression(
     expression : str
         A created expression.
     """
-    expresion: str = (
-        f"{result_string.variable_name} = {self_variable_name}.trim();"
-    )
+    expresion: str = f"{result_string.variable_name} = {self_variable_name}.trim();"
     return expresion

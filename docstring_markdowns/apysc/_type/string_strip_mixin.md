@@ -1,8 +1,8 @@
-# `apysc._type.string_lstrip_mixin` docstrings
+# `apysc._type.string_strip_mixin` docstrings
 
 ## Module summary
 
-The mix-in class implementation for the `lstrip` method.
+The mix-in class implementation for the `strip` method.
 
 ## `_create_string_none_case_expression` function docstring
 
@@ -30,7 +30,7 @@ Create an expression for the string's not `None` case.<hr>
 
 - `result_string`: String
   - A result string.
-- `removing_string`: Union[str, &quot;String&quot;]
+- `removing_string`: Union[str, "String"]
   - A removing target string.
 - `self_variable_name`: str
   - An instance's self-variable name.
@@ -52,7 +52,7 @@ Get a Python string from a current string value.<hr>
 
 - `self_str`: Any
   - A self-string.
-- `removing_string`: Optional[Union[str, String]]
+- `removing_string`: Optional[Union[str, "String"]]
   - A removing target string.
 
 <hr>
@@ -62,16 +62,16 @@ Get a Python string from a current string value.<hr>
 - `py_str`: str
   - A Python string.
 
-## `StringLStripMixIn` class docstring
+## `StringStripMixIn` class docstring
 
-### `lstrip` method docstring
+### `strip` method docstring
 
-Remove a specified character or string from the beginning of this value.<hr>
+Remove a specified character or string from left- and right-edges.<hr>
 
 **[Parameters]**
 
 - `string`: Optional[Union[str, "String"]], optional
-  - A character or string to remove from the beginning of this value. If this argument is `None` (default), this method removes spaces and line breaks.
+  - A character or string to remove from the beginning and end of the this value. If this argument is `None` (default), this method removes spaces and line breaks.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 

@@ -23,7 +23,7 @@ def test__create_string_none_case_expression() -> None:
     assert expected in expression
 
 
-# @apply_test_settings()
+@apply_test_settings()
 def test__create_string_not_none_case_expression() -> None:
     expression_data_util.empty_expression()
     result_string: ap.String = ap.String("aaabbbcccaaa")
@@ -69,3 +69,24 @@ def test__create_string_not_none_case_expression() -> None:
         f'.replace(new RegExp(`(${{{removing_string.variable_name}}})+$`), "");'
     )
     assert expected in expression
+
+
+@apply_test_settings()
+def test__get_py_str_from_current_value() -> None:
+    py_str: str = string_strip_mixin._get_py_str_from_current_value(
+        self_str=ap.String("  \n  aabbaa  "),
+        removing_string=None,
+    )
+    assert py_str == "aabbaa"
+
+    py_str = string_strip_mixin._get_py_str_from_current_value(
+        self_str=ap.String("aabbaa"),
+        removing_string=ap.String("a"),
+    )
+    assert py_str == "bb"
+
+    py_str = string_strip_mixin._get_py_str_from_current_value(
+        self_str=ap.String("aabbaa"),
+        removing_string="a",
+    )
+    assert py_str == "bb"

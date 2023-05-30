@@ -28,12 +28,11 @@ class StringStripMixIn:
         variable_name_suffix: str = "",
     ) -> "String":
         """
-        Remove a specified character or string from left- and right-edges
-        value.
+        Remove a specified character or string from left- and right-edges.
 
         Parameters
         ----------
-        string : Optional[Union[str, &quot;String&quot;]], optional
+        string : Optional[Union[str, "String"]], optional
             A character or string to remove from the beginning and end of the
             this value. If this argument is `None` (default), this method
             removes spaces and line breaks.
@@ -70,7 +69,8 @@ class StringStripMixIn:
             self_str=self,
             removing_string=string,
         )
-        pass
+        result._value = py_str
+        return result
 
 
 @arg_validation_decos.is_apysc_string(arg_position_index=0)

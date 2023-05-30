@@ -90,3 +90,24 @@ def test__get_py_str_from_current_value() -> None:
         removing_string="a",
     )
     assert py_str == "bb"
+
+
+class TestStringStripMixIn:
+    @apply_test_settings()
+    def test_strip(self) -> None:
+        expression_data_util.empty_expression()
+        string: ap.String = ap.String("  \n  aabbaa  \n   ")
+        result: ap.String = string.strip(variable_name_suffix="test_suffix_1")
+        assert result == ap.String("aabbaa")
+        assert "test_suffix_1" in result.variable_name
+        expression: str = expression_data_util.get_current_expression()
+        assert ".trim" in expression
+
+        expression_data_util.empty_expression()
+        string = ap.String("aabbaaa")
+        result = string.strip(string="a", variable_name_suffix="test_suffix_2")
+        assert result == ap.String("bb")
+        assert "test_suffix_2" in result.variable_name
+        expression = expression_data_util.get_current_expression()
+        assert ".replace(new RegExp(`^" in expression
+        assert ".replace(new RegExp(`(" in expression

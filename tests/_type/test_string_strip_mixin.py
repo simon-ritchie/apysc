@@ -65,7 +65,7 @@ def test__create_string_not_none_case_expression() -> None:
     )
     assert expected in expression
     expected = (
-        f"\n{result_string.variable_name} = test_variable_name"
+        f"\n{result_string.variable_name} = {result_string.variable_name}"
         f'.replace(new RegExp(`(${{{removing_string.variable_name}}})+$`), "");'
     )
     assert expected in expression

@@ -21,3 +21,38 @@ def test__create_string_none_case_expression() -> None:
         f"{result_string.variable_name} = test_variable_name.trimEnd();"
     )
     assert expected in expression
+
+
+@apply_test_settings()
+def test__create_string_not_none_case_expression() -> None:
+    expression_data_util.empty_expression()
+    result_string: ap.String = ap.String("aabbaa")
+    expression: str = string_rstrip_mixin._create_string_not_none_case_expression(
+        result_string=result_string,
+        removing_string="",
+        self_variable_name="test_mixin",
+        variable_name_suffix="test_suffix",
+    )
+    match_: Optional[Match] = re.search(
+        pattern=(
+            rf"{result_string.variable_name} = test_mixin"
+            rf'\.replace\(new RegExp\(`\(\${{{var_names.STRING}_.+?}}\)\+\$`\), ""\);'
+        ),
+        string=expression,
+        flags=re.MULTILINE,
+    )
+    assert match_ is not None
+
+    expression_data_util.empty_expression()
+    removing_string: ap.String = ap.String("a")
+    expression = string_rstrip_mixin._create_string_not_none_case_expression(
+        result_string=result_string,
+        removing_string=removing_string,
+        self_variable_name="test_mixin",
+        variable_name_suffix="test_suffix",
+    )
+    expected: str = (
+        f"{result_string.variable_name} = test_mixin"
+        f'.replace(new RegExp(`(${{{removing_string.variable_name}}})+$`), "");'
+    )
+    assert expected in expression

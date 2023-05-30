@@ -56,7 +56,60 @@ class StringRstripMixIn:
                 result_string=result,
                 self_variable_name=self_variable_name,
             )
+        else:
+            expression = _create_string_not_none_case_expression(
+                result_string=result,
+                removing_string=string,
+                self_variable_name=self_variable_name,
+                variable_name_suffix=variable_name_suffix,
+            )
         pass
+
+
+@arg_validation_decos.is_apysc_string(arg_position_index=0)
+@arg_validation_decos.is_string(arg_position_index=1, optional=False)
+@arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
+@arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
+def _create_string_not_none_case_expression(
+    *,
+    result_string: "String",
+    removing_string: Union[str, "String"],
+    self_variable_name: str,
+    variable_name_suffix: str,
+) -> str:
+    """
+    Create an expression for the string's not `None` case.
+
+    Parameters
+    ----------
+    result_string : String
+        A result string.
+    removing_string : Union[str, "String"]
+        A removing target string.
+    self_variable_name : str
+        An instance's self-variable name.
+    variable_name_suffix : str
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    expression : str
+        A created expression.
+    """
+    import apysc as ap
+
+    if not isinstance(removing_string, ap.String):
+        removing_string_: ap.String = ap.String(
+            removing_string, variable_name_suffix=variable_name_suffix
+        )
+    else:
+        removing_string_ = removing_string
+    expression: str = (
+        f"{result_string.variable_name} = {self_variable_name}"
+        f'.replace(new RegExp(`(${{{removing_string_.variable_name}}})+$`), "");'
+    )
+    return expression
 
 
 @arg_validation_decos.is_apysc_string(arg_position_index=0)

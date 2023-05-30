@@ -129,7 +129,7 @@ def _create_string_not_none_case_expression(
     ----------
     result_string : String
         A result string.
-    removing_string : Union[str, &quot;String&quot;]
+    removing_string : Union[str, "String"]
         A removing target string.
     self_variable_name : str
         An instance's self-variable name.

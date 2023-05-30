@@ -1,7 +1,7 @@
-"""The test project for the `StringLStripMixIn` class.
+"""The test project for the `StringStripMixIn` class.
 
 Command examples:
-$ python test_projects/StringLStripMixIn/main.py
+$ python test_projects/StringStripMixIn/main.py
 """
 
 import sys
@@ -31,17 +31,17 @@ def main() -> None:
         stage_height=900,
     )
 
-    string: ap.String = ap.String("  　　\naabbcc  ")
-    string = string.lstrip()
-    ap.assert_equal(string, "aabbcc  ")
+    string: ap.String = ap.String(" 　\n aabbcc \n　  ")
+    string = string.strip()
+    ap.assert_equal(string, "aabbcc")
 
     string = ap.String("aabbccaa")
-    string = string.lstrip(string="a")
-    ap.assert_equal(string, "bbccaa")
+    string = string.strip(string="a")
+    ap.assert_equal(string, "bbcc")
 
     string = ap.String("aabbccaa")
-    string = string.lstrip(string=ap.String("a"))
-    ap.assert_equal(string, "bbccaa")
+    string = string.strip(string=ap.String("a"))
+    ap.assert_equal(string, "bbcc")
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

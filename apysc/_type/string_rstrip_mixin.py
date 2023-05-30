@@ -15,11 +15,12 @@ if TYPE_CHECKING:
     from apysc._type.string import String
 
 
-class StringRstripMixIn:
+class StringRStripMixIn:
     @final
     @arg_validation_decos.is_apysc_string(arg_position_index=0)
     @arg_validation_decos.is_string(arg_position_index=1, optional=True)
     @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
+    @add_debug_info_setting(module_name=__name__)
     def rstrip(
         self,
         *,
@@ -68,7 +69,8 @@ class StringRstripMixIn:
             self_str=self,
             removing_string=string,
         )
-        pass
+        result._value = py_str
+        return result
 
 
 @arg_validation_decos.is_apysc_string(arg_position_index=0)

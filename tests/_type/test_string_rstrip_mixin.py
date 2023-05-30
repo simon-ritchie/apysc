@@ -58,7 +58,7 @@ def test__create_string_not_none_case_expression() -> None:
     assert expected in expression
 
 
-# @apply_test_settings()
+@apply_test_settings()
 def test__get_py_str_from_current_value() -> None:
     py_str: str = string_rstrip_mixin._get_py_str_from_current_value(
         self_str=ap.String("  \n aabbccaa  \n  "),
@@ -77,3 +77,34 @@ def test__get_py_str_from_current_value() -> None:
         removing_string=ap.String("a"),
     )
     assert py_str == "aabbcc"
+
+
+class TestStringRstripMixIn:
+    @apply_test_settings()
+    def test_rstrip(self) -> None:
+        expression_data_util.empty_expression()
+        string: ap.String = ap.String(" \n  aabbccaa  \n   ")
+        string = string.rstrip(variable_name_suffix="test_suffix_1")
+        assert string == ap.String(" \n  aabbccaa")
+        assert "test_suffix_1" in string.variable_name
+        expression: str = expression_data_util.get_current_expression()
+        assert ".trimEnd()" in expression
+
+        expression_data_util.empty_expression()
+        string = ap.String("aabbccaa")
+        string = string.rstrip(string="a", variable_name_suffix="test_suffix_2")
+        assert string == ap.String("aabbcc")
+        assert "test_suffix_2" in string.variable_name
+        expression = expression_data_util.get_current_expression()
+        assert ".replace(new RegExp(`($" in expression
+
+        expression_data_util.empty_expression()
+        string = ap.String("aabbccaa")
+        removing_string: ap.String = ap.String("a")
+        string = string.rstrip(
+            string=removing_string, variable_name_suffix="test_suffix_3"
+        )
+        assert string == ap.String("aabbcc")
+        assert "test_suffix_3" in string.variable_name
+        expression = expression_data_util.get_current_expression()
+        assert f".replace(new RegExp(`(${{{removing_string.variable_name}" in expression

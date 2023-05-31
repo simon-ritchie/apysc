@@ -17,9 +17,7 @@ def test__create_string_none_case_expression() -> None:
         result_string=result_string,
         self_variable_name="test_variable_name",
     )
-    expected: str = (
-        f"{result_string.variable_name} = test_variable_name.trimEnd();"
-    )
+    expected: str = f"{result_string.variable_name} = test_variable_name.trimEnd();"
     assert expected in expression
 
 

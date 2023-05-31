@@ -35,11 +35,11 @@ def main() -> None:
     string = string.rstrip()
     ap.assert_equal(string, " 　\n aabbccaa")
 
-    string: ap.String = ap.String("aabbccaa")
+    string = ap.String("aabbccaa")
     string = string.rstrip(string="a")
     ap.assert_equal(string, "aabbcc")
 
-    string: ap.String = ap.String("aabbccaa")
+    string = ap.String("aabbccaa")
     string = string.rstrip(string=ap.String("a"))
     ap.assert_equal(string, "aabbcc")
 

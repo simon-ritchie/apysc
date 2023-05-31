@@ -101,7 +101,14 @@ def _get_py_str_from_current_value(
     if isinstance(self_str, ap.String):
         py_str = self_str._value
     if removing_string is None:
-        py_str = py_str.rstrip().rstrip("\\r\\n").rstrip("\\n").rstrip("\\r").rstrip("\\t").rstrip()
+        py_str = (
+            py_str.rstrip()
+            .rstrip("\\r\\n")
+            .rstrip("\\n")
+            .rstrip("\\r")
+            .rstrip("\\t")
+            .rstrip()
+        )
         return py_str
     if isinstance(removing_string, ap.String):
         py_str = py_str.rstrip(removing_string._value)
@@ -179,7 +186,5 @@ def _create_string_none_case_expression(
     expression : str
         A created expression.
     """
-    expression: str = (
-        f"{result_string.variable_name} = {self_variable_name}.trimEnd();"
-    )
+    expression: str = f"{result_string.variable_name} = {self_variable_name}.trimEnd();"
     return expression

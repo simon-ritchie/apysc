@@ -932,8 +932,8 @@ def _get_left_and_right_strs(*, left: Any, right: Any) -> Tuple[str, str]:
         this interface wraps this right-side value by
         double quotation.
     """
-    from apysc._type import value_util
     from apysc._string import string_util
+    from apysc._type import value_util
 
     if isinstance(left, str):
         left = string_util.escape_str(string=left)

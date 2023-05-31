@@ -933,6 +933,12 @@ def _get_left_and_right_strs(*, left: Any, right: Any) -> Tuple[str, str]:
         double quotation.
     """
     from apysc._type import value_util
+    from apysc._string import string_util
+
+    if isinstance(left, str):
+        left = string_util.escape_str(string=left)
+    if isinstance(right, str):
+        right = string_util.escape_str(string=right)
 
     left_str: str = value_util.get_value_str_for_expression(value=left)
     right_str: str = value_util.get_value_str_for_expression(value=right)

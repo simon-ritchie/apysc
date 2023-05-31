@@ -118,6 +118,12 @@ def test__get_left_and_right_strs() -> None:
     assert left_str == '"Hello"'
     assert right_str == '"World!"'
 
+    left_str, right_str = assertion._get_left_and_right_strs(
+        left="a\nb", right="c\nd"
+    )
+    assert left_str == '"a\\nb"'
+    assert right_str == '"c\\nd"'
+
 
 @apply_test_settings()
 def test_assert_true() -> None:

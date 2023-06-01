@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "### String class": "### String クラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nstring_split\n```": "```{toctree}\n:maxdepth: 1\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_string_split\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nstring_split\nstring_lstrip\n```": "```{toctree}\n:maxdepth: 1\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_string_split\njp_string_lstrip\n```",  # noqa
     ##################################################
     "### Boolean class": "### Boolean クラス",
     ##################################################

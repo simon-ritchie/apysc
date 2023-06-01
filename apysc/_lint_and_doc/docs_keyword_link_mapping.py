@@ -199,4 +199,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "RectangleGeom": "rectangle_geom",
     "to_string": "to_string",
     "range": "range",
+    "lstrip": "string_lstrip",
+    "strip": "string_strip",
+    "rstrip": "string_rstrip",
 }

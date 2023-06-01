@@ -3911,5 +3911,21 @@ MAPPINGS: Mappings = Mappings(
             key="  - A floating point digit number (0 to 100 value is acceptable).",
             val="  - 浮動小数点数の桁数（0～100の範囲の値を受け付けることができます）。",
         ),
+        Mapping(
+            key="## lstrip API",
+            val="## lstrip API",
+        ),
+        Mapping(
+            key="Remove a specified character or string from the beginning of this value.<hr>",
+            val="この値の左端から指定された文字もしく文字列を取り除きます。<hr>",
+        ),
+        Mapping(
+            key="  - A character or string to remove from the beginning of this value. If this argument is `None` (default), this method removes spaces and line breaks.",
+            val="  - この値の左端から取り除く文字もしくは文字列。もしもこの引数がの値がNone（デフォルト）だった場合、このメソッドはスペースや改行などを取り除きます。",
+        ),
+        Mapping(
+            key="  - A stripped result string.",
+            val="  - 除外処理実行後の文字列。",
+        ),
     ]
 )

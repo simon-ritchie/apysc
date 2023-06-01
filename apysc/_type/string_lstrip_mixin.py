@@ -44,6 +44,20 @@ class StringLStripMixIn:
         -------
         result : String
             A stripped result string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> string: ap.String = ap.String("   aabbcc  ")
+        >>> string = string.lstrip()
+        >>> string
+        String("aabbcc  ")
+
+        >>> string = ap.String("aabbccaa")
+        >>> string = string.lstrip(string="a")
+        >>> string
+        String("bbccaa")
         """
         import apysc as ap
         from apysc._type.variable_name_mixin import VariableNameMixIn

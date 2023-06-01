@@ -81,3 +81,20 @@ Remove a specified character or string from the end of this value.<hr>
 
 - `result`: String
   - A stripped result string.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> string: ap.String = ap.String("  aabbcc   ")
+>>> string = string.rstrip()
+>>> string
+String("  aabbcc")
+
+>>> string = ap.String("aabbccaa")
+>>> string = string.rstrip(string="a")
+>>> string
+String("aabbcc")
+```

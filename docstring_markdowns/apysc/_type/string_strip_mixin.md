@@ -81,3 +81,20 @@ Remove a specified character or string from left- and right-edges.<hr>
 
 - `result`: String
   - A stripped result string.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> string: ap.String = ap.String("   aabbcc   ")
+>>> string = string.strip()
+>>> string
+String("aabbcc")
+
+>>> string = ap.String("aabbccaa")
+>>> string = string.strip(string="a")
+>>> string
+String("bbcc")
+```

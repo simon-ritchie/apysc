@@ -86,6 +86,7 @@ jp_string_comparison_operations
 jp_string_addition_and_multiplication
 jp_string_split
 jp_string_lstrip
+jp_string_strip
 ```
 
 ### Boolean クラス

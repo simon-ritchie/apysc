@@ -3927,5 +3927,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A stripped result string.",
             val="  - 除外処理実行後の文字列。",
         ),
+        Mapping(
+            key="## strip API",
+            val="## strip API",
+        ),
+        Mapping(
+            key="Remove a specified character or string from left- and right-edges.<hr>",
+            val="指定された文字もしくは文字列を左端と右端から取り除きます。<hr>",
+        ),
+        Mapping(
+            key="  - A character or string to remove from the beginning and end of the this value. If this argument is `None` (default), this method removes spaces and line breaks.",
+            val="  - この値の左端と右端から取り除く文字もしくは文字列。もし`None`（デフォルト値）が指定された場合、このメソッドはスペースや改行などを取り除きます。",
+        ),
     ]
 )

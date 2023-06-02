@@ -19,7 +19,7 @@ import apysc as ap
 ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
 
 string: ap.String = ap.String("  \n  aabbaa  ")
-string = string.lstrip()
+string = string.strip()
 ap.assert_equal(string, "aabbaa")
 
 ap.save_overall_html(dest_dir_path="string_strip_basic_usage_1/")

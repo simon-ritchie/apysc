@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>String class strip interface &#8212; apysc  documentation</title>
+    <title>String class rstrip interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -22,8 +22,8 @@
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="String class rstrip interface" href="string_rstrip.html" />
-    <link rel="prev" title="String class lstrip interface" href="string_lstrip.html" /> 
+    <link rel="next" title="Boolean class" href="boolean.html" />
+    <link rel="prev" title="String class strip interface" href="string_strip.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -32,13 +32,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="string_rstrip.html" title="String class rstrip interface"
+          <a href="boolean.html" title="Boolean class"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="string_lstrip.html" title="String class lstrip interface"
+          <a href="string_strip.html" title="String class strip interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String class strip interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String class rstrip interface</a></li> 
       </ul>
     </div>  
 
@@ -47,57 +47,57 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="string-class-strip-interface">
-<h1>String class strip interface<a class="headerlink" href="#string-class-strip-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">String</span></code> class <code class="docutils literal notranslate"><span class="pre">strip</span></code> method interface.</p>
+  <section id="string-class-rstrip-interface">
+<h1>String class rstrip interface<a class="headerlink" href="#string-class-rstrip-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">String</span></code> class <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">strip</span></code> method interface removes whitespaces or specified character(s) from a string’s beginning and end edges.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> method interface removes whitespaces or a specified character(s) from a string’s right edge.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">strip</span></code> method accepts the optional <code class="docutils literal notranslate"><span class="pre">string</span></code> argument.</p>
-<p>If you skip this argument, this interface removes whitespaces (and line breaks) from a string’s beginning and end edges.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> accepts the optional <code class="docutils literal notranslate"><span class="pre">string</span></code> argument.</p>
+<p>If you skip this argument, this interface removes whitespaces (and line breaks) from a string’s right edge.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
 
-<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">  aabbaa  &quot;</span><span class="p">)</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;aabbaa&quot;</span><span class="p">)</span>
+<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;  aabbccaa  </span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;  aabbccaa&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_strip_basic_usage_1/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_rstrip_basic_usage_1/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/string_strip_basic_usage_1/index.html" width="0" height="0"></iframe>
-<p>Also, if you specify any value to the <code class="docutils literal notranslate"><span class="pre">string</span></code> argument, this interface removes its character(s) from a string’s beginning and end edges.</p>
+<iframe src="static/string_rstrip_basic_usage_1/index.html" width="0" height="0"></iframe>
+<p>Also, if you specify any value to the <code class="docutils literal notranslate"><span class="pre">string</span></code> argument, this interface removes its character(s) from a string’s right edge.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
 
 <span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;aabbccaa&quot;</span><span class="p">)</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;bbcc&quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;aabbcc&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_strip_basic_usage_2/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_rstrip_basic_usage_2/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/string_strip_basic_usage_2/index.html" width="0" height="0"></iframe>
+<iframe src="static/string_rstrip_basic_usage_2/index.html" width="0" height="0"></iframe>
 </section>
-<section id="strip-api">
-<h2>strip API<a class="headerlink" href="#strip-api" title="Permalink to this headline">¶</a></h2>
-<!-- Docstring: apysc._type.string_strip_mixin.StringStripMixIn.strip -->
+<section id="rstrip-api">
+<h2>rstrip API<a class="headerlink" href="#rstrip-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.string_rstrip_mixin.StringRStripMixIn.rstrip -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">strip(self,</span> <span class="pre">*,</span> <span class="pre">string:</span> <span class="pre">Union[str,</span> <span class="pre">ForwardRef('String'),</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">rstrip(self,</span> <span class="pre">*,</span> <span class="pre">string:</span> <span class="pre">Union[str,</span> <span class="pre">ForwardRef('String'),</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
-<p>Remove a specified character or string from left- and right-edges.<hr></p>
+<p>Remove a specified character or string from the end of this value.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: Optional[Union[str, “String”]], optional</p>
 <ul>
-<li><p>A character or string to remove from the beginning and end of the this value. If this argument is <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), this method removes spaces and line breaks.</p></li>
+<li><p>A character or string to remove from the end of this value. If this argument is <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), this method removes spaces and line breaks.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
@@ -118,15 +118,15 @@
 <hr>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;   aabbcc   &quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;  aabbcc   &quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
-<span class="go">String(&quot;aabbcc&quot;)</span>
+<span class="go">String(&quot;  aabbcc&quot;)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;aabbccaa&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
-<span class="go">String(&quot;bbcc&quot;)</span>
+<span class="go">String(&quot;aabbcc&quot;)</span>
 </pre></div>
 </div>
 </section>
@@ -144,20 +144,20 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">String class strip interface</a><ul>
+<li><a class="reference internal" href="#">String class rstrip interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#strip-api">strip API</a></li>
+<li><a class="reference internal" href="#rstrip-api">rstrip API</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="string_lstrip.html"
-                        title="previous chapter">String class lstrip interface</a></p>
+  <p class="topless"><a href="string_strip.html"
+                        title="previous chapter">String class strip interface</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="string_rstrip.html"
-                        title="next chapter">String class rstrip interface</a></p>
+  <p class="topless"><a href="boolean.html"
+                        title="next chapter">Boolean class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -179,13 +179,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="string_rstrip.html" title="String class rstrip interface"
+          <a href="boolean.html" title="Boolean class"
              >next</a> |</li>
         <li class="right" >
-          <a href="string_lstrip.html" title="String class lstrip interface"
+          <a href="string_strip.html" title="String class strip interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String class strip interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String class rstrip interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

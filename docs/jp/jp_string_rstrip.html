@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>String クラスの strip インターフェイス &#8212; apysc  documentation</title>
+    <title>String クラスの rstrip インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -21,8 +21,8 @@
     <script src="static/keyword_link_mapping.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="String クラスの rstrip インターフェイス" href="jp_string_rstrip.html" />
-    <link rel="prev" title="String クラスの lstrip インターフェイス" href="jp_string_lstrip.html" /> 
+    <link rel="next" title="Boolean クラス" href="jp_boolean.html" />
+    <link rel="prev" title="String クラスの strip インターフェイス" href="jp_string_strip.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_string_rstrip.html" title="String クラスの rstrip インターフェイス"
+          <a href="jp_boolean.html" title="Boolean クラス"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="jp_string_lstrip.html" title="String クラスの lstrip インターフェイス"
+          <a href="jp_string_strip.html" title="String クラスの strip インターフェイス"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String クラスの strip インターフェイス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String クラスの rstrip インターフェイス</a></li> 
       </ul>
     </div>  
 
@@ -46,58 +46,58 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/string_strip.html">英語の原文</a>の確認をお願いします。</span></p>
-<section id="string-strip">
-<h1>String クラスの strip インターフェイス<a class="headerlink" href="#string-strip" title="Permalink to this headline">¶</a></h1>
-<p>このページでは<code class="docutils literal notranslate"><span class="pre">String</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">strip</span></code>メソッドのインターフェイスについて説明します。</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/string_rstrip.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="string-rstrip">
+<h1>String クラスの rstrip インターフェイス<a class="headerlink" href="#string-rstrip" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">String</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">rstrip</span></code>メソッドインターフェイスについて説明します。</p>
 <section id="id1">
 <h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">strip</span></code>メソッドのインターフェイスは文字列の左端と右端から空白文字もしくは指定された文字（文字列）を取り除きます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">rstrip</span></code>メソッドのインターフェイスは文字列の右端から空白文字もしくは指定された文字（または文字列）を取り除きます。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">strip</span></code>メソッドは省略可能な<code class="docutils literal notranslate"><span class="pre">string</span></code>引数を受け付けます。</p>
-<p>もしもこの引数の指定を省略した場合、このインターフェイスは文字列の左端と右端からスペースや改行などを取り除きます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">rstrip</span></code>メソッドは省略可能な<code class="docutils literal notranslate"><span class="pre">string</span></code>引数を受け付けます。</p>
+<p>もしこの引数の指定を省略した場合、文字列の右端から空白文字や改行などを取り除きます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
 
-<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;  </span>
-  <span class="n">aabbaa</span>  <span class="s2">&quot;)</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;aabbaa&quot;</span><span class="p">)</span>
+<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;  aabbccaa  </span>
+ <span class="s2">&quot;)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;  aabbccaa&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_strip_basic_usage_1/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_rstrip_basic_usage_1/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/string_strip_basic_usage_1/index.html" width="0" height="0"></iframe>
-<p>また、もし<code class="docutils literal notranslate"><span class="pre">string</span></code>引数に何らかの値を指定した場合、このインターフェイスは文字列の左端と右端から指定された文字（もしくは文字列）を取り除きます。</p>
+<iframe src="static/string_rstrip_basic_usage_1/index.html" width="0" height="0"></iframe>
+<p>また、もし<code class="docutils literal notranslate"><span class="pre">string</span></code>引数に何らかの値を指定した場合、このインターフェイスは文字列の右端から指定された文字もしくは文字列を取り除きます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
 
 <span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;aabbccaa&quot;</span><span class="p">)</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;bbcc&quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;aabbcc&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_strip_basic_usage_2/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_rstrip_basic_usage_2/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/string_strip_basic_usage_2/index.html" width="0" height="0"></iframe>
+<iframe src="static/string_rstrip_basic_usage_2/index.html" width="0" height="0"></iframe>
 </section>
-<section id="strip-api">
-<h2>strip API<a class="headerlink" href="#strip-api" title="Permalink to this headline">¶</a></h2>
+<section id="rstrip-api">
+<h2>rstrip API<a class="headerlink" href="#rstrip-api" title="Permalink to this headline">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">strip(self,</span> <span class="pre">*,</span> <span class="pre">string:</span> <span class="pre">Union[str,</span> <span class="pre">ForwardRef('String'),</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">rstrip(self,</span> <span class="pre">*,</span> <span class="pre">string:</span> <span class="pre">Union[str,</span> <span class="pre">ForwardRef('String'),</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
-<p>指定された文字もしくは文字列を左端と右端から取り除きます。<hr></p>
+<p>この値の右端から指定された文字もしくは文字列を取り除きます。<hr></p>
 <p><strong>[引数]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: Optional[Union[str, “String”]], optional</p>
 <ul>
-<li><p>この値の左端と右端から取り除く文字もしくは文字列。もし<code class="docutils literal notranslate"><span class="pre">None</span></code>（デフォルト値）が指定された場合、このメソッドはスペースや改行などを取り除きます。</p></li>
+<li><p>この値の右端から取り除く文字もしくは文字列。もしこの引数に<code class="docutils literal notranslate"><span class="pre">None</span></code>（デフォルト値）を指定した場合、このメソッドはスペースや改行などを取り除きます。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
@@ -118,15 +118,15 @@
 <hr>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;   aabbcc   &quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;  aabbcc   &quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
-<span class="go">String(&quot;aabbcc&quot;)</span>
+<span class="go">String(&quot;  aabbcc&quot;)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;aabbccaa&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
-<span class="go">String(&quot;bbcc&quot;)</span>
+<span class="go">String(&quot;aabbcc&quot;)</span>
 </pre></div>
 </div>
 </section>
@@ -144,20 +144,20 @@
             </a></p>
   <h3><a href="jp_index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">String クラスの strip インターフェイス</a><ul>
+<li><a class="reference internal" href="#">String クラスの rstrip インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
-<li><a class="reference internal" href="#strip-api">strip API</a></li>
+<li><a class="reference internal" href="#rstrip-api">rstrip API</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_string_lstrip.html"
-                        title="previous chapter">String クラスの lstrip インターフェイス</a></p>
+  <p class="topless"><a href="jp_string_strip.html"
+                        title="previous chapter">String クラスの strip インターフェイス</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="jp_string_rstrip.html"
-                        title="next chapter">String クラスの rstrip インターフェイス</a></p>
+  <p class="topless"><a href="jp_boolean.html"
+                        title="next chapter">Boolean クラス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -179,13 +179,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_string_rstrip.html" title="String クラスの rstrip インターフェイス"
+          <a href="jp_boolean.html" title="Boolean クラス"
              >next</a> |</li>
         <li class="right" >
-          <a href="jp_string_lstrip.html" title="String クラスの lstrip インターフェイス"
+          <a href="jp_string_strip.html" title="String クラスの strip インターフェイス"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String クラスの strip インターフェイス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String クラスの rstrip インターフェイス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

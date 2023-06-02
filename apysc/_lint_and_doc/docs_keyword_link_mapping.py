@@ -201,4 +201,5 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "range": "range",
     "lstrip": "string_lstrip",
     "strip": "string_strip",
+    "rstrip": "string_rstrip",
 }

@@ -3939,5 +3939,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A character or string to remove from the beginning and end of the this value. If this argument is `None` (default), this method removes spaces and line breaks.",
             val="  - この値の左端と右端から取り除く文字もしくは文字列。もし`None`（デフォルト値）が指定された場合、このメソッドはスペースや改行などを取り除きます。",
         ),
+        Mapping(
+            key="## rstrip API",
+            val="## rstrip API",
+        ),
+        Mapping(
+            key="Remove a specified character or string from the end of this value.<hr>",
+            val="この値の右端から指定された文字もしくは文字列を取り除きます。<hr>",
+        ),
+        Mapping(
+            key="  - A character or string to remove from the end of this value. If this argument is `None` (default), this method removes spaces and line breaks.",
+            val="  - この値の右端から取り除く文字もしくは文字列。もしこの引数に`None`（デフォルト値）を指定した場合、このメソッドはスペースや改行などを取り除きます。",
+        ),
     ]
 )

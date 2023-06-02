@@ -84,6 +84,7 @@ string_addition_and_multiplication
 string_split
 string_lstrip
 string_strip
+string_rstrip
 ```
 
 ### Boolean class

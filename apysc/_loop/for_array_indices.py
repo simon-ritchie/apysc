@@ -80,7 +80,7 @@ class ForArrayIndices(Generic[_ArrValue]):
     @add_debug_info_setting(module_name=__name__)
     def __enter__(self) -> Int:
         """
-        The entering method for the with-statement.
+        The entering method for the beginning of with-statement.
 
         Returns
         -------
@@ -97,7 +97,8 @@ class ForArrayIndices(Generic[_ArrValue]):
         )
         i: Int = ap.Int(0, variable_name_suffix=self._variable_name_suffix)
         self._append_enter_expression(i=i)
-        pass
+        self._indent.__enter__()
+        return i
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -118,3 +119,25 @@ class ForArrayIndices(Generic[_ArrValue]):
             f"for ({i_name} = 0; {i_name} < {arr_name}.length; {i_name}++) {{"
         )
         ap.append_js_expression(expression=expression)
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def __exit__(self, *args: Any) -> None:
+        """
+        The exiting method for the beginning of with-statement.
+        """
+        import apysc as ap
+        from apysc._expression import last_scope
+        from apysc._expression.last_scope import LastScope
+        from apysc._loop import loop_count
+        from apysc._type import revert_mixin
+
+        loop_count.decrement_current_loop_count()
+        revert_mixin.revert_each_scope_vars(
+            snapshot_name=self._snapshot_name,
+            locals_=self._locals,
+            globals_=self._globals,
+        )
+        self._indent.__exit__()
+        ap.append_js_expression(expression="}")
+        last_scope.set_last_scope(value=LastScope.FOR_ARRAY_INDICES)

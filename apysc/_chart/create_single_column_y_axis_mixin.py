@@ -170,7 +170,8 @@ def _create_y_axis_texts_values(
     i: Int
     with ap.For(range_arr) as i:
         tick_value: Union[Int, Number] = y_axis_min + i * interval
-        y_axis_text_values.append(tick_value)
+        value_text: String = cast(Union[Int, Number], tick_value).to_string()
+        y_axis_text_values.append(value_text)
     return y_axis_text_values
 
 

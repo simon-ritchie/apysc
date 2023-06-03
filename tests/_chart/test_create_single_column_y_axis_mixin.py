@@ -247,4 +247,16 @@ def test__apply_x_coordinate_to_y_axis_ticks_texts() -> None:
 
 @apply_test_settings()
 def test__create_y_axis_texts_values() -> None:
-    pass
+    expression_data_util.empty_expression()
+    y_axis_text_values: ap.Array[
+        ap.String
+    ] = create_single_column_y_axis_mixin._create_y_axis_texts_values(
+        y_axis_min=ap.Number(0),
+        y_axis_max=ap.Number(100),
+        ticks_num=ap.Int(5),
+        variable_name_suffix="test_suffix",
+    )
+    assert isinstance(y_axis_text_values[0], ap.String)
+    expression: str = expression_data_util.get_current_expression()
+    assert "for (" in expression
+    assert "test_suffix" in y_axis_text_values.variable_name

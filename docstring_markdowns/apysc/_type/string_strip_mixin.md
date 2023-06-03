@@ -98,3 +98,9 @@ String("aabbcc")
 >>> string
 String("bbcc")
 ```
+
+<hr>
+
+**[References]**
+
+- [String class strip interface](https://simon-ritchie.github.io/apysc/en/string_strip.html)

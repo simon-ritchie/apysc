@@ -98,3 +98,9 @@ String("aabbcc  ")
 >>> string
 String("bbccaa")
 ```
+
+<hr>
+
+**[References]**
+
+- [String class lstrip interface](https://simon-ritchie.github.io/apysc/en/string_lstrip.html)

@@ -98,3 +98,9 @@ String("  aabbcc")
 >>> string
 String("aabbcc")
 ```
+
+<hr>
+
+**[References]**
+
+- [String class rstrip interface](https://simon-ritchie.github.io/apysc/en/string_rstrip.html)

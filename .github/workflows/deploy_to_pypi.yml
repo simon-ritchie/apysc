@@ -187,8 +187,8 @@ jobs:
       - name: Run the test runner command
         uses: nick-fields/retry@v2
         with:
-          timeout_seconds: 240
-          max_attempts: 5
+          timeout_seconds: 480
+          max_attempts: 3
           command: python ./scripts/run_tests_and_save_coverage_and_num.py
       - name: Set the environment variables from .env file
         uses: c-py/action-dotenv-to-setenv@v3

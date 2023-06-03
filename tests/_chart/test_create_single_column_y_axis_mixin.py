@@ -243,3 +243,8 @@ def test__apply_x_coordinate_to_y_axis_ticks_texts() -> None:
         in_value_y_min=ap.Number(20.5),
     )
     assert y_axis_min == ap.Number(20.5)
+
+
+@apply_test_settings()
+def test__create_y_axis_texts_values() -> None:
+    pass

@@ -110,6 +110,12 @@ class CreateSingleColumnYAxisMixIn:
             y_max=y_axis_settings._y_max,
             in_value_y_max=self._in_value_y_max,
         )
+        self._y_axis_texts_values = _create_y_axis_texts_values(
+            y_axis_min=self._y_axis_min,
+            y_axis_max=self._y_axis_max,
+            ticks_num=self._y_axis_ticks_y_coordinates.length,
+            variable_name_suffix=variable_name_suffix,
+        )
         # self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
         #     y_axis_column_name=y_axis_settings._y_axis_column_name,
         #     data=data,
@@ -124,6 +130,48 @@ class CreateSingleColumnYAxisMixIn:
         #     tick_text_italic=y_axis_settings._tick_text_bold,
         #     variable_name_suffix=variable_name_suffix,
         # )
+
+
+def _create_y_axis_texts_values(
+    *,
+    y_axis_min: Number,
+    y_axis_max: Number,
+    ticks_num: Int,
+    variable_name_suffix: str,
+) -> Array[String]:
+    """
+    Create y-axis texts values.
+
+    Parameters
+    ----------
+    y_axis_min : Number
+        A y-axis min value.
+    y_axis_max : Number
+        A y-axis max value.
+    ticks_num : Int
+        A ticks number.
+    variable_name_suffix : str
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    y_axis_text_values : Array[String]
+        A created y-axis texts values.
+    """
+    import apysc as ap
+
+    diff: Number = y_axis_max - y_axis_min
+    interval: Number = diff / (ticks_num - 1)
+    y_axis_text_values: Array[String] = Array(
+        [], variable_name_suffix=variable_name_suffix
+    )
+    range_arr: Array[Int] = ap.range(ticks_num)
+    i: Int
+    with ap.For(range_arr) as i:
+        tick_value: Union[Int, Number] = y_axis_min + i * interval
+        y_axis_text_values.append(tick_value)
+    return y_axis_text_values
 
 
 def _calculate_y_axis_min(

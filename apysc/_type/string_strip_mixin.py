@@ -45,6 +45,11 @@ class StringStripMixIn:
         result : String
             A stripped result string.
 
+        References
+        ----------
+        - String class strip interface
+            - https://simon-ritchie.github.io/apysc/en/string_strip.html
+
         Examples
         --------
         >>> import apysc as ap

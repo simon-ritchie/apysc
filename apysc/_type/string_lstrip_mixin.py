@@ -45,6 +45,11 @@ class StringLStripMixIn:
         result : String
             A stripped result string.
 
+        References
+        ----------
+        - String class lstrip interface
+            - https://simon-ritchie.github.io/apysc/en/string_lstrip.html
+
         Examples
         --------
         >>> import apysc as ap

@@ -1516,3 +1516,20 @@ def test_is_apysc_int_or_number() -> None:
         callable_=_test_func_1,
         int_or_number=100,
     )
+
+
+@apply_test_settings()
+def test_is_apysc_array() -> None:
+    @arg_validation_decos.is_apysc_array(arg_position_index=0)
+    def _test_func_1(*, array: ap.Array[int]) -> int:
+        return 310
+
+    result: int = _test_func_1(array=ap.Array([1, 2, 3]))
+    assert result == 310
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        match="A specified argument is not an `ap.Array` instance: ",
+        array=10,
+    )

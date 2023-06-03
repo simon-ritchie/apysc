@@ -159,7 +159,10 @@ Mainly the following decorators exist.
         is a valid millisecond integer (0-999).
 - is_apysc_datetime
     - Set a validation to check a specified argument's type
-        is an apysc's `DateTime` type.
+        is the apysc's `DateTime` type.
+- is_apysc_array
+    - Set a validation to check a specified argument's type
+        is the `ap.Array`
 - is_nums_array
     - Set a validation to check a specified `Array`'s values
         are all number-relate type.
@@ -2743,7 +2746,7 @@ def is_millisecond_int(*, arg_position_index: int) -> _Callable:
 def is_apysc_datetime(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check a specified argument's type
-    is an apysc's `DateTime` type.
+    is the apysc's `DateTime` type.
 
     Parameters
     ----------
@@ -2777,6 +2780,50 @@ def is_apysc_datetime(*, arg_position_index: int) -> _Callable:
                     f"\n{callable_and_arg_names_msg}"
                 )
 
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_apysc_array(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is the `ap.Array`
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            arr: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+
+            if not isinstance(arr, ap.Array):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "A specified argument is not "
+                    f"an `ap.Array` instance: {type(arr)}, {arr}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

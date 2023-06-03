@@ -23,7 +23,7 @@ _Target = TypeVar("_Target", Int, String, Number)
 
 class For(Generic[_Target]):
     """
-    A class to append for the (loop) expression.
+    The class to append for the (loop) expression.
 
     References
     ----------
@@ -55,7 +55,7 @@ class For(Generic[_Target]):
         globals_: Optional[Dict[str, Any]] = None,
     ) -> None:
         """
-        A class to append for the (loop) expression.
+        The class to append for the (loop) expression.
 
         Parameters
         ----------

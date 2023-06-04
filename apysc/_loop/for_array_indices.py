@@ -65,6 +65,19 @@ class ForArrayIndices(Generic[_ArrValue]):
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> arr: ap.Array[ap.Number] = ap.Array(
+        ...     [ap.Number(50), ap.Number(150), ap.Number(250)]
+        ... )
+        >>> indices: ap.Array[ap.Int] = ap.Array([])
+        >>> with ap.ForArrayIndices(arr=arr) as i:
+        ...     indices.append(i)
+
+        >>> _ = ap.assert_arrays_equal(indices, [0, 1, 2])
         """
         if locals_ is None:
             locals_ = {}

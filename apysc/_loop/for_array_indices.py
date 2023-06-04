@@ -88,6 +88,15 @@ class ForArrayIndices(Generic[_ArrValue]):
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
+        References
+        ----------
+        - ForArrayIndices class
+            - https://simon-ritchie.github.io/apysc/en/for_array_indices.html
+        - Why the apysc library doesn’t use the Python built-in data type
+            - https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html  # nowa
+        - Each branch instruction class’s scope variable reverting setting
+            - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # nowa
+
         Examples
         --------
         >>> import apysc as ap

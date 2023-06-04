@@ -82,7 +82,7 @@ ap.save_overall_html(dest_dir_path="for_basic_usage_with_dict/")
 
 **[Interface summary]**
 
-A class to append for the (loop) expression.<hr>
+The class to append for the (loop) expression.<hr>
 
 **[Parameters]**
 

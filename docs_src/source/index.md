@@ -262,11 +262,12 @@ return
 ```{toctree}
 :maxdepth: 1
 for
+for_array_indices
 continue
 range
 ```
 
-## Timer and enter frame
+## Timer and enter-frame
 
 <br><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe>
 

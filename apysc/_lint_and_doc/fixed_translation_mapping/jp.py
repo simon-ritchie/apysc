@@ -3951,5 +3951,41 @@ MAPPINGS: Mappings = Mappings(
             key="  - A character or string to remove from the end of this value. If this argument is `None` (default), this method removes spaces and line breaks.",
             val="  - この値の右端から取り除く文字もしくは文字列。もしこの引数に`None`（デフォルト値）を指定した場合、このメソッドはスペースや改行などを取り除きます。",
         ),
+        Mapping(
+            key="Before reading on, maybe it is helpful to read the following page (the apysc uses this class for the same reason for each data type):",
+            val="事前に以下のページを読んでおくと役立つかもしれません（apyscライブラリではこのクラスを各データ型と同じように扱っています）。",
+        ),
+        Mapping(
+            key="This class requires using the `with`-statement.",
+            val="このクラスは`with`ステートメントと共に使う必要があります。",
+        ),
+        Mapping(
+            key="  - Notes: This class also has the same arguments and behaves in the same way.",
+            val="  - 特記事項 : このクラスは同じ引数を持ち同様の振る舞いをします。",
+        ),
+        Mapping(
+            key="## ForArrayIndices API",
+            val="## ForArrayIndices API",
+        ),
+        Mapping(
+            key="The loop implementation class for the `ap.Array` indices.<hr>",
+            val="`ap.Array`のインデックス制御のためのループ制御用のクラスです。<hr>",
+        ),
+        Mapping(
+            key="## ForArrayIndices API",
+            val="## ForArrayIndices API",
+        ),
+        Mapping(
+            key="  - An array to iterate.",
+            val="  - イテレーションのための配列。",
+        ),
+        Mapping(
+            key="  - Current scope\'s local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don\'t want to update each variable.",
+            val="  - 現在のスコープの各ローカル変数。この引数にはlocals()関数の返却値を設定してください。もしこの引数が指定された場合、このインターフェイスはローカルスコープのVariableNameMixInの各変数（例 : IntやSpriteなど）の値をwithステートメントの最後で復元します。この設定は各変数を更新したくない場合等に役立ちます。",
+        ),
+        Mapping(
+            key="The class to append for the (loop) expression.<hr>",
+            val="for（ループ）表現を追加するためのクラス。<hr>",
+        ),
     ]
 )

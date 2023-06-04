@@ -265,11 +265,12 @@ jp_return
 ```{toctree}
 :maxdepth: 1
 jp_for
+jp_for_array_indices
 jp_continue
 jp_range
 ```
 
-## タイマーとenter frame
+## タイマーとenter-frame
 
 <br><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe>
 

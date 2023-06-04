@@ -81,7 +81,7 @@ ap.save_overall_html(dest_dir_path="for_basic_usage_with_dict/")
 
 **[インターフェイス概要]**
 
-ループのfor文の表現を追加するためのクラスです。<hr>
+for（ループ）表現を追加するためのクラス。<hr>
 
 **[引数]**
 

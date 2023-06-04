@@ -254,6 +254,14 @@ class TestNumberValueMixIn:
         mixin_3: NumberValueMixIn = mixin_2 / mixin_1
         assert mixin_3.value == 0.25
 
+        mixin_3.value = 20
+        mixin_3 = mixin_3 / 0
+        assert mixin_3.value == 0
+
+        mixin_3.value = 20
+        mixin_3 = mixin_3 / ap.Int(0)
+        assert mixin_3.value == 0
+
     @apply_test_settings()
     def test__append_true_division_expression(self) -> None:
         expression_data_util.empty_expression()

@@ -354,9 +354,15 @@ class NumberValueMixIn(
 
         result: ap.Number = ap.Number(value=self)
         if isinstance(other, NumberValueMixIn):
-            value: _NumType = result._value / other._value
+            if other._value != 0:
+                value: _NumType = result._value / other._value
+            else:
+                value = 0
         else:
-            value = result._value / other  # type: ignore
+            if other != 0:
+                value = result._value / other  # type: ignore
+            else:
+                value = 0
         result._set_value_and_skip_expression_appending(value=value)
         self._append_true_division_expression(result=result, other=other)
         return result

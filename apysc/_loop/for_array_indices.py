@@ -14,11 +14,15 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
+from apysc._expression.get_last_scope_interface import GetLastScopeInterface
+from apysc._expression.last_scope import LastScope
+
 
 _ArrValue = TypeVar("_ArrValue")
 
 
-class ForArrayIndices(Generic[_ArrValue]):
+class ForArrayIndices(Generic[_ArrValue], ForLoopExitMixIn, GetLastScopeInterface):
     """
     The loop implementation class for the `ap.Array` indices.
 
@@ -47,11 +51,7 @@ class ForArrayIndices(Generic[_ArrValue]):
     """
 
     _arr: Array[_ArrValue]
-    _locals: Dict[str, Any]
-    _globals: Dict[str, Any]
     _variable_name_suffix: str
-    _snapshot_name: str
-    _indent: Indent
 
     @final
     @arg_validation_decos.is_apysc_array(arg_position_index=1)
@@ -165,23 +165,13 @@ class ForArrayIndices(Generic[_ArrValue]):
         ap.append_js_expression(expression=expression)
 
     @final
-    @add_debug_info_setting(module_name=__name__)
-    def __exit__(self, *args: Any) -> None:
+    def _get_last_scope(self) -> LastScope:
         """
-        The exiting method for the beginning of with-statement.
-        """
-        import apysc as ap
-        from apysc._expression import last_scope
-        from apysc._expression.last_scope import LastScope
-        from apysc._loop import loop_count
-        from apysc._type import revert_mixin
+        Get a target last scope value.
 
-        loop_count.decrement_current_loop_count()
-        revert_mixin.revert_each_scope_vars(
-            snapshot_name=self._snapshot_name,
-            locals_=self._locals,
-            globals_=self._globals,
-        )
-        self._indent.__exit__()
-        ap.append_js_expression(expression="}")
-        last_scope.set_last_scope(value=LastScope.FOR_ARRAY_INDICES)
+        Returns
+        -------
+        last_scope : LastScope
+            A target last scope.
+        """
+        return LastScope.FOR_ARRAY_INDICES

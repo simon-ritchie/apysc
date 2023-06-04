@@ -3,6 +3,7 @@ from typing import Dict
 
 import apysc as ap
 from apysc._expression import expression_data_util
+from apysc._expression.last_scope import LastScope
 from apysc._loop import loop_count
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_attrs
@@ -76,3 +77,10 @@ class TestForArrayIndices:
         )
         assert expected in expression
         assert loop_count.get_current_loop_count() == 0
+
+    @apply_test_settings()
+    def test__get_last_scope(self) -> None:
+        arr: ap.Array[int] = ap.Array([10, 20])
+        for_array_indices: ap.ForArrayIndices = ap.ForArrayIndices(arr=arr)
+        last_scope: LastScope = for_array_indices._get_last_scope()
+        assert last_scope == LastScope.FOR_ARRAY_INDICES

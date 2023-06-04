@@ -3,9 +3,7 @@
 
 from typing import Any
 from typing import Dict
-from typing import Generic
 from typing import Optional
-from typing import TypeVar
 
 from typing_extensions import final
 
@@ -19,11 +17,8 @@ from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 from apysc._type.initialize_locals_and_globals_mixin import InitializeLocalsAndGlobalsMixIn
 
-_ArrValue = TypeVar("_ArrValue")
-
 
 class ForArrayIndices(
-    Generic[_ArrValue],
     ForLoopExitMixIn,
     GetLastScopeInterface,
     InitializeLocalsAndGlobalsMixIn,
@@ -55,7 +50,7 @@ class ForArrayIndices(
     >>> _ = ap.assert_arrays_equal(indices, [0, 1, 2])
     """
 
-    _arr: Array[_ArrValue]
+    _arr: Array
     _variable_name_suffix: str
 
     @final
@@ -64,7 +59,7 @@ class ForArrayIndices(
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
-        arr: Array[_ArrValue],
+        arr: Array,
         *,
         locals_: Optional[Dict[str, Any]] = None,
         globals_: Optional[Dict[str, Any]] = None,
@@ -75,7 +70,7 @@ class ForArrayIndices(
 
         Parameters
         ----------
-        arr : Array[_ArrValue]
+        arr : Array]
             An array to iterate.
         locals_ : Optional[Dict[str, Any]], optional
             Current scope's local variables. Set locals()

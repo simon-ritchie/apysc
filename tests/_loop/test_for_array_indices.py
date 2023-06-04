@@ -1,14 +1,11 @@
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
+
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._expression import indent_num
-from apysc._expression import last_scope
-from apysc._expression.indent_num import Indent
-from apysc._expression.last_scope import LastScope
 from apysc._loop import loop_count
-from apysc._testing import testing_helper
-from apysc._testing.testing_helper import apply_test_settings, assert_attrs
-from apysc._loop import loop_count
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_attrs
 
 
 class TestForArrayIndices:
@@ -54,9 +51,7 @@ class TestForArrayIndices:
         with ap.ForArrayIndices(arr=arr) as i:
             ap.append_js_expression("var test = 10;")
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"for ({i.variable_name} = 0; {i.variable_name} < {arr.variable_name}.length;"
-        )
+        expected: str = f"for ({i.variable_name} = 0; {i.variable_name} < {arr.variable_name}.length;"
         assert expected in expression
 
         expected = "  var test = 10;"

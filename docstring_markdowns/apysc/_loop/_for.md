@@ -6,7 +6,7 @@ This module is for the `For` loop class implementation.
 
 ## `For` class docstring
 
-A class to append for the (loop) expression.<hr>
+The class to append for the (loop) expression.<hr>
 
 **[Examples]**
 
@@ -39,7 +39,7 @@ This class calls this method at the with-statement.
 
 ### `__init__` method docstring
 
-A class to append for the (loop) expression.<hr>
+The class to append for the (loop) expression.<hr>
 
 **[Parameters]**
 

@@ -3980,12 +3980,20 @@ MAPPINGS: Mappings = Mappings(
             val="  - イテレーションのための配列。",
         ),
         Mapping(
-            key="  - Current scope\'s local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don\'t want to update each variable.",
+            key="  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don't want to update each variable.",
             val="  - 現在のスコープの各ローカル変数。この引数にはlocals()関数の返却値を設定してください。もしこの引数が指定された場合、このインターフェイスはローカルスコープのVariableNameMixInの各変数（例 : IntやSpriteなど）の値をwithステートメントの最後で復元します。この設定は各変数を更新したくない場合等に役立ちます。",
         ),
         Mapping(
             key="The class to append for the (loop) expression.<hr>",
             val="for（ループ）表現を追加するためのクラス。<hr>",
+        ),
+        Mapping(
+            key="Why the apysc library doesn’t use the Python built-in data type",
+            val="なぜapyscライブラリではPythonビルトインのデータ型を使っていないのか",
+        ),
+        Mapping(
+            key="Each branch instruction class’s scope variable reverting setting",
+            val="各分岐制御のクラスのスコープ内の変数値の復元設定",
         ),
     ]
 )

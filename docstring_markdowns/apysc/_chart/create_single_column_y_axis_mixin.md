@@ -163,6 +163,28 @@ Get a minimum y-axis value from specified data.<hr>
 - `y_min`: Number
   - A minimum y-axis value.
 
+## `_create_y_axis_texts_values` function docstring
+
+Create y-axis texts values.<hr>
+
+**[Parameters]**
+
+- `y_axis_min`: Number
+  - A y-axis min value.
+- `y_axis_max`: Number
+  - A y-axis max value.
+- `ticks_num`: Int
+  - A ticks number.
+- `variable_name_suffix`: str
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Returns]**
+
+- `y_axis_text_values`: Array[String]
+  - A created y-axis texts values.
+
 ## `_create_y_axis_ticks_texts` function docstring
 
 Create y-axis ticks texts.<hr>

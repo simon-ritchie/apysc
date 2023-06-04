@@ -27,9 +27,7 @@ def main() -> None:
     """
     ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
 
-    arr: ap.Array[ap.Number] = ap.Array(
-        [ap.Number(50), ap.Number(150), ap.Number(250)]
-    )
+    arr: ap.Array[ap.Number] = ap.Array([ap.Number(50), ap.Number(150), ap.Number(250)])
     indices: ap.Array[ap.Int] = ap.Array([])
     with ap.ForArrayIndices(arr=arr) as i:
         indices.append(i)

@@ -51,7 +51,10 @@ class TestForArrayIndices:
         with ap.ForArrayIndices(arr=arr) as i:
             ap.append_js_expression("var test = 10;")
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"for ({i.variable_name} = 0; {i.variable_name} < {arr.variable_name}.length;"
+        expected: str = (
+            f"for ({i.variable_name} = 0; {i.variable_name} < "
+            f"{arr.variable_name}.length;"
+        )
         assert expected in expression
 
         expected = "  var test = 10;"

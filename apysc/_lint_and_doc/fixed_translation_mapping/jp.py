@@ -3972,10 +3972,6 @@ MAPPINGS: Mappings = Mappings(
             val="`ap.Array`のインデックス制御のためのループ制御用のクラスです。<hr>",
         ),
         Mapping(
-            key="## ForArrayIndices API",
-            val="## ForArrayIndices API",
-        ),
-        Mapping(
             key="  - An array to iterate.",
             val="  - イテレーションのための配列。",
         ),

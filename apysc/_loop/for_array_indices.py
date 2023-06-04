@@ -17,11 +17,17 @@ from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._type.initialize_locals_and_globals_mixin import InitializeLocalsAndGlobalsMixIn
 
 _ArrValue = TypeVar("_ArrValue")
 
 
-class ForArrayIndices(Generic[_ArrValue], ForLoopExitMixIn, GetLastScopeInterface):
+class ForArrayIndices(
+    Generic[_ArrValue],
+    ForLoopExitMixIn,
+    GetLastScopeInterface,
+    InitializeLocalsAndGlobalsMixIn,
+):
     """
     The loop implementation class for the `ap.Array` indices.
 
@@ -109,13 +115,8 @@ class ForArrayIndices(Generic[_ArrValue], ForLoopExitMixIn, GetLastScopeInterfac
 
         >>> _ = ap.assert_arrays_equal(indices, [0, 1, 2])
         """
-        if locals_ is None:
-            locals_ = {}
-        if globals_ is None:
-            globals_ = {}
+        self._initialize_locals_and_globals(locals_=locals_, globals_=globals_)
         self._arr = arr
-        self._locals = locals_
-        self._globals = globals_
         self._variable_name_suffix = variable_name_suffix
         self._indent = Indent()
 

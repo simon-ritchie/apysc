@@ -6,11 +6,9 @@ from typing import Dict
 from typing import Generic
 from typing import Optional
 from typing import TypeVar
-from typing import Union
-from typing import Generic
-from typing import TypeVar
 
 from typing_extensions import final
+
 from apysc._expression.indent_num import Indent
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
@@ -29,9 +27,9 @@ class ForArrayIndices(Generic[_ArrValue]):
     - ForArrayIndices class
         - https://simon-ritchie.github.io/apysc/en/for_array_indices.html
     - Why the apysc library doesn’t use the Python built-in data type
-        - https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html  # nowa
+        - https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html  # noqa
     - Each branch instruction class’s scope variable reverting setting
-        - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # nowa
+        - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # noqa
 
     Examples
     --------
@@ -43,6 +41,7 @@ class ForArrayIndices(Generic[_ArrValue]):
     >>> indices: ap.Array[ap.Int] = ap.Array([])
     >>> with ap.ForArrayIndices(arr=arr) as i:
     ...     indices.append(i)
+    ...
 
     >>> _ = ap.assert_arrays_equal(indices, [0, 1, 2])
     """
@@ -93,9 +92,9 @@ class ForArrayIndices(Generic[_ArrValue]):
         - ForArrayIndices class
             - https://simon-ritchie.github.io/apysc/en/for_array_indices.html
         - Why the apysc library doesn’t use the Python built-in data type
-            - https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html  # nowa
+            - https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html  # noqa
         - Each branch instruction class’s scope variable reverting setting
-            - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # nowa
+            - https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # noqa
 
         Examples
         --------
@@ -107,6 +106,7 @@ class ForArrayIndices(Generic[_ArrValue]):
         >>> indices: ap.Array[ap.Int] = ap.Array([])
         >>> with ap.ForArrayIndices(arr=arr) as i:
         ...     indices.append(i)
+        ...
 
         >>> _ = ap.assert_arrays_equal(indices, [0, 1, 2])
         """

@@ -1,7 +1,9 @@
 """The interface class implementation for the `_get_last_scope` method.
 """
 
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
+
 from apysc._expression.last_scope import LastScope
 
 

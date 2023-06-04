@@ -21,11 +21,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `split` method requires the `sep` `String` argument as a separator.": "`split`メソッドは区切り文字としての`sep`の`String`型の引数を必要とします。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\nstr_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\nsplitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\nap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n\nap.save_overall_html(dest_dir_path=\"string_split_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\nstr_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\nsplitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\nap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n\nap.save_overall_html(dest_dir_path=\"string_split_basic_usage/\")\n```",  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")\n\nstr_value: ap.String = ap.String("Lorem ipsum dolor sit")\nsplitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))\nap.assert_arrays_equal(splitted_strs, ["Lorem", "ipsum", "dolor", "sit"])\n\nap.save_overall_html(dest_dir_path="string_split_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")\n\nstr_value: ap.String = ap.String("Lorem ipsum dolor sit")\nsplitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))\nap.assert_arrays_equal(splitted_strs, ["Lorem", "ipsum", "dolor", "sit"])\n\nap.save_overall_html(dest_dir_path="string_split_basic_usage/")\n```',  # noqa
     ##################################################
     "## split API": "## split API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -43,11 +43,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `splitted_strs`: Array[String]": "- `splitted_strs`: Array[String]",
     ##################################################
-    "  - A splitted strings\' array.": "  - 分割された文字列を格納した配列。",
+    "  - A splitted strings' array.": "  - 分割された文字列を格納した配列。",
     ##################################################
     "<hr>": "<hr>",
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> str_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\n>>> ap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n```": "```py\n>>> import apysc as ap\n>>> str_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\n>>> ap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> str_value: ap.String = ap.String("Lorem ipsum dolor sit")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))\n>>> ap.assert_arrays_equal(splitted_strs, ["Lorem", "ipsum", "dolor", "sit"])\n```': '```py\n>>> import apysc as ap\n>>> str_value: ap.String = ap.String("Lorem ipsum dolor sit")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))\n>>> ap.assert_arrays_equal(splitted_strs, ["Lorem", "ipsum", "dolor", "sit"])\n```',  # noqa
 }

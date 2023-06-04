@@ -9,15 +9,14 @@ from typing import TypeVar
 
 from typing_extensions import final
 
+from apysc._expression.get_last_scope_interface import GetLastScopeInterface
 from apysc._expression.indent_num import Indent
+from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
-from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
-from apysc._expression.get_last_scope_interface import GetLastScopeInterface
-from apysc._expression.last_scope import LastScope
-
 
 _ArrValue = TypeVar("_ArrValue")
 

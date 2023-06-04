@@ -27,8 +27,8 @@ The loop implementation class for the `ap.Array` indices.<hr>
 **[References]**
 
 - [ForArrayIndices class](https://simon-ritchie.github.io/apysc/en/for_array_indices.html)
-- [Why the apysc library doesn’t use the Python built-in data type](https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html  # nowa)
-- [Each branch instruction class’s scope variable reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # nowa)
+- [Why the apysc library doesn’t use the Python built-in data type](https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html)
+- [Each branch instruction class’s scope variable reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html)
 
 ### `__enter__` method docstring
 
@@ -38,10 +38,6 @@ The entering method for the beginning of with-statement.<hr>
 
 - `i`: Int
   - An index of iteration.
-
-### `__exit__` method docstring
-
-The exiting method for the beginning of with-statement.
 
 ### `__init__` method docstring
 
@@ -79,8 +75,8 @@ The loop implementation class for the `ap.Array` indices.<hr>
 **[References]**
 
 - [ForArrayIndices class](https://simon-ritchie.github.io/apysc/en/for_array_indices.html)
-- [Why the apysc library doesn’t use the Python built-in data type](https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html  # nowa)
-- [Each branch instruction class’s scope variable reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html  # nowa)
+- [Why the apysc library doesn’t use the Python built-in data type](https://simon-ritchie.github.io/apysc/en/why_apysc_doesnt_use_python_builtin_data_type.html)
+- [Each branch instruction class’s scope variable reverting setting](https://simon-ritchie.github.io/apysc/en/branch_instruction_variables_reverting_setting.html)
 
 ### `_append_enter_expression` method docstring
 
@@ -90,3 +86,12 @@ Append a for-loop start expression.<hr>
 
 - `i`: Int
   - Loop index value.
+
+### `_get_last_scope` method docstring
+
+Get a target last scope value.<hr>
+
+**[Returns]**
+
+- `last_scope`: LastScope
+  - A target last scope.

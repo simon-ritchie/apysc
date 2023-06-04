@@ -1,11 +1,13 @@
 """The mix-in class implementation for the `for`-loop `__exit__` method.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from typing_extensions import final
-from apysc._html.debug_mode import add_debug_info_setting
+
 from apysc._expression.indent_num import Indent
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class ForLoopExitMixIn:
@@ -23,9 +25,9 @@ class ForLoopExitMixIn:
         """
         import apysc as ap
         from apysc._expression import last_scope
+        from apysc._expression.get_last_scope_interface import GetLastScopeInterface
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
-        from apysc._expression.get_last_scope_interface import GetLastScopeInterface
 
         loop_count.decrement_current_loop_count()
         revert_mixin.revert_each_scope_vars(

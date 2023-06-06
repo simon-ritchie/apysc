@@ -88,6 +88,11 @@ class TestNumber:
         del number_1._value
         assert repr(number_1) == "Number(0)"
 
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        num_value: ap.Number = ap.Number._initialize_for_loop_value()
+        assert num_value == ap.Number(0)
+
 
 class TestFloat:
     def test_top_level_import(self) -> None:

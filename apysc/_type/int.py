@@ -202,4 +202,12 @@ class Int(
 
     @classmethod
     def _initialize_for_loop_value(cls) -> "Int":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        int_value : Int
+            An initialized integer value.
+        """
         return Int(0)

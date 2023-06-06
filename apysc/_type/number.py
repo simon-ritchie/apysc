@@ -11,10 +11,14 @@ from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Number(
     NumberValueMixIn[float, "Number"],
+    InitializeForLoopValueInterface,
     ToStringMixIn,
     ToFixedMixIn,
 ):
@@ -176,3 +180,15 @@ class Number(
         else:
             repr_str = f"Number({self._value})"
         return repr_str
+
+    @classmethod
+    def _initialize_for_loop_value(cls) -> "Number":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        num_value : Number
+            An initialized number value.
+        """
+        return Number(0)

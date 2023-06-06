@@ -103,3 +103,8 @@ class TestInt:
 
         del int_1._value
         assert repr(int_1) == "Int(0)"
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        int_value: ap.Int = ap.Int._initialize_for_loop_value()
+        assert int_value == ap.Int(0)

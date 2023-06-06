@@ -8,8 +8,9 @@ _T = TypeVar('_T')
 
 
 class InitializeForLoopValueInterface(ABC, Generic[_T]):
+    @classmethod
     @abstractmethod
-    def _initialize_for_loop_value(self) -> _T:
+    def _initialize_for_loop_value(cls) -> _T:
         """
         Initialize this instance for a loop value.
         """

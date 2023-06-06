@@ -1,7 +1,6 @@
 """Class implementation for number value mix-in.
 """
 
-from abc import ABC
 from abc import abstractmethod
 from typing import Any
 from typing import Dict
@@ -33,7 +32,6 @@ class NumberValueMixIn(
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     Generic[_ValueType, _InstanceType],
-    ABC,
 ):
 
     _initial_value: _NumType

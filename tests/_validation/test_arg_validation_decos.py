@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Type
 from typing import Callable
 from typing import Dict
 from typing import List
@@ -1532,4 +1532,22 @@ def test_is_apysc_array() -> None:
         callable_=_test_func_1,
         match="A specified argument is not an `ap.Array` instance: ",
         array=10,
+    )
+
+
+@apply_test_settings()
+def test_is_initialize_for_loop_value_interface_subclass() -> None:
+    @arg_validation_decos.is_initialize_for_loop_value_interface_subclass(
+        arg_position_index=0
+    )
+    def _test_func_1(*, value: Type[ap.Int]) -> int:
+        return 320
+
+    result: int = _test_func_1(value=ap.Int)
+    assert result == 320
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        value=int,
     )

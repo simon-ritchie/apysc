@@ -187,6 +187,9 @@ Mainly the following decorators exist.
 - is_list_or_array_matrix_data
     - Set a validation to check a specified argument's type
         is list of dicts or `ap.Array` of `ap.Dictionary`.
+- is_initialize_for_loop_value_interface_subclass
+    - Set a validation to check a specified class is
+        the `InitializeForLoopValueInterface`'s subclas.
 """
 
 import functools
@@ -3250,6 +3253,53 @@ def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
             raise TypeError(
                 "A specified argument is not a list of dicts or "
                 f"`ap.Array` of `ap.Dictionary`: {type(matrix_data).__name__}, "
+                f"\n{callable_and_arg_names_msg}"
+            )
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_initialize_for_loop_value_interface_subclass(
+    *, arg_position_index: int
+) -> _Callable:
+    """
+    Set a validation to check a specified class is
+    the `InitializeForLoopValueInterface`'s subclas.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._loop.initialize_for_loop_value_interface import (
+                InitializeForLoopValueInterface
+            )
+
+            class_: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if issubclass(class_, InitializeForLoopValueInterface):
+                return callable_(*args, **kwargs)
+
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            raise TypeError(
+                f"A specified class is not an `InitializeForLoopValueInterface`'s "
+                f"subclass: {class_}"
                 f"\n{callable_and_arg_names_msg}"
             )
 

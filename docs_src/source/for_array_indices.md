@@ -72,7 +72,7 @@ ap.save_overall_html(dest_dir_path="for_array_indices_basic_usage_2/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, arr: apysc._type.array.Array[~_ArrValue], *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, arr: apysc._type.array.Array, *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -80,7 +80,7 @@ The loop implementation class for the `ap.Array` indices.<hr>
 
 **[Parameters]**
 
-- `arr`: Array[_ArrValue]
+- `arr`: Array]
   - An array to iterate.
 - `locals_`: Optional[Dict[str, Any]], optional
   - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don't want to update each variable.

@@ -72,7 +72,7 @@ ap.save_overall_html(dest_dir_path="for_array_indices_basic_usage_2/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, arr: apysc._type.array.Array[~_ArrValue], *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, arr: apysc._type.array.Array, *, locals_: Union[Dict[str, Any], NoneType] = None, globals_: Union[Dict[str, Any], NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -80,7 +80,7 @@ ap.save_overall_html(dest_dir_path="for_array_indices_basic_usage_2/")
 
 **[引数]**
 
-- `arr`: Array[_ArrValue]
+- `arr`: Array]
   - イテレーションのための配列。
 
 - `locals_`: Optional[Dict[str, Any]], optional

@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -107,7 +107,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Loop": "## ループ",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nfor\nfor_array_indices\ncontinue\nrange\n```": "```{toctree}\n:maxdepth: 1\njp_for\njp_for_array_indices\njp_continue\njp_range\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nfor\nfor_array_indices\nfor_array_values\ncontinue\nrange\n```": "```{toctree}\n:maxdepth: 1\njp_for\njp_for_array_indices\njp_for_array_values\njp_continue\njp_range\n```",  # noqa
     ##################################################
     "## Timer and enter-frame": "## タイマーとenter-frame",
     ##################################################

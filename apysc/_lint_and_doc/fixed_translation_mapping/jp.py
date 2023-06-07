@@ -3991,5 +3991,17 @@ MAPPINGS: Mappings = Mappings(
             key="Each branch instruction class’s scope variable reverting setting",
             val="各分岐制御のクラスのスコープ内の変数値の復元設定",
         ),
+        Mapping(
+            key="## ForArrayValues API",
+            val="## ForArrayValues API",
+        ),
+        Mapping(
+            key="The loop implementation class for the `ap.Array` values.<hr>",
+            val="`ap.Array`の配列の値のためのループ処理のクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - An array value type. This interface accepts apysc types, such as the `Int`, `String`, `Rectangle`.",
+            val="  - 配列の値の型。このインターフェイスは`Int`、`String`、`Rectangle`などのapyscの型を受け付けます。",
+        ),
     ]
 )

@@ -202,4 +202,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "lstrip": "string_lstrip",
     "strip": "string_strip",
     "rstrip": "string_rstrip",
+    "ForArrayIndices": "for_array_indices",
+    "ForArrayIndices": "for_array_indices",
 }

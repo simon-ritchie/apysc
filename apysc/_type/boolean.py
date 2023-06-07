@@ -19,6 +19,9 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Boolean(
@@ -28,7 +31,9 @@ class Boolean(
     CustomEventMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
+    InitializeForLoopValueInterface,
 ):
+
     """
     Boolean class for the apysc library.
 
@@ -526,3 +531,16 @@ class Boolean(
 
         expression: str = f"{result.variable_name} = " f"!{self.variable_name};"
         ap.append_js_expression(expression=expression)
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Boolean":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        bool_value : Boolean
+            An initialized boolean value.
+        """
+        return Boolean(False)

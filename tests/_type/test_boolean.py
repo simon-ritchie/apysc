@@ -300,6 +300,11 @@ class TestBoolean:
             f"{bool_1.variable_name} = Boolean({bool_2.variable_name});"
         )
 
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        bool_value: ap.Boolean = ap.Boolean._initialize_for_loop_value()
+        assert bool_value == ap.Boolean(False)
+
 
 class TestBool:
     @apply_test_settings()

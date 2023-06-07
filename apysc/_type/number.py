@@ -182,6 +182,7 @@ class Number(
         return repr_str
 
     @classmethod
+    @final
     def _initialize_for_loop_value(cls) -> "Number":
         """
         Initialize this instance for a loop value.

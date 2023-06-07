@@ -24,6 +24,9 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 _ArrValue = TypeVar("_ArrValue")
 
@@ -36,6 +39,7 @@ class Array(
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     PyBuiltInIterDisablingMixIn,
+    InitializeForLoopValueInterface,
     Generic[_ArrValue],
 ):
     """
@@ -1508,3 +1512,16 @@ class Array(
             snapshot_dict=self._value_snapshots,
             snapshot_name=snapshot_name,
         )
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Array":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        arr_value : Array
+            An initialized array value.
+        """
+        return Array([])

@@ -705,3 +705,8 @@ class TestArray:
         arr_1 = ap.Array(arr_2)
         expression = arr_1._create_initial_substitution_expression()
         assert expression == f"{arr_1.variable_name} = {arr_2.variable_name};"
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        arr_value: ap.Array = ap.Array._initialize_for_loop_value()
+        assert arr_value == ap.Array([])

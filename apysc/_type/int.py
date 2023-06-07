@@ -201,6 +201,7 @@ class Int(
         return repr_str
 
     @classmethod
+    @final
     def _initialize_for_loop_value(cls) -> "Int":
         """
         Initialize this instance for a loop value.

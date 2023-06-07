@@ -34,6 +34,11 @@ class ForArrayValues(
     """
     The loop implementation class for the `ap.Array` values.
 
+    References
+    ----------
+    - ForArrayValues class
+        - https://simon-ritchie.github.io/apysc/en/for_array_values.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -95,6 +100,11 @@ class ForArrayValues(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - ForArrayValues class
+            - https://simon-ritchie.github.io/apysc/en/for_array_values.html
 
         Examples
         --------

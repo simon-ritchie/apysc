@@ -26,6 +26,9 @@ from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 DefaultType = TypeVar("DefaultType")
 
@@ -36,13 +39,14 @@ _Value = TypeVar("_Value")
 
 class Dictionary(
     CustomEventMixIn,
-    Generic[_Key, _Value],
     CopyMixIn,
     RevertMixIn,
     DictionaryStructure,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     PyBuiltInIterDisablingMixIn,
+    InitializeForLoopValueInterface,
+    Generic[_Key, _Value],
 ):
     """
     Dictionary class for the apysc library.
@@ -750,3 +754,16 @@ class Dictionary(
             "\n}"
         )
         ap.append_js_expression(expression=expression)
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Dictionary":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        dict_val : Dictionary
+            An initialized dictionary value.
+        """
+        return Dictionary({})

@@ -20,6 +20,9 @@ from apysc._type.string_strip_mixin import StringStripMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class String(
@@ -32,6 +35,7 @@ class String(
     CustomEventMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     String class for apysc library.
@@ -838,6 +842,19 @@ class String(
             snapshot_dict=self._value_snapshots,
             snapshot_name=snapshot_name,
         )
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "String":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        str_value : String
+            An initialized string value.
+        """
+        return String("")
 
 
 def _escape_str_value(*, value: Union[str, "String"]) -> Union[str, "String"]:

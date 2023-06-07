@@ -466,3 +466,8 @@ class TestString:
         expression = string._create_initial_substitution_expression()
         expected_str = f"{string.variable_name} = {other_string.variable_name};"
         assert expression == expected_str
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        str_value: ap.String = ap.String._initialize_for_loop_value()
+        assert str_value == ap.String("")

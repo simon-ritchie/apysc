@@ -157,3 +157,10 @@ class TestCircle:
             },
             any_obj=circle,
         )
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        circle: ap.Circle = ap.Circle._initialize_for_loop_value()
+        assert circle.x == ap.Number(-1)
+        assert circle.y == ap.Number(-1)
+        assert circle.radius == ap.Int(1)

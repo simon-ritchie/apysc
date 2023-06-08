@@ -70,6 +70,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Circle(
@@ -109,6 +112,7 @@ class Circle(
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
     AttrToApyscValFromBuiltinMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The circle vector graphics class.
@@ -434,3 +438,20 @@ class Circle(
         """
         repr_str: str = f'{Circle.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Circle":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        circle : Circle
+            An initialized circle instance.
+        """
+        return Circle(
+            x=-1,
+            y=-1,
+            radius=1,
+        )

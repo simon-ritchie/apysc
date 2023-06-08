@@ -72,6 +72,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Ellipse(
@@ -111,6 +114,7 @@ class Ellipse(
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
     AttrToApyscValFromBuiltinMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The ellipse vector graphics class.
@@ -428,3 +432,21 @@ class Ellipse(
         """
         repr_str: str = f'{Ellipse.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Ellipse":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        ellipse : Ellipse
+            An initialized ellipse instance.
+        """
+        return Ellipse(
+            x=-1,
+            y=-1,
+            width=1,
+            height=1,
+        )

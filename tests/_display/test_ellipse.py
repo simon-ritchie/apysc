@@ -159,3 +159,11 @@ class TestEllipse:
             },
             any_obj=ellipse,
         )
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        ellipse: ap.Ellipse = ap.Ellipse._initialize_for_loop_value()
+        assert ellipse.x == ap.Number(-1)
+        assert ellipse.y == ap.Number(-1)
+        assert ellipse.width == ap.Int(1)
+        assert ellipse.height == ap.Int(1)

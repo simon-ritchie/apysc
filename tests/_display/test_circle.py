@@ -160,6 +160,7 @@ class TestCircle:
 
     @apply_test_settings()
     def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
         circle: ap.Circle = ap.Circle._initialize_for_loop_value()
         assert circle.x == ap.Number(-1)
         assert circle.y == ap.Number(-1)

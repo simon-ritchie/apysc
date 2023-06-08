@@ -34,6 +34,9 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Graphics(
@@ -46,6 +49,7 @@ class Graphics(
     LineStyleMixIn,
     GraphicsClearMixIn,
     ChildMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     Create an object that has each vector graphics interface.
@@ -1327,3 +1331,18 @@ class Graphics(
         """
         repr_str: str = f'{Graphics.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Graphics":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        graphics : Graphics
+            An initialized graphics instance.
+        """
+        sprite_: sprite.Sprite = sprite.Sprite()
+        graphics: Graphics = Graphics(parent=sprite_)
+        return graphics

@@ -433,3 +433,9 @@ class TestGraphics:
             any_obj=triangle,
         )
         assert triangle._variable_name_suffix == "test_triangle"
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
+        graphics: Graphics = Graphics._initialize_for_loop_value()
+        assert isinstance(graphics.parent, ap.Sprite)

@@ -1,16 +1,17 @@
 """The interface implementation for the `_initialize_for_loop_value` method.
 """
 
-from abc import ABC, abstractmethod
-from typing import Generic, TypeVar
-
-_T = TypeVar('_T')
+from abc import abstractmethod
+from typing import Any
 
 
-class InitializeForLoopValueInterface(ABC, Generic[_T]):
+class InitializeForLoopValueInterface:
     @classmethod
     @abstractmethod
-    def _initialize_for_loop_value(cls) -> _T:
+    def _initialize_for_loop_value(cls) -> Any:
         """
         Initialize this instance for a loop value.
         """
+        raise NotImplementedError(
+            "The _initialize_for_loop_value abstract method must be implemented."
+        )

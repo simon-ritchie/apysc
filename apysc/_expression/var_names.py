@@ -7,6 +7,7 @@ from typing_extensions import Final
 DOCUMENT: Final[str] = "document"
 BLANK_OBJECT: Final[str] = "bo"
 DISPLAY_OBJECT: Final[str] = "do"
+ANY_DISPLAY_OBJECT: Final[str] = "ado"
 PARENT: Final[str] = "parent"
 GRAPHICS: Final[str] = "g"
 POINT2D: Final[str] = "p2d"

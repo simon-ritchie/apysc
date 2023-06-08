@@ -32,9 +32,7 @@ def test_validate_display_object() -> None:
     sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_display_object(display_object=sprite)
 
-    display_object: AnyDisplayObject = AnyDisplayObject(
-        variable_name="test_display_object"
-    )
+    display_object: AnyDisplayObject = AnyDisplayObject()
     display_validation.validate_display_object(display_object=display_object)
 
 

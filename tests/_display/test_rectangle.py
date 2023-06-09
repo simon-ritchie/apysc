@@ -199,3 +199,12 @@ class TestRectangle:
         )
         assert rectangle.ellipse_width == 10
         assert rectangle.ellipse_height == 15
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
+        rectangle: ap.Rectangle = ap.Rectangle._initialize_for_loop_value()
+        assert rectangle.x == ap.Int(-2)
+        assert rectangle.y == ap.Int(-2)
+        assert rectangle.width == ap.Int(1)
+        assert rectangle.height == ap.Int(1)

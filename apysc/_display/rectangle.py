@@ -75,6 +75,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Rectangle(
@@ -118,6 +121,7 @@ class Rectangle(
     LineDashDotSettingMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The rectangle vector graphics class.
@@ -477,3 +481,21 @@ class Rectangle(
         )
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Rectangle":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        rectangle : Rectangle
+            An initialized rectangle instance.
+        """
+        return Rectangle(
+            x=-2,
+            y=-2,
+            width=1,
+            height=1
+        )

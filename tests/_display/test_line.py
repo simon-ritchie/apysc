@@ -175,3 +175,10 @@ class TestLine:
         )
         assert line.x == 10
         assert line.y == 20
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
+        line: ap.Line = ap.Line._initialize_for_loop_value()
+        assert line._start_point == ap.Point2D(x=-2, y=-2)
+        assert line._end_point == ap.Point2D(x=-1, y=-1)

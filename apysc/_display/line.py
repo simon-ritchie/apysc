@@ -59,6 +59,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Line(
@@ -92,6 +95,7 @@ class Line(
     LineDashDotSettingMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The line vector graphics class.
@@ -390,3 +394,19 @@ class Line(
         """
         repr_str: str = f'{Line.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Line":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        line : Line
+            An initialized line instance.
+        """
+        return Line(
+            start_point=point2d.Point2D(x=-2, y=-2),
+            end_point=point2d.Point2D(x=-1, y=-1),
+        )

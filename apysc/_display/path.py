@@ -73,6 +73,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Path(
@@ -112,6 +115,7 @@ class Path(
     LineDashDotSettingMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The path vector graphics class.
@@ -429,3 +433,23 @@ class Path(
         """
         repr_str: str = f'{Path.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Path":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        path : Path
+            An initialized path instance.
+        """
+        import apysc as ap
+
+        return Path(
+            path_data_list=[
+                ap.PathMoveTo(x=-2, y=-2),
+                ap.PathLineTo(x=-1, y=-1),
+            ],
+        )

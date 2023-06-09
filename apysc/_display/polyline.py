@@ -79,6 +79,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Polyline(
@@ -120,6 +123,7 @@ class Polyline(
     LineDashDotSettingMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The polyline vector graphics class.
@@ -413,3 +417,21 @@ class Polyline(
         expression += "\n  });"
         ap.append_js_expression(expression=expression)
         self._points_var_name = points_var_name
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Polyline":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        polyline : Polyline
+            An initialized polyline instance
+        """
+        return Polyline(
+            points=[
+                Point2D(x=-2, y=-2),
+                Point2D(x=-1, y=-1),
+            ]
+        )

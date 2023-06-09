@@ -213,3 +213,14 @@ class TestPolyline:
         polyline = ap.Polyline(points=points)
         assert polyline.x == 10
         assert polyline.y == 20
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
+        polyline: ap.Polyline = ap.Polyline._initialize_for_loop_value()
+        assert polyline._points == ap.Array(
+            [
+                ap.Point2D(x=-2, y=-2),
+                ap.Point2D(x=-1, y=-1),
+            ]
+        )

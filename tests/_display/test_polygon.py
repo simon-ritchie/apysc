@@ -137,3 +137,15 @@ class TestPolygon:
         assert polygon.y == 30
         assert polygon._x._variable_name_suffix == "test_polygon__x"
         assert polygon._y._variable_name_suffix == "test_polygon__y"
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
+        polygon: ap.Polygon = ap.Polygon._initialize_for_loop_value()
+        assert polygon._points == ap.Array(
+            [
+                ap.Point2D(x=-2, y=-2),
+                ap.Point2D(x=-1, y=-2),
+                ap.Point2D(x=-1, y=-1),
+            ]
+        )

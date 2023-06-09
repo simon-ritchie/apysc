@@ -81,6 +81,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class Polygon(
@@ -123,6 +126,7 @@ class Polygon(
     PolygonAppendConstructorExpressionMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The polygon vector graphics class.
@@ -367,3 +371,13 @@ class Polygon(
         """
         repr_str: str = f'{Polygon.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Polygon":
+        return Polygon(
+            points=[
+                Point2D(x=-2, y=-2),
+                Point2D(x=-1, y=-2),
+                Point2D(x=-1, y=-1),
+            ])

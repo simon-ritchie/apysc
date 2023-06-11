@@ -17,6 +17,7 @@ class LastScope(Enum):
     EVENT_HANDLER = 6
     FOR_ARRAY_INDICES = 7
     FOR_ARRAY_VALUES = 8
+    FOR_ARRAY_INDICES_AND_VALUES = 9
 
 
 def reset() -> None:

@@ -176,4 +176,5 @@ class ForArrayValues(
         )
         ap.append_js_expression(expression=expression)
 
+        self._indent.__enter__()
         return arr_value

@@ -42,3 +42,27 @@ class TestForArrayIndicesAndValues:
         last_scope: LastScope = for_array_indices_and_values._get_last_scope()
         assert last_scope == LastScope.FOR_ARRAY_INDICES_AND_VALUES
 
+    @apply_test_settings()
+    def test___enter__(self) -> None:
+        expression_data_util.empty_expression()
+        arr: ap.Array[ap.String] = ap.Array([ap.String("a"), ap.String("b")])
+        with ap.ForArrayIndicesAndValues(
+            arr=arr, arr_value_type=ap.String
+        ) as (i, value):
+            ap.append_js_expression("console.log(10);")
+            assert loop_count.get_current_loop_count() == 1
+        assert isinstance(i, ap.Int)
+        assert isinstance(value, ap.String)
+        assert loop_count.get_current_loop_count() == 0
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"for ({i.variable_name} = 0; {i.variable_name} < "
+            f"{arr.variable_name}.length; {i.variable_name}++) {{"
+        )
+        assert expected in expression
+
+        expected = (
+            f"  {value.variable_name} = {arr.variable_name}[{i.variable_name}];"
+        )
+        assert expected in expression
+

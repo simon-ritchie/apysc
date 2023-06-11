@@ -136,7 +136,7 @@ class ForArrayIndices(
         self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
             locals_=self._locals, globals_=self._globals
         )
-        i: Int = ap.Int(0, variable_name_suffix=self._variable_name_suffix)
+        i: Int = Int(0, variable_name_suffix=self._variable_name_suffix)
         self._append_enter_expression(i=i)
         self._indent.__enter__()
         return i

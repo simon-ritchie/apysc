@@ -94,6 +94,12 @@ class TestSVGTextSpan:
         )
         assert svg_text_span.delta_y == ap.Number(60.5)
 
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
+        svg_text_span_: ap.SVGTextSpan = ap.SVGTextSpan._initialize_for_loop_value()
+        assert svg_text_span_.text == ap.String("")
+
 
 @apply_test_settings()
 def test__get_init_fill_color_str() -> None:
@@ -153,7 +159,6 @@ def test__get_init_line_alpha_num() -> None:
 
 @apply_test_settings()
 def test__get_init_line_thickness_num() -> None:
-    """_get_init_line_thickness_num 関数のテスト。"""
     line_thickness_: Union[int, ap.Int] = svg_text_span._get_init_line_thickness_num(
         line_thickness=3,
     )

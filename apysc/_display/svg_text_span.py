@@ -73,6 +73,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class SVGTextSpan(
@@ -111,6 +114,7 @@ class SVGTextSpan(
     SVGTextSetDeltaYMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The class for an SVG text-span (the child class of `SVGText`).
@@ -332,6 +336,19 @@ class SVGTextSpan(
         """
         repr_str: str = f'{SVGTextSpan.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "SVGTextSpan":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        svg_text_span : SVGTextSpan
+            An initialized text span instance.
+        """
+        return SVGTextSpan(text="")
 
 
 def _get_init_line_color_str(

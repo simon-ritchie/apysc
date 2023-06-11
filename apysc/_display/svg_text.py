@@ -73,6 +73,9 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 
 class SVGText(
@@ -118,6 +121,7 @@ class SVGText(
     SVGTextSetBoldMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     The class for an SVG text.
@@ -570,3 +574,16 @@ class SVGText(
 
         repr_str: str = f'{SVGText.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "SVGText":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        svg_text : SVGText
+            An initialized svg text instance.
+        """
+        return SVGText(text="")

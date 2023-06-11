@@ -155,3 +155,8 @@ class TestSVGText:
             },
             any_obj=svg_text,
         )
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        svg_text: ap.SVGText = ap.SVGText._initialize_for_loop_value()
+        assert svg_text.text == ap.String("")

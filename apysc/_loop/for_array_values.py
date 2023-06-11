@@ -1,10 +1,11 @@
 """The loop implementation class for the `ap.Array` values.
 """
 
-from typing import Any, Type, cast
+from typing import Any
 from typing import Dict
 from typing import Generic
 from typing import Optional
+from typing import Type
 from typing import TypeVar
 
 from typing_extensions import final
@@ -14,13 +15,14 @@ from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
-from apysc._type.array import Array
-from apysc._validation import arg_validation_decos
-from apysc._type.initialize_locals_and_globals_mixin import InitializeLocalsAndGlobalsMixIn
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._loop.initialize_for_loop_value_interface import (
     InitializeForLoopValueInterface,
 )
+from apysc._type.array import Array
+from apysc._type.initialize_locals_and_globals_mixin import (
+    InitializeLocalsAndGlobalsMixIn,
+)
+from apysc._validation import arg_validation_decos
 
 _ArrayValue = TypeVar("_ArrayValue", bound=InitializeForLoopValueInterface)
 
@@ -54,6 +56,7 @@ class ForArrayValues(
     ...         radius=25,
     ...         fill_color="#0af",
     ...     )
+    ...
     """
 
     _arr: Array[_ArrayValue]
@@ -121,6 +124,7 @@ class ForArrayValues(
         ...         radius=25,
         ...         fill_color="#0af",
         ...     )
+        ...
         """
         self._initialize_locals_and_globals(locals_=locals_, globals_=globals_)
         self._arr = arr
@@ -155,7 +159,7 @@ class ForArrayValues(
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type
+            validate_variable_name_interface_type,
         )
 
         loop_count.increment_current_loop_count()

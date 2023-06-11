@@ -109,6 +109,15 @@ Append integer cast (Math.trunc) expression.<hr>
 - `is_number_specified`: bool
   - Boolean value whether a specified value is Number instance or not.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `int_value`: Int
+  - An initialized integer value.
+
 ### `_set_value_and_skip_expression_appending` method docstring
 
 Update value attribute and skip expression appending.<hr>

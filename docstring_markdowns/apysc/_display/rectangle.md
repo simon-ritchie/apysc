@@ -157,6 +157,15 @@ Create a rectangle instance with the instance of specified graphics..<hr>
 - `rectangle`: Rectangle
   - A created rectangle instance.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `rectangle`: Rectangle
+  - An initialized rectangle instance.
+
 ### `_set_ellipse_settings_if_values_are_not_zero` method docstring
 
 Set ellipse-related settings if values are not zero.<hr>

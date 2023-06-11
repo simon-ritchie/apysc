@@ -128,6 +128,15 @@ Create a line instance with the instance of specified graphics.<hr>
 - `line`: Line
   - A created line instance.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `line`: Line
+  - An initialized line instance.
+
 ### `_make_points_expression` method docstring
 
 Make line start and end expression str.<hr>

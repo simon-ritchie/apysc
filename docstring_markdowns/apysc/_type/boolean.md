@@ -191,6 +191,15 @@ Get bool value from specified argument value.<hr>
 - `result`: bool
   - Converted boolean value.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `bool_value`: Boolean
+  - An initialized boolean value.
+
 ### `_make_snapshot` method docstring
 
 Make value's snapshot.<hr>

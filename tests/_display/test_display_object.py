@@ -1,6 +1,7 @@
 import apysc as ap
 from apysc._display.any_display_object import AnyDisplayObject
-from apysc._expression import expression_data_util, var_names
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
 
 

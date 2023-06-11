@@ -144,3 +144,12 @@ Create a path instance with the instance of specified graphics.<hr>
 
 - `path`: Path
   - A created path instance.
+
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `path`: Path
+  - An initialized path instance.

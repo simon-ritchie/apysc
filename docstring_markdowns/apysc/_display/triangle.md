@@ -154,6 +154,15 @@ Create a triangle instance with the instance of specified graphics.<hr>
 - `triangle`: Triangle
   - A created triangle instance.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `triangle`: Triangle
+  - An initialized triangle instance.
+
 ### `_set_points_with_each_coordinate` method docstring
 
 Set the `_points`' attribute value with each coordinate.

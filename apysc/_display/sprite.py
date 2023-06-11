@@ -15,12 +15,12 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._validation import arg_validation_decos
 from apysc._loop.initialize_for_loop_value_interface import (
     InitializeForLoopValueInterface,
 )
+from apysc._type.revert_mixin import RevertMixIn
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._validation import arg_validation_decos
 
 _Graphics = graphics.Graphics
 

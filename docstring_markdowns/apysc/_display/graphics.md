@@ -64,6 +64,15 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 
 Append constructor expression.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `graphics`: Graphics
+  - An initialized graphics instance.
+
 ### `_reset_each_line_settings` method docstring
 
 Reset each line settings (e.g., LineDotSetting, LineDashSetting, and so on).<hr>

@@ -100,6 +100,15 @@ Get a representation string of this instance.<hr>
 - `repr_str`: str
   - Representation string of this instance.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `num_value`: Number
+  - An initialized number value.
+
 ### `_set_value_and_skip_expression_appending` method docstring
 
 Update value attribute and skip expression appending.<hr>

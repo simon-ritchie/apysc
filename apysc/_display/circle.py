@@ -61,6 +61,9 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
     AttrToApyscValFromBuiltinMixIn,
 )
@@ -70,9 +73,6 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._loop.initialize_for_loop_value_interface import (
-    InitializeForLoopValueInterface,
-)
 
 
 class Circle(

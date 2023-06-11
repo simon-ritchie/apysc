@@ -39,11 +39,12 @@ class AnyDisplayObject(
         """
         import apysc as ap
         from apysc._expression.expression_variables_util import get_next_variable_name
+
         variable_name: str = get_next_variable_name(
             type_name=var_names.ANY_DISPLAY_OBJECT
         )
         super(AnyDisplayObject, self).__init__(variable_name=variable_name)
-        expression: str = (f"var {variable_name};")
+        expression: str = f"var {variable_name};"
         ap.append_js_expression(expression=expression)
 
     @classmethod
@@ -58,6 +59,7 @@ class AnyDisplayObject(
             An initialized object.
         """
         import apysc as ap
+
         any_display_object: AnyDisplayObject = AnyDisplayObject()
         any_display_object.visible = ap.Boolean(False)
         return any_display_object

@@ -147,6 +147,15 @@ Convert text spans' list to an array.<hr>
 - `text_spans_`: Array[SVGTextSpan]
   - A converted array.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `svg_text`: SVGText
+  - An initialized svg text instance.
+
 ### `create_with_svg_text_spans` method docstring
 
 Create an `SVGText` instance with specified text spans.<hr>

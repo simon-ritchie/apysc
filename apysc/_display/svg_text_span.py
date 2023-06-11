@@ -65,6 +65,9 @@ from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
 )
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
@@ -73,9 +76,6 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._loop.initialize_for_loop_value_interface import (
-    InitializeForLoopValueInterface,
-)
 
 
 class SVGTextSpan(

@@ -295,6 +295,15 @@ Get a dict value from a specified value.<hr>
 - `dict_val`: dict
   - Converted dict value.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `dict_val`: Dictionary
+  - An initialized dictionary value.
+
 ### `_make_snapshot` method docstring
 
 Make values' snapthot.<hr>

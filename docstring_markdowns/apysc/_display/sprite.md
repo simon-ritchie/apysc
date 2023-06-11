@@ -104,6 +104,15 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 
 Append Sprite constructor expression.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `sprite`: Sprite
+  - An initialized sprite instance.
+
 ### `_make_snapshot` method docstring
 
 Make values' snapshot.<hr>

@@ -3278,11 +3278,12 @@ def is_initialize_for_loop_value_interface_subclass(
     wrapped : Callable
         Wrapped callable object.
     """
+
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._loop.initialize_for_loop_value_interface import (
-                InitializeForLoopValueInterface
+                InitializeForLoopValueInterface,
             )
 
             class_: Any = _extract_arg_value(

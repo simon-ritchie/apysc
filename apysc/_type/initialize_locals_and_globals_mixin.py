@@ -2,8 +2,9 @@
 method.
 """
 
-from typing import Any, Optional
+from typing import Any
 from typing import Dict
+from typing import Optional
 
 from typing_extensions import final
 

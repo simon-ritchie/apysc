@@ -13,9 +13,11 @@ from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._type.array import Array
+from apysc._type.initialize_locals_and_globals_mixin import (
+    InitializeLocalsAndGlobalsMixIn,
+)
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
-from apysc._type.initialize_locals_and_globals_mixin import InitializeLocalsAndGlobalsMixIn
 
 
 class ForArrayIndices(
@@ -70,7 +72,7 @@ class ForArrayIndices(
 
         Parameters
         ----------
-        arr : Array]
+        arr : Array
             An array to iterate.
         locals_ : Optional[Dict[str, Any]], optional
             Current scope's local variables. Set locals()

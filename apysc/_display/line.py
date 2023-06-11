@@ -53,15 +53,15 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._geom import point2d
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._loop.initialize_for_loop_value_interface import (
-    InitializeForLoopValueInterface,
-)
 
 
 class Line(

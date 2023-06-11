@@ -172,3 +172,12 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 ### `_append_constructor_expression` method docstring
 
 Append a constructor expression string.
+
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `svg_text_span`: SVGTextSpan
+  - An initialized text span instance.

@@ -151,6 +151,15 @@ Create a rectangle instance with the instance of specified graphics.<hr>
 - `circle`: Circle
   - A created circle instance.
 
+### `_initialize_for_loop_value` method docstring
+
+Initialize this instance for a loop value.<hr>
+
+**[Returns]**
+
+- `circle`: Circle
+  - An initialized circle instance.
+
 ### `_set_center_coordinates` method docstring
 
 Set a center x-coordinate and a center y-coordinate.<hr>

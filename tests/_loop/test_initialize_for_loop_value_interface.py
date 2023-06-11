@@ -1,8 +1,8 @@
-import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 from apysc._loop.initialize_for_loop_value_interface import (
     InitializeForLoopValueInterface,
 )
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestInitializeForLoopValueInterface:

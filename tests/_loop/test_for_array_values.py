@@ -1,5 +1,3 @@
-from typing import Any
-from typing import Dict
 
 import apysc as ap
 from apysc._expression import expression_data_util
@@ -51,7 +49,5 @@ class TestForArrayValues:
             assert loop_count.get_current_loop_count() == 1
         assert loop_count.get_current_loop_count() == 0
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"for ({value.variable_name} of {arr.variable_name}) {{"
-        )
+        expected: str = f"for ({value.variable_name} of {arr.variable_name}) {{"
         assert expected in expression

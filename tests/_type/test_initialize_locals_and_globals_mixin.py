@@ -1,7 +1,7 @@
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.initialize_locals_and_globals_mixin import (
-    InitializeLocalsAndGlobalsMixIn
+    InitializeLocalsAndGlobalsMixIn,
 )
 
 

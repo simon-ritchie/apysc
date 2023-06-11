@@ -154,3 +154,4 @@ class TestPath:
             ap.PathMoveTo(x=-2, y=-2),
             ap.PathLineTo(x=-1, y=-1),
         ]
+        assert path.visible == ap.Boolean(False)

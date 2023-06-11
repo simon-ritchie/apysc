@@ -406,7 +406,11 @@ class Line(
         line : Line
             An initialized line instance.
         """
-        return Line(
+        import apysc as ap
+
+        line: Line = Line(
             start_point=point2d.Point2D(x=-2, y=-2),
             end_point=point2d.Point2D(x=-1, y=-1),
         )
+        line.visible = ap.Boolean(False)
+        return line

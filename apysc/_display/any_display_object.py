@@ -57,4 +57,7 @@ class AnyDisplayObject(
         any_display_object : AnyDisplayObject
             An initialized object.
         """
-        return AnyDisplayObject()
+        import apysc as ap
+        any_display_object: AnyDisplayObject = AnyDisplayObject()
+        any_display_object.visible = ap.Boolean(False)
+        return any_display_object

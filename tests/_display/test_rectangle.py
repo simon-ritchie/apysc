@@ -208,3 +208,4 @@ class TestRectangle:
         assert rectangle.y == ap.Int(-2)
         assert rectangle.width == ap.Int(1)
         assert rectangle.height == ap.Int(1)
+        assert rectangle.visible == ap.Boolean(False)

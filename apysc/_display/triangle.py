@@ -460,7 +460,9 @@ class Triangle(
         triangle : Triangle
             An initialized triangle instance.
         """
-        return Triangle(
+        import apysc as ap
+
+        triangle: Triangle = Triangle(
             x1=-2,
             y1=-2,
             x2=-1,
@@ -468,3 +470,5 @@ class Triangle(
             x3=-1,
             y3=-1,
         )
+        triangle.visible = ap.Boolean(False)
+        return triangle

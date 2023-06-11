@@ -447,9 +447,11 @@ class Path(
         """
         import apysc as ap
 
-        return Path(
+        path: Path = Path(
             path_data_list=[
                 ap.PathMoveTo(x=-2, y=-2),
                 ap.PathLineTo(x=-1, y=-1),
             ],
         )
+        path.visible = ap.Boolean(False)
+        return path

@@ -158,5 +158,7 @@ class TestSVGText:
 
     @apply_test_settings()
     def test__initialize_for_loop_value(self) -> None:
+        ap.Stage()
         svg_text: ap.SVGText = ap.SVGText._initialize_for_loop_value()
         assert svg_text.text == ap.String("")
+        assert svg_text.visible == ap.Boolean(False)

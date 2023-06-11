@@ -150,3 +150,4 @@ class TestTriangle:
         assert triangle.y2 == ap.Number(-2)
         assert triangle.x3 == ap.Number(-1)
         assert triangle.y3 == ap.Number(-1)
+        assert triangle.visible == ap.Boolean(False)

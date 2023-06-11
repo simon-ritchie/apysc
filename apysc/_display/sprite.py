@@ -214,4 +214,8 @@ class Sprite(
         sprite : Sprite
             An initialized sprite instance.
         """
-        return Sprite()
+        import apysc as ap
+
+        sprite: Sprite = Sprite()
+        sprite.visible = ap.Boolean(False)
+        return sprite

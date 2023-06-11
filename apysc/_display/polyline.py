@@ -429,9 +429,13 @@ class Polyline(
         polyline : Polyline
             An initialized polyline instance
         """
-        return Polyline(
+        import apysc as ap
+
+        polyline: Polyline = Polyline(
             points=[
                 Point2D(x=-2, y=-2),
                 Point2D(x=-1, y=-1),
             ]
         )
+        polyline.visible = ap.Boolean(False)
+        return polyline

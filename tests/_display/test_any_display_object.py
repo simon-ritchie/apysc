@@ -23,3 +23,4 @@ class TestAnyDisplayObject:
         )
         expression: str = expression_data_util.get_current_expression()
         assert f"var {any_display_object.variable_name};" in expression
+        assert any_display_object.visible == ap.Boolean(False)

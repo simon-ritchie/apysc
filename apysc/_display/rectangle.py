@@ -493,9 +493,13 @@ class Rectangle(
         rectangle : Rectangle
             An initialized rectangle instance.
         """
-        return Rectangle(
+        import apysc as ap
+
+        rectangle: Rectangle = Rectangle(
             x=-2,
             y=-2,
             width=1,
             height=1
         )
+        rectangle.visible = ap.Boolean(False)
+        return rectangle

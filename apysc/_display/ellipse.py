@@ -444,9 +444,13 @@ class Ellipse(
         ellipse : Ellipse
             An initialized ellipse instance.
         """
-        return Ellipse(
+        import apysc as ap
+
+        ellipse: Ellipse = Ellipse(
             x=-1,
             y=-1,
             width=1,
             height=1,
         )
+        ellipse.visible = ap.Boolean(False)
+        return ellipse

@@ -168,3 +168,4 @@ class TestEllipse:
         assert ellipse.y == ap.Number(-1)
         assert ellipse.width == ap.Int(1)
         assert ellipse.height == ap.Int(1)
+        assert ellipse.visible == ap.Boolean(False)

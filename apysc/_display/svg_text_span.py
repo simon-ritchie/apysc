@@ -348,7 +348,11 @@ class SVGTextSpan(
         svg_text_span : SVGTextSpan
             An initialized text span instance.
         """
-        return SVGTextSpan(text="")
+        import apysc as ap
+
+        svg_text_span: SVGTextSpan = SVGTextSpan(text="")
+        svg_text_span.visible = ap.Boolean(False)
+        return svg_text_span
 
 
 def _get_init_line_color_str(

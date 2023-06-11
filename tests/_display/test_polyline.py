@@ -224,3 +224,4 @@ class TestPolyline:
                 ap.Point2D(x=-1, y=-1),
             ]
         )
+        assert polyline.visible == ap.Boolean(False)

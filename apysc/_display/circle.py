@@ -450,8 +450,12 @@ class Circle(
         circle : Circle
             An initialized circle instance.
         """
-        return Circle(
+        import apysc as ap
+
+        circle: Circle = Circle(
             x=-1,
             y=-1,
             radius=1,
         )
+        circle.visible = ap.Boolean(False)
+        return circle

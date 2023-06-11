@@ -375,9 +375,21 @@ class Polygon(
     @classmethod
     @final
     def _initialize_for_loop_value(cls) -> "Polygon":
-        return Polygon(
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        polygon : Polygon
+            An initialized polygon instance.
+        """
+        import apysc as ap
+
+        polygon: Polygon = Polygon(
             points=[
                 Point2D(x=-2, y=-2),
                 Point2D(x=-1, y=-2),
                 Point2D(x=-1, y=-1),
             ])
+        polygon.visible = ap.Boolean(False)
+        return polygon

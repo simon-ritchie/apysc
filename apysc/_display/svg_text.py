@@ -586,4 +586,8 @@ class SVGText(
         svg_text : SVGText
             An initialized svg text instance.
         """
-        return SVGText(text="")
+        import apysc as ap
+
+        svg_text: SVGText = SVGText(text="")
+        svg_text.visible = ap.Boolean(False)
+        return svg_text

@@ -165,3 +165,4 @@ class TestCircle:
         assert circle.x == ap.Number(-1)
         assert circle.y == ap.Number(-1)
         assert circle.radius == ap.Int(1)
+        assert circle.visible == ap.Boolean(False)

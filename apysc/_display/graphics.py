@@ -1343,6 +1343,9 @@ class Graphics(
         graphics : Graphics
             An initialized graphics instance.
         """
+        import apysc as ap
+
         sprite_: sprite.Sprite = sprite.Sprite()
         graphics: Graphics = Graphics(parent=sprite_)
+        graphics.visible = ap.Boolean(False)
         return graphics

@@ -439,3 +439,4 @@ class TestGraphics:
         ap.Stage()
         graphics: Graphics = Graphics._initialize_for_loop_value()
         assert isinstance(graphics.parent, ap.Sprite)
+        assert graphics.visible == ap.Boolean(False)

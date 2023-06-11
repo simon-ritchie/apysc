@@ -149,3 +149,4 @@ class TestPolygon:
                 ap.Point2D(x=-1, y=-1),
             ]
         )
+        assert polygon.visible == ap.Boolean(False)

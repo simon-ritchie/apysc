@@ -18,6 +18,9 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._loop.initialize_for_loop_value_interface import (
+    InitializeForLoopValueInterface,
+)
 
 _Graphics = graphics.Graphics
 
@@ -33,6 +36,7 @@ class Sprite(
     ChildMixIn,
     RevertMixIn,
     VariableNameSuffixMixIn,
+    InitializeForLoopValueInterface,
 ):
     """
     This class is for the basic display object that
@@ -198,3 +202,16 @@ class Sprite(
         """
         repr_str: str = f'{Sprite.__name__}("{self.variable_name}")'
         return repr_str
+
+    @classmethod
+    @final
+    def _initialize_for_loop_value(cls) -> "Sprite":
+        """
+        Initialize this instance for a loop value.
+
+        Returns
+        -------
+        sprite : Sprite
+            An initialized sprite instance.
+        """
+        return Sprite()

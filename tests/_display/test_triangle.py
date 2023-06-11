@@ -140,3 +140,13 @@ class TestTriangle:
             },
             any_obj=triangle,
         )
+
+    @apply_test_settings()
+    def test__initialize_for_loop_value(self) -> None:
+        triangle: ap.Triangle = ap.Triangle._initialize_for_loop_value()
+        assert triangle.x1 == ap.Number(-2)
+        assert triangle.y1 == ap.Number(-2)
+        assert triangle.x2 == ap.Number(-1)
+        assert triangle.y2 == ap.Number(-2)
+        assert triangle.x3 == ap.Number(-1)
+        assert triangle.y3 == ap.Number(-1)

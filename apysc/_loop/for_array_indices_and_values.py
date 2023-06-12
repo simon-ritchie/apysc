@@ -36,6 +36,27 @@ class ForArrayIndicesAndValues(
 ):
     """
     The loop implementation class for the `ap.Array` indices and values.
+
+    Examples
+    --------
+    >>> import apysc as ap
+
+    >>> _ = ap.Stage(
+    ...     stage_width=350, stage_height=225, background_color="#333"
+    ... )
+
+    >>> x_arr: ap.Array[ap.Number] = ap.Array(
+    ...     [ap.Number(75), ap.Number(175), ap.Number(275)]
+    ... )
+    >>> with ap.ForArrayIndicesAndValues(
+    ...     arr=x_arr, arr_value_type=ap.Number
+    ... ) as (i, x):
+    ...     circle: ap.Circle = ap.Circle(
+    ...         x=x,
+    ...         y=(i + 1) * 50,
+    ...         radius=25,
+    ...         fill_color="#0af",
+    ...     )
     """
 
     _arr: Array[_ArrayValue]
@@ -82,6 +103,27 @@ class ForArrayIndicesAndValues(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=350, stage_height=225, background_color="#333"
+        ... )
+
+        >>> x_arr: ap.Array[ap.Number] = ap.Array(
+        ...     [ap.Number(75), ap.Number(175), ap.Number(275)]
+        ... )
+        >>> with ap.ForArrayIndicesAndValues(
+        ...     arr=x_arr, arr_value_type=ap.Number
+        ... ) as (i, x):
+        ...     circle: ap.Circle = ap.Circle(
+        ...         x=x,
+        ...         y=(i + 1) * 50,
+        ...         radius=25,
+        ...         fill_color="#0af",
+        ...     )
         """
         self._initialize_locals_and_globals(locals_=locals_, globals_=globals_)
         self._arr = arr

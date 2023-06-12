@@ -4004,7 +4004,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - 配列の値の型。このインターフェイスは`Int`、`String`、`Rectangle`などのapyscの型を受け付けます。",
         ),
         Mapping(
-            key="Also, this class requires the `arr_value_type` to specify a type of an `Array`\'s value type.",
+            key="Also, this class requires the `arr_value_type` to specify a type of an `Array`'s value type.",
             val="また、このクラスは`Array`の配列内の値の型の指定用に`arr_value_type`引数の指定が必要になります。",
         ),
         Mapping(

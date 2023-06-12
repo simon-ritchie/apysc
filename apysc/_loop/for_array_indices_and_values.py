@@ -1,10 +1,11 @@
 """The loop implementation class for the `ap.Array` indices and values.
 """
 
-from typing import Any, Tuple
+from typing import Any
 from typing import Dict
 from typing import Generic
 from typing import Optional
+from typing import Tuple
 from typing import Type
 from typing import TypeVar
 
@@ -22,8 +23,8 @@ from apysc._type.array import Array
 from apysc._type.initialize_locals_and_globals_mixin import (
     InitializeLocalsAndGlobalsMixIn,
 )
-from apysc._validation import arg_validation_decos
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 _ArrayValue = TypeVar("_ArrayValue", bound=InitializeForLoopValueInterface)
 
@@ -46,22 +47,19 @@ class ForArrayIndicesAndValues(
     --------
     >>> import apysc as ap
 
-    >>> _ = ap.Stage(
-    ...     stage_width=350, stage_height=225, background_color="#333"
-    ... )
+    >>> _ = ap.Stage(stage_width=350, stage_height=225, background_color="#333")
 
     >>> x_arr: ap.Array[ap.Number] = ap.Array(
     ...     [ap.Number(75), ap.Number(175), ap.Number(275)]
     ... )
-    >>> with ap.ForArrayIndicesAndValues(
-    ...     arr=x_arr, arr_value_type=ap.Number
-    ... ) as (i, x):
+    >>> with ap.ForArrayIndicesAndValues(arr=x_arr, arr_value_type=ap.Number) as (i, x):
     ...     circle: ap.Circle = ap.Circle(
     ...         x=x,
     ...         y=(i + 1) * 50,
     ...         radius=25,
     ...         fill_color="#0af",
     ...     )
+    ...
     """
 
     _arr: Array[_ArrayValue]
@@ -118,16 +116,15 @@ class ForArrayIndicesAndValues(
         --------
         >>> import apysc as ap
 
-        >>> _ = ap.Stage(
-        ...     stage_width=350, stage_height=225, background_color="#333"
-        ... )
+        >>> _ = ap.Stage(stage_width=350, stage_height=225, background_color="#333")
 
         >>> x_arr: ap.Array[ap.Number] = ap.Array(
         ...     [ap.Number(75), ap.Number(175), ap.Number(275)]
         ... )
-        >>> with ap.ForArrayIndicesAndValues(
-        ...     arr=x_arr, arr_value_type=ap.Number
-        ... ) as (i, x):
+        >>> with ap.ForArrayIndicesAndValues(arr=x_arr, arr_value_type=ap.Number) as (
+        ...     i,
+        ...     x,
+        ... ):
         ...     circle: ap.Circle = ap.Circle(
         ...         x=x,
         ...         y=(i + 1) * 50,

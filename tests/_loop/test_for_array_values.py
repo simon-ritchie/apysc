@@ -1,4 +1,3 @@
-
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression.last_scope import LastScope

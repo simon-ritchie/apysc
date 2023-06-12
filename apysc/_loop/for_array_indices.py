@@ -128,7 +128,6 @@ class ForArrayIndices(
         i : Int
             An index of iteration.
         """
-        import apysc as ap
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
 

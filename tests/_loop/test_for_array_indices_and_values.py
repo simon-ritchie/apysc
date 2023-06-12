@@ -46,9 +46,10 @@ class TestForArrayIndicesAndValues:
     def test___enter__(self) -> None:
         expression_data_util.empty_expression()
         arr: ap.Array[ap.String] = ap.Array([ap.String("a"), ap.String("b")])
-        with ap.ForArrayIndicesAndValues(
-            arr=arr, arr_value_type=ap.String
-        ) as (i, value):
+        with ap.ForArrayIndicesAndValues(arr=arr, arr_value_type=ap.String) as (
+            i,
+            value,
+        ):
             ap.append_js_expression("console.log(10);")
             assert loop_count.get_current_loop_count() == 1
         assert isinstance(i, ap.Int)
@@ -61,8 +62,5 @@ class TestForArrayIndicesAndValues:
         )
         assert expected in expression
 
-        expected = (
-            f"  {value.variable_name} = {arr.variable_name}[{i.variable_name}];"
-        )
+        expected = f"  {value.variable_name} = {arr.variable_name}[{i.variable_name}];"
         assert expected in expression
-

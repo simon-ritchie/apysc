@@ -80,7 +80,7 @@ The loop implementation class for the `ap.Array` indices.<hr>
 
 **[Parameters]**
 
-- `arr`: Array]
+- `arr`: Array
   - An array to iterate.
 - `locals_`: Optional[Dict[str, Any]], optional
   - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don't want to update each variable.

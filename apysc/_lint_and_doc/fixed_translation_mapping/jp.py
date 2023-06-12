@@ -4003,5 +4003,21 @@ MAPPINGS: Mappings = Mappings(
             key="  - An array value type. This interface accepts apysc types, such as the `Int`, `String`, `Rectangle`.",
             val="  - 配列の値の型。このインターフェイスは`Int`、`String`、`Rectangle`などのapyscの型を受け付けます。",
         ),
+        Mapping(
+            key="Also, this class requires the `arr_value_type` to specify a type of an `Array`\'s value type.",
+            val="また、このクラスは`Array`の配列内の値の型の指定用に`arr_value_type`引数の指定が必要になります。",
+        ),
+        Mapping(
+            key="This type only accepts an apysc type, such as the `Int`, `Number`, `String`, or `Rectangle`.",
+            val="この型の指定は`Int`や`Number`、`String`や`Rectangle`などのapyscの型（クラス）のみ受け付けます。",
+        ),
+        Mapping(
+            key="## ForArrayIndicesAndValues API",
+            val="## ForArrayIndicesAndValues API",
+        ),
+        Mapping(
+            key="The loop implementation class for the `ap.Array` indices and values.<hr>",
+            val="`ap.Array`の各インデックスと値に対するループ制御の実装となるクラスです。<hr>",
+        ),
     ]
 )

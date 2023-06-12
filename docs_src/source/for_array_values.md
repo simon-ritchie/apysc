@@ -18,7 +18,7 @@ This class requires using the `with`-statement.
 
 The `as`-keyword value becomes an `Array`'s value.
 
-Also, this class requires the `arr_value_type` to specify a type of an `Array`'s type.
+Also, this class requires the `arr_value_type` to specify a type of an `Array`'s value type.
 
 This type only accepts an apysc type, such as the `Int`, `Number`, `String`, or `Rectangle`.
 
@@ -91,4 +91,5 @@ The loop implementation class for the `ap.Array` values.<hr>
 ...         radius=25,
 ...         fill_color="#0af",
 ...     )
+...
 ```

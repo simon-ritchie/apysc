@@ -267,6 +267,7 @@ jp_return
 jp_for
 jp_for_array_indices
 jp_for_array_values
+jp_for_array_indices_and_values
 jp_continue
 jp_range
 ```

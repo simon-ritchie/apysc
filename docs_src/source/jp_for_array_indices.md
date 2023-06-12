@@ -80,7 +80,7 @@ ap.save_overall_html(dest_dir_path="for_array_indices_basic_usage_2/")
 
 **[引数]**
 
-- `arr`: Array]
+- `arr`: Array
   - イテレーションのための配列。
 
 - `locals_`: Optional[Dict[str, Any]], optional

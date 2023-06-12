@@ -37,6 +37,11 @@ class ForArrayIndicesAndValues(
     """
     The loop implementation class for the `ap.Array` indices and values.
 
+    References
+    ----------
+    - ForArrayIndicesAndValues
+        - https://simon-ritchie.github.io/apysc/en/for_array_indices_and_values.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -103,6 +108,11 @@ class ForArrayIndicesAndValues(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - ForArrayIndicesAndValues
+            - https://simon-ritchie.github.io/apysc/en/for_array_indices_and_values.html
 
         Examples
         --------

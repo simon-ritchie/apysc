@@ -23,6 +23,7 @@ from apysc._type.string_strip_mixin import StringStripMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.hashable_interface import HashableInterface
 
 
 class String(
@@ -36,6 +37,7 @@ class String(
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     InitializeForLoopValueInterface,
+    HashableInterface,
 ):
     """
     String class for apysc library.
@@ -855,6 +857,18 @@ class String(
             An initialized string value.
         """
         return String("")
+
+    @final
+    def __hash__(self) -> str:
+        """
+        Get a string for the dictionary key.
+
+        Returns
+        -------
+        hashed_str str
+            A string for the dictionary key.
+        """
+        return self._value
 
 
 def _escape_str_value(*, value: Union[str, "String"]) -> Union[str, "String"]:

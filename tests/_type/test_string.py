@@ -471,3 +471,8 @@ class TestString:
     def test__initialize_for_loop_value(self) -> None:
         str_value: ap.String = ap.String._initialize_for_loop_value()
         assert str_value == ap.String("")
+
+    @apply_test_settings()
+    def test___hash__(self) -> None:
+        str_value: ap.String = ap.String("test")
+        assert str_value.__hash__() == "test"

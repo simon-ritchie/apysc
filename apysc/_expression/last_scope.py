@@ -18,6 +18,7 @@ class LastScope(Enum):
     FOR_ARRAY_INDICES = 7
     FOR_ARRAY_VALUES = 8
     FOR_ARRAY_INDICES_AND_VALUES = 9
+    FOR_DICT_KEYS = 10
 
 
 def reset() -> None:

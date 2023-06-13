@@ -1552,3 +1552,18 @@ def test_is_initialize_for_loop_value_interface_subclass() -> None:
         callable_=_test_func_1,
         value=int,
     )
+
+
+@apply_test_settings()
+def test_is_apysc_dict() -> None:
+    @arg_validation_decos.is_apysc_dict(arg_position_index=0)
+    def _test_func_1(*, dict_: ap.Dictionary[str, int]) -> int:
+        return 330
+
+    result: int = _test_func_1(dict_=ap.Dictionary({"a": 10}))
+    assert result == 330
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        dict_=10,
+    )

@@ -130,6 +130,9 @@ Mainly the following decorators exist.
 - is_builtin_dict
     - Set a validation to check a specified argument's type
         is the Python's `dict` type.
+- is_apysc_dict
+    - Set a validation to check a specified argument's type
+        is the `ap.Dictionary` type.
 - is_acceptable_boolean_value
     - Set a validation to check a specified argument's type
         is an acceptable boolean value type.
@@ -2295,7 +2298,50 @@ def is_builtin_dict(*, arg_position_index: int) -> _Callable:
                 )
                 raise TypeError(
                     "A specified value's type is not the Python's `dict`: "
-                    f"{type(value)}"
+                    f"{type(value).__name__}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_apysc_dict(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's type
+    is the `ap.Dictionary` type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            import apysc as ap
+
+            value: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(value, ap.Dictionary):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "A specified value's type is not the `ap.Dictionary`: "
+                    f"{type(value).__name__}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)

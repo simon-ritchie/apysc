@@ -108,3 +108,8 @@ class TestInt:
     def test__initialize_for_loop_value(self) -> None:
         int_value: ap.Int = ap.Int._initialize_for_loop_value()
         assert int_value == ap.Int(0)
+
+    @apply_test_settings()
+    def test___hash__(self) -> None:
+        int_value: ap.Int = ap.Int(5)
+        assert int_value.__hash__() == 5

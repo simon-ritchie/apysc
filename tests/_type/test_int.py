@@ -1,3 +1,4 @@
+from typing import Dict
 import pytest
 
 import apysc as ap
@@ -113,3 +114,5 @@ class TestInt:
     def test___hash__(self) -> None:
         int_value: ap.Int = ap.Int(5)
         assert int_value.__hash__() == 5
+        dict_val: Dict[ap.Int, int] = {ap.Int(10): 5}
+        assert dict_val[ap.Int(10)] == 5

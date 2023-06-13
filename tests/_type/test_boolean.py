@@ -305,6 +305,13 @@ class TestBoolean:
         bool_value: ap.Boolean = ap.Boolean._initialize_for_loop_value()
         assert bool_value == ap.Boolean(False)
 
+    @apply_test_settings()
+    def test___hash__(self) -> None:
+        bool_value: ap.Boolean = ap.Boolean(True)
+        assert bool_value.__hash__() == hash(bool_value._value)
+        dict_val: Dict[ap.Boolean, int] = {ap.Boolean(True): 20}
+        assert dict_val[ap.Boolean(True)] == 20
+
 
 class TestBool:
     @apply_test_settings()

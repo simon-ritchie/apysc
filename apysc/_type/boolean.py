@@ -22,6 +22,7 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.hashable_interface import HashableInterface
 
 
 class Boolean(
@@ -32,6 +33,7 @@ class Boolean(
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     InitializeForLoopValueInterface,
+    HashableInterface,
 ):
 
     """
@@ -544,3 +546,15 @@ class Boolean(
             An initialized boolean value.
         """
         return Boolean(False)
+
+    @final
+    def __hash__(self) -> int:
+        """
+        Get a hashed value.
+
+        Returns
+        -------
+        hashed_value : int
+            A hashed value.
+        """
+        return hash(self._value)

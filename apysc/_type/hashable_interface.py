@@ -7,7 +7,7 @@ from abc import abstractmethod
 class HashableInterface:
 
     @abstractmethod
-    def __hash__(self) -> str:
+    def __hash__(self) -> int:
         """
-        Get a hashed string.
+        Get a hashed value.
         """

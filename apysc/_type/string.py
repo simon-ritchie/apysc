@@ -859,16 +859,16 @@ class String(
         return String("")
 
     @final
-    def __hash__(self) -> str:
+    def __hash__(self) -> int:
         """
-        Get a string for the dictionary key.
+        Get a hashed value.
 
         Returns
         -------
-        hashed_str str
-            A string for the dictionary key.
+        hashed_value : int
+            A hashed value.
         """
-        return self._value
+        return hash(self._value)
 
 
 def _escape_str_value(*, value: Union[str, "String"]) -> Union[str, "String"]:

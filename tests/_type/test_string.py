@@ -474,5 +474,7 @@ class TestString:
 
     @apply_test_settings()
     def test___hash__(self) -> None:
-        str_value: ap.String = ap.String("test")
-        assert str_value.__hash__() == "test"
+        str_value: ap.String = ap.String("test_1")
+        assert str_value.__hash__() == hash("test_1")
+        dict_val: Dict[str, Any] = {ap.String("test_2"): 10}
+        assert dict_val[ap.String("test_2")] == 10

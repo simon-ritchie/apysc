@@ -42,6 +42,8 @@ class ForDictKeys(
 
     @final
     @arg_validation_decos.is_apysc_dict(arg_position_index=1)
+    @arg_validation_decos.can_become_dict_key_type(arg_position_index=2)
+    @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
@@ -61,7 +63,7 @@ class ForDictKeys(
             A dictionary to iterate.
         dict_key_type : Type[_DictKey]
             A dictionary key type. This interface accepsts hashable types,
-            such as the `str`, `String`, `int`, `Int`.
+            such as the `str`, `String`, `int`, `Int`, `bool` or `Boolean`.
         locals_ : Optional[Dict[str, Any]], optional
             Current scope's local variables. Set locals()
             value to this argument. If specified, this interface
@@ -94,3 +96,27 @@ class ForDictKeys(
             A target last scope.
         """
         return LastScope.FOR_DICT_KEYS
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def __enter__(self) -> _DictKey:
+        """
+        The entering method for the beginning of with-statement.
+
+        Returns
+        -------
+        dict_key : _DictKey
+            A dictionary key of iteration.
+        """
+        import apysc as ap
+        from apysc._loop import loop_count
+        from apysc._type import revert_mixin
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_interface_type,
+        )
+
+        loop_count.increment_current_loop_count()
+        self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
+            locals_=self._locals, globals_=self._globals
+        )
+        pass

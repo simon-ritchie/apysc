@@ -107,7 +107,10 @@ def _validate_dict_key_type(*, key: Any) -> None:
 
     if isinstance(key, (str, int, float, bool, ap.String, ap.Int, ap.Boolean)):
         return
-    raise TypeError(f"Dictionary key type only supports str and int: {type(key)}")
+    raise TypeError(
+        f"Dictionary key type only supports `int`, `str`, `float`,"
+        f"`bool`, `ap.Int`, `ap.String`, or `ap.Boolean`: {type(key)}"
+    )
 
 
 def _get_value_str_from_iterable(*, value: Union[list, tuple, Array]) -> str:

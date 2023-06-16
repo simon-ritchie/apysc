@@ -15,7 +15,7 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._loop.initialize_for_loop_value_interface import (
+from apysc._loop.initialize_for_loop_key_or_value_interface import (
     InitializeForLoopValueInterface,
 )
 from apysc._type.revert_mixin import RevertMixIn

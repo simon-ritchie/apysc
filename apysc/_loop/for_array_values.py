@@ -15,7 +15,7 @@ from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
-from apysc._loop.initialize_for_loop_value_interface import (
+from apysc._loop.initialize_for_loop_key_or_value_interface import (
     InitializeForLoopValueInterface,
 )
 from apysc._type.array import Array

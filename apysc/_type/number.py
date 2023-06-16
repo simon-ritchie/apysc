@@ -7,7 +7,7 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._loop.initialize_for_loop_value_interface import (
+from apysc._loop.initialize_for_loop_key_or_value_interface import (
     InitializeForLoopValueInterface,
 )
 from apysc._type.number_value_mixin import NumberValueMixIn

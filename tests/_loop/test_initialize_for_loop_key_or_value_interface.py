@@ -1,4 +1,4 @@
-from apysc._loop.initialize_for_loop_value_interface import (
+from apysc._loop.initialize_for_loop_key_or_value_interface import (
     InitializeForLoopValueInterface,
 )
 from apysc._testing.testing_helper import apply_test_settings

@@ -61,7 +61,7 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._loop.initialize_for_loop_value_interface import (
+from apysc._loop.initialize_for_loop_key_or_value_interface import (
     InitializeForLoopValueInterface,
 )
 from apysc._type.attr_to_apysc_val_from_builtin_mixin import (

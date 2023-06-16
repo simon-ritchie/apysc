@@ -1,7 +1,7 @@
 """The loop implementation class for the `ap.Dictionary` keys.
 """
 
-from typing import Any, Type, Union
+from typing import Any, Type, Union, cast
 from typing import Dict
 from typing import Optional
 from typing import TypeVar
@@ -42,6 +42,9 @@ class ForDictKeys(
 
     @final
     @arg_validation_decos.is_apysc_dict(arg_position_index=1)
+    @arg_validation_decos.is_initialize_for_loop_value_interface_subclass(
+        arg_position_index=2,
+    )
     @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -110,12 +113,20 @@ class ForDictKeys(
         import apysc as ap
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
-        from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type,
-        )
 
         loop_count.increment_current_loop_count()
         self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
             locals_=self._locals, globals_=self._globals
         )
-        pass
+        dict_key: _DictKey = cast(
+            _DictKey,
+            self._dict_key_type._initialize_for_loop_value(),
+        )
+
+        expression: str = (
+            f"for ({dict_key.variable_name} in {self._dict.variable_name}) {{"
+        )
+        ap.append_js_expression(expression=expression)
+
+        self._indent.__enter__()
+        return dict_key

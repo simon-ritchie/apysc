@@ -1567,26 +1567,3 @@ def test_is_apysc_dict() -> None:
         callable_=_test_func_1,
         dict_=10,
     )
-
-
-@apply_test_settings()
-def test_can_become_dict_key() -> None:
-    @arg_validation_decos.can_become_dict_key_type(arg_position_index=0)
-    def _test_func_1(
-        *, type_: Type[Union[str, ap.String, int, ap.Int, bool, ap.Boolean]]
-    ) -> int:
-        return 340
-
-    result: int = _test_func_1(type_=str)
-    assert result == 340
-    _test_func_1(type_=ap.String)
-    _test_func_1(type_=int)
-    _test_func_1(type_=ap.Int)
-    _test_func_1(type_=bool)
-    _test_func_1(type_=ap.Boolean)
-
-    assert_raises(
-        expected_error_class=TypeError,
-        callable_=_test_func_1,
-        type_=list,
-    )

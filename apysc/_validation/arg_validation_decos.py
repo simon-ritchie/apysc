@@ -133,10 +133,6 @@ Mainly the following decorators exist.
 - is_apysc_dict
     - Set a validation to check a specified argument's type
         is the `ap.Dictionary` type.
-- can_become_dict_key_type
-    - Set a validation to check a specified type can
-        become a dictionary key (type of the `str`, `String`, `int`, `Int`,
-        `bool` or `Boolean`).
 - is_acceptable_boolean_value
     - Set a validation to check a specified argument's type
         is an acceptable boolean value type.
@@ -2353,53 +2349,6 @@ def is_apysc_dict(*, arg_position_index: int) -> _Callable:
         return inner_wrapped  # type: ignore
 
     return wrapped  # type: ignore
-
-
-def can_become_dict_key_type(*, arg_position_index: int) -> _Callable:
-    """
-    Set a validation to check a specified type can
-    become a dictionary key (type of the `str`, `String`, `int`, `Int`,
-    `bool` or `Boolean`).
-
-    Parameters
-    ----------
-    arg_position_index : int
-        A target argument position index.
-
-    Returns
-    -------
-    wrapped : Callable
-        Wrapped callable object.
-    """
-
-    def wrapped(callable_: _Callable) -> _Callable:
-        @functools.wraps(callable_)
-        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
-
-            type_: Any = _extract_arg_value(
-                args=args,
-                kwargs=kwargs,
-                arg_position_index=arg_position_index,
-                callable_=callable_,
-            )
-            if not issubclass(
-                type_, (str, ap.String, int, ap.Int, bool, ap.Boolean)
-            ):
-                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
-                    callable_=callable_, arg_position_index=arg_position_index
-                )
-                raise TypeError(
-                    "A specified type is not the `str`, `ap.String`, "
-                    f"`int`, `ap.Int`, `bool`, or `ap.Boolean`: {type_.__name__}"
-                    f"\n{callable_and_arg_names_msg}"
-                )
-            return callable_(*args, **kwargs)
-
-        return inner_wrapped  # type: ignore
-
-    return wrapped  # type: ignore
-
 
 
 def is_acceptable_boolean_value(*, arg_position_index: int) -> _Callable:

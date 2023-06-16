@@ -1,7 +1,7 @@
 """The loop implementation class for the `ap.Dictionary` keys.
 """
 
-from typing import Any, Type
+from typing import Any, Type, Union
 from typing import Dict
 from typing import Optional
 from typing import TypeVar
@@ -13,6 +13,7 @@ from apysc._expression.get_last_scope_interface import GetLastScopeInterface
 from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._loop import loop_util
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._type.dictionary import Dictionary
 from apysc._type.string import String
@@ -23,7 +24,7 @@ from apysc._type.initialize_locals_and_globals_mixin import (
 from apysc._type.int import Int
 from apysc._type.boolean import Boolean
 
-_DictKey = TypeVar("_DictKey", str, String, int, Int, bool, Boolean)
+_DictKey = TypeVar("_DictKey", String, Int, Boolean)
 
 
 class ForDictKeys(
@@ -42,7 +43,6 @@ class ForDictKeys(
 
     @final
     @arg_validation_decos.is_apysc_dict(arg_position_index=1)
-    @arg_validation_decos.can_become_dict_key_type(arg_position_index=2)
     @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
@@ -63,7 +63,7 @@ class ForDictKeys(
             A dictionary to iterate.
         dict_key_type : Type[_DictKey]
             A dictionary key type. This interface accepsts hashable types,
-            such as the `str`, `String`, `int`, `Int`, `bool` or `Boolean`.
+            such as the `String`, `Int`, or `Boolean`.
         locals_ : Optional[Dict[str, Any]], optional
             Current scope's local variables. Set locals()
             value to this argument. If specified, this interface
@@ -118,5 +118,8 @@ class ForDictKeys(
         loop_count.increment_current_loop_count()
         self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
             locals_=self._locals, globals_=self._globals
+        )
+        dict_key: _DictKey = loop_util.get_dict_key_for_loop(
+            dict_key_type=self._dict_key_type
         )
         pass

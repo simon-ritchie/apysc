@@ -13,7 +13,6 @@ from apysc._expression.get_last_scope_interface import GetLastScopeInterface
 from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._loop import loop_util
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._type.dictionary import Dictionary
 from apysc._type.string import String
@@ -118,8 +117,5 @@ class ForDictKeys(
         loop_count.increment_current_loop_count()
         self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
             locals_=self._locals, globals_=self._globals
-        )
-        dict_key: _DictKey = loop_util.get_dict_key_for_loop(
-            dict_key_type=self._dict_key_type
         )
         pass

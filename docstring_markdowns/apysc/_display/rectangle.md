@@ -157,7 +157,7 @@ Create a rectangle instance with the instance of specified graphics..<hr>
 - `rectangle`: Rectangle
   - A created rectangle instance.
 
-### `_initialize_for_loop_value` method docstring
+### `_initialize_for_loop_key_or_value` method docstring
 
 Initialize this instance for a loop value.<hr>
 

@@ -49,7 +49,7 @@ class AnyDisplayObject(
 
     @classmethod
     @final
-    def _initialize_for_loop_value(cls) -> "AnyDisplayObject":
+    def _initialize_for_loop_key_or_value(cls) -> "AnyDisplayObject":
         """
         Initialize this instance for a loop value.
 

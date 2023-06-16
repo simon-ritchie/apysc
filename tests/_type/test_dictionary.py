@@ -364,6 +364,6 @@ class TestDictionary:
         assert expression == f'{dict_val.variable_name} = {{"a": 10}};'
 
     @apply_test_settings()
-    def test__initialize_for_loop_value(self) -> None:
-        dict_val: ap.Dictionary = ap.Dictionary._initialize_for_loop_value()
+    def test__initialize_for_loop_key_or_value(self) -> None:
+        dict_val: ap.Dictionary = ap.Dictionary._initialize_for_loop_key_or_value()
         assert dict_val == ap.Dictionary({})

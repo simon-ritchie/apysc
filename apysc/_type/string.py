@@ -847,7 +847,7 @@ class String(
 
     @classmethod
     @final
-    def _initialize_for_loop_value(cls) -> "String":
+    def _initialize_for_loop_key_or_value(cls) -> "String":
         """
         Initialize this instance for a loop value.
 

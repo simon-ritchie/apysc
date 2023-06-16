@@ -536,7 +536,7 @@ class Boolean(
 
     @classmethod
     @final
-    def _initialize_for_loop_value(cls) -> "Boolean":
+    def _initialize_for_loop_key_or_value(cls) -> "Boolean":
         """
         Initialize this instance for a loop value.
 

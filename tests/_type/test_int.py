@@ -106,8 +106,8 @@ class TestInt:
         assert repr(int_1) == "Int(0)"
 
     @apply_test_settings()
-    def test__initialize_for_loop_value(self) -> None:
-        int_value: ap.Int = ap.Int._initialize_for_loop_value()
+    def test__initialize_for_loop_key_or_value(self) -> None:
+        int_value: ap.Int = ap.Int._initialize_for_loop_key_or_value()
         assert int_value == ap.Int(0)
 
     @apply_test_settings()

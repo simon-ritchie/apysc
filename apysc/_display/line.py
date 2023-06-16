@@ -397,7 +397,7 @@ class Line(
 
     @classmethod
     @final
-    def _initialize_for_loop_value(cls) -> "Line":
+    def _initialize_for_loop_key_or_value(cls) -> "Line":
         """
         Initialize this instance for a loop value.
 

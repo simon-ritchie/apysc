@@ -577,7 +577,7 @@ class SVGText(
 
     @classmethod
     @final
-    def _initialize_for_loop_value(cls) -> "SVGText":
+    def _initialize_for_loop_key_or_value(cls) -> "SVGText":
         """
         Initialize this instance for a loop value.
 

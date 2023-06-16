@@ -1334,7 +1334,7 @@ class Graphics(
 
     @classmethod
     @final
-    def _initialize_for_loop_value(cls) -> "Graphics":
+    def _initialize_for_loop_key_or_value(cls) -> "Graphics":
         """
         Initialize this instance for a loop value.
 

@@ -89,8 +89,8 @@ class TestNumber:
         assert repr(number_1) == "Number(0)"
 
     @apply_test_settings()
-    def test__initialize_for_loop_value(self) -> None:
-        num_value: ap.Number = ap.Number._initialize_for_loop_value()
+    def test__initialize_for_loop_key_or_value(self) -> None:
+        num_value: ap.Number = ap.Number._initialize_for_loop_key_or_value()
         assert num_value == ap.Number(0)
 
 

@@ -147,9 +147,9 @@ class TestPath:
         )
 
     @apply_test_settings()
-    def test__initialize_for_loop_value(self) -> None:
+    def test__initialize_for_loop_key_or_value(self) -> None:
         ap.Stage()
-        path: ap.Path = ap.Path._initialize_for_loop_value()
+        path: ap.Path = ap.Path._initialize_for_loop_key_or_value()
         assert path._path_data_list == [
             ap.PathMoveTo(x=-2, y=-2),
             ap.PathLineTo(x=-1, y=-1),

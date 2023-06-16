@@ -12,7 +12,7 @@ This class is for the `DisplayObject` subclass implementation to avoid an abstra
 
 This class is for the `DisplayObject` subclass implementation to avoid an abstract method error.
 
-### `_initialize_for_loop_value` method docstring
+### `_initialize_for_loop_key_or_value` method docstring
 
 Initialize this instance for a loop value.<hr>
 

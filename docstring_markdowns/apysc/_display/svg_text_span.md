@@ -173,7 +173,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 
 Append a constructor expression string.
 
-### `_initialize_for_loop_value` method docstring
+### `_initialize_for_loop_key_or_value` method docstring
 
 Initialize this instance for a loop value.<hr>
 

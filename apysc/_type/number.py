@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
@@ -18,7 +18,7 @@ from apysc._validation import arg_validation_decos
 
 class Number(
     NumberValueMixIn[float, "Number"],
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
     ToStringMixIn,
     ToFixedMixIn,
 ):

@@ -64,7 +64,7 @@ from apysc._display.width_and_height_mixin_for_ellipse import (
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.attr_to_apysc_val_from_builtin_mixin import (
     AttrToApyscValFromBuiltinMixIn,
@@ -114,7 +114,7 @@ class Ellipse(
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
     AttrToApyscValFromBuiltinMixIn,
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 ):
     """
     The ellipse vector graphics class.

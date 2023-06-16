@@ -16,7 +16,7 @@ from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.array import Array
 from apysc._type.initialize_locals_and_globals_mixin import (
@@ -24,7 +24,7 @@ from apysc._type.initialize_locals_and_globals_mixin import (
 )
 from apysc._validation import arg_validation_decos
 
-_ArrayValue = TypeVar("_ArrayValue", bound=InitializeForLoopValueInterface)
+_ArrayValue = TypeVar("_ArrayValue", bound=InitializeForLoopKeyOrValueInterface)
 
 
 class ForArrayValues(

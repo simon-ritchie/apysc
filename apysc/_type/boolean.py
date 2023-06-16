@@ -12,7 +12,7 @@ from typing_extensions import final
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
@@ -32,7 +32,7 @@ class Boolean(
     CustomEventMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
     HashableInterface,
 ):
 

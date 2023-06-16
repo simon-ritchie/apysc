@@ -31,7 +31,7 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.array import Array
 from apysc._type.int import Int
@@ -49,7 +49,7 @@ class Graphics(
     LineStyleMixIn,
     GraphicsClearMixIn,
     ChildMixIn,
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 ):
     """
     Create an object that has each vector graphics interface.

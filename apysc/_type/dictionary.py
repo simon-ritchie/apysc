@@ -13,7 +13,7 @@ from typing_extensions import final
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.any_value import AnyValue
 from apysc._type.boolean import Boolean
@@ -31,7 +31,6 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 DefaultType = TypeVar("DefaultType")
-
 _BuiltinKeys = Union[str, int, float]
 _Key = TypeVar("_Key")
 _Value = TypeVar("_Value")
@@ -45,7 +44,7 @@ class Dictionary(
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     PyBuiltInIterDisablingMixIn,
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
     Generic[_Key, _Value],
 ):
     """

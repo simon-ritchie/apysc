@@ -66,7 +66,7 @@ from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
 from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
@@ -114,7 +114,7 @@ class SVGTextSpan(
     SVGTextSetDeltaYMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
-    InitializeForLoopValueInterface,
+    InitializeForLoopKeyOrValueInterface,
 ):
     """
     The class for an SVG text-span (the child class of `SVGText`).

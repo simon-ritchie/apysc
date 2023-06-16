@@ -73,11 +73,15 @@ def test__validate_dict_key_type() -> None:
     value_util._validate_dict_key_type(key=10)
     value_util._validate_dict_key_type(key=10.5)
     value_util._validate_dict_key_type(key="Hello")
+    value_util._validate_dict_key_type(key=True)
+    value_util._validate_dict_key_type(key=ap.String("Hello"))
+    value_util._validate_dict_key_type(key=ap.Int(10))
+    value_util._validate_dict_key_type(key=ap.Boolean(True))
     assert_raises(
         expected_error_class=TypeError,
         callable_=value_util._validate_dict_key_type,
         match="Dictionary key type only supports str and int",
-        key=ap.Int(10),
+        key=[10],
     )
 
 

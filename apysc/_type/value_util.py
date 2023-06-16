@@ -89,7 +89,8 @@ def _get_value_str_from_dict(*, value: Dict[Any, Any]) -> str:
 
 def _validate_dict_key_type(*, key: Any) -> None:
     """
-    Validate whether a dictionary key type is an int or str.
+    Validate whether a dictionary key type is the `int`, `str`, `float`,
+    `bool`, `ap.Int`, `ap.String`, or `ap.Boolean`.
 
     Parameters
     ----------
@@ -99,9 +100,12 @@ def _validate_dict_key_type(*, key: Any) -> None:
     Raises
     ------
     TypeError
-        If a key-type isn't str or int.
+        If a key-type isn't the `int`, `str`, `float`, `bool`, `ap.Int`,
+        `ap.String`, or `ap.Boolean`.
     """
-    if isinstance(key, (str, int, float)):
+    import apysc as ap
+
+    if isinstance(key, (str, int, float, bool, ap.String, ap.Int, ap.Boolean)):
         return
     raise TypeError(f"Dictionary key type only supports str and int: {type(key)}")
 

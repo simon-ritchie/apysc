@@ -190,7 +190,7 @@ Mainly the following decorators exist.
 - is_list_or_array_matrix_data
     - Set a validation to check a specified argument's type
         is list of dicts or `ap.Array` of `ap.Dictionary`.
-- is_initialize_for_loop_value_interface_subclass
+- is_initialize_for_loop_key_or_value_interface_subclass
     - Set a validation to check a specified class is
         the `InitializeForLoopKeyOrValueInterface`'s subclas.
 """
@@ -3307,7 +3307,7 @@ def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_initialize_for_loop_value_interface_subclass(
+def is_initialize_for_loop_key_or_value_interface_subclass(
     *, arg_position_index: int
 ) -> _Callable:
     """

@@ -34,6 +34,24 @@ class ForDictKeys(
 ):
     """
     The loop implementation class for the `ap.Dictionary` keys.
+
+    Examples
+    --------
+    >>> import apysc as ap
+
+    >>> dict_: ap.Dictionary[ap.String, ap.Boolean] = ap.Dictionary(
+    ...     {
+    ...         ap.String("apple"): ap.Boolean(True),
+    ...         ap.String("orange"): ap.Boolean(False),
+    ...     }
+    ... )
+    >>> keys: ap.Array[ap.String] = ap.Array([])
+    >>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:
+    ...     keys.append(key)
+    >>> ap.assert_arrays_equal(
+    ...     keys,
+    ...     ["apple", "orange"],
+    ... )
     """
 
     _dict: Dictionary[_DictKey, Any]
@@ -80,6 +98,24 @@ class ForDictKeys(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> dict_: ap.Dictionary[ap.String, ap.Boolean] = ap.Dictionary(
+        ...     {
+        ...         ap.String("apple"): ap.Boolean(True),
+        ...         ap.String("orange"): ap.Boolean(False),
+        ...     }
+        ... )
+        >>> keys: ap.Array[ap.String] = ap.Array([])
+        >>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:
+        ...     keys.append(key)
+        >>> ap.assert_arrays_equal(
+        ...     keys,
+        ...     ["apple", "orange"],
+        ... )
         """
         self._initialize_locals_and_globals(locals_=locals_, globals_=globals_)
         self._dict = dict_

@@ -153,7 +153,7 @@ Create an ellipse instance with the instance of specified graphics.<hr>
 
 ### `_initialize_for_loop_key_or_value` method docstring
 
-Initialize this instance for a loop value.<hr>
+Initialize this instance for a loop key or value.<hr>
 
 **[Returns]**
 

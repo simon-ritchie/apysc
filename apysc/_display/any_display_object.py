@@ -51,7 +51,7 @@ class AnyDisplayObject(
     @final
     def _initialize_for_loop_key_or_value(cls) -> "AnyDisplayObject":
         """
-        Initialize this instance for a loop value.
+        Initialize this instance for a loop key or value.
 
         Returns
         -------

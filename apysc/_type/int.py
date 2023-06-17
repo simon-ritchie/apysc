@@ -206,7 +206,7 @@ class Int(
     @final
     def _initialize_for_loop_key_or_value(cls) -> "Int":
         """
-        Initialize this instance for a loop value.
+        Initialize this instance for a loop key or value.
 
         Returns
         -------

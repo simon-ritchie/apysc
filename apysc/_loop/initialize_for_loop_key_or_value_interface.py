@@ -10,7 +10,7 @@ class InitializeForLoopKeyOrValueInterface:
     @abstractmethod
     def _initialize_for_loop_key_or_value(cls) -> Any:
         """
-        Initialize this instance for a loop value.
+        Initialize this instance for a loop key or value.
         """
         raise NotImplementedError(
             "The _initialize_for_loop_key_or_value abstract method must be implemented."

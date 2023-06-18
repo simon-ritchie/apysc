@@ -8,7 +8,7 @@ Before reading on, maybe it is helpful to read the following page (the apysc use
 
 ## What class is this?
 
-The `ForArrayValues` class is the for loop class.
+The `ForArrayValues` class is the for-loop class.
 
 This interface returns `Array`'s value in a loop.
 

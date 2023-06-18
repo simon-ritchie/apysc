@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What class is this?": "## クラス概要",
     ##################################################
-    "The `ForArrayIndicesAndValues` class is the for loop class.": "`ForArrayIndicesAndValues`クラスはループ制御のためのクラスです。",  # noqa
+    "The `ForArrayIndicesAndValues` class is the for-loop class.": "`ForArrayIndicesAndValues`クラスはループ制御のためのクラスです。",  # noqa
     ##################################################
     "This interface returns `Array`\'s index and value in a loop.": "このインターフェイスはループ内で`Array`クラスのインデックスと値を返却します。",  # noqa
     ##################################################
@@ -75,5 +75,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(\n...     stage_width=350, stage_height=225, background_color=\"#333\"\n... )\n>>> x_arr: ap.Array[ap.Number] = ap.Array(\n...     [ap.Number(75), ap.Number(175), ap.Number(275)]\n... )\n>>> with ap.ForArrayIndicesAndValues(\n...     arr=x_arr, arr_value_type=ap.Number\n... ) as (i, x):\n...     circle: ap.Circle = ap.Circle(\n...         x=x,\n...         y=(i + 1) * 50,\n...         radius=25,\n...         fill_color=\"#0af\",\n...     )\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(\n...     stage_width=350, stage_height=225, background_color=\"#333\"\n... )\n>>> x_arr: ap.Array[ap.Number] = ap.Array(\n...     [ap.Number(75), ap.Number(175), ap.Number(275)]\n... )\n>>> with ap.ForArrayIndicesAndValues(\n...     arr=x_arr, arr_value_type=ap.Number\n... ) as (i, x):\n...     circle: ap.Circle = ap.Circle(\n...         x=x,\n...         y=(i + 1) * 50,\n...         radius=25,\n...         fill_color=\"#0af\",\n...     )\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(stage_width=350, stage_height=225, background_color=\"#333\")\n>>> x_arr: ap.Array[ap.Number] = ap.Array(\n...     [ap.Number(75), ap.Number(175), ap.Number(275)]\n... )\n>>> with ap.ForArrayIndicesAndValues(arr=x_arr, arr_value_type=ap.Number) as (\n...     i,\n...     x,\n... ):\n...     circle: ap.Circle = ap.Circle(\n...         x=x,\n...         y=(i + 1) * 50,\n...         radius=25,\n...         fill_color=\"#0af\",\n...     )\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(stage_width=350, stage_height=225, background_color=\"#333\")\n>>> x_arr: ap.Array[ap.Number] = ap.Array(\n...     [ap.Number(75), ap.Number(175), ap.Number(275)]\n... )\n>>> with ap.ForArrayIndicesAndValues(arr=x_arr, arr_value_type=ap.Number) as (\n...     i,\n...     x,\n... ):\n...     circle: ap.Circle = ap.Circle(\n...         x=x,\n...         y=(i + 1) * 50,\n...         radius=25,\n...         fill_color=\"#0af\",\n...     )\n```",  # noqa
 }

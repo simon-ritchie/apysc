@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What class is this?": "## クラス概要",
     ##################################################
-    "The `ForArrayValues` class is the for loop class.": "`ForArrayValues`クラスはループ処理のためのクラスです。",  # noqa
+    "The `ForArrayValues` class is the for-loop class.": "`ForArrayValues`クラスはループ処理のためのクラスです。",  # noqa
     ##################################################
     "This interface returns `Array`\'s value in a loop.": "このインターフェイスはループ内で`Array`の配列の値を返却します。",  # noqa
     ##################################################

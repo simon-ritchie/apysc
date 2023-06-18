@@ -4019,5 +4019,21 @@ MAPPINGS: Mappings = Mappings(
             key="The loop implementation class for the `ap.Array` indices and values.<hr>",
             val="`ap.Array`の各インデックスと値に対するループ制御の実装となるクラスです。<hr>",
         ),
+        Mapping(
+            key="## ForDictKeys API",
+            val="## ForDictKeys API",
+        ),
+        Mapping(
+            key="The loop implementation class for the `ap.Dictionary` keys.<hr>",
+            val="`ap.Dictionary`の各キーのためのループ用のクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - A dictionary to iterate.",
+            val="  - イテレーションで扱うための辞書。",
+        ),
+        Mapping(
+            key="  - A dictionary key type. This interface accepsts hashable types, such as the `String`, `Int`, or `Boolean`.",
+            val="  - 辞書のキーの型。このインターフェイスはハッシュ化可能な`String`、`Int`、`Boolean`といった型のみ受け付けます。",
+        ),
     ]
 )

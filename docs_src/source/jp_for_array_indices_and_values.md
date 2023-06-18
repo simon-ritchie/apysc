@@ -82,15 +82,14 @@ ap.save_overall_html(dest_dir_path="for_array_indices_and_values_basic_usage_1/"
 
 ```py
 >>> import apysc as ap
->>> _ = ap.Stage(
-...     stage_width=350, stage_height=225, background_color="#333"
-... )
+>>> _ = ap.Stage(stage_width=350, stage_height=225, background_color="#333")
 >>> x_arr: ap.Array[ap.Number] = ap.Array(
 ...     [ap.Number(75), ap.Number(175), ap.Number(275)]
 ... )
->>> with ap.ForArrayIndicesAndValues(
-...     arr=x_arr, arr_value_type=ap.Number
-... ) as (i, x):
+>>> with ap.ForArrayIndicesAndValues(arr=x_arr, arr_value_type=ap.Number) as (
+...     i,
+...     x,
+... ):
 ...     circle: ap.Circle = ap.Circle(
 ...         x=x,
 ...         y=(i + 1) * 50,

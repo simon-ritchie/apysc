@@ -8,7 +8,7 @@ Before reading on, maybe it is helpful to read the following page (the apysc use
 
 ## What class is this?
 
-The `ForArrayIndices` class is the for loop class.
+The `ForArrayIndices` class is the for-loop class.
 
 This interface returns `Array`'s index (starts with 0) in a loop.
 

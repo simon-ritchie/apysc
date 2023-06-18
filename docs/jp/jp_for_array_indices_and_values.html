@@ -21,7 +21,7 @@
     <script src="static/keyword_link_mapping.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Continue クラス" href="jp_continue.html" />
+    <link rel="next" title="ForDictKeys クラス" href="jp_for_dict_keys.html" />
     <link rel="prev" title="ForArrayValues クラス" href="jp_for_array_values.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -31,7 +31,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_continue.html" title="Continue クラス"
+          <a href="jp_for_dict_keys.html" title="ForDictKeys クラス"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="jp_for_array_values.html" title="ForArrayValues クラス"
@@ -131,15 +131,14 @@
 <hr>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">225</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span>
-<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">225</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">75</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">175</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">275</span><span class="p">)]</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">ForArrayIndicesAndValues</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">arr</span><span class="o">=</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">arr_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span>
-<span class="gp">... </span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">ForArrayIndicesAndValues</span><span class="p">(</span><span class="n">arr</span><span class="o">=</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">arr_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">i</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span>
@@ -176,8 +175,8 @@
   <p class="topless"><a href="jp_for_array_values.html"
                         title="previous chapter">ForArrayValues クラス</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="jp_continue.html"
-                        title="next chapter">Continue クラス</a></p>
+  <p class="topless"><a href="jp_for_dict_keys.html"
+                        title="next chapter">ForDictKeys クラス</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -199,7 +198,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_continue.html" title="Continue クラス"
+          <a href="jp_for_dict_keys.html" title="ForDictKeys クラス"
              >next</a> |</li>
         <li class="right" >
           <a href="jp_for_array_values.html" title="ForArrayValues クラス"

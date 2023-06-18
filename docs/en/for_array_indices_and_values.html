@@ -22,7 +22,7 @@
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Continue class" href="continue.html" />
+    <link rel="next" title="ForDictKeys class" href="for_dict_keys.html" />
     <link rel="prev" title="ForArrayValues class" href="for_array_values.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -32,7 +32,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="continue.html" title="Continue class"
+          <a href="for_dict_keys.html" title="ForDictKeys class"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="for_array_values.html" title="ForArrayValues class"
@@ -56,7 +56,7 @@
 </ul>
 <section id="what-class-is-this">
 <h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ForArrayIndicesAndValues</span></code> class is the for loop class.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ForArrayIndicesAndValues</span></code> class is the for-loop class.</p>
 <p>This interface returns <code class="docutils literal notranslate"><span class="pre">Array</span></code>’s index and value in a loop.</p>
 </section>
 <section id="basic-usage">
@@ -132,15 +132,14 @@
 <hr>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">225</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span>
-<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">225</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">75</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">175</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">275</span><span class="p">)]</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">ForArrayIndicesAndValues</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">arr</span><span class="o">=</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">arr_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span>
-<span class="gp">... </span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">ForArrayIndicesAndValues</span><span class="p">(</span><span class="n">arr</span><span class="o">=</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">arr_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">i</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
 <span class="gp">... </span>        <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span>
@@ -177,8 +176,8 @@
   <p class="topless"><a href="for_array_values.html"
                         title="previous chapter">ForArrayValues class</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="continue.html"
-                        title="next chapter">Continue class</a></p>
+  <p class="topless"><a href="for_dict_keys.html"
+                        title="next chapter">ForDictKeys class</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -200,7 +199,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="continue.html" title="Continue class"
+          <a href="for_dict_keys.html" title="ForDictKeys class"
              >next</a> |</li>
         <li class="right" >
           <a href="for_array_values.html" title="ForArrayValues class"

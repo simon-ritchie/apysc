@@ -104,3 +104,42 @@ class ForDictValues(
             A target last scope.
         """
         return LastScope.FOR_DICT_VALUES
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def __enter__(self) -> _DictValue:
+        """
+        The entering method for the beginning of with-statement.
+
+        Returns
+        -------
+        dict_value : _DictValue
+            A dictionary value of iteration.
+        """
+        import apysc as ap
+        from apysc._loop import loop_count
+        from apysc._type import revert_mixin
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_interface_type
+        )
+
+        loop_count.increment_current_loop_count()
+        self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
+            locals_=self._locals, globals_=self._globals
+        )
+        dict_value: _DictValue = (
+            self._dict_value_type._initialize_for_loop_key_or_value()
+        )
+        dict_value_variable_name: str = validate_variable_name_interface_type(
+            instance=dict_value,
+        ).variable_name
+
+        dict_key: String = String("", variable_name_suffix=self._variable_name_suffix)
+        expression: str = (
+            f"for ({dict_key.variable_name} in {self._dict.variable_name}) {{"
+            f"\n  {dict_value_variable_name} = {self._dict.variable_name}"
+            f"[{dict_key.variable_name}];"
+        )
+        ap.append_js_expression(expression=expression)
+
+        return dict_value

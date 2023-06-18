@@ -42,3 +42,28 @@ class TestForDictValues:
         )
         last_scope: LastScope = for_dict_values._get_last_scope()
         assert last_scope == LastScope.FOR_DICT_VALUES
+
+    @apply_test_settings()
+    def test___enter__(self) -> None:
+        expression_data_util.empty_expression()
+        dict_: ap.Dictionary[str, ap.Int] = ap.Dictionary(
+            {
+                "a": ap.Int(10),
+                "b": ap.Int(20),
+            },
+        )
+        with ap.ForDictValues(
+            dict_=dict_,
+            dict_value_type=ap.Int,
+            variable_name_suffix="test_suffix",
+        ) as value:
+            assert isinstance(value, ap.Int)
+            assert value == ap.Int(0)
+            loop_count_: int = loop_count.get_current_loop_count()
+            assert loop_count_ == 1
+        loop_count_ = loop_count.get_current_loop_count()
+        assert loop_count_ == 0
+        expression: str = expression_data_util.get_current_expression()
+        assert "for (" in expression
+        assert f"test_suffix in {dict_.variable_name}) {{" in expression
+        assert f"\n  {value.variable_name} = {dict_.variable_name}[" in expression

@@ -1,9 +1,9 @@
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._loop import loop_count
-from apysc._testing.testing_helper import apply_test_settings
 from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
+from apysc._loop import loop_count
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestForDictKeys:
@@ -36,10 +36,12 @@ class TestForDictKeys:
     @apply_test_settings()
     def test___enter__(self) -> None:
         expression_data_util.empty_expression()
-        dict_: ap.Dictionary[ap.String, int] = ap.Dictionary({
-            ap.String("a"): 10,
-            ap.String("b"): 20,
-        })
+        dict_: ap.Dictionary[ap.String, int] = ap.Dictionary(
+            {
+                ap.String("a"): 10,
+                ap.String("b"): 20,
+            }
+        )
         with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:
             assert isinstance(key, ap.String)
             assert key == ap.String("")
@@ -49,8 +51,6 @@ class TestForDictKeys:
         loop_count_ = loop_count.get_current_loop_count()
         assert loop_count_ == 0
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"for ({key.variable_name} in {dict_.variable_name}) {{"
-        )
+        expected: str = f"for ({key.variable_name} in {dict_.variable_name}) {{"
         assert expected in expression
         assert "  console.log(10);" in expression

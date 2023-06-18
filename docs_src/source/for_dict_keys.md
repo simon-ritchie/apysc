@@ -69,7 +69,7 @@ The loop implementation class for the `ap.Dictionary` keys.<hr>
 - `dict_`: Dictionary[_DictKey, Any]
   - A dictionary to iterate.
 - `dict_key_type`: Type[_DictKey]
-  - A dictionary key type. This interface accepsts hashable types, such as the `String`, `Int`, or `Boolean`.
+  - A dictionary key type. This interface accepts hashable types, such as the `String`, `Int`, or `Boolean`.
 - `locals_`: Optional[Dict[str, Any]], optional
   - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don't want to update each variable.
 - `globals_`: Optional[Dict[str, Any]], optional
@@ -92,6 +92,7 @@ The loop implementation class for the `ap.Dictionary` keys.<hr>
 >>> keys: ap.Array[ap.String] = ap.Array([])
 >>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:
 ...     keys.append(key)
+...
 >>> ap.assert_arrays_equal(
 ...     keys,
 ...     ["apple", "orange"],

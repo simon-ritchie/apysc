@@ -137,6 +137,15 @@ Method for greater than comparison.<hr>
 - `result`: Boolean
   - Comparison result.
 
+### `__hash__` method docstring
+
+Get a hashed value.<hr>
+
+**[Returns]**
+
+- `hashed_value`: int
+  - A hashed value.
+
 ### `__iadd__` method docstring
 
 Method for incremental addition (string concatenation).<hr>

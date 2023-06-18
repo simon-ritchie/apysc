@@ -166,7 +166,9 @@ class ForArrayValues(
         self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
             locals_=self._locals, globals_=self._globals
         )
-        arr_value: _ArrayValue = self._arr_value_type._initialize_for_loop_key_or_value()
+        arr_value: _ArrayValue = (
+            self._arr_value_type._initialize_for_loop_key_or_value()
+        )
         arr_value_variable_name: str = validate_variable_name_interface_type(
             instance=arr_value
         ).variable_name

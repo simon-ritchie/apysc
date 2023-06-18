@@ -42,6 +42,15 @@ Int(10)
 - [Int and Number common arithmetic operations](https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html)
 - [Int and Number common comparison operations](https://simon-ritchie.github.io/apysc/en/int_and_number_comparison_operations.html)
 
+### `__hash__` method docstring
+
+Get a hashed value.<hr>
+
+**[Returns]**
+
+- `hashed_value`: int
+  - A hashed value.
+
 ### `__init__` method docstring
 
 Integer class for apysc library.<hr>

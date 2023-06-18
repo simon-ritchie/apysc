@@ -15,6 +15,7 @@ from apysc._loop.initialize_for_loop_key_or_value_interface import (
     InitializeForLoopKeyOrValueInterface,
 )
 from apysc._type.copy_mixin import CopyMixIn
+from apysc._type.hashable_interface import HashableInterface
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
@@ -22,7 +23,6 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.hashable_interface import HashableInterface
 
 
 class Boolean(

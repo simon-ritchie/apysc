@@ -96,6 +96,7 @@ ap.save_overall_html(dest_dir_path="for_dict_keys_basic_usage_1/")
 >>> keys: ap.Array[ap.String] = ap.Array([])
 >>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:
 ...     keys.append(key)
+...
 >>> ap.assert_arrays_equal(
 ...     keys,
 ...     ["apple", "orange"],

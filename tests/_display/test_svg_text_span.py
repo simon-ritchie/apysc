@@ -97,7 +97,9 @@ class TestSVGTextSpan:
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
         ap.Stage()
-        svg_text_span_: ap.SVGTextSpan = ap.SVGTextSpan._initialize_for_loop_key_or_value()
+        svg_text_span_: ap.SVGTextSpan = (
+            ap.SVGTextSpan._initialize_for_loop_key_or_value()
+        )
         assert svg_text_span_.text == ap.String("")
         assert svg_text_span_.visible == ap.Boolean(False)
 

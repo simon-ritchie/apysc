@@ -59,6 +59,15 @@ Comparison method for equal condition.<hr>
 - `result`: Boolean
   - Comparison result.
 
+### `__hash__` method docstring
+
+Get a hashed value.<hr>
+
+**[Returns]**
+
+- `hashed_value`: int
+  - A hashed value.
+
 ### `__init__` method docstring
 
 Boolean class for apysc library.<hr>

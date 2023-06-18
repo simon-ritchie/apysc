@@ -5,7 +5,6 @@ from abc import abstractmethod
 
 
 class HashableInterface:
-
     @abstractmethod
     def __hash__(self) -> int:
         """

@@ -1,11 +1,13 @@
 """The loop implementation class for the `ap.Dictionary` keys.
 """
 
-from typing import Any, Type, Union, cast
+from typing import Any
 from typing import Dict
-from typing import Optional
-from typing import TypeVar
 from typing import Generic
+from typing import Optional
+from typing import Type
+from typing import TypeVar
+from typing import cast
 
 from typing_extensions import final
 
@@ -14,14 +16,14 @@ from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
+from apysc._type.boolean import Boolean
 from apysc._type.dictionary import Dictionary
-from apysc._type.string import String
-from apysc._validation import arg_validation_decos
 from apysc._type.initialize_locals_and_globals_mixin import (
     InitializeLocalsAndGlobalsMixIn,
 )
 from apysc._type.int import Int
-from apysc._type.boolean import Boolean
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 _DictKey = TypeVar("_DictKey", String, Int, Boolean)
 
@@ -53,6 +55,7 @@ class ForDictKeys(
     >>> keys: ap.Array[ap.String] = ap.Array([])
     >>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:
     ...     keys.append(key)
+    ...
     >>> ap.assert_arrays_equal(
     ...     keys,
     ...     ["apple", "orange"],
@@ -87,7 +90,7 @@ class ForDictKeys(
         dict_ : Dictionary[_DictKey, Any]
             A dictionary to iterate.
         dict_key_type : Type[_DictKey]
-            A dictionary key type. This interface accepsts hashable types,
+            A dictionary key type. This interface accepts hashable types,
             such as the `String`, `Int`, or `Boolean`.
         locals_ : Optional[Dict[str, Any]], optional
             Current scope's local variables. Set locals()
@@ -122,6 +125,7 @@ class ForDictKeys(
         >>> keys: ap.Array[ap.String] = ap.Array([])
         >>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:
         ...     keys.append(key)
+        ...
         >>> ap.assert_arrays_equal(
         ...     keys,
         ...     ["apple", "orange"],

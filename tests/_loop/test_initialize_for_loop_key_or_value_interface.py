@@ -10,5 +10,7 @@ class TestInitializeForLoopKeyOrValueInterface:
     def test__initialize_for_loop_key_or_value(self) -> None:
         assert_raises(
             expected_error_class=NotImplementedError,
-            callable_=InitializeForLoopKeyOrValueInterface._initialize_for_loop_key_or_value,
+            callable_=(
+                InitializeForLoopKeyOrValueInterface._initialize_for_loop_key_or_value
+            ),
         )

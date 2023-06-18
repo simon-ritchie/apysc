@@ -20,6 +20,7 @@ from apysc._loop.for_array_indices import ForArrayIndices
 from apysc._loop.for_array_values import ForArrayValues
 from apysc._loop.for_array_indices_and_values import ForArrayIndicesAndValues
 from apysc._loop.for_dict_keys import ForDictKeys
+from apysc._loop.for_dict_values import ForDictValues
 from apysc._loop._continue import Continue
 from apysc._loop._range import range
 from apysc._display.display_object import DisplayObject

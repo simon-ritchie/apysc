@@ -4035,5 +4035,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A dictionary key type. This interface accepsts hashable types, such as the `String`, `Int`, or `Boolean`.",
             val="  - 辞書のキーの型。このインターフェイスはハッシュ化可能な`String`、`Int`、`Boolean`といった型のみ受け付けます。",
         ),
+        Mapping(
+            key="## ForDictValues API",
+            val="## ForDictValues API",
+        ),
+        Mapping(
+            key="The loop implementation class for the `ap.Dictionary` values.<hr>",
+            val="`ap.Dictionary`の値のためのループ制御のためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="  - A dictionary value type. This interface accepts `InitializeForLoopKeyOrValueInterface` subclasses, such as the `Int`, `String`, or `Rectangle`.",
+            val="  - 辞書の値の型。ごのインターフェイスは`Int`、`String`、`Rectangle`などの`InitializeForLoopKeyOrValueInterface`のサブクラスの型のみ受け付けます。",
+        ),
     ]
 )

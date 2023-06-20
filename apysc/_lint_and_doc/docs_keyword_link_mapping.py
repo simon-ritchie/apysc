@@ -206,4 +206,5 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "ForArrayValues": "for_array_values",
     "ForArrayIndicesAndValues": "for_array_indices_and_values",
     "ForDictKeys": "for_dict_keys",
+    "ForDictValues": "for_dict_values",
 }

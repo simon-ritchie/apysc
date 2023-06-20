@@ -7,7 +7,6 @@ from typing import Generic
 from typing import Optional
 from typing import Type
 from typing import TypeVar
-from typing import cast
 
 from typing_extensions import final
 
@@ -17,14 +16,12 @@ from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface
+    InitializeForLoopKeyOrValueInterface,
 )
-from apysc._type.boolean import Boolean
 from apysc._type.dictionary import Dictionary
 from apysc._type.initialize_locals_and_globals_mixin import (
     InitializeLocalsAndGlobalsMixIn,
 )
-from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
@@ -56,12 +53,11 @@ class ForDictValues(
     ...     stage_elem_id="stage",
     ... )
     >>> dict_: ap.Dictionary[str, ap.Number] = ap.Dictionary(
-    ...         {"a": ap.Number(50), "b": ap.Number(150)},
-    ...     )
+    ...     {"a": ap.Number(50), "b": ap.Number(150)},
+    ... )
     >>> with ap.ForDictValues(dict_=dict_, dict_value_type=ap.Number) as value:
-    ...     _ = ap.Rectangle(
-    ...         x=value, y=50, width=50, height=50, fill_color="#0af"
-    ...     )
+    ...     _ = ap.Rectangle(x=value, y=50, width=50, height=50, fill_color="#0af")
+    ...
     """
 
     _dict: Dictionary[Any, _DictValue]
@@ -126,12 +122,11 @@ class ForDictValues(
         ...     stage_elem_id="stage",
         ... )
         >>> dict_: ap.Dictionary[str, ap.Number] = ap.Dictionary(
-        ...         {"a": ap.Number(50), "b": ap.Number(150)},
-        ...     )
+        ...     {"a": ap.Number(50), "b": ap.Number(150)},
+        ... )
         >>> with ap.ForDictValues(dict_=dict_, dict_value_type=ap.Number) as value:
-        ...     _ = ap.Rectangle(
-        ...         x=value, y=50, width=50, height=50, fill_color="#0af"
-        ...     )
+        ...     _ = ap.Rectangle(x=value, y=50, width=50, height=50, fill_color="#0af")
+        ...
         """
         self._initialize_locals_and_globals(locals_, globals_=globals_)
         self._dict = dict_
@@ -166,7 +161,7 @@ class ForDictValues(
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type
+            validate_variable_name_interface_type,
         )
 
         loop_count.increment_current_loop_count()

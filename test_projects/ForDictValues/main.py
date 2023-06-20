@@ -32,9 +32,7 @@ def main() -> None:
     )
     values: ap.Array[ap.Number] = ap.Array([])
     with ap.ForDictValues(dict_=dict_, dict_value_type=ap.Number) as value:
-        ap.Rectangle(
-            x=value, y=100, width=50, height=50, fill_color="#0af"
-        )
+        ap.Rectangle(x=value, y=100, width=50, height=50, fill_color="#0af")
         values.append(value)
     values.sort()
     ap.assert_arrays_equal(

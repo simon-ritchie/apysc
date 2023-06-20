@@ -1,6 +1,5 @@
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._loop import loop_count
 from apysc._testing.testing_helper import apply_test_settings

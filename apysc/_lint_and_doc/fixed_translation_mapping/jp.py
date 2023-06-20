@@ -4047,5 +4047,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A dictionary value type. This interface accepts `InitializeForLoopKeyOrValueInterface` subclasses, such as the `Int`, `String`, or `Rectangle`.",
             val="  - 辞書の値の型。ごのインターフェイスは`Int`、`String`、`Rectangle`などの`InitializeForLoopKeyOrValueInterface`のサブクラスの型のみ受け付けます。",
         ),
+        Mapping(
+            key="ForDictValues class",
+            val="ForDictValues クラス",
+        ),
     ]
 )

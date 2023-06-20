@@ -42,6 +42,11 @@ class ForDictValues(
 
     References
     ----------
+    - ForDictValues class
+        - https://simon-ritchie.github.io/apysc/en/for_dict_values.html
+
+    References
+    ----------
     >>> import apysc as ap
 
     >>> _ = ap.Stage(
@@ -104,6 +109,11 @@ class ForDictValues(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - ForDictValues class
+            - https://simon-ritchie.github.io/apysc/en/for_dict_values.html
 
         References
         ----------

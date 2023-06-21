@@ -47,3 +47,35 @@ class TestForDictKeysAndValues:
         )
         last_scope: LastScope = for_dict_keys_and_valus._get_last_scope()
         assert last_scope == LastScope.FOR_DICT_KEYS_AND_VALUES
+
+    @apply_test_settings()
+    def test___enter__(self) -> None:
+        expression_data_util.empty_expression()
+        dict_: ap.Dictionary[ap.String, ap.Int] = ap.Dictionary(
+            {
+                ap.String("a"): ap.Int(10),
+                ap.String("b"): ap.Int(20),
+            }
+        )
+        with ap.ForDictKeysAndValues(
+            dict_=dict_,
+            dict_key_type=ap.String,
+            dict_value_type=ap.Int,
+        ) as (key, value):
+            assert isinstance(key, ap.String)
+            assert isinstance(value, ap.Int)
+            assert key == ap.String("")
+            assert value == ap.Int(0)
+            loop_count_: int = loop_count.get_current_loop_count()
+            assert loop_count_ == 1
+            ap.append_js_expression("console.log(10);")
+        loop_count_ = loop_count.get_current_loop_count()
+        assert loop_count_ == 0
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"for ({key.variable_name} in {dict_.variable_name}) {{"
+            f"\n  {value.variable_name} = {dict_.variable_name}"
+            f"[{key.variable_name}];"
+        )
+        assert expected in expression
+        assert "\n  console.log(10);" in expression

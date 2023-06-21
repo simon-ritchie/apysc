@@ -183,4 +183,5 @@ class ForDictValues(
         )
         ap.append_js_expression(expression=expression)
 
+        self._indent.__enter__()
         return dict_value

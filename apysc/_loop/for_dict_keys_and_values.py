@@ -1,7 +1,7 @@
 """The loop implementation class for the `ap.Dictionary` keys and values.
 """
 
-from typing import Any
+from typing import Any, Tuple
 from typing import Dict
 from typing import Generic
 from typing import Optional
@@ -111,3 +111,38 @@ class ForDictKeysAndValues(
             A target last scope.
         """
         return LastScope.FOR_DICT_KEYS_AND_VALUES
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def __enter__(self) -> Tuple[_DictKey, _DictValue]:
+        import apysc as ap
+        from apysc._loop import loop_count
+        from apysc._type import revert_mixin
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_interface_type,
+        )
+
+        loop_count.increment_current_loop_count()
+        self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
+            locals_=self._locals, globals_=self._globals
+        )
+        dict_key: _DictKey = cast(
+            _DictKey,
+            self._dict_key_type._initialize_for_loop_key_or_value(),
+        )
+        dict_value: _DictValue = (
+            self._dict_value_type._initialize_for_loop_key_or_value()
+        )
+        dict_value_variable_name: str = validate_variable_name_interface_type(
+            instance=dict_value,
+        ).variable_name
+
+        expression: str = (
+            f"for ({dict_key.variable_name} in {self._dict.variable_name}) {{"
+            f"\n  {dict_value_variable_name} = {self._dict.variable_name}"
+            f"[{dict_key.variable_name}];"
+        )
+        ap.append_js_expression(expression=expression)
+
+        self._indent.__enter__()
+        return dict_key, dict_value

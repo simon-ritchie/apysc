@@ -60,9 +60,11 @@ class TestForDictValues:
             assert value == ap.Int(0)
             loop_count_: int = loop_count.get_current_loop_count()
             assert loop_count_ == 1
+            ap.append_js_expression("console.log(10);")
         loop_count_ = loop_count.get_current_loop_count()
         assert loop_count_ == 0
         expression: str = expression_data_util.get_current_expression()
         assert "for (" in expression
         assert f"test_suffix in {dict_.variable_name}) {{" in expression
         assert f"\n  {value.variable_name} = {dict_.variable_name}[" in expression
+        assert "\n  console.log(10);" in expression

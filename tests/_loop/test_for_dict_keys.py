@@ -53,4 +53,4 @@ class TestForDictKeys:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"for ({key.variable_name} in {dict_.variable_name}) {{"
         assert expected in expression
-        assert "  console.log(10);" in expression
+        assert "\n  console.log(10);" in expression

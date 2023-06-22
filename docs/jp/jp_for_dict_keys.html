@@ -64,7 +64,7 @@
 <p>このクラスは<code class="docutils literal notranslate"><span class="pre">with</span></code>ステートメントと共に使う必要があります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">as</span></code>キーワードの値は<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>のキーとなります。</p>
 <p>また、このクラスは<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>のキーの型を指定するための<code class="docutils literal notranslate"><span class="pre">dict_key_type</span></code>引数の指定が必要になります。</p>
-<p>この型の指定は<code class="docutils literal notranslate"><span class="pre">String</span></code>や<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>といったapyscの型のみ受け付けます。</p>
+<p>この型の指定は<code class="docutils literal notranslate"><span class="pre">String</span></code>や<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>といったapyscの型のみ受け付けます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -114,7 +114,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dict_key_type</span></code>: Type[_DictKey]</p>
 <ul>
-<li><p>辞書のキーの型。このインターフェイスはハッシュ化可能な<code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>といった型のみ受け付けます。</p></li>
+<li><p>辞書のキーの型。このインターフェイスは<code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>といったハッシュ化可能な型を受け付けます。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: Optional[Dict[str, Any]], optional</p>

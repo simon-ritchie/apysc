@@ -1,7 +1,7 @@
 """This module is for the translation mapping data of the
 following document:
 
-Document file: for_dict_keys.md
+Document file: for_dict_keys_and_values.md
 Language: jp
 """
 
@@ -9,9 +9,9 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
     ##################################################
-    "# ForDictKeys class": "# ForDictKeys クラス",
+    "# ForDictKeysAndValues class": "# ForDictKeysAndValues クラス",
     ##################################################
-    "This page explains the `ForDictKeys` class.": "このページでは`ForDictKeys`クラスについて説明します。",
+    "This page explains the `ForDictKeysAndValues` class.": "このページでは`ForDictKeysAndValues`クラスについて説明します。",  # noqa
     ##################################################
     "Before reading on, maybe it is helpful to read the following page (the apysc uses this class for the same reason for each data type):": "事前に以下のページを読んでおくと役立つかもしれません（apyscライブラリではこのクラスを各データ型と同じように扱っています）。",  # noqa
     ##################################################
@@ -19,21 +19,23 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What class is this?": "## クラス概要",
     ##################################################
-    "The `ForDictKeys` class is the for-loop class.": "`ForDictKeys`クラスはfor文でのループのためのクラスです。",  # noqa
+    "The `ForDictKeysAndValues` class is the for-loop class.": "`ForDictKeysAndValues`クラスはfor文のループのためのクラスです。",  # noqa
     ##################################################
-    "This interface returns `Dictionary`\'s key in a loop.": "このインターフェイスはループ内で`Dictionary`のキーを返却します。",  # noqa
+    "This interface returns `Dictionary`\'s key and value in a loop.": "このインターフェイスはループの中で`Dictionary`のキーと値を返却します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
     "This class requires using the `with`-statement.": "このクラスは`with`ステートメントと共に使う必要があります。",  # noqa
     ##################################################
-    "The `as`-keyword value becomes a `Dictionary`\'s key.": "`as`キーワードの値は`Dictionary`のキーとなります。",  # noqa
+    "The `as`-keyword value becomes a `Dictionary`\'s key and value.": "`as`キーワード部分の値は`Dictionary`のキーと値になります。",  # noqa
     ##################################################
-    "Also, this class requires the `dict_key_type` to specify a type of `Dictionary`\'s key type.": "また、このクラスは`Dictionary`のキーの型を指定するための`dict_key_type`引数の指定が必要になります。",  # noqa
+    "Also, this class requires the `dict_key_type` and `dict_value_type` arguments to specify types of `Dictionary`\'s key and value types.": "また、このクラスは`Dictionary`のキーと値の型を指定するための`dict_key_type`と`dict_value_type`引数の指定を必要とします。",  # noqa
     ##################################################
-    "This type only accepts an apysc type, such as the `String`, `Int`, `Number`, or `Boolean`.": "この型の指定は`String`や`Int`、`Number`、`Boolean`といったapyscの型のみ受け付けます。",  # noqa
+    "The `dict_key_type` only accepts a hashable apysc type, such as the `String`, `Int`, `Number`, and `Boolean`.": "`dict_key_type`は`String`、`Int`、`Number`、`Boolean`などのハッシュ化可能なapyscの型のみを受け付けます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\ndict_: ap.Dictionary[ap.String, int] = ap.Dictionary(\n    {\n        ap.String(\"apple\"): 120,\n        ap.String(\"orange\"): 200,\n    }\n)\nkeys: ap.Array[ap.String] = ap.Array([])\nwith ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:\n    keys.append(key)\nap.assert_arrays_equal(\n    keys,\n    [\"apple\", \"orange\"],\n)\n\nap.save_overall_html(dest_dir_path=\"for_dict_keys_basic_usage_1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\ndict_: ap.Dictionary[ap.String, int] = ap.Dictionary(\n    {\n        ap.String(\"apple\"): 120,\n        ap.String(\"orange\"): 200,\n    }\n)\nkeys: ap.Array[ap.String] = ap.Array([])\nwith ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:\n    keys.append(key)\nap.assert_arrays_equal(\n    keys,\n    [\"apple\", \"orange\"],\n)\n\nap.save_overall_html(dest_dir_path=\"for_dict_keys_basic_usage_1/\")\n```",  # noqa
+    "Similarly, the `dict_value_type` only accepts an apysc type, such as the `String`, `Int`, or `Rectangle`.": "同様に`dict_value_type`引数は`String`や`Int`、`Rectangle`などのapyscの型を受け付けます。",  # noqa
+    ##################################################
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(background_color=\"#333\", stage_width=250, stage_height=300)\n\ndict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(\n    {\n        ap.Number(50): ap.Number(50),\n        ap.Number(100): ap.Number(125),\n        ap.Number(150): ap.Number(200),\n    }\n)\nwith ap.ForDictKeysAndValues(\n    dict_=dict_,\n    dict_key_type=ap.Number,\n    dict_value_type=ap.Number,\n) as (key, value):\n    ap.Rectangle(x=key, y=value, width=50, height=50, fill_color=\"#0af\")\n\nap.save_overall_html(dest_dir_path=\"for_dict_keys_and_values_basic_usage_1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(background_color=\"#333\", stage_width=250, stage_height=300)\n\ndict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(\n    {\n        ap.Number(50): ap.Number(50),\n        ap.Number(100): ap.Number(125),\n        ap.Number(150): ap.Number(200),\n    }\n)\nwith ap.ForDictKeysAndValues(\n    dict_=dict_,\n    dict_key_type=ap.Number,\n    dict_value_type=ap.Number,\n) as (key, value):\n    ap.Rectangle(x=key, y=value, width=50, height=50, fill_color=\"#0af\")\n\nap.save_overall_html(dest_dir_path=\"for_dict_keys_and_values_basic_usage_1/\")\n```",  # noqa
     ##################################################
     "## See also": "## 関連資料",
     ##################################################
@@ -41,23 +43,27 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Notes: This class also has the same arguments and behaves in the same way.": "  - 特記事項 : このクラスは同じ引数を持ち同様の振る舞いをします。",  # noqa
     ##################################################
-    "## ForDictKeys API": "## ForDictKeys API",
+    "## ForDictKeysAndValues API": "## ForDictKeysAndValues API",
     ##################################################
     "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
-    "The loop implementation class for the `ap.Dictionary` keys.<hr>": "`ap.Dictionary`の各キーのためのループ用のクラスです。<hr>",  # noqa
+    "The loop implementation class for the `ap.Dictionary` keys and values.<hr>": "`ap.Dictionary`のキーと値のためのループのクラスの実装です。<hr>",  # noqa
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `dict_`: Dictionary[_DictKey, Any]": "- `dict_`: Dictionary[_DictKey, Any]",
+    "- `dict_`: Dictionary[_DictKey, _DictValue]": "- `dict_`: Dictionary[_DictKey, _DictValue]",  # noqa
     ##################################################
     "  - A dictionary to iterate.": "  - イテレーションで扱うための辞書。",
     ##################################################
     "- `dict_key_type`: Type[_DictKey]": "- `dict_key_type`: Type[_DictKey]",
     ##################################################
     "  - A dictionary key type. This interface accepts hashable types, such as the `String`, `Int`, `Number`, or `Boolean`.": "  - 辞書のキーの型。このインターフェイスは`String`、`Int`、`Number`、`Boolean`といったハッシュ化可能な型を受け付けます。",  # noqa
+    ##################################################
+    "- `dict_value_type`: Type[_DictValue]": "- `dict_value_type`: Type[_DictValue]",
+    ##################################################
+    "  - A dictionary value type. This interface accepts `InitializeForLoopKeyOrValueInterface` subclasses, such as the `Int`, `String`, or `Rectangle`.": "  - 辞書の値の型。ごのインターフェイスは`Int`、`String`、`Rectangle`などの`InitializeForLoopKeyOrValueInterface`のサブクラスの型のみ受け付けます。",  # noqa
     ##################################################
     "- `locals_`: Optional[Dict[str, Any]], optional": "- `locals_`: Optional[Dict[str, Any]], optional",  # noqa
     ##################################################
@@ -75,5 +81,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> dict_: ap.Dictionary[ap.String, ap.Boolean] = ap.Dictionary(\n...     {\n...         ap.String(\"apple\"): ap.Boolean(True),\n...         ap.String(\"orange\"): ap.Boolean(False),\n...     }\n... )\n>>> keys: ap.Array[ap.String] = ap.Array([])\n>>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:\n...     keys.append(key)\n...\n>>> ap.assert_arrays_equal(\n...     keys,\n...     [\"apple\", \"orange\"],\n... )\n```": "```py\n>>> import apysc as ap\n>>> dict_: ap.Dictionary[ap.String, ap.Boolean] = ap.Dictionary(\n...     {\n...         ap.String(\"apple\"): ap.Boolean(True),\n...         ap.String(\"orange\"): ap.Boolean(False),\n...     }\n... )\n>>> keys: ap.Array[ap.String] = ap.Array([])\n>>> with ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:\n...     keys.append(key)\n...\n>>> ap.assert_arrays_equal(\n...     keys,\n...     [\"apple\", \"orange\"],\n... )\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(background_color=\"#333\", stage_width=250, stage_height=300)\n>>> dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(\n...     {\n...         ap.Number(50): ap.Number(50),\n...         ap.Number(100): ap.Number(125),\n...         ap.Number(150): ap.Number(200),\n...     }\n... )\n>>> with ap.ForDictKeysAndValues(\n...     dict_=dict_,\n...     dict_key_type=ap.Number,\n...     dict_value_type=ap.Number,\n... ) as (key, value):\n>>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color=\"#0af\")\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(background_color=\"#333\", stage_width=250, stage_height=300)\n>>> dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(\n...     {\n...         ap.Number(50): ap.Number(50),\n...         ap.Number(100): ap.Number(125),\n...         ap.Number(150): ap.Number(200),\n...     }\n... )\n>>> with ap.ForDictKeysAndValues(\n...     dict_=dict_,\n...     dict_key_type=ap.Number,\n...     dict_value_type=ap.Number,\n... ) as (key, value):\n>>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color=\"#0af\")\n```",  # noqa
 }

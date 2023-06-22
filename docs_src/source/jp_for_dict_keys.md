@@ -22,7 +22,7 @@
 
 また、このクラスは`Dictionary`のキーの型を指定するための`dict_key_type`引数の指定が必要になります。
 
-この型の指定は`String`や`Int`、`Boolean`といったapyscの型のみ受け付けます。
+この型の指定は`String`や`Int`、`Number`、`Boolean`といったapyscの型のみ受け付けます。
 
 ```py
 # runnable
@@ -70,7 +70,7 @@ ap.save_overall_html(dest_dir_path="for_dict_keys_basic_usage_1/")
   - イテレーションで扱うための辞書。
 
 - `dict_key_type`: Type[_DictKey]
-  - 辞書のキーの型。このインターフェイスはハッシュ化可能な`String`、`Int`、`Boolean`といった型のみ受け付けます。
+  - 辞書のキーの型。このインターフェイスは`String`、`Int`、`Number`、`Boolean`といったハッシュ化可能な型を受け付けます。
 
 - `locals_`: Optional[Dict[str, Any]], optional
   - 現在のスコープの各ローカル変数。この引数にはlocals()関数の返却値を設定してください。もしこの引数が指定された場合、このインターフェイスはローカルスコープのVariableNameMixInの各変数（例 : IntやSpriteなど）の値をwithステートメントの最後で復元します。この設定は各変数を更新したくない場合等に役立ちます。

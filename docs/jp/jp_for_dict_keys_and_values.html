@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ForDictKeysAndValues クラス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Continue クラス" href="jp_continue.html" />
+    <link rel="prev" title="ForDictValues クラス" href="jp_for_dict_values.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_continue.html" title="Continue クラス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_for_dict_values.html" title="ForDictValues クラス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ForDictKeysAndValues クラス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/for_dict_keys_and_values.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="fordictkeysandvalues">
+<h1>ForDictKeysAndValues クラス<a class="headerlink" href="#fordictkeysandvalues" title="Permalink to this headline">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">ForDictKeysAndValues</span></code>クラスについて説明します。</p>
+<p>事前に以下のページを読んでおくと役立つかもしれません（apyscライブラリではこのクラスを各データ型と同じように扱っています）。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
+</ul>
+<section id="id1">
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ForDictKeysAndValues</span></code>クラスはfor文のループのためのクラスです。</p>
+<p>このインターフェイスはループの中で<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>のキーと値を返却します。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>このクラスは<code class="docutils literal notranslate"><span class="pre">with</span></code>ステートメントと共に使う必要があります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">as</span></code>キーワード部分の値は<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>のキーと値になります。</p>
+<p>また、このクラスは<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>のキーと値の型を指定するための<code class="docutils literal notranslate"><span class="pre">dict_key_type</span></code>と<code class="docutils literal notranslate"><span class="pre">dict_value_type</span></code>引数の指定を必要とします。</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict_key_type</span></code>は<code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>などのハッシュ化可能なapyscの型のみを受け付けます。</p>
+<p>同様に<code class="docutils literal notranslate"><span class="pre">dict_value_type</span></code>引数は<code class="docutils literal notranslate"><span class="pre">String</span></code>や<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などのapyscの型を受け付けます。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">dict_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">125</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">150</span><span class="p">):</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">ForDictKeysAndValues</span><span class="p">(</span>
+    <span class="n">dict_</span><span class="o">=</span><span class="n">dict_</span><span class="p">,</span>
+    <span class="n">dict_key_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span>
+    <span class="n">dict_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span>
+<span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;for_dict_keys_and_values_basic_usage_1/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/for_dict_keys_and_values_basic_usage_1/index.html" width="250" height="300"></iframe>
+</section>
+<section id="id3">
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html"><span class="doc std std-doc">分岐条件の各クラスのスコープ内変数の復元設定</span></a></p>
+<ul>
+<li><p>特記事項 : このクラスは同じ引数を持ち同様の振る舞いをします。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="fordictkeysandvalues-api">
+<h2>ForDictKeysAndValues API<a class="headerlink" href="#fordictkeysandvalues-api" title="Permalink to this headline">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">dict_:</span> <span class="pre">apysc._type.dictionary.Dictionary[~_DictKey,</span> <span class="pre">~_DictValue],</span> <span class="pre">dict_key_type:</span> <span class="pre">Type[~_DictKey],</span> <span class="pre">dict_value_type:</span> <span class="pre">Type[~_DictValue],</span> <span class="pre">*,</span> <span class="pre">locals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">globals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ap.Dictionary</span></code>のキーと値のためのループのクラスの実装です。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dict_</span></code>: Dictionary[_DictKey, _DictValue]</p>
+<ul>
+<li><p>イテレーションで扱うための辞書。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict_key_type</span></code>: Type[_DictKey]</p>
+<ul>
+<li><p>辞書のキーの型。このインターフェイスは<code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>といったハッシュ化可能な型を受け付けます。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict_value_type</span></code>: Type[_DictValue]</p>
+<ul>
+<li><p>辞書の値の型。ごのインターフェイスは<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などの<code class="docutils literal notranslate"><span class="pre">InitializeForLoopKeyOrValueInterface</span></code>のサブクラスの型のみ受け付けます。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: Optional[Dict[str, Any]], optional</p>
+<ul>
+<li><p>現在のスコープの各ローカル変数。この引数にはlocals()関数の返却値を設定してください。もしこの引数が指定された場合、このインターフェイスはローカルスコープのVariableNameMixInの各変数（例 : IntやSpriteなど）の値をwithステートメントの最後で復元します。この設定は各変数を更新したくない場合等に役立ちます。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: Optional[Dict[str, Any]], optional</p>
+<ul>
+<li><p>現在のスコープの各グローバル変数。設定する場合にはglobal()関数の値をこの引数に指定してください。この設定はlocals_引数と同じように動作します。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">{</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">125</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">150</span><span class="p">):</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">ForDictKeysAndValues</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">dict_</span><span class="o">=</span><span class="n">dict_</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dict_key_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dict_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="jp_index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ForDictKeysAndValues クラス</a><ul>
+<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">関連資料</a></li>
+<li><a class="reference internal" href="#fordictkeysandvalues-api">ForDictKeysAndValues API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jp_for_dict_values.html"
+                        title="previous chapter">ForDictValues クラス</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jp_continue.html"
+                        title="next chapter">Continue クラス</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_continue.html" title="Continue クラス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_for_dict_values.html" title="ForDictValues クラス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ForDictKeysAndValues クラス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

@@ -267,6 +267,7 @@ for_array_values
 for_array_indices_and_values
 for_dict_keys
 for_dict_values
+for_dict_keys_and_values
 continue
 range
 ```

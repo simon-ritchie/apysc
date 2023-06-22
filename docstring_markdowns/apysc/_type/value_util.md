@@ -38,7 +38,7 @@ Get a value string from an iterable object.<hr>
 
 ## `_validate_dict_key_type` function docstring
 
-Validate whether a dictionary key type is the `int`, `str`, `float`, `bool`, `ap.Int`, `ap.String`, or `ap.Boolean`.<hr>
+Validate whether a dictionary key type is the `int`, `str`, `float`, `bool`, `ap.Int`, `ap.Number`, `ap.String`, or `ap.Boolean`.<hr>
 
 **[Parameters]**
 
@@ -49,7 +49,7 @@ Validate whether a dictionary key type is the `int`, `str`, `float`, `bool`, `ap
 
 **[Raises]**
 
-- TypeError: If a key-type isn't the `int`, `str`, `float`, `bool`, `ap.Int`, `ap.String`, or `ap.Boolean`.
+- TypeError: If a key-type isn't the `int`, `str`, `float`, `bool`, `ap.Int`, `ap.Number`, `ap.String`, or `ap.Boolean`.
 
 ## `get_copy` function docstring
 

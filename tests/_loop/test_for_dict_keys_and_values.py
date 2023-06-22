@@ -1,6 +1,5 @@
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._loop import loop_count
 from apysc._testing.testing_helper import apply_test_settings
@@ -15,15 +14,13 @@ class TestForDictKeysAndValues:
                 ap.String("b"): ap.Int(20),
             }
         )
-        for_dict_keys_and_valus: ap.ForDictKeysAndValues = (
-            ap.ForDictKeysAndValues(
-                dict_=dict_,
-                dict_key_type=ap.String,
-                dict_value_type=ap.Int,
-                locals_={"c": 30},
-                globals_={"d": 40},
-                variable_name_suffix="test_suffix",
-            )
+        for_dict_keys_and_valus: ap.ForDictKeysAndValues = ap.ForDictKeysAndValues(
+            dict_=dict_,
+            dict_key_type=ap.String,
+            dict_value_type=ap.Int,
+            locals_={"c": 30},
+            globals_={"d": 40},
+            variable_name_suffix="test_suffix",
         )
         assert for_dict_keys_and_valus._locals == {"c": 30}
         assert for_dict_keys_and_valus._globals == {"d": 40}
@@ -38,12 +35,10 @@ class TestForDictKeysAndValues:
                 ap.String("a"): ap.Int(10),
             }
         )
-        for_dict_keys_and_valus: ap.ForDictKeysAndValues = (
-            ap.ForDictKeysAndValues(
-                dict_=dict_,
-                dict_key_type=ap.String,
-                dict_value_type=ap.Int,
-            )
+        for_dict_keys_and_valus: ap.ForDictKeysAndValues = ap.ForDictKeysAndValues(
+            dict_=dict_,
+            dict_key_type=ap.String,
+            dict_value_type=ap.Int,
         )
         last_scope: LastScope = for_dict_keys_and_valus._get_last_scope()
         assert last_scope == LastScope.FOR_DICT_KEYS_AND_VALUES

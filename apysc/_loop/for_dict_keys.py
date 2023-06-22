@@ -22,9 +22,9 @@ from apysc._type.initialize_locals_and_globals_mixin import (
     InitializeLocalsAndGlobalsMixIn,
 )
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._type.number import Number
 
 _DictKey = TypeVar("_DictKey", String, Int, Number, Boolean)
 

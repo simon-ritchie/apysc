@@ -1,10 +1,11 @@
 """The loop implementation class for the `ap.Dictionary` keys and values.
 """
 
-from typing import Any, Tuple
+from typing import Any
 from typing import Dict
 from typing import Generic
 from typing import Optional
+from typing import Tuple
 from typing import Type
 from typing import TypeVar
 from typing import cast
@@ -16,18 +17,18 @@ from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
+from apysc._loop.initialize_for_loop_key_or_value_interface import (
+    InitializeForLoopKeyOrValueInterface,
+)
 from apysc._type.boolean import Boolean
 from apysc._type.dictionary import Dictionary
 from apysc._type.initialize_locals_and_globals_mixin import (
     InitializeLocalsAndGlobalsMixIn,
 )
 from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
-)
-from apysc._type.number import Number
 
 _DictKey = TypeVar("_DictKey", String, Int, Number, Boolean)
 _DictValue = TypeVar("_DictValue", bound=InitializeForLoopKeyOrValueInterface)
@@ -166,6 +167,16 @@ class ForDictKeysAndValues(
     @final
     @add_debug_info_setting(module_name=__name__)
     def __enter__(self) -> Tuple[_DictKey, _DictValue]:
+        """
+        The entering method for the beginning of with-statement.
+
+        Returns
+        -------
+        dict_key : _DictKey
+            A dictionary key of iteration.
+        dict_value : _DictValue
+            A dictionary value of iteration.
+        """
         import apysc as ap
         from apysc._loop import loop_count
         from apysc._type import revert_mixin

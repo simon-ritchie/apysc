@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `slice` method interface extracts the specified index range array\'s values and returns a new array.": "`slice`メソッドのインターフェイスは指定されたインデックスの範囲の配列の値を抽出し新しい配列を返却します。",  # noqa
+    "The `slice` method interface extracts the specified index range array's values and returns a new array.": "`slice`メソッドのインターフェイスは指定されたインデックスの範囲の配列の値を抽出し新しい配列を返却します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
@@ -29,7 +29,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## slice API": "## slice API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

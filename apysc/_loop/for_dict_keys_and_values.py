@@ -66,7 +66,7 @@ class ForDictKeysAndValues(
     ...     dict_key_type=ap.Number,
     ...     dict_value_type=ap.Number,
     ... ) as (key, value):
-    >>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
+    ...     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
     """
 
     _dict: Dictionary[_DictKey, _DictValue]
@@ -143,7 +143,7 @@ class ForDictKeysAndValues(
         ...     dict_key_type=ap.Number,
         ...     dict_value_type=ap.Number,
         ... ) as (key, value):
-        >>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
+        ...     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
         """
         self._initialize_locals_and_globals(locals_, globals_=globals_)
         self._dict = dict_

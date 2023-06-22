@@ -42,6 +42,11 @@ class ForDictKeysAndValues(
     """
     The loop implementation class for the `ap.Dictionary` keys and values.
 
+    References
+    ----------
+    - ForDictKeysAndValues class
+        - https://simon-ritchie.github.io/apysc/en/for_dict_keys_and_values.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -113,6 +118,11 @@ class ForDictKeysAndValues(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - ForDictKeysAndValues class
+            - https://simon-ritchie.github.io/apysc/en/for_dict_keys_and_values.html
 
         Examples
         --------

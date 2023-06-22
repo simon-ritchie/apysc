@@ -41,6 +41,26 @@ class ForDictKeysAndValues(
 ):
     """
     The loop implementation class for the `ap.Dictionary` keys and values.
+
+    Examples
+    --------
+    >>> import apysc as ap
+
+    >>> _ = ap.Stage(background_color="#333", stage_width=250, stage_height=300)
+
+    >>> dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(
+    ...     {
+    ...         ap.Number(50): ap.Number(50),
+    ...         ap.Number(100): ap.Number(125),
+    ...         ap.Number(150): ap.Number(200),
+    ...     }
+    ... )
+    >>> with ap.ForDictKeysAndValues(
+    ...     dict_=dict_,
+    ...     dict_key_type=ap.Number,
+    ...     dict_value_type=ap.Number,
+    ... ) as (key, value):
+    >>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
     """
 
     _dict: Dictionary[_DictKey, _DictValue]
@@ -93,6 +113,26 @@ class ForDictKeysAndValues(
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(background_color="#333", stage_width=250, stage_height=300)
+
+        >>> dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(
+        ...     {
+        ...         ap.Number(50): ap.Number(50),
+        ...         ap.Number(100): ap.Number(125),
+        ...         ap.Number(150): ap.Number(200),
+        ...     }
+        ... )
+        >>> with ap.ForDictKeysAndValues(
+        ...     dict_=dict_,
+        ...     dict_key_type=ap.Number,
+        ...     dict_value_type=ap.Number,
+        ... ) as (key, value):
+        >>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
         """
         self._initialize_locals_and_globals(locals_, globals_=globals_)
         self._dict = dict_

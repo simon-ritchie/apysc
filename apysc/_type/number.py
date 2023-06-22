@@ -14,6 +14,7 @@ from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.hashable_interface import HashableInterface
 
 
 class Number(
@@ -21,6 +22,7 @@ class Number(
     InitializeForLoopKeyOrValueInterface,
     ToStringMixIn,
     ToFixedMixIn,
+    HashableInterface,
 ):
     """
     Floating point number class for the apysc library.
@@ -193,3 +195,15 @@ class Number(
             An initialized number value.
         """
         return Number(0)
+
+    @final
+    def __hash__(self) -> int:
+        """
+        Get a hashed value.
+
+        Returns
+        -------
+        hashed_value : int
+            A hashed value.
+        """
+        return hash(self._value)

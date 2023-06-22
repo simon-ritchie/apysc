@@ -93,6 +93,11 @@ class TestNumber:
         num_value: ap.Number = ap.Number._initialize_for_loop_key_or_value()
         assert num_value == ap.Number(0)
 
+    @apply_test_settings()
+    def test___hash__(self) -> None:
+        num_value: ap.Number = ap.Number(10.5)
+        assert hash(num_value) == hash(10.5)
+
 
 class TestFloat:
     def test_top_level_import(self) -> None:

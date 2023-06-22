@@ -24,8 +24,9 @@ from apysc._type.initialize_locals_and_globals_mixin import (
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.number import Number
 
-_DictKey = TypeVar("_DictKey", String, Int, Boolean)
+_DictKey = TypeVar("_DictKey", String, Int, Number, Boolean)
 
 
 class ForDictKeys(
@@ -91,7 +92,7 @@ class ForDictKeys(
             A dictionary to iterate.
         dict_key_type : Type[_DictKey]
             A dictionary key type. This interface accepts hashable types,
-            such as the `String`, `Int`, or `Boolean`.
+            such as the `String`, `Int`, `Number`, or `Boolean`.
         locals_ : Optional[Dict[str, Any]], optional
             Current scope's local variables. Set locals()
             value to this argument. If specified, this interface

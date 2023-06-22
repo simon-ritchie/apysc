@@ -27,8 +27,9 @@ from apysc._validation import arg_validation_decos
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
     InitializeForLoopKeyOrValueInterface,
 )
+from apysc._type.number import Number
 
-_DictKey = TypeVar("_DictKey", String, Int, Boolean)
+_DictKey = TypeVar("_DictKey", String, Int, Number, Boolean)
 _DictValue = TypeVar("_DictValue", bound=InitializeForLoopKeyOrValueInterface)
 
 
@@ -73,7 +74,7 @@ class ForDictKeysAndValues(
             A dictionary to iterate.
         dict_key_type : Type[_DictKey]
             A dictionary key type. This interface accepts hashable types,
-            such as the `String`, `Int`, or `Boolean`.
+            such as the `String`, `Int`, `Number`, or `Boolean`.
         dict_value_type : Type[_DictValue]
             A dictionary value type. This interface accepts
             `InitializeForLoopKeyOrValueInterface` subclasses,

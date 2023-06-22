@@ -4032,8 +4032,8 @@ MAPPINGS: Mappings = Mappings(
             val="  - イテレーションで扱うための辞書。",
         ),
         Mapping(
-            key="  - A dictionary key type. This interface accepsts hashable types, such as the `String`, `Int`, or `Boolean`.",
-            val="  - 辞書のキーの型。このインターフェイスはハッシュ化可能な`String`、`Int`、`Boolean`といった型のみ受け付けます。",
+            key="  - A dictionary key type. This interface accepsts hashable types, such as the `String`, `Int`, `Number`, or `Boolean`.",
+            val="  - 辞書のキーの型。このインターフェイスはハッシュ化可能な`String`、`Int`、`Number`、`Boolean`といった型のみ受け付けます。",
         ),
         Mapping(
             key="## ForDictValues API",

@@ -20,7 +20,7 @@ The `as`-keyword value becomes a `Dictionary`'s key.
 
 Also, this class requires the `dict_key_type` to specify a type of `Dictionary`'s key type.
 
-This type only accepts an apysc type, such as the `String`, `Int`, or `Boolean`.
+This type only accepts an apysc type, such as the `String`, `Int`, `Number`, or `Boolean`.
 
 ```py
 # runnable
@@ -69,7 +69,7 @@ The loop implementation class for the `ap.Dictionary` keys.<hr>
 - `dict_`: Dictionary[_DictKey, Any]
   - A dictionary to iterate.
 - `dict_key_type`: Type[_DictKey]
-  - A dictionary key type. This interface accepts hashable types, such as the `String`, `Int`, or `Boolean`.
+  - A dictionary key type. This interface accepts hashable types, such as the `String`, `Int`, `Number`, or `Boolean`.
 - `locals_`: Optional[Dict[str, Any]], optional
   - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don't want to update each variable.
 - `globals_`: Optional[Dict[str, Any]], optional

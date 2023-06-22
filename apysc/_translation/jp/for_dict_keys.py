@@ -31,7 +31,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Also, this class requires the `dict_key_type` to specify a type of `Dictionary`\'s key type.": "また、このクラスは`Dictionary`のキーの型を指定するための`dict_key_type`引数の指定が必要になります。",  # noqa
     ##################################################
-    "This type only accepts an apysc type, such as the `String`, `Int`, or `Boolean`.": "この型の指定は`String`や`Int`、`Boolean`といったapyscの型のみ受け付けます。",  # noqa
+    "This type only accepts an apysc type, such as the `String`, `Int`, `Number`, or `Boolean`.": "この型の指定は`String`や`Int`、`Number`、`Boolean`といったapyscの型のみ受け付けます。",  # noqa
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\ndict_: ap.Dictionary[ap.String, int] = ap.Dictionary(\n    {\n        ap.String(\"apple\"): 120,\n        ap.String(\"orange\"): 200,\n    }\n)\nkeys: ap.Array[ap.String] = ap.Array([])\nwith ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:\n    keys.append(key)\nap.assert_arrays_equal(\n    keys,\n    [\"apple\", \"orange\"],\n)\n\nap.save_overall_html(dest_dir_path=\"for_dict_keys_basic_usage_1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\ndict_: ap.Dictionary[ap.String, int] = ap.Dictionary(\n    {\n        ap.String(\"apple\"): 120,\n        ap.String(\"orange\"): 200,\n    }\n)\nkeys: ap.Array[ap.String] = ap.Array([])\nwith ap.ForDictKeys(dict_=dict_, dict_key_type=ap.String) as key:\n    keys.append(key)\nap.assert_arrays_equal(\n    keys,\n    [\"apple\", \"orange\"],\n)\n\nap.save_overall_html(dest_dir_path=\"for_dict_keys_basic_usage_1/\")\n```",  # noqa
     ##################################################
@@ -57,7 +57,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `dict_key_type`: Type[_DictKey]": "- `dict_key_type`: Type[_DictKey]",
     ##################################################
-    "  - A dictionary key type. This interface accepts hashable types, such as the `String`, `Int`, or `Boolean`.": "  - 辞書のキーの型。このインターフェイスはハッシュ化可能な`String`、`Int`、`Boolean`といった型のみ受け付けます。",  # noqa
+    "  - A dictionary key type. This interface accepts hashable types, such as the `String`, `Int`, `Number`, or `Boolean`.": "  - 辞書のキーの型。このインターフェイスはハッシュ化可能な`String`、`Int`、`Number`、`Boolean`といった型のみ受け付けます。",  # noqa
     ##################################################
     "- `locals_`: Optional[Dict[str, Any]], optional": "- `locals_`: Optional[Dict[str, Any]], optional",  # noqa
     ##################################################

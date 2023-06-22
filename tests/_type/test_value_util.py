@@ -76,6 +76,7 @@ def test__validate_dict_key_type() -> None:
     value_util._validate_dict_key_type(key=True)
     value_util._validate_dict_key_type(key=ap.String("Hello"))
     value_util._validate_dict_key_type(key=ap.Int(10))
+    value_util._validate_dict_key_type(key=ap.Number(1.0))
     value_util._validate_dict_key_type(key=ap.Boolean(True))
     assert_raises(
         expected_error_class=TypeError,

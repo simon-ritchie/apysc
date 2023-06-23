@@ -23,6 +23,7 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.to_number_mixin import ToNumberMixIn
 
 
 class Boolean(
@@ -34,8 +35,8 @@ class Boolean(
     InitialSubstitutionExpMixIn,
     InitializeForLoopKeyOrValueInterface,
     HashableInterface,
+    ToNumberMixIn,
 ):
-
     """
     Boolean class for the apysc library.
 

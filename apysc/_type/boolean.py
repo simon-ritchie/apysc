@@ -19,11 +19,11 @@ from apysc._type.hashable_interface import HashableInterface
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
+from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.to_number_mixin import ToNumberMixIn
 
 
 class Boolean(

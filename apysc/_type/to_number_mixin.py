@@ -12,7 +12,6 @@ if TYPE_CHECKING:
 
 
 class ToNumberMixIn:
-
     @final
     @add_debug_info_setting(module_name=__name__)
     def to_number(self, *, variable_name_suffix: str = "") -> "Number":
@@ -32,22 +31,18 @@ class ToNumberMixIn:
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type
+            validate_variable_name_interface_type,
         )
 
         self_variable_name: str = validate_variable_name_interface_type(
             instance=self
         ).variable_name
-        number: ap.Number = ap.Number(
-            0.0, variable_name_suffix=variable_name_suffix
-        )
+        number: ap.Number = ap.Number(0.0, variable_name_suffix=variable_name_suffix)
         py_value: float = 0
         if isinstance(self, (ap.Int, ap.String, ap.Boolean)):
             py_value = float(self._value)
         number._value = py_value
-        expression: str = (
-            f"{number.variable_name} = Number({self_variable_name});"
-        )
+        expression: str = f"{number.variable_name} = Number({self_variable_name});"
         ap.append_js_expression(expression=expression)
 
         return number

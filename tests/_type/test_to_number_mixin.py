@@ -12,7 +12,5 @@ class TestToNumberMixIn:
         assert number == ap.Number(5)
         assert "test_suffix" in number.variable_name
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{number.variable_name} = Number({int_val.variable_name});"
-        )
+        expected: str = f"{number.variable_name} = Number({int_val.variable_name});"
         assert expected in expression

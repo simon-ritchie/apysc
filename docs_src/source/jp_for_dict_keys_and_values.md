@@ -105,5 +105,5 @@ ap.save_overall_html(dest_dir_path="for_dict_keys_and_values_basic_usage_1/")
 ...     dict_key_type=ap.Number,
 ...     dict_value_type=ap.Number,
 ... ) as (key, value):
->>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
+...     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
 ```

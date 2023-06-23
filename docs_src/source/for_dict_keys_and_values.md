@@ -100,5 +100,5 @@ The loop implementation class for the `ap.Dictionary` keys and values.<hr>
 ...     dict_key_type=ap.Number,
 ...     dict_value_type=ap.Number,
 ... ) as (key, value):
->>>     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
+...     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
 ```

@@ -26,8 +26,7 @@ ap.Stage(
 sprite: ap.Sprite = ap.Sprite()
 
 arr: ap.Array = ap.Array(range(2))
-i: ap.Int
-with ap.For(arr) as i:
+with ap.ForArrayIndices(arr) as i:
     condition: ap.Boolean = i == 0
     with ap.If(condition):
         sprite.graphics.begin_fill(color="#0af")
@@ -66,14 +65,14 @@ Exception: The `Continue` class can be instantiated in the with loop statement, 
 
 **[特記事項]**
 
-このクラスはwithステートメントのループ内でのみインスタンス化することができます。例えば`with ap.For(...)ステート内が該当します。`<hr>
+このクラスはwithステートメントのループ内でのみインスタンス化することができます。例えば`with ap.ForArrayIndices(...)ステート内が該当します。`<hr>
 
 **[コードサンプル]**
 
 ```py
 >>> import apysc as ap
 >>> arr: ap.Array = ap.Array(range(3))
->>> with ap.For(arr) as i:
+>>> with ap.ForArrayIndices(arr) as i:
 ...     with ap.If(i == 1):
 ...         _ = ap.Continue()
 ...

@@ -12,9 +12,9 @@ from apysc._loop.initialize_for_loop_key_or_value_interface import (
 from apysc._type.hashable_interface import HashableInterface
 from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
+from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.to_number_mixin import ToNumberMixIn
 
 
 class Int(

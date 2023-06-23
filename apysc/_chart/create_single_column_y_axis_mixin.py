@@ -167,8 +167,7 @@ def _create_y_axis_texts_values(
         [], variable_name_suffix=variable_name_suffix
     )
     range_arr: Array[Int] = ap.range(ticks_num)
-    i: Int
-    with ap.For(range_arr) as i:
+    with ap.ForArrayIndices(arr=range_arr) as i:
         tick_value: Union[Int, Number] = y_axis_min + i * interval
         value_text: String = cast(Union[Int, Number], tick_value).to_string()
         y_axis_text_values.append(value_text)
@@ -280,7 +279,7 @@ def _create_y_axis_ticks_texts(
     import apysc as ap
 
     y_axis_ticks_texts: Array[SVGText] = Array([])
-    with ap.For(y_axis_ticks_y_coordinates) as i:
+    with ap.ForArrayIndices(arr=y_axis_ticks_y_coordinates) as i:
         y_coordinate: Number = y_axis_ticks_y_coordinates[i]
         data_dict: Dictionary[str, Union[Int, Number, String]] = data[i]
         text_value: String = _extract_text_value_from_data_dict(
@@ -332,8 +331,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     import apysc as ap
 
     x: Number = horizontal_padding._copy()
-    i: Int
-    with ap.For(y_axis_ticks_texts) as i:
+    with ap.ForArrayIndices(arr=y_axis_ticks_texts) as i:
         txt: ap.SVGText = y_axis_ticks_texts[i]
         bounding_box: ap.RectangleGeom = txt.get_bounds()
         max_arr: ap.Array[Union[Int, Number]] = ap.Array(
@@ -341,7 +339,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
             variable_name_suffix=variable_name_suffix,
         )
         x = ap.Math.max(max_arr)
-    with ap.For(y_axis_ticks_texts) as i:
+    with ap.ForArrayIndices(arr=y_axis_ticks_texts) as i:
         txt = y_axis_ticks_texts[i]
         txt.x = x
 
@@ -417,9 +415,8 @@ def _calculate_y_axis_ticks_y_coordinates(
         variable_name_suffix=variable_name_suffix,
     )
     range_arr: Array[Int] = ap.range(y_axis_ticks_num)
-    i: Int
     interval: Number = y_axis_height / (y_axis_ticks_num - 1)
-    with ap.For(range_arr) as i:
+    with ap.ForArrayIndices(range_arr) as i:
         y_coordinate: Number = interval * i + y_start_coordinate
         y_axis_ticks_y_coordinates.append(y_coordinate)
     y_axis_ticks_y_coordinates.reverse()

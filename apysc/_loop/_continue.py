@@ -13,7 +13,7 @@ class Continue:
     Notes
     -----
     This class can be instantiated in the with loop statement,
-    for example, after the `with ap.For(...):` statement.
+    for example, after the `with ap.ForArrayIndices(...):` statement.
 
     References
     ----------
@@ -24,7 +24,7 @@ class Continue:
     --------
     >>> import apysc as ap
     >>> arr: ap.Array = ap.Array(range(3))
-    >>> with ap.For(arr) as i:
+    >>> with ap.ForArrayIndices(arr) as i:
     ...     with ap.If(i == 1):
     ...         _ = ap.Continue()
     ...
@@ -39,7 +39,7 @@ class Continue:
         Notes
         -----
         This class can be instantiated in the with loop statement,
-        for example, after the `with ap.For(...):` statement.
+        for example, after the `with ap.ForArrayIndices(...):` statement.
 
         References
         ----------
@@ -50,7 +50,7 @@ class Continue:
         --------
         >>> import apysc as ap
         >>> arr: ap.Array = ap.Array(range(3))
-        >>> with ap.For(arr) as i:
+        >>> with ap.ForArrayIndices(arr) as i:
         ...     with ap.If(i == 1):
         ...         _ = ap.Continue()
         ...
@@ -63,7 +63,7 @@ class Continue:
             err_msg: str = (
                 "The `Continue` class can be instantiated in the with "
                 "loop statement, for example, after the "
-                "`with ap.For(...):` statement."
+                "`with ap.ForArrayIndices(...):` statement."
             )
             raise Exception(err_msg)
         ap.append_js_expression(expression="continue;")

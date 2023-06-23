@@ -19,15 +19,15 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What is the Continue class?": "## Continue クラスの概要",
     ##################################################
-    "The `with For` block uses the `Continue` class to skip a current loop iteration (in JavaScript). It behaves like the Python built-in `continue` keyword.": "`with For`のブロックではJavaScript上での特定のループをスキップするために`Continue`クラスが使用されます。このインターフェイスはPythonビルトインの`continue`キーワードのように動作します。",  # noqa
+    "The `with ap.ForArrayIndices` block uses the `Continue` class to skip a current loop iteration (in JavaScript). It behaves like the Python built-in `continue` keyword.": "`with For`のブロックではJavaScript上での特定のループをスキップするために`Continue`クラスが使用されます。このインターフェイスはPythonビルトインの`continue`キーワードのように動作します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The `Continue` class can only be used in the `with For` (or other loop class) block, as follows:": "`Continue`クラスは以下のコード例のように`with For`（もしくは他のループクラス）のブロックでのみ使用することができます:",  # noqa
+    "The `Continue` class can only be used in the `with ap.ForArrayIndices` (or other loop class) block, as follows:": "`Continue`クラスは以下のコード例のように`with For`（もしくは他のループクラス）のブロックでのみ使用することができます:",  # noqa
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\n\narr: ap.Array = ap.Array(range(2))\ni: ap.Int\nwith ap.For(arr) as i:\n    condition: ap.Boolean = i == 0\n    with ap.If(condition):\n        sprite.graphics.begin_fill(color="#0af")\n        sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n        ap.Continue()\n\n    sprite.graphics.begin_fill(color="#f0a")\n    sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.save_overall_html(dest_dir_path="continue_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\n\narr: ap.Array = ap.Array(range(2))\ni: ap.Int\nwith ap.For(arr) as i:\n    condition: ap.Boolean = i == 0\n    with ap.If(condition):\n        sprite.graphics.begin_fill(color="#0af")\n        sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n        ap.Continue()\n\n    sprite.graphics.begin_fill(color="#f0a")\n    sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.save_overall_html(dest_dir_path="continue_basic_usage/")\n```',  # noqa
     ##################################################
-    "If you use the `Continue` class in the out of the `with For` block, then an exception is raised:": "もし`Continue`クラスを`with For`ブロック外で使用した場合はエラーになります:",  # noqa
+    "If you use the `Continue` class in the out of the `with ap.ForArrayIndices` block, then an exception is raised:": "もし`Continue`クラスを`with For`ブロック外で使用した場合はエラーになります:",  # noqa
     ##################################################
     "```py\nimport apysc as ap\n\nap.Continue()\n```": "```py\nimport apysc as ap\n\nap.Continue()\n```",  # noqa
     ##################################################

@@ -519,7 +519,11 @@ class SVGText(
             text_spans=text_spans
         )
         i: Int
-        with ap.For(arr_or_dict=text_spans_, locals_=locals(), globals_=globals()) as i:
+        with ap.ForArrayIndices(
+            arr=text_spans_,
+            locals_=locals(),
+            globals_=globals(),
+        ) as i:
             text_span: SVGTextSpan = text_spans_[i]
             expression: str = (
                 f"{svg_text.variable_name}.add({text_span.variable_name});"

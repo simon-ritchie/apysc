@@ -8,11 +8,11 @@ Before reading on, maybe it is helpful to read the following page (apysc uses th
 
 ## What is the Continue class?
 
-The `with For` block uses the `Continue` class to skip a current loop iteration (in JavaScript). It behaves like the Python built-in `continue` keyword.
+The `with ap.ForArrayIndices` block uses the `Continue` class to skip a current loop iteration (in JavaScript). It behaves like the Python built-in `continue` keyword.
 
 ## Basic usage
 
-The `Continue` class can only be used in the `with For` (or other loop class) block, as follows:
+The `Continue` class can only be used in the `with ap.ForArrayIndices` (or other loop class) block, as follows:
 
 ```py
 # runnable
@@ -24,8 +24,7 @@ ap.Stage(
 sprite: ap.Sprite = ap.Sprite()
 
 arr: ap.Array = ap.Array(range(2))
-i: ap.Int
-with ap.For(arr) as i:
+with ap.ForArrayIndices(arr) as i:
     condition: ap.Boolean = i == 0
     with ap.If(condition):
         sprite.graphics.begin_fill(color="#0af")
@@ -40,7 +39,7 @@ ap.save_overall_html(dest_dir_path="continue_basic_usage/")
 
 <iframe src="static/continue_basic_usage/index.html" width="250" height="150"></iframe>
 
-If you use the `Continue` class in the out of the `with For` block, then an exception is raised:
+If you use the `Continue` class in the out of the `with ap.ForArrayIndices` block, then an exception is raised:
 
 ```py
 import apysc as ap

@@ -28,15 +28,14 @@ def main() -> None:
     ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
 
     arr: ap.Array = ap.Array(range(2))
-    i: ap.Number
-    with ap.For(arr) as i:
+    with ap.ForArrayIndices(arr) as i:
         condition: ap.Boolean = i == 1
         condition = condition.not_
         with ap.If(condition):
             ap.Continue()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af")
-        sprite.graphics.draw_rect(x=i * 50, y=50, width=50, height=50)
+        sprite.graphics.draw_rect(x=i.to_number() * 50, y=50, width=50, height=50)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

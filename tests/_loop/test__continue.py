@@ -14,7 +14,7 @@ class TestContinue:
         )
 
         arr: ap.Array = ap.Array([1, 2, 3])
-        with ap.For(arr):
+        with ap.ForArrayIndices(arr):
             ap.Continue()
         expression: str = expression_data_util.get_current_expression()
         assert "continue;" in expression

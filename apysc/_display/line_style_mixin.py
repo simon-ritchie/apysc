@@ -144,7 +144,6 @@ class LineStyleMixIn(
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
         self._initialize_line_alpha_if_not_initialized()
-        suffix: str
 
         if color != "":
             color = color_util.complement_hex_color(hex_color_code=color)

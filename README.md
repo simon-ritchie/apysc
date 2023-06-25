@@ -23,7 +23,7 @@ Notes: Currently developing and only works partially.
 
 ## Supported Python Version
 
-Python 3.7 or later.
+Python 3.8 or later.
 
 ## Installing
 

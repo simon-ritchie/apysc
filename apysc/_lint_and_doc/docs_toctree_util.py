@@ -184,6 +184,8 @@ def _update_adjacent_doc_modified_time_if_toctree_updated(
         return False
     now_unix_time: float = datetime.now().timestamp()
     file_path: str = f"./docs_src/source/{adjacent_doc_file_name}"
+    if not os.path.exists(file_path):
+        return False
     os.utime(file_path, (now_unix_time, now_unix_time))
     logger.info(msg=f"Document's modified time is updated: {adjacent_doc_file_name}")
     for lang in Lang:

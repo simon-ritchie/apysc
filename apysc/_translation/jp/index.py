@@ -107,7 +107,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Loop": "## ループ",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nfor\nfor_array_indices\nfor_array_values\nfor_array_indices_and_values\nfor_dict_keys\nfor_dict_values\nfor_dict_keys_and_values\ncontinue\nrange\n```": "```{toctree}\n:maxdepth: 1\njp_for\njp_for_array_indices\njp_for_array_values\njp_for_array_indices_and_values\njp_for_dict_keys\njp_for_dict_values\njp_for_dict_keys_and_values\njp_continue\njp_range\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nfor_array_indices\nfor_array_values\nfor_array_indices_and_values\nfor_dict_keys\nfor_dict_values\nfor_dict_keys_and_values\ncontinue\nrange\n```": "```{toctree}\n:maxdepth: 1\njp_for_array_indices\njp_for_array_values\njp_for_array_indices_and_values\njp_for_dict_keys\njp_for_dict_values\njp_for_dict_keys_and_values\njp_continue\njp_range\n```",  # noqa
     ##################################################
     "## Timer and enter-frame": "## タイマーとenter-frame",
     ##################################################

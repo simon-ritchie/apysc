@@ -31,7 +31,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\nimport apysc as ap\n\nap.Continue()\n```": "```py\nimport apysc as ap\n\nap.Continue()\n```",  # noqa
     ##################################################
-    "```\nException: The `Continue` class can be instantiated in the with loop statement, for example, after the `with ap.For(...):` statement.\n```": "```\nException: The `Continue` class can be instantiated in the with loop statement, for example, after the `with ap.For(...):` statement.\n```",  # noqa
+    "```\nException: The `Continue` class can be instantiated in the with loop statement, for example, after the `with ap.ForArrayIndices(...):` statement.\n```": "```\nException: The `Continue` class can be instantiated in the with loop statement, for example, after the `with ap.ForArrayIndices(...):` statement.\n```",  # noqa
     ##################################################
     "## Continue API": "## Continue API",
     ##################################################

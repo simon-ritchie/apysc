@@ -611,8 +611,7 @@ def _extract_column_values_from_data(
     values: Array[Union[Int, Number]] = Array(
         [], variable_name_suffix=variable_name_suffix
     )
-    i: Int
-    with ap.For(data) as i:
+    with ap.ForArrayIndices(data) as i:
         dict_value: Dictionary[str, Union[Int, Number]] = cast(
             Dictionary[str, Union[Int, Number]], data[i]
         )

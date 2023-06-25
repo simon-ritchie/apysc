@@ -156,7 +156,11 @@ rectangle.animation_x(
 - [If](https://simon-ritchie.github.io/apysc/jp/jp_if.html)
 - [Elif](https://simon-ritchie.github.io/apysc/jp/jp_elif.html)
 - [Else](https://simon-ritchie.github.io/apysc/jp/jp_else.html)
-- [For](https://simon-ritchie.github.io/apysc/jp/jp_for.html)
+- [ForArrayIndices](https://simon-ritchie.github.io/apysc/jp/jp_for_array_indices.html)
+- [ForArrayValues](https://simon-ritchie.github.io/apysc/jp/jp_for_array_values.html)
+- [ForDictKeys](https://simon-ritchie.github.io/apysc/jp/jp_for_dict_keys.html)
+- [ForDictValues](https://simon-ritchie.github.io/apysc/jp/jp_for_dict_values.html)
+- [ForDictKeysAndValues](https://simon-ritchie.github.io/apysc/jp/jp_for_dict_keys_and_values.html)
 
 ---
 

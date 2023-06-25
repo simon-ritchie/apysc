@@ -261,7 +261,6 @@ return
 
 ```{toctree}
 :maxdepth: 1
-for
 for_array_indices
 for_array_values
 for_array_indices_and_values

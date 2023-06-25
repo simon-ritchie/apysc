@@ -15,7 +15,6 @@ from apysc._type.any_value import AnyValue
 from apysc._branch._if import If
 from apysc._branch._elif import Elif
 from apysc._branch._else import Else
-from apysc._loop._for import For
 from apysc._loop.for_array_indices import ForArrayIndices
 from apysc._loop.for_array_values import ForArrayValues
 from apysc._loop.for_array_indices_and_values import ForArrayIndicesAndValues

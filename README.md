@@ -27,7 +27,7 @@ Python 3.7 or later.
 
 ## Installing
 
-pip command is available:
+Pip command is available:
 
 ```
 $ pip install apysc
@@ -45,7 +45,7 @@ Please see [apysc documentation](https://simon-ritchie.github.io/apysc/en/index.
 
 ## What apysc can do in its current implementation
 
-- **Save HTML or use it on the Jupyter notebook, JupyterLab, and Google Colaboratory!**
+- **Save HTML or use it on the Jupyter Notebook, JupyterLab, and Google Colaboratory!**
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/jupyterlab_interface.png)
 
@@ -153,7 +153,11 @@ Documents:
 - [If](https://simon-ritchie.github.io/apysc/en/if.html)
 - [Elif](https://simon-ritchie.github.io/apysc/en/elif.html)
 - [Else](https://simon-ritchie.github.io/apysc/en/else.html)
-- [For](https://simon-ritchie.github.io/apysc/en/for.html)
+- [ForArrayIndices](https://simon-ritchie.github.io/apysc/en/for_array_indices.html)
+- [ForArrayValues](https://simon-ritchie.github.io/apysc/en/for_array_values.html)
+- [ForDictKeys](https://simon-ritchie.github.io/apysc/en/for_dict_keys.html)
+- [ForDictValues](https://simon-ritchie.github.io/apysc/en/for_dict_values.html)
+- [ForDictKeysAndValues](https://simon-ritchie.github.io/apysc/en/for_dict_keys_and_values.html)
 
 ---
 
@@ -165,7 +169,7 @@ For more details, please see the following document:
 
 The apysc library is under the MIT License.
 
-The logo image is using followed Creative Commons license font:
+The logo image uses the following Creative Commons license font:
 
 - [Pauline Font - by Marcos Boric (2020)](https://www.behance.net/gallery/94972757/Pauline-Font)
 - [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.en)

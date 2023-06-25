@@ -50,7 +50,7 @@ ap.Continue()
 ```
 
 ```
-Exception: The `Continue` class can be instantiated in the with loop statement, for example, after the `with ap.For(...):` statement.
+Exception: The `Continue` class can be instantiated in the with loop statement, for example, after the `with ap.ForArrayIndices(...):` statement.
 ```
 
 ## Continue API

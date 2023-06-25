@@ -10,7 +10,7 @@ import ctypes
 import random
 from datetime import datetime
 from typing import Optional
-from typing import Tuple
+from typing import Tuple, cast
 
 from typing_extensions import final
 
@@ -362,5 +362,5 @@ def get_stage() -> Stage:
             "Stage is not instantiated yet. Please instantiate the "
             "ap.Stage class before calling this function."
         )
-    stage: Stage = ctypes.cast(result[0], ctypes.py_object).value
+    stage: Stage = cast(Stage, ctypes.cast(result[0], ctypes.py_object).value)
     return stage

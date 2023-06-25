@@ -6,7 +6,7 @@ from typing import Any
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-def validate_variable_name_interface_type(
+def validate_variable_name_mixin_type(
     *, instance: Any, additional_err_msg: str = ""
 ) -> VariableNameMixIn:
     """

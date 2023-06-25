@@ -2152,7 +2152,7 @@ def is_variable_name_interface_type(*, arg_position_index: int) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._validation.variable_name_validation import (
-                validate_variable_name_interface_type,
+                validate_variable_name_mixin_type,
             )
 
             instance: Any = _extract_arg_value(
@@ -2165,7 +2165,7 @@ def is_variable_name_interface_type(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            validate_variable_name_interface_type(
+            validate_variable_name_mixin_type(
                 instance=instance, additional_err_msg=callable_and_arg_names_msg
             )
 

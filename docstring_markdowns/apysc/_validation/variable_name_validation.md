@@ -4,7 +4,7 @@
 
 Variable name-related Validation interfaces.
 
-## `validate_variable_name_interface_type` function docstring
+## `validate_variable_name_mixin_type` function docstring
 
 Validate specified instance type is VariableNameMixIn.<hr>
 

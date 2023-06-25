@@ -74,10 +74,10 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_mixin import VariableNameMixIn
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type,
+            validate_variable_name_mixin_type,
         )
 
-        self_instance: VariableNameMixIn = validate_variable_name_interface_type(
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
             instance=self
         )
         self._initialize_dblclick_handlers_if_not_initialized()

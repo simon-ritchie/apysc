@@ -43,10 +43,10 @@ class MouseEventUnbindingMixIn(SetHandlerDataMixIn[MouseEvent]):
         from apysc._event.handler import append_unbinding_expression
         from apysc._event.handler import get_handler_name
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type,
+            validate_variable_name_mixin_type,
         )
 
-        self_instance: VariableNameMixIn = validate_variable_name_interface_type(
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
             instance=self
         )
         name: str = get_handler_name(handler=handler, instance=self)
@@ -76,10 +76,10 @@ class MouseEventUnbindingMixIn(SetHandlerDataMixIn[MouseEvent]):
         """
         from apysc._event.handler import append_unbinding_all_expression
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type,
+            validate_variable_name_mixin_type,
         )
 
-        self_instance: VariableNameMixIn = validate_variable_name_interface_type(
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
             instance=self
         )
         handlers_dict.clear()

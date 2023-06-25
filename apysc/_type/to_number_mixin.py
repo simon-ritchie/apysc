@@ -31,10 +31,10 @@ class ToNumberMixIn:
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type,
+            validate_variable_name_mixin_type,
         )
 
-        self_variable_name: str = validate_variable_name_interface_type(
+        self_variable_name: str = validate_variable_name_mixin_type(
             instance=self
         ).variable_name
         number: ap.Number = ap.Number(0.0, variable_name_suffix=variable_name_suffix)

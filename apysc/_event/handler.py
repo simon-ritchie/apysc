@@ -44,7 +44,7 @@ def get_handler_name(*, handler: _Handler, instance: Any) -> str:
     from apysc._callable import callable_util
     from apysc._event import handler_circular_calling_util as circ_util
     from apysc._validation.variable_name_validation import (
-        validate_variable_name_interface_type,
+        validate_variable_name_mixin_type,
     )
 
     class_name: str = callable_util.get_method_class_name(method=handler)
@@ -54,7 +54,7 @@ def get_handler_name(*, handler: _Handler, instance: Any) -> str:
         f"{handler.__module__}{class_name}{handler.__name__}"  # type: ignore
     )
     handler_name = handler_name.replace(".", "_")
-    instance_: VariableNameMixIn = validate_variable_name_interface_type(
+    instance_: VariableNameMixIn = validate_variable_name_mixin_type(
         instance=instance
     )
     handler_name += f"_{instance_.variable_name}"
@@ -93,12 +93,12 @@ def append_handler_expression(
     from apysc._expression.indent_num import Indent
     from apysc._type import revert_mixin
     from apysc._validation.variable_name_validation import (
-        validate_variable_name_interface_type,
+        validate_variable_name_mixin_type,
     )
 
     variables: List[Any] = [*handler_data.options.values()]
     snapshot_name: str = revert_mixin.make_variables_snapshots(variables=variables)
-    instance: VariableNameMixIn = validate_variable_name_interface_type(instance=e.this)
+    instance: VariableNameMixIn = validate_variable_name_mixin_type(instance=e.this)
 
     with HandlerScope(handler_name=handler_name, instance=instance):
         is_handler_circular_calling_: bool = is_handler_circular_calling(

@@ -161,7 +161,7 @@ class ForDictValues(
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_interface_type,
+            validate_variable_name_mixin_type,
         )
 
         loop_count.increment_current_loop_count()
@@ -171,7 +171,7 @@ class ForDictValues(
         dict_value: _DictValue = (
             self._dict_value_type._initialize_for_loop_key_or_value()
         )
-        dict_value_variable_name: str = validate_variable_name_interface_type(
+        dict_value_variable_name: str = validate_variable_name_mixin_type(
             instance=dict_value,
         ).variable_name
 

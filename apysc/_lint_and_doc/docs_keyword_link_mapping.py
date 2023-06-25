@@ -116,7 +116,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "Elif": "elif",
     "Else": "else",
     "Return": "return",
-    "For": "for",
     "Continue": "continue",
     "Timer": "timer",
     "TimerEvent": "timer_event",

@@ -10,7 +10,8 @@ import ctypes
 import random
 from datetime import datetime
 from typing import Optional
-from typing import Tuple, cast
+from typing import Tuple
+from typing import cast
 
 from typing_extensions import final
 

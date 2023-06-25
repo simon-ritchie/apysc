@@ -54,9 +54,7 @@ def get_handler_name(*, handler: _Handler, instance: Any) -> str:
         f"{handler.__module__}{class_name}{handler.__name__}"  # type: ignore
     )
     handler_name = handler_name.replace(".", "_")
-    instance_: VariableNameMixIn = validate_variable_name_mixin_type(
-        instance=instance
-    )
+    instance_: VariableNameMixIn = validate_variable_name_mixin_type(instance=instance)
     handler_name += f"_{instance_.variable_name}"
     if circ_util.is_handler_circular_calling(handler_name=handler_name):
         return circ_util.get_prev_handler_name(handler_name=handler_name)

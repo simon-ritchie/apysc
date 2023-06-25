@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
-      PYTHON_37_VERSION: 3.7.13
       PYTHON_38_VERSION: 3.8.12
       PYTHON_39_VERSION: 3.9.12
       PYTHON_310_VERSION: 3.10.4
@@ -31,7 +30,6 @@ jobs:
     strategy:
       matrix:
         python-version: [
-          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
@@ -74,19 +72,19 @@ jobs:
       - name: Update each lint badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
-          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
+          label: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
+          status: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
+          color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the passing unit tests Python versions status
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
-          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
+          label: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
+          status: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
+          color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
   RunFlake8:
     needs: [CreateCache, SetGlobalConstants]
@@ -207,7 +205,6 @@ jobs:
     strategy:
       matrix:
         python-version: [
-          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
@@ -426,47 +423,47 @@ jobs:
       - name: Update each lint badge status
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
-          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
-          STATUS: 'flake8 | mypy | Pyright | numdoclint'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
+          label: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
+          status: 'flake8 | mypy | Pyright | numdoclint'
+          color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Echo the passing unit tests number value
         run: echo ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.COVERAGE }}
       - name: Update tests line coverage
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: unit_tests_coverage
-          LABEL: 'unit tests coverage'
-          STATUS: ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.COVERAGE }}
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: unit_tests_coverage
+          label: 'unit tests coverage'
+          status: ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.COVERAGE }}
+          color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Echo the passing unit tests number value
         run: echo ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
       - name: Update the passing unit tests number
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_unit_tests_num
-          LABEL: 'passing unit tests number'
-          STATUS: ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: passing_unit_tests_num
+          label: 'passing unit tests number'
+          status: ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
+          color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the passsing doctests number
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_doctests_num
-          LABEL: 'passing doctests number'
-          STATUS: ${{ needs.RunDocTest.outputs.PASSING_TESTS_NUM }}
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: passing_doctests_num
+          label: 'passing doctests number'
+          status: ${{ needs.RunDocTest.outputs.PASSING_TESTS_NUM }}
+          color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the passing unit tests Python versions status
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
-          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
+          label: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
+          status: '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }} | ${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}'
+          color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
   RunPackageInstallingTests:
     needs: [DeployToPyPI, SetGlobalConstants]
@@ -474,7 +471,6 @@ jobs:
     strategy:
       matrix:
         python-version: [
-          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',

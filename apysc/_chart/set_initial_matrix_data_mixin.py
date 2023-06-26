@@ -17,14 +17,14 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 _DataType = Union[
-    Array[Dictionary[str, Union[Int, Number, String]]],
+    Array[Dictionary[String, Union[Int, Number, String]]],
     List[Dict[str, Union[int, float, str]]],
 ]
 
 
 class SetInitialMatrixDataMixIn:
 
-    _matrix_data: Array[Dictionary[str, Union[Int, Number, String]]]
+    _matrix_data: Array[Dictionary[String, Union[Int, Number, String]]]
 
     @final
     @arg_validation_decos.is_list_or_array_matrix_data(arg_position_index=1)
@@ -52,9 +52,11 @@ class SetInitialMatrixDataMixIn:
         """
         if not isinstance(data, Array):
             data_: Array[
-                Dictionary[str, Union[Int, Number, String]]
+                Dictionary[String, Union[Int, Number, String]]
             ] = _convert_list_to_array(
-                data=cast(List[Dict[str, Union[int, float, str]]], data),
+                data=cast(
+                    List[Dict[str, Union[int, float, str]]], data
+                ),
                 variable_name_suffix=variable_name_suffix,
             )
         else:
@@ -66,7 +68,7 @@ def _convert_list_to_array(
     *,
     data: List[Dict[str, Union[int, float, str]]],
     variable_name_suffix: str,
-) -> Array[Dictionary[str, Union[Int, Number, String]]]:
+) -> Array[Dictionary[String, Union[Int, Number, String]]]:
     """
     Convert a specified matrix list to an array.
 
@@ -80,28 +82,33 @@ def _convert_list_to_array(
 
     Returns
     -------
-    data__ : Array[Dictionary[str, Union[Int, Number, String]]]
+    data__ : Array[Dictionary[String, Union[Int, Number, String]]]:
         A converted array.
     """
-    data_: List[Dictionary[str, Union[Int, Number, String]]] = []
+    data_: List[Dictionary[String, Union[Int, Number, String]]] = []
     for dict_data in data:
-        dict_data_: Dict[str, Union[Int, Number, String]] = {}
+        dict_data_: Dict[String, Union[Int, Number, String]] = {}
         for key, value in dict_data.items():
+            key_: String = String(key, variable_name_suffix=variable_name_suffix)
             if isinstance(value, int):
-                dict_data_[key] = Int(value, variable_name_suffix=variable_name_suffix)
+                dict_data_[key_] = Int(value, variable_name_suffix=variable_name_suffix)
                 continue
             if isinstance(value, float):
-                dict_data_[key] = Number(
+                dict_data_[key_] = Number(
                     value, variable_name_suffix=variable_name_suffix
                 )
                 continue
             if isinstance(value, str):
-                dict_data_[key] = String(
+                dict_data_[key_] = String(
                     value, variable_name_suffix=variable_name_suffix
                 )
                 continue
-        data_.append(Dictionary(dict_data_, variable_name_suffix=variable_name_suffix))
-    data__: Array[Dictionary[str, Union[Int, Number, String]]] = Array(
+        data_.append(
+            Dictionary(dict_data_, variable_name_suffix=variable_name_suffix)
+        )
+    data__: Array[
+        Dictionary[String, Union[Int, Number, String]]
+    ] = Array(
         data_, variable_name_suffix=variable_name_suffix
     )
     return data__

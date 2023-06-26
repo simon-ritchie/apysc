@@ -10,23 +10,32 @@ from apysc._testing.testing_helper import assert_raises
 @apply_test_settings()
 def test__get_y_min() -> None:
     expression_data_util.empty_expression()
-    data: ap.Array[ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]]
+    data: ap.Array[ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]]
     SUFFIX: str = "test_suffix"
     data = ap.Array(
         [
             ap.Dictionary(
-                {"a": ap.Int(10, variable_name_suffix=SUFFIX), "b": ap.Number(20.5)}
+                {
+                    ap.String("a"): ap.Int(10, variable_name_suffix=SUFFIX),
+                    ap.String("b"): ap.Number(20.5),
+                }
             ),
             ap.Dictionary(
-                {"a": ap.Int(30, variable_name_suffix=SUFFIX), "b": ap.Number(40.5)}
+                {
+                    ap.String("a"): ap.Int(30, variable_name_suffix=SUFFIX),
+                    ap.String("b"): ap.Number(40.5),
+                }
             ),
             ap.Dictionary(
-                {"a": ap.Int(5, variable_name_suffix=SUFFIX), "b": ap.Number(5.5)}
+                {
+                    ap.String("a"): ap.Int(5, variable_name_suffix=SUFFIX),
+                    ap.String("b"): ap.Number(5.5),
+                }
             ),
         ]
     )
     y_min: ap.Number = create_single_column_y_axis_mixin._calculate_y_min_from_data(
-        data=data, y_axis_column_name="a", variable_name_suffix="test_suffix"
+        data=data, y_axis_column_name=ap.String("a"), variable_name_suffix="test_suffix"
     )
     assert isinstance(y_min, ap.Number)
     assert SUFFIX in y_min._variable_name_suffix
@@ -37,18 +46,20 @@ def test__get_y_min() -> None:
 @apply_test_settings()
 def test__extract_column_values_from_data() -> None:
     expression_data_util.empty_expression()
-    data: ap.Array[ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]] = ap.Array(
+    data: ap.Array[
+        ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
+    ] = ap.Array(
         [
             ap.Dictionary(
                 {
-                    "a": ap.Int(10, variable_name_suffix="test_suffix"),
-                    "b": ap.Number(20.5),
+                    ap.String("a"): ap.Int(10, variable_name_suffix="test_suffix"),
+                    ap.String("b"): ap.Number(20.5),
                 },
             ),
             ap.Dictionary(
                 {
-                    "a": ap.Int(30, variable_name_suffix="test_suffix"),
-                    "b": ap.Number(40.5),
+                    ap.String("a"): ap.Int(30, variable_name_suffix="test_suffix"),
+                    ap.String("b"): ap.Number(40.5),
                 },
             ),
         ]
@@ -57,7 +68,7 @@ def test__extract_column_values_from_data() -> None:
         Union[ap.Int, ap.Number]
     ] = create_single_column_y_axis_mixin._extract_column_values_from_data(
         data=data,
-        column_name="a",
+        column_name=ap.String("a"),
         variable_name_suffix="test_suffix",
     )
     assert values._value[0] == ap.Int(10)
@@ -69,25 +80,27 @@ def test__extract_column_values_from_data() -> None:
 @apply_test_settings()
 def test__calculate_y_max_from_data() -> None:
     expression_data_util.empty_expression()
-    data: ap.Array[ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]] = ap.Array(
+    data: ap.Array[
+        ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
+    ] = ap.Array(
         [
             ap.Dictionary(
                 {
-                    "a": ap.Int(10, variable_name_suffix="test_suffix"),
-                    "b": ap.Number(20.5),
+                    ap.String("a"): ap.Int(10, variable_name_suffix="test_suffix"),
+                    ap.String("b"): ap.Number(20.5),
                 },
             ),
             ap.Dictionary(
                 {
-                    "a": ap.Int(30, variable_name_suffix="test_suffix"),
-                    "b": ap.Number(40.5),
+                    ap.String("a"): ap.Int(30, variable_name_suffix="test_suffix"),
+                    ap.String("b"): ap.Number(40.5),
                 },
             ),
         ]
     )
     y_max: ap.Number = create_single_column_y_axis_mixin._calculate_y_max_from_data(
         data=data,
-        y_axis_column_name="a",
+        y_axis_column_name=ap.String("a"),
         variable_name_suffix="test_suffix",
     )
     assert isinstance(y_max, ap.Number)

@@ -40,7 +40,7 @@ class CreateSingleColumnYAxisMixIn:
     def _create_y_axis(
         self,
         *,
-        data: Array[Dictionary[str, Union[Int, Number, String]]],
+        data: Array[Dictionary[String, Union[Int, Number, String]]],
         y_axis_container: Sprite,
         chart_height: Int,
         x_axis_settings: XAxisSettings,
@@ -54,7 +54,7 @@ class CreateSingleColumnYAxisMixIn:
 
         Parameters
         ----------
-        data : Array[Dictionary[str, Union[Int, Number, String]]],
+        data : Array[Dictionary[String, Union[Int, Number, String]]],
             A data array, which contains a 1-dimensional string key dictionary.
         y_axis_container : Sprite
             A y-axis container instance.
@@ -514,8 +514,8 @@ def _calculate_y_axis_height(
 
 def _calculate_y_max_from_data(
     *,
-    data: Array[Dictionary[str, Union[Int, Number, String]]],
-    y_axis_column_name: str,
+    data: Array[Dictionary[String, Union[Int, Number, String]]],
+    y_axis_column_name: String,
     variable_name_suffix: str,
 ) -> Number:
     """
@@ -523,9 +523,9 @@ def _calculate_y_max_from_data(
 
     Parameters
     ----------
-    data : Array[Dictionary[str, Union[Int, Number, String]]]
+    data : Array[Dictionary[String, Union[Int, Number, String]]]
         A data array, which contains a 1-dimensional string key dictionary.
-    y_axis_column_name : str
+    y_axis_column_name : String
         A y-axis column name.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
@@ -549,8 +549,8 @@ def _calculate_y_max_from_data(
 
 def _calculate_y_min_from_data(
     *,
-    data: Array[Dictionary[str, Union[Int, Number, String]]],
-    y_axis_column_name: str,
+    data: Array[Dictionary[String, Union[Int, Number, String]]],
+    y_axis_column_name: String,
     variable_name_suffix: str,
 ) -> Number:
     """
@@ -558,9 +558,9 @@ def _calculate_y_min_from_data(
 
     Parameters
     ----------
-    data : Array[Dictionary[str, Union[Int, Number, String]]]
+    data : Array[Dictionary[String, Union[Int, Number, String]]]
         A data array, which contains a 1-dimensional string key dictionary.
-    y_axis_column_name : str
+    y_axis_column_name : String
         A y-axis column name.
     variable_name_suffix : str, optional
         A JavaScript variable name suffix string.
@@ -584,8 +584,8 @@ def _calculate_y_min_from_data(
 
 def _extract_column_values_from_data(
     *,
-    data: Array[Dictionary[str, Union[Int, Number, String]]],
-    column_name: str,
+    data: Array[Dictionary[String, Union[Int, Number, String]]],
+    column_name: String,
     variable_name_suffix: str,
 ) -> Array[Union[Int, Number]]:
     """
@@ -593,9 +593,9 @@ def _extract_column_values_from_data(
 
     Parameters
     ----------
-    data : Array[Dictionary[str, Union[Int, Number, String]]]
+    data : Array[Dictionary[String, Union[Int, Number, String]]]
         A data array, which contains a 1-dimensional string key dictionary.
-    column_name : str
+    column_name : String
         A y-axis column name.
     variable_name_suffix : str, optional
         A JavaScript variable name suffix string.
@@ -612,8 +612,8 @@ def _extract_column_values_from_data(
         [], variable_name_suffix=variable_name_suffix
     )
     with ap.ForArrayIndices(data) as i:
-        dict_value: Dictionary[str, Union[Int, Number]] = cast(
-            Dictionary[str, Union[Int, Number]], data[i]
+        dict_value: Dictionary[String, Union[Int, Number]] = cast(
+            Dictionary[String, Union[Int, Number]], data[i]
         )
         values.append(dict_value[column_name])
     return values

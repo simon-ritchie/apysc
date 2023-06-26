@@ -28,7 +28,7 @@ class TestYAxisSingleColumnSettings:
             axis_label_italic=True,
             variable_name_suffix="test_suffix",
         )
-        assert setting._y_axis_column_name == "test_column"
+        assert setting._y_axis_column_name == ap.String("test_column")
         assert setting._y_min == ap.Number(0)
         if setting._y_min is not None:
             assert setting._y_min._variable_name_suffix == "test_suffix"

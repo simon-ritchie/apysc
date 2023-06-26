@@ -64,7 +64,7 @@ class YAxisSingleColumnSettings(
     AxisLabelItalicMixIn,
 ):
     # y_axis_column_name
-    @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     # y_min
     @arg_validation_decos.is_num(arg_position_index=2, optional=True)
     # y_max
@@ -121,7 +121,7 @@ class YAxisSingleColumnSettings(
     def __init__(
         self,
         *,
-        y_axis_column_name: str,
+        y_axis_column_name: Union[str, String],
         y_min: Optional[Union[float, Number]] = None,
         y_max: Optional[Union[float, Number]] = None,
         tick_max_num: Optional[Union[int, Int]] = None,
@@ -149,7 +149,7 @@ class YAxisSingleColumnSettings(
 
         Parameters
         ----------
-        y_axis_column_name : str
+        y_axis_column_name : Union[str, String]
             Y-axis column name.
             Only a number (integer or float) column is a selectable
             value (for example, price, sales, or percentage column).

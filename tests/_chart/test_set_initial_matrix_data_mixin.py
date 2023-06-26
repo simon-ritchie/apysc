@@ -22,7 +22,7 @@ def test__convert_list_to_array() -> None:
         },
     ]
     data_: ap.Array[
-        ap.Dictionary[str, Union[ap.Int, ap.Number, ap.String]]
+        ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
     ] = set_initial_matrix_data_mixin._convert_list_to_array(
         data=data,
         variable_name_suffix="test_suffix",
@@ -34,16 +34,16 @@ def test__convert_list_to_array() -> None:
         [
             ap.Dictionary(
                 {
-                    "a": ap.Int(10),
-                    "b": ap.Number(20.5),
-                    "c": ap.String("1970-01-01"),
+                    ap.String("a"): ap.Int(10),
+                    ap.String("b"): ap.Number(20.5),
+                    ap.String("c"): ap.String("1970-01-01"),
                 },
             ),
             ap.Dictionary(
                 {
-                    "a": ap.Int(30),
-                    "b": ap.Number(40.5),
-                    "c": ap.String("1970-01-02"),
+                    ap.String("a"): ap.Int(30),
+                    ap.String("b"): ap.Number(40.5),
+                    ap.String("c"): ap.String("1970-01-02"),
                 },
             ),
         ]

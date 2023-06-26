@@ -4,7 +4,7 @@ twine==4.0.2
 pytest-cov==3.0.0
 pytest-parallel==0.1.1
 autoflake==2.2.0
-isort==5.7.0
+isort==5.12.0
 flake8==6.0.0
 numdoclint==0.1.9
 mypy==1.4.0

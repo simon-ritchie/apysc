@@ -1,4 +1,4 @@
-typing-extensions==4.1.1
+typing-extensions==4.6.3
 pytest==6.2.5
 twine==4.0.2
 pytest-cov==3.0.0

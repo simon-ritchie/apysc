@@ -116,20 +116,6 @@ class CreateSingleColumnYAxisMixIn:
             ticks_num=self._y_axis_ticks_y_coordinates.length,
             variable_name_suffix=variable_name_suffix,
         )
-        # self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
-        #     y_axis_column_name=y_axis_settings._y_axis_column_name,
-        #     data=data,
-        #     y_axis_container=y_axis_container,
-        #     horizontal_padding=horizontal_padding,
-        #     y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
-        #     tick_text_fill_color=y_axis_settings._tick_text_fill_color,
-        #     tick_text_fill_alpha=y_axis_settings._tick_text_fill_alpha,
-        #     tick_text_font_size=y_axis_settings._tick_text_font_size,
-        #     tick_text_font_family=y_axis_settings._tick_text_font_family,
-        #     tick_text_bold=y_axis_settings._tick_text_bold,
-        #     tick_text_italic=y_axis_settings._tick_text_bold,
-        #     variable_name_suffix=variable_name_suffix,
-        # )
 
 
 def _create_y_axis_texts_values(
@@ -225,90 +211,6 @@ def _calculate_y_axis_max(
     return y_axis_max
 
 
-def _create_y_axis_ticks_texts(
-    *,
-    y_axis_column_name: str,
-    data: Array[Dictionary[str, Union[Int, Number, String]]],
-    y_axis_container: Sprite,
-    horizontal_padding: Int,
-    y_axis_ticks_y_coordinates: Array[Number],
-    tick_text_fill_color: String,
-    tick_text_fill_alpha: Number,
-    tick_text_font_size: Int,
-    tick_text_font_family: Optional[Array[String]],
-    tick_text_bold: Boolean,
-    tick_text_italic: Boolean,
-    variable_name_suffix: str,
-) -> Array[SVGText]:
-    """
-    Create y-axis ticks texts.
-
-    Parameters
-    ----------
-    y_axis_column_name : str
-        A y-axis column name.
-    data : Array[Dictionary[str, Union[Int, Number, String]]]
-        A data array, which contains a 1-dimensional string key dictionary.
-    y_axis_container : Sprite
-        A y-axis container instance.
-    horizontal_padding : Int
-        A chart horizontal padding.
-    y_axis_ticks_y_coordinates : Array[Number]
-        Y-axis ticks y-coordinates.
-    tick_text_fill_color : String
-        A tick text fill-color.
-    tick_text_fill_alpha : Number
-        A tick text fill-alpha.
-    tick_text_font_size : Int
-        A tick text font size.
-    tick_text_font_family : Optional[String]
-        A tick text font family.
-    tick_text_bold : Boolean
-        A boolean, whether to use bold tick text style or not.
-    tick_text_italic : Boolean
-        A boolean, whether to use italic tick text style or not.
-    variable_name_suffix : str
-        A JavaScript variable name suffix string.
-        This setting is sometimes useful for JavaScript debugging.
-
-    Returns
-    -------
-    y_axis_ticks_texts : Array[SVGText]
-        Created y-axis ticks texts.
-    """
-    import apysc as ap
-
-    y_axis_ticks_texts: Array[SVGText] = Array([])
-    with ap.ForArrayIndices(arr=y_axis_ticks_y_coordinates) as i:
-        y_coordinate: Number = y_axis_ticks_y_coordinates[i]
-        data_dict: Dictionary[str, Union[Int, Number, String]] = data[i]
-        text_value: String = _extract_text_value_from_data_dict(
-            data_dict=data_dict,
-            y_axis_column_name=y_axis_column_name,
-        )
-        txt: SVGText = ap.SVGText(
-            text=text_value,
-            font_size=tick_text_font_size,
-            font_family=tick_text_font_family,
-            x=0,
-            y=y_coordinate + tick_text_font_size / 2,
-            fill_color=tick_text_fill_color,
-            fill_alpha=tick_text_fill_alpha,
-            align=ap.SVGTextAlign.RIGHT,
-            bold=tick_text_bold,
-            italic=tick_text_italic,
-            parent=y_axis_container,
-            variable_name_suffix=variable_name_suffix,
-        )
-        y_axis_ticks_texts.append(txt)
-    _apply_x_coordinate_to_y_axis_ticks_texts(
-        horizontal_padding=horizontal_padding,
-        y_axis_ticks_texts=y_axis_ticks_texts,
-        variable_name_suffix=variable_name_suffix,
-    )
-    return y_axis_ticks_texts
-
-
 def _apply_x_coordinate_to_y_axis_ticks_texts(
     *,
     horizontal_padding: Int,
@@ -342,39 +244,6 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     with ap.ForArrayIndices(arr=y_axis_ticks_texts) as i:
         txt = y_axis_ticks_texts[i]
         txt.x = x
-
-
-def _extract_text_value_from_data_dict(
-    *,
-    data_dict: Dictionary[str, Union[Int, Number, String]],
-    y_axis_column_name: str,
-) -> String:
-    """
-    Extract a text value from a specified data dictionary.
-
-    Parameters
-    ----------
-    data_dict : Dictionary[str, Union[Int, Number, String]]
-        A single-row data dictionary.
-    y_axis_column_name : str
-        A y-axis column name.
-
-    Returns
-    -------
-    text_value : String
-        An extracted text value.
-    """
-    value: Union[Int, Number, String] = data_dict[y_axis_column_name]
-    if isinstance(value, (Int, Number)):
-        text_value: String = value.to_string()
-    elif isinstance(value, String):
-        text_value = value
-    else:
-        raise TypeError(
-            "A specified dictionary's value must be an `ap.Int`, `ap.Number`, "
-            f"`ap.String` value.\nActual: {type(value).__name__}"
-        )
-    return text_value
 
 
 def _calculate_y_axis_ticks_y_coordinates(

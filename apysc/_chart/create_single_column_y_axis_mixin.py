@@ -116,6 +116,81 @@ class CreateSingleColumnYAxisMixIn:
             ticks_num=self._y_axis_ticks_y_coordinates.length,
             variable_name_suffix=variable_name_suffix,
         )
+        self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
+            y_axis_column_name=y_axis_settings._y_axis_column_name,
+            data=data,
+            y_axis_container=y_axis_container,
+            horizontal_padding=horizontal_padding,
+            y_axis_text_values=self._y_axis_texts_values,
+            y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
+            tick_text_fill_color=y_axis_settings._tick_text_fill_color,
+            tick_text_fill_alpha=y_axis_settings._tick_text_fill_alpha,
+            tick_text_font_size=y_axis_settings._tick_text_font_size,
+            tick_text_font_family=y_axis_settings._tick_text_font_family,
+            tick_text_bold=y_axis_settings._tick_text_bold,
+            tick_text_italic=y_axis_settings._tick_text_bold,
+            variable_name_suffix=variable_name_suffix,
+        )
+
+
+def _create_y_axis_ticks_texts(
+    *,
+    y_axis_column_name: String,
+    data: Array[Dictionary[String, Union[Int, Number, String]]],
+    y_axis_container: Sprite,
+    horizontal_padding: Int,
+    y_axis_text_values: Array[String],
+    y_axis_ticks_y_coordinates: Array[Number],
+    tick_text_fill_color: String,
+    tick_text_fill_alpha: Number,
+    tick_text_font_size: Int,
+    tick_text_font_family: Optional[Array[String]],
+    tick_text_bold: Boolean,
+    tick_text_italic: Boolean,
+    variable_name_suffix: str,
+) -> Array[SVGText]:
+    """
+    Create a y-axis ticks texts.
+
+    Parameters
+    ----------
+    y_axis_column_name : String
+        A y-axis column name.
+    data : Array[Dictionary[String, Union[Int, Number, String]]]
+        A data array, which contains a 1-dimensional string key dictionary.
+    y_axis_container : Sprite
+        A y-axis container instance.
+    horizontal_padding : Int
+        A chart horizontal padding.
+    y_axis_text_values : Array[String]
+        A y-axis text values.
+    y_axis_ticks_y_coordinates : Array[Number]
+        A y-axis ticks y coordinates.
+    tick_text_fill_color : String
+        A tick text fill-color.
+    tick_text_fill_alpha : Number
+        A tick text fill-alpha.
+    tick_text_font_size : Int
+        A tick text font size.
+    tick_text_font_family : Optional[Array[String]]
+        A tick text font family.
+    tick_text_bold : Boolean
+        A boolean indicates whether tick text is bold or not.
+    tick_text_italic : Boolean
+        A boolean indicates whether tick text is italic or not.
+    variable_name_suffix : str
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
+
+    Returns
+    -------
+    y_axis_ticks_texts : Array[SVGText]
+        Created y-axis ticks texts.
+    """
+    import apysc as ap
+
+    y_axis_ticks_texts: Array[SVGText] = Array([])
+    pass
 
 
 def _create_y_axis_texts_values(

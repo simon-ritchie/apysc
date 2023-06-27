@@ -84,11 +84,11 @@ def test_validate_matrix_array_data() -> None:
         expected_error_class=TypeError,
         callable_=matrix_data_validation.validate_matrix_array_data,
         match="A specified dictionary value type is not `ap.Int`, ",
-        matrix_array_data=ap.Array([ap.Dictionary({"a": 10})]),
+        matrix_array_data=ap.Array([ap.Dictionary({ap.String("a"): 10})]),
         additional_err_msg="test message",
     )
 
     matrix_data_validation.validate_matrix_array_data(
-        matrix_array_data=ap.Array([ap.Dictionary({"a": ap.Int(10)})]),
+        matrix_array_data=ap.Array([ap.Dictionary({ap.String("a"): ap.Int(10)})]),
         additional_err_msg="test message",
     )

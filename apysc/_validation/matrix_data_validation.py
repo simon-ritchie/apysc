@@ -84,7 +84,7 @@ def validate_matrix_list_data(
 
 def validate_matrix_array_data(
     *,
-    matrix_array_data: Array[Dictionary[str, Union[Int, Number, String]]],
+    matrix_array_data: Array[Dictionary[String, Union[Int, Number, String]]],
     additional_err_msg: str,
 ) -> None:
     """
@@ -92,7 +92,7 @@ def validate_matrix_array_data(
 
     Parameters
     ----------
-    matrix_array_data : Array[Dictionary[str, Union[Int, Number, String]]]
+    matrix_array_data : Array[Dictionary[String, Union[Int, Number, String]]]
         A matrix array data.
     additional_err_msg : str
         An additional error message to display.
@@ -102,7 +102,7 @@ def validate_matrix_array_data(
     TypeError
         - If a specified data type is not `ap.Array`.
         - If values are not the type of the `ap.Dictionary`.
-        - If a dictionary key's type is not str.
+        - If a dictionary key's type is not `ap.String`.
         - If a dictionary value's type is not `ap.Int`, `ap.Number`, or `ap.String`.
     """
     from apysc._validation import validation_common_utils
@@ -130,7 +130,7 @@ def validate_matrix_array_data(
             )
             raise TypeError(err_msg)
         for key, value in data._value.items():
-            if not isinstance(key, str):
+            if not isinstance(key, String):
                 err_msg = (
                     "A specified dictionary key type is not the `ap.String`: "
                     f"{type(key).__name__}\n{key}"

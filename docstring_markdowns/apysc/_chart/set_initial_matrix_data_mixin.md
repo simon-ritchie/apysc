@@ -19,7 +19,7 @@ Convert a specified matrix list to an array.<hr>
 
 **[Returns]**
 
-- `data__`: Array[Dictionary[str, Union[Int, Number, String]]]
+- `data__`: Array[Dictionary[String, Union[Int, Number, String]]]:
   - A converted array.
 
 ## `SetInitialMatrixDataMixIn` class docstring

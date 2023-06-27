@@ -4,7 +4,6 @@ import apysc as ap
 from apysc._chart import create_single_column_y_axis_mixin
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._testing.testing_helper import assert_raises
 
 
 @apply_test_settings()

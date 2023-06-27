@@ -54,9 +54,7 @@ class SetInitialMatrixDataMixIn:
             data_: Array[
                 Dictionary[String, Union[Int, Number, String]]
             ] = _convert_list_to_array(
-                data=cast(
-                    List[Dict[str, Union[int, float, str]]], data
-                ),
+                data=cast(List[Dict[str, Union[int, float, str]]], data),
                 variable_name_suffix=variable_name_suffix,
             )
         else:
@@ -103,12 +101,8 @@ def _convert_list_to_array(
                     value, variable_name_suffix=variable_name_suffix
                 )
                 continue
-        data_.append(
-            Dictionary(dict_data_, variable_name_suffix=variable_name_suffix)
-        )
-    data__: Array[
-        Dictionary[String, Union[Int, Number, String]]
-    ] = Array(
+        data_.append(Dictionary(dict_data_, variable_name_suffix=variable_name_suffix))
+    data__: Array[Dictionary[String, Union[Int, Number, String]]] = Array(
         data_, variable_name_suffix=variable_name_suffix
     )
     return data__

@@ -12,5 +12,5 @@ Set an initial y-axis column name.<hr>
 
 **[Parameters]**
 
-- `y_axis_column_name`: str
+- `y_axis_column_name`: Union[str, String]
   - Y-axis column name.

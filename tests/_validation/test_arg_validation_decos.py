@@ -1397,7 +1397,9 @@ def test_is_list_or_array_matrix_data() -> None:
     @arg_validation_decos.is_list_or_array_matrix_data(arg_position_index=0)
     def _test_func_2(
         *,
-        matrix_data: ap.Array[ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]],  # noqa
+        matrix_data: ap.Array[
+            ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
+        ],  # noqa
     ) -> int:
         return 250
 

@@ -66,7 +66,7 @@ class TestSetInitialMatrixDataMixIn:
                     "a": 20,
                     "b": 20.5,
                     "c": "1970-01-03",
-                }
+                },
             ],
             variable_name_suffix="test_suffix",
         )

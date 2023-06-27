@@ -12,7 +12,7 @@ Single column's y-axis settings class.<hr>
 
 **[Parameters]**
 
-- `y_axis_column_name`: str
+- `y_axis_column_name`: Union[str, String]
   - Y-axis column name. Only a number (integer or float) column is a selectable value (for example, price, sales, or percentage column).
 - `y_min`: Optional[Union[float, Number]], optional
   - A minumum y-axis value.

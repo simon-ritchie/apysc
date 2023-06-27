@@ -14,7 +14,7 @@ Create a vertical bar chart instance.<hr>
 
 **[Parameters]**
 
-- `data`: Union[Array[Dictionary[str, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]  # noqa
+- `data`: Union[Array[Dictionary[String, Union[Int, Number, String]]], List[Dict[str, Union[int, float, str]]]]  # noqa
   - A data array, which contains a 1-dimensional string key dictionary. A list of dictionaries or an `ap.Array` of `ap.Dictionary` values are acceptable. E.g., `[{"column_name_1": 10, "column_name_2"}]`
 - `x_axis_settings`: XAxisSettings
   - An x-axis setting.

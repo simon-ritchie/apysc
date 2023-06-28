@@ -100,6 +100,7 @@ class CreateSingleColumnYAxisMixIn:
             vertical_padding=vertical_padding,
             y_axis_height=self._y_axis_height,
             y_axis_ticks_num=self._y_axis_ticks_num,
+            font_size=y_axis_settings._tick_text_font_size,
             variable_name_suffix=variable_name_suffix,
         )
         self._y_axis_min = _calculate_y_axis_min(
@@ -117,8 +118,6 @@ class CreateSingleColumnYAxisMixIn:
             variable_name_suffix=variable_name_suffix,
         )
         self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
-            y_axis_column_name=y_axis_settings._y_axis_column_name,
-            data=data,
             y_axis_container=y_axis_container,
             horizontal_padding=horizontal_padding,
             y_axis_text_values=self._y_axis_texts_values,
@@ -135,8 +134,6 @@ class CreateSingleColumnYAxisMixIn:
 
 def _create_y_axis_ticks_texts(
     *,
-    y_axis_column_name: String,
-    data: Array[Dictionary[String, Union[Int, Number, String]]],
     y_axis_container: Sprite,
     horizontal_padding: Int,
     y_axis_text_values: Array[String],
@@ -154,8 +151,6 @@ def _create_y_axis_ticks_texts(
 
     Parameters
     ----------
-    y_axis_column_name : String
-        A y-axis column name.
     data : Array[Dictionary[String, Union[Int, Number, String]]]
         A data array, which contains a 1-dimensional string key dictionary.
     y_axis_container : Sprite
@@ -190,7 +185,31 @@ def _create_y_axis_ticks_texts(
     import apysc as ap
 
     y_axis_ticks_texts: Array[SVGText] = Array([])
-    pass
+    x_coordinate_container: Sprite = Sprite()
+    y_axis_container.add_child(x_coordinate_container)
+    with ap.ForArrayIndices(arr=y_axis_ticks_y_coordinates) as i:
+        txt: SVGText = SVGText(
+            text=y_axis_text_values[i],
+            font_size=tick_text_font_size,
+            font_family=tick_text_font_family,
+            x=0,
+            y=y_axis_ticks_y_coordinates[i],
+            fill_color=tick_text_fill_color,
+            fill_alpha=tick_text_fill_alpha,
+            align=ap.SVGTextAlign.RIGHT,
+            bold=tick_text_bold,
+            italic=tick_text_italic,
+            parent=x_coordinate_container,
+            variable_name_suffix=variable_name_suffix,
+        )
+        y_axis_ticks_texts.append(txt)
+    _apply_x_coordinate_to_y_axis_ticks_texts(
+        horizontal_padding=horizontal_padding,
+        y_axis_ticks_texts=y_axis_ticks_texts,
+        x_coordinate_container=x_coordinate_container,
+        variable_name_suffix=variable_name_suffix,
+    )
+    return y_axis_ticks_texts
 
 
 def _create_y_axis_texts_values(
@@ -290,6 +309,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     *,
     horizontal_padding: Int,
     y_axis_ticks_texts: Array[SVGText],
+    x_coordinate_container: Sprite,
     variable_name_suffix: str,
 ) -> None:
     """
@@ -301,6 +321,8 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
         A chart horizontal padding.
     y_axis_ticks_texts : Array[SVGText]
         Y-axis ticks' texts.
+    x_coordinate_container : Sprite
+        A ticks container.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
@@ -308,17 +330,16 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     import apysc as ap
 
     x: Number = horizontal_padding._copy()
+    max_arr: ap.Array[Union[Int, Number]] = ap.Array(
+        [x],
+        variable_name_suffix=variable_name_suffix,
+    )
     with ap.ForArrayIndices(arr=y_axis_ticks_texts) as i:
         txt: ap.SVGText = y_axis_ticks_texts[i]
         bounding_box: ap.RectangleGeom = txt.get_bounds()
-        max_arr: ap.Array[Union[Int, Number]] = ap.Array(
-            [x, bounding_box.width + horizontal_padding],
-            variable_name_suffix=variable_name_suffix,
-        )
-        x = ap.Math.max(max_arr)
-    with ap.ForArrayIndices(arr=y_axis_ticks_texts) as i:
-        txt = y_axis_ticks_texts[i]
-        txt.x = x
+        max_arr.append(bounding_box.width + horizontal_padding)
+    x = ap.Math.max(max_arr)
+    x_coordinate_container.x = x
 
 
 def _calculate_y_axis_ticks_y_coordinates(
@@ -326,6 +347,7 @@ def _calculate_y_axis_ticks_y_coordinates(
     vertical_padding: Int,
     y_axis_height: Int,
     y_axis_ticks_num: Int,
+    font_size: Int,
     variable_name_suffix: str,
 ) -> Array[Number]:
     """
@@ -339,6 +361,8 @@ def _calculate_y_axis_ticks_y_coordinates(
         An axis height.
     y_axis_ticks_num : Int
         Axis tick number.
+    font_size : Int
+        A ticks text font size.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
@@ -355,11 +379,11 @@ def _calculate_y_axis_ticks_y_coordinates(
         [], variable_name_suffix=variable_name_suffix
     )
     y_start_coordinate: Int = Int(
-        vertical_padding,
+        vertical_padding + font_size,
         variable_name_suffix=variable_name_suffix,
     )
     range_arr: Array[Int] = ap.range(y_axis_ticks_num)
-    interval: Number = y_axis_height / (y_axis_ticks_num - 1)
+    interval: Number = (y_axis_height - font_size) / (y_axis_ticks_num - 1)
     with ap.ForArrayIndices(range_arr) as i:
         y_coordinate: Number = interval * i + y_start_coordinate
         y_axis_ticks_y_coordinates.append(y_coordinate)

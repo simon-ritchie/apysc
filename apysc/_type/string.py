@@ -25,6 +25,7 @@ from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.string_length_mixin import StringLengthMixIn
 
 
 class String(
@@ -40,6 +41,7 @@ class String(
     InitializeForLoopKeyOrValueInterface,
     HashableInterface,
     ToNumberMixIn,
+    StringLengthMixIn,
 ):
     """
     String class for apysc library.

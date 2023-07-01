@@ -1,0 +1,48 @@
+"""The mix-in class implementation for the `String`'s `length` method.
+"""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import final
+
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
+
+if TYPE_CHECKING:
+    from apysc._type.int import Int
+
+
+class StringLengthMixIn:
+    @final
+    @arg_validation_decos.is_apysc_string(arg_position_index=0)
+    @add_debug_info_setting(module_name=__name__)
+    def length(self, *, variable_name_suffix: str = "") -> "Int":
+        """
+        Get a characters length (number).
+
+        Parameters
+        ----------
+        variable_name_suffix : str, optional
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
+
+        Returns
+        -------
+        characters_length : Int
+            A characters length (number).
+        """
+        import apysc as ap
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type
+        )
+        self_variable_name: str = validate_variable_name_mixin_type(
+            instance=self,
+        ).variable_name
+        characters_length: ap.Int = ap.Int(0, variable_name_suffix=variable_name_suffix)
+        if isinstance(self, ap.String):
+            characters_length._value = len(self._value)
+        expression: str = (
+            f"{characters_length.variable_name} = [...{self_variable_name}];"
+        )
+        ap.append_js_expression(expression=expression)
+        return characters_length

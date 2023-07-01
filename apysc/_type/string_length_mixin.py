@@ -13,18 +13,12 @@ if TYPE_CHECKING:
 
 
 class StringLengthMixIn:
-    @final
+    @property
     @arg_validation_decos.is_apysc_string(arg_position_index=0)
     @add_debug_info_setting(module_name=__name__)
-    def length(self, *, variable_name_suffix: str = "") -> "Int":
+    def length(self) -> "Int":
         """
         Get a characters length (number).
-
-        Parameters
-        ----------
-        variable_name_suffix : str, optional
-            A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript debugging.
 
         Returns
         -------
@@ -38,11 +32,11 @@ class StringLengthMixIn:
         self_variable_name: str = validate_variable_name_mixin_type(
             instance=self,
         ).variable_name
-        characters_length: ap.Int = ap.Int(0, variable_name_suffix=variable_name_suffix)
+        characters_length: ap.Int = ap.Int(0)
         if isinstance(self, ap.String):
             characters_length._value = len(self._value)
         expression: str = (
-            f"{characters_length.variable_name} = [...{self_variable_name}];"
+            f"{characters_length.variable_name} = [...{self_variable_name}].length;"
         )
         ap.append_js_expression(expression=expression)
         return characters_length

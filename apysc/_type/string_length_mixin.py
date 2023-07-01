@@ -22,6 +22,14 @@ class StringLengthMixIn:
         -------
         characters_length : Int
             A characters length (number).
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> string: ap.String = ap.String("Hello")
+        >>> string.length
+        ap.Int(5)
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import (

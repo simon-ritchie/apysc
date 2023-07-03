@@ -1,7 +1,7 @@
 typing-extensions==4.6.3
 pytest==6.2.5
 twine==4.0.2
-pytest-cov==3.0.0
+pytest-cov==4.1.0
 pytest-parallel==0.1.1
 autoflake==2.2.0
 isort==5.12.0

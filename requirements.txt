@@ -1,5 +1,5 @@
 typing-extensions==4.6.3
-pytest==6.2.5
+pytest==7.4.0
 twine==4.0.2
 pytest-cov==3.0.0
 pytest-parallel==0.1.1

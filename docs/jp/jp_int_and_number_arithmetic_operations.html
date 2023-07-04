@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Int と Number クラスの基本的な計算制御 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/int_and_number_arithmetic_operations.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="int-number">
-<h1>Int と Number クラスの基本的な計算制御<a class="headerlink" href="#int-number" title="Permalink to this headline">¶</a></h1>
+<h1>Int と Number クラスの基本的な計算制御<a class="headerlink" href="#int-number" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>の各クラスの加算や乗算などの基本的な計算制御について説明します。</p>
 <section id="id1">
-<h2>共通の挙動<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>共通の挙動<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>の各値は以下のコード例のように<code class="docutils literal notranslate"><span class="pre">int</span></code>や<code class="docutils literal notranslate"><span class="pre">float</span></code>などのPythonビルトインの値と計算することができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -85,7 +84,7 @@
 </div>
 </section>
 <section id="id2">
-<h2>加算<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>加算<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">+</span></code>のオペレーターを使って各値の加算処理を行うことができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -131,7 +130,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>減算<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>減算<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">-</span></code>のオペレーターを使って各値の減算を行うことができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -161,7 +160,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>乗算<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>乗算<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code>のオペレーターを使って各値を乗算することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -191,7 +190,7 @@
 </div>
 </section>
 <section id="id5">
-<h2>除算<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>除算<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/</span></code>のオペレーターを使って各値の除算を行うことができます。返却値は<code class="docutils literal notranslate"><span class="pre">Int</span></code>の整数ではなく<code class="docutils literal notranslate"><span class="pre">Number</span></code>の浮動小数点数になります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -221,7 +220,7 @@
 </div>
 </section>
 <section id="id6">
-<h2>切り捨て除算<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2>切り捨て除算<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">//</span></code>のオペレーターで除算と浮動小数点数の切り捨てを行うことができます。返却値は<code class="docutils literal notranslate"><span class="pre">Number</span></code>型の浮動小数点数ではなく<code class="docutils literal notranslate"><span class="pre">Int</span></code>の整数となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -233,7 +232,7 @@
 </div>
 </section>
 <section id="id7">
-<h2>剰余<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2>剰余<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">%</span></code>のオペレーターを使って剰余の計算を行うことができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -264,8 +263,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Int と Number クラスの基本的な計算制御</a><ul>
 <li><a class="reference internal" href="#id1">共通の挙動</a></li>
 <li><a class="reference internal" href="#id2">加算</a></li>
@@ -278,12 +278,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_int_and_number.html"
-                        title="previous chapter">Int と Number クラス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_int_and_number_comparison_operations.html"
-                        title="next chapter">Int と Number クラスの基本的な比較制御</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_int_and_number.html"
+                          title="previous chapter">Int と Number クラス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_int_and_number_comparison_operations.html"
+                          title="next chapter">Int と Number クラスの基本的な比較制御</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -293,7 +298,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -316,7 +321,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

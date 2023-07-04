@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>assert_greater and assert_greater_equal interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,21 +47,21 @@
           <div class="body" role="main">
             
   <section id="assert-greater-and-assert-greater-equal-interfaces">
-<h1>assert_greater and assert_greater_equal interfaces<a class="headerlink" href="#assert-greater-and-assert-greater-equal-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>assert_greater and assert_greater_equal interfaces<a class="headerlink" href="#assert-greater-and-assert-greater-equal-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_greater</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_greater_equal</span></code> function interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">assert_greater</span></code> function interface asserts a specified first value is greater than a specified second value.</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">assert_greater_equal</span></code> function interface asserts a specified first value is greater than or equal to a specified second value.</p>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="assertion_basic_behavior.html"><span class="doc std std-doc">JavaScript assertion interface basic behavior</span></a></p></li>
+<li><p><a class="reference internal" href="assertion_basic_behavior.html"><span class="std std-doc">JavaScript assertion interface basic behavior</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">assert_greater</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_greater_equal</span></code> interfaces require the <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> arguments.</p>
 <p>These arguments only accept numeric values, such as the Python built-in <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, apysc <code class="docutils literal notranslate"><span class="pre">Int</span></code>, or <code class="docutils literal notranslate"><span class="pre">Number</span></code> value.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
@@ -101,7 +100,7 @@
 <iframe src="static/assert_greater_and_greater_equal_basic_usage_2/index.html" width="0" height="0"></iframe>
 </section>
 <section id="assert-greater-api">
-<h2>assert_greater API<a class="headerlink" href="#assert-greater-api" title="Permalink to this headline">¶</a></h2>
+<h2>assert_greater API<a class="headerlink" href="#assert-greater-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._console.assertion.assert_greater -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_greater(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -135,7 +134,7 @@
 </div>
 </section>
 <section id="assert-greater-equal-api">
-<h2>assert_greater_equal API<a class="headerlink" href="#assert-greater-equal-api" title="Permalink to this headline">¶</a></h2>
+<h2>assert_greater_equal API<a class="headerlink" href="#assert-greater-equal-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._console.assertion.assert_greater_equal -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_greater_equal(left:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">right:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">*,</span> <span class="pre">msg:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -182,8 +181,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">assert_greater and assert_greater_equal interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
@@ -194,12 +194,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="assert_true_and_false.html"
-                        title="previous chapter">assert_true and assert_false interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="assert_less_and_less_equal.html"
-                        title="next chapter">assert_less and assert_less_equal interfaces</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="assert_true_and_false.html"
+                          title="previous chapter">assert_true and assert_false interfaces</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="assert_less_and_less_equal.html"
+                          title="next chapter">assert_less and assert_less_equal interfaces</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -209,7 +214,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -232,7 +237,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

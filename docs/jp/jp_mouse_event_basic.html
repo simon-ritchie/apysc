@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>基本的なマウスイベントの各インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/mouse_event_basic.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="id1">
-<h1>基本的なマウスイベントの各インターフェイス<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>基本的なマウスイベントの各インターフェイス<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">this</span></code>属性などのマウスイベントの基本的な各インターフェイスについて説明します。</p>
 <section id="id2">
-<h2>基本的なイベント登録処理の使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的なイベント登録処理の使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>各マウスイベント設定のインターフェイスは<code class="docutils literal notranslate"><span class="pre">handler</span></code>と<code class="docutils literal notranslate"><span class="pre">options</span></code>引数を受け付けます。<code class="docutils literal notranslate"><span class="pre">handler</span></code>引数はイベントが発行された際に使用される関数などのオブジェクトです。</p>
 <p><code class="docutils literal notranslate"><span class="pre">options</span></code>引数はハンドラへ渡される追加の任意の辞書のパラメーターです。この引数は省略できます。</p>
 <p>例えば<code class="docutils literal notranslate"><span class="pre">click</span></code>のイベントを以下のコードのように設定することができます:</p>
@@ -101,7 +100,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスには<code class="docutils literal notranslate"><span class="pre">click</span></code>や<code class="docutils literal notranslate"><span class="pre">mousedown</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseup</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseover</span></code>、<code class="docutils literal notranslate"><span class="pre">mouseout</span></code>、<code class="docutils literal notranslate"><span class="pre">mousemove</span></code>などの様々なイベント設定用のインターフェイスがそっ歳します。</p>
 </section>
 <section id="id3">
-<h2>基本的なイベント解除処理の使い方<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>基本的なイベント解除処理の使い方<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の各インスタンスは<code class="docutils literal notranslate"><span class="pre">unbind_click</span></code>や<code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code>などの<code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;</span></code>という名前の形式のインターフェイスを持っています。</p>
 <p>これらのインターフェイスではイベントハンドラの設定単体を解除することができます。</p>
 <p>例えば以下のコード例ではクリックイベントを解除しているため、ハンドラの関数は呼ばれなくなります。</p>
@@ -152,7 +151,7 @@
 <iframe src="static/mouse_event_basic_basic_unbinding_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id4">
-<h2>全てのイベントハンドラの設定を解除する<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>全てのイベントハンドラの設定を解除する<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p>特定のイベントの設定を一括で解除するのが役立つ時があります。イベントが設定できる各インスタンスは<code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>などの<code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code>という名前の形式のインターフェイスを持っており、それを使ってインスタンスから一通りのイベントのハンドラ設定を解除することができます。</p>
 <p>以下のコード例では<code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>メソッドを呼んで全てのクリックイベントのハンドラ設定を解除しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -217,16 +216,16 @@
 <iframe src="static/mouse_event_basic_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id5">
-<h2>ハンドラの引数の名前と型<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>ハンドラの引数の名前と型<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <p>ハンドラの関数（もしくはメソッド）の第一引数は<code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>型の引数が必要になります。</p>
 <p>また、第二引数には<code class="docutils literal notranslate"><span class="pre">options</span></code>という名前の辞書の引数が必要になります。イベント設定時にこのoptionsパラメーターの指定を省略した場合にはこの引数の値は空の辞書（<code class="docutils literal notranslate"><span class="pre">{}</span></code>）になります。</p>
 </section>
 <section id="mouseevent-this">
-<h2>MouseEvent クラスの this 属性<a class="headerlink" href="#mouseevent-this" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent クラスの this 属性<a class="headerlink" href="#mouseevent-this" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>クラスのインスタンスはイベント登録対象のインスタンスとなる<code class="docutils literal notranslate"><span class="pre">this</span></code>属性を持っています。例えばクリックイベントを四角のインスタンスに設定した場合、<code class="docutils literal notranslate"><span class="pre">this</span></code>属性はその四角のインスタンスになります。</p>
 </section>
 <section id="mouseevent">
-<h2>MouseEvent クラスのジェネリック型の設定<a class="headerlink" href="#mouseevent" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent クラスのジェネリック型の設定<a class="headerlink" href="#mouseevent" title="Permalink to this heading">¶</a></h2>
 <p>もしもハンドラを特定の型のインスタンスのみで使うことが分かっている場合、<code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>の型アノテーションでジェネリックの型の指定を行うことができます（例: <code class="docutils literal notranslate"><span class="pre">MouseEvent[Rectangle]</span></code>）。</p>
 <p>この設定は<code class="docutils literal notranslate"><span class="pre">this</span></code>属性の型の決定に使われ、<code class="docutils literal notranslate"><span class="pre">mypy</span></code>や<code class="docutils literal notranslate"><span class="pre">Pylance</span></code>などの型チェックのライブラリを使っている場合役立つことがあります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -261,7 +260,7 @@
 </div>
 </section>
 <section id="mouseevent-stage-x-stage-y">
-<h2>MouseEvent クラスの stage_x と stage_y 属性<a class="headerlink" href="#mouseevent-stage-x-stage-y" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent クラスの stage_x と stage_y 属性<a class="headerlink" href="#mouseevent-stage-x-stage-y" title="Permalink to this heading">¶</a></h2>
 <p>MouseEventクラスのインスタンスは<code class="docutils literal notranslate"><span class="pre">stage_x</span></code>や<code class="docutils literal notranslate"><span class="pre">stage_y</span></code>の各属性のインターフェイスを持っています。これらの属性はステージの左上の位置を基準とした絶対座標となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -298,7 +297,7 @@
 <iframe src="static/mouse_event_basic_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>
 </section>
 <section id="mouseevent-local-x-local-y">
-<h2>MouseEvent クラスの local_x と local_y 属性<a class="headerlink" href="#mouseevent-local-x-local-y" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent クラスの local_x と local_y 属性<a class="headerlink" href="#mouseevent-local-x-local-y" title="Permalink to this heading">¶</a></h2>
 <p>MouseEventのインスタンスは<code class="docutils literal notranslate"><span class="pre">local_x</span></code>と<code class="docutils literal notranslate"><span class="pre">local_y</span></code>という属性も持っています。これらの属性はイベントが登録されたインスタンスを基準とした相対座標となります。</p>
 <p>以下のコード例ではlocal_xとlocal_yの座標が四角の範囲の座標になっていることを確認できます。四角のサイズが50pxなため、<code class="docutils literal notranslate"><span class="pre">local_x</span></code>と<code class="docutils literal notranslate"><span class="pre">local_y</span></code>の値は両方とも0～50の範囲になります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -336,16 +335,16 @@
 <iframe src="static/mouse_event_basic_local_x_and_local_y/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id6">
-<h2>関連資料<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_click.html"><span class="doc std std-doc">click インターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_mousedown_and_mouseup.html"><span class="doc std std-doc">mousedown と mouseup のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_mouseover_and_mouseout.html"><span class="doc std std-doc">mouseover と mouseout のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_mousemove.html"><span class="doc std std-doc">mousemove インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_click.html"><span class="std std-doc">click インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousedown_and_mouseup.html"><span class="std std-doc">mousedown と mouseup のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mouseover_and_mouseout.html"><span class="std std-doc">mouseover と mouseout のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_mousemove.html"><span class="std std-doc">mousemove インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="stage-x-api">
-<h2>stage_x 属性のAPI<a class="headerlink" href="#stage-x-api" title="Permalink to this headline">¶</a></h2>
+<h2>stage_x 属性のAPI<a class="headerlink" href="#stage-x-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>ステージ基準のX座標を取得します。<hr></p>
@@ -374,7 +373,7 @@
 </div>
 </section>
 <section id="stage-y-api">
-<h2>stage_y 属性のAPI<a class="headerlink" href="#stage-y-api" title="Permalink to this headline">¶</a></h2>
+<h2>stage_y 属性のAPI<a class="headerlink" href="#stage-y-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>ステージ基準のY座標を取得します。<hr></p>
@@ -403,7 +402,7 @@
 </div>
 </section>
 <section id="local-x-api">
-<h2>local_x 属性のAPI<a class="headerlink" href="#local-x-api" title="Permalink to this headline">¶</a></h2>
+<h2>local_x 属性のAPI<a class="headerlink" href="#local-x-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>イベントが設定されているインスタンス内の相対座標のX座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr></p>
@@ -432,7 +431,7 @@
 </div>
 </section>
 <section id="local-y-api">
-<h2>local_y 属性のAPI<a class="headerlink" href="#local-y-api" title="Permalink to this headline">¶</a></h2>
+<h2>local_y 属性のAPI<a class="headerlink" href="#local-y-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>イベントが設定されているインスタンスないの相対座標のY座標を取得します。例えばSpriteのインスタンスをクリックした場合にはSpriteの左上の位置を基準とした座標になります。<hr></p>
@@ -461,7 +460,7 @@
 </div>
 </section>
 <section id="this-api">
-<h2>this 属性のAPI<a class="headerlink" href="#this-api" title="Permalink to this headline">¶</a></h2>
+<h2>this 属性のAPI<a class="headerlink" href="#this-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>このイベントが設定されているインスタンスを取得します。<hr></p>
@@ -506,8 +505,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">基本的なマウスイベントの各インターフェイス</a><ul>
 <li><a class="reference internal" href="#id2">基本的なイベント登録処理の使い方</a></li>
 <li><a class="reference internal" href="#id3">基本的なイベント解除処理の使い方</a></li>
@@ -527,12 +527,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_mouse_event_abstract.html"
-                        title="previous chapter">MouseEvent の各インターフェイスの概要</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_click.html"
-                        title="next chapter">click インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_mouse_event_abstract.html"
+                          title="previous chapter">MouseEvent の各インターフェイスの概要</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_click.html"
+                          title="next chapter">click インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -542,7 +547,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -565,7 +570,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

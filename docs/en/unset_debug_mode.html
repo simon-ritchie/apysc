@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>unset_debug_mode interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,19 +47,19 @@
           <div class="body" role="main">
             
   <section id="unset-debug-mode-interface">
-<h1>unset_debug_mode interface<a class="headerlink" href="#unset-debug-mode-interface" title="Permalink to this headline">¶</a></h1>
+<h1>unset_debug_mode interface<a class="headerlink" href="#unset-debug-mode-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface unsets the debug mode setting. It stops the debug information appending.</p>
 <p>The debug mode exports lots of information. Sometimes it becomes cumbersome. In that case, stopping the debug mode is helpful when it is no longer needed.</p>
 </section>
 <section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h2>
 <p>If the exporting interface (e.g., <code class="docutils literal notranslate"><span class="pre">ap.save_overall_html</span></code>) <code class="docutils literal notranslate"><span class="pre">minify</span></code> option is enabled, it removes debug mode information. So it is required to set the <code class="docutils literal notranslate"><span class="pre">minify=False</span></code> when you use the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> interface.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> interface requires no arguments.</p>
 <p>The following example appends the debug information only at the <code class="docutils literal notranslate"><span class="pre">int_1</span></code> instantiation and incremental addition of 10.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -138,13 +137,13 @@
 </div>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="set_debug_mode.html"><span class="doc std std-doc">set_debug_mode interface</span></a></p></li>
+<li><p><a class="reference internal" href="set_debug_mode.html"><span class="std std-doc">set_debug_mode interface</span></a></p></li>
 </ul>
 </section>
 <section id="unset-debug-mode-api">
-<h2>unset_debug_mode API<a class="headerlink" href="#unset-debug-mode-api" title="Permalink to this headline">¶</a></h2>
+<h2>unset_debug_mode API<a class="headerlink" href="#unset-debug-mode-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._html.debug_mode.unset_debug_mode -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unset_debug_mode()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -171,8 +170,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">unset_debug_mode interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#notes">Notes</a></li>
@@ -183,12 +183,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="set_debug_mode.html"
-                        title="previous chapter">set_debug_mode interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="add_debug_info_setting.html"
-                        title="next chapter">add_debug_info_setting decorator interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="set_debug_mode.html"
+                          title="previous chapter">set_debug_mode interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="add_debug_info_setting.html"
+                          title="next chapter">add_debug_info_setting decorator interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -198,7 +203,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -221,7 +226,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

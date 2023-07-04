@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Graphics draw_circle interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
           <div class="body" role="main">
             
   <section id="graphics-draw-circle-interface">
-<h1>Graphics draw_circle interface<a class="headerlink" href="#graphics-draw-circle-interface" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics draw_circle interface<a class="headerlink" href="#graphics-draw-circle-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_circle</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_circle</span></code> interface draws the vector circle graphics.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">draw_circle</span></code> interface has the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">radius</span></code> arguments.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments are the circle center coordinates, and the <code class="docutils literal notranslate"><span class="pre">radius</span></code> argument determines the circle size. The width and height become twice the <code class="docutils literal notranslate"><span class="pre">radius</span></code> value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -87,7 +86,7 @@
 <iframe src="static/graphics_draw_circle_basic_usage/index.html" width="350" height="200"></iframe>
 </section>
 <section id="return-value">
-<h2>Return value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<h2>Return value<a class="headerlink" href="#return-value" title="Permalink to this heading">¶</a></h2>
 <p>The return value of the <code class="docutils literal notranslate"><span class="pre">draw_circle</span></code> interface is the instance of the <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class.</p>
 <p>It has the <code class="docutils literal notranslate"><span class="pre">radius</span></code> attribute or other basic interfaces and you can change these settings.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -112,7 +111,7 @@
 <iframe src="static/graphics_draw_circle_return_value/index.html" width="400" height="400"></iframe>
 </section>
 <section id="draw-circle-api">
-<h2>draw_circle API<a class="headerlink" href="#draw-circle-api" title="Permalink to this headline">¶</a></h2>
+<h2>draw_circle API<a class="headerlink" href="#draw-circle-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.graphics.Graphics.draw_circle -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_circle(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">radius:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_circle.Circle'</span></code><hr></p>
@@ -183,8 +182,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics draw_circle interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -194,12 +194,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_draw_round_rect.html"
-                        title="previous chapter">Graphics draw_round_rect interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_draw_ellipse.html"
-                        title="next chapter">Graphics draw_ellipse interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="graphics_draw_round_rect.html"
+                          title="previous chapter">Graphics draw_round_rect interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="graphics_draw_ellipse.html"
+                          title="next chapter">Graphics draw_ellipse interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -209,7 +214,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -232,7 +237,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

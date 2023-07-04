@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>ForArrayIndices class &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,19 +47,19 @@
           <div class="body" role="main">
             
   <section id="forarrayindices-class">
-<h1>ForArrayIndices class<a class="headerlink" href="#forarrayindices-class" title="Permalink to this headline">¶</a></h1>
+<h1>ForArrayIndices class<a class="headerlink" href="#forarrayindices-class" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">ForArrayIndices</span></code> class.</p>
 <p>Before reading on, maybe it is helpful to read the following page (the apysc uses this class for the same reason for each data type):</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
+<li><p><a class="reference internal" href="why_apysc_doesnt_use_python_builtin_data_type.html"><span class="std std-doc">Why the apysc library doesn’t use the Python built-in data type</span></a></p></li>
 </ul>
 <section id="what-class-is-this">
-<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ForArrayIndices</span></code> class is the for-loop class.</p>
 <p>This interface returns <code class="docutils literal notranslate"><span class="pre">Array</span></code>’s index (starts with 0) in a loop.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>This class requires using the <code class="docutils literal notranslate"><span class="pre">with</span></code>-statement.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">as</span></code>-keyword value becomes the <code class="docutils literal notranslate"><span class="pre">Int</span></code> type index.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -103,9 +102,9 @@
 <iframe src="static/for_array_indices_basic_usage_2/index.html" width="350" height="150"></iframe>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="doc std std-doc">Each branch instruction class’s scope variables reverting setting</span></a></p>
+<li><p><a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="std std-doc">Each branch instruction class’s scope variables reverting setting</span></a></p>
 <ul>
 <li><p>Notes: This class also has the same arguments and behaves in the same way.</p></li>
 </ul>
@@ -113,7 +112,7 @@
 </ul>
 </section>
 <section id="forarrayindices-api">
-<h2>ForArrayIndices API<a class="headerlink" href="#forarrayindices-api" title="Permalink to this headline">¶</a></h2>
+<h2>ForArrayIndices API<a class="headerlink" href="#forarrayindices-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._loop.for_array_indices.ForArrayIndices.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">arr:</span> <span class="pre">apysc._type.array.Array,</span> <span class="pre">*,</span> <span class="pre">locals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">globals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -174,8 +173,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">ForArrayIndices class</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -185,12 +185,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="return.html"
-                        title="previous chapter">Return class</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="for_array_values.html"
-                        title="next chapter">ForArrayValues class</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="return.html"
+                          title="previous chapter">Return class</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="for_array_values.html"
+                          title="next chapter">ForArrayValues class</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -200,7 +205,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -223,7 +228,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

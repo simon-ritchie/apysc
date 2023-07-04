@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Timer クラスの delay 設定 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +47,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/timer_delay.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="timer-delay">
-<h1>Timer クラスの delay 設定<a class="headerlink" href="#timer-delay" title="Permalink to this headline">¶</a></h1>
+<h1>Timer クラスの delay 設定<a class="headerlink" href="#timer-delay" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Timer</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">delay</span></code>引数の設定について説明します。</p>
 <section id="id1">
-<h2>引数の概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>引数の概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">delay</span></code>引数の設定ではタイマーの間隔を設定できます。この設定はミリ秒単位となり、1000の値を指定すれば1秒ごとの間隔になります。</p>
 <p>この引数は<code class="docutils literal notranslate"><span class="pre">int</span></code>、<code class="docutils literal notranslate"><span class="pre">float</span></code>、<code class="docutils literal notranslate"><span class="pre">Int</span></code>、<code class="docutils literal notranslate"><span class="pre">Number</span></code>型の値、もしくは<code class="docutils literal notranslate"><span class="pre">FPS</span></code>のenumの値を受け付けます。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Timer</span></code>クラスのコンストラクタで<code class="docutils literal notranslate"><span class="pre">deplay</span></code>引数のパラメーターを設定することができます。以下のコード例では<code class="docutils literal notranslate"><span class="pre">timer_1</span></code>、<code class="docutils literal notranslate"><span class="pre">timer_2</span></code>、<code class="docutils literal notranslate"><span class="pre">timer_3</span></code>の3つのタイマーを生成し、それぞれdelayの値に<code class="docutils literal notranslate"><span class="pre">100</span></code>、<code class="docutils literal notranslate"><span class="pre">33.3333333</span></code>、<code class="docutils literal notranslate"><span class="pre">16.6666667</span></code>の各値を設定しています。</p>
 <p>1番目のタイマー（<code class="docutils literal notranslate"><span class="pre">delay</span></code>の値は100）では1秒間に10回ハンドラの呼び出しを行い、2番目のタイマー（<code class="docutils literal notranslate"><span class="pre">delay</span></code>の値は33.3333333）では1秒間に30回の呼び出しを行い、3番目のタイマー（<code class="docutils literal notranslate"><span class="pre">delay</span></code>の値は16.6666667）では60回の呼び出しを行います。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -112,7 +111,7 @@
 <iframe src="static/timer_delay_basic_usage/index.html" width="350" height="150"></iframe>
 </section>
 <section id="delay-fpsenum">
-<h2>delay 引数にFPSのenumの値を設定する<a class="headerlink" href="#delay-fpsenum" title="Permalink to this headline">¶</a></h2>
+<h2>delay 引数にFPSのenumの値を設定する<a class="headerlink" href="#delay-fpsenum" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">delay</span></code>の引数には<code class="docutils literal notranslate"><span class="pre">FPS</span></code>（frames per second / 1秒当たりのフレーム数）のenumの値を指定することもできます。例えば、<code class="docutils literal notranslate"><span class="pre">FPS.FPS_60</span></code>を指定すれば60FPS相当の実行回数（16.6666667ミリ秒ごとの実行）となります。同様に<code class="docutils literal notranslate"><span class="pre">FPS.FPS_30</span></code>を指定すれば30FPS相当（33.3333333ミリ秒ごとの実行）となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
@@ -156,13 +155,13 @@
 <iframe src="static/timer_delay_fps_enum/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_fps.html"><span class="doc std std-doc">FPS の enum</span></a></p></li>
+<li><p><a class="reference internal" href="jp_fps.html"><span class="std std-doc">FPS の enum</span></a></p></li>
 </ul>
 </section>
 <section id="timer-api">
-<h2>Timer クラスのコンストラクタのAPI<a class="headerlink" href="#timer-api" title="Permalink to this headline">¶</a></h2>
+<h2>Timer クラスのコンストラクタのAPI<a class="headerlink" href="#timer-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[ForwardRef('TimerEvent'),</span> <span class="pre">~_ConstructorOptions],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">delay:</span> <span class="pre">Union[int,</span> <span class="pre">float,</span> <span class="pre">apysc._type.number_value_mixin.NumberValueMixIn,</span> <span class="pre">apysc._time.fps.FPS],</span> <span class="pre">repeat_count:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">options:</span> <span class="pre">Union[~_ConstructorOptions,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -221,7 +220,7 @@
 </ul>
 </section>
 <section id="delay-api">
-<h2>delay 属性のAPI<a class="headerlink" href="#delay-api" title="Permalink to this headline">¶</a></h2>
+<h2>delay 属性のAPI<a class="headerlink" href="#delay-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>遅延（間隔）値を取得します。<hr></p>
@@ -256,8 +255,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Timer クラスの delay 設定</a><ul>
 <li><a class="reference internal" href="#id1">引数の概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -269,12 +269,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_timer_event.html"
-                        title="previous chapter">TimerEvent クラス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_fps.html"
-                        title="next chapter">FPS の enum</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_timer_event.html"
+                          title="previous chapter">TimerEvent クラス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_fps.html"
+                          title="next chapter">FPS の enum</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -284,7 +289,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -307,7 +312,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

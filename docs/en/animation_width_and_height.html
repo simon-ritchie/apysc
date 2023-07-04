@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>animation_width and animation_height interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,16 +47,16 @@
           <div class="body" role="main">
             
   <section id="animation-width-and-animation-height-interfaces">
-<h1>animation_width and animation_height interfaces<a class="headerlink" href="#animation-width-and-animation-height-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>animation_width and animation_height interfaces<a class="headerlink" href="#animation-width-and-animation-height-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code> instance. You can animate object width with it.</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationHeight</span></code> instance. You can animate object height with it.</p>
 <p>These interfaces exist on some <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The following example sets the width animation (from 50 to 100) with the <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> method:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -184,7 +183,7 @@
 <iframe src="static/animation_height_basic_usage/index.html" width="150" height="200"></iframe>
 </section>
 <section id="notes-for-the-ellipse-instance">
-<h2>Notes for the Ellipse instance<a class="headerlink" href="#notes-for-the-ellipse-instance" title="Permalink to this headline">¶</a></h2>
+<h2>Notes for the Ellipse instance<a class="headerlink" href="#notes-for-the-ellipse-instance" title="Permalink to this heading">¶</a></h2>
 <p>The ellipse instance’s <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> interfaces will return an <code class="docutils literal notranslate"><span class="pre">AnimationWidthForEllipse</span></code> and <code class="docutils literal notranslate"><span class="pre">AnimationHeightForEllipse</span></code> instance instead of an <code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code> instance, for the reason of the internal implementation, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -203,7 +202,7 @@
 </div>
 </section>
 <section id="animation-width-api">
-<h2>animation_width API<a class="headerlink" href="#animation-width-api" title="Permalink to this headline">¶</a></h2>
+<h2>animation_width API<a class="headerlink" href="#animation-width-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._animation.animation_width_mixin.AnimationWidthMixIn.animation_width -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_width(self,</span> <span class="pre">*,</span> <span class="pre">width:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">duration:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">3000,</span> <span class="pre">delay:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">easing:</span> <span class="pre">apysc._animation.easing.Easing</span> <span class="pre">=</span> <span class="pre">&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_width.AnimationWidth</span></code><hr></p>
@@ -271,7 +270,7 @@
 </ul>
 </section>
 <section id="animation-height-api">
-<h2>animation_height API<a class="headerlink" href="#animation-height-api" title="Permalink to this headline">¶</a></h2>
+<h2>animation_height API<a class="headerlink" href="#animation-height-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._animation.animation_height_mixin.AnimationHeightMixIn.animation_height -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_height(self,</span> <span class="pre">*,</span> <span class="pre">height:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">duration:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">3000,</span> <span class="pre">delay:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">easing:</span> <span class="pre">apysc._animation.easing.Easing</span> <span class="pre">=</span> <span class="pre">&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_height.AnimationHeight</span></code><hr></p>
@@ -350,8 +349,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">animation_width and animation_height interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -362,12 +362,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_y.html"
-                        title="previous chapter">animation_y interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_fill_color.html"
-                        title="next chapter">animation_fill_color interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="animation_y.html"
+                          title="previous chapter">animation_y interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animation_fill_color.html"
+                          title="next chapter">animation_fill_color interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -377,7 +382,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -400,7 +405,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

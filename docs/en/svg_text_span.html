@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>SVGTextSpan class &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +47,15 @@
           <div class="body" role="main">
             
   <section id="svgtextspan-class">
-<h1>SVGTextSpan class<a class="headerlink" href="#svgtextspan-class" title="Permalink to this headline">¶</a></h1>
+<h1>SVGTextSpan class<a class="headerlink" href="#svgtextspan-class" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> is the class for an SVG text-span (the child class of <code class="docutils literal notranslate"><span class="pre">SVGText</span></code>).</p>
 <p>You can create an <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> instance with multiple <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class instances and set different text styles.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">text</span></code> argument.</p>
 <p>The constructor also accepts each font’s and style’s argument, such as the <code class="docutils literal notranslate"><span class="pre">font_size</span></code>, <code class="docutils literal notranslate"><span class="pre">font_family</span></code>, <code class="docutils literal notranslate"><span class="pre">fill_color</span></code>, and <code class="docutils literal notranslate"><span class="pre">bold</span></code>.</p>
 <p>If you skip the style settings’ arguments, these settings become the parent SVGText’s styles.</p>
@@ -85,7 +84,7 @@
 <iframe src="static/svg_txt_span_basic_usage/index.html" width="200" height="50"></iframe>
 </section>
 <section id="notes-of-the-line-breaking">
-<h2>Notes of the line breaking<a class="headerlink" href="#notes-of-the-line-breaking" title="Permalink to this headline">¶</a></h2>
+<h2>Notes of the line breaking<a class="headerlink" href="#notes-of-the-line-breaking" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class ignores line breaks.</p>
 <p>For instance, the following example’s text contains a line break (<code class="docutils literal notranslate"><span class="pre">\n</span></code>), but the text line becomes a single line.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -112,7 +111,7 @@
 <p>If you want to add a line break, please use the <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> class (not the <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>) or create multiple <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> instances.</p>
 </section>
 <section id="text-property-interface-example">
-<h2>text property interface example<a class="headerlink" href="#text-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>text property interface example<a class="headerlink" href="#text-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">text</span></code> property updates or gets the instance’s text.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -138,7 +137,7 @@
 <iframe src="static/svg_txt_span_text/index.html" width="200" height="50"></iframe>
 </section>
 <section id="font-size-property-interface-example">
-<h2>font_size property interface example<a class="headerlink" href="#font-size-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>font_size property interface example<a class="headerlink" href="#font-size-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">font_size</span></code> property updates or gets the instance’s font size.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -164,7 +163,7 @@
 <iframe src="static/svg_txt_span_font_size/index.html" width="200" height="50"></iframe>
 </section>
 <section id="font-family-property-interface-example">
-<h2>font_family property interface example<a class="headerlink" href="#font-family-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>font_family property interface example<a class="headerlink" href="#font-family-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">font_family</span></code> property updates or gets the instance’s font family.</p>
 <p>This property requires an <code class="docutils literal notranslate"><span class="pre">Array</span></code> of each font name <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -191,7 +190,7 @@
 <iframe src="static/svg_txt_span_font_family/index.html" width="200" height="50"></iframe>
 </section>
 <section id="fill-color-property-interface-example">
-<h2>fill_color property interface example<a class="headerlink" href="#fill-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>fill_color property interface example<a class="headerlink" href="#fill-color-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> property updates or gets the instance’s fill color:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -217,7 +216,7 @@
 <iframe src="static/svg_txt_span_fill_color/index.html" width="200" height="50"></iframe>
 </section>
 <section id="fill-alpha-property-interface-example">
-<h2>fill_alpha property interface example<a class="headerlink" href="#fill-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>fill_alpha property interface example<a class="headerlink" href="#fill-alpha-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code> property updates or gets the instance’s fill alpha (opacity):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -243,7 +242,7 @@
 <iframe src="static/svg_txt_span_fill_alpha/index.html" width="200" height="50"></iframe>
 </section>
 <section id="line-color-property-interface-example">
-<h2>line_color property interface example<a class="headerlink" href="#line-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_color property interface example<a class="headerlink" href="#line-color-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property updates or gets the instance’s line color:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -274,7 +273,7 @@
 <iframe src="static/svg_txt_span_line_color/index.html" width="200" height="50"></iframe>
 </section>
 <section id="line-alpha-property-interface-example">
-<h2>line_alpha property interface example<a class="headerlink" href="#line-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_alpha property interface example<a class="headerlink" href="#line-alpha-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_alpha</span></code> property updates or gets the instance’s line alpha (opacity):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -312,7 +311,7 @@
 <iframe src="static/svg_txt_span_line_alpha/index.html" width="200" height="50"></iframe>
 </section>
 <section id="line-thickness-property-interface-example">
-<h2>line_thickness property interface example<a class="headerlink" href="#line-thickness-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_thickness property interface example<a class="headerlink" href="#line-thickness-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_thickness</span></code> property updates or gets the instance’s line thickness (line width):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -349,7 +348,7 @@
 <iframe src="static/svg_txt_span_line_thickness/index.html" width="200" height="50"></iframe>
 </section>
 <section id="bold-property-interface-example">
-<h2>bold property interface example<a class="headerlink" href="#bold-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>bold property interface example<a class="headerlink" href="#bold-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">bold</span></code> property updates or gets the instance’s <code class="docutils literal notranslate"><span class="pre">bold</span></code> text setting.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -375,7 +374,7 @@
 <iframe src="static/svg_txt_span_bold/index.html" width="200" height="50"></iframe>
 </section>
 <section id="italic-property-interface-example">
-<h2>italic property interface example<a class="headerlink" href="#italic-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>italic property interface example<a class="headerlink" href="#italic-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">italic</span></code> property updates or gets the instance’s <code class="docutils literal notranslate"><span class="pre">italic</span></code> style setting.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -401,7 +400,7 @@
 <iframe src="static/svg_txt_span_italic/index.html" width="200" height="50"></iframe>
 </section>
 <section id="delta-x-property-interface-example">
-<h2>delta_x property interface example<a class="headerlink" href="#delta-x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>delta_x property interface example<a class="headerlink" href="#delta-x-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">delta_x</span></code> property updates or gets the instance’s delta-x (x-coordinate adjustment).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -427,7 +426,7 @@
 <iframe src="static/svg_txt_span_delta_x/index.html" width="200" height="50"></iframe>
 </section>
 <section id="delta-y-property-interface-example">
-<h2>delta_y property interface example<a class="headerlink" href="#delta-y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>delta_y property interface example<a class="headerlink" href="#delta-y-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">delta_y</span></code> property updates or gets the instance’s delta-y (y-coordinate adjustment).</p>
 <p>Note: This setting inherits a y-coordinate from the previous <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> instance.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -457,7 +456,7 @@
 <iframe src="static/svg_txt_span_delta_y/index.html" width="200" height="80"></iframe>
 </section>
 <section id="svgtextspan-constructor-api">
-<h2>SVGTextSpan constructor API<a class="headerlink" href="#svgtextspan-constructor-api" title="Permalink to this headline">¶</a></h2>
+<h2>SVGTextSpan constructor API<a class="headerlink" href="#svgtextspan-constructor-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.svg_text_span.SVGTextSpan.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">delta_x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">delta_y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -556,7 +555,7 @@
 </ul>
 </section>
 <section id="svgtext-create-with-svg-text-spans-class-method-api">
-<h2>SVGText create_with_svg_text_spans class method API<a class="headerlink" href="#svgtext-create-with-svg-text-spans-class-method-api" title="Permalink to this headline">¶</a></h2>
+<h2>SVGText create_with_svg_text_spans class method API<a class="headerlink" href="#svgtext-create-with-svg-text-spans-class-method-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.svg_text.SVGText.create_with_svg_text_spans -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">create_with_svg_text_spans(*,</span> <span class="pre">text_spans:</span> <span class="pre">Union[List[apysc._display.svg_text_span.SVGTextSpan],</span> <span class="pre">apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'#666',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'SVGText'</span></code><hr></p>
@@ -692,8 +691,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">SVGTextSpan class</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -716,12 +716,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="svg_text.html"
-                        title="previous chapter">SVGText class</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="point2d.html"
-                        title="next chapter">Point2D class</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="svg_text.html"
+                          title="previous chapter">SVGText class</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="point2d.html"
+                          title="next chapter">Point2D class</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -731,7 +736,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -754,7 +759,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

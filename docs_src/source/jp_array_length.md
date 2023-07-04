@@ -36,7 +36,7 @@ len(arr)
 Exception: Array instance can't apply len function. Please use length property instead.
 ```
 
-## length属性のAPI
+## length 属性のAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Recommended type-annotation checker settings &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,20 +47,20 @@
           <div class="body" role="main">
             
   <section id="recommended-type-annotation-checker-settings">
-<h1>Recommended type-annotation checker settings<a class="headerlink" href="#recommended-type-annotation-checker-settings" title="Permalink to this headline">¶</a></h1>
+<h1>Recommended type-annotation checker settings<a class="headerlink" href="#recommended-type-annotation-checker-settings" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the type-annotation checker libraries settings, such as the mypy and Pylance (Pyright).</p>
 <section id="recommended-type-annotation-checker-libraries">
-<h2>Recommended type-annotation checker libraries<a class="headerlink" href="#recommended-type-annotation-checker-libraries" title="Permalink to this headline">¶</a></h2>
+<h2>Recommended type-annotation checker libraries<a class="headerlink" href="#recommended-type-annotation-checker-libraries" title="Permalink to this heading">¶</a></h2>
 <p>The apysc library uses the mypy and Pylance (Pyright) checker libraries.</p>
 <p>So if you want to use the type-annotation checker libraries on the apysc-using project, these two libraries probably become comfortable.</p>
 </section>
 <section id="the-ignoring-error-code-of-the-mypy">
-<h2>The ignoring error code of the mypy<a class="headerlink" href="#the-ignoring-error-code-of-the-mypy" title="Permalink to this headline">¶</a></h2>
+<h2>The ignoring error code of the mypy<a class="headerlink" href="#the-ignoring-error-code-of-the-mypy" title="Permalink to this heading">¶</a></h2>
 <p>The apysc library ignores the mypy misc (miscellaneous) errors with the <code class="docutils literal notranslate"><span class="pre">--disable-error-code</span> <span class="pre">misc</span></code> option.</p>
 <p>This error code causes many mypy errors on the apysc library, but most are harmless, so the apysc ignores them.</p>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/python/mypy/issues/1362">mypy issue: Decorated property not supported #1362</a></p></li>
 </ul>
@@ -78,8 +77,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Recommended type-annotation checker settings</a><ul>
 <li><a class="reference internal" href="#recommended-type-annotation-checker-libraries">Recommended type-annotation checker libraries</a></li>
 <li><a class="reference internal" href="#the-ignoring-error-code-of-the-mypy">The ignoring error code of the mypy</a></li>
@@ -88,12 +88,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="import_conventions.html"
-                        title="previous chapter">import conventions</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="stage.html"
-                        title="next chapter">Stage class</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="import_conventions.html"
+                          title="previous chapter">import conventions</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="stage.html"
+                          title="next chapter">Stage class</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -103,7 +108,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -126,7 +131,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

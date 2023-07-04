@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Graphics クラスの draw_path インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/graphics_draw_path.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="graphics-draw-path">
-<h1>Graphics クラスの draw_path インターフェイス<a class="headerlink" href="#graphics-draw-path" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics クラスの draw_path インターフェイス<a class="headerlink" href="#graphics-draw-path" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">draw_path</span></code>インターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_path</span></code>インターフェイスはベクターグラフィックスのパスを描画します。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_path</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">path_data_list</span></code>引数の指定を必要とします。</p>
 <p><code class="docutils literal notranslate"><span class="pre">path_data_list</span></code>引数は<code class="docutils literal notranslate"><span class="pre">PathLineTo</span></code>や<code class="docutils literal notranslate"><span class="pre">PathBezier2D</span></code>などのパスデータの配列となります。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -86,21 +85,21 @@
 <iframe src="static/graphics_draw_path_basic_usage/index.html" width="300" height="150"></iframe>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_path.html"><span class="doc std std-doc">Path クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_move_to.html"><span class="doc std std-doc">PathMoveTo クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_line_to.html"><span class="doc std std-doc">PathLineTo クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_horizontal.html"><span class="doc std std-doc">PathHorizontal クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_vertical.html"><span class="doc std std-doc">PathVertical クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_close.html"><span class="doc std std-doc">PathClose クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_bezier_2d.html"><span class="doc std std-doc">PathBezier2D クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_bezier_3d.html"><span class="doc std std-doc">PathBezier2DContinual クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_path_bezier_3d_continual.html"><span class="doc std std-doc">PathBezier3DContinual クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path.html"><span class="std std-doc">Path クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_move_to.html"><span class="std std-doc">PathMoveTo クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_line_to.html"><span class="std std-doc">PathLineTo クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_horizontal.html"><span class="std std-doc">PathHorizontal クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_vertical.html"><span class="std std-doc">PathVertical クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_close.html"><span class="std std-doc">PathClose クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_bezier_2d.html"><span class="std std-doc">PathBezier2D クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_bezier_3d.html"><span class="std std-doc">PathBezier2DContinual クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_path_bezier_3d_continual.html"><span class="std std-doc">PathBezier3DContinual クラス</span></a></p></li>
 </ul>
 </section>
 <section id="draw-path-api">
-<h2>draw_path API<a class="headerlink" href="#draw-path-api" title="Permalink to this headline">¶</a></h2>
+<h2>draw_path API<a class="headerlink" href="#draw-path-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">draw_path(self,</span> <span class="pre">*,</span> <span class="pre">path_data_list:</span> <span class="pre">List[apysc._geom.path_data_base.PathDataBase],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_path.Path'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -168,8 +167,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics クラスの draw_path インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -179,12 +179,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_graphics_draw_polygon.html"
-                        title="previous chapter">Graphics クラスの draw_polygon インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_graphics_clear.html"
-                        title="next chapter">Graphics クラスの clear インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_graphics_draw_polygon.html"
+                          title="previous chapter">Graphics クラスの draw_polygon インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_graphics_clear.html"
+                          title="next chapter">Graphics クラスの clear インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -194,7 +199,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -217,7 +222,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

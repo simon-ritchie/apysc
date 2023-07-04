@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>enter_frame インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +47,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/enter_frame.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="enter-frame">
-<h1>enter_frame インターフェイス<a class="headerlink" href="#enter-frame" title="Permalink to this headline">¶</a></h1>
+<h1>enter_frame インターフェイス<a class="headerlink" href="#enter-frame" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">enter_frame</span></code>メソッドのインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">enter_frame</span></code>インターフェイスはアニメーションのためのハンドラを設定します。</p>
 <p>このインターフェイスでは指定されたハンドラを各フレームごとに呼び出します。</p>
 </section>
 <section id="timer-enter-frame">
-<h2>Timer クラスと enter_frame のインターフェイスのどちらを使うべきか<a class="headerlink" href="#timer-enter-frame" title="Permalink to this headline">¶</a></h2>
+<h2>Timer クラスと enter_frame のインターフェイスのどちらを使うべきか<a class="headerlink" href="#timer-enter-frame" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Timer</span></code>クラスでも同様にアニメーションを扱うことができます。</p>
 <p>そのため、アニメーション用途の場合<code class="docutils literal notranslate"><span class="pre">Timer</span></code>クラスと<code class="docutils literal notranslate"><span class="pre">enter_frame</span></code>のインターフェイスのどちらを使うべきなのでしょうか？</p>
 <p>回答としては基本的には<code class="docutils literal notranslate"><span class="pre">enter_frame</span></code>側となります。</p>
@@ -64,7 +63,7 @@
 <p>一方で、<code class="docutils literal notranslate"><span class="pre">Timer</span></code>クラス側はCPU負荷が高い場合などに呼び出しタイミングがずれるケースが発生します。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">enter_frame</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Stage</span></code>や<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>などのクラスに存在します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">enter_frame</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">handler</span></code>引数（関数やメソッドなどのcallableオブジェクト）の指定を必要とします。</p>
 <p><code class="docutils literal notranslate"><span class="pre">fps</span></code>引数は省略可で、この引数はフレームレートを決定します（<code class="docutils literal notranslate"><span class="pre">FPS</span></code>のenumの指定が可能です）。</p>
@@ -104,16 +103,16 @@
 <iframe src="static/enter_frame_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_timer.html"><span class="doc std std-doc">Timer クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_fps.html"><span class="doc std std-doc">FPS の enum</span></a></p></li>
+<li><p><a class="reference internal" href="jp_timer.html"><span class="std std-doc">Timer クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_fps.html"><span class="std std-doc">FPS の enum</span></a></p></li>
 </ul>
 </section>
 <section id="enter-frame-api">
-<h2>enter_frame のAPI<a class="headerlink" href="#enter-frame-api" title="Permalink to this headline">¶</a></h2>
+<h2>enter_frame のAPI<a class="headerlink" href="#enter-frame-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">enter_frame(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.enter_frame_event.EnterFrameEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">fps:</span> <span class="pre">apysc._time.fps.FPS</span> <span class="pre">=</span> <span class="pre">&lt;FPS.FPS_60:</span> <span class="pre">&lt;apysc._time.fps.FPSDefinition</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7f32433ad5d0&gt;&gt;,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">enter_frame(self,</span> <span class="pre">handler:</span> <span class="pre">Callable[[apysc._event.enter_frame_event.EnterFrameEvent,</span> <span class="pre">~_Options],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">fps:</span> <span class="pre">apysc._time.fps.FPS</span> <span class="pre">=</span> <span class="pre">&lt;FPS.FPS_60:</span> <span class="pre">&lt;apysc._time.fps.FPSDefinition</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7f720fb02eb0&gt;&gt;,</span> <span class="pre">options:</span> <span class="pre">Union[~_Options,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>enter frameのイベントのリスナー設定を追加します。<hr></p>
 <p><strong>[引数]</strong></p>
@@ -161,8 +160,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">enter_frame インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#timer-enter-frame">Timer クラスと enter_frame のインターフェイスのどちらを使うべきか</a></li>
@@ -173,12 +173,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_timer_reset.html"
-                        title="previous chapter">Timer クラスの reset インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_unbind_enter_frame_and_unbind_enter_frame_all.html"
-                        title="next chapter">unbind_enter_frame と unbind_enter_frame_all の各インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_timer_reset.html"
+                          title="previous chapter">Timer クラスの reset インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_unbind_enter_frame_and_unbind_enter_frame_all.html"
+                          title="next chapter">unbind_enter_frame と unbind_enter_frame_all の各インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -188,7 +193,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -211,7 +216,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Sequential animation setting &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
           <div class="body" role="main">
             
   <section id="sequential-animation-setting">
-<h1>Sequential animation setting<a class="headerlink" href="#sequential-animation-setting" title="Permalink to this headline">¶</a></h1>
+<h1>Sequential animation setting<a class="headerlink" href="#sequential-animation-setting" title="Permalink to this heading">¶</a></h1>
 <p>This page explains how to animate sequentially.</p>
 <section id="sequential-animation-interface-calling-on-the-same-instance">
-<h2>Sequential animation interface calling on the same instance<a class="headerlink" href="#sequential-animation-interface-calling-on-the-same-instance" title="Permalink to this headline">¶</a></h2>
+<h2>Sequential animation interface calling on the same instance<a class="headerlink" href="#sequential-animation-interface-calling-on-the-same-instance" title="Permalink to this heading">¶</a></h2>
 <p>If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completion, the second one starts).</p>
 <p>The following example sets the four animations of the coordinates. These animations do not start simultaneously:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -76,17 +75,17 @@
 <iframe src="static/sequential_animation_example_1/index.html" width="200" height="200"></iframe>
 </section>
 <section id="animation-complete-handler-setting">
-<h2>animation_complete handler setting<a class="headerlink" href="#animation-complete-handler-setting" title="Permalink to this headline">¶</a></h2>
+<h2>animation_complete handler setting<a class="headerlink" href="#animation-complete-handler-setting" title="Permalink to this heading">¶</a></h2>
 <p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> interface to register a handler for the sequence animation. For the details, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="animation_complete.html"><span class="doc std std-doc">animation_complete interface</span></a></p></li>
+<li><p><a class="reference internal" href="animation_complete.html"><span class="std std-doc">animation_complete interface</span></a></p></li>
 </ul>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <p>If you want to animate multiple animations simultaneously, you can use the following interface:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="animation_parallel.html"><span class="doc std std-doc">animation_parallel interface</span></a></p></li>
+<li><p><a class="reference internal" href="animation_parallel.html"><span class="std std-doc">animation_parallel interface</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -101,8 +100,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Sequential animation setting</a><ul>
 <li><a class="reference internal" href="#sequential-animation-interface-calling-on-the-same-instance">Sequential animation interface calling on the same instance</a></li>
 <li><a class="reference internal" href="#animation-complete-handler-setting">animation_complete handler setting</a></li>
@@ -111,12 +111,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="easing_enum.html"
-                        title="previous chapter">Easing enum</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animation_parallel.html"
-                        title="next chapter">animation_parallel interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="easing_enum.html"
+                          title="previous chapter">Easing enum</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animation_parallel.html"
+                          title="next chapter">animation_parallel interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -126,7 +131,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -149,7 +154,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

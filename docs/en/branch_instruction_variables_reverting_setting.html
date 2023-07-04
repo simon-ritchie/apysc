@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Each branch instruction class’s scope variable reverting setting &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
           <div class="body" role="main">
             
   <section id="each-branch-instruction-class-s-scope-variable-reverting-setting">
-<h1>Each branch instruction class’s scope variable reverting setting<a class="headerlink" href="#each-branch-instruction-class-s-scope-variable-reverting-setting" title="Permalink to this headline">¶</a></h1>
+<h1>Each branch instruction class’s scope variable reverting setting<a class="headerlink" href="#each-branch-instruction-class-s-scope-variable-reverting-setting" title="Permalink to this heading">¶</a></h1>
 <p>This page explains each branch instruction class (like the <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code>) scope variables reverting setting.</p>
 <section id="these-interfaces-execute-with-statement-code">
-<h2>These interfaces execute with statement code<a class="headerlink" href="#these-interfaces-execute-with-statement-code" title="Permalink to this headline">¶</a></h2>
+<h2>These interfaces execute with statement code<a class="headerlink" href="#these-interfaces-execute-with-statement-code" title="Permalink to this heading">¶</a></h2>
 <p>These interfaces execute the code in each branch instruction regardless of the condition, and variables are updated.</p>
 <p>For example, the following code of the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, but the value of int is 20 on the Python:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -68,7 +67,7 @@
 <p>This condition is skipped in JavaScript (converted code) since the condition is not satisfied.</p>
 </section>
 <section id="scope-variables-reverting-setting">
-<h2>Scope variables reverting setting<a class="headerlink" href="#scope-variables-reverting-setting" title="Permalink to this headline">¶</a></h2>
+<h2>Scope variables reverting setting<a class="headerlink" href="#scope-variables-reverting-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code> classes have the arguments of the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> and <code class="docutils literal notranslate"><span class="pre">globals_</span></code> (basically set the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> and <code class="docutils literal notranslate"><span class="pre">globals()</span></code> built-in functions return value). If these arguments are specified, the scope variables are reverted when ended each scope (e.g., <code class="docutils literal notranslate"><span class="pre">If</span></code> scope).</p>
 <p>This interface is occasionally helpful when you don’t want to update the variables in each branch instruction scope.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -84,11 +83,11 @@
 </div>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="if.html"><span class="doc std std-doc">If class</span></a></p></li>
-<li><p><a class="reference internal" href="elif.html"><span class="doc std std-doc">Elif class</span></a></p></li>
-<li><p><a class="reference internal" href="else.html"><span class="doc std std-doc">Else class</span></a></p></li>
+<li><p><a class="reference internal" href="if.html"><span class="std std-doc">If class</span></a></p></li>
+<li><p><a class="reference internal" href="elif.html"><span class="std std-doc">Elif class</span></a></p></li>
+<li><p><a class="reference internal" href="else.html"><span class="std std-doc">Else class</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -103,8 +102,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Each branch instruction class’s scope variable reverting setting</a><ul>
 <li><a class="reference internal" href="#these-interfaces-execute-with-statement-code">These interfaces execute with statement code</a></li>
 <li><a class="reference internal" href="#scope-variables-reverting-setting">Scope variables reverting setting</a></li>
@@ -113,12 +113,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="else.html"
-                        title="previous chapter">Else class</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="return.html"
-                        title="next chapter">Return class</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="else.html"
+                          title="previous chapter">Else class</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="return.html"
+                          title="next chapter">Return class</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -128,7 +133,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -151,7 +156,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

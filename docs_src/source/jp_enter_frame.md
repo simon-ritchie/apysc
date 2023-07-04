@@ -76,7 +76,7 @@ ap.save_overall_html(dest_dir_path="enter_frame_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `enter_frame(self, handler: Callable[[apysc._event.enter_frame_event.EnterFrameEvent, ~_Options], NoneType], *, fps: apysc._time.fps.FPS = <FPS.FPS_60: <apysc._time.fps.FPSDefinition object at 0x7f32433ad5d0>>, options: Union[~_Options, NoneType] = None) -> None`<hr>
+**[インターフェイスの構造]** `enter_frame(self, handler: Callable[[apysc._event.enter_frame_event.EnterFrameEvent, ~_Options], NoneType], *, fps: apysc._time.fps.FPS = <FPS.FPS_60: <apysc._time.fps.FPSDefinition object at 0x7f720fb02eb0>>, options: Union[~_Options, NoneType] = None) -> None`<hr>
 
 **[インターフェイス概要]**
 

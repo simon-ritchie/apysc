@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Graphics クラスの draw_polygon インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/graphics_draw_polygon.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="graphics-draw-polygon">
-<h1>Graphics クラスの draw_polygon インターフェイス<a class="headerlink" href="#graphics-draw-polygon" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics クラスの draw_polygon インターフェイス<a class="headerlink" href="#graphics-draw-polygon" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>メソッドのインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスは多角形のベクターグラフィックスを描画します。このインターフェイスは<code class="docutils literal notranslate"><span class="pre">line_to</span></code>や<code class="docutils literal notranslate"><span class="pre">move_to</span></code>などのインターフェイスと挙動が少し似ていますが、パスを閉じなくても良いという違いがあります。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスは各頂点の座標を決めるための<code class="docutils literal notranslate"><span class="pre">points</span></code>引数を必要とします。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -96,7 +95,7 @@
 <iframe src="static/graphics_draw_polygon_basic_usage/index.html" width="250" height="150"></iframe>
 </section>
 <section id="line-to-draw-polygon">
-<h2>line_to と draw_polygon の各インターフェイスの違いについて<a class="headerlink" href="#line-to-draw-polygon" title="Permalink to this headline">¶</a></h2>
+<h2>line_to と draw_polygon の各インターフェイスの違いについて<a class="headerlink" href="#line-to-draw-polygon" title="Permalink to this heading">¶</a></h2>
 <p>塗りの色の設定をした場合<code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>と<code class="docutils literal notranslate"><span class="pre">line_to</span></code>（及び<code class="docutils literal notranslate"><span class="pre">move_to</span></code>）のインターフェイスの挙動は少し近くなります。例えば以下のコード例では各インターフェイスでどちらも三角形が描画しています。</p>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスでは左側の三角形を描画し、<code class="docutils literal notranslate"><span class="pre">move_to</span></code>と<code class="docutils literal notranslate"><span class="pre">line_to</span></code>のインターフェイスでは右側の三角形を描画しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -165,7 +164,7 @@
 <iframe src="static/graphics_draw_polygon_line_to_difference_2/index.html" width="250" height="150"></iframe>
 </section>
 <section id="id3">
-<h2>返却値<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>返却値<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code>インターフェイスは<code class="docutils literal notranslate"><span class="pre">Polygon</span></code>クラスのインスタンスを返却します。そのインスタンスは他のグラフィックス系のインスタンスと同様の基本的なインターフェイスを持っています。加えて、<code class="docutils literal notranslate"><span class="pre">Polygon</span></code>クラスは頂点を加えるための<code class="docutils literal notranslate"><span class="pre">append_line_point</span></code>メソッドを持っています。</p>
 <p>例えば以下のコード例では座標の追加を行い三角から四角に変換しています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -198,7 +197,7 @@
 <iframe src="static/graphics_draw_polygon_append_line_point/index.html" width="150" height="150"></iframe>
 </section>
 <section id="draw-polygon-api">
-<h2>draw_polygon API<a class="headerlink" href="#draw-polygon-api" title="Permalink to this headline">¶</a></h2>
+<h2>draw_polygon API<a class="headerlink" href="#draw-polygon-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">draw_polygon(self,</span> <span class="pre">*,</span> <span class="pre">points:</span> <span class="pre">Union[List[apysc._geom.point2d.Point2D],</span> <span class="pre">apysc._type.array.Array[apysc._geom.point2d.Point2D]],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_polyg.Polygon'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -255,8 +254,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics クラスの draw_polygon インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -267,12 +267,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_graphics_draw_dash_dotted_line.html"
-                        title="previous chapter">Graphics クラスの draw_dash_dotted_line インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_graphics_draw_path.html"
-                        title="next chapter">Graphics クラスの draw_path インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_graphics_draw_dash_dotted_line.html"
+                          title="previous chapter">Graphics クラスの draw_dash_dotted_line インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_graphics_draw_path.html"
+                          title="next chapter">Graphics クラスの draw_path インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -282,7 +287,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -305,7 +310,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

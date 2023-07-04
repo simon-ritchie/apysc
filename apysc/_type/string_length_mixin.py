@@ -23,6 +23,11 @@ class StringLengthMixIn:
         characters_length : Int
             A character length (number).
 
+        References
+        ----------
+        - String class length property
+            - https://simon-ritchie.github.io/apysc/en/string_length.html
+
         Examples
         --------
         >>> import apysc as ap

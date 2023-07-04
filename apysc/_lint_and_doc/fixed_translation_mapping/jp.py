@@ -4080,10 +4080,6 @@ MAPPINGS: Mappings = Mappings(
             val="文字の長さ（文字数）を取得します。<hr>",
         ),
         Mapping(
-            key="Get a character length (number).<hr>",
-            val="文字の長さ（文字数）を取得します。<hr>",
-        ),
-        Mapping(
             key="  - A character length (number).",
             val="  - 文字の長さ（文字数）。",
         ),

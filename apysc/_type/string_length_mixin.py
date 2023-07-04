@@ -38,8 +38,9 @@ class StringLengthMixIn:
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_mixin_type
+            validate_variable_name_mixin_type,
         )
+
         self_variable_name: str = validate_variable_name_mixin_type(
             instance=self,
         ).variable_name

@@ -17,6 +17,7 @@ from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.hashable_interface import HashableInterface
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.revert_mixin import RevertMixIn
+from apysc._type.string_length_mixin import StringLengthMixIn
 from apysc._type.string_lstrip_mixin import StringLStripMixIn
 from apysc._type.string_rstrip_mixin import StringRStripMixIn
 from apysc._type.string_split_mixin import StringSplitMixIn
@@ -25,7 +26,6 @@ from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.string_length_mixin import StringLengthMixIn
 
 
 class String(

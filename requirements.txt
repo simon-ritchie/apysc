@@ -14,7 +14,7 @@ importlib-metadata==6.7.0
 Sphinx==7.0.1
 groundwork-sphinx-theme==1.1.1
 notebook==6.5.4
-pyright==1.1.315
+pyright==1.1.316
 playwright==1.35.0
 myst-parser==2.0.0
 black==22.6.0

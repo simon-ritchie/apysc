@@ -16,12 +16,12 @@ class StringLengthMixIn:
     @add_debug_info_setting(module_name=__name__)
     def length(self) -> "Int":
         """
-        Get a characters length (number).
+        Get a character length (number).
 
         Returns
         -------
         characters_length : Int
-            A characters length (number).
+            A character length (number).
 
         Examples
         --------
@@ -29,7 +29,7 @@ class StringLengthMixIn:
 
         >>> string: ap.String = ap.String("Hello")
         >>> string.length
-        ap.Int(5)
+        Int(5)
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import (

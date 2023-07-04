@@ -85,6 +85,7 @@ string_split
 string_lstrip
 string_strip
 string_rstrip
+string_length
 ```
 
 ### Boolean class

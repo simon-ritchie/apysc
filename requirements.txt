@@ -20,3 +20,4 @@ myst-parser==2.0.0
 black==22.6.0
 blackdoc==0.3.4
 tqdm==4.65.0
+py==1.11.0

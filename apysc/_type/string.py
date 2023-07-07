@@ -26,6 +26,9 @@ from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.string_apply_max_num_of_decimal_places_mixin import (
+    StringApplyMaxNumOfDecimalPlacesMixIn
+)
 
 
 class String(
@@ -42,6 +45,7 @@ class String(
     HashableInterface,
     ToNumberMixIn,
     StringLengthMixIn,
+    StringApplyMaxNumOfDecimalPlacesMixIn,
 ):
     """
     String class for apysc library.

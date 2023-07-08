@@ -42,6 +42,14 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
         -------
         string : String
             An applied string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> string = ap.String("123.456")
+        >>> string = string.apply_max_num_of_decimal_places(max_num_of_decimal_places=1)
+        >>> ap.assert_equal(string, "123.4")
         """
         import apysc as ap
         from apysc._expression import expression_variables_util

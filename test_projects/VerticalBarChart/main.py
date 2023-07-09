@@ -38,6 +38,7 @@ def main() -> None:
     )
     y_axis_settings: ap.YAxisSingleColumnSettings = ap.YAxisSingleColumnSettings(
         y_axis_column_name="value",
+        tick_text_fill_color="#aaa",
     )
     chart: VerticalBarChart = VerticalBarChart(
         data=[

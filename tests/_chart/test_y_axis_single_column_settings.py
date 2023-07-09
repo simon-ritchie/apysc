@@ -15,6 +15,7 @@ class TestYAxisSingleColumnSettings:
             tick_text_fill_alpha=0.5,
             tick_text_bold=True,
             tick_text_italic=True,
+            tick_text_max_num_of_decimal_places=2,
             line_color="#333",
             line_thickness=2,
             line_alpha=0.7,
@@ -39,6 +40,7 @@ class TestYAxisSingleColumnSettings:
         assert setting._tick_text_fill_alpha == ap.Number(0.5)
         assert setting._tick_text_bold == ap.Boolean(True)
         assert setting._tick_text_italic == ap.Boolean(True)
+        assert setting._tick_text_max_num_of_decimal_places == ap.Int(2)
         assert setting._line_color == ap.String("#333333")
         assert setting._line_thickness == ap.Int(2)
         assert setting._line_alpha == ap.Number(0.7)

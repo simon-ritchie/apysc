@@ -154,6 +154,7 @@ def test__calculate_y_axis_ticks_y_coordinates() -> None:
         vertical_padding=ap.Int(20),
         y_axis_height=ap.Int(600),
         y_axis_ticks_num=ap.Int(5),
+        font_size=ap.Int(12),
         variable_name_suffix="test_suffix",
     )
     assert isinstance(y_axis_ticks_y_coordinates[0], ap.Number)

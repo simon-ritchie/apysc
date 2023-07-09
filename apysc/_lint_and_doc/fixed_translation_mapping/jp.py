@@ -4083,5 +4083,21 @@ MAPPINGS: Mappings = Mappings(
             key="  - A character length (number).",
             val="  - 文字の長さ（文字数）。",
         ),
+        Mapping(
+            key="## apply_max_num_of_decimal_places API",
+            val="## apply_max_num_of_decimal_places API",
+        ),
+        Mapping(
+            key="Apply maximum number of decimal places limit to this string.<hr>",
+            val="この文字列に浮動小数点数の最大桁数の設定を反映します。<hr>",
+        ),
+        Mapping(
+            key="  - A maximum number of decimal places.",
+            val="  - 浮動小数点数の最大桁数。",
+        ),
+        Mapping(
+            key="  - An applied string.",
+            val="  - 反映後の文字列。",
+        ),
     ]
 )

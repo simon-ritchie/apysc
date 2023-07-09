@@ -43,6 +43,11 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
         string : String
             An applied string.
 
+        References
+        ----------
+        - String class apply_max_num_of_decimal_places interface
+            - https://simon-ritchie.github.io/apysc/en/string_apply_max_num_of_decimal_places.html  # noqa
+
         Examples
         --------
         >>> import apysc as ap

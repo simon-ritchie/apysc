@@ -35,7 +35,7 @@ def _main() -> None:
     logger.info("testing command started.")
     stdout: str = command_util.run_command(
         command=(
-            "pytest --cov=./apysc tests/ -v -s --workers auto "
+            "pytest --cov=./apysc tests/ -v -s -n auto "
             "--cov-report term-missing"
         )
     )

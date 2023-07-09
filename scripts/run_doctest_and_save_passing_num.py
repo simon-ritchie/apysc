@@ -32,7 +32,7 @@ def _main() -> None:
     """
     logger.info("doctest command started.")
     stdout: str = command_util.run_command(
-        command=("pytest ./apysc/ --doctest-modules --workers auto -v -s")
+        command=("pytest ./apysc/ --doctest-modules -n auto -v -s")
     )
     if " failed, " in stdout or "Traceback" in stdout:
         raise Exception("There are failed tests.")

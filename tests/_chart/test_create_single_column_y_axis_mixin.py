@@ -202,9 +202,11 @@ def test__create_y_axis_texts_values() -> None:
         y_axis_min=ap.Number(0),
         y_axis_max=ap.Number(100),
         ticks_num=ap.Int(5),
+        max_num_of_decimal_places=ap.Int(2),
         variable_name_suffix="test_suffix",
     )
     assert isinstance(y_axis_text_values[0], ap.String)
     expression: str = expression_data_util.get_current_expression()
     assert "for (" in expression
+    assert ".match(new RegExp" in expression
     assert "test_suffix" in y_axis_text_values.variable_name

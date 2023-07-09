@@ -115,6 +115,9 @@ class CreateSingleColumnYAxisMixIn:
             y_axis_min=self._y_axis_min,
             y_axis_max=self._y_axis_max,
             ticks_num=self._y_axis_ticks_y_coordinates.length,
+            max_num_of_decimal_places=(
+                y_axis_settings._tick_text_max_num_of_decimal_places
+            ),
             variable_name_suffix=variable_name_suffix,
         )
         self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
@@ -217,6 +220,7 @@ def _create_y_axis_texts_values(
     y_axis_min: Number,
     y_axis_max: Number,
     ticks_num: Int,
+    max_num_of_decimal_places: Int,
     variable_name_suffix: str,
 ) -> Array[String]:
     """
@@ -230,6 +234,8 @@ def _create_y_axis_texts_values(
         A y-axis max value.
     ticks_num : Int
         A ticks number.
+    max_num_of_decimal_places : Int
+        A maximum number of decimal places.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
@@ -250,6 +256,9 @@ def _create_y_axis_texts_values(
     with ap.ForArrayIndices(arr=range_arr) as i:
         tick_value: Union[Int, Number] = y_axis_min + i * interval
         value_text: String = cast(Union[Int, Number], tick_value).to_string()
+        value_text = value_text.apply_max_num_of_decimal_places(
+            max_num_of_decimal_places=max_num_of_decimal_places
+        )
         y_axis_text_values.append(value_text)
     return y_axis_text_values
 

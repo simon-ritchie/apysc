@@ -131,4 +131,4 @@ from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
 
-__version__: str = "3.1.19"
+__version__: str = "3.1.20"

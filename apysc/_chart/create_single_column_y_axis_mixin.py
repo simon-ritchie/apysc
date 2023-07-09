@@ -154,8 +154,6 @@ def _create_y_axis_ticks_texts(
 
     Parameters
     ----------
-    data : Array[Dictionary[String, Union[Int, Number, String]]]
-        A data array, which contains a 1-dimensional string key dictionary.
     y_axis_container : Sprite
         A y-axis container instance.
     horizontal_padding : Int
@@ -173,9 +171,9 @@ def _create_y_axis_ticks_texts(
     tick_text_font_family : Optional[Array[String]]
         A tick text font family.
     tick_text_bold : Boolean
-        A boolean indicates whether tick text is bold or not.
+        A boolean indicates whether a tick text is bold or not.
     tick_text_italic : Boolean
-        A boolean indicates whether tick text is italic or not.
+        A boolean indicates whether a tick text is italic or not.
     variable_name_suffix : str
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.

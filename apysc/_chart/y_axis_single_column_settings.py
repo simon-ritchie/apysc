@@ -25,12 +25,12 @@ from apysc._chart.tick_text_fill_color_mixin import TickTextFillColorMixIn
 from apysc._chart.tick_text_font_family_mixin import TickTextFontFamilyMixIn
 from apysc._chart.tick_text_font_size_mixin import TickTextFontSizeMixIn
 from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
+from apysc._chart.tick_text_max_num_of_decimal_places_mixin import (
+    TickTextMaxNumOfDecimalPlacesMixIn,
+)
 from apysc._chart.y_axis_column_name_mixin import YAxisColumnNameMixIn
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
 from apysc._chart.y_axis_label_position_mixin import YAxisLabelPositionMixIn
-from apysc._chart.tick_text_max_num_of_decimal_places_mixin import (
-    TickTextMaxNumOfDecimalPlacesMixIn
-)
 from apysc._chart.y_max_mixin import YMaxMixIn
 from apysc._chart.y_min_mixin import YMinMixIn
 from apysc._type.array import Array

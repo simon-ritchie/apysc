@@ -14,6 +14,8 @@ Apply x-coordinate to y-axis ticks texts.<hr>
   - A chart horizontal padding.
 - `y_axis_ticks_texts`: Array[SVGText]
   - Y-axis ticks' texts.
+- `x_coordinate_container`: Sprite
+  - A ticks container.
 - `variable_name_suffix`: str
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
@@ -113,6 +115,8 @@ Calculate y-axis ticks coordinates.<hr>
   - An axis height.
 - `y_axis_ticks_num`: Int
   - Axis tick number.
+- `font_size`: Int
+  - A ticks text font size.
 - `variable_name_suffix`: str
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
@@ -175,6 +179,8 @@ Create y-axis texts values.<hr>
   - A y-axis max value.
 - `ticks_num`: Int
   - A ticks number.
+- `max_num_of_decimal_places`: Int
+  - A maximum number of decimal places.
 - `variable_name_suffix`: str
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
@@ -184,6 +190,42 @@ Create y-axis texts values.<hr>
 
 - `y_axis_text_values`: Array[String]
   - A created y-axis texts values.
+
+## `_create_y_axis_ticks_texts` function docstring
+
+Create a y-axis ticks texts.<hr>
+
+**[Parameters]**
+
+- `y_axis_container`: Sprite
+  - A y-axis container instance.
+- `horizontal_padding`: Int
+  - A chart horizontal padding.
+- `y_axis_text_values`: Array[String]
+  - A y-axis text values.
+- `y_axis_ticks_y_coordinates`: Array[Number]
+  - A y-axis ticks y coordinates.
+- `tick_text_fill_color`: String
+  - A tick text fill-color.
+- `tick_text_fill_alpha`: Number
+  - A tick text fill-alpha.
+- `tick_text_font_size`: Int
+  - A tick text font size.
+- `tick_text_font_family`: Optional[Array[String]]
+  - A tick text font family.
+- `tick_text_bold`: Boolean
+  - A boolean indicates whether a tick text is bold or not.
+- `tick_text_italic`: Boolean
+  - A boolean indicates whether a tick text is italic or not.
+- `variable_name_suffix`: str
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Returns]**
+
+- `y_axis_ticks_texts`: Array[SVGText]
+  - Created y-axis ticks texts.
 
 ## `_extract_column_values_from_data` function docstring
 

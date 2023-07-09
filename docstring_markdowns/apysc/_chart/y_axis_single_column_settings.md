@@ -32,6 +32,8 @@ Single column's y-axis settings class.<hr>
   - A boolean, whether a tick text is a bold style or not.
 - `tick_text_italic`: Union[bool, Boolean], optional
   - A boolean, whether a tick text is an italic style or not (normal).
+- `tick_text_max_num_of_decimal_places`: Union[int, Int], optional
+  - A tick text maximum number of decimal places.
 - `line_color`: _StrOrString, optional
   - An axis line color setting.
 - `line_thickness`: Union[int, Int], optional

@@ -4088,7 +4088,7 @@ MAPPINGS: Mappings = Mappings(
             val="## apply_max_num_of_decimal_places API",
         ),
         Mapping(
-            key="Apply maximum number of decimal places limit to this string.<hr>",
+            key="Apply a maximum number of decimal places limit to this string.<hr>",
             val="この文字列に浮動小数点数の最大桁数の設定を反映します。<hr>",
         ),
         Mapping(

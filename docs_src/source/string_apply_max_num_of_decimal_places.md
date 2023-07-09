@@ -49,7 +49,7 @@ ap.save_overall_html(
 
 **[Interface summary]**
 
-Apply maximum number of decimal places limit to this string.<hr>
+Apply a maximum number of decimal places limit to this string.<hr>
 
 **[Parameters]**
 

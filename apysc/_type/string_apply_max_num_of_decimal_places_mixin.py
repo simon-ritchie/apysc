@@ -3,16 +3,20 @@
 """
 
 import re
-from typing import TYPE_CHECKING, Any, Union, Optional, Match
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import Match
+from typing import Optional
+from typing import Union
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._validation import arg_validation_decos, variable_name_validation
+from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
-    from apysc._type.string import String
     from apysc._type.int import Int
+    from apysc._type.string import String
 
 
 class StringApplyMaxNumOfDecimalPlacesMixIn:
@@ -28,7 +32,7 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
         variable_name_suffix: str = "",
     ) -> "String":
         """
-        Apply maximum number of decimal places limit to this string.
+        Apply a maximum number of decimal places limit to this string.
 
         Parameters
         ----------
@@ -73,9 +77,11 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
             self_str=self,
         )
 
-        self_variable_name: str = variable_name_validation.validate_variable_name_mixin_type(
-            instance=self
-        ).variable_name
+        self_variable_name: str = (
+            variable_name_validation.validate_variable_name_mixin_type(
+                instance=self
+            ).variable_name
+        )
         matched_variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.MATCHED,
         )

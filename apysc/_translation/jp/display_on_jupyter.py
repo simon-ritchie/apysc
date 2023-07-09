@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Requirements": "## 必要とされるインストールなどの対応",
     ##################################################
-    "This interface requires the Jupyter library. Therefore, if you haven\'t installed Jupyter, you need to install it before going on (e.g., `pip install notebook`).": "このインターフェイスはJupyterのライブラリの事前のインストールが必要です。もしインストールされていなければ`pip install notebook`などのコマンドでインストールしておく必要があります。",  # noqa
+    "This interface requires the Jupyter library. Therefore, if you haven't installed Jupyter, you need to install it before going on (e.g., `pip install notebook`).": "このインターフェイスはJupyterのライブラリの事前のインストールが必要です。もしインストールされていなければ`pip install notebook`などのコマンドでインストールしておく必要があります。",  # noqa
     ##################################################
     "For more information, please see:": "詳細は以下をご確認ください:",
     ##################################################
@@ -39,7 +39,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "This interface requires the `html_file_name` argument to be unique if you need to output multiple HTML. Otherwise, this interface overwrites the HTML file:": "このインターフェイスは複数のHTMLファイルを保存する際にファイル名が被らないようにするために`html_file_name`引数にユニークなファイル名の指定が必要です。この値にユニークな値を指定しない場合HTMLが上書きされてしまいます。",  # noqa
     ##################################################
-    "```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color=\"#333\")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color=\"#f0a\")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_jupyter(html_file_name=\"jupyter_sample_1.html\")\n```": "```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color=\"#333\")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color=\"#f0a\")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_jupyter(html_file_name=\"jupyter_sample_1.html\")\n```",  # noqa
+    '```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color="#333")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color="#0af")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color="#f0a")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_jupyter(html_file_name="jupyter_sample_1.html")\n```': '```py\nimport apysc as ap\n\nap.Stage(stage_width=250, stage_height=150, background_color="#333")\nsprite = ap.Sprite()\nsprite.graphics.begin_fill(color="#0af")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nsprite.graphics.begin_fill(color="#f0a")\nsprite.graphics.draw_rect(x=150, y=50, width=50, height=50)\n\nap.display_on_jupyter(html_file_name="jupyter_sample_1.html")\n```',  # noqa
     ##################################################
     "![](_static/jupyter_notebook_interface.png)": "![](_static/jupyter_notebook_interface.png)",  # noqa
     ##################################################
@@ -49,7 +49,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## display_on_jupyter API": "## display_on_jupyter API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -57,7 +57,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `html_file_name`: str, default \'index.html\'": "- `html_file_name`: str, default \'index.html\'",  # noqa
+    "- `html_file_name`: str, default 'index.html'": "- `html_file_name`: str, default 'index.html'",  # noqa
     ##################################################
     "  - The output HTML file name.": "  - 出力されるHTMLのファイル名。",
     ##################################################

@@ -35,8 +35,7 @@ def _main() -> None:
     logger.info("testing command started.")
     stdout: str = command_util.run_command(
         command=(
-            "pytest --cov=./apysc tests/ -v -s -n auto "
-            "--cov-report term-missing"
+            "pytest --cov=./apysc tests/ -v -s -n auto " "--cov-report term-missing"
         )
     )
     tail_stdout: str = string_util.get_tails_lines_str(string=stdout, n=10)

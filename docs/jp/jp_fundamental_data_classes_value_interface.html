@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>apysc の基本的なデータ型の value インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +47,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/fundamental_data_classes_value_interface.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="apysc-value">
-<h1>apysc の基本的なデータ型の value インターフェイス<a class="headerlink" href="#apysc-value" title="Permalink to this headline">¶</a></h1>
+<h1>apysc の基本的なデータ型の value インターフェイス<a class="headerlink" href="#apysc-value" title="Permalink to this heading">¶</a></h1>
 <p>このページではapyscの<code class="docutils literal notranslate"><span class="pre">Int</span></code>や<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">String</span></code>などの基本的なデータクラスの<code class="docutils literal notranslate"><span class="pre">value</span></code>インターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">value</span></code>のgetterのインターフェイスは各データクラスの値を返却します。setterのインターフェイスではそれらの値の更新を行います。</p>
 <p>返却値は基本的に<code class="docutils literal notranslate"><span class="pre">int</span></code>や<code class="docutils literal notranslate"><span class="pre">float</span></code>、<code class="docutils literal notranslate"><span class="pre">str</span></code>などのPythonビルトインの値になります。</p>
 </section>
 <section id="getter">
-<h2>getterのインターフェイスの基本的な使い方<a class="headerlink" href="#getter" title="Permalink to this headline">¶</a></h2>
+<h2>getterのインターフェイスの基本的な使い方<a class="headerlink" href="#getter" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">value</span></code>のgetterインターフェイスではPythonのビルトインの値を返却します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -76,7 +75,7 @@
 </div>
 </section>
 <section id="setter">
-<h2>setterのインターフェイスの基本的な使い方<a class="headerlink" href="#setter" title="Permalink to this headline">¶</a></h2>
+<h2>setterのインターフェイスの基本的な使い方<a class="headerlink" href="#setter" title="Permalink to this heading">¶</a></h2>
 <p>apyscの基本的なデータクラスにおける<code class="docutils literal notranslate"><span class="pre">value</span></code>のsetterのインターフェイスではそれらの値を更新することができます。Pythonのビルトインの値やapyscの同じ型の値を指定することができます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -107,8 +106,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">apysc の基本的なデータ型の value インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#getter">getterのインターフェイスの基本的な使い方</a></li>
@@ -117,12 +117,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"
-                        title="previous chapter">何故 apysc ライブラリではPythonのビルトインのデータ型を使用していないのか</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_to_string.html"
-                        title="next chapter">to_string インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"
+                          title="previous chapter">何故 apysc ライブラリではPythonのビルトインのデータ型を使用していないのか</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_to_string.html"
+                          title="next chapter">to_string インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -132,7 +137,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -155,7 +160,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

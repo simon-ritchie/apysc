@@ -85,6 +85,8 @@ string_split
 string_lstrip
 string_strip
 string_rstrip
+string_length
+string_apply_max_num_of_decimal_places
 ```
 
 ### Boolean class

@@ -4067,5 +4067,37 @@ MAPPINGS: Mappings = Mappings(
             key="  - A dictionary key type. This interface accepts hashable types, such as the `String`, `Int`, `Number`, or `Boolean`.",
             val="  - 辞書のキーの型。このインターフェイスは`String`、`Int`、`Number`、`Boolean`といったハッシュ化可能な型を受け付けます。",
         ),
+        Mapping(
+            key="## What property is this?",
+            val="## 属性の概要",
+        ),
+        Mapping(
+            key="## length property API",
+            val="## length 属性のAPI",
+        ),
+        Mapping(
+            key="Get a character length (number).<hr>",
+            val="文字の長さ（文字数）を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A character length (number).",
+            val="  - 文字の長さ（文字数）。",
+        ),
+        Mapping(
+            key="## apply_max_num_of_decimal_places API",
+            val="## apply_max_num_of_decimal_places API",
+        ),
+        Mapping(
+            key="Apply a maximum number of decimal places limit to this string.<hr>",
+            val="この文字列に浮動小数点数の最大桁数の設定を反映します。<hr>",
+        ),
+        Mapping(
+            key="  - A maximum number of decimal places.",
+            val="  - 浮動小数点数の最大桁数。",
+        ),
+        Mapping(
+            key="  - An applied string.",
+            val="  - 反映後の文字列。",
+        ),
     ]
 )

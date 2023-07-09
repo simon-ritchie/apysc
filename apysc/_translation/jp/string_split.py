@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `split` method interface splits a string into an `Array` instance of `String`s.": "`split`メソッドのインターフェイスは文字列を`String`型の値の`Array`型の配列へと分割します。",  # noqa
+    "The `split` method interface splits a string into an `Array` instance of `String`s.": "`split`メソッドのインターフェイスは文字列を分割して`String`の値を格納した`Array`の配列を作成します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

@@ -17,6 +17,10 @@ from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.hashable_interface import HashableInterface
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.revert_mixin import RevertMixIn
+from apysc._type.string_apply_max_num_of_decimal_places_mixin import (
+    StringApplyMaxNumOfDecimalPlacesMixIn,
+)
+from apysc._type.string_length_mixin import StringLengthMixIn
 from apysc._type.string_lstrip_mixin import StringLStripMixIn
 from apysc._type.string_rstrip_mixin import StringRStripMixIn
 from apysc._type.string_split_mixin import StringSplitMixIn
@@ -40,6 +44,8 @@ class String(
     InitializeForLoopKeyOrValueInterface,
     HashableInterface,
     ToNumberMixIn,
+    StringLengthMixIn,
+    StringApplyMaxNumOfDecimalPlacesMixIn,
 ):
     """
     String class for apysc library.

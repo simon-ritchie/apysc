@@ -31,7 +31,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```\nException: Array instance can't apply len function. Please use length property instead.\n```": "```\nException: Array instance can't apply len function. Please use length property instead.\n```",  # noqa
     ##################################################
-    "## length property API": "## length属性のAPI",
+    "## length property API": "## length 属性のAPI",
     ##################################################
     '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>contains インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/contains.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="contains">
-<h1>contains インターフェイス<a class="headerlink" href="#contains" title="Permalink to this headline">¶</a></h1>
+<h1>contains インターフェイス<a class="headerlink" href="#contains" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Graphics</span></code>や<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>、<code class="docutils literal notranslate"><span class="pre">Stage</span></code>などのコンテナとしての各クラスが持つ<code class="docutils literal notranslate"><span class="pre">contains</span></code>メソッドのインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">contains</span></code>インターフェイスは引数に指定された子のインスタンスを対象のコンテナが持つかどうかの真偽値（<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>）を返却します。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>以下のコード例では最初の四角が<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>のコンテナーの子かどうかをチェックしています。もしその子を含んでいればその子を取り除き、ブラウザのコンソール上にログを表示しています（ログの表示にはF12キーを押してください）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
@@ -103,13 +102,13 @@
 <iframe src="static/sprite_contains_basic_usage/index.html" width="250" height="150"></iframe>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_add_child_and_remove_child.html"><span class="doc std std-doc">add_child （子の追加）と remove_child （子の削除）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_add_child_and_remove_child.html"><span class="std std-doc">add_child （子の追加）と remove_child （子の削除）のインターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="contains-api">
-<h2>contains API<a class="headerlink" href="#contains-api" title="Permalink to this headline">¶</a></h2>
+<h2>contains API<a class="headerlink" href="#contains-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">contains(self,</span> <span class="pre">child:</span> <span class="pre">apysc._display.display_object.DisplayObject)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.boolean.Boolean</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -161,8 +160,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">contains インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -172,12 +172,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_remove_children.html"
-                        title="previous chapter">remove_children インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_num_children.html"
-                        title="next chapter">num_children インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_remove_children.html"
+                          title="previous chapter">remove_children インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_num_children.html"
+                          title="next chapter">num_children インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -187,7 +192,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -210,7 +215,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

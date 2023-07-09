@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>String class apply_max_num_of_decimal_places interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <script src="static/add_en_to_ja_link.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Boolean class" href="boolean.html" />
+    <link rel="prev" title="String class length property" href="string_length.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="boolean.html" title="Boolean class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="string_length.html" title="String class length property"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String class apply_max_num_of_decimal_places interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="string-class-apply-max-num-of-decimal-places-interface">
+<h1>String class apply_max_num_of_decimal_places interface<a class="headerlink" href="#string-class-apply-max-num-of-decimal-places-interface" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">String</span></code> class <code class="docutils literal notranslate"><span class="pre">apply_max_num_of_decimal_places</span></code> method interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">apply_max_num_of_decimal_places</span></code> method applies the maximum number of decimal places to a string.</p>
+<p>For instance, if a string is <code class="docutils literal notranslate"><span class="pre">123.45678</span></code> and the maximum number of decimal places is <code class="docutils literal notranslate"><span class="pre">3</span></code>, this interface returns <code class="docutils literal notranslate"><span class="pre">123.456</span></code>.</p>
+<p>If a string is not in float format, this interface returns the original string.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">apply_max_num_of_decimal_places</span></code> method requires the <code class="docutils literal notranslate"><span class="pre">max_num_of_decimal_places</span></code> (maximum number of decimal places, <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">Int</span></code> type) argument.</p>
+<p>And this interface returns a new <code class="docutils literal notranslate"><span class="pre">String</span></code> instance.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;123.456&quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">apply_max_num_of_decimal_places</span><span class="p">(</span><span class="n">max_num_of_decimal_places</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;123.4&quot;</span><span class="p">)</span>
+
+<span class="c1"># If a string is not a `float` value, this interface returns</span>
+<span class="c1"># the original string.</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">apply_max_num_of_decimal_places</span><span class="p">(</span><span class="n">max_num_of_decimal_places</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_apply_max_num_of_decimal_places_basic_usage_1/&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/string_apply_max_num_of_decimal_places_basic_usage_1/index.html" width="0" height="0"></iframe>
+</section>
+<section id="apply-max-num-of-decimal-places-api">
+<h2>apply_max_num_of_decimal_places API<a class="headerlink" href="#apply-max-num-of-decimal-places-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._type.string_apply_max_num_of_decimal_places_mixin.StringApplyMaxNumOfDecimalPlacesMixIn.apply_max_num_of_decimal_places -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">apply_max_num_of_decimal_places(self,</span> <span class="pre">*,</span> <span class="pre">max_num_of_decimal_places:</span> <span class="pre">Union[int,</span> <span class="pre">ForwardRef('Int')],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
+<p><strong>[Interface summary]</strong></p>
+<p>Apply a maximum number of decimal places limit to this string.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_num_of_decimal_places</span></code>: Union[int, Int]</p>
+<ul>
+<li><p>A maximum number of decimal places.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
+<ul>
+<li><p>A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: String</p>
+<ul>
+<li><p>An applied string.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;123.456&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">apply_max_num_of_decimal_places</span><span class="p">(</span><span class="n">max_num_of_decimal_places</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;123.4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">String class apply_max_num_of_decimal_places interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#apply-max-num-of-decimal-places-api">apply_max_num_of_decimal_places API</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="string_length.html"
+                          title="previous chapter">String class length property</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="boolean.html"
+                          title="next chapter">Boolean class</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="boolean.html" title="Boolean class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="string_length.html" title="String class length property"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String class apply_max_num_of_decimal_places interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    </div>
+  </body>
+</html>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>String class addition and multiplication operations &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
           <div class="body" role="main">
             
   <section id="string-class-addition-and-multiplication-operations">
-<h1>String class addition and multiplication operations<a class="headerlink" href="#string-class-addition-and-multiplication-operations" title="Permalink to this headline">¶</a></h1>
+<h1>String class addition and multiplication operations<a class="headerlink" href="#string-class-addition-and-multiplication-operations" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">String</span></code> class addition and multiplication operations.</p>
 <section id="addition">
-<h2>Addition<a class="headerlink" href="#addition" title="Permalink to this headline">¶</a></h2>
+<h2>Addition<a class="headerlink" href="#addition" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">String</span></code> class addition operation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) returns the concatenated <code class="docutils literal notranslate"><span class="pre">String</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -93,7 +92,7 @@
 </div>
 </section>
 <section id="multiplication">
-<h2>Multiplication<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h2>
+<h2>Multiplication<a class="headerlink" href="#multiplication" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">String</span></code> class multiplication operation (<code class="docutils literal notranslate"><span class="pre">*</span></code>) returns the repeated <code class="docutils literal notranslate"><span class="pre">String</span></code> value, same behaviors as the Python built-in <code class="docutils literal notranslate"><span class="pre">str</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -126,8 +125,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">String class addition and multiplication operations</a><ul>
 <li><a class="reference internal" href="#addition">Addition</a></li>
 <li><a class="reference internal" href="#multiplication">Multiplication</a></li>
@@ -135,12 +135,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="string_comparison_operations.html"
-                        title="previous chapter">String class comparison operations</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="string_split.html"
-                        title="next chapter">String class split interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="string_comparison_operations.html"
+                          title="previous chapter">String class comparison operations</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="string_split.html"
+                          title="next chapter">String class split interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -150,7 +155,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -173,7 +178,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

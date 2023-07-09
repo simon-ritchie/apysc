@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>SVGText クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_text.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="svgtext">
-<h1>SVGText クラス<a class="headerlink" href="#svgtext" title="Permalink to this headline">¶</a></h1>
+<h1>SVGText クラス<a class="headerlink" href="#svgtext" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>クラスについて説明します。</p>
 <section id="id1">
-<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SVGText</span></code>クラスはSVGテキストのオブジェクトを生成します。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SVGText</span></code>クラスのコンストラクタは<code class="docutils literal notranslate"><span class="pre">text</span></code>引数の指定を必要とします。</p>
 <p>コンストラクタでは<code class="docutils literal notranslate"><span class="pre">font_size</span></code>や<code class="docutils literal notranslate"><span class="pre">font_family</span></code>、<code class="docutils literal notranslate"><span class="pre">fill_color</span></code>、<code class="docutils literal notranslate"><span class="pre">bold</span></code>などのフォントやスタイルなどの引数を指定することもできます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -76,7 +75,7 @@
 <iframe src="static/svg_text_basic_usage/index.html" width="200" height="50"></iframe>
 </section>
 <section id="y">
-<h2>テキストのY座標の基準点に対する特記事項<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
+<h2>テキストのY座標の基準点に対する特記事項<a class="headerlink" href="#y" title="Permalink to this heading">¶</a></h2>
 <p>テキストのY座標の基準点はテキストの下部付近の位置となります（これはSVGテキストの仕様となります）。</p>
 <p>そのためもしもY座標に<code class="docutils literal notranslate"><span class="pre">y=0</span></code>を指定した場合、テキストのコンテンツがほとんど見えなくなります（以下の例では辛うじてコンマの一部が確認できます）。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -97,7 +96,7 @@
 <iframe src="static/svg_text_note_on_the_y_baseline/index.html" width="200" height="50"></iframe>
 </section>
 <section id="text">
-<h2>text 属性のインターフェイス例<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h2>
+<h2>text 属性のインターフェイス例<a class="headerlink" href="#text" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">text</span></code>属性ではインスタンスのテキストの更新もしくは取得を行えます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -118,7 +117,7 @@
 <iframe src="static/svg_text_text/index.html" width="200" height="50"></iframe>
 </section>
 <section id="font-size">
-<h2>font_size 属性のインターフェイス例<a class="headerlink" href="#font-size" title="Permalink to this headline">¶</a></h2>
+<h2>font_size 属性のインターフェイス例<a class="headerlink" href="#font-size" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">font_size</span></code>属性ではインスタンスのフォントサイズの更新もしくは取得を行えます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -139,7 +138,7 @@
 <iframe src="static/svg_text_font_size/index.html" width="200" height="50"></iframe>
 </section>
 <section id="font-family">
-<h2>font_family 属性のインターフェイス例<a class="headerlink" href="#font-family" title="Permalink to this headline">¶</a></h2>
+<h2>font_family 属性のインターフェイス例<a class="headerlink" href="#font-family" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">font_family</span></code>属性ではインスタンスのフォントファミリー（フォントの指定）の更新もしくは取得を行えます。</p>
 <p>この属性は各フォント名の<code class="docutils literal notranslate"><span class="pre">String</span></code>型の文字列を格納した<code class="docutils literal notranslate"><span class="pre">Array</span></code>型の配列を必要とします。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -161,7 +160,7 @@
 <iframe src="static/svg_text_font_family/index.html" width="200" height="50"></iframe>
 </section>
 <section id="x">
-<h2>x属性のインターフェイス例<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
+<h2>x属性のインターフェイス例<a class="headerlink" href="#x" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code>属性ではX座標の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -181,7 +180,7 @@
 <iframe src="static/svg_text_x/index.html" width="200" height="50"></iframe>
 </section>
 <section id="id3">
-<h2>y属性のインターフェイス例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>y属性のインターフェイス例<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code>属性ではY座標の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -202,7 +201,7 @@
 <iframe src="static/svg_text_y/index.html" width="200" height="70"></iframe>
 </section>
 <section id="fill-color">
-<h2>fill_color属性のインターフェイス例<a class="headerlink" href="#fill-color" title="Permalink to this headline">¶</a></h2>
+<h2>fill_color属性のインターフェイス例<a class="headerlink" href="#fill-color" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>属性は塗りの色の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -222,7 +221,7 @@
 <iframe src="static/svg_text_fill_color/index.html" width="200" height="50"></iframe>
 </section>
 <section id="fill-alpha">
-<h2>fill_alpha属性のインターフェイス例<a class="headerlink" href="#fill-alpha" title="Permalink to this headline">¶</a></h2>
+<h2>fill_alpha属性のインターフェイス例<a class="headerlink" href="#fill-alpha" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>属性は塗りの透明度の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -243,7 +242,7 @@
 <iframe src="static/svg_text_fill_alpha/index.html" width="200" height="50"></iframe>
 </section>
 <section id="line-color">
-<h2>line_color属性のインターフェイス例<a class="headerlink" href="#line-color" title="Permalink to this headline">¶</a></h2>
+<h2>line_color属性のインターフェイス例<a class="headerlink" href="#line-color" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">line_color</span></code>属性では線の色の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -267,7 +266,7 @@
 <iframe src="static/svg_text_line_color/index.html" width="200" height="50"></iframe>
 </section>
 <section id="line-alpha">
-<h2>line_alpha属性のインターフェイス例<a class="headerlink" href="#line-alpha" title="Permalink to this headline">¶</a></h2>
+<h2>line_alpha属性のインターフェイス例<a class="headerlink" href="#line-alpha" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">line_alpha</span></code>属性では線の透明度の値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -292,7 +291,7 @@
 <iframe src="static/svg_text_line_alpha/index.html" width="200" height="50"></iframe>
 </section>
 <section id="line-thickness">
-<h2>line_thickness属性のインターフェイス例<a class="headerlink" href="#line-thickness" title="Permalink to this headline">¶</a></h2>
+<h2>line_thickness属性のインターフェイス例<a class="headerlink" href="#line-thickness" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>属性では線の幅の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -316,7 +315,7 @@
 <iframe src="static/svg_text_line_thickness/index.html" width="200" height="50"></iframe>
 </section>
 <section id="leading">
-<h2>leading 属性のインターフェイス例<a class="headerlink" href="#leading" title="Permalink to this headline">¶</a></h2>
+<h2>leading 属性のインターフェイス例<a class="headerlink" href="#leading" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">leading</span></code>属性ではインスタンスの行間の更新もしくは取得を行えます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -341,7 +340,7 @@
 <iframe src="static/svg_text_leading/index.html" width="500" height="120"></iframe>
 </section>
 <section id="align">
-<h2>align 属性のインターフェイス例<a class="headerlink" href="#align" title="Permalink to this headline">¶</a></h2>
+<h2>align 属性のインターフェイス例<a class="headerlink" href="#align" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">align</span></code>属性ではインスタンスの水平方向の行揃えの設定（左端、中央、右端）の更新もしくは取得を行えます。</p>
 <p>この属性は<code class="docutils literal notranslate"><span class="pre">SVGTextAlign</span></code>のenumの値を必要とします。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -430,7 +429,7 @@
 <iframe src="static/svg_text_align_note/index.html" width="500" height="120"></iframe>
 </section>
 <section id="bold">
-<h2>bold 属性のインターフェイス例<a class="headerlink" href="#bold" title="Permalink to this headline">¶</a></h2>
+<h2>bold 属性のインターフェイス例<a class="headerlink" href="#bold" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">bold</span></code>属性ではインスタンスの太字設定の更新もしくは取得を行えます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -451,7 +450,7 @@
 <iframe src="static/svg_text_bold/index.html" width="200" height="50"></iframe>
 </section>
 <section id="italic">
-<h2>italic 属性のインターフェイス例<a class="headerlink" href="#italic" title="Permalink to this headline">¶</a></h2>
+<h2>italic 属性のインターフェイス例<a class="headerlink" href="#italic" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">italic</span></code>属性ではインスタンスの斜体の設定の更新もしくは取得を行えます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -472,7 +471,7 @@
 <iframe src="static/svg_text_italic/index.html" width="200" height="50"></iframe>
 </section>
 <section id="rotation-around-center">
-<h2>rotation_around_center属性のインターフェイス例<a class="headerlink" href="#rotation-around-center" title="Permalink to this headline">¶</a></h2>
+<h2>rotation_around_center属性のインターフェイス例<a class="headerlink" href="#rotation-around-center" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code>属性ではインスタンスの中央座標での回転量（0～359）の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -510,7 +509,7 @@
 <iframe src="static/svg_txt_rotation_around_center/index.html" width="200" height="50"></iframe>
 </section>
 <section id="set-rotation-around-pointget-rotation-around-point">
-<h2>set_rotation_around_pointとget_rotation_around_pointメソッドのインターフェイス例<a class="headerlink" href="#set-rotation-around-pointget-rotation-around-point" title="Permalink to this headline">¶</a></h2>
+<h2>set_rotation_around_pointとget_rotation_around_pointメソッドのインターフェイス例<a class="headerlink" href="#set-rotation-around-pointget-rotation-around-point" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code>メソッドは指定された座標からのインスタンスの回転量（0～359）を更新します。</p>
 <p>同様に、<code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code>メソッドでは指定された座標のインスタンスの回転量（0～359）を取得します:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -561,11 +560,11 @@
 <iframe src="static/svg_txt_rotation_around_point/index.html" width="200" height="120"></iframe>
 </section>
 <section id="id4">
-<h2>拡縮関係のインターフェイスに対する特記事項<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>拡縮関係のインターフェイスに対する特記事項<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p>拡縮関係のインターフェイスは設定次第では表示が崩れたりするため利用は非推奨です。</p>
 </section>
 <section id="scale-x-from-center">
-<h2>scale_x_from_center属性のインターフェイス例<a class="headerlink" href="#scale-x-from-center" title="Permalink to this headline">¶</a></h2>
+<h2>scale_x_from_center属性のインターフェイス例<a class="headerlink" href="#scale-x-from-center" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code>属性ではインスタンスの中央座標でのX軸の拡縮値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -609,7 +608,7 @@
 <iframe src="static/svg_txt_scale_x_from_center/index.html" width="200" height="50"></iframe>
 </section>
 <section id="set-scale-x-from-pointget-scale-x-from-point">
-<h2>set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例<a class="headerlink" href="#set-scale-x-from-pointget-scale-x-from-point" title="Permalink to this headline">¶</a></h2>
+<h2>set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例<a class="headerlink" href="#set-scale-x-from-pointget-scale-x-from-point" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code>メソッドは指定されたX座標を基準としてX軸の拡縮値を更新します。</p>
 <p>同様に、<code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code>メソッドでは指定されたX座標を基準としたX軸の拡縮値を取得します:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -655,7 +654,7 @@
 <iframe src="static/svg_txt_scale_x_from_point/index.html" width="200" height="50"></iframe>
 </section>
 <section id="flip-x">
-<h2>flip_x属性のインターフェイス例<a class="headerlink" href="#flip-x" title="Permalink to this headline">¶</a></h2>
+<h2>flip_x属性のインターフェイス例<a class="headerlink" href="#flip-x" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">flip_x</span></code>属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -692,7 +691,7 @@
 <iframe src="static/svg_txt_flip_x/index.html" width="200" height="50"></iframe>
 </section>
 <section id="flip-y">
-<h2>flip_y属性のインターフェイス例<a class="headerlink" href="#flip-y" title="Permalink to this headline">¶</a></h2>
+<h2>flip_y属性のインターフェイス例<a class="headerlink" href="#flip-y" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">flip_y</span></code>属性ではインスタンスのX軸の反転状況の真偽値の更新もしくは取得を行えます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -729,7 +728,7 @@
 <iframe src="static/svg_txt_flip_y/index.html" width="200" height="50"></iframe>
 </section>
 <section id="svgtext-api">
-<h2>SVGText クラスのコンストラクタのAPI<a class="headerlink" href="#svgtext-api" title="Permalink to this headline">¶</a></h2>
+<h2>SVGText クラスのコンストラクタのAPI<a class="headerlink" href="#svgtext-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'#666',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -856,8 +855,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">SVGText クラス</a><ul>
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -888,12 +888,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_graphics_clear.html"
-                        title="previous chapter">Graphics クラスの clear インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_svg_text_span.html"
-                        title="next chapter">SVGTextSpan クラス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_graphics_clear.html"
+                          title="previous chapter">Graphics クラスの clear インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_svg_text_span.html"
+                          title="next chapter">SVGTextSpan クラス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -903,7 +908,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -926,7 +931,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

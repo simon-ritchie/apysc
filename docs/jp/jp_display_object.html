@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>DisplayObject クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/display_object.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="displayobject">
-<h1>DisplayObject クラス<a class="headerlink" href="#displayobject" title="Permalink to this headline">¶</a></h1>
+<h1>DisplayObject クラス<a class="headerlink" href="#displayobject" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスについて説明します。</p>
 <section id="id1">
-<h2>DisplayObject クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>DisplayObject クラスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>や<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などのapyscの表示オブジェクトの基底クラスとなります。</p>
 <p>各インスタンスが<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を継承していることを<code class="docutils literal notranslate"><span class="pre">isinstance</span></code>関数を使って確認することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -74,12 +73,12 @@
 <p><code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">x</span></code>や<code class="docutils literal notranslate"><span class="pre">y</span></code>、<code class="docutils literal notranslate"><span class="pre">visible</span></code>属性、各マウスイベントの設定などの基本的なインターフェイスを持っています。以下のページではそれぞれのインターフェイスについて1つ1つ詳しく触れています。</p>
 </section>
 <section id="id2">
-<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_display_object_x_and_y.html"><span class="doc std std-doc">DisplayObject クラスの x と y インターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_display_object_parent.html"><span class="doc std std-doc">DisplayObjectクラス parent （親要素属性）のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_display_object_visible.html"><span class="doc std std-doc">DisplayObject クラスの visible (表示・非表示) のインターフェイス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_display_object_mouse_event.html"><span class="doc std std-doc">DisplayObject クラスのマウスイベント設定の各インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_x_and_y.html"><span class="std std-doc">DisplayObject クラスの x と y インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_parent.html"><span class="std std-doc">DisplayObjectクラス parent （親要素属性）のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_visible.html"><span class="std std-doc">DisplayObject クラスの visible (表示・非表示) のインターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_display_object_mouse_event.html"><span class="std std-doc">DisplayObject クラスのマウスイベント設定の各インターフェイス</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -94,8 +93,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">DisplayObject クラス</a><ul>
 <li><a class="reference internal" href="#id1">DisplayObject クラスの概要</a></li>
 <li><a class="reference internal" href="#id2">関連資料</a></li>
@@ -103,12 +103,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_dictionary_length.html"
-                        title="previous chapter">Dictionary クラスの length インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_display_object_and_graphics_base_prop_abstract.html"
-                        title="next chapter">DisplayObject と GraphicsBase クラスの基本的な属性の概要</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_dictionary_length.html"
+                          title="previous chapter">Dictionary クラスの length インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_display_object_and_graphics_base_prop_abstract.html"
+                          title="next chapter">DisplayObject と GraphicsBase クラスの基本的な属性の概要</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -118,7 +123,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -141,7 +146,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

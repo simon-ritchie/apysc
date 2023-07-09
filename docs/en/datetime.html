@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>DateTime class &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
           <div class="body" role="main">
             
   <section id="datetime-class">
-<h1>DateTime class<a class="headerlink" href="#datetime-class" title="Permalink to this headline">¶</a></h1>
+<h1>DateTime class<a class="headerlink" href="#datetime-class" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> class.</p>
 <section id="what-class-is-this">
-<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> class is a class to handle each date- and time-related interface.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The constructor requires the <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code> arguments, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -86,23 +85,23 @@
 <p>Notes: the <code class="docutils literal notranslate"><span class="pre">weekday_py</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday_js</span></code> properties only have a getter interface.</p>
 <p>For more information about the other properties, please see the followings:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="datetime_year.html"><span class="doc std std-doc">DateTime class year property</span></a></p></li>
-<li><p><a class="reference internal" href="datetime_month.html"><span class="doc std std-doc">DateTime class month property</span></a></p></li>
-<li><p><a class="reference internal" href="datetime_day.html"><span class="doc std std-doc">DateTime class day property</span></a></p></li>
-<li><p><a class="reference internal" href="datetime_hour.html"><span class="doc std std-doc">DateTime class hour property</span></a></p></li>
-<li><p><a class="reference internal" href="datetime_minute.html"><span class="doc std std-doc">DateTime class minute property</span></a></p></li>
-<li><p><a class="reference internal" href="datetime_second.html"><span class="doc std std-doc">DateTime class second property</span></a></p></li>
-<li><p><a class="reference internal" href="datetime_millisecond.html"><span class="doc std std-doc">DateTime class millisecond property</span></a></p></li>
-<li><p><a class="reference internal" href="datetime_weekday_js_and_weekday_py.html"><span class="doc std std-doc">DateTime class weekday_js and weekday_py properties</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_year.html"><span class="std std-doc">DateTime class year property</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_month.html"><span class="std std-doc">DateTime class month property</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_day.html"><span class="std std-doc">DateTime class day property</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_hour.html"><span class="std std-doc">DateTime class hour property</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_minute.html"><span class="std std-doc">DateTime class minute property</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_second.html"><span class="std std-doc">DateTime class second property</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_millisecond.html"><span class="std std-doc">DateTime class millisecond property</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_weekday_js_and_weekday_py.html"><span class="std std-doc">DateTime class weekday_js and weekday_py properties</span></a></p></li>
 </ul>
 <p>Also, the <code class="docutils literal notranslate"><span class="pre">DateTime</span></code> class has each method interface, such as the <code class="docutils literal notranslate"><span class="pre">now</span></code> class method.</p>
 <p>For more information about the methods interfaces, please see the following:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="datetime_now.html"><span class="doc std std-doc">DateTime class now interface</span></a></p></li>
+<li><p><a class="reference internal" href="datetime_now.html"><span class="std std-doc">DateTime class now interface</span></a></p></li>
 </ul>
 </section>
 <section id="datetime-class-constructor-api">
-<h2>DateTime class constructor API<a class="headerlink" href="#datetime-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<h2>DateTime class constructor API<a class="headerlink" href="#datetime-class-constructor-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._time.datetime_.DateTime.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">year:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">month:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">day:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">hour:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">minute:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">second:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">millisecond:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -219,8 +218,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">DateTime class</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -229,12 +229,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="unbind_enter_frame_and_unbind_enter_frame_all.html"
-                        title="previous chapter">unbind_enter_frame and unbind_enter_frame_all interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="datetime_year.html"
-                        title="next chapter">DateTime class year property</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="unbind_enter_frame_and_unbind_enter_frame_all.html"
+                          title="previous chapter">unbind_enter_frame and unbind_enter_frame_all interfaces</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="datetime_year.html"
+                          title="next chapter">DateTime class year property</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -244,7 +249,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -267,7 +272,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

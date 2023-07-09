@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Basic mouse event interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
           <div class="body" role="main">
             
   <section id="basic-mouse-event-interfaces">
-<h1>Basic mouse event interfaces<a class="headerlink" href="#basic-mouse-event-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>Basic mouse event interfaces<a class="headerlink" href="#basic-mouse-event-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the basic mouse event interfaces, like the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute.</p>
 <section id="basic-binding-usage">
-<h2>Basic binding usage<a class="headerlink" href="#basic-binding-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic binding usage<a class="headerlink" href="#basic-binding-usage" title="Permalink to this heading">¶</a></h2>
 <p>Each mouse event binding interface accepts <code class="docutils literal notranslate"><span class="pre">handler</span></code> and <code class="docutils literal notranslate"><span class="pre">options</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">handler</span></code> argument is each interface’s callable object when event dispatching.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">options</span></code> argument is an optional parameter dictionary to be passed to the handler. You can skip this argument.</p>
 <p>For instance, you can set the <code class="docutils literal notranslate"><span class="pre">click</span></code> event as follows:</p>
@@ -101,7 +100,7 @@
 <p>There are many mouse events binding interfaces, such as the <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">mousedown</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseup</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseover</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseout</span></code>, and <code class="docutils literal notranslate"><span class="pre">mousemove</span></code> that the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has.</p>
 </section>
 <section id="basic-unbinding-usage">
-<h2>Basic unbinding usage<a class="headerlink" href="#basic-unbinding-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic unbinding usage<a class="headerlink" href="#basic-unbinding-usage" title="Permalink to this heading">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;</span></code> interfaces, for example, <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> or <code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code> or something else.</p>
 <p>These interfaces can unbind the single handler setting (remove binding setting).</p>
 <p>For example, the following code unbinds the click event, so the interface doesn’t call the handler function.</p>
@@ -152,7 +151,7 @@
 <iframe src="static/mouse_event_basic_basic_unbinding_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="unbind-all-event-handlers">
-<h2>Unbind all event handlers<a class="headerlink" href="#unbind-all-event-handlers" title="Permalink to this headline">¶</a></h2>
+<h2>Unbind all event handlers<a class="headerlink" href="#unbind-all-event-handlers" title="Permalink to this heading">¶</a></h2>
 <p>Sometimes, it is helpful to unbind specific all the events at once. For example, each event interface has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code> method (e.g., <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>). It can unbind all event handlers from that instance.</p>
 <p>The following code calls the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method and removes all handler settings.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -217,16 +216,16 @@
 <iframe src="static/mouse_event_basic_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
 </section>
 <section id="handler-argument-names-and-types">
-<h2>Handler argument names and types<a class="headerlink" href="#handler-argument-names-and-types" title="Permalink to this headline">¶</a></h2>
+<h2>Handler argument names and types<a class="headerlink" href="#handler-argument-names-and-types" title="Permalink to this heading">¶</a></h2>
 <p>Handler function (or method) first argument requires the type of the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>.</p>
 <p>Also, a second argument name is required to be <code class="docutils literal notranslate"><span class="pre">options</span></code>. This argument type becomes <code class="docutils literal notranslate"><span class="pre">dict</span></code>. If you skip options argument specification at binding the event, then this argument becomes a blank dictionary (<code class="docutils literal notranslate"><span class="pre">{}</span></code>).</p>
 </section>
 <section id="mouseevent-this-attribute">
-<h2>MouseEvent this attribute<a class="headerlink" href="#mouseevent-this-attribute" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent this attribute<a class="headerlink" href="#mouseevent-this-attribute" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute, which becomes an event target instance. So, if you bind the click event to the rectangle instance, the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute becomes that rectangle instance.</p>
 </section>
 <section id="mouseevent-generic-type-settings">
-<h2>MouseEvent generic type settings<a class="headerlink" href="#mouseevent-generic-type-settings" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent generic type settings<a class="headerlink" href="#mouseevent-generic-type-settings" title="Permalink to this heading">¶</a></h2>
 <p>Suppose you know that you only use one of the handlers by an instance of a particular type. In that case, you can set generic type settings to the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> type annotation (e.g., <code class="docutils literal notranslate"><span class="pre">MouseEvent[Rectangle]</span></code>).</p>
 <p>This setting is helpful to determine the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute type, and the type-checking library, such as the <code class="docutils literal notranslate"><span class="pre">mypy</span></code> or <code class="docutils literal notranslate"><span class="pre">Pylance</span></code>, checks the instance type.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -261,7 +260,7 @@
 </div>
 </section>
 <section id="mouseevent-stage-x-and-stage-y-attributes">
-<h2>MouseEvent stage_x and stage_y attributes<a class="headerlink" href="#mouseevent-stage-x-and-stage-y-attributes" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent stage_x and stage_y attributes<a class="headerlink" href="#mouseevent-stage-x-and-stage-y-attributes" title="Permalink to this heading">¶</a></h2>
 <p>MouseEvent instance has the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> attributes. These attributes are absolute coordinates from the upper-left position of the stage.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -298,7 +297,7 @@
 <iframe src="static/mouse_event_basic_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>
 </section>
 <section id="mouseevent-local-x-and-local-y-attributes">
-<h2>MouseEvent local_x and local_y attributes<a class="headerlink" href="#mouseevent-local-x-and-local-y-attributes" title="Permalink to this headline">¶</a></h2>
+<h2>MouseEvent local_x and local_y attributes<a class="headerlink" href="#mouseevent-local-x-and-local-y-attributes" title="Permalink to this heading">¶</a></h2>
 <p>MouseEvent instance also has <code class="docutils literal notranslate"><span class="pre">local_x</span></code> and <code class="docutils literal notranslate"><span class="pre">local_y</span></code> attributes. These attributes are the local coordinates from the event registered instance position.</p>
 <p>The following example shows that local_x and local_y become the coordinates in the rectangle area. Both of the <code class="docutils literal notranslate"><span class="pre">local_x</span></code> and <code class="docutils literal notranslate"><span class="pre">local_y</span></code> become a range of 0 to 50 because the rectangle size is 50-pixel.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -336,16 +335,16 @@
 <iframe src="static/mouse_event_basic_local_x_and_local_y/index.html" width="150" height="150"></iframe>
 </section>
 <section id="see-also">
-<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="click.html"><span class="doc std std-doc">click interface</span></a></p></li>
-<li><p><a class="reference internal" href="mousedown_and_mouseup.html"><span class="doc std std-doc">mousedown and mouseup interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mouseover_and_mouseout.html"><span class="doc std std-doc">mouseover and mouseout interfaces</span></a></p></li>
-<li><p><a class="reference internal" href="mousemove.html"><span class="doc std std-doc">mousemove interface</span></a></p></li>
+<li><p><a class="reference internal" href="click.html"><span class="std std-doc">click interface</span></a></p></li>
+<li><p><a class="reference internal" href="mousedown_and_mouseup.html"><span class="std std-doc">mousedown and mouseup interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="mouseover_and_mouseout.html"><span class="std std-doc">mouseover and mouseout interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="mousemove.html"><span class="std std-doc">mousemove interface</span></a></p></li>
 </ul>
 </section>
 <section id="stage-x-property-api">
-<h2>stage_x property API<a class="headerlink" href="#stage-x-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>stage_x property API<a class="headerlink" href="#stage-x-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_x -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -375,7 +374,7 @@
 </div>
 </section>
 <section id="stage-y-property-api">
-<h2>stage_y property API<a class="headerlink" href="#stage-y-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>stage_y property API<a class="headerlink" href="#stage-y-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_y -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -405,7 +404,7 @@
 </div>
 </section>
 <section id="local-x-property-api">
-<h2>local_x property API<a class="headerlink" href="#local-x-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>local_x property API<a class="headerlink" href="#local-x-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_event.MouseEvent.local_x -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -435,7 +434,7 @@
 </div>
 </section>
 <section id="local-y-property-api">
-<h2>local_y property API<a class="headerlink" href="#local-y-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>local_y property API<a class="headerlink" href="#local-y-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_event.MouseEvent.local_y -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -465,7 +464,7 @@
 </div>
 </section>
 <section id="this-property-api">
-<h2>this property API<a class="headerlink" href="#this-property-api" title="Permalink to this headline">¶</a></h2>
+<h2>this property API<a class="headerlink" href="#this-property-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._event.event.Event.this -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
@@ -511,8 +510,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Basic mouse event interfaces</a><ul>
 <li><a class="reference internal" href="#basic-binding-usage">Basic binding usage</a></li>
 <li><a class="reference internal" href="#basic-unbinding-usage">Basic unbinding usage</a></li>
@@ -532,12 +532,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="mouse_event_abstract.html"
-                        title="previous chapter">MouseEvent interfaces abstract</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="click.html"
-                        title="next chapter">click interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="mouse_event_abstract.html"
+                          title="previous chapter">MouseEvent interfaces abstract</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="click.html"
+                          title="next chapter">click interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -547,7 +552,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -570,7 +575,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

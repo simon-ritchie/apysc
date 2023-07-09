@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Path class &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
           <div class="body" role="main">
             
   <section id="path-class">
-<h1>Path class<a class="headerlink" href="#path-class" title="Permalink to this headline">¶</a></h1>
+<h1>Path class<a class="headerlink" href="#path-class" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Path</span></code> class.</p>
 <section id="what-class-is-this">
-<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Path</span></code> class creates a path vector graphics object.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Path</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">path_data_list</span></code> argument.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">path_data_list</span></code> argument is a list of each path setting, such as the <code class="docutils literal notranslate"><span class="pre">PathLineTo</span></code> or <code class="docutils literal notranslate"><span class="pre">PathBezier2D</span></code>.</p>
 <p>The constructor also accepts each style’s argument, such as the <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> and <code class="docutils literal notranslate"><span class="pre">line_color</span></code>.</p>
@@ -80,88 +79,88 @@
 <iframe src="static/path_basic_usage/index.html" width="200" height="100"></iframe>
 </section>
 <section id="pathmoveto-class-setting">
-<h2>PathMoveTo class setting<a class="headerlink" href="#pathmoveto-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathMoveTo class setting<a class="headerlink" href="#pathmoveto-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathMoveTo</span></code> class is the class to set a new position on a path.</p>
 <iframe src="static/path_move_to_basic_usage/index.html" width="200" height="100"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_move_to.html"><span class="doc std std-doc">PathMoveTo class</span></a></p></li>
+<li><p><a class="reference internal" href="path_move_to.html"><span class="std std-doc">PathMoveTo class</span></a></p></li>
 </ul>
 </section>
 <section id="pathlineto-class-setting">
-<h2>PathLineTo class setting<a class="headerlink" href="#pathlineto-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathLineTo class setting<a class="headerlink" href="#pathlineto-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathLineTo</span></code> class is the class to set a new line from the current position on a path.</p>
 <iframe src="static/path_line_to_basic_usage/index.html" width="200" height="100"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_line_to.html"><span class="doc std std-doc">PathLineTo class</span></a></p></li>
+<li><p><a class="reference internal" href="path_line_to.html"><span class="std std-doc">PathLineTo class</span></a></p></li>
 </ul>
 </section>
 <section id="pathhorizontal-class-setting">
-<h2>PathHorizontal class setting<a class="headerlink" href="#pathhorizontal-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathHorizontal class setting<a class="headerlink" href="#pathhorizontal-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathHorizontal</span></code> class is the class to set a new horizontal line on a path.</p>
 <iframe src="static/path_horizontal_basic_usage/index.html" width="200" height="100"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_horizontal.html"><span class="doc std std-doc">PathHorizontal class</span></a></p></li>
+<li><p><a class="reference internal" href="path_horizontal.html"><span class="std std-doc">PathHorizontal class</span></a></p></li>
 </ul>
 </section>
 <section id="pathvertical-class-setting">
-<h2>PathVertical class setting<a class="headerlink" href="#pathvertical-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathVertical class setting<a class="headerlink" href="#pathvertical-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathVertical</span></code> class is the class to set a new vertical line on a path.</p>
 <iframe src="static/path_vertical_basic_usage/index.html" width="100" height="200"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_vertical.html"><span class="doc std std-doc">PathVertical class</span></a></p></li>
+<li><p><a class="reference internal" href="path_vertical.html"><span class="std std-doc">PathVertical class</span></a></p></li>
 </ul>
 </section>
 <section id="pathclose-class-setting">
-<h2>PathClose class setting<a class="headerlink" href="#pathclose-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathClose class setting<a class="headerlink" href="#pathclose-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathClose</span></code> class is the class to close a path.</p>
 <iframe src="static/path_close_basic_usage/index.html" width="250" height="150"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_close.html"><span class="doc std std-doc">PathClose class</span></a></p></li>
+<li><p><a class="reference internal" href="path_close.html"><span class="std std-doc">PathClose class</span></a></p></li>
 </ul>
 </section>
 <section id="pathbezier2d-class-setting">
-<h2>PathBezier2D class setting<a class="headerlink" href="#pathbezier2d-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathBezier2D class setting<a class="headerlink" href="#pathbezier2d-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathBezier2D</span></code> class is the class to set a 2D bezier curve on a path.</p>
 <iframe src="static/path_bezier_2d_basic_usage_1/index.html" width="200" height="150"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_bezier_2d.html"><span class="doc std std-doc">PathBezier2D class</span></a></p></li>
+<li><p><a class="reference internal" href="path_bezier_2d.html"><span class="std std-doc">PathBezier2D class</span></a></p></li>
 </ul>
 </section>
 <section id="pathbezier2dcontinual-class-setting">
-<h2>PathBezier2DContinual class setting<a class="headerlink" href="#pathbezier2dcontinual-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathBezier2DContinual class setting<a class="headerlink" href="#pathbezier2dcontinual-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathBezier2DContinual</span></code> class is the class to set a continual 2D bezier curve on a path.</p>
 <iframe src="static/path_bezier_2d_continual_basic_usage/index.html" width="400" height="200"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_bezier_2d_continual.html"><span class="doc std std-doc">PathBezier2DContinual class</span></a></p></li>
+<li><p><a class="reference internal" href="path_bezier_2d_continual.html"><span class="std std-doc">PathBezier2DContinual class</span></a></p></li>
 </ul>
 </section>
 <section id="pathbezier3d-class-setting">
-<h2>PathBezier3D class setting<a class="headerlink" href="#pathbezier3d-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathBezier3D class setting<a class="headerlink" href="#pathbezier3d-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathBezier3D</span></code> class is the class to set a 3D bezier curve on a path.</p>
 <iframe src="static/path_bezier_3d_basic_usage_1/index.html" width="250" height="270"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_bezier_3d.html"><span class="doc std std-doc">PathBezier3D class</span></a></p></li>
+<li><p><a class="reference internal" href="path_bezier_3d.html"><span class="std std-doc">PathBezier3D class</span></a></p></li>
 </ul>
 </section>
 <section id="pathbezier3dcontinual-class-setting">
-<h2>PathBezier3DContinual class setting<a class="headerlink" href="#pathbezier3dcontinual-class-setting" title="Permalink to this headline">¶</a></h2>
+<h2>PathBezier3DContinual class setting<a class="headerlink" href="#pathbezier3dcontinual-class-setting" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">PathBezier3DContinual</span></code> class is the class to set a continual 3D bezier curve on a path.</p>
 <iframe src="static/path_bezier_3d_continual_basic_usage_1/index.html" width="400" height="420"></iframe>
 <p>For more information, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="path_bezier_3d_continual.html"><span class="doc std std-doc">PathBezier3DContinual class</span></a></p></li>
+<li><p><a class="reference internal" href="path_bezier_3d_continual.html"><span class="std std-doc">PathBezier3DContinual class</span></a></p></li>
 </ul>
 </section>
 <section id="x-property-interface-example">
-<h2>x property interface example<a class="headerlink" href="#x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>x property interface example<a class="headerlink" href="#x-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> property updates or gets the instance’s x-coordinate:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -188,7 +187,7 @@
 <iframe src="static/path_x/index.html" width="150" height="100"></iframe>
 </section>
 <section id="y-property-interface-example">
-<h2>y property interface example<a class="headerlink" href="#y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>y property interface example<a class="headerlink" href="#y-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">y</span></code> property updates or gets the instance’s y-coordinate:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -215,7 +214,7 @@
 <iframe src="static/path_y/index.html" width="100" height="150"></iframe>
 </section>
 <section id="fill-color-property-interface-example">
-<h2>fill_color property interface example<a class="headerlink" href="#fill-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>fill_color property interface example<a class="headerlink" href="#fill-color-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> property updates or gets the instance’s fill color:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -240,7 +239,7 @@
 <iframe src="static/path_fill_color/index.html" width="150" height="150"></iframe>
 </section>
 <section id="fill-alpha-property-interface-example">
-<h2>fill_alpha property interface example<a class="headerlink" href="#fill-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>fill_alpha property interface example<a class="headerlink" href="#fill-alpha-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code> property updates or gets the instance’s fill alpha (opacity):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -267,7 +266,7 @@
 <iframe src="static/path_fill_alpha/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-color-property-interface-example">
-<h2>line_color property interface example<a class="headerlink" href="#line-color-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_color property interface example<a class="headerlink" href="#line-color-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property updates or gets the instance’s line color:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -294,7 +293,7 @@
 <iframe src="static/path_line_color/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-alpha-property-interface-example">
-<h2>line_alpha property interface example<a class="headerlink" href="#line-alpha-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_alpha property interface example<a class="headerlink" href="#line-alpha-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_alpha</span></code> property updates or gets the instance’s line alpha (opacity):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -322,7 +321,7 @@
 <iframe src="static/path_line_alpha/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-thickness-property-interface-example">
-<h2>line_thickness property interface example<a class="headerlink" href="#line-thickness-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_thickness property interface example<a class="headerlink" href="#line-thickness-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_thickness</span></code> property updates or gets the instance’s line thickness (line width):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -349,7 +348,7 @@
 <iframe src="static/path_line_thickness/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-dot-setting-property-interface-example">
-<h2>line_dot_setting property interface example<a class="headerlink" href="#line-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_dot_setting property interface example<a class="headerlink" href="#line-dot-setting-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code> property updates or gets the instance’s line dot-style setting:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -377,7 +376,7 @@
 <iframe src="static/path_line_dot_setting/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-dash-setting-property-interface-example">
-<h2>line_dash_setting property interface example<a class="headerlink" href="#line-dash-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_dash_setting property interface example<a class="headerlink" href="#line-dash-setting-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code> property updates or gets the instance’s line dash-style setting:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -405,7 +404,7 @@
 <iframe src="static/path_line_dash_setting/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-round-dot-setting-property-interface-example">
-<h2>line_round_dot_setting property interface example<a class="headerlink" href="#line-round-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_round_dot_setting property interface example<a class="headerlink" href="#line-round-dot-setting-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code> property updates or gets the instance’s line-round dot-style setting:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -432,7 +431,7 @@
 <iframe src="static/path_line_round_dot_setting/index.html" width="150" height="150"></iframe>
 </section>
 <section id="line-dash-dot-setting-property-interface-example">
-<h2>line_dash_dot_setting property interface example<a class="headerlink" href="#line-dash-dot-setting-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>line_dash_dot_setting property interface example<a class="headerlink" href="#line-dash-dot-setting-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code> property updates or gets the instance’s dash-dotted line style setting:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -464,7 +463,7 @@
 <iframe src="static/path_line_dash_dot_setting/index.html" width="150" height="150"></iframe>
 </section>
 <section id="rotation-around-center-property-interface-example">
-<h2>rotation_around_center property interface example<a class="headerlink" href="#rotation-around-center-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>rotation_around_center property interface example<a class="headerlink" href="#rotation-around-center-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property updates or gets the instance’s rotation value (0 to 359) from the center point:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -507,7 +506,7 @@
 <iframe src="static/path_rotation_around_center/index.html" width="150" height="150"></iframe>
 </section>
 <section id="set-rotation-around-point-and-get-rotation-around-point-methods-interface-example">
-<h2>set_rotation_around_point and get_rotation_around_point methods interface example<a class="headerlink" href="#set-rotation-around-point-and-get-rotation-around-point-methods-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>set_rotation_around_point and get_rotation_around_point methods interface example<a class="headerlink" href="#set-rotation-around-point-and-get-rotation-around-point-methods-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method updates the instance’s rotation value (0 to 359) from a specified point.</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method gets the instance’s rotation value (0 to 359) from a specified point:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -554,7 +553,7 @@
 <iframe src="static/path_rotation_around_point/index.html" width="150" height="150"></iframe>
 </section>
 <section id="scale-x-from-center-property-interface-example">
-<h2>scale_x_from_center property interface example<a class="headerlink" href="#scale-x-from-center-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>scale_x_from_center property interface example<a class="headerlink" href="#scale-x-from-center-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> property updates or gets the instance’s scale-x from the center point:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -603,7 +602,7 @@
 <iframe src="static/path_scale_x_from_center/index.html" width="150" height="150"></iframe>
 </section>
 <section id="scale-y-from-center-property-interface-example">
-<h2>scale_y_from_center property interface example<a class="headerlink" href="#scale-y-from-center-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>scale_y_from_center property interface example<a class="headerlink" href="#scale-y-from-center-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> property updates or gets the instance’s scale-y from the center point:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -652,7 +651,7 @@
 <iframe src="static/path_scale_y_from_center/index.html" width="150" height="150"></iframe>
 </section>
 <section id="set-scale-x-from-point-and-get-scale-x-from-point-methods-interface-example">
-<h2>set_scale_x_from_point and get_scale_x_from_point methods interface example<a class="headerlink" href="#set-scale-x-from-point-and-get-scale-x-from-point-methods-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>set_scale_x_from_point and get_scale_x_from_point methods interface example<a class="headerlink" href="#set-scale-x-from-point-and-get-scale-x-from-point-methods-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> method updates the instance’s scale-x from a specified point.</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> method gets the instance’s scale-x from a specified point:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -704,7 +703,7 @@
 <iframe src="static/path_scale_x_from_point/index.html" width="150" height="150"></iframe>
 </section>
 <section id="set-scale-y-from-point-and-get-scale-y-from-point-methods-interface-example">
-<h2>set_scale_y_from_point and get_scale_y_from_point methods interface example<a class="headerlink" href="#set-scale-y-from-point-and-get-scale-y-from-point-methods-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>set_scale_y_from_point and get_scale_y_from_point methods interface example<a class="headerlink" href="#set-scale-y-from-point-and-get-scale-y-from-point-methods-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method updates the instance’s scale-y from a specified point.</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> method gets the instance’s scale-y from a specified point:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -756,7 +755,7 @@
 <iframe src="static/path_scale_y_from_point/index.html" width="150" height="150"></iframe>
 </section>
 <section id="flip-x-property-interface-example">
-<h2>flip_x property interface example<a class="headerlink" href="#flip-x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>flip_x property interface example<a class="headerlink" href="#flip-x-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> property updates or gets the instance’s flip-x (reflecting state) boolean value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -799,7 +798,7 @@
 <iframe src="static/path_flip_x/index.html" width="150" height="150"></iframe>
 </section>
 <section id="flip-y-property-interface-example">
-<h2>flip_y property interface example<a class="headerlink" href="#flip-y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>flip_y property interface example<a class="headerlink" href="#flip-y-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property updates or gets the instance’s flip-y (reflecting state) boolean value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -842,7 +841,7 @@
 <iframe src="static/path_flip_y/index.html" width="150" height="150"></iframe>
 </section>
 <section id="skew-x-property-interface-example">
-<h2>skew_x property interface example<a class="headerlink" href="#skew-x-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>skew_x property interface example<a class="headerlink" href="#skew-x-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">skew_x</span></code> property updates or gets the instance’s skew-x (distortion) value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -885,7 +884,7 @@
 <iframe src="static/path_skew_x/index.html" width="150" height="150"></iframe>
 </section>
 <section id="skew-y-property-interface-example">
-<h2>skew_y property interface example<a class="headerlink" href="#skew-y-property-interface-example" title="Permalink to this headline">¶</a></h2>
+<h2>skew_y property interface example<a class="headerlink" href="#skew-y-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">skew_y</span></code> property updates or gets the instance’s skew-y (distortion) value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -928,7 +927,7 @@
 <iframe src="static/path_skew_y/index.html" width="150" height="150"></iframe>
 </section>
 <section id="path-class-constructor-api">
-<h2>Path class constructor API<a class="headerlink" href="#path-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<h2>Path class constructor API<a class="headerlink" href="#path-class-constructor-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.path.Path.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">path_data_list:</span> <span class="pre">List[apysc._geom.path_data_base.PathDataBase],</span> <span class="pre">fill_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String]</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">line_cap:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_caps.LineCaps,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_joints:</span> <span class="pre">Union[apysc._type.string.String,</span> <span class="pre">apysc._display.line_joints.LineJoints,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dot_setting:</span> <span class="pre">Union[apysc._display.line_dot_setting.LineDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_setting:</span> <span class="pre">Union[apysc._display.line_dash_setting.LineDashSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_round_dot_setting:</span> <span class="pre">Union[apysc._display.line_round_dot_setting.LineRoundDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_dash_dot_setting:</span> <span class="pre">Union[apysc._display.line_dash_dot_setting.LineDashDotSetting,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -1053,8 +1052,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Path class</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -1093,12 +1093,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="polygon.html"
-                        title="previous chapter">Polygon class</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="draw_interfaces_abstract.html"
-                        title="next chapter">Draw interfaces abstract</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="polygon.html"
+                          title="previous chapter">Polygon class</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="draw_interfaces_abstract.html"
+                          title="next chapter">Draw interfaces abstract</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -1108,7 +1113,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1131,7 +1136,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

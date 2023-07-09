@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>JavaScript assertion interface basic behaviors &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +47,15 @@
           <div class="body" role="main">
             
   <section id="javascript-assertion-interface-basic-behaviors">
-<h1>JavaScript assertion interface basic behaviors<a class="headerlink" href="#javascript-assertion-interface-basic-behaviors" title="Permalink to this headline">¶</a></h1>
+<h1>JavaScript assertion interface basic behaviors<a class="headerlink" href="#javascript-assertion-interface-basic-behaviors" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the JavaScript assertion interface basic behavior.</p>
 <section id="interface-names">
-<h2>Interface names<a class="headerlink" href="#interface-names" title="Permalink to this headline">¶</a></h2>
+<h2>Interface names<a class="headerlink" href="#interface-names" title="Permalink to this heading">¶</a></h2>
 <p>Each JavaScript assertion interface has the prefix of the <code class="docutils literal notranslate"><span class="pre">assert_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code>, <code class="docutils literal notranslate"><span class="pre">assert_true</span></code>, and so on).</p>
 <p>These interfaces are positioned in the root package so you can use them, for example, <code class="docutils literal notranslate"><span class="pre">ap.assert_equal(...)</span></code>.</p>
 </section>
 <section id="assertion-results">
-<h2>Assertion results<a class="headerlink" href="#assertion-results" title="Permalink to this headline">¶</a></h2>
+<h2>Assertion results<a class="headerlink" href="#assertion-results" title="Permalink to this heading">¶</a></h2>
 <p>These interfaces display the results on the browser console, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -99,7 +98,7 @@
 <iframe src="static/assertion_basic_behavior_results_failed/index.html" width="0" height="0"></iframe>
 </section>
 <section id="optional-msg-argument">
-<h2>Optional msg argument<a class="headerlink" href="#optional-msg-argument" title="Permalink to this headline">¶</a></h2>
+<h2>Optional msg argument<a class="headerlink" href="#optional-msg-argument" title="Permalink to this heading">¶</a></h2>
 <p>Each assertion interface has the <code class="docutils literal notranslate"><span class="pre">msg</span></code> optional argument. If you provide this argument, the error message is displayed on the browser console when an assertion fails.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -119,7 +118,8 @@ Left value: 11 right value: 10
 Assertion failed: Values are not equal!
 </pre></div>
 </div>
-<iframe src="static/assertion_basic_behavior_msg/index.html" width="0" height="0"></iframe></section>
+<iframe src="static/assertion_basic_behavior_msg/index.html" width="0" height="0"></iframe>
+</section>
 </section>
 
 
@@ -132,8 +132,9 @@ Assertion failed: Values are not equal!
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">JavaScript assertion interface basic behaviors</a><ul>
 <li><a class="reference internal" href="#interface-names">Interface names</a></li>
 <li><a class="reference internal" href="#assertion-results">Assertion results</a></li>
@@ -142,12 +143,17 @@ Assertion failed: Values are not equal!
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="variable_name_suffix.html"
-                        title="previous chapter">variable_name_suffix argument setting</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="assert_equal_and_not_equal.html"
-                        title="next chapter">assert_equal and assert_not_equal interfaces</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="variable_name_suffix.html"
+                          title="previous chapter">variable_name_suffix argument setting</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="assert_equal_and_not_equal.html"
+                          title="next chapter">assert_equal and assert_not_equal interfaces</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -157,7 +163,7 @@ Assertion failed: Values are not equal!
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -180,7 +186,7 @@ Assertion failed: Values are not equal!
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

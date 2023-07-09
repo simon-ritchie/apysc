@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GraphicsBase クラスの rotation_around_point インターフェイス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,15 +47,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_point.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="graphicsbase-rotation-around-point">
-<h1>GraphicsBase クラスの rotation_around_point インターフェイス<a class="headerlink" href="#graphicsbase-rotation-around-point" title="Permalink to this headline">¶</a></h1>
+<h1>GraphicsBase クラスの rotation_around_point インターフェイス<a class="headerlink" href="#graphicsbase-rotation-around-point" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code>クラス（<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>などの各グラフィックスクラスの基底クラス）の<code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code>と<code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code>の各メソッドのインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>各インターフェイスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code>メソッドは指定された座標基準の回転量を取得し、<code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code>メソッドは指定された座標を基準とした回転量を更新します。</p>
 <p>これらの回転量は相対値であり、各回転量は座標ごとに異なる値が保持されます。例えばx=50, y=50の座標とx=100, y=100の座標の回転量の値はそれぞれ別の値になります。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>の引数の指定を必要とし、指定された座標での回転量を返却します。<code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>、そして<code class="docutils literal notranslate"><span class="pre">rotation</span></code>の引数の指定を必要とします。全ての引数と返却値は<code class="docutils literal notranslate"><span class="pre">Int</span></code>型になります。</p>
 <p>以下の例では二つの四角を作成し、各四角をタイマーのハンドラ内で回転させています。1つ目の四角は左上の座標（<code class="docutils literal notranslate"><span class="pre">x=50,</span> <span class="pre">y=50</span></code>）で回転させていて、2つ目の四角は右下の座標（<code class="docutils literal notranslate"><span class="pre">x=100,</span> <span class="pre">y=100</span></code>）で回転させています。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -115,7 +114,7 @@
 <iframe src="static/graphics_base_rotation_around_point_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="get-rotation-around-point-api">
-<h2>get_rotation_around_point API<a class="headerlink" href="#get-rotation-around-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>get_rotation_around_point API<a class="headerlink" href="#get-rotation-around-point-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.int.Int</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -160,7 +159,7 @@
 </div>
 </section>
 <section id="set-rotation-around-point-api">
-<h2>set_rotation_around_point API<a class="headerlink" href="#set-rotation-around-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>set_rotation_around_point API<a class="headerlink" href="#set-rotation-around-point-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point(self,</span> <span class="pre">*,</span> <span class="pre">rotation:</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -196,8 +195,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">GraphicsBase クラスの rotation_around_point インターフェイス</a><ul>
 <li><a class="reference internal" href="#id1">各インターフェイスの概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -207,12 +207,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_graphics_base_rotation_around_center.html"
-                        title="previous chapter">GraphicsBase クラスの rotation_around_center インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_graphics_base_scale_from_center.html"
-                        title="next chapter">GraphicsBase クラスの scale_x_from_center と scale_y_from_center インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_graphics_base_rotation_around_center.html"
+                          title="previous chapter">GraphicsBase クラスの rotation_around_center インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_graphics_base_scale_from_center.html"
+                          title="next chapter">GraphicsBase クラスの scale_x_from_center と scale_y_from_center インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -222,7 +227,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -245,7 +250,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

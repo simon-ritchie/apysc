@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GraphicsBase get_scale_from_point and set_scale_from_point interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,17 +47,17 @@
           <div class="body" role="main">
             
   <section id="graphicsbase-get-scale-from-point-and-set-scale-from-point-interfaces">
-<h1>GraphicsBase get_scale_from_point and set_scale_from_point interfaces<a class="headerlink" href="#graphicsbase-get-scale-from-point-and-set-scale-from-point-interfaces" title="Permalink to this headline">¶</a></h1>
+<h1>GraphicsBase get_scale_from_point and set_scale_from_point interfaces<a class="headerlink" href="#graphicsbase-get-scale-from-point-and-set-scale-from-point-interfaces" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphic, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code>, <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code>, <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code>, and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
-<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> method changes the object’s horizontal scale from a given x-coordinate. Similarly, the <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method changes the object’s vertical scale from a given y-coordinate.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> interfaces are property, but the <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> interfaces are methods since these interfaces require a coodinate argument.</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> methods will return the current scale from a given point. These interfaces also require a coordinate argument.</p>
 <p>Return value is set for each coordinate. For example, if you set the scale-x value at the 50px x-coordinate, 100px x-coordinate scale will not be affected.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> method requires the <code class="docutils literal notranslate"><span class="pre">x</span></code> argument (<code class="docutils literal notranslate"><span class="pre">Int</span></code> value), and the <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> requires the <code class="docutils literal notranslate"><span class="pre">scale_x</span></code> (<code class="docutils literal notranslate"><span class="pre">Number</span></code> value) and <code class="docutils literal notranslate"><span class="pre">x</span></code> arguments.</p>
 <p>The following example creates three rectangles and increments (or decrements) for each rectangle scale-x value. The top rectangle scales from the left x position. The middle one scales from the center x. And the bottom one scales from the right x.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -191,7 +190,7 @@
 <iframe src="static/graphics_base_scale_from_point_basic_usage_y/index.html" width="150" height="150"></iframe>
 </section>
 <section id="get-scale-x-from-point-api">
-<h2>get_scale_x_from_point API<a class="headerlink" href="#get-scale-x-from-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>get_scale_x_from_point API<a class="headerlink" href="#get-scale-x-from-point-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.scale_x_from_point_mixin.ScaleXFromPointMixIn.get_scale_x_from_point -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point(self,</span> <span class="pre">*,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
@@ -233,7 +232,7 @@
 </div>
 </section>
 <section id="set-scale-x-from-point-api">
-<h2>set_scale_x_from_point API<a class="headerlink" href="#set-scale-x-from-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>set_scale_x_from_point API<a class="headerlink" href="#set-scale-x-from-point-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.scale_x_from_point_mixin.ScaleXFromPointMixIn.set_scale_x_from_point -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point(self,</span> <span class="pre">*,</span> <span class="pre">scale_x:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">x:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -271,7 +270,7 @@
 </div>
 </section>
 <section id="get-scale-y-from-point-api">
-<h2>get_scale_y_from_point API<a class="headerlink" href="#get-scale-y-from-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>get_scale_y_from_point API<a class="headerlink" href="#get-scale-y-from-point-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.scale_y_from_point_mixin.ScaleYFromPointMixIn.get_scale_y_from_point -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point(self,</span> <span class="pre">*,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.number.Number</span></code><hr></p>
@@ -311,7 +310,7 @@
 </div>
 </section>
 <section id="set-scale-y-from-point-api">
-<h2>set_scale_y_from_point API<a class="headerlink" href="#set-scale-y-from-point-api" title="Permalink to this headline">¶</a></h2>
+<h2>set_scale_y_from_point API<a class="headerlink" href="#set-scale-y-from-point-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.scale_y_from_point_mixin.ScaleYFromPointMixIn.set_scale_y_from_point -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point(self,</span> <span class="pre">*,</span> <span class="pre">scale_y:</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">y:</span> <span class="pre">apysc._type.number.Number)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
@@ -358,8 +357,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">GraphicsBase get_scale_from_point and set_scale_from_point interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -371,12 +371,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_base_scale_from_center.html"
-                        title="previous chapter">GraphicsBase scale_x_from_center and scale_y_from_center interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_base_flip_interfaces.html"
-                        title="next chapter">GraphicsBase flip_x and flip_y interfaces</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="graphics_base_scale_from_center.html"
+                          title="previous chapter">GraphicsBase scale_x_from_center and scale_y_from_center interfaces</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="graphics_base_flip_interfaces.html"
+                          title="next chapter">GraphicsBase flip_x and flip_y interfaces</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -386,7 +391,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -409,7 +414,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

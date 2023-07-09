@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>If クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,18 +47,18 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/if.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="if">
-<h1>If クラス<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h1>
+<h1>If クラス<a class="headerlink" href="#if" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">If</span></code>クラスについて説明します。</p>
 <p>このページを読み進める前に以下のページを確認しておくと役に立つかもしれません（apyscでは基本的なデータクラスと同様の理由で<code class="docutils literal notranslate"><span class="pre">If</span></code>クラスを使用しています）:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
+<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
 </ul>
 <section id="id1">
-<h2>If クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>If クラスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">If</span></code>クラスはapyscの分岐制御のためのクラスです。このクラスはPythonビルトインの<code class="docutils literal notranslate"><span class="pre">if</span></code>キーワードと似たような形で動作します。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">If</span></code>クラスは以下のコード例のように<code class="docutils literal notranslate"><span class="pre">with</span></code>ステートメントと共に使用する必要があります:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -72,15 +71,15 @@
 <p><code class="docutils literal notranslate"><span class="pre">If</span></code>クラスのコンストラクタの引数には条件としての<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の値の指定が必要になります。</p>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_elif.html"><span class="doc std std-doc">Elif クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_else.html"><span class="doc std std-doc">Else クラス</span></a></p></li>
-<li><p><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html"><span class="doc std std-doc">分岐条件の各クラスのスコープ内変数の復元設定</span></a></p></li>
+<li><p><a class="reference internal" href="jp_elif.html"><span class="std std-doc">Elif クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_else.html"><span class="std std-doc">Else クラス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_branch_instruction_variables_reverting_setting.html"><span class="std std-doc">分岐条件の各クラスのスコープ内変数の復元設定</span></a></p></li>
 </ul>
 </section>
 <section id="if-api">
-<h2>If クラスのコンストラクタのAPI<a class="headerlink" href="#if-api" title="Permalink to this headline">¶</a></h2>
+<h2>If クラスのコンストラクタのAPI<a class="headerlink" href="#if-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">condition:</span> <span class="pre">Union[apysc._type.boolean.Boolean,</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">locals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">globals_:</span> <span class="pre">Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -131,8 +130,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">If クラス</a><ul>
 <li><a class="reference internal" href="#id1">If クラスの概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -142,12 +142,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_mousemove.html"
-                        title="previous chapter">mousemove インターフェイス</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_elif.html"
-                        title="next chapter">Elif クラス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_mousemove.html"
+                          title="previous chapter">mousemove インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_elif.html"
+                          title="next chapter">Elif クラス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -157,7 +162,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -180,7 +185,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

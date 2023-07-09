@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>String class rstrip interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,16 +12,16 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
     <script src="static/add_en_to_ja_link.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Boolean class" href="boolean.html" />
+    <link rel="next" title="String class length property" href="string_length.html" />
     <link rel="prev" title="String class strip interface" href="string_strip.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -32,7 +31,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="boolean.html" title="Boolean class"
+          <a href="string_length.html" title="String class length property"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="string_strip.html" title="String class strip interface"
@@ -48,14 +47,14 @@
           <div class="body" role="main">
             
   <section id="string-class-rstrip-interface">
-<h1>String class rstrip interface<a class="headerlink" href="#string-class-rstrip-interface" title="Permalink to this headline">¶</a></h1>
+<h1>String class rstrip interface<a class="headerlink" href="#string-class-rstrip-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">String</span></code> class <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> method interface removes whitespaces or a specified character(s) from a string’s right edge.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> accepts the optional <code class="docutils literal notranslate"><span class="pre">string</span></code> argument.</p>
 <p>If you skip this argument, this interface removes whitespaces (and line breaks) from a string’s right edge.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -87,7 +86,7 @@
 <iframe src="static/string_rstrip_basic_usage_2/index.html" width="0" height="0"></iframe>
 </section>
 <section id="rstrip-api">
-<h2>rstrip API<a class="headerlink" href="#rstrip-api" title="Permalink to this headline">¶</a></h2>
+<h2>rstrip API<a class="headerlink" href="#rstrip-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._type.string_rstrip_mixin.StringRStripMixIn.rstrip -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">rstrip(self,</span> <span class="pre">*,</span> <span class="pre">string:</span> <span class="pre">Union[str,</span> <span class="pre">ForwardRef('String'),</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
@@ -142,8 +141,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">String class rstrip interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -152,12 +152,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="string_strip.html"
-                        title="previous chapter">String class strip interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="boolean.html"
-                        title="next chapter">Boolean class</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="string_strip.html"
+                          title="previous chapter">String class strip interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="string_length.html"
+                          title="next chapter">String class length property</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -167,7 +172,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -179,7 +184,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="boolean.html" title="Boolean class"
+          <a href="string_length.html" title="String class length property"
              >next</a> |</li>
         <li class="right" >
           <a href="string_strip.html" title="String class strip interface"
@@ -190,7 +195,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>DateTime クラスの day 属性 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/datetime_day.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="datetime-day">
-<h1>DateTime クラスの day 属性<a class="headerlink" href="#datetime-day" title="Permalink to this headline">¶</a></h1>
+<h1>DateTime クラスの day 属性<a class="headerlink" href="#datetime-day" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">day</span></code>属性のインターフェイスについて説明します。</p>
 <section id="id1">
-<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">day</span></code>属性では日の値の取得もしくは設定を行うことができます。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">DateTime</span></code>クラスのインスタンスがその属性のインターフェイスを持っています。</p>
 <p>そのインターフェイスのgetterでは<code class="docutils literal notranslate"><span class="pre">Int</span></code>型の日の値を返却します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -78,7 +77,7 @@
 </div>
 </section>
 <section id="day-api">
-<h2>day 属性のAPI<a class="headerlink" href="#day-api" title="Permalink to this headline">¶</a></h2>
+<h2>day 属性のAPI<a class="headerlink" href="#day-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>現在の日の値を取得します。<hr></p>
@@ -115,8 +114,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">DateTime クラスの day 属性</a><ul>
 <li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -125,12 +125,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_datetime_month.html"
-                        title="previous chapter">DateTime クラスの month 属性</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_datetime_hour.html"
-                        title="next chapter">DateTime クラスの hour 属性</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_datetime_month.html"
+                          title="previous chapter">DateTime クラスの month 属性</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_datetime_hour.html"
+                          title="next chapter">DateTime クラスの hour 属性</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -140,7 +145,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -163,7 +168,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

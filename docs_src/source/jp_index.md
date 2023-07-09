@@ -88,6 +88,8 @@ jp_string_split
 jp_string_lstrip
 jp_string_strip
 jp_string_rstrip
+jp_string_length
+jp_string_apply_max_num_of_decimal_places
 ```
 
 ### Boolean クラス

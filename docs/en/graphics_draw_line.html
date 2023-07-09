@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Graphics draw_line interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,14 +47,14 @@
           <div class="body" role="main">
             
   <section id="graphics-draw-line-interface">
-<h1>Graphics draw_line interface<a class="headerlink" href="#graphics-draw-line-interface" title="Permalink to this headline">¶</a></h1>
+<h1>Graphics draw_line interface<a class="headerlink" href="#graphics-draw-line-interface" title="Permalink to this heading">¶</a></h1>
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_line</span></code> method interface.</p>
 <section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface will draw the simple straight line graphics. This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>.</p>
 </section>
 <section id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code> inteface has <code class="docutils literal notranslate"><span class="pre">x_start</span></code> (line x-start coordinate), <code class="docutils literal notranslate"><span class="pre">y_start</span></code> (line y-start coordinate), <code class="docutils literal notranslate"><span class="pre">x_end</span></code> (line x-end coordinate), and <code class="docutils literal notranslate"><span class="pre">y_end</span></code> (line y-end coordinate) arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -74,7 +73,7 @@
 <iframe src="static/graphics_draw_line_basic_usage/index.html" width="200" height=100></iframe>
 </section>
 <section id="ignored-line-style-settings">
-<h2>Ignored line style settings<a class="headerlink" href="#ignored-line-style-settings" title="Permalink to this headline">¶</a></h2>
+<h2>Ignored line style settings<a class="headerlink" href="#ignored-line-style-settings" title="Permalink to this heading">¶</a></h2>
 <p>This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code> for simplicity. If you need to draw these styled lines, then use <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, or <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces instead of the <code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -96,7 +95,7 @@
 <iframe src="static/graphics_draw_line_ignored_dot_setting/index.html" width="200" height=100></iframe>
 </section>
 <section id="line-class-instance">
-<h2>Line class instance<a class="headerlink" href="#line-class-instance" title="Permalink to this headline">¶</a></h2>
+<h2>Line class instance<a class="headerlink" href="#line-class-instance" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">draw_line</span></code> interface returns the <code class="docutils literal notranslate"><span class="pre">Line</span></code> instance. You can update each setting or bind events to that instance. <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>
 , and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> will also return the same type instance.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -119,7 +118,7 @@
 <iframe src="static/graphics_draw_line_line_instance/index.html" width="200" height=100></iframe>
 </section>
 <section id="draw-line-api">
-<h2>draw_line API<a class="headerlink" href="#draw-line-api" title="Permalink to this headline">¶</a></h2>
+<h2>draw_line API<a class="headerlink" href="#draw-line-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.graphics.Graphics.draw_line -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_line(self,</span> <span class="pre">*,</span> <span class="pre">x_start:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y_start:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">x_end:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">y_end:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number],</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'_line.Line'</span></code><hr></p>
@@ -193,8 +192,9 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Graphics draw_line interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
@@ -205,12 +205,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_move_to_and_line_to.html"
-                        title="previous chapter">Graphics move_to and line_to interfaces</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_draw_dotted_line.html"
-                        title="next chapter">Graphics draw_dotted_line interface</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="graphics_move_to_and_line_to.html"
+                          title="previous chapter">Graphics move_to and line_to interfaces</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="graphics_draw_dotted_line.html"
+                          title="next chapter">Graphics draw_dotted_line interface</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -220,7 +225,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -243,7 +248,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

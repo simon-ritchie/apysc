@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>連続したアニメーション設定 &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,10 +47,10 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/sequential_animation.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="id1">
-<h1>連続したアニメーション設定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>連続したアニメーション設定<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <p>このページではアニメーションを連続させて再生する方法について説明します。</p>
 <section id="id2">
-<h2>同じインスタンス上でアニメーションのインターフェイスを連続して呼び出す<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>同じインスタンス上でアニメーションのインターフェイスを連続して呼び出す<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>アニメーションのインターフェイスを連続して呼び出した場合、各アニメーションは順番にスタートします（例えば、最初のアニメーションが終わったら次のアニメーションの再生がスタートじます）。</p>
 <p>以下のコード例では4つの座標のアニメーションを設定しています。これらのアニメーションは同時にはスタートしません:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -76,17 +75,17 @@
 <iframe src="static/sequential_animation_example_1/index.html" width="200" height="200"></iframe>
 </section>
 <section id="animation-complete">
-<h2>animation_complete のハンドラ設定<a class="headerlink" href="#animation-complete" title="Permalink to this headline">¶</a></h2>
+<h2>animation_complete のハンドラ設定<a class="headerlink" href="#animation-complete" title="Permalink to this heading">¶</a></h2>
 <p>また、<code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>インターフェイスを使ってアニメーション終了時のハンドラを設定して連続したアニメーションを設定することもできます。詳細は以下をご確認ください:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_animation_complete.html"><span class="doc std std-doc">animation_complete インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_animation_complete.html"><span class="std std-doc">animation_complete インターフェイス</span></a></p></li>
 </ul>
 </section>
 <section id="id3">
-<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>関連資料<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p>もしも複数のアニメーションを同時に再生したい場合、以下のインターフェイスをお使いください。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_animation_parallel.html"><span class="doc std std-doc">animation_parallel インターフェイス</span></a></p></li>
+<li><p><a class="reference internal" href="jp_animation_parallel.html"><span class="std std-doc">animation_parallel インターフェイス</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -101,8 +100,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">連続したアニメーション設定</a><ul>
 <li><a class="reference internal" href="#id2">同じインスタンス上でアニメーションのインターフェイスを連続して呼び出す</a></li>
 <li><a class="reference internal" href="#animation-complete">animation_complete のハンドラ設定</a></li>
@@ -111,12 +111,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_easing_enum.html"
-                        title="previous chapter">イージングのenum</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_animation_parallel.html"
-                        title="next chapter">animation_parallel インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_easing_enum.html"
+                          title="previous chapter">イージングのenum</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_animation_parallel.html"
+                          title="next chapter">animation_parallel インターフェイス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -126,7 +131,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -149,7 +154,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

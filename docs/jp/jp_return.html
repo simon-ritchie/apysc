@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Return クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
@@ -13,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="static/iframe.css" />
     <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
-    <script src="static/jquery.js"></script>
-    <script src="static/underscore.js"></script>
     <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
     <script src="static/common_func.js"></script>
     <script src="static/add_navigation_to_footer.js"></script>
     <script src="static/keyword_link_mapping.js"></script>
@@ -48,18 +47,18 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/return.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="return">
-<h1>Return クラス<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h1>
+<h1>Return クラス<a class="headerlink" href="#return" title="Permalink to this heading">¶</a></h1>
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Return</span></code>クラスについて説明します。</p>
 <p>このページを読み進める前に以下のページを確認しておくと役に立つかもしれません（apyscライブラリでは<code class="docutils literal notranslate"><span class="pre">Return</span></code>クラスを各データクラスと同じような理由で使用しています）。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="doc std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
+<li><p><a class="reference internal" href="jp_why_apysc_doesnt_use_python_builtin_data_type.html"><span class="std std-doc">なぜapyscではPythonのビルトインのデータの型を使用していないのか</span></a></p></li>
 </ul>
 <section id="id1">
-<h2>Return クラスの概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Return クラスの概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Return</span></code>クラスはJavaScriptの<code class="docutils literal notranslate"><span class="pre">return;</span></code>のコードのように振る舞います。従って、このクラスはイベントハンドラの関数もしくはメソッド内のスコープでのみ使用することができます。</p>
 </section>
 <section id="id2">
-<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Return</span></code>クラスのコンストラクタは引数を必要としません。このクラスは<code class="docutils literal notranslate"><span class="pre">ap.If</span></code>などの条件分岐の記述内などで使うことができます。</p>
 <p>以下のコード例では四角をクリックするたびに塗りの色を変更しています。各<code class="docutils literal notranslate"><span class="pre">ap.If</span></code>での分岐内では<code class="docutils literal notranslate"><span class="pre">Return</span></code>クラスを使用しているため、1回のクリックでは1回の色変更のみ行われます:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -67,7 +66,7 @@
 
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
@@ -104,7 +103,7 @@
 <iframe src="static/return_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="return-api">
-<h2>Return API<a class="headerlink" href="#return-api" title="Permalink to this headline">¶</a></h2>
+<h2>Return API<a class="headerlink" href="#return-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -116,7 +115,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="s1">&#39;&#39;&#39;</span>
 <span class="gp">... </span><span class="s1">    The handler that the timer calls.</span>
-<span class="gp">...</span><span class="s1"></span>
+<span class="gp">...</span>
 </pre></div>
 </div>
 </section>
@@ -132,8 +131,9 @@
             <p class="logo"><a href="jp_index.html">
               <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
             </a></p>
-  <h3><a href="jp_index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Return クラス</a><ul>
 <li><a class="reference internal" href="#id1">Return クラスの概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
@@ -142,12 +142,17 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="jp_branch_instruction_variables_reverting_setting.html"
-                        title="previous chapter">各分岐制御のクラスのスコープ内の変数値の復元設定</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="jp_for_array_indices.html"
-                        title="next chapter">ForArrayIndices クラス</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_branch_instruction_variables_reverting_setting.html"
+                          title="previous chapter">各分岐制御のクラスのスコープ内の変数値の復元設定</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_for_array_indices.html"
+                          title="next chapter">ForArrayIndices クラス</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -157,7 +162,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -180,7 +185,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2023, apysc プロジェクト.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

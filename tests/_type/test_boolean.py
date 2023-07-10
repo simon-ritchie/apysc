@@ -312,6 +312,12 @@ class TestBoolean:
         dict_val: Dict[ap.Boolean, int] = {ap.Boolean(True): 20}
         assert dict_val[ap.Boolean(True)] == 20
 
+    @apply_test_settings()
+    def test__set_value_attr_with_value_arg(self) -> None:
+        bool_value: ap.Boolean = ap.Boolean(True)
+        bool_value._set_value_attr_with_value_arg(value=False)
+        assert not bool_value._value
+
 
 class TestBool:
     @apply_test_settings()

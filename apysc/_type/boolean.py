@@ -122,8 +122,9 @@ class Boolean(
             self._variable_name_suffix = variable_name_suffix
             TYPE_NAME: str = var_names.BOOLEAN
             self._initial_value = value
-            value_: bool = self._get_bool_from_arg_value(value=value)
-            self._value = value_
+            self._set_value_attr_with_value_arg(
+                value=self._get_bool_from_arg_value(value=value)
+            )
             self._type_name = TYPE_NAME
             self.variable_name = expression_variables_util.get_next_variable_name(
                 type_name=TYPE_NAME
@@ -133,6 +134,18 @@ class Boolean(
         self._append_initial_substitution_expression_if_in_handler_scope(
             skip_appending=skip_init_substitution_expression_appending,
         )
+
+    @add_debug_info_setting(module_name=__name__)
+    def _set_value_attr_with_value_arg(self, *, value: bool) -> None:
+        """
+        Set a `_value` attribute with a specified value argument.
+
+        Parameters
+        ----------
+        value : bool
+            A boolean value.
+        """
+        self._value = value
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -277,7 +290,6 @@ class Boolean(
             expression += "false;"
         ap.append_js_expression(expression=expression)
 
-    @final
     def _set_value_and_skip_expression_appending(
         self, *, value: Union[bool, Literal[0, 1], Int, "Boolean"]
     ) -> None:

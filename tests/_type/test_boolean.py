@@ -181,6 +181,22 @@ class TestBoolean:
         assert not result
         assert isinstance(result, ap.Boolean)
 
+        result = ap.Boolean(True) == ap.True_
+        assert result
+        assert isinstance(result, ap.Boolean)
+
+        result = ap.Boolean(True) == ap.False_
+        assert not result
+        assert isinstance(result, ap.Boolean)
+
+        result = ap.Boolean(False) == ap.True_
+        assert not result
+        assert isinstance(result, ap.Boolean)
+
+        result = ap.Boolean(False) == ap.False_
+        assert result
+        assert isinstance(result, ap.Boolean)
+
     @apply_test_settings()
     def test_not_(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True, variable_name_suffix="test_boolean_1")

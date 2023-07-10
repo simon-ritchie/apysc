@@ -381,7 +381,7 @@ class Boolean(
 
         self._validate_comparison_other_type(other=other)
         result: Boolean
-        if isinstance(other, Boolean):
+        if issubclass(type(other), Boolean):
             result = Boolean(
                 self._value == other._value,
                 variable_name_suffix=self._variable_name_suffix,

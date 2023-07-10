@@ -130,5 +130,6 @@ from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
+from apysc._type.true import True_
 
 __version__: str = "3.1.21"

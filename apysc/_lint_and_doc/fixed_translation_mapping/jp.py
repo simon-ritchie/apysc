@@ -3459,8 +3459,8 @@ MAPPINGS: Mappings = Mappings(
             val="### String クラス",
         ),
         Mapping(
-            key="### Boolean class",
-            val="### Boolean クラス",
+            key="### Boolean class and constants",
+            val="### Boolean クラスと各定数値",
         ),
         Mapping(
             key="### Array class",

@@ -207,4 +207,8 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "ForDictKeys": "for_dict_keys",
     "ForDictValues": "for_dict_values",
     "ForDictKeysAndValues": "for_dict_keys_and_values",
+    "True_": "true_and_false",
+    "False_": "true_and_false",
+    "ap.True_": "true_and_false",
+    "ap.False_": "true_and_false",
 }

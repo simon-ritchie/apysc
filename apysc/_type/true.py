@@ -25,6 +25,3 @@ class _True(
             value=True,
             variable_name_suffix="true",
         )
-
-
-True_: Final[_True] = _True()

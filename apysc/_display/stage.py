@@ -23,6 +23,9 @@ from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._event.mouse_event_mixins import MouseEventMixIns
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.initialize_top_level_constants_mixin import (
+    InitializeTopLevelConstantsMixIn
+)
 
 # This is used only for avoiding gabage collection.
 _current_stage: "Stage"
@@ -36,6 +39,7 @@ class Stage(
     MouseEventMixIns,
     CustomEventMixIn,
     VariableNameSuffixMixIn,
+    InitializeTopLevelConstantsMixIn,
 ):
     """
     The Stage (overall view-area) class.
@@ -151,6 +155,8 @@ class Stage(
 
         _save_stage_id_to_db(stage=self)
         _current_stage = self
+
+        self._initialize_top_level_constants()
 
     @final
     def _save_stage_elem_id(self) -> None:

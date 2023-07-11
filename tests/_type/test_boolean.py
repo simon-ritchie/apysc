@@ -158,6 +158,7 @@ class TestBoolean:
 
     @apply_test_settings()
     def test___eq__(self) -> None:
+        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(True, variable_name_suffix="test_boolean_1")
         boolean_2: ap.Boolean = ap.Boolean(True)
         result: ap.Boolean = boolean_1 == boolean_2

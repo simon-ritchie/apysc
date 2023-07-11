@@ -25,6 +25,3 @@ class _False(
             value=False,
             variable_name_suffix="false",
         )
-
-
-False_: Final[_False] = _False()

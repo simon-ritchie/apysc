@@ -130,7 +130,10 @@ from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
-from apysc._type.true import True_
-from apysc._type.false import False_
+from apysc._type.true import _True as __True
+from apysc._type.false import _False as __False
+
+True_: __True
+False_: __False
 
 __version__: str = "3.1.21"

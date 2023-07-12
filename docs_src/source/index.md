@@ -89,11 +89,12 @@ string_length
 string_apply_max_num_of_decimal_places
 ```
 
-### Boolean class
+### Boolean class and constants
 
 ```{toctree}
 :maxdepth: 1
 boolean
+true_and_false
 ```
 
 ### Array class

@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -57,9 +57,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```{toctree}\n:maxdepth: 1\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nstring_split\nstring_lstrip\nstring_strip\nstring_rstrip\nstring_length\nstring_apply_max_num_of_decimal_places\n```": "```{toctree}\n:maxdepth: 1\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_string_split\njp_string_lstrip\njp_string_strip\njp_string_rstrip\njp_string_length\njp_string_apply_max_num_of_decimal_places\n```",  # noqa
     ##################################################
-    "### Boolean class": "### Boolean クラス",
+    "### Boolean class and constants": "### Boolean クラスと各定数値",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nboolean\n```": "```{toctree}\n:maxdepth: 1\njp_boolean\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nboolean\ntrue_and_false\n```": "```{toctree}\n:maxdepth: 1\njp_boolean\njp_true_and_false\n```",  # noqa
     ##################################################
     "### Array class": "### Array クラス",
     ##################################################

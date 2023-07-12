@@ -92,11 +92,12 @@ jp_string_length
 jp_string_apply_max_num_of_decimal_places
 ```
 
-### Boolean クラス
+### Boolean クラスと各定数値
 
 ```{toctree}
 :maxdepth: 1
 jp_boolean
+jp_true_and_false
 ```
 
 ### Array クラス

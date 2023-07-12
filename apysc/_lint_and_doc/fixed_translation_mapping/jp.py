@@ -4099,5 +4099,25 @@ MAPPINGS: Mappings = Mappings(
             key="  - An applied string.",
             val="  - 反映後の文字列。",
         ),
+        Mapping(
+            key="## What constants are these?",
+            val="## 各定数の概要",
+        ),
+        Mapping(
+            key="## Notes for the initialization timing",
+            val="## 初期化タイミングにおける特記事項",
+        ),
+        Mapping(
+            key="These constants are only available after the `Stage` initialization (instantiation).",
+            val="これらの定数は`Stage`の初期化（インスタンス化）後のみ利用可能です。",
+        ),
+        Mapping(
+            key="If you reference its constant before `Stage` initialization, it raises an exception.",
+            val="もし`Stage`の初期化前にこれらの定数を参照した場合はエラーとなります。",
+        ),
+        Mapping(
+            key="Instantiating `Stage` makes this error disappear.",
+            val="`Stage`の初期化を行うことでエラーは発生しなくなります。",
+        ),
     ]
 )

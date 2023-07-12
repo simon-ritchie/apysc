@@ -4119,5 +4119,9 @@ MAPPINGS: Mappings = Mappings(
             key="Instantiating `Stage` makes this error disappear.",
             val="`Stage`の初期化を行うことでエラーは発生しなくなります。",
         ),
+        Mapping(
+            key="True_ and False_ constants",
+            val="True_ と False_ の各定数",
+        ),
     ]
 )

@@ -1,9 +1,6 @@
 import pytest
 
-import apysc as ap
-from apysc._expression import expression_data_util
-from apysc._testing import testing_helper
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.bool_const_mixin import BoolConstMixIn
 
 

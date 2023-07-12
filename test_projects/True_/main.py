@@ -33,9 +33,9 @@ def main() -> None:
 
     ap.assert_true(ap.True_)
     ap.assert_true(ap.True_ == ap.Boolean(True))
-    ap.assert_true(ap.True_ == True)
+    ap.assert_true(ap.True_)
     ap.assert_false(ap.True_ == ap.Boolean(False))
-    ap.assert_false(ap.True_ == False)
+    ap.assert_false(not ap.True_)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

@@ -137,6 +137,12 @@ Boolean(True)
 Boolean(True)
 ```
 
+<hr>
+
+**[関連資料]**
+
+- [True_ と False_ の各定数](https://simon-ritchie.github.io/apysc/jp/jp_true_and_false.html)
+
 ## value 属性のAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>

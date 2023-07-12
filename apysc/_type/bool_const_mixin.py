@@ -3,7 +3,8 @@
 
 from typing import Union
 
-from typing_extensions import final, Literal
+from typing_extensions import Literal
+from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -22,7 +23,7 @@ class BoolConstMixIn:
 
         Notes
         -----
-        This method's implementation does nothing (overrided as a blank method).
+        This method's implementation does nothing (overridden as a blank method).
 
         Parameters
         ----------
@@ -39,7 +40,7 @@ class BoolConstMixIn:
 
         Notes
         -----
-        This method's implementation does nothing (overrided as a blank method).
+        This method's implementation does nothing (overridden as a blank method).
 
         Parameters
         ----------
@@ -54,7 +55,7 @@ class BoolConstMixIn:
 
         Notes
         -----
-        This method's implementation does nothing (overrided as a blank method).
+        This method's implementation does nothing (overridden as a blank method).
 
         Parameters
         ----------
@@ -69,7 +70,7 @@ class BoolConstMixIn:
 
         Notes
         -----
-        This method's implementation does nothing (overrided as a blank method).
+        This method's implementation does nothing (overridden as a blank method).
 
         Parameters
         ----------

@@ -21,11 +21,11 @@ from apysc._display.width_mixin import WidthMixIn
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._event.mouse_event_mixins import MouseEventMixIns
+from apysc._type.initialize_top_level_constants_mixin import (
+    InitializeTopLevelConstantsMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.initialize_top_level_constants_mixin import (
-    InitializeTopLevelConstantsMixIn
-)
 
 # This is used only for avoiding gabage collection.
 _current_stage: "Stage"

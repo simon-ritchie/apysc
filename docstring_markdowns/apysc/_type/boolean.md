@@ -33,6 +33,7 @@ Boolean(False)
 **[References]**
 
 - [Boolean](https://simon-ritchie.github.io/apysc/en/boolean.html)
+- [True_ and False_ constants](https://simon-ritchie.github.io/apysc/en/true_and_false.html)
 
 ### `__bool__` method docstring
 
@@ -105,6 +106,7 @@ Boolean(True)
 **[References]**
 
 - [Boolean](https://simon-ritchie.github.io/apysc/en/boolean.html)
+- [True_ and False_ constants](https://simon-ritchie.github.io/apysc/en/true_and_false.html)
 
 ### `__ne__` method docstring
 
@@ -235,6 +237,15 @@ Update value attribute and skip expression appending.<hr>
 
 - `value`: Boolean or Int or bool or int
   - Any boolean value to set.
+
+### `_set_value_attr_with_value_arg` method docstring
+
+Set a `_value` attribute with a specified value argument.<hr>
+
+**[Parameters]**
+
+- `value`: bool
+  - A boolean value.
 
 ### `_validate_comparison_other_type` method docstring
 

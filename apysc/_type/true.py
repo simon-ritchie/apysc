@@ -1,11 +1,12 @@
 """The class implementation for the `True_` constant.
 """
 
-from typing_extensions import Final, final
+from typing_extensions import Final
+from typing_extensions import final
 
-from apysc._type.boolean import Boolean
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.bool_const_mixin import BoolConstMixIn
+from apysc._type.boolean import Boolean
 
 
 class _True(

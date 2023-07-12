@@ -136,4 +136,4 @@ from apysc._type.false import _False as __False
 True_: __True
 False_: __False
 
-__version__: str = "3.1.21"
+__version__: str = "3.1.22"

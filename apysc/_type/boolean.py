@@ -49,6 +49,8 @@ class Boolean(
     ----------
     - Boolean
         - https://simon-ritchie.github.io/apysc/en/boolean.html
+    - True_ and False_ constants
+        - https://simon-ritchie.github.io/apysc/en/true_and_false.html
 
     Examples
     --------
@@ -102,6 +104,8 @@ class Boolean(
         ----------
         - Boolean
             - https://simon-ritchie.github.io/apysc/en/boolean.html
+        - True_ and False_ constants
+            - https://simon-ritchie.github.io/apysc/en/true_and_false.html
 
         Examples
         --------

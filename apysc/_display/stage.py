@@ -344,6 +344,27 @@ class _StageNotCreatedError(Exception):
     pass
 
 
+def _read_stage_id_from_db() -> Optional[int]:
+    """
+    Read a stage id from a database.
+
+    Returns
+    -------
+    Optional[int]
+        A stage id. If a created stage doesn't exist, this interface
+        returns None.
+    """
+    from apysc._expression import expression_data_util
+
+    table_name: str = expression_data_util.TableName.STAGE_ID.value
+    query: str = f"SELECT stage_id FROM {table_name} LIMIT 1;"
+    expression_data_util.exec_query(sql=query)
+    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    if result is None:
+        return None
+    return result[0]
+
+
 def get_stage() -> Stage:
     """
     Get an already instantiated stage instance.
@@ -358,16 +379,26 @@ def get_stage() -> Stage:
     _StageNotCreatedError
         If there is no instantiated stage yet.
     """
-    from apysc._expression import expression_data_util
-
-    table_name: str = expression_data_util.TableName.STAGE_ID.value
-    query: str = f"SELECT stage_id FROM {table_name} LIMIT 1;"
-    expression_data_util.exec_query(sql=query)
-    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
-    if result is None:
+    stage_id: Optional[int] = _read_stage_id_from_db()
+    if stage_id is None:
         raise _StageNotCreatedError(
             "Stage is not instantiated yet. Please instantiate the "
             "ap.Stage class before calling this function."
         )
-    stage: Stage = cast(Stage, ctypes.cast(result[0], ctypes.py_object).value)
+    stage: Stage = cast(Stage, ctypes.cast(stage_id, ctypes.py_object).value)
     return stage
+
+
+def is_stage_created() -> bool:
+    """
+    Get a boolean whether a created stage exists or not.
+
+    Returns
+    -------
+    result : bool
+        If a created stage exists, this interface returns True.
+    """
+    stage_id: Optional[int] = _read_stage_id_from_db()
+    if stage_id is None:
+        return False
+    return True

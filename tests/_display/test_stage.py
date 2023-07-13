@@ -154,3 +154,25 @@ def test__save_stage_id_to_db() -> None:
     if result is None:
         raise AssertionError("result value is None.")
     assert id(stage_) == result[0]
+
+
+@apply_test_settings()
+def test__read_stage_id_from_db() -> None:
+    expression_data_util.empty_expression()
+    stage_id: Optional[int] = stage._read_stage_id_from_db()
+    assert stage_id is None
+
+    ap.Stage(stage_elem_id="test_stage")
+    stage_id = stage._read_stage_id_from_db()
+    assert stage_id is not None
+
+
+@apply_test_settings()
+def test_is_stage_created() -> None:
+    expression_data_util.empty_expression()
+    result: bool = stage.is_stage_created()
+    assert not result
+
+    ap.Stage(stage_elem_id="test_stage")
+    result = stage.is_stage_created()
+    assert result

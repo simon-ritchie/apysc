@@ -407,4 +407,4 @@ True
 
 **[エラー発生条件]**
 
-- _StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。
+- StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。

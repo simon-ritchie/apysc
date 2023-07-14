@@ -416,4 +416,4 @@ Get an already instantiated stage instance.<hr>
 
 **[Raises]**
 
-- _StageNotCreatedError: If there is no instantiated stage yet.
+- StageNotCreatedError: If there is no instantiated stage yet.

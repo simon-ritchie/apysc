@@ -26,7 +26,7 @@ Get an already instantiated stage instance.<hr>
 
 **[Raises]**
 
-- _StageNotCreatedError: If there is no instantiated stage yet.
+- StageNotCreatedError: If there is no instantiated stage yet.
 
 ## `get_stage_elem_id` function docstring
 
@@ -158,4 +158,4 @@ Make a stage's style string.<hr>
 
 Save the stage element id.
 
-## `_StageNotCreatedError` class docstring
+## `StageNotCreatedError` class docstring

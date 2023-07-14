@@ -281,5 +281,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Raises]**": "**[エラー発生条件]**",
     ##################################################
-    "- _StageNotCreatedError: If there is no instantiated stage yet.": "- _StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。",  # noqa
+    "- StageNotCreatedError: If there is no instantiated stage yet.": "- StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。",  # noqa
 }

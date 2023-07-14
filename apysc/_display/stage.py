@@ -340,7 +340,7 @@ def _save_stage_id_to_db(*, stage: Stage) -> None:
     expression_data_util.exec_query(sql=query)
 
 
-class _StageNotCreatedError(Exception):
+class StageNotCreatedError(Exception):
     pass
 
 
@@ -376,12 +376,12 @@ def get_stage() -> Stage:
 
     Raises
     ------
-    _StageNotCreatedError
+    StageNotCreatedError
         If there is no instantiated stage yet.
     """
     stage_id: Optional[int] = _read_stage_id_from_db()
     if stage_id is None:
-        raise _StageNotCreatedError(
+        raise StageNotCreatedError(
             "Stage is not instantiated yet. Please instantiate the "
             "ap.Stage class before calling this function."
         )

@@ -140,7 +140,7 @@ def test_get_stage() -> None:
     query: str = f"DELETE FROM {table_name};"
     expression_data_util.exec_query(sql=query)
     assert_raises(
-        expected_error_class=stage._StageNotCreatedError, callable_=stage.get_stage
+        expected_error_class=stage.StageNotCreatedError, callable_=stage.get_stage
     )
 
 

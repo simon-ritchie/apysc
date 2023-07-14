@@ -3411,8 +3411,8 @@ MAPPINGS: Mappings = Mappings(
             val="  - 対象のステージのインスタンス。",
         ),
         Mapping(
-            key="- _StageNotCreatedError: If there is no instantiated stage yet.",
-            val="- _StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。",
+            key="- StageNotCreatedError: If there is no instantiated stage yet.",
+            val="- StageNotCreatedError: もしもまだ生成済みのステージのインスタンスが存在しない場合。",
         ),
         Mapping(
             key="## unbind_custom_event API",

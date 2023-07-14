@@ -7,7 +7,7 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-class ValidateStateIsCreatedMixIn:
+class ValidateStageIsCreatedMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
     def _validate_stage_is_created(self) -> None:

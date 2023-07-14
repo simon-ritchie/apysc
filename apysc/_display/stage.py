@@ -389,6 +389,9 @@ def get_stage() -> Stage:
     return stage
 
 
+_is_stage_created: bool = False
+
+
 def is_stage_created() -> bool:
     """
     Get a boolean whether a created stage exists or not.
@@ -398,7 +401,12 @@ def is_stage_created() -> bool:
     result : bool
         If a created stage exists, this interface returns True.
     """
+    global _is_stage_created
+    if _is_stage_created:
+        return True
+
     stage_id: Optional[int] = _read_stage_id_from_db()
     if stage_id is None:
         return False
+    _is_stage_created = True
     return True

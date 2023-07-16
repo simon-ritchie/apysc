@@ -168,6 +168,9 @@ def apply_test_settings(
     ValueError
         If a specified `retrying_sleep_seconds` is greater than 10.
     """
+    # 
+    retrying_max_attempts_num = 1
+    # 
     if retrying_sleep_seconds is None:
         # retrying_sleep_seconds = randint(10, 3000) / 1000
         retrying_sleep_seconds = 0.0001

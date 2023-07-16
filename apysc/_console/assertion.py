@@ -486,6 +486,7 @@ def assert_arrays_equal(
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> arr_1: ap.Array = ap.Array([1, 2, 3])
     >>> arr_2: ap.Array = ap.Array([1, 2, 3])
     >>> ap.assert_arrays_equal(arr_1, arr_2)
@@ -540,6 +541,7 @@ def assert_arrays_not_equal(
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> arr_1: ap.Array = ap.Array([1, 2, 3])
     >>> arr_2: ap.Array = ap.Array([4, 5, 6])
     >>> ap.assert_arrays_not_equal(arr_1, arr_2)

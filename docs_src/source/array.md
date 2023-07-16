@@ -18,6 +18,7 @@ The `Array` class constructor method requires iterable objects, like the `list`\
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr_from_list: ap.Array = ap.Array([1, 2, 3])
 assert arr_from_list == [1, 2, 3]
 
@@ -37,6 +38,7 @@ If the `Array` values types are unique, you can set the generic type to an `Arra
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2])
 int_val: int = arr.pop()
 assert isinstance(int_val, int)

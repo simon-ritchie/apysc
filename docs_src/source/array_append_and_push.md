@@ -14,6 +14,7 @@ The `append` and `push` methods require the first argument of the `value`\.
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2])
 arr.append(value=3)
 assert arr == [1, 2, 3]

@@ -57,6 +57,7 @@ class Array(
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> arr: ap.Array = ap.Array([1, 2, 3])
     >>> arr
     Array([1, 2, 3])
@@ -123,6 +124,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr
         Array([1, 2, 3])
@@ -257,6 +259,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.value = [4, 5, 6]
         >>> arr.value
@@ -329,6 +332,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.append(4)
         >>> arr
@@ -357,6 +361,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.push(4)
         >>> arr
@@ -406,6 +411,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.extend([4, 5, 6])
         >>> arr
@@ -469,6 +475,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr = arr.concat([4, 5, 6])
         >>> arr
@@ -530,6 +537,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 3])
         >>> arr.insert(index=1, value=2)
         >>> arr
@@ -571,6 +579,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 3])
         >>> arr.insert_at(index=1, value=2)
         >>> arr
@@ -623,6 +632,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> popped_val: int = arr.pop()
         >>> popped_val
@@ -672,6 +682,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 3, 5])
         >>> arr.remove(3)
         >>> arr
@@ -726,6 +737,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.remove_at(1)
         >>> arr
@@ -774,6 +786,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.reverse()
         >>> arr
@@ -814,6 +827,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([3, 5, 1, 4, 2])
         >>> arr.sort()
         >>> arr
@@ -871,6 +885,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3, 4])
         >>> arr.slice(start=1, end=3)
         Array([2, 3])
@@ -1132,6 +1147,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.length
         Int(3)
@@ -1196,6 +1212,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.join(sep=", ")
         String("1, 2, 3")
@@ -1288,6 +1305,7 @@ class Array(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([1, 3, 5])
         >>> arr.index_of(3)
         Int(1)

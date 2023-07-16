@@ -7,7 +7,6 @@ from tests._display.test_graphics_expression import assert_stroke_attr_expressio
 class TestPolygonAppendConstructorExpressionMixIn:
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         points: ap.Array[ap.Point2D] = ap.Array(

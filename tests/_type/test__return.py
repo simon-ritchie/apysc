@@ -9,7 +9,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class TestReturn:
     @apply_test_settings()
     def test__validate_current_scope_is_event_handler(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
         assert_raises(
@@ -28,7 +28,7 @@ class TestReturn:
 
     @apply_test_settings()
     def test___init__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
         with event_handler_scope.HandlerScope(

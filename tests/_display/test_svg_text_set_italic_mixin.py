@@ -22,7 +22,7 @@ class _TestMixIn(
 class TestSVGTextSetItalicMixIn:
     @apply_test_settings()
     def test__set_italic(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: SVGTextSetItalicMixIn = SVGTextSetItalicMixIn()
         assert_raises(
             expected_error_class=TypeError,
@@ -31,7 +31,7 @@ class TestSVGTextSetItalicMixIn:
             italic=True,
         )
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2: _TestMixIn = _TestMixIn()
         mixin_2.variable_name = "test_mixin"
         mixin_2._set_italic(italic=True)
@@ -41,14 +41,14 @@ class TestSVGTextSetItalicMixIn:
         assert expected in expression
 
         mixin_2.italic = ap.Boolean(False)
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2._set_italic(italic=ap.Boolean(True))
         assert mixin_2.italic
         expression = expression_data_util.get_current_expression()
         expected = f'{mixin_2.variable_name}.font("style", "italic");'
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2._set_italic(italic=None)
         expression = expression_data_util.get_current_expression()
         assert ".font" not in expression

@@ -59,7 +59,7 @@ class TestScaleXFromPointMixIn:
 
     @apply_test_settings()
     def test__append_scale_x_from_point_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         x: ap.Number = ap.Number(100)
         scale_x_1: ap.Number = ap.Number(0.5)
         scale_x_2: ap.Number = ap.Number(0.3)

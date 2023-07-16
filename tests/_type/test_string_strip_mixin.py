@@ -11,7 +11,7 @@ from apysc._type import string_strip_mixin
 
 @apply_test_settings()
 def test__create_string_none_case_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     result_string: ap.String = ap.String("test")
     expression: str = string_strip_mixin._create_string_none_case_expression(
         result_string=result_string,
@@ -23,7 +23,7 @@ def test__create_string_none_case_expression() -> None:
 
 @apply_test_settings()
 def test__create_string_not_none_case_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     result_string: ap.String = ap.String("aaabbbcccaaa")
     expression: str = string_strip_mixin._create_string_not_none_case_expression(
         result_string=result_string,
@@ -49,7 +49,7 @@ def test__create_string_not_none_case_expression() -> None:
         flags=re.MULTILINE,
     )
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     removing_string: ap.String = ap.String("a")
     expression = string_strip_mixin._create_string_not_none_case_expression(
         result_string=result_string,
@@ -93,7 +93,7 @@ def test__get_py_str_from_current_value() -> None:
 class TestStringStripMixIn:
     @apply_test_settings()
     def test_strip(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string: ap.String = ap.String("  \n  aabbaa  \n   ")
         result: ap.String = string.strip(variable_name_suffix="test_suffix_1")
         assert result == ap.String("aabbaa")
@@ -101,7 +101,7 @@ class TestStringStripMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert ".trim" in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         string = ap.String("aabbaaa")
         result = string.strip(string="a", variable_name_suffix="test_suffix_2")
         assert result == ap.String("bb")

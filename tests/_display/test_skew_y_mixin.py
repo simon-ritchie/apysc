@@ -33,7 +33,7 @@ class TestSkewYMixIn:
 
     @apply_test_settings()
     def test__append_skew_y_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: _TestMixIn = _TestMixIn()
         before_value: ap.Int = ap.Int(10)
         interface.skew_y = before_value

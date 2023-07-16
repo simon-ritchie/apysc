@@ -7,6 +7,7 @@ from apysc._display.line_dash_setting_mixin import LineDashSettingMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
+import apysc as ap
 
 
 class TestLineDashSettingMixIn:
@@ -37,7 +38,7 @@ class TestLineDashSettingMixIn:
 
     @apply_test_settings()
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         assert_raises(
             expected_error_class=TypeError,
@@ -60,7 +61,7 @@ class TestLineDashSettingMixIn:
 
     @apply_test_settings()
     def test__append_line_dash_setting_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface._initialize_line_dash_setting_if_not_initialized()
         interface.variable_name = "test_line_dash_interface"
@@ -73,7 +74,7 @@ class TestLineDashSettingMixIn:
         )
         assert match is not None
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface._line_dash_setting = LineDashSetting(dash_size=10, space_size=5)
         interface._append_line_dash_setting_update_expression()
         expression = expression_data_util.get_current_expression()
@@ -120,7 +121,7 @@ class TestLineDashSettingMixIn:
 
     @apply_test_settings()
     def test_delete_line_dash_setting(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"
         interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)

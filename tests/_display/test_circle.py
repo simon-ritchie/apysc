@@ -11,7 +11,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestCircle:
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(parent=sprite.graphics, x=50, y=100, radius=30)
@@ -110,7 +110,6 @@ class TestCircle:
 
     @apply_test_settings()
     def test__set_center_coordinates(self) -> None:
-        expression_data_util.empty_expression()
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(parent=sprite.graphics, x=50, y=100, radius=30)

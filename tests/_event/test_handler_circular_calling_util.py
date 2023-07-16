@@ -8,11 +8,12 @@ from apysc._expression.event_handler_scope import HandlerScope
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+import apysc as ap
 
 
 @apply_test_settings()
 def test__read_handler_names() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
@@ -51,7 +52,7 @@ def _is_circular_calling(handler_name: str) -> bool:
 
 @apply_test_settings()
 def test_is_handler_circular_calling() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
@@ -140,7 +141,7 @@ def test__save_circular_calling_handler_name() -> None:
 
 @apply_test_settings()
 def test__is_already_saved_circular_calling() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
@@ -167,7 +168,7 @@ def test__is_already_saved_circular_calling() -> None:
 
 @apply_test_settings()
 def test_get_prev_handler_name() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
@@ -243,7 +244,7 @@ def test__get_same_name_prev_variable_name() -> None:
 
 @apply_test_settings()
 def test_get_prev_variable_name() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     prev_variable_name: str = handler_circular_calling_util.get_prev_variable_name(
         handler_name="test_handler_b_2"
     )

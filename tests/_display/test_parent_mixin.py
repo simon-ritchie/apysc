@@ -24,7 +24,7 @@ class TestParentMixIn:
         assert stage.num_children == 0
         assert sprite.parent is None
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         sprite.remove_from_parent()
         expression: str = expression_data_util.get_current_expression()
         assert f"removeElement({sprite.variable_name}" in expression

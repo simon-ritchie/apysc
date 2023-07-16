@@ -53,6 +53,7 @@ def test_get_copy() -> None:
 
 @apply_test_settings()
 def test__get_value_str_from_iterable() -> None:
+    ap.Stage()
     int_1: ap.Int = ap.Int(value=10)
     value_str: str = value_util._get_value_str_from_iterable(
         value=[100, True, int_1, (1000, 2000), "Hello!"]

@@ -7,7 +7,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test__get_next_variable_num() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     next_variable_num: int = expression_variables_util._get_next_variable_num(
         type_name="sprite"
     )
@@ -31,7 +31,7 @@ def test__make_variable_name() -> None:
 
 @apply_test_settings()
 def test_get_next_variable_name() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
 
     variable_name: str = expression_variables_util.get_next_variable_name(
         type_name="sprite"
@@ -45,7 +45,7 @@ def test_get_next_variable_name() -> None:
 @apply_test_settings()
 def test_append_substitution_expression() -> None:
     indent_num.reset()
-    expression_data_util.empty_expression()
+    ap.Stage()
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     expression_variables_util.append_substitution_expression(
@@ -58,7 +58,7 @@ def test_append_substitution_expression() -> None:
 
 @apply_test_settings()
 def test_append_substitution_expression_with_names() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     expression_variables_util.append_substitution_expression_with_names(
         left_variable_name="i_5", right_variable_name="i_6"
     )
@@ -66,7 +66,7 @@ def test_append_substitution_expression_with_names() -> None:
     expected: str = "i_5 = i_6"
     assert expected in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     expression_variables_util.append_substitution_expression_with_names(
         left_variable_name="", right_variable_name="i_6"
     )
@@ -82,7 +82,7 @@ def test_append_substitution_expression_with_names() -> None:
 
 def test__save_next_variable_name_count() -> None:
     """_save_next_variable_name_count 関数のテスト。"""
-    expression_data_util.empty_expression()
+    ap.Stage()
     expression_variables_util._save_next_variable_name_count(type_name="sp")
     next_variable_num: int = expression_variables_util._get_next_variable_num(
         type_name="sp"

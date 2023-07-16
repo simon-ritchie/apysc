@@ -35,7 +35,7 @@ class TestForDictKeys:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         dict_: ap.Dictionary[ap.String, int] = ap.Dictionary(
             {
                 ap.String("a"): 10,

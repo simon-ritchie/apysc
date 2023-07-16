@@ -38,7 +38,7 @@ class TestDayMixIn:
 
     @apply_test_settings()
     def test__append_day_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: DayMixIn = DayMixIn()
         mixin.variable_name = "test_day_mixin"
         mixin._set_init_day_value(day=15)
@@ -50,7 +50,7 @@ class TestDayMixIn:
 
     @apply_test_settings()
     def test_day(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: DayMixIn = DayMixIn()
         mixin.variable_name = "test_day_mixin"
         mixin._set_init_day_value(day=15)
@@ -69,7 +69,7 @@ class TestDayMixIn:
 
     @apply_test_settings()
     def test__append_day_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: DayMixIn = DayMixIn()
         mixin.variable_name = "test_day_mixin"
         day_val: ap.Int = ap.Int(15)

@@ -27,7 +27,7 @@ class TestDaysMixIn:
 
     @apply_test_settings()
     def test__append_days_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: DaysMixIn = DaysMixIn()
         days: ap.Int = ap.Int(5)
         mixin.variable_name = "test_days_mixin"
@@ -39,9 +39,9 @@ class TestDaysMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert expected in expression
 
-    # @apply_test_settings()
+    @apply_test_settings()
     def test_days(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: DaysMixIn = DaysMixIn()
         mixin.variable_name = "test_days_mixin"
         mixin._days_value = 3

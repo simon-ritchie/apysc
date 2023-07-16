@@ -37,7 +37,7 @@ class TestVisibleMixIn:
 
     @apply_test_settings()
     def test__append_visible_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestVisible = _TestVisible()
         mixin_1.visible = ap.Boolean(True)
         expression: str = expression_data_util.get_current_expression()

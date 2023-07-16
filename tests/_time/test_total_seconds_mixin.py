@@ -23,7 +23,7 @@ class TestTotalSecondsMixIn:
 
     @apply_test_settings()
     def test__append_total_seconds_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: TotalSecondsMixIn = TotalSecondsMixIn()
         total_seconds: ap.Number = ap.Number(10.5)
         mixin.variable_name = "test_mixin"
@@ -34,7 +34,7 @@ class TestTotalSecondsMixIn:
 
     @apply_test_settings()
     def test_total_seconds(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=2)
         right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
         mixin: TotalSecondsMixIn = TotalSecondsMixIn()

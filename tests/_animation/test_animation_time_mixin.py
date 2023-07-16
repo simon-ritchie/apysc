@@ -7,7 +7,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestAnimationTimeMixIn:
     @apply_test_settings()
     def test_animation_time(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: AnimationTimeMixIn = AnimationTimeMixIn()
         mixin.variable_name = "test_animation_time_mixin"
 

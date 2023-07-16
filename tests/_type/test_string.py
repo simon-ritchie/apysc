@@ -43,7 +43,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         expression: str = expression_data_util.get_current_expression()
         expected: str = f'var {string_1.variable_name} = "Hello!";'
@@ -62,7 +62,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_1.value = "World!"
         expression: str = expression_data_util.get_current_expression()
@@ -87,7 +87,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_addition_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = string_1 + " World!"
         expression: str = expression_data_util.get_current_expression()
@@ -107,7 +107,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_multiplication_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = string_1 * 3
         expression: str = expression_data_util.get_current_expression()
@@ -127,7 +127,7 @@ class TestString:
 
     @apply_test_settings()
     def test___iadd__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello")
         original_variable_name: str = string_1.variable_name
         string_1 += " World!"
@@ -147,7 +147,7 @@ class TestString:
 
     @apply_test_settings()
     def test___imul__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         original_variable_name: str = string_1.variable_name
         string_1 *= 3
@@ -284,7 +284,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_eq_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = ap.String(value="World!")
         result: ap.Boolean = string_1 == string_2
@@ -295,7 +295,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         result = string_1 == "Hello!"
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -311,7 +311,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_ne_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = ap.String(value="World!")
         result: ap.Boolean = string_1 != string_2
@@ -322,7 +322,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         result = string_1 != "World!"
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -338,7 +338,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_lt_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = ap.String(value="World!")
         result: ap.Boolean = string_1 < string_2
@@ -349,7 +349,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         result = string_1 < "World!"
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -365,7 +365,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_le_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = ap.String(value="World!")
         result: ap.Boolean = string_1 <= string_2
@@ -376,7 +376,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         result = string_1 <= "World!"
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -392,7 +392,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_gt_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = ap.String(value="World!")
         result: ap.Boolean = string_1 > string_2
@@ -403,7 +403,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         result = string_1 > "World!"
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -419,7 +419,7 @@ class TestString:
 
     @apply_test_settings()
     def test__append_ge_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string_1: ap.String = ap.String(value="Hello!")
         string_2: ap.String = ap.String(value="World!")
         result: ap.Boolean = string_1 >= string_2
@@ -430,7 +430,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         result = string_1 >= "World!"
         expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(

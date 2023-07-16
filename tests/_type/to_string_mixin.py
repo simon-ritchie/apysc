@@ -7,7 +7,7 @@ from apysc._type.to_string_mixin import ToStringMixIn
 class TestToStringMixIn:
     @apply_test_settings()
     def test_to_string(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: ToStringMixIn = ToStringMixIn()
         mixin.variable_name = "test_mixin"
         string: ap.String = mixin.to_string()

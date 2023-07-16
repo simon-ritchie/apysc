@@ -57,7 +57,6 @@ class TestTriangle:
 
     @apply_test_settings()
     def test___init__(self) -> None:
-        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         triangle: Triangle = Triangle(
             x1=50,

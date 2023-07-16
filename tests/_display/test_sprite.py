@@ -52,7 +52,7 @@ class TestSprite:
             assert (
                 expected_str in expression
             ), f"{expected_str}\n-----------------\n{expression}"
-        expression_data_util.empty_expression()
+        ap.Stage()
 
     @apply_test_settings()
     def test__make_snapshot(self) -> None:

@@ -21,7 +21,7 @@ class TestWidthMixIn:
     def test__append_width_update_expression(self) -> None:
         width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
-        expression_data_util.empty_expression()
+        ap.Stage()
         width_interface.width = ap.Int(200)
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -35,7 +35,7 @@ class TestWidthMixIn:
     def test_update_width_and_skip_appending_exp(self) -> None:
         width_interface: WidthMixIn = WidthMixIn()
         width_interface.variable_name = "test_width_interface"
-        expression_data_util.empty_expression()
+        ap.Stage()
         width_interface._update_width_and_skip_appending_exp(value=ap.Int(300))
         assert width_interface.width == 300
         expression: str = expression_data_util.get_current_expression()

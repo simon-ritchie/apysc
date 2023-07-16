@@ -36,7 +36,7 @@ class TestEnterFrameMixIn:
 
     @apply_test_settings()
     def test__append_enter_frame_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin.variable_name = "test_mixin"
         is_stopped: ap.Boolean = ap.Boolean(False)
@@ -100,7 +100,7 @@ class TestEnterFrameMixIn:
 
     @apply_test_settings()
     def test_enter_frame(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin.variable_name = "test_mixin"
         mixin.enter_frame(
@@ -129,7 +129,7 @@ class TestEnterFrameMixIn:
         expression = expression_data_util.get_current_event_handler_scope_expression()
         assert f"function {handler_name}" in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin.unbind_enter_frame(handler=self.on_enter_frame_1)
         mixin.enter_frame(
             handler=self.on_enter_frame_1,
@@ -214,7 +214,7 @@ class TestEnterFrameMixIn:
 
     @apply_test_settings()
     def test__append_enter_frame_rebinding_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: EnterFrameMixIn = EnterFrameMixIn()
         mixin.enter_frame(
             handler=self.on_enter_frame_1,

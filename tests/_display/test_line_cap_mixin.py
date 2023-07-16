@@ -34,7 +34,7 @@ class TestLineCapMixIn:
 
     @apply_test_settings()
     def test__append_line_cap_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: LineCapMixIn = LineCapMixIn()
         mixin.variable_name = "test_line_cap_mixin"
         mixin.line_cap = ap.LineCaps.ROUND
@@ -79,7 +79,7 @@ class TestLineCapMixIn:
 
     @apply_test_settings()
     def test__update_line_cap_and_skip_appending_exp(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: LineCapMixIn = LineCapMixIn()
         mixin.variable_name = "test_line_cap_mixin"
         mixin._update_line_cap_and_skip_appending_exp(value=ap.LineCaps.ROUND)

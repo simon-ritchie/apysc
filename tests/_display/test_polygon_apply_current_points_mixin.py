@@ -8,12 +8,13 @@ from apysc._display.polygon_apply_current_points_mixin import (
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
+import apysc as ap
 
 
 class TestPolygonApplyCurrentPointsMixIn:
     @apply_test_settings()
     def test__apply_current_points(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: PolygonApplyCurrentPointsMixIn = PolygonApplyCurrentPointsMixIn()
         mixin.variable_name = "test_mixin"
         mixin._apply_current_points()

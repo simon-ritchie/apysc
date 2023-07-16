@@ -34,7 +34,7 @@ def test_is_debug_mode() -> None:
 
 @apply_test_settings()
 def test__get_callable_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     callable_count: int = debug_mode._get_callable_count(
         callable_=TestDebugInfo.test___init__,
         module_name=__name__,
@@ -58,7 +58,7 @@ def test__get_callable_count() -> None:
 
 @apply_test_settings()
 def test__increment_callable_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     debug_mode._increment_callable_count(
         callable_=TestDebugInfo.test___init__,
         module_name=__name__,
@@ -124,7 +124,7 @@ def test_add_debug_info_setting() -> None:
         def test_method_2(cls, a: int) -> int:
             return a * 3
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     test_instance: _TestClass = _TestClass()
     ap.set_debug_mode()
     result: int = test_instance.test_method_1(10, b="Hello")
@@ -140,7 +140,7 @@ def test_add_debug_info_setting() -> None:
     assert "// Keyword arguments: {'b': 'Hello'}" in expression
     assert "class: _TestClass" in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     ap.set_debug_mode()
     result = _TestClass.test_method_2(a=20)
     ap.unset_debug_mode()

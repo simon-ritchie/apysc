@@ -4,13 +4,12 @@ from apysc._validation.validate_stage_is_created_mixin import (
     ValidateStageIsCreatedMixIn
 )
 from apysc._display.stage import StageNotCreatedError
-from apysc._expression import expression_data_util
 
 
 class TestValidateStageIsCreatedMixIn:
     @apply_test_settings()
     def test__validate_stage_is_created(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
 
         mixin: ValidateStageIsCreatedMixIn = ValidateStageIsCreatedMixIn()
         assert_raises(

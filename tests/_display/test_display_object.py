@@ -20,7 +20,6 @@ class TestDisplayObject:
 
     @apply_test_settings()
     def test__set_overflow_visible_setting(self) -> None:
-        expression_data_util.empty_expression()
         ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject()
         display_object._set_overflow_visible_setting()

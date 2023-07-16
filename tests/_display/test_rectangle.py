@@ -138,7 +138,6 @@ class TestRectangle:
         assert_y_attr_expression_exists(expression=expression)
         assert_stroke_width_attr_expression_exists(expression=expression)
         assert_stroke_opacity_attr_expression_exists(expression=expression)
-        expression_data_util.empty_expression()
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:

@@ -4,11 +4,12 @@ from apysc._expression import indent_num
 from apysc._expression.indent_num import Indent
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_mixin import VariableNameMixIn
+import apysc as ap
 
 
 @apply_test_settings()
 def test_get_current_indent_num() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     current_indent_num: int = indent_num.get_current_indent_num()
     assert current_indent_num == 0
 
@@ -19,7 +20,7 @@ def test_get_current_indent_num() -> None:
 
 @apply_test_settings()
 def test_reset() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     with Indent():
         indent_num.reset()
         current_indent_num: int = indent_num.get_current_indent_num()
@@ -57,7 +58,7 @@ class TestIndent:
 
 @apply_test_settings()
 def test__get_indent_num_table_name() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     table_name: str = indent_num._get_indent_num_table_name()
     assert table_name == expression_data_util.TableName.INDENT_NUM_NORMAL.value
 

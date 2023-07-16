@@ -41,7 +41,7 @@ class TestMouseEventUnbindingMixIn:
 
     @apply_test_settings()
     def test__unbind_mouse_event(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestClickMixIn = _TestClickMixIn()
         mixin_1.click(handler=self.on_click_1)
         mixin_1._unbind_mouse_event(
@@ -58,7 +58,7 @@ class TestMouseEventUnbindingMixIn:
 
     @apply_test_settings()
     def test__unbind_all_mouse_events(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestClickMixIn = _TestClickMixIn()
         mixin_1.click(handler=self.on_click_1)
         mixin_1.click(handler=self.on_click_2)

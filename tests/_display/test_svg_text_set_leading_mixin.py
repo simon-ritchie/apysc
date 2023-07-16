@@ -22,7 +22,7 @@ class _TestMixIn(
 class TestSVGTextSetLeadingMixIn:
     @apply_test_settings()
     def test__set_leading(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: SVGTextSetLeadingMixIn = SVGTextSetLeadingMixIn()
         assert_raises(
             expected_error_class=TypeError,
@@ -36,7 +36,7 @@ class TestSVGTextSetLeadingMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert '.font("leading",' in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2._set_leading(leading=ap.Number(2.0))
         assert mixin_2.leading == ap.Number(2.0)
         expression = expression_data_util.get_current_expression()

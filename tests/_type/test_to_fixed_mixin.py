@@ -6,7 +6,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestToFixedMixIn:
     @apply_test_settings()
     def test_to_fixed(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         num: ap.Number = ap.Number(10.789789)
         result_str: ap.String = num.to_fixed(digits=2)
         expression: str = expression_data_util.get_current_expression()
@@ -14,7 +14,7 @@ class TestToFixedMixIn:
         assert expected in expression
         assert result_str == ap.String("10.79")
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_val: ap.Int = ap.Int(10)
         digits: ap.Int = ap.Int(3)
         result_str = int_val.to_fixed(digits=digits)

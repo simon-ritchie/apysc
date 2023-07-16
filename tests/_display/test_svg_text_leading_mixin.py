@@ -19,7 +19,7 @@ class _TestMixIn(
 class TestSVGTextLeadingMixIn:
     @apply_test_settings()
     def test_leading(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"
@@ -43,7 +43,7 @@ class TestSVGTextLeadingMixIn:
 
     @apply_test_settings()
     def test__make_snapshot__revert(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"

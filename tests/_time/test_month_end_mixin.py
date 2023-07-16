@@ -7,7 +7,7 @@ from apysc._time.month_end_mixin import MonthEndMixin
 class TestMonthEndMixin:
     @apply_test_settings()
     def test_set_month_end(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: MonthEndMixin = MonthEndMixin()
         mixin.variable_name = "test_mixin"
         mixin._year = ap.Int(2022)

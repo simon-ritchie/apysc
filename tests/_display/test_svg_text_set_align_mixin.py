@@ -4,6 +4,7 @@ from apysc._display.svg_text_set_align_mixin import SVGTextSetAlignMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
+import apysc as ap
 
 
 class _TestMixIn(
@@ -24,7 +25,7 @@ class TestSVGTextSetAlignMixIn:
             align=SVGTextAlign.CENTER,
         )
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2: _TestMixIn = _TestMixIn()
         mixin_2._set_align(align=SVGTextAlign.CENTER)
         assert mixin_2.align == SVGTextAlign.CENTER

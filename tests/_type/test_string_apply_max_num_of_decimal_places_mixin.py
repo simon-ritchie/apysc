@@ -23,7 +23,7 @@ def test__get_py_str() -> None:
 class TestStringApplyMaxNumOfDecimalPlacesMixIn:
     @apply_test_settings()
     def test_apply_max_num_of_decimal_places(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
 
         string: ap.String = ap.String("10.123.456")
         result_string: ap.String = string.apply_max_num_of_decimal_places(
@@ -38,7 +38,7 @@ class TestStringApplyMaxNumOfDecimalPlacesMixIn:
             in expression
         )
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         max_num_of_decimal_places: ap.Int = ap.Int(3)
         string = ap.String("10.123456")
         result_string = string.apply_max_num_of_decimal_places(

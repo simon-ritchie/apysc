@@ -30,7 +30,7 @@ class TestSVGTextSetBoldMixIn:
             bold=True,
         )
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2: _TestMixIn = _TestMixIn()
         mixin_2.variable_name = "test_mixin"
         mixin_2._set_bold(bold=True)
@@ -39,7 +39,7 @@ class TestSVGTextSetBoldMixIn:
         assert expected in expression
         assert mixin_2.bold
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2.bold = ap.Boolean(False)
         mixin_2._set_bold(bold=ap.Boolean(True))
         expression = expression_data_util.get_current_expression()
@@ -47,7 +47,7 @@ class TestSVGTextSetBoldMixIn:
         assert expected in expression
         assert mixin_2.bold
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2._set_bold(bold=None)
         expression = expression_data_util.get_current_expression()
         assert ".font" not in expression

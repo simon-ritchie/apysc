@@ -27,6 +27,7 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._validation.validate_stage_is_created_mixin import ValidateStageIsCreatedMixIn
 
 _ArrValue = TypeVar("_ArrValue")
 
@@ -40,6 +41,7 @@ class Array(
     InitialSubstitutionExpMixIn,
     PyBuiltInIterDisablingMixIn,
     InitializeForLoopKeyOrValueInterface,
+    ValidateStageIsCreatedMixIn,
     Generic[_ArrValue],
 ):
     """
@@ -142,6 +144,8 @@ class Array(
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+
+        self._validate_stage_is_created()
 
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix

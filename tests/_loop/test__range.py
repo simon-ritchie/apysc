@@ -13,7 +13,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test__create_single_arg_case_arr() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     end: ap.Int = ap.Int(5)
     arr: ap.Array[ap.Int] = _range._create_single_arg_case_arr(end=end)
     expression: str = expression_data_util.get_current_expression()
@@ -27,7 +27,7 @@ def test__create_single_arg_case_arr() -> None:
 
 @apply_test_settings()
 def test__create_double_args_case_arr() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     start: ap.Int = ap.Int(1)
     end: ap.Int = ap.Int(5)
     arr: ap.Array[ap.Int] = _range._create_double_args_case_arr(start=start, end=end)
@@ -42,7 +42,7 @@ def test__create_double_args_case_arr() -> None:
 
 @apply_test_settings()
 def test__create_triple_args_case_arr() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     start: ap.Int = ap.Int(1)
     end: ap.Int = ap.Int(10)
     step: ap.Int = ap.Int(2)
@@ -64,7 +64,7 @@ def test_range() -> None:
     with pytest.raises(ValueError):  # type: ignore
         ap.range()
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     arr: ap.Array[ap.Int] = ap.range(5)
     expression: str = expression_data_util.get_current_expression()
     match_: Optional[Match[str]] = re.search(
@@ -78,7 +78,7 @@ def test_range() -> None:
     )
     assert match_ is not None
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     arr = ap.range(0, 10)
     expression = expression_data_util.get_current_expression()
     match_ = re.search(
@@ -94,7 +94,7 @@ def test_range() -> None:
     )
     assert match_ is not None
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     arr = ap.range(0, 10, 2)
     expression = expression_data_util.get_current_expression()
     match_ = re.search(

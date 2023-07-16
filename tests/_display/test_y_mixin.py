@@ -20,7 +20,7 @@ class TestYMixIn:
     @apply_test_settings()
     def test__append_y_update_expression(self) -> None:
         y_mixin: YMixIn = YMixIn()
-        expression_data_util.empty_expression()
+        ap.Stage()
         y_mixin.variable_name = "test_y_mixin"
         y_mixin.y = ap.Number(300)
         expression: str = expression_data_util.get_current_expression()

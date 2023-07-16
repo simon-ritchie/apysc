@@ -7,6 +7,7 @@ from apysc._loop import loop_count
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
+import apysc as ap
 
 
 class _TestMixIn(ForLoopExitMixIn, GetLastScopeInterface):
@@ -25,7 +26,7 @@ class _TestMixIn(ForLoopExitMixIn, GetLastScopeInterface):
 class TestForLoopExitMixIn:
     @apply_test_settings()
     def test___exit__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestMixIn = _TestMixIn()
         mixin_1._locals = {}
         mixin_1._globals = {}

@@ -38,7 +38,7 @@ class TestHourMixIn:
 
     @apply_test_settings()
     def test__append_hour_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: HourMixIn = HourMixIn()
         mixin.variable_name = "test_hour_mixin"
         hour_val: ap.Int = ap.Int(12)
@@ -49,7 +49,7 @@ class TestHourMixIn:
 
     @apply_test_settings()
     def test_hour(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: HourMixIn = HourMixIn()
         mixin.variable_name = "test_hour_mixin"
         mixin._set_init_hour_value(hour=10)
@@ -70,7 +70,7 @@ class TestHourMixIn:
 
     @apply_test_settings()
     def test__append_hour_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: HourMixIn = HourMixIn()
         mixin.variable_name = "test_hour_mixin"
         hour_val: ap.Int = ap.Int(12)

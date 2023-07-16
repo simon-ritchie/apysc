@@ -58,7 +58,7 @@ class TestRotationAroundPointMixIn:
 
     @apply_test_settings()
     def test__append_rotation_around_point_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         rotation: ap.Int = ap.Int(50)
         x: ap.Number = ap.Number(100)
@@ -114,7 +114,7 @@ class TestRotationAroundPointMixIn:
 
     @apply_test_settings()
     def test__get_rotation_around_point_updating_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         rotation: ap.Int = ap.Int(50)
         x: ap.Number = ap.Number(100)

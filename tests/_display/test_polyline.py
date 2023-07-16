@@ -110,7 +110,6 @@ class TestPolyline:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af")
@@ -149,7 +148,6 @@ class TestPolyline:
 
     @apply_test_settings()
     def test_append_line_point(self) -> None:
-        expression_data_util.empty_expression()
         ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af")

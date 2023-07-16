@@ -21,7 +21,7 @@ class TestXMixIn:
     def test__append_x_update_expression(self) -> None:
         x_mixin = XMixIn()
         x_mixin.variable_name = "test_x_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         x_mixin.x = ap.Number(200)
         expression: str = expression_data_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(value=x_mixin._x)

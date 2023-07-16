@@ -7,7 +7,7 @@ from apysc._testing.testing_helper import assert_raises
 class TestContinue:
     @apply_test_settings()
     def test___init__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         assert_raises(
             expected_error_class=Exception,
             callable_=ap.Continue,

@@ -252,14 +252,14 @@ def test__minify_html() -> None:
     html_str = exporter._minify_html(html_str=html_str, minify=True)
     assert html_str.startswith("<html>\n<body>")
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     html_str = exporter._minify_html(html_str=html_str, minify=True)
     assert html_str.startswith("<html><body>")
 
 
 @apply_test_settings()
 def test__append_event_handler_expressions() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
 
@@ -325,7 +325,6 @@ def test__display_debug_mode_ignoring_minify_setting_info() -> None:
     )
     assert msg == ""
 
-    expression_data_util.empty_expression()
     ap.Stage()
     msg = exporter._display_debug_mode_ignoring_minify_setting_info(
         minify=True, verbose=1

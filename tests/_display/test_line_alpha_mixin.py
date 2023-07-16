@@ -21,7 +21,7 @@ class TestLineAlphaMixIn:
     def test__append_line_alpha_update_expression(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         line_alpha_mixin.line_alpha = ap.Number(0.5)
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -38,7 +38,7 @@ class TestLineAlphaMixIn:
     def test__update_line_alpha_and_skip_appending_exp(self) -> None:
         line_alpha_mixin: LineAlphaMixIn = LineAlphaMixIn()
         line_alpha_mixin.variable_name = "test_line_alpha_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         line_alpha_mixin._update_line_alpha_and_skip_appending_exp(
             value=ap.Number(0.25)
         )

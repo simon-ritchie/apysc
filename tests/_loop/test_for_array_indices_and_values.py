@@ -9,6 +9,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestForArrayIndicesAndValues:
     @apply_test_settings()
     def test___init__(self) -> None:
+        ap.Stage()
         arr: ap.Array[ap.Int] = ap.Array([ap.Int(10)])
         for_array_indices_and_values: ap.ForArrayIndicesAndValues = (
             ap.ForArrayIndicesAndValues(
@@ -32,6 +33,7 @@ class TestForArrayIndicesAndValues:
 
     @apply_test_settings()
     def test__get_last_scope(self) -> None:
+        ap.Stage()
         arr: ap.Array[ap.Int] = ap.Array([ap.Int(10)])
         for_array_indices_and_values: ap.ForArrayIndicesAndValues = (
             ap.ForArrayIndicesAndValues(
@@ -44,7 +46,7 @@ class TestForArrayIndicesAndValues:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         arr: ap.Array[ap.String] = ap.Array([ap.String("a"), ap.String("b")])
         with ap.ForArrayIndicesAndValues(arr=arr, arr_value_type=ap.String) as (
             i,

@@ -21,7 +21,7 @@ class TestHeightMixIn:
     def test__append_height_update_expression(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
         height_mixin.variable_name = "test_height_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         height_mixin.height = ap.Int(300)
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -34,7 +34,7 @@ class TestHeightMixIn:
     @apply_test_settings()
     def test__update_height_and_skip_appending_exp(self) -> None:
         height_mixin: HeightMixIn = HeightMixIn()
-        expression_data_util.empty_expression()
+        ap.Stage()
         height_mixin._update_height_and_skip_appending_exp(value=ap.Int(300))
         assert height_mixin.height == 300
 

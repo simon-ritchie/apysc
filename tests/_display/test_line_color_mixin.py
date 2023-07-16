@@ -27,7 +27,7 @@ class TestLineColorMixIn:
     def test__append_line_color_update_expression(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
-        expression_data_util.empty_expression()
+        ap.Stage()
         line_color_interface.line_color = ap.String("#333")
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -43,7 +43,7 @@ class TestLineColorMixIn:
     def test__update_line_color_and_skip_appending_exp(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
-        expression_data_util.empty_expression()
+        ap.Stage()
         line_color_interface._update_line_color_and_skip_appending_exp(
             value=ap.String("#777")
         )

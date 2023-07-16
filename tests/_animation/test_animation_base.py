@@ -65,7 +65,7 @@ class TestAnimationBase:
 
     @apply_test_settings()
     def test_start(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         animation: _TestAnimation = _TestAnimation()
         target: VariableNameMixIn = VariableNameMixIn()
         target.variable_name = "test_animation_base"
@@ -92,7 +92,7 @@ class TestAnimationBase:
             assert match is not None, f"{expected_pattern} \n\n{expression}"
         assert animation._started
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         animation = _TestAnimation()
         animation._set_basic_animation_settings(
             target=target, duration=3000, delay=1000, easing=ap.Easing.EASE_OUT_QUINT
@@ -137,7 +137,7 @@ class TestAnimationBase:
 
     @apply_test_settings()
     def test_animation_complete(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         animation: _TestAnimation = _TestAnimation()
         self_instance: AnimationBase = animation.animation_complete(
             handler=self.on_animation_complete_1, options={"value": 10}

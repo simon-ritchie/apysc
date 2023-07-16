@@ -38,7 +38,7 @@ def on_mouse_wheel_2(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
 
 @apply_test_settings()
 def test_bind_wheel_event_to_document() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     name: str = ap.bind_wheel_event_to_document(
         handler=on_mouse_wheel_1, options={"msg": "Hello!"}
     )
@@ -55,7 +55,7 @@ def test_bind_wheel_event_to_document() -> None:
 
 @apply_test_settings()
 def test_unbind_wheel_event_from_document() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     ap.unbind_wheel_event_from_document(handler=on_mouse_wheel_1)
     name: str = get_handler_name(handler=on_mouse_wheel_1, instance=ap.document)
     expression: str = expression_data_util.get_current_expression()
@@ -65,7 +65,7 @@ def test_unbind_wheel_event_from_document() -> None:
 
 @apply_test_settings()
 def test_unbind_wheel_event_all_from_document() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     ap.unbind_wheel_event_all_from_document()
     expression: str = expression_data_util.get_current_expression()
     expected: str = f'$({ap.document.variable_name}).off("mousewheel");'

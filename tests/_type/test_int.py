@@ -12,7 +12,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestInt:
     @apply_test_settings()
     def test___init__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_val_1: ap.Int = ap.Int(value=100.5)
         assert int_val_1.value == 100
         assert int_val_1.variable_name.startswith(f"{var_names.INT}_")
@@ -35,7 +35,7 @@ class TestInt:
 
     @apply_test_settings()
     def test_value(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_val_1: ap.Int = ap.Int(value=100)
         int_val_1.value = 200.5  # type: ignore
         assert int_val_1.value == 200
@@ -61,7 +61,7 @@ class TestInt:
 
     @apply_test_settings()
     def test_set_value_and_skip_expression_appending(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_1: ap.Int = ap.Int(value=10)
         int_1._set_value_and_skip_expression_appending(value=20.5)
         assert int_1.value == 20
@@ -77,7 +77,7 @@ class TestInt:
 
     @apply_test_settings()
     def test__append_cast_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_val: ap.Int = ap.Int(value=ap.Number(value=100.5))
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
@@ -85,12 +85,12 @@ class TestInt:
         )
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_val = ap.Int(value=100)
         expression = expression_data_util.get_current_expression()
         assert "Math.trunc" not in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_val = ap.Int(value=100.5)
         expression = expression_data_util.get_current_expression()
         assert "Math.trunc" not in expression

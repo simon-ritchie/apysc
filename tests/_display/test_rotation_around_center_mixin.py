@@ -33,7 +33,7 @@ class TestRotationAroundCenterMixIn:
 
     @apply_test_settings()
     def test__append_rotation_around_center_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = ap.Int(20)

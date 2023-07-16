@@ -19,7 +19,7 @@ class _TestMixIn(
 class TestSVGTextDeltaYMixIn:
     @apply_test_settings()
     def test_delta_y(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"

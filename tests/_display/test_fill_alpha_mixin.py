@@ -21,7 +21,7 @@ class TestFillAlphaMixIn:
     def test__append_fill_alpha_update_expression(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
-        expression_data_util.empty_expression()
+        ap.Stage()
         fill_alpha_interface.fill_alpha = ap.Number(0.3)
         expression: str = expression_data_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
@@ -36,7 +36,7 @@ class TestFillAlphaMixIn:
     def test__update_fill_alpha_and_skip_appending_exp(self) -> None:
         fill_alpha_interface: FillAlphaMixIn = FillAlphaMixIn()
         fill_alpha_interface.variable_name = "test_fill_alpha_interface"
-        expression_data_util.empty_expression()
+        ap.Stage()
         fill_alpha_interface._update_fill_alpha_and_skip_appending_exp(value=0.25)
         assert fill_alpha_interface.fill_alpha == 0.25
         expression: str = expression_data_util.get_current_expression()

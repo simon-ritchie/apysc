@@ -40,7 +40,7 @@ class TestWidthAndHeightMixInForEllipse:
 
     @apply_test_settings()
     def test__append_ellipse_width_and_height_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: WidthAndHeightMixInForEllipse = WidthAndHeightMixInForEllipse()
         mixin.variable_name = "test_width_and_height_mixins_for_ellipse"
         width: ap.Int = ap.Int(10)

@@ -42,7 +42,7 @@ class TestLineDotSettingMixIn:
 
     @apply_test_settings()
     def test__append_line_dot_setting_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin.variable_name = "test_line_dot_setting_mixin"
         mixin._initialize_line_dot_setting_if_not_initialized()
@@ -51,7 +51,7 @@ class TestLineDotSettingMixIn:
         expected: str = f'{mixin.variable_name}.css("stroke-dasharray", "");'
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin._line_dot_setting = ap.LineDotSetting(dot_size=10)
         mixin._append_line_dot_setting_update_expression()
         expression = expression_data_util.get_current_expression()
@@ -67,7 +67,7 @@ class TestLineDotSettingMixIn:
 
     @apply_test_settings()
     def test__update_line_dot_setting_and_skip_appending_exp(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin._update_line_dot_setting_and_skip_appending_exp(value=None)
         line_dot_setting: Optional[ap.LineDotSetting] = mixin.line_dot_setting
@@ -124,7 +124,7 @@ class TestLineDotSettingMixIn:
 
     @apply_test_settings()
     def test_delete_line_dot_setting(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin.variable_name = "test_line_dot_setting_mixin"
         mixin.line_dot_setting = ap.LineDotSetting(dot_size=10)

@@ -23,7 +23,7 @@ class _TestMixIn(
 class TestSVGTextFontFamilyMixIn:
     @apply_test_settings()
     def test__append_font_family_string_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         font_family_string: ap.String = ap.String("Impact")
@@ -39,7 +39,7 @@ class TestSVGTextFontFamilyMixIn:
 
     @apply_test_settings()
     def test_font_family(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"

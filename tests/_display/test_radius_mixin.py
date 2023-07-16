@@ -25,7 +25,7 @@ class TestRadiusMixIn:
 
     @apply_test_settings()
     def test__append_radius_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: RadiusMixIn = RadiusMixIn()
         interface.variable_name = "test_radius_interface"
         radius: ap.Int = ap.Int(10)

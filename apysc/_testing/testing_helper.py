@@ -169,7 +169,8 @@ def apply_test_settings(
         If a specified `retrying_sleep_seconds` is greater than 10.
     """
     if retrying_sleep_seconds is None:
-        retrying_sleep_seconds = randint(10, 3000) / 1000
+        # retrying_sleep_seconds = randint(10, 3000) / 1000
+        retrying_sleep_seconds = 0.0001
     _validate_retrying_sleep_seconds(retrying_sleep_seconds=retrying_sleep_seconds)
     retrying_sleep_seconds_: float = cast(float, retrying_sleep_seconds)
 

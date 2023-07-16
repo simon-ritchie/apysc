@@ -8,7 +8,7 @@ _EXPECTED_FILE_NAME_STR: str = "file name: test_assertion.py"
 
 @apply_test_settings()
 def test_assert_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     assertion.assert_equal(left=int_1, right=int_2, msg="Invalid int values.")
@@ -21,28 +21,28 @@ def test_assert_equal() -> None:
     assert expected in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_equal(left=[1, 2, 3], right=ap.Array([1, 2, 3]))
     expression = expression_data_util.get_current_expression()
     assert "[assert_arrays_equal]" in expression
     assert "[assert_equal]" not in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_equal(left=ap.Array([1, 2, 3]), right=[1, 2, 3])
     expression = expression_data_util.get_current_expression()
     assert "[assert_arrays_equal]" in expression
     assert "[assert_equal]" not in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_equal(left={"a": 10}, right=ap.Dictionary({"a": 10}))
     expression = expression_data_util.get_current_expression()
     assert "[assert_dicts_equal]" in expression
     assert "[assert_equal]" not in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_equal(left=ap.Dictionary({"a": 10}), right={"a": 10})
     expression = expression_data_util.get_current_expression()
     assert "[assert_dicts_equal]" in expression
@@ -52,7 +52,7 @@ def test_assert_equal() -> None:
 
 @apply_test_settings()
 def test__trace_info() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     assertion.assert_equal(left=int_1, right=int_2, msg="Invalid int values.")
@@ -65,7 +65,7 @@ def test__trace_info() -> None:
 
 @apply_test_settings()
 def test_assert_not_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     int_1: ap.Int = ap.Int(10)
     assertion.assert_not_equal(left=11, right=int_1, msg="Invalid condition.")
     expression: str = expression_data_util.get_current_expression()
@@ -75,28 +75,28 @@ def test_assert_not_equal() -> None:
     assert expected in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_not_equal(left=[1, 2], right=ap.Array([1, 2, 3]))
     expression = expression_data_util.get_current_expression()
     assert "[assert_arrays_not_equal]" in expression
     assert "[assert_not_equal]" not in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_not_equal(left=ap.Array([1, 2, 3]), right=[1, 2])
     expression = expression_data_util.get_current_expression()
     assert "[assert_arrays_not_equal]" in expression
     assert "[assert_not_equal]" not in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_not_equal(left={"a": 10}, right=ap.Dictionary({"a": 10}))
     expression = expression_data_util.get_current_expression()
     assert "[assert_dicts_not_equal]" in expression
     assert "[assert_not_equal]" not in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_not_equal(left=ap.Dictionary({"a": 10}), right={"a": 10})
     expression = expression_data_util.get_current_expression()
     assert "[assert_dicts_not_equal]" in expression
@@ -125,7 +125,7 @@ def test__get_left_and_right_strs() -> None:
 
 @apply_test_settings()
 def test_assert_true() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     boolean_1: ap.Boolean = ap.Boolean(True)
     assertion.assert_true(value=boolean_1, type_strict=True, msg="Value is not true.")
     expression: str = expression_data_util.get_current_expression()
@@ -157,7 +157,7 @@ def test__add_equal_if_type_strict_setting_is_true() -> None:
 
 @apply_test_settings()
 def test_assert_false() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     boolean_1: ap.Boolean = ap.Boolean(False)
     assertion.assert_false(boolean_1, msg="Value is not false.")
     expression: str = expression_data_util.get_current_expression()
@@ -171,6 +171,7 @@ def test_assert_false() -> None:
 
 @apply_test_settings()
 def test__value_type_is_array() -> None:
+    ap.Stage()
     result: bool = assertion._value_type_is_array(value=100)
     assert not result
 
@@ -180,7 +181,7 @@ def test__value_type_is_array() -> None:
 
 @apply_test_settings()
 def test_assert_arrays_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion.assert_arrays_equal(
         left=[1, 2, 3], right=array_1, msg="Array values are not equal."
@@ -196,7 +197,7 @@ def test_assert_arrays_equal() -> None:
 
 @apply_test_settings()
 def test__trace_arrays_or_dicts_assertion_info() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label="assert_arrays_equal",
@@ -211,7 +212,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     assert expected in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label="assert_arrays_not_equal",
         left=array_1,
@@ -224,7 +225,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     assert '"right value:", "[1, 2, 3]"' in expression
     assert _EXPECTED_FILE_NAME_STR in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label="assert_dicts_equal",
@@ -241,7 +242,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
 
 @apply_test_settings()
 def test__make_arrays_or_dicts_comparison_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     array_1: ap.Array = ap.Array([1, 2, 3])
     expression: str = assertion._make_arrays_or_dicts_comparison_expression(
         left=[1, 2, 3],
@@ -271,7 +272,7 @@ def test__make_arrays_or_dicts_comparison_expression() -> None:
 
 @apply_test_settings()
 def test_assert_arrays_not_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion.assert_arrays_not_equal(
         left=[1, 2], right=array_1, msg="Array values are equal."
@@ -287,7 +288,7 @@ def test_assert_arrays_not_equal() -> None:
 
 @apply_test_settings()
 def test_assert_defined() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     int_1: ap.Int = ap.Int(3)
     assertion.assert_defined(value=int_1, msg="value is undefined.")
     expression: str = expression_data_util.get_current_expression()
@@ -301,7 +302,7 @@ def test_assert_defined() -> None:
 
 @apply_test_settings()
 def test_assert_undefined() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     int_1: ap.Int = ap.Int(3)
     assertion.assert_undefined(value=int_1, msg="value is not undefined.")
     expression: str = expression_data_util.get_current_expression()
@@ -315,7 +316,7 @@ def test_assert_undefined() -> None:
 
 @apply_test_settings()
 def test_assert_dicts_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     assertion.assert_dicts_equal(
         left={"a": 10}, right=dict_1, msg="Dictionary values are not equal."
@@ -346,7 +347,7 @@ def test__value_type_is_dict() -> None:
 
 @apply_test_settings()
 def test_assert_dicts_not_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     assertion.assert_dicts_not_equal(
         left={"a": 10}, right=dict_1, msg="Dictionary values are equal."
@@ -363,13 +364,13 @@ def test_assert_dicts_not_equal() -> None:
 
 @apply_test_settings()
 def test_assert_greater() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_greater(left=20, right=10, msg="Value is not greater than 10.")
     expression: str = expression_data_util.get_current_expression()
     expected: str = 'console.assert(20 > 10, "Value is not greater than 10.");'
     assert expected in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     left_val: ap.Int = ap.Int(20)
     right_val: ap.Int = ap.Int(10)
     assertion.assert_greater(
@@ -387,7 +388,7 @@ def test_assert_greater() -> None:
 
 @apply_test_settings()
 def test_assert_greater_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_greater_equal(
         left=20,
         right=10,
@@ -399,7 +400,7 @@ def test_assert_greater_equal() -> None:
     )
     assert expected in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     left_val: ap.Int = ap.Int(20)
     right_val: ap.Int = ap.Int(10)
     assertion.assert_greater_equal(
@@ -417,13 +418,13 @@ def test_assert_greater_equal() -> None:
 
 @apply_test_settings()
 def test_assert_less() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_less(left=10, right=11, msg="Value is not less than 11.")
     expression: str = expression_data_util.get_current_expression()
     expected: str = 'console.assert(10 < 11, "Value is not less than 11.");'
     assert expected in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     left_val: ap.Int = ap.Int(10)
     right_val: ap.Int = ap.Int(11)
     assertion.assert_less(
@@ -441,7 +442,7 @@ def test_assert_less() -> None:
 
 @apply_test_settings()
 def test_assert_less_equal() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     assertion.assert_less_equal(
         left=10,
         right=11,
@@ -453,7 +454,7 @@ def test_assert_less_equal() -> None:
     )
     assert expected in expression
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     left_val: ap.Int = ap.Int(10)
     right_val: ap.Int = ap.Int(11)
     assertion.assert_less_equal(

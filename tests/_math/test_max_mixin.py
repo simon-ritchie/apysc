@@ -7,6 +7,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test__get_max_float_value() -> None:
+    ap.Stage()
     max_value: float = max_mixin._get_max_float_value(
         values=ap.Array([10, 10.5, ap.Int(11), ap.Number(10.9)]),
     )
@@ -15,6 +16,7 @@ def test__get_max_float_value() -> None:
 
 @apply_test_settings()
 def test__get_max_value_variable_name_suffix_from_arr() -> None:
+    ap.Stage()
     suffix: str = max_mixin._get_max_value_variable_name_suffix_from_arr(
         arr=ap.Array(
             [
@@ -31,7 +33,7 @@ def test__get_max_value_variable_name_suffix_from_arr() -> None:
 class TestMaxMixIn:
     @apply_test_settings()
     def test_max(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         values: ap.Array = ap.Array([10, 10.5, ap.Int(11), ap.Number(10.9)])
         max_value: ap.Number = MaxMixIn.max(values=values)
         assert max_value == ap.Number(11.0)

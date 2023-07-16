@@ -85,7 +85,7 @@ class TestPoint2D:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         x: ap.Number = ap.Number(10)
         y: ap.Number = ap.Number(20)
         point: ap.Point2D = ap.Point2D(x=x, y=y)
@@ -98,7 +98,7 @@ class TestPoint2D:
 
     @apply_test_settings()
     def test__append_x_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         x: ap.Number = point.x
         expression: str = expression_data_util.get_current_expression()
@@ -107,7 +107,7 @@ class TestPoint2D:
 
     @apply_test_settings()
     def test__append_y_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         y: ap.Number = point.y
         expression: str = expression_data_util.get_current_expression()
@@ -116,7 +116,7 @@ class TestPoint2D:
 
     @apply_test_settings()
     def test__append_x_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         x: ap.Number = ap.Number(20)
         point.x = x
@@ -126,7 +126,7 @@ class TestPoint2D:
 
     @apply_test_settings()
     def test__append_y_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         y: ap.Number = ap.Number(30)
         point.y = y

@@ -9,7 +9,7 @@ from apysc._time import now_mixin
 class TestNowMixIn:
     @apply_test_settings()
     def test_now(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         now_: datetime = datetime.now()
         now: ap.DateTime = ap.DateTime.now()
         assert now.year == now_.year
@@ -24,7 +24,7 @@ class TestNowMixIn:
 
 @apply_test_settings()
 def test__append_now_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     datetime: ap.DateTime = ap.DateTime(
         year=2022,
         month=3,

@@ -21,7 +21,7 @@ class TestLineThicknessMixIn:
     def test__append_line_thickness_update_expression(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         line_thickness_mixin.line_thickness = ap.Int(2)
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -38,7 +38,7 @@ class TestLineThicknessMixIn:
     def test__update_line_thickness_and_skip_appending_exp(self) -> None:
         line_thickness_mixin: LineThicknessMixIn = LineThicknessMixIn()
         line_thickness_mixin.variable_name = "test_line_thickness_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         line_thickness_mixin._update_line_thickness_and_skip_appending_exp(
             value=ap.Int(5)
         )

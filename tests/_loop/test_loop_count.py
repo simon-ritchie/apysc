@@ -1,11 +1,12 @@
 from apysc._expression import expression_data_util
 from apysc._loop import loop_count
 from apysc._testing.testing_helper import apply_test_settings
+import apysc as ap
 
 
 @apply_test_settings()
 def test_get_current_loop_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
 
     loop_count_: int = loop_count.get_current_loop_count()
     assert loop_count_ == 0
@@ -17,7 +18,7 @@ def test_get_current_loop_count() -> None:
 
 @apply_test_settings()
 def test_increment_current_loop_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     loop_count.increment_current_loop_count()
     loop_count_: int = loop_count.get_current_loop_count()
     assert loop_count_ == 1
@@ -29,7 +30,7 @@ def test_increment_current_loop_count() -> None:
 
 @apply_test_settings()
 def test_decrement_current_loop_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     loop_count.increment_current_loop_count()
     loop_count.decrement_current_loop_count()
     loop_count_: int = loop_count.get_current_loop_count()

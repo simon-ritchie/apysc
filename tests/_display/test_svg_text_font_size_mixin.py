@@ -7,7 +7,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestSVGTextFontSizeMixIn:
     @apply_test_settings()
     def test__append_font_size_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: SVGTextFontSizeMixIn = SVGTextFontSizeMixIn()
         mixin.variable_name = "test_mixin"
         font_size: ap.Int = ap.Int(15)
@@ -20,7 +20,7 @@ class TestSVGTextFontSizeMixIn:
 
     @apply_test_settings()
     def test_font_size(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: SVGTextFontSizeMixIn = SVGTextFontSizeMixIn()
         mixin.variable_name = "test_mixin"
         font_size: ap.Int = mixin.font_size

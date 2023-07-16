@@ -32,7 +32,7 @@ class TestLineJointsMixIn:
 
     @apply_test_settings()
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: LineJointsMixIn = LineJointsMixIn()
         mixin.variable_name = "test_line_joints_mixin"
         assert_raises(
@@ -54,7 +54,7 @@ class TestLineJointsMixIn:
 
     @apply_test_settings()
     def test__append_line_joints_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: LineJointsMixIn = LineJointsMixIn()
         mixin.variable_name = "test_line_joints_mixin"
         mixin.line_joints = ap.LineJoints.BEVEL

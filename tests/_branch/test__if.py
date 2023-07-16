@@ -73,7 +73,7 @@ class TestIf:
 
     @apply_test_settings()
     def test__append_enter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         boolean_1: ap.Boolean = ap.Boolean(True)
@@ -87,7 +87,7 @@ class TestIf:
 
     @apply_test_settings()
     def test__append_exit_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         indent_num.reset()
         boolean_1: ap.Boolean = ap.Boolean(True)
         int_1: ap.Int = ap.Int(10)

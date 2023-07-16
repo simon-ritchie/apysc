@@ -2,12 +2,13 @@ from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.blank_object_mixin import BlankObjectMixIn
+import apysc as ap
 
 
 class TestBlankObjectMixIn:
     @apply_test_settings()
     def test__initialize_blank_object_if_not_initialized(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: BlankObjectMixIn = BlankObjectMixIn()
         mixin._initialize_blank_object_if_not_initialized()
         assert mixin._initialize_blank_object_if_not_initialized

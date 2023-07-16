@@ -7,6 +7,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test__get_min_float_value() -> None:
+    ap.Stage()
     min_value: float = min_mixin._get_min_float_value(
         values=ap.Array([10, 10.5, ap.Int(9), ap.Number(8.5)])
     )
@@ -15,6 +16,7 @@ def test__get_min_float_value() -> None:
 
 @apply_test_settings()
 def test__get_min_value_variable_name_suffix_from_arr() -> None:
+    ap.Stage()
     suffix: str = min_mixin._get_min_value_variable_name_suffix_from_arr(
         arr=ap.Array(
             [
@@ -43,7 +45,7 @@ def test__get_min_value_variable_name_suffix_from_arr() -> None:
 class TestMinMixIn:
     @apply_test_settings()
     def test_min(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         values: ap.Array = ap.Array([10, 9.5, ap.Int(9), ap.Number(9.5)])
         min_value: ap.Number = MinMixIn.min(
             values=values,

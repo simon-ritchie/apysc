@@ -517,6 +517,8 @@ def test_is_apysc_num() -> None:
 
 @apply_test_settings()
 def test_are_point_2ds() -> None:
+    ap.Stage()
+
     @arg_validation_decos.are_point_2ds(arg_position_index=0)
     def _test_func(*, a: Union[List[ap.Point2D], ap.Array[ap.Point2D]]) -> None:
         ...
@@ -802,6 +804,8 @@ def test_is_builtin_boolean() -> None:
 
 @apply_test_settings()
 def test_is_acceptable_array_value() -> None:
+    ap.Stage()
+
     @arg_validation_decos.is_acceptable_array_value(arg_position_index=0)
     def _test_func(*, a: Union[list, tuple, range, ap.Array]) -> None:
         ...
@@ -1153,6 +1157,8 @@ def test_is_apysc_datetime() -> None:
 
 @apply_test_settings()
 def test_is_nums_array() -> None:
+    ap.Stage()
+
     @arg_validation_decos.is_nums_array(arg_position_index=0)
     def _test_func(*, arr: ap.Array) -> int:
         return 140
@@ -1194,6 +1200,8 @@ def test_is_apysc_string() -> None:
 
 @apply_test_settings()
 def test_is_apysc_string_array() -> None:
+    ap.Stage()
+
     @arg_validation_decos.is_apysc_string_array(arg_position_index=0, optional=False)
     def _test_func_1(*, strings: ap.Array[ap.String]) -> int:
         return 160
@@ -1247,6 +1255,8 @@ def test_is_apysc_string_array() -> None:
 
 @apply_test_settings()
 def test_is_builtin_str_list_or_apysc_str_arr() -> None:
+    ap.Stage()
+
     @arg_validation_decos.is_builtin_str_list_or_apysc_str_arr(
         arg_position_index=0,
         optional=False,
@@ -1382,6 +1392,8 @@ def test_is_y_axis_label_position() -> None:
 
 @apply_test_settings()
 def test_is_list_or_array_matrix_data() -> None:
+    ap.Stage()
+
     @arg_validation_decos.is_list_or_array_matrix_data(arg_position_index=0)
     def _test_func_1(*, matrix_data: List[Dict[str, Union[int, float, str]]]) -> int:
         return 240
@@ -1523,6 +1535,8 @@ def test_is_apysc_int_or_number() -> None:
 
 @apply_test_settings()
 def test_is_apysc_array() -> None:
+    ap.Stage()
+
     @arg_validation_decos.is_apysc_array(arg_position_index=0)
     def _test_func_1(*, array: ap.Array[int]) -> int:
         return 310

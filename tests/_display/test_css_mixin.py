@@ -33,7 +33,7 @@ class TestCssMixIn:
 
     @apply_test_settings()
     def test__append_get_css_expresion(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: _TestMixIn = _TestMixIn()
         name: ap.String = ap.String("display")
         css: ap.String = interface.get_css(name=name)
@@ -53,7 +53,7 @@ class TestCssMixIn:
 
     @apply_test_settings()
     def test__append_set_css_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: _TestMixIn = _TestMixIn()
         name: ap.String = ap.String("display")
         value: ap.String = ap.String("none")

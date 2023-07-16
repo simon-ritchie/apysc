@@ -6,7 +6,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestPolygonX3MixIn:
     @apply_test_settings()
     def test_x3(self) -> None:
-        expression_data_util.empty_expression()
         ap.Stage()
         triangle: ap.Triangle = ap.Triangle(
             x1=100,

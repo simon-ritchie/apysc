@@ -12,6 +12,7 @@ from apysc._testing.testing_helper import assert_attrs
 class TestForArrayIndices:
     @apply_test_settings()
     def test___init__(self) -> None:
+        ap.Stage()
         arr: ap.Array[int] = ap.Array([10, 20])
         locals_: Dict[str, Any] = locals()
         globals_: Dict[str, Any] = globals()
@@ -33,7 +34,7 @@ class TestForArrayIndices:
 
     @apply_test_settings()
     def test__append_enter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         arr: ap.Array[int] = ap.Array([10, 20])
         i: ap.Int = ap.Int(0)
         for_array_indices: ap.ForArrayIndices = ap.ForArrayIndices(arr=arr)
@@ -47,7 +48,7 @@ class TestForArrayIndices:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         arr: ap.Array[int] = ap.Array([10, 20])
         with ap.ForArrayIndices(arr=arr) as i:
             ap.append_js_expression("var test = 10;")
@@ -63,7 +64,7 @@ class TestForArrayIndices:
 
     @apply_test_settings()
     def test___exit__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         arr: ap.Array[int] = ap.Array([10, 20])
         with ap.ForArrayIndices(arr=arr) as i:
             assert loop_count.get_current_loop_count() == 1
@@ -80,6 +81,7 @@ class TestForArrayIndices:
 
     @apply_test_settings()
     def test__get_last_scope(self) -> None:
+        ap.Stage()
         arr: ap.Array[int] = ap.Array([10, 20])
         for_array_indices: ap.ForArrayIndices = ap.ForArrayIndices(arr=arr)
         last_scope: LastScope = for_array_indices._get_last_scope()

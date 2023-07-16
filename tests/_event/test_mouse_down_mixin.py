@@ -50,7 +50,7 @@ class TestMouseDownMixIn:
 
     @apply_test_settings()
     def test_mousedown(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestMouseDown = _TestMouseDown()
         name: str = mixin_1.mousedown(
             handler=self.on_mouse_down_1, options={"msg": "Hello!"}
@@ -68,7 +68,7 @@ class TestMouseDownMixIn:
 
     @apply_test_settings()
     def test_unbind_mousedown(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestMouseDown = _TestMouseDown()
         name = mixin_1.mousedown(handler=self.on_mouse_down_1)
         mixin_1.unbind_mousedown(handler=self.on_mouse_down_1)
@@ -82,7 +82,7 @@ class TestMouseDownMixIn:
 
     @apply_test_settings()
     def test_unbind_mousedown_all(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestMouseDown = _TestMouseDown()
         mixin_1.mousedown(handler=self.on_mouse_down_1)
         mixin_1.mousedown(handler=self.on_mouse_down_2)

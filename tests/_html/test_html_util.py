@@ -162,7 +162,7 @@ def test_wrap_expression_by_script_tag() -> None:
 
 @apply_test_settings()
 def test__append_remove_first_selector_symbol_char_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     str_val_1: ap.String = ap.String(".line-graph")
     str_val_2: ap.String = html_util.remove_first_selector_symbol_char(
         str_val=str_val_1

@@ -19,7 +19,7 @@ class _TestMixIn(
 class TestSVGTextTextMixIn:
     @apply_test_settings()
     def test__append_text_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: SVGTextTextMixIn = SVGTextTextMixIn()
         mixin.variable_name = "test_mixin"
         text: ap.String = ap.String("Lorem ipsum")
@@ -30,7 +30,7 @@ class TestSVGTextTextMixIn:
 
     @apply_test_settings()
     def test_text(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: SVGTextTextMixIn = SVGTextTextMixIn()
         mixin_1.variable_name = "test_mixin"
         mixin_1._text = "Lorem ipsum"
@@ -53,7 +53,7 @@ class TestSVGTextTextMixIn:
 
     @apply_test_settings()
     def test__append_text_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: SVGTextTextMixIn = SVGTextTextMixIn()
         mixin.variable_name = "test_mixin"
         text: ap.String = ap.String("Lorem ipsum")

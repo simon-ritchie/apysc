@@ -38,7 +38,7 @@ class TestYearMixIn:
 
     @apply_test_settings()
     def test__append_year_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: YearMixIn = YearMixIn()
         mixin.variable_name = "test_year_mixin"
         year_val: ap.Int = ap.Int(2022)
@@ -51,7 +51,7 @@ class TestYearMixIn:
 
     @apply_test_settings()
     def test_year(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: YearMixIn = YearMixIn()
         mixin.variable_name = "test_year_mixin"
         mixin._set_init_year_value(year=2022)
@@ -72,7 +72,7 @@ class TestYearMixIn:
 
     @apply_test_settings()
     def test__append_year_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: YearMixIn = YearMixIn()
         mixin.variable_name = "test_year_mixin"
         mixin._set_init_year_value(year=2022)

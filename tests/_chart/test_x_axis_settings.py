@@ -5,6 +5,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestXAxisSettings:
     @apply_test_settings()
     def test___init__(self) -> None:
+        ap.Stage()
         setting: ap.XAxisSettings = ap.XAxisSettings(
             x_axis_column_name="test_column",
             tick_max_num=10,

@@ -10,6 +10,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test__convert_list_to_array() -> None:
+    ap.Stage()
     data: List[Dict[str, Union[int, float, str]]] = [
         {
             "a": 10,

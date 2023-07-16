@@ -6,7 +6,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestToNumberMixIn:
     @apply_test_settings()
     def test_to_number(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_val: ap.Int = ap.Int(5)
         number: ap.Number = int_val.to_number(variable_name_suffix="test_suffix")
         assert number == ap.Number(5)

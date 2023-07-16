@@ -8,7 +8,7 @@ from apysc._type.deleted_object_mixin import _DisabledObjectError
 
 @apply_test_settings()
 def test__append_delete_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
 
     value: ap.Int = ap.Int(10)
     _delete._append_delete_expression(value=value)
@@ -21,7 +21,7 @@ def test__append_delete_expression() -> None:
 
 @apply_test_settings()
 def test_delete() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     value: ap.Int = ap.Int(10)
     ap.delete(value=value)
     assert_raises(

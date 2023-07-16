@@ -56,6 +56,8 @@ def test_validate_matrix_list_data() -> None:
 
 @apply_test_settings()
 def test_validate_matrix_array_data() -> None:
+    ap.Stage()
+
     assert_raises(
         expected_error_class=TypeError,
         callable_=matrix_data_validation.validate_matrix_array_data,

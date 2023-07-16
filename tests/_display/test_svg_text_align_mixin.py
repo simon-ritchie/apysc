@@ -4,6 +4,7 @@ from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
+import apysc as ap
 
 
 @apply_test_settings()
@@ -17,7 +18,7 @@ def test_SVGTextAlign() -> None:
 class TestSVGTextAlignMixIn:
     @apply_test_settings()
     def test_align(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: SVGTextAlignMixIn = SVGTextAlignMixIn()
         mixin.variable_name = "test_mixin"
         assert mixin.align == SVGTextAlign.LEFT

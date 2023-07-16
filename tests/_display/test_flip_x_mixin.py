@@ -33,7 +33,7 @@ class TestFlipXMixIn:
 
     @apply_test_settings()
     def test__append_flip_x_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: _TestMixIn = _TestMixIn()
         flip_x_1: ap.Boolean = ap.Boolean(True)
         flip_x_2: ap.Boolean = ap.Boolean(False)

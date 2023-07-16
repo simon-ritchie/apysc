@@ -10,7 +10,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestElse:
     @apply_test_settings(retrying_sleep_seconds=1)
     def test__append_enter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         last_scope.reset()
 
         with pytest.raises(ValueError):  # type: ignore
@@ -37,7 +37,7 @@ class TestElse:
 
     @apply_test_settings()
     def test__set_last_scope(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         last_scope.reset()
         boolean_1: ap.Boolean = ap.Boolean(True)
         with ap.If(boolean_1, locals_=locals(), globals_=globals()):

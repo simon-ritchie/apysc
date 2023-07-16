@@ -3,6 +3,7 @@ from apysc._expression.event_handler_scope import HandlerScope
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+import apysc as ap
 
 
 class _TestClass(InitialSubstitutionExpMixIn, VariableNameMixIn):
@@ -23,7 +24,7 @@ class TestInitialSubstitutionExpMixIn:
     def test__append_initial_substitution_expression_if_in_handler_scope(self) -> None:
         instance: _TestClass = _TestClass()
         instance.variable_name = "test_instance"
-        expression_data_util.empty_expression()
+        ap.Stage()
         instance._append_initial_substitution_expression_if_in_handler_scope(
             skip_appending=False,
         )
@@ -33,7 +34,7 @@ class TestInitialSubstitutionExpMixIn:
         expected_expression: str = "var test_value = true;"
         assert expected_expression not in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         with HandlerScope(handler_name="test_handler", instance=instance):
             instance._append_initial_substitution_expression_if_in_handler_scope(
                 skip_appending=False,
@@ -41,7 +42,7 @@ class TestInitialSubstitutionExpMixIn:
         expression = expression_data_util.get_current_event_handler_scope_expression()
         assert expected_expression in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         with HandlerScope(handler_name="test_handler", instance=instance):
             instance._append_initial_substitution_expression_if_in_handler_scope(
                 skip_appending=True,

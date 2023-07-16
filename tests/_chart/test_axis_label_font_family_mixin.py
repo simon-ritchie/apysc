@@ -6,6 +6,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestAxisLabelFontFamilyMixIn:
     @apply_test_settings()
     def test__set_initial_axis_label_font_family(self) -> None:
+        ap.Stage()
         mixin: AxisLabelFontFamilyMixIn = AxisLabelFontFamilyMixIn()
         mixin._set_initial_axis_label_font_family(
             axis_label_font_family=["Impact", "Helvetica"],

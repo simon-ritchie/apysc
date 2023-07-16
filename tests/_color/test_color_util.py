@@ -53,7 +53,7 @@ def test_complement_hex_color() -> None:
 
 @apply_test_settings()
 def test__append_complement_hex_color_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
 
     string_1: ap.String = ap.String("#333")
     string_2: ap.String = color_util.complement_hex_color(hex_color_code=string_1)
@@ -79,7 +79,7 @@ def test__append_complement_hex_color_expression() -> None:
 
 @apply_test_settings()
 def test__append_remove_color_code_sharp_symbol_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
 
     hex_color_code: ap.String = ap.String("#00aaff")
     color_util._append_remove_color_code_sharp_symbol_expression(

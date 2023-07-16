@@ -38,7 +38,7 @@ class TestMillisecondMixIn:
 
     @apply_test_settings()
     def test__append_millisecond_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: MillisecondMixIn = MillisecondMixIn()
         mixin.variable_name = "test_millisecond_mixin"
         millisecond_val: ap.Int = ap.Int(500)
@@ -52,7 +52,7 @@ class TestMillisecondMixIn:
 
     @apply_test_settings()
     def test_millisecond(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: MillisecondMixIn = MillisecondMixIn()
         mixin.variable_name = "test_millisecond_mixin"
         mixin._set_init_millisecond_value(millisecond=500)
@@ -76,7 +76,7 @@ class TestMillisecondMixIn:
 
     @apply_test_settings()
     def test__append_millisecond_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin: MillisecondMixIn = MillisecondMixIn()
         mixin.variable_name = "test_millisecond_mixin"
         millisecond_val: ap.Int = ap.Int(500)

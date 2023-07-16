@@ -27,7 +27,6 @@ class TestMouseEvent:
 
     @apply_test_settings()
     def test__append_stage_x_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         mouse_event: ap.MouseEvent[ap.Stage] = ap.MouseEvent(this=stage)
         stage_x: ap.Number = mouse_event.stage_x

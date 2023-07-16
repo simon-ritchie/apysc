@@ -7,6 +7,7 @@ from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_mixin import VariableNameMixIn
+import apysc as ap
 
 
 @apply_test_settings()
@@ -19,7 +20,7 @@ def teardown() -> None:
 
 @apply_test_settings()
 def test_get_current_event_handler_scope_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     scope_count: int = event_handler_scope.get_current_event_handler_scope_count()
     assert scope_count == 0
 
@@ -41,7 +42,7 @@ def test__save_current_scope_count() -> None:
 
 @apply_test_settings()
 def test__increment_scope_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     event_handler_scope._increment_scope_count()
     scope_count: int = event_handler_scope.get_current_event_handler_scope_count()
     assert scope_count == 1
@@ -53,7 +54,7 @@ def test__increment_scope_count() -> None:
 
 @apply_test_settings()
 def test__decrement_scope_count() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
 
     event_handler_scope._increment_scope_count()
     event_handler_scope._increment_scope_count()
@@ -83,7 +84,7 @@ class TestHandlerScope:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
 
@@ -101,7 +102,7 @@ class TestHandlerScope:
 
     @apply_test_settings()
     def test___exit__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
 
@@ -149,7 +150,7 @@ class TestTemporaryNotHandlerScope:
 
 @apply_test_settings()
 def test__save_handler_calling_stack() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
@@ -167,7 +168,7 @@ def test__save_handler_calling_stack() -> None:
 
 @apply_test_settings()
 def test__delete_handler_calling_stack() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):

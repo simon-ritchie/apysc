@@ -45,7 +45,7 @@ class TestClickMixIn:
 
     @apply_test_settings()
     def test_click(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: _TestClickMixIn = _TestClickMixIn()
         name: str = mixin_1.click(handler=self.on_click_1)
         assert mixin_1._click_handlers[name].handler == self.on_click_1
@@ -75,7 +75,7 @@ class TestClickMixIn:
 
     @apply_test_settings()
     def test_unbind_click(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: ClickMixIn = ClickMixIn()
         testing_helper.assert_raises(
             expected_error_class=TypeError,
@@ -97,7 +97,7 @@ class TestClickMixIn:
 
     @apply_test_settings()
     def test_unbind_click_all(self) -> None:
-        expression_data_util.empty_expression
+        ap.Stage()
         mixin_1: ClickMixIn = ClickMixIn()
         testing_helper.assert_raises(
             expected_error_class=TypeError, callable_=mixin_1.unbind_click_all

@@ -20,7 +20,7 @@ class TestFillColorMixIn:
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         fill_color_mixin.fill_color = ap.String("#666")
         expression: str = expression_data_util.get_current_expression()
         expected: str = 'test_fill_color_mixin.fill("#666666");'
@@ -30,7 +30,7 @@ class TestFillColorMixIn:
     def test__update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
-        expression_data_util.empty_expression()
+        ap.Stage()
         fill_color_mixin._update_fill_color_and_skip_appending_exp(
             value=ap.String("#333")
         )

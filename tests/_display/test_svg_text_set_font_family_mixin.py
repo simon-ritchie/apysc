@@ -22,7 +22,7 @@ class _TestMixIn(
 class TestSVGTextSetFontFamilyMixIn:
     @apply_test_settings()
     def test__set_font_family(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_1: SVGTextSetFontFamilyMixIn = SVGTextSetFontFamilyMixIn()
         assert_raises(
             expected_error_class=TypeError,
@@ -42,7 +42,7 @@ class TestSVGTextSetFontFamilyMixIn:
         expression = expression_data_util.get_current_expression()
         assert "family" in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         mixin_2._set_font_family(
             font_family=ap.Array([ap.String("Impact"), ap.String("Times New Roman")])
         )

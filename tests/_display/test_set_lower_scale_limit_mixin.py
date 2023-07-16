@@ -13,7 +13,7 @@ class TestSetLowerScaleLimitMixIn:
     def test__set_lower_scale_limit(self) -> None:
         from apysc._expression import expression_data_util
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         value: ap.Number = ap.Number(-1.5)
         interface: SetLowerScaleLimitMixIn = SetLowerScaleLimitMixIn()
         interface._set_lower_scale_limit(value=value)

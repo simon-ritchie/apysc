@@ -8,7 +8,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test__get_y_min() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     data: ap.Array[ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]]
     SUFFIX: str = "test_suffix"
     data = ap.Array(
@@ -44,7 +44,7 @@ def test__get_y_min() -> None:
 
 @apply_test_settings()
 def test__extract_column_values_from_data() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     data: ap.Array[
         ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
     ] = ap.Array(
@@ -78,7 +78,7 @@ def test__extract_column_values_from_data() -> None:
 
 @apply_test_settings()
 def test__calculate_y_max_from_data() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     data: ap.Array[
         ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
     ] = ap.Array(
@@ -110,7 +110,7 @@ def test__calculate_y_max_from_data() -> None:
 
 @apply_test_settings()
 def test__calculate_y_axis_height() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     y_axis_height: ap.Int = create_single_column_y_axis_mixin._calculate_y_axis_height(
         chart_height=ap.Int(500),
         vertical_padding=ap.Int(10),
@@ -125,7 +125,7 @@ def test__calculate_y_axis_height() -> None:
 
 @apply_test_settings()
 def test__calculate_y_axis_ticks_num() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     y_axis_ticks_num: ap.Int = (
         create_single_column_y_axis_mixin._calculate_y_axis_ticks_num(
             y_axis_height=ap.Int(500),
@@ -195,7 +195,7 @@ def test__apply_x_coordinate_to_y_axis_ticks_texts() -> None:
 
 @apply_test_settings()
 def test__create_y_axis_texts_values() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     y_axis_text_values: ap.Array[
         ap.String
     ] = create_single_column_y_axis_mixin._create_y_axis_texts_values(

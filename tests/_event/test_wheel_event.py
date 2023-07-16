@@ -19,7 +19,7 @@ class TestWheelEvent:
 
     @apply_test_settings()
     def test__append_delta_y_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
         delta_y: ap.Number = e.delta_y
         expression: str = expression_data_util.get_current_expression()
@@ -35,7 +35,7 @@ class TestWheelEvent:
 
     @apply_test_settings()
     def test__append_delta_x_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
         delta_x: ap.Number = e.delta_x
         expression: str = expression_data_util.get_current_expression()

@@ -15,20 +15,20 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value_1: ap.AnyValue = ap.AnyValue(100)
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{any_value_1.variable_name} = 100;"
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_1: ap.Int = ap.Int(10)
         any_value_2: ap.AnyValue = ap.AnyValue(int_1)
         expression = expression_data_util.get_current_expression()
         expected = f"{any_value_2.variable_name} = {int_1.variable_name};"
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value_3 = ap.AnyValue(None)
         expression = expression_data_util.get_current_expression()
         expected = f"var {any_value_3.variable_name} = null;"
@@ -36,7 +36,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(100)
         any_value.value = 200
         expression: str = expression_data_util.get_current_expression()
@@ -98,7 +98,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___add__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
         result: VariableNameMixIn = any_value + int_1
@@ -109,7 +109,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___sub__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
         result: VariableNameMixIn = any_value - int_1
@@ -120,7 +120,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test__append_arithmetic_operation_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
         result: VariableNameMixIn = any_value._append_arithmetic_operation_expression(
@@ -135,7 +135,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___mul__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
         result: VariableNameMixIn = any_value * int_1
@@ -146,7 +146,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___truediv__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(100)
         int_1: ap.Int = ap.Int(200)
         result: VariableNameMixIn = any_value / int_1
@@ -157,7 +157,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___floordiv__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: VariableNameMixIn = any_value // int_1
@@ -171,7 +171,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test__append_incremental_arithmetic_operation_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         any_value._append_incremental_arithmetic_operation_expression(
@@ -214,7 +214,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___iadd__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
         int_1: ap.Int = ap.Int(100)
@@ -228,7 +228,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___isub__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
         int_1: ap.Int = ap.Int(100)
@@ -242,7 +242,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___imul__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
         int_1: ap.Int = ap.Int(100)
@@ -256,7 +256,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___itruediv__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
         int_1: ap.Int = ap.Int(100)
@@ -301,7 +301,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test__append_comparison_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: ap.Boolean = any_value._append_comparison_expression(
@@ -316,7 +316,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___eq__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: ap.Boolean = any_value == int_1
@@ -329,7 +329,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___ne__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: ap.Boolean = any_value != int_1
@@ -342,7 +342,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___lt__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: ap.Boolean = any_value < int_1
@@ -355,7 +355,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___le__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: ap.Boolean = any_value <= int_1
@@ -368,7 +368,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___gt__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: ap.Boolean = any_value > int_1
@@ -381,7 +381,7 @@ class TestAnyValue:
 
     @apply_test_settings()
     def test___ge__(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         any_value: ap.AnyValue = ap.AnyValue(200)
         int_1: ap.Int = ap.Int(100)
         result: ap.Boolean = any_value >= int_1

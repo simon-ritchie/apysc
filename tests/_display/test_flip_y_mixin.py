@@ -33,7 +33,7 @@ class TestFlipYMixIn:
 
     @apply_test_settings()
     def test__append_flip_y_update_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         interface: _TestInterface = _TestInterface()
         interface.flip_y = ap.Boolean(True)
         expression: str = expression_data_util.get_current_expression()

@@ -22,14 +22,14 @@ class TestCopyMixIn:
 
     @apply_test_settings()
     def test__append_copy_expression(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = int_1._copy()
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{int_2.variable_name} = " f"{int_1.variable_name};"
         assert expected in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         arr_1: ap.Array = ap.Array([10, 20, 30])
         arr_2: ap.Array = arr_1._copy()
         expression = expression_data_util.get_current_expression()
@@ -38,7 +38,7 @@ class TestCopyMixIn:
 
     @apply_test_settings()
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
         int_1: ap.Int = ap.Int(10)
@@ -53,7 +53,7 @@ class TestCopyMixIn:
         )
         assert match is not None
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         arr_1: ap.Array = ap.Array([1, 2, 3])
         with HandlerScope(handler_name="test_handler_1", instance=instance):
             arr_2: ap.Array = arr_1._copy()

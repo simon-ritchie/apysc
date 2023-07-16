@@ -11,7 +11,7 @@ from apysc._type import string_rstrip_mixin
 
 @apply_test_settings()
 def test__create_string_none_case_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     result_string: ap.String = ap.String("test")
     expression: str = string_rstrip_mixin._create_string_none_case_expression(
         result_string=result_string,
@@ -23,7 +23,7 @@ def test__create_string_none_case_expression() -> None:
 
 @apply_test_settings()
 def test__create_string_not_none_case_expression() -> None:
-    expression_data_util.empty_expression()
+    ap.Stage()
     result_string: ap.String = ap.String("aabbaa")
     expression: str = string_rstrip_mixin._create_string_not_none_case_expression(
         result_string=result_string,
@@ -41,7 +41,7 @@ def test__create_string_not_none_case_expression() -> None:
     )
     assert match_ is not None
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     removing_string: ap.String = ap.String("a")
     expression = string_rstrip_mixin._create_string_not_none_case_expression(
         result_string=result_string,
@@ -80,7 +80,7 @@ def test__get_py_str_from_current_value() -> None:
 class TestStringRstripMixIn:
     @apply_test_settings()
     def test_rstrip(self) -> None:
-        expression_data_util.empty_expression()
+        ap.Stage()
         string: ap.String = ap.String(" \n  aabbccaa  \n   ")
         string = string.rstrip(variable_name_suffix="test_suffix_1")
         assert string == ap.String(" \n  aabbccaa")
@@ -88,7 +88,7 @@ class TestStringRstripMixIn:
         expression: str = expression_data_util.get_current_expression()
         assert ".trimEnd()" in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         string = ap.String("aabbccaa")
         string = string.rstrip(string="a", variable_name_suffix="test_suffix_2")
         assert string == ap.String("aabbcc")
@@ -96,7 +96,7 @@ class TestStringRstripMixIn:
         expression = expression_data_util.get_current_expression()
         assert ".replace(new RegExp(`($" in expression
 
-        expression_data_util.empty_expression()
+        ap.Stage()
         string = ap.String("aabbccaa")
         removing_string: ap.String = ap.String("a")
         string = string.rstrip(

@@ -18,6 +18,7 @@ An original array is not modified.
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3, 4])
 sliced_arr: ap.Array[int] = arr.slice(start=1, end=3)
 assert sliced_arr == [2, 3]
@@ -57,6 +58,7 @@ Slice this array by specified start and end indexes.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3, 4])
 >>> arr.slice(start=1, end=3)
 Array([2, 3])

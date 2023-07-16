@@ -14,6 +14,7 @@ The `insert` and `insert_at` have the same argument, the `index` and `value`\. T
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 4])
 arr.insert(index=1, value=2)
 assert arr == [1, 2, 4]
@@ -49,6 +50,7 @@ Insert value to this array at a specified index. This interface behaves in the s
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3])
 >>> arr.insert(index=1, value=2)
 >>> arr
@@ -80,6 +82,7 @@ Insert value to this array at a specified index. This interface behaves in the s
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3])
 >>> arr.insert_at(index=1, value=2)
 >>> arr

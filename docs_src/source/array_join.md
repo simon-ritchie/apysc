@@ -14,6 +14,7 @@ The `join` method requires the `sep` argument as the separator, as follows:
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3])
 joined: ap.String = arr.join(sep=",")
 assert joined == "1,2,3"
@@ -50,6 +51,7 @@ Join this array value with a specified separator string.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.join(sep=", ")
 String("1, 2, 3")

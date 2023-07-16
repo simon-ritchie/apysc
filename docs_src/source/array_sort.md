@@ -14,6 +14,7 @@ The `sort` method requires no arguments and sorts values ascending in place (no 
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([5, 1, 3])
 arr.sort()
 assert arr == [1, 3, 5]
@@ -25,6 +26,7 @@ If you specify `False` to the `ascending` option, a result value becomes descend
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([5, 1, 3])
 arr.sort(ascending=False)
 assert arr == [5, 3, 1]
@@ -58,6 +60,7 @@ Sort this array in place.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([3, 5, 1, 4, 2])
 >>> arr.sort()
 >>> arr

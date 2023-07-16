@@ -88,6 +88,7 @@ Array class for the apysc library.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr
 Array([1, 2, 3])
@@ -134,6 +135,7 @@ Get a current array value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.value = [4, 5, 6]
 >>> arr.value

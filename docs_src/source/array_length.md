@@ -26,6 +26,7 @@ The `Array` class is not supported the Python built-in `len()` function, and its
 ```py
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3, 4])
 len(arr)
 ```
@@ -56,6 +57,7 @@ Get length of this array.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.length
 Int(3)

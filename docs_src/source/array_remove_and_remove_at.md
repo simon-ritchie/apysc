@@ -14,6 +14,7 @@ The `remove` method requires target value at the first argument, as follows:
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3])
 arr.remove(value=2)
 assert arr == [1, 3]
@@ -25,6 +26,7 @@ The `remove_at` method requires index (`int` or `Int` value) at the first argume
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3])
 arr.remove_at(index=1)
 assert arr == [1, 3]
@@ -54,6 +56,7 @@ Remove a specified value from this array.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3, 5])
 >>> arr.remove(3)
 >>> arr
@@ -83,6 +86,7 @@ Remove a specified index value from this array.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.remove_at(1)
 >>> arr

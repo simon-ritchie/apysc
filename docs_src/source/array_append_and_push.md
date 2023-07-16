@@ -47,6 +47,7 @@ Add any value to the end of this array. This method behaves the same `push` meth
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.append(4)
 >>> arr
@@ -76,6 +77,7 @@ Add any value to the end of this array. This interface behaves the same as the `
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.push(4)
 >>> arr

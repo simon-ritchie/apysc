@@ -16,6 +16,7 @@ The `extend` and `concat` methods require other iterable objects, like the `list
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2])
 arr.extend([3, 4])
 assert arr == [1, 2, 3, 4]
@@ -49,6 +50,7 @@ Concatenate argument array to this one. This interface positions the argument ar
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.extend([4, 5, 6])
 >>> arr
@@ -85,6 +87,7 @@ Concatenate argument array to this one. This interface positions the argument ar
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr = arr.concat([4, 5, 6])
 >>> arr

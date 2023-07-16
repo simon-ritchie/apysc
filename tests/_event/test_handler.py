@@ -142,7 +142,7 @@ def test_append_unbinding_all_expression() -> None:
 
 @apply_test_settings()
 def test__append_in_handler_head_expression() -> None:
-    ap.Stage()
+    expression_data_util.empty_expression()
     handler._append_in_handler_head_expression(in_handler_head_expression="")
     expression: str = expression_data_util.get_current_expression()
     assert expression == ""

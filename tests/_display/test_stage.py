@@ -170,6 +170,7 @@ def test__read_stage_id_from_db() -> None:
 @apply_test_settings()
 def test_is_stage_created() -> None:
     expression_data_util.empty_expression()
+    stage._is_stage_created = False
     result: bool = stage.is_stage_created()
     assert not result
 

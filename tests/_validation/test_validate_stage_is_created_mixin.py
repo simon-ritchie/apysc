@@ -9,7 +9,6 @@ from apysc._display.stage import StageNotCreatedError
 class TestValidateStageIsCreatedMixIn:
     @apply_test_settings()
     def test__validate_stage_is_created(self) -> None:
-        ap.Stage()
 
         mixin: ValidateStageIsCreatedMixIn = ValidateStageIsCreatedMixIn()
         assert_raises(

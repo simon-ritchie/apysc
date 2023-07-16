@@ -66,7 +66,7 @@ def test_append_substitution_expression_with_names() -> None:
     expected: str = "i_5 = i_6"
     assert expected in expression
 
-    ap.Stage()
+    expression_data_util.empty_expression()
     expression_variables_util.append_substitution_expression_with_names(
         left_variable_name="", right_variable_name="i_6"
     )

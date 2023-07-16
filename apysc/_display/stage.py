@@ -126,6 +126,7 @@ class Stage(
 
         global _current_stage
         expression_data_util.empty_expression()
+        _save_stage_id_to_db(stage=self)
         self._variable_name_suffix = variable_name_suffix
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
@@ -152,8 +153,6 @@ class Stage(
             value_identifier="children"
         )
         self._children = ap.Array([], variable_name_suffix=suffix)
-
-        _save_stage_id_to_db(stage=self)
         _current_stage = self
 
         self._initialize_top_level_constants()

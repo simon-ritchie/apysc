@@ -14,6 +14,7 @@ The `Boolean` class is the apysc boolean class. It can accept `bool` or `Boolean
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1
 
@@ -32,6 +33,7 @@ The `Bool` class is the alias of the `Boolean` class. And it behaves the same as
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 assert ap.Boolean == ap.Bool
 assert ap.Boolean(True) == ap.Bool(True)
 ```
@@ -46,6 +48,7 @@ You can compare it with the equal comparison operator (`==`), and the `Boolean`\
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1 == True  # noqa
 assert bool_1 == ap.Boolean(True)
@@ -59,6 +62,7 @@ Also, the not equal comparison operator (`!=`) is supported, as follows:
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1 != False  # noqa
 assert bool_1 != ap.Boolean(False)
@@ -72,6 +76,7 @@ You can skip the comparison operator, as follows:
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1
 
@@ -87,6 +92,7 @@ The `not_` property returns the reversed `Boolean` value:
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 bool_2: ap.Boolean = bool_1.not_
 assert not bool_2

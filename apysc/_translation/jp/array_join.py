@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `join` method requires the `sep` argument as the separator, as follows:": "`join`メソッドは以下のコード例のように区切り文字としての`sep`引数が必要になります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=\",\")\nassert joined == \"1,2,3\"\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=\",\")\nassert joined == \"1,2,3\"\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=\",\")\nassert joined == \"1,2,3\"\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=\",\")\nassert joined == \"1,2,3\"\n```",  # noqa
     ##################################################
     "## join API": "## join API",
     ##################################################
@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=\", \")\nString(\"1, 2, 3\")\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=\", \")\nString(\"1, 2, 3\")\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=\", \")\nString(\"1, 2, 3\")\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=\", \")\nString(\"1, 2, 3\")\n```",  # noqa
 }

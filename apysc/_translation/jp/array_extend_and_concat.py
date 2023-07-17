@@ -23,7 +23,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `extend` and `concat` methods require other iterable objects, like the `list`\\, `tuple`\\, or `Array` value at the first argument, as follows:": "`extend`と`concat`メソッドは以下のコード例のようにそれぞれ第一引数に連結対象の他の配列など（ビルトインのリストやタプル、apyscの`Array`など）のオブジェクトを必要とします:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2])\narr.extend([3, 4])\nassert arr == [1, 2, 3, 4]\n\nother_arr: ap.Array[int] = arr.concat([5, 6])\nassert other_arr == [1, 2, 3, 4, 5, 6]\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2])\narr.extend([3, 4])\nassert arr == [1, 2, 3, 4]\n\nother_arr: ap.Array[int] = arr.concat([5, 6])\nassert other_arr == [1, 2, 3, 4, 5, 6]\nassert arr == [1, 2, 3, 4]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2])\narr.extend([3, 4])\nassert arr == [1, 2, 3, 4]\n\nother_arr: ap.Array[int] = arr.concat([5, 6])\nassert other_arr == [1, 2, 3, 4, 5, 6]\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2])\narr.extend([3, 4])\nassert arr == [1, 2, 3, 4]\n\nother_arr: ap.Array[int] = arr.concat([5, 6])\nassert other_arr == [1, 2, 3, 4, 5, 6]\nassert arr == [1, 2, 3, 4]\n```",  # noqa
     ##################################################
     "## extend API": "## extend API",
     ##################################################
@@ -43,7 +43,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.extend([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.extend([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.extend([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.extend([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```",  # noqa
     ##################################################
     "## concat API": "## concat API",
     ##################################################
@@ -71,5 +71,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr = arr.concat([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr = arr.concat([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr = arr.concat([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr = arr.concat([4, 5, 6])\n>>> arr\nArray([1, 2, 3, 4, 5, 6])\n```",  # noqa
 }

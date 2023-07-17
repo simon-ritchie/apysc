@@ -27,7 +27,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `Array` class is not supported the Python built-in `len()` function, and its function raises an exception. Please use the `length` property instead.": "`Array`クラスはPythonビルトインの`len()`関数をサポートしておらず、もし使用した場合にはエラーとなります。代わりに`length`属性を使用してください。",  # noqa
     ##################################################
-    "```py\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlen(arr)\n```": "```py\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlen(arr)\n```",  # noqa
+    "```py\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlen(arr)\n```": "```py\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlen(arr)\n```",  # noqa
     ##################################################
     "```\nException: Array instance can\'t apply len function. Please use length property instead.\n```": "```\nException: Array instance can\'t apply len function. Please use length property instead.\n```",  # noqa
     ##################################################
@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.length\nInt(3)\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.length\nInt(3)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.length\nInt(3)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.length\nInt(3)\n```",  # noqa
 }

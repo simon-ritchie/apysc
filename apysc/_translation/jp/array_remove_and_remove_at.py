@@ -21,11 +21,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `remove` method requires target value at the first argument, as follows:": "`remove`メソッドは以下のコード例のように取り除く対象の値を第一引数に必要とします。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove(value=2)\nassert arr == [1, 3]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove(value=2)\nassert arr == [1, 3]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove(value=2)\nassert arr == [1, 3]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove(value=2)\nassert arr == [1, 3]\n```",  # noqa
     ##################################################
     "The `remove_at` method requires index (`int` or `Int` value) at the first argument, as follows:": "`remove_at`メソッドは以下のコード例のように配列のインデックスの整数（Pythonビルトインの`int`もしくはapyscの`Int`）を第一引数に必要とします。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove_at(index=1)\nassert arr == [1, 3]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove_at(index=1)\nassert arr == [1, 3]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove_at(index=1)\nassert arr == [1, 3]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\narr.remove_at(index=1)\nassert arr == [1, 3]\n```",  # noqa
     ##################################################
     "## remove API": "## remove API",
     ##################################################
@@ -45,7 +45,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.remove(3)\n>>> arr\nArray([1, 5])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.remove(3)\n>>> arr\nArray([1, 5])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.remove(3)\n>>> arr\nArray([1, 5])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.remove(3)\n>>> arr\nArray([1, 5])\n```",  # noqa
     ##################################################
     "## remove_at API": "## remove_at API",
     ##################################################
@@ -65,5 +65,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.remove_at(1)\n>>> arr\nArray([1, 3])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.remove_at(1)\n>>> arr\nArray([1, 3])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.remove_at(1)\n>>> arr\nArray([1, 3])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.remove_at(1)\n>>> arr\nArray([1, 3])\n```",  # noqa
 }

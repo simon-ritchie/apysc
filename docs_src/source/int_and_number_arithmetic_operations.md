@@ -10,6 +10,7 @@ You can calculate the `Int` and `Number` values with the Python built-in values,
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 + 20
 assert int_1 == 30
@@ -21,6 +22,7 @@ Also, arithmetic operations with the same types (e.g., `Int` and `Int`) are supp
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(20)
 int_1 = int_1 + int_2
@@ -32,6 +34,7 @@ Arithmetic operations are not supported if the left value is the Python built-in
 ```py
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 # This will raise the error!
@@ -50,6 +53,7 @@ You can add values with the `+` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 + 20
 assert int_1 == 30
@@ -59,6 +63,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(20)
 int_1 = int_1 + int_2
@@ -69,6 +74,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10) + ap.Int(20)
 assert int_1 == 30
 ```
@@ -79,6 +85,7 @@ Also, you can use the `+=` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 += 20
 assert int_1 == 30
@@ -88,6 +95,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(20)
 int_1 += int_2
@@ -102,6 +110,7 @@ You can subtract values with the `-` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(30)
 int_1 = int_1 - 10
 assert int_1 == 20
@@ -111,6 +120,7 @@ assert int_1 == 20
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(30)
 int_2: ap.Int = ap.Int(20)
 int_1 = int_1 - int_2
@@ -123,6 +133,7 @@ Also, you can use the `-=` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(50)
 int_1 -= 30
 assert int_1 == 20
@@ -136,6 +147,7 @@ You can multiply values with the `*` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 * 3
 assert int_1 == 30
@@ -145,6 +157,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(5)
 int_1 = int_1 * int_2
@@ -157,6 +170,7 @@ Also, you can use the `*=` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 *= 3
 assert int_1 == 30
@@ -170,6 +184,7 @@ You can divide values with the `/` operator. A return value becomes a `Number` v
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 number_1: ap.Number = int_1 / 4
 assert number_1 == 2.5
@@ -179,6 +194,7 @@ assert number_1 == 2.5
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(4)
 number_1: ap.Number = int_1 / int_2
@@ -191,6 +207,7 @@ Also, you can use the `/=` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10)
 number_1 /= 4
 assert number_1 == 2.5
@@ -204,6 +221,7 @@ You can divide and floor values with the `//` operator. A return value becomes a
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 // 4
 assert int_1 == 2
@@ -217,6 +235,7 @@ You can use the modulo operation with the `%` operator.
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: int = int_1 % 3
 assert int_2 == 1

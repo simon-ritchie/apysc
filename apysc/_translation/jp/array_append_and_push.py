@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `append` and `push` methods require the first argument of the `value`\\.": "`append`と`push`の各メソッドは第一引数に`value`という引数名で追加する値の指定が必要になります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2])\narr.append(value=3)\nassert arr == [1, 2, 3]\n\narr.push(value=4)\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2])\narr.append(value=3)\nassert arr == [1, 2, 3]\n\narr.push(value=4)\nassert arr == [1, 2, 3, 4]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2])\narr.append(value=3)\nassert arr == [1, 2, 3]\n\narr.push(value=4)\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2])\narr.append(value=3)\nassert arr == [1, 2, 3]\n\narr.push(value=4)\nassert arr == [1, 2, 3, 4]\n```",  # noqa
     ##################################################
     "## append API": "## append API",
     ##################################################
@@ -41,7 +41,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.append(4)\n>>> arr\nArray([1, 2, 3, 4])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.append(4)\n>>> arr\nArray([1, 2, 3, 4])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.append(4)\n>>> arr\nArray([1, 2, 3, 4])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.append(4)\n>>> arr\nArray([1, 2, 3, 4])\n```",  # noqa
     ##################################################
     "## push API": "## push API",
     ##################################################
@@ -61,5 +61,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.push(4)\n>>> arr\nArray([1, 2, 3, 4])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.push(4)\n>>> arr\nArray([1, 2, 3, 4])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.push(4)\n>>> arr\nArray([1, 2, 3, 4])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.push(4)\n>>> arr\nArray([1, 2, 3, 4])\n```",  # noqa
 }

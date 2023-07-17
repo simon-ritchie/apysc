@@ -21,5 +21,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `clear` method requires no arguments.": "`clear`メソッドは呼び出しに特に引数を必要としません。",
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array = ap.Array([10, 20, 30])\narr.clear()\nassert arr == []\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array = ap.Array([10, 20, 30])\narr.clear()\nassert arr == []\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array = ap.Array([10, 20, 30])\narr.clear()\nassert arr == []\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array = ap.Array([10, 20, 30])\narr.clear()\nassert arr == []\n```",  # noqa
 }

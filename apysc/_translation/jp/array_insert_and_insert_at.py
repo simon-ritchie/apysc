@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `insert` and `insert_at` have the same argument, the `index` and `value`\\. The `index` argument accepts an `int` and `Int` value.": "`insert`と`insert_at`メソッドは`index`と`value`の同じ引数を持っています。`index`引数はPythonビルトインの`int`とapyscの`Int`クラスの値を受け付けます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 4])\narr.insert(index=1, value=2)\nassert arr == [1, 2, 4]\n\nindex: ap.Int = ap.Int(2)\narr.insert_at(index=index, value=3)\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 4])\narr.insert(index=1, value=2)\nassert arr == [1, 2, 4]\n\nindex: ap.Int = ap.Int(2)\narr.insert_at(index=index, value=3)\nassert arr == [1, 2, 3, 4]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 4])\narr.insert(index=1, value=2)\nassert arr == [1, 2, 4]\n\nindex: ap.Int = ap.Int(2)\narr.insert_at(index=index, value=3)\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 4])\narr.insert(index=1, value=2)\nassert arr == [1, 2, 4]\n\nindex: ap.Int = ap.Int(2)\narr.insert_at(index=index, value=3)\nassert arr == [1, 2, 3, 4]\n```",  # noqa
     ##################################################
     "## insert API": "## insert API",
     ##################################################
@@ -45,7 +45,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```",  # noqa
     ##################################################
     "## insert_at API": "## insert_at API",
     ##################################################
@@ -69,5 +69,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert_at(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert_at(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert_at(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3])\n>>> arr.insert_at(index=1, value=2)\n>>> arr\nArray([1, 2, 3])\n```",  # noqa
 }

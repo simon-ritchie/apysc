@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `pop` method accepts no arguments and returns the last value, as follows:": "`pop`メソッドには必要な引数は無く、以下のコード例のように配列の最後の値を返却します:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\nlast_value: int = arr.pop()\nassert last_value == 3\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3])\nlast_value: int = arr.pop()\nassert last_value == 3\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\nlast_value: int = arr.pop()\nassert last_value == 3\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\nlast_value: int = arr.pop()\nassert last_value == 3\n```",  # noqa
     ##################################################
     "## pop API": "## pop API",
     ##################################################
@@ -41,5 +41,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> popped_val: int = arr.pop()\n>>> popped_val\n3\n\n>>> arr\nArray([1, 2])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> popped_val: int = arr.pop()\n>>> popped_val\n3\n\n>>> arr\nArray([1, 2])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> popped_val: int = arr.pop()\n>>> popped_val\n3\n\n>>> arr\nArray([1, 2])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> popped_val: int = arr.pop()\n>>> popped_val\n3\n\n>>> arr\nArray([1, 2])\n```",  # noqa
 }

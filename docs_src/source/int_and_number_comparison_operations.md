@@ -10,6 +10,7 @@ Each comparison operation returns a `Boolean` value, not a Python built-in `bool
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 == 10
 assert isinstance(result, ap.Boolean)
@@ -21,6 +22,7 @@ You can compare the `Int` or `Number` values with the Python built-in values, li
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(20)
 result: ap.Boolean = int_1 == 20
 assert result
@@ -30,6 +32,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10.5)
 result: ap.Boolean = number_1 == 10.5
 assert result
@@ -41,6 +44,7 @@ Also, the comparison between the `Int` and `Int`\, `Number` and `Number`\, `Int`
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 == int_2
@@ -51,6 +55,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10.5)
 number_2: ap.Number = ap.Number(10.5)
 result: ap.Boolean = number_1 == number_2
@@ -61,6 +66,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 number_1: ap.Number = ap.Number(10)
 result: ap.Boolean = int_1 == number_1
@@ -75,6 +81,7 @@ You can use the `==` operator for the equal comparison:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 == 10
 assert result
@@ -88,6 +95,7 @@ You can use the `!=` operator for the not equal comparison:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 != 15
 assert result
@@ -101,6 +109,7 @@ You can use the `<` operator for the less than comparison:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 < 11
 assert result
@@ -114,6 +123,7 @@ You can use the `<=` operator for the less than or equal comparison:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 <= 10
 assert result
@@ -127,6 +137,7 @@ You can use the `>` operator for the greater than comparison:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 > 9
 assert result
@@ -140,6 +151,7 @@ You can use the `>=` operator for the greater than or equal comparison:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 result: ap.Boolean = int_1 >= 10
 assert result

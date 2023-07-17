@@ -21,11 +21,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `index_of` method requires the `value` argument and returns the found value\'s index in the array.": "`index_of`メソッドは`value`引数の指定を必要とし、値が配列内で見つかった場合にはそのインデックスを返却します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=3)\nassert index == 1\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=3)\nassert index == 1\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=3)\nassert index == 1\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=3)\nassert index == 1\n```",  # noqa
     ##################################################
     "If there is no found value, the return index becomes `-1`.": "もしも配列内で値が見つからなかった場合インデックスは`-1`となります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=2)\nassert index == -1\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=2)\nassert index == -1\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=2)\nassert index == -1\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 3, 5])\nindex: ap.Int = arr.index_of(value=2)\nassert index == -1\n```",  # noqa
     ##################################################
     "## index_of API": "## index_of API",
     ##################################################
@@ -53,5 +53,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.index_of(3)\nInt(1)\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.index_of(3)\nInt(1)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.index_of(3)\nInt(1)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 3, 5])\n>>> arr.index_of(3)\nInt(1)\n```",  # noqa
 }

@@ -25,13 +25,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `Array` class constructor method requires iterable objects, like the `list`\\, `tuple`\\, `range`\\, or `Array` value.": "`Array`クラスのコンストラクタでは`list`や`tuple`、`range`、`Array`などのイテラブルなオブジェクトが引数に必要となります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr_from_list: ap.Array = ap.Array([1, 2, 3])\nassert arr_from_list == [1, 2, 3]\n\narr_from_tuple: ap.Array = ap.Array((4, 5, 6))\nassert arr_from_tuple == [4, 5, 6]\n\nother_arr: ap.Array = ap.Array([7, 8, 9])\narr_from_arr: ap.Array = ap.Array(other_arr)\nassert arr_from_arr == [7, 8, 9]\n```": "```py\n# runnable\nimport apysc as ap\n\narr_from_list: ap.Array = ap.Array([1, 2, 3])\nassert arr_from_list == [1, 2, 3]\n\narr_from_tuple: ap.Array = ap.Array((4, 5, 6))\nassert arr_from_tuple == [4, 5, 6]\n\nother_arr: ap.Array = ap.Array([7, 8, 9])\narr_from_arr: ap.Array = ap.Array(other_arr)\nassert arr_from_arr == [7, 8, 9]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr_from_list: ap.Array = ap.Array([1, 2, 3])\nassert arr_from_list == [1, 2, 3]\n\narr_from_tuple: ap.Array = ap.Array((4, 5, 6))\nassert arr_from_tuple == [4, 5, 6]\n\nother_arr: ap.Array = ap.Array([7, 8, 9])\narr_from_arr: ap.Array = ap.Array(other_arr)\nassert arr_from_arr == [7, 8, 9]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr_from_list: ap.Array = ap.Array([1, 2, 3])\nassert arr_from_list == [1, 2, 3]\n\narr_from_tuple: ap.Array = ap.Array((4, 5, 6))\nassert arr_from_tuple == [4, 5, 6]\n\nother_arr: ap.Array = ap.Array([7, 8, 9])\narr_from_arr: ap.Array = ap.Array(other_arr)\nassert arr_from_arr == [7, 8, 9]\n```",  # noqa
     ##################################################
     "## Generic type annotation": "## ジェネリックの型アノテーション",
     ##################################################
     "If the `Array` values types are unique, you can set the generic type to an `Array` value. This annotation may be helpful when you use it on the IDE (for type checkers).": "もし`Array`クラスの値の型が一意な場合は配列に対してジェネリックの型の指定を行うことができます。この型アノテーションはIDE上などで便利なケースがあります（型チェックのライブラリなどを使う場合に）。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2])\nint_val: int = arr.pop()\nassert isinstance(int_val, int)\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2])\nint_val: int = arr.pop()\nassert isinstance(int_val, int)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2])\nint_val: int = arr.pop()\nassert isinstance(int_val, int)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2])\nint_val: int = arr.pop()\nassert isinstance(int_val, int)\n```",  # noqa
     ##################################################
     "## See also": "## 関連資料",
     ##################################################
@@ -87,7 +87,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr\nArray([1, 2, 3])\n\n>>> arr[0]\n1\n\n>>> arr[1]\n2\n\n>>> arr = ap.Array((4, 5, 6))\n>>> arr\nArray([4, 5, 6])\n\n>>> arr = ap.Array(range(3))\n>>> arr\nArray([0, 1, 2])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr\nArray([1, 2, 3])\n\n>>> arr[0]\n1\n\n>>> arr[1]\n2\n\n>>> arr = ap.Array((4, 5, 6))\n>>> arr\nArray([4, 5, 6])\n\n>>> arr = ap.Array(range(3))\n>>> arr\nArray([0, 1, 2])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr\nArray([1, 2, 3])\n\n>>> arr[0]\n1\n\n>>> arr[1]\n2\n\n>>> arr = ap.Array((4, 5, 6))\n>>> arr\nArray([4, 5, 6])\n\n>>> arr = ap.Array(range(3))\n>>> arr\nArray([0, 1, 2])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr\nArray([1, 2, 3])\n\n>>> arr[0]\n1\n\n>>> arr[1]\n2\n\n>>> arr = ap.Array((4, 5, 6))\n>>> arr\nArray([4, 5, 6])\n\n>>> arr = ap.Array(range(3))\n>>> arr\nArray([0, 1, 2])\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -113,7 +113,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.value = [4, 5, 6]\n>>> arr.value\n[4, 5, 6]\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.value = [4, 5, 6]\n>>> arr.value\n[4, 5, 6]\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.value = [4, 5, 6]\n>>> arr.value\n[4, 5, 6]\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.value = [4, 5, 6]\n>>> arr.value\n[4, 5, 6]\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

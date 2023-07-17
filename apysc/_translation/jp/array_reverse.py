@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `reverse` method requires no arguments and returns no value.": "`reverse`メソッドは引数の指定を必要としません。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 3, 5])\narr.reverse()\nassert arr == [5, 3, 1]\n```",  # noqa
     ##################################################
     "## See also": "## 関連資料",
     ##################################################
@@ -37,5 +37,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.reverse()\n>>> arr\nArray([3, 2, 1])\n```",  # noqa
 }

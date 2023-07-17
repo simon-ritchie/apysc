@@ -362,6 +362,8 @@ def empty_expression() -> None:
     """
     Empty the current js expression data.
     """
+    from apysc._display import stage
+
     initialize_sqlite_tables_if_not_initialized()
     for table_name in TableName:
         if table_name == TableName.NOT_EXISTING:
@@ -369,6 +371,7 @@ def empty_expression() -> None:
         query: str = f"DELETE FROM {table_name.value};"
         cursor.execute(query)
     connection.commit()
+    stage._is_stage_created = False
 
 
 @arg_validation_decos.is_builtin_string(arg_position_index=0, optional=False)

@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "An original array is not modified.": "元々の配列の値は変更されません。",
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nsliced_arr: ap.Array[int] = arr.slice(start=1, end=3)\nassert sliced_arr == [2, 3]\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nsliced_arr: ap.Array[int] = arr.slice(start=1, end=3)\nassert sliced_arr == [2, 3]\nassert arr == [1, 2, 3, 4]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nsliced_arr: ap.Array[int] = arr.slice(start=1, end=3)\nassert sliced_arr == [2, 3]\nassert arr == [1, 2, 3, 4]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nsliced_arr: ap.Array[int] = arr.slice(start=1, end=3)\nassert sliced_arr == [2, 3]\nassert arr == [1, 2, 3, 4]\n```",  # noqa
     ##################################################
     "## slice API": "## slice API",
     ##################################################
@@ -57,5 +57,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3, 4])\n>>> arr.slice(start=1, end=3)\nArray([2, 3])\n\n>>> arr.slice(start=1)\nArray([2, 3, 4])\n\n>>> arr.slice(end=2)\nArray([1, 2])\n```": "```py\n>>> import apysc as ap\n>>> arr: ap.Array = ap.Array([1, 2, 3, 4])\n>>> arr.slice(start=1, end=3)\nArray([2, 3])\n\n>>> arr.slice(start=1)\nArray([2, 3, 4])\n\n>>> arr.slice(end=2)\nArray([1, 2])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3, 4])\n>>> arr.slice(start=1, end=3)\nArray([2, 3])\n\n>>> arr.slice(start=1)\nArray([2, 3, 4])\n\n>>> arr.slice(end=2)\nArray([1, 2])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3, 4])\n>>> arr.slice(start=1, end=3)\nArray([2, 3])\n\n>>> arr.slice(start=1)\nArray([2, 3, 4])\n\n>>> arr.slice(end=2)\nArray([1, 2])\n```",  # noqa
 }

@@ -21,27 +21,27 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `Int` class is the apysc integer type. It can accept numeric values at the constructor, as follows:": "`Int`クラスはapyscの整数の型となります。このクラスは以下のコード例のようにコンストラクタに数値の値を受け付けます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\nassert int_1 == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\nassert int_1 == 10\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nassert int_1 == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nassert int_1 == 10\n```",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\n```": "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\n```",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\nint_2 += 15\nassert int_2 == 25\n```": "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\nint_2 += 15\nassert int_2 == 25\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\nint_2 += 15\nassert int_2 == 25\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nint_2: ap.Int = ap.Int(int_1)\nint_2 += 15\nassert int_2 == 25\n```",  # noqa
     ##################################################
     "If you specify a float value to the constructor argument, then the `Int` class floor a value:": "もしコンストラクタの引数に浮動小数点数を指定した場合には`Int`クラスはその値の浮動小数点数を切り捨てます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10.5)\nassert int_1 == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10.5)\nassert int_1 == 10\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10.5)\nassert int_1 == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10.5)\nassert int_1 == 10\n```",  # noqa
     ##################################################
     "## Number class": "## Number クラス",
     ##################################################
-    "The ``Number`` class is the apysc float type. It can accept numeric values at the constructor, same as `Int`:": "`Number`クラスはapyscの浮動小数点数の型です。このクラスは`Int`クラスと同様にコンストラクタの引数に数値を受け付けます。",  # noqa
+    "The ``Number`` class is the apysc float type. It can accept numeric values at the constructor, the same as `Int`:": "`Number`クラスはapyscの浮動小数点数の型です。このクラスは`Int`クラスと同様にコンストラクタの引数に数値を受け付けます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nnumber_1: ap.Number = ap.Number(10.5)\nassert number_1 == 10.5\n\nnumber_2: ap.Number = ap.Number(number_1)\nnumber_2 += 10.5\nassert number_2 == 21\n```": "```py\n# runnable\nimport apysc as ap\n\nnumber_1: ap.Number = ap.Number(10.5)\nassert number_1 == 10.5\n\nnumber_2: ap.Number = ap.Number(number_1)\nnumber_2 += 10.5\nassert number_2 == 21\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nnumber_1: ap.Number = ap.Number(10.5)\nassert number_1 == 10.5\n\nnumber_2: ap.Number = ap.Number(number_1)\nnumber_2 += 10.5\nassert number_2 == 21\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nnumber_1: ap.Number = ap.Number(10.5)\nassert number_1 == 10.5\n\nnumber_2: ap.Number = ap.Number(number_1)\nnumber_2 += 10.5\nassert number_2 == 21\n```",  # noqa
     ##################################################
     "## Note for the Float class alias": "## Floatクラスのエイリアスの特記事項",
     ##################################################
     "The `Float` class is the alias of the `Number` class. It behaves the same as the `Number` class. Maybe a Python developer is familiar with its name rather than the `Number`\\. On the other hand, the `Number` is more common in JavaScript than the `Float`\\.": "`Float`クラスは`Number`クラスのエイリアス。です。このエイリアスは`Number`クラスと同様に動作します。Python開発者の方はもしかしたら`Number`クラスよりもこちらのエイリアスの方が慣れ親しんでいて自然に感じられるかもしれません。一方でJavaScriptなどの開発者の方は`Float`よりも`Number`の方が自然に思えるかもしれません。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nassert ap.Number == ap.Float\nassert ap.Number(10.5) == ap.Float(10.5)\n```": "```py\n# runnable\nimport apysc as ap\n\nassert ap.Number == ap.Float\nassert ap.Number(10.5) == ap.Float(10.5)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nassert ap.Number == ap.Float\nassert ap.Number(10.5) == ap.Float(10.5)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nassert ap.Number == ap.Float\nassert ap.Number(10.5) == ap.Float(10.5)\n```",  # noqa
     ##################################################
     "## Int and Number classes basic interfaces": "## Int と Number クラスの基本的なインターフェイス",
     ##################################################

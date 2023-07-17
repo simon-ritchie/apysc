@@ -42,6 +42,7 @@ class Int(
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> int_val: ap.Int = ap.Int(10)
     >>> int_val
     Int(10)
@@ -101,6 +102,7 @@ class Int(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> int_val: ap.Int = ap.Int(10)
         >>> int_val
         Int(10)

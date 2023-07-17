@@ -113,6 +113,7 @@ class NumberValueMixIn(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> int_val: ap.Int = ap.Int(10)
         >>> int_val.value
         10

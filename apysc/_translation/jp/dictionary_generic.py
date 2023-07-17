@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "You can specify the key and value\'s type at the `Dictionary` type-annotation, as follows:": "以下のコードのように、`Dictionary`クラスではキーと値に対してジェネリックの型アノテーションを行うことができます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndict_value: ap.Dictionary[str, int] = ap.Dictionary({\"a\": 10})\na_value: int = dict_value[\"a\"]\n```": "```py\n# runnable\nimport apysc as ap\n\ndict_value: ap.Dictionary[str, int] = ap.Dictionary({\"a\": 10})\na_value: int = dict_value[\"a\"]\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_value: ap.Dictionary[str, int] = ap.Dictionary({\"a\": 10})\na_value: int = dict_value[\"a\"]\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_value: ap.Dictionary[str, int] = ap.Dictionary({\"a\": 10})\na_value: int = dict_value[\"a\"]\n```",  # noqa
     ##################################################
     "These generic type-annotations are sometimes helpful for checking with the mypy, Pylance, or other libraries and enhancing safety.": "これらのジェネリックの型アノテーションはmypyやPylanceなどのライブラリによるチェックや安全面で役に立つことがあります。",  # noqa
     ##################################################

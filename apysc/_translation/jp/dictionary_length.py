@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `length` property interface returns the `Int` value. There is no setter interface.": "`length`属性は`Int`型の整数を返却します。setterのインターフェイスは存在しません。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10, \"b\": 20})\nassert dict_1.length == 2\nassert isinstance(dict_1.length, ap.Int)\n```": "```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10, \"b\": 20})\nassert dict_1.length == 2\nassert isinstance(dict_1.length, ap.Int)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10, \"b\": 20})\nassert dict_1.length == 2\nassert isinstance(dict_1.length, ap.Int)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10, \"b\": 20})\nassert dict_1.length == 2\nassert isinstance(dict_1.length, ap.Int)\n```",  # noqa
     ##################################################
     "## Note for the len function": "## len関数における特記事項",
     ##################################################

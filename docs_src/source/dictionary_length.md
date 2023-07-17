@@ -57,6 +57,7 @@ Get length of this dictionary values.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 1, "b": 2})
 >>> dictionary.length
 Int(2)

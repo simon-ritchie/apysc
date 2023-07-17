@@ -25,31 +25,31 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `Dictionary` class constructor method requires a Python built-in `dict` or `Dictionary` value:": "`Dictionary`のコンストラクタではPythonビルトインの`dict`もしくはapyscの`Dictionary`の値を必要とします:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\nassert dict_1 == {\"a\": 10}\n\ndict_2: ap.Dictionary = ap.Dictionary(dict_1)\nassert dict_1 == dict_2\n```": "```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\nassert dict_1 == {\"a\": 10}\n\ndict_2: ap.Dictionary = ap.Dictionary(dict_1)\nassert dict_1 == dict_2\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\nassert dict_1 == {\"a\": 10}\n\ndict_2: ap.Dictionary = ap.Dictionary(dict_1)\nassert dict_1 == dict_2\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\nassert dict_1 == {\"a\": 10}\n\ndict_2: ap.Dictionary = ap.Dictionary(dict_1)\nassert dict_1 == dict_2\n```",  # noqa
     ##################################################
     "## Value setter interface": "## 値のsetterのインターフェイス",
     ##################################################
     "A `Dictionary` value can be updated by indexing, like the Python built-in `dict` value:": "`Dictionary`の値はPythonのビルトインの`dict`の値と同じようにインデックスを使って更新することができます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\ndict_1[\"a\"] = 20\nassert dict_1 == {\"a\": 20}\n```": "```py\n# runnable\nimport apysc as ap\n\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\ndict_1[\"a\"] = 20\nassert dict_1 == {\"a\": 20}\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\ndict_1[\"a\"] = 20\nassert dict_1 == {\"a\": 20}\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": 10})\ndict_1[\"a\"] = 20\nassert dict_1 == {\"a\": 20}\n```",  # noqa
     ##################################################
     "## Value getter interface": "## 値のgetterのインターフェイス",
     ##################################################
     "A `Dictionary` value also can be retrieved by indexing:": "`Dictionary`の値の取得も同様にインデックスを使って行うことができます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nint_2: ap.Int = dict_1[\"a\"]\nassert isinstance(int_2, ap.Int)\nassert int_2 == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nint_2: ap.Int = dict_1[\"a\"]\nassert isinstance(int_2, ap.Int)\nassert int_2 == 10\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nint_2: ap.Int = dict_1[\"a\"]\nassert isinstance(int_2, ap.Int)\nassert int_2 == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nint_2: ap.Int = dict_1[\"a\"]\nassert isinstance(int_2, ap.Int)\nassert int_2 == 10\n```",  # noqa
     ##################################################
     "## Notes of the getter interface": "## getterのインターフェイスの特記事項",
     ##################################################
     "If a `Dictionary` value doesn\'t have the specified key, a retrieved value type becomes the `AnyValue` type. This behavior occasionally is helpful when a `Dictionary` value is updated dynamically (e.g., updating by the JavaScript event handler).": "もしも`Dictionary`の値が指定されたキーを持たない場合、取り出される値は`AnyValue`型の値となります。この挙動はJavaScript上でのハンドラでの動的な更新処理などを使う際に便利な時があります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nretrieved_val: ap.AnyValue = dict_1[\"b\"]\nassert isinstance(retrieved_val, ap.AnyValue)\n```": "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nretrieved_val: ap.AnyValue = dict_1[\"b\"]\nassert isinstance(retrieved_val, ap.AnyValue)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nretrieved_val: ap.AnyValue = dict_1[\"b\"]\nassert isinstance(retrieved_val, ap.AnyValue)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\nretrieved_val: ap.AnyValue = dict_1[\"b\"]\nassert isinstance(retrieved_val, ap.AnyValue)\n```",  # noqa
     ##################################################
     "## Value deletion interface": "## 値の削除のインターフェイス",
     ##################################################
     "A `Dictionary` value can be deleted by the `del` statement, as follows:": "`Dictionary`の値は以下のコード例のように`del`ステートメントで削除することができます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\ndel dict_1[\"a\"]\nassert dict_1 == {}\n```": "```py\n# runnable\nimport apysc as ap\n\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\ndel dict_1[\"a\"]\nassert dict_1 == {}\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\ndel dict_1[\"a\"]\nassert dict_1 == {}\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\ndict_1: ap.Dictionary = ap.Dictionary({\"a\": int_1})\ndel dict_1[\"a\"]\nassert dict_1 == {}\n```",  # noqa
     ##################################################
     "## Dictionary class constructor API": "## Dictionary クラスのコンストラクタのAPI",
     ##################################################

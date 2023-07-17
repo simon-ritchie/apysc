@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> str_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\n>>> ap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n```": "```py\n>>> import apysc as ap\n>>> str_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\n>>> ap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> str_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\n>>> ap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> str_value: ap.String = ap.String(\"Lorem ipsum dolor sit\")\n>>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(\" \"))\n>>> ap.assert_arrays_equal(splitted_strs, [\"Lorem\", \"ipsum\", \"dolor\", \"sit\"])\n```",  # noqa
 }

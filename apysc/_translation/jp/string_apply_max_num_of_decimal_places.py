@@ -59,5 +59,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> string = ap.String(\"123.456\")\n>>> string = string.apply_max_num_of_decimal_places(max_num_of_decimal_places=1)\n>>> ap.assert_equal(string, \"123.4\")\n```": "```py\n>>> import apysc as ap\n>>> string = ap.String(\"123.456\")\n>>> string = string.apply_max_num_of_decimal_places(max_num_of_decimal_places=1)\n>>> ap.assert_equal(string, \"123.4\")\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string = ap.String(\"123.456\")\n>>> string = string.apply_max_num_of_decimal_places(max_num_of_decimal_places=1)\n>>> ap.assert_equal(string, \"123.4\")\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string = ap.String(\"123.456\")\n>>> string = string.apply_max_num_of_decimal_places(max_num_of_decimal_places=1)\n>>> ap.assert_equal(string, \"123.4\")\n```",  # noqa
 }

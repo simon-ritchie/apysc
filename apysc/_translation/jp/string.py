@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `String` class is the apysc string class. It can accept `str` or `String` values at the constructor, as follows:": "`String`クラスはapyscの文字列用のクラスです。このクラスは以下のコード例のようにコンストラクタの引数に`str`もしくは`String`型の値を受け付けます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nstring_1: ap.String = ap.String(\"Hello\")\nassert string_1 == \"Hello\"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == \"Hello\"\n```": "```py\n# runnable\nimport apysc as ap\n\nstring_1: ap.String = ap.String(\"Hello\")\nassert string_1 == \"Hello\"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == \"Hello\"\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nstring_1: ap.String = ap.String(\"Hello\")\nassert string_1 == \"Hello\"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == \"Hello\"\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nstring_1: ap.String = ap.String(\"Hello\")\nassert string_1 == \"Hello\"\n\nstring_2: ap.String = ap.String(string_1)\nassert string_2 == \"Hello\"\n```",  # noqa
     ##################################################
     "## String class interfaces": "## String クラスの各インターフェイス",
     ##################################################
@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString(\"Hello\")\n\n>>> string += \" World!\"\n>>> string\nString(\"Hello World!\")\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString(\"Hello\")\n\n>>> string += \" World!\"\n>>> string\nString(\"Hello World!\")\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString(\"Hello\")\n\n>>> string += \" World!\"\n>>> string\nString(\"Hello World!\")\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string\nString(\"Hello\")\n\n>>> string += \" World!\"\n>>> string\nString(\"Hello World!\")\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -89,7 +89,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string.value = \"World!\"\n>>> string.value\n\'World!\'\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string.value = \"World!\"\n>>> string.value\n\'World!\'\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string.value = \"World!\"\n>>> string.value\n\'World!\'\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"Hello\")\n>>> string.value = \"World!\"\n>>> string.value\n\'World!\'\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

@@ -114,6 +114,7 @@ Dictionary class for the apysc library.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> dictionary
 Dictionary({'a': 10})
@@ -153,6 +154,7 @@ Get a current dict value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({})
 >>> dictionary.value = {"a": 10}
 >>> dictionary.value

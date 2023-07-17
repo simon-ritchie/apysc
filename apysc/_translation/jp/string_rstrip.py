@@ -59,5 +59,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"  aabbcc   \")\n>>> string = string.rstrip()\n>>> string\nString(\"  aabbcc\")\n\n>>> string = ap.String(\"aabbccaa\")\n>>> string = string.rstrip(string=\"a\")\n>>> string\nString(\"aabbcc\")\n```": "```py\n>>> import apysc as ap\n>>> string: ap.String = ap.String(\"  aabbcc   \")\n>>> string = string.rstrip()\n>>> string\nString(\"  aabbcc\")\n\n>>> string = ap.String(\"aabbccaa\")\n>>> string = string.rstrip(string=\"a\")\n>>> string\nString(\"aabbcc\")\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"  aabbcc   \")\n>>> string = string.rstrip()\n>>> string\nString(\"  aabbcc\")\n\n>>> string = ap.String(\"aabbccaa\")\n>>> string = string.rstrip(string=\"a\")\n>>> string\nString(\"aabbcc\")\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"  aabbcc   \")\n>>> string = string.rstrip()\n>>> string\nString(\"  aabbcc\")\n\n>>> string = ap.String(\"aabbccaa\")\n>>> string = string.rstrip(string=\"a\")\n>>> string\nString(\"aabbcc\")\n```",  # noqa
 }

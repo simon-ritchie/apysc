@@ -36,6 +36,7 @@ def trace(*args: Any) -> None:
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> int_val: ap.Int = ap.Int(10)
     >>> ap.trace("Int value is:", int_val)
     """

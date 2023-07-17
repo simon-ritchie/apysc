@@ -115,6 +115,7 @@ Integer class for apysc library.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> int_val: ap.Int = ap.Int(10)
 >>> int_val
 Int(10)
@@ -175,6 +176,7 @@ The `Float` class is the alias of the Number, and it behaves the same as the Num
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> number: ap.Number = ap.Number(10.5)
 >>> number
 Number(10.5)
@@ -221,6 +223,7 @@ Get a current number value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> int_val: ap.Int = ap.Int(10)
 >>> int_val.value
 10

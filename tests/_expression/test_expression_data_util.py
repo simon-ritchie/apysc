@@ -11,6 +11,7 @@ from apysc._expression.indent_num import Indent
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._display import stage
 
 
 @apply_test_settings()
@@ -236,6 +237,7 @@ def test_empty_expression() -> None:
     )
     result: Optional[Tuple] = expression_data_util.cursor.fetchone()
     assert result is None
+    assert not stage._is_stage_created
 
 
 @apply_test_settings()

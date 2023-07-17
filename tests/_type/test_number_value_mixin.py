@@ -145,13 +145,13 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test___add__(self) -> None:
-        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
+        mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="int")
         mixin_1.variable_name = "test_mixin_1"
-        mixin_2: NumberValueMixIn = mixin_1 + 20
+        mixin_2: ap.Int = mixin_1 + 20
         assert mixin_2.value == 30
         assert mixin_1.variable_name != mixin_2.variable_name
 
-        mixin_3: NumberValueMixIn = mixin_1 + mixin_2
+        mixin_3: ap.Int = mixin_1 + mixin_2
         assert mixin_3.value == 40
         assert mixin_3.variable_name != mixin_2.variable_name
 

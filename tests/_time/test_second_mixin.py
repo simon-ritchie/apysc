@@ -38,7 +38,6 @@ class TestSecondMixIn:
 
     @apply_test_settings()
     def test__append_second_getter_expression(self) -> None:
-        ap.Stage()
         mixin: SecondMixIn = SecondMixIn()
         mixin.variable_name = "test_second_mixin"
         second_val: ap.Int = ap.Int(50)
@@ -51,7 +50,6 @@ class TestSecondMixIn:
 
     @apply_test_settings()
     def test_second(self) -> None:
-        ap.Stage()
         mixin: SecondMixIn = SecondMixIn()
         mixin.variable_name = "test_second_mixin"
         mixin._set_init_second_value(second=50)
@@ -70,7 +68,6 @@ class TestSecondMixIn:
 
     @apply_test_settings()
     def test__append_second_setter_expression(self) -> None:
-        ap.Stage()
         mixin: SecondMixIn = SecondMixIn()
         mixin.variable_name = "test_second_mixin"
         second_val: ap.Int = ap.Int(50)

@@ -12,7 +12,6 @@ from tests._display.test_graphics_expression import assert_fill_attr_expression_
 class TestSVGTextSpan:
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
         svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(
             text="test_text_span",
             fill_color="#0af",
@@ -29,14 +28,12 @@ class TestSVGTextSpan:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(text="test_text_span")
         repr_str: str = repr(svg_text_span)
         assert repr_str == f'SVGTextSpan("{svg_text_span.variable_name}")'
 
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(
             text="test_text_span",
             variable_name_suffix="test_span",
@@ -96,7 +93,6 @@ class TestSVGTextSpan:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         svg_text_span_: ap.SVGTextSpan = (
             ap.SVGTextSpan._initialize_for_loop_key_or_value()
         )

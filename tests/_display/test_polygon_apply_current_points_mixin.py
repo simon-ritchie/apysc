@@ -14,7 +14,6 @@ import apysc as ap
 class TestPolygonApplyCurrentPointsMixIn:
     @apply_test_settings()
     def test__apply_current_points(self) -> None:
-        ap.Stage()
         mixin: PolygonApplyCurrentPointsMixIn = PolygonApplyCurrentPointsMixIn()
         mixin.variable_name = "test_mixin"
         mixin._apply_current_points()

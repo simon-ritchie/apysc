@@ -8,7 +8,6 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationXMixIn:
     @apply_test_settings()
     def test_animation_x(self) -> None:
-        ap.Stage()
         mixin: AnimationXMixIn = AnimationXMixIn()
         mixin.variable_name = "test_animation_x_mixin"
         animation_x: ap.AnimationX = mixin.animation_x(

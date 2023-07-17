@@ -38,7 +38,6 @@ class TestMinuteMixIn:
 
     @apply_test_settings()
     def test__append_minute_getter_expression(self) -> None:
-        ap.Stage()
         mixin: MinuteMixIn = MinuteMixIn()
         mixin.variable_name = "test_minute_mixin"
         minute_val: ap.Int = ap.Int(30)
@@ -51,7 +50,6 @@ class TestMinuteMixIn:
 
     @apply_test_settings()
     def test_minute(self) -> None:
-        ap.Stage()
         mixin: MinuteMixIn = MinuteMixIn()
         mixin.variable_name = "test_minute_mixin"
         mixin._set_init_minute_value(minute=30)
@@ -71,7 +69,6 @@ class TestMinuteMixIn:
 
     @apply_test_settings()
     def test__append_minute_setter_expression(self) -> None:
-        ap.Stage()
         mixin: MinuteMixIn = MinuteMixIn()
         mixin.variable_name = "test_minute_mixin"
         minute_val: ap.Int = ap.Int(30)

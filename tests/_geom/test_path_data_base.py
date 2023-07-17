@@ -19,7 +19,6 @@ class TestPathDataBase:
 
     @apply_test_settings()
     def test__get_svg_char(self) -> None:
-        ap.Stage()
         path_data: ap.PathMoveTo = ap.PathMoveTo(
             x=10, y=20, relative=False, variable_name_suffix="test_path_data"
         )

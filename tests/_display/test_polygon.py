@@ -77,7 +77,6 @@ class TestPolygon:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         points: ap.Array[ap.Point2D] = ap.Array(
             [ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)]
@@ -88,7 +87,6 @@ class TestPolygon:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         points: ap.Array[ap.Point2D] = ap.Array(
@@ -124,7 +122,6 @@ class TestPolygon:
 
     @apply_test_settings()
     def test__set_x_and_y_with_minimum_point(self) -> None:
-        ap.Stage()
         points: List[ap.Point2D] = [
             ap.Point2D(50, 50),
             ap.Point2D(150, 30),
@@ -140,7 +137,6 @@ class TestPolygon:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         polygon: ap.Polygon = ap.Polygon._initialize_for_loop_key_or_value()
         assert polygon._points == ap.Array(
             [

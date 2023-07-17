@@ -57,7 +57,6 @@ class TestTimeDelta:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
         left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
         right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=3)
         timedelta__: TimeDelta = TimeDelta(
@@ -73,7 +72,6 @@ class TestTimeDelta:
 
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         left_datetime: ap.DateTime = ap.DateTime(
             year=2022,
             month=12,

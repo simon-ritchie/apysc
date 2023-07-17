@@ -42,7 +42,6 @@ class TestLineDotSettingMixIn:
 
     @apply_test_settings()
     def test__append_line_dot_setting_update_expression(self) -> None:
-        ap.Stage()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin.variable_name = "test_line_dot_setting_mixin"
         mixin._initialize_line_dot_setting_if_not_initialized()
@@ -67,7 +66,6 @@ class TestLineDotSettingMixIn:
 
     @apply_test_settings()
     def test__update_line_dot_setting_and_skip_appending_exp(self) -> None:
-        ap.Stage()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin._update_line_dot_setting_and_skip_appending_exp(value=None)
         line_dot_setting: Optional[ap.LineDotSetting] = mixin.line_dot_setting
@@ -124,7 +122,6 @@ class TestLineDotSettingMixIn:
 
     @apply_test_settings()
     def test_delete_line_dot_setting(self) -> None:
-        ap.Stage()
         mixin: LineDotSettingMixIn = LineDotSettingMixIn()
         mixin.variable_name = "test_line_dot_setting_mixin"
         mixin.line_dot_setting = ap.LineDotSetting(dot_size=10)

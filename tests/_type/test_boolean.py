@@ -38,7 +38,6 @@ class TestBoolean:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
         int_1: ap.Int = ap.Int(1)
         boolean_1: ap.Boolean = ap.Boolean(value=int_1)
         expression: str = expression_data_util.get_current_expression()
@@ -76,7 +75,6 @@ class TestBoolean:
 
     @apply_test_settings()
     def test__set_value_and_skip_expression_appending(self) -> None:
-        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(value=1)
         boolean_1._set_value_and_skip_expression_appending(value=False)
         assert not boolean_1._value
@@ -86,7 +84,6 @@ class TestBoolean:
 
     @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
-        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(value=1)
         boolean_1.variable_name = "test_boolean_1"
         int_1: ap.Int = ap.Int(1)
@@ -158,7 +155,6 @@ class TestBoolean:
 
     @apply_test_settings()
     def test___eq__(self) -> None:
-        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(True, variable_name_suffix="test_boolean_1")
         boolean_2: ap.Boolean = ap.Boolean(True)
         result: ap.Boolean = boolean_1 == boolean_2
@@ -210,7 +206,6 @@ class TestBoolean:
 
     @apply_test_settings()
     def test__append_not_prop_expression(self) -> None:
-        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(True)
         boolean_2: ap.Boolean = boolean_1.not_
         expression: str = expression_data_util.get_current_expression()
@@ -219,7 +214,6 @@ class TestBoolean:
 
     @apply_test_settings()
     def test__append_eq_expression(self) -> None:
-        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(True)
         boolean_2: ap.Boolean = ap.Boolean(True)
         result: ap.Boolean = boolean_1 == boolean_2
@@ -265,7 +259,6 @@ class TestBoolean:
 
     @apply_test_settings()
     def test__append_ne_expression(self) -> None:
-        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(True)
         boolean_2: ap.Boolean = ap.Boolean(False)
         result: ap.Boolean = boolean_1 != boolean_2

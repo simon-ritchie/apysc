@@ -19,7 +19,6 @@ class _TestMixIn(
 class TestStringSplitMixIn:
     @apply_test_settings()
     def test__append_split_expression(self) -> None:
-        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         splitted_strs: ap.Array[ap.String] = ap.Array([ap.String("Test")])
@@ -34,7 +33,6 @@ class TestStringSplitMixIn:
 
     @apply_test_settings()
     def test_split(self) -> None:
-        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"

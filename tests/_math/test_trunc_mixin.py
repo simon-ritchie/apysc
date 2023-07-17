@@ -6,7 +6,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestTruncMixIn:
     @apply_test_settings()
     def test_trunc(self) -> None:
-        ap.Stage()
         value: ap.Int = ap.Int(10)
         result: ap.Int = ap.Math.trunc(value=value)
         assert isinstance(result, ap.Int)

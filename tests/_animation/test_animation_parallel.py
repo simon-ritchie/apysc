@@ -10,7 +10,6 @@ from apysc._testing.testing_helper import assert_raises
 class TestAnimationParallel:
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -41,7 +40,6 @@ class TestAnimationParallel:
 
     @apply_test_settings()
     def test__get_animation_func_expression(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -70,7 +68,6 @@ class TestAnimationParallel:
 
     @apply_test_settings()
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -94,7 +91,6 @@ class TestAnimationParallel:
 
     @apply_test_settings()
     def test__validate_animation_targets_are_unified(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -121,7 +117,6 @@ class TestAnimationParallel:
 
     @apply_test_settings()
     def test__validate_animations_duration_are_default_vals(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -143,7 +138,6 @@ class TestAnimationParallel:
 
     @apply_test_settings()
     def test__validate_animations_delay_are_default_vals(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -165,7 +159,6 @@ class TestAnimationParallel:
 
     @apply_test_settings()
     def test__validate_animations_easing_are_default_vals(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -187,7 +180,6 @@ class TestAnimationParallel:
 
     @apply_test_settings()
     def test__make_animation_attr_exp(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50

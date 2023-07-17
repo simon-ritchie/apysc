@@ -26,7 +26,6 @@ class _TestMixIn(ForLoopExitMixIn, GetLastScopeInterface):
 class TestForLoopExitMixIn:
     @apply_test_settings()
     def test___exit__(self) -> None:
-        ap.Stage()
         mixin_1: _TestMixIn = _TestMixIn()
         mixin_1._locals = {}
         mixin_1._globals = {}

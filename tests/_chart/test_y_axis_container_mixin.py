@@ -6,7 +6,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestYAxisContainerMixIn:
     @apply_test_settings()
     def test__initialize_y_axis_container(self) -> None:
-        ap.Stage()
         mixin: YAxisContainerMixIn = YAxisContainerMixIn()
         overall_container: ap.Sprite = ap.Sprite()
         mixin._initialize_y_axis_container(

@@ -19,7 +19,6 @@ class _TestMixIn(
 class TestSVGTextItalicMixIn:
     @apply_test_settings()
     def test_italic(self) -> None:
-        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"
@@ -46,7 +45,6 @@ class TestSVGTextItalicMixIn:
 
     @apply_test_settings()
     def test__make_snapshot_and__revert(self) -> None:
-        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin._italic = True
         snapshot_name: str = mixin._get_next_snapshot_name()

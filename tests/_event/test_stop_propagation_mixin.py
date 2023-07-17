@@ -7,7 +7,6 @@ import apysc as ap
 class TestStopPropagationMixIn:
     @apply_test_settings()
     def test_stop_propagation(self) -> None:
-        ap.Stage()
         mixin: StopPropagationMixIn = StopPropagationMixIn()
         mixin.variable_name = "test_stop_propagation_mixin"
         mixin.stop_propagation()

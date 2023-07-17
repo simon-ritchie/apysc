@@ -130,7 +130,6 @@ class TestDateTime:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
         datetime: ap.DateTime = ap.DateTime(
             year=2022,
             month=3,
@@ -146,7 +145,6 @@ class TestDateTime:
 
     @apply_test_settings()
     def test___sub__(self) -> None:
-        ap.Stage()
         left_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=2)
         right_datetime: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
         timedelta_: ap.TimeDelta = left_datetime - right_datetime

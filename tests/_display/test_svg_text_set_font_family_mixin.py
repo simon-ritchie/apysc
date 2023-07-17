@@ -22,7 +22,6 @@ class _TestMixIn(
 class TestSVGTextSetFontFamilyMixIn:
     @apply_test_settings()
     def test__set_font_family(self) -> None:
-        ap.Stage()
         mixin_1: SVGTextSetFontFamilyMixIn = SVGTextSetFontFamilyMixIn()
         assert_raises(
             expected_error_class=TypeError,

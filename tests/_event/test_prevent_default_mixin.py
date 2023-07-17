@@ -7,7 +7,6 @@ import apysc as ap
 class TestPreventDefaultMixIn:
     @apply_test_settings()
     def test_prevent_default(self) -> None:
-        ap.Stage()
         mixin: PreventDefaultMixIn = PreventDefaultMixIn()
         mixin.variable_name = "test_prevent_default_mixin"
         mixin.prevent_default()

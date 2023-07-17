@@ -84,7 +84,6 @@ class TestHandlerScope:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
 
@@ -102,7 +101,6 @@ class TestHandlerScope:
 
     @apply_test_settings()
     def test___exit__(self) -> None:
-        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
 

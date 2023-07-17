@@ -18,7 +18,6 @@ def test_SVGTextAlign() -> None:
 class TestSVGTextAlignMixIn:
     @apply_test_settings()
     def test_align(self) -> None:
-        ap.Stage()
         mixin: SVGTextAlignMixIn = SVGTextAlignMixIn()
         mixin.variable_name = "test_mixin"
         assert mixin.align == SVGTextAlign.LEFT

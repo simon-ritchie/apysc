@@ -74,7 +74,6 @@ def test__get_py_str_from_current_value() -> None:
 class TestLStripMixIn:
     @apply_test_settings()
     def test_lstrip(self) -> None:
-        ap.Stage()
         string: ap.String = ap.String("aabbccaa")
         result: ap.String = string.lstrip(
             string="a", variable_name_suffix="test_suffix_1"

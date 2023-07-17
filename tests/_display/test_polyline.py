@@ -100,7 +100,6 @@ class TestPolyline:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
         polyline: ap.Polyline = ap.Polyline(parent=sprite.graphics, points=points)
@@ -148,7 +147,6 @@ class TestPolyline:
 
     @apply_test_settings()
     def test_append_line_point(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af")
         sprite.graphics.line_style(color="#f0a")
@@ -167,7 +165,6 @@ class TestPolyline:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         sprite.graphics.line_style(
@@ -197,7 +194,6 @@ class TestPolyline:
 
     @apply_test_settings()
     def test__set_x_and_y_with_minimum_point(self) -> None:
-        ap.Stage()
         points: List[ap.Point2D] = [ap.Point2D(10, 20), ap.Point2D(30, 40)]
         polyline: ap.Polyline = ap.Polyline(
             points=points, variable_name_suffix="test_polyline"
@@ -214,7 +210,6 @@ class TestPolyline:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         polyline: ap.Polyline = ap.Polyline._initialize_for_loop_key_or_value()
         assert polyline._points == ap.Array(
             [

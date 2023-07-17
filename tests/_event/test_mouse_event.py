@@ -69,7 +69,6 @@ class TestMouseEvent:
 
     @apply_test_settings()
     def test__append_local_x_getter_expression(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         mouse_event: ap.MouseEvent[ap.Sprite] = ap.MouseEvent(this=sprite)
         local_x: ap.Number = mouse_event.local_x
@@ -94,7 +93,6 @@ class TestMouseEvent:
 
     @apply_test_settings()
     def test__append_local_y_getter_expression(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         mouse_event: ap.MouseEvent[ap.Sprite] = ap.MouseEvent(this=sprite)
         local_y: ap.Number = mouse_event.local_y

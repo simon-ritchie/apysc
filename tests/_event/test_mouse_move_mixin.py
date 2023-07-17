@@ -50,7 +50,6 @@ class TestMouseMoveMixIn:
 
     @apply_test_settings()
     def test_mousemove(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseMove = _TestMouseMove()
         name: str = mixin_1.mousemove(
             handler=self.on_mouse_move_1, options={"msg": "Hello!"}
@@ -70,7 +69,6 @@ class TestMouseMoveMixIn:
 
     @apply_test_settings()
     def test_unbind_mousemove(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseMove = _TestMouseMove()
         name: str = mixin_1.mousemove(handler=self.on_mouse_move_1)
         mixin_1.unbind_mousemove(handler=self.on_mouse_move_1)
@@ -84,7 +82,6 @@ class TestMouseMoveMixIn:
 
     @apply_test_settings()
     def test_unbind_mousemove_all(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseMove = _TestMouseMove()
         mixin_1.mousemove(handler=self.on_mouse_move_1)
         mixin_1.mousemove(handler=self.on_mouse_move_2)

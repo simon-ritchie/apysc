@@ -6,7 +6,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestAddBackgroundMixIn:
     @apply_test_settings()
     def test__add_background(self) -> None:
-        ap.Stage()
         mixin: AddBackgroundMixIn = AddBackgroundMixIn()
         background_container: ap.Sprite = ap.Sprite()
         mixin._add_background(

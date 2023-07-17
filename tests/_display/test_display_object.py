@@ -13,14 +13,12 @@ class TestDisplayObject:
 
     @apply_test_settings()
     def test_variable_name(self) -> None:
-        ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject()
         display_object.variable_name = "test_display_object_1"
         assert display_object.variable_name == "test_display_object_1"
 
     @apply_test_settings()
     def test__set_overflow_visible_setting(self) -> None:
-        ap.Stage()
         display_object: AnyDisplayObject = AnyDisplayObject()
         display_object._set_overflow_visible_setting()
         expression: str = expression_data_util.get_current_expression()

@@ -38,7 +38,6 @@ class TestMonthMixIn:
 
     @apply_test_settings()
     def test__append_month_getter_expression(self) -> None:
-        ap.Stage()
         mixin: MonthMixIn = MonthMixIn()
         mixin.variable_name = "test_month_mixin"
         mixin._set_init_month_value(month=5)
@@ -52,7 +51,6 @@ class TestMonthMixIn:
 
     @apply_test_settings()
     def test_month(self) -> None:
-        ap.Stage()
         mixin: MonthMixIn = MonthMixIn()
         mixin.variable_name = "test_month_mixin"
         mixin._set_init_month_value(month=5)
@@ -72,7 +70,6 @@ class TestMonthMixIn:
 
     @apply_test_settings()
     def test__append_month_setter_expression(self) -> None:
-        ap.Stage()
         mixin: MonthMixIn = MonthMixIn()
         mixin.variable_name = "test_month_mixin"
         mixin._set_init_month_value(month=5)

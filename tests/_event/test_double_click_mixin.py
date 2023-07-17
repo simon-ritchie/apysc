@@ -51,7 +51,6 @@ class TestDoubleClickMixIn:
 
     @apply_test_settings()
     def test_dblclick(self) -> None:
-        ap.Stage()
         mixin_1: _TestDoubleClick = _TestDoubleClick()
         name: str = mixin_1.dblclick(handler=self.on_double_click_1)
         assert mixin_1._dblclick_handlers[name].handler == self.on_double_click_1
@@ -66,7 +65,6 @@ class TestDoubleClickMixIn:
 
     @apply_test_settings()
     def test_unbind_dblclick(self) -> None:
-        ap.Stage()
         mixin_1: _TestDoubleClick = _TestDoubleClick()
         mixin_1.dblclick(handler=self.on_double_click_1)
         mixin_1.unbind_dblclick(handler=self.on_double_click_1)
@@ -76,7 +74,6 @@ class TestDoubleClickMixIn:
 
     @apply_test_settings()
     def test_unbind_dblclick_all(self) -> None:
-        ap.Stage()
         mixin_1: _TestDoubleClick = _TestDoubleClick()
         mixin_1.dblclick(handler=self.on_double_click_1)
         mixin_1.unbind_dblclick_all()

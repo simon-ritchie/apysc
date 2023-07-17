@@ -7,7 +7,6 @@ import apysc as ap
 class TestAnimationReverseMixIn:
     @apply_test_settings()
     def test_animation_reverse(self) -> None:
-        ap.Stage()
         mixin: AnimationReverseMixIn = AnimationReverseMixIn()
         mixin.variable_name = "test_animation_reverse_mixin"
         mixin.animation_reverse()

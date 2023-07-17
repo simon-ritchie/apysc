@@ -123,8 +123,6 @@ class _TestGraphic(
 class TestGraphicsBase:
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
-
         graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics_1")
         testing_helper.assert_attrs(
             expected_attrs={
@@ -135,7 +133,6 @@ class TestGraphicsBase:
 
     @apply_test_settings()
     def test__set_initial_basic_values(self) -> None:
-        ap.Stage()
         graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics_1")
         graphics._set_initial_basic_values(
             fill_color="#00aaff",
@@ -161,7 +158,6 @@ class TestGraphicsBase:
 
     @apply_test_settings()
     def test__set_line_setting_if_not_none_value_exists(self) -> None:
-        ap.Stage()
         graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics")
         graphics._set_line_setting_if_not_none_value_exists(
             line_dot_setting=ap.LineDotSetting(dot_size=5),

@@ -53,7 +53,6 @@ class TestScaleYFromPointMixIn:
 
     @apply_test_settings()
     def test__append_scale_y_from_point_update_expression(self) -> None:
-        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         scale_y: ap.Number = ap.Number(0.5)
         y: ap.Number = ap.Number(100)

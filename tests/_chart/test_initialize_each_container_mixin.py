@@ -25,7 +25,6 @@ class _TestMixIn(
 class TestInitializeEachContainerMixIn:
     @apply_test_settings()
     def test__initialize_each_container(self) -> None:
-        ap.Stage()
         mixin_1: InitializeEachContainerMixIn = InitializeEachContainerMixIn()
         assert_raises(
             expected_error_class=TypeError,

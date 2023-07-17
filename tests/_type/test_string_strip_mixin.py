@@ -93,7 +93,6 @@ def test__get_py_str_from_current_value() -> None:
 class TestStringStripMixIn:
     @apply_test_settings()
     def test_strip(self) -> None:
-        ap.Stage()
         string: ap.String = ap.String("  \n  aabbaa  \n   ")
         result: ap.String = string.strip(variable_name_suffix="test_suffix_1")
         assert result == ap.String("aabbaa")

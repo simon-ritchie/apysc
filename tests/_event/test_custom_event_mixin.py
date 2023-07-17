@@ -54,7 +54,6 @@ class TestCustomEventMixIn:
 
     @apply_test_settings()
     def test__append_custom_event_binding_expression(self) -> None:
-        ap.Stage()
         mixin: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=mixin)
         name: str = mixin.bind_custom_event(
@@ -71,7 +70,6 @@ class TestCustomEventMixIn:
 
     @apply_test_settings()
     def test_bind_custom_event(self) -> None:
-        ap.Stage()
         mixin: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=mixin)
         name: str = mixin.bind_custom_event(
@@ -89,7 +87,6 @@ class TestCustomEventMixIn:
 
     @apply_test_settings()
     def test_trigger_custom_event(self) -> None:
-        ap.Stage()
         mixin: _TestObject = _TestObject()
         mixin.trigger_custom_event(custom_event_type="test_event")
         expression: str = expression_data_util.get_current_expression()
@@ -127,7 +124,6 @@ class TestCustomEventMixIn:
 
     @apply_test_settings()
     def test__append_custom_event_unbinding_expression(self) -> None:
-        ap.Stage()
         mixin: _TestObject = _TestObject()
         name: str = mixin.unbind_custom_event(
             custom_event_type="test_event", handler=self.on_custom_event
@@ -140,7 +136,6 @@ class TestCustomEventMixIn:
 
     @apply_test_settings()
     def test_unbind_custom_event(self) -> None:
-        ap.Stage()
         mixin: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=mixin)
         name_1: str = mixin.bind_custom_event(
@@ -159,7 +154,6 @@ class TestCustomEventMixIn:
 
     @apply_test_settings()
     def test_unbind_custom_event_all(self) -> None:
-        ap.Stage()
         mixin: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=mixin)
         mixin.bind_custom_event(

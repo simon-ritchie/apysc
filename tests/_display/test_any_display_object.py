@@ -8,7 +8,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestAnyDisplayObject:
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         any_display_object: AnyDisplayObject = AnyDisplayObject()
         assert any_display_object.variable_name.startswith(
             f"{var_names.ANY_DISPLAY_OBJECT}_"
@@ -18,7 +17,6 @@ class TestAnyDisplayObject:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         any_display_object: AnyDisplayObject = (
             AnyDisplayObject._initialize_for_loop_key_or_value()
         )

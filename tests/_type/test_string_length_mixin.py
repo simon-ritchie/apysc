@@ -6,7 +6,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestStringLengthMixIn:
     @apply_test_settings()
     def test_length(self) -> None:
-        ap.Stage()
         string: ap.String = ap.String("abc")
         length: ap.Int = string.length
         assert length == ap.Int(3)

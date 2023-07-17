@@ -29,7 +29,6 @@ class TestCxMixIn:
 
     @apply_test_settings()
     def test__append_x_update_expression(self) -> None:
-        ap.Stage()
         mixin: CxMixIn = CxMixIn()
         mixin.variable_name = "test_x_mixin"
         x: ap.Number = ap.Number(10)

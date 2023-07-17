@@ -9,7 +9,6 @@ from apysc._testing.testing_helper import assert_attrs
 class TestTriangle:
     @apply_test_settings()
     def test__set_points_with_each_coordinate(self) -> None:
-        ap.Stage()
         triangle: Triangle = Triangle(
             x1=50,
             y1=0,
@@ -28,7 +27,6 @@ class TestTriangle:
 
     @apply_test_settings()
     def test__set_x_and_y_with_minimum_point(self) -> None:
-        ap.Stage()
         triangle: Triangle = Triangle(
             x1=50,
             y1=10,
@@ -42,7 +40,6 @@ class TestTriangle:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         triangle: Triangle = Triangle(
             x1=50,
             y1=0,
@@ -102,7 +99,6 @@ class TestTriangle:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=10)

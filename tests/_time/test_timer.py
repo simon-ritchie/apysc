@@ -41,7 +41,6 @@ class TestTimer:
 
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3, repeat_count=10)
         assert_attrs(
             expected_attrs={
@@ -84,7 +83,6 @@ class TestTimer:
 
     @apply_test_settings()
     def test_start(self) -> None:
-        ap.Stage()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         assert timer.running
@@ -148,7 +146,6 @@ class TestTimer:
 
     @apply_test_settings()
     def test_stop(self) -> None:
-        ap.Stage()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         timer.stop()
@@ -164,7 +161,6 @@ class TestTimer:
 
     @apply_test_settings()
     def test__get_stop_expression(self) -> None:
-        ap.Stage()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         expression: str = timer._get_stop_expression(indent_num=1)
         expected: str = (
@@ -177,7 +173,6 @@ class TestTimer:
 
     @apply_test_settings()
     def test__append_count_branch_expression(self) -> None:
-        ap.Stage()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3, repeat_count=5)
         timer.start()
         expression: str = (
@@ -229,7 +224,6 @@ class TestTimer:
 
     @apply_test_settings()
     def test_timer_complete(self) -> None:
-        ap.Stage()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         name: str = timer.timer_complete(handler=self.on_timer_complete)
         assert isinstance(
@@ -239,7 +233,6 @@ class TestTimer:
 
     @apply_test_settings()
     def test_reset(self) -> None:
-        ap.Stage()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         timer._current_count._value = 10

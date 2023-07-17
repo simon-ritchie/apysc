@@ -27,7 +27,6 @@ class TestDaysMixIn:
 
     @apply_test_settings()
     def test__append_days_expression(self) -> None:
-        ap.Stage()
         mixin: DaysMixIn = DaysMixIn()
         days: ap.Int = ap.Int(5)
         mixin.variable_name = "test_days_mixin"
@@ -41,7 +40,6 @@ class TestDaysMixIn:
 
     @apply_test_settings()
     def test_days(self) -> None:
-        ap.Stage()
         mixin: DaysMixIn = DaysMixIn()
         mixin.variable_name = "test_days_mixin"
         mixin._days_value = 3

@@ -76,7 +76,6 @@ class TestLine:
 
     @apply_test_settings()
     def test__make_points_expression(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         line: ap.Line = ap.Line(
             parent=sprite.graphics,
@@ -118,7 +117,6 @@ class TestLine:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         line: ap.Line = ap.Line(
             parent=sprite.graphics,
@@ -131,7 +129,6 @@ class TestLine:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color="#fff",
@@ -163,7 +160,6 @@ class TestLine:
 
     @apply_test_settings()
     def test__set_initial_x_and_y_with_minimum_point(self) -> None:
-        ap.Stage()
         line: ap.Line = ap.Line(
             start_point=ap.Point2D(x=10, y=20), end_point=ap.Point2D(x=30, y=40)
         )
@@ -178,7 +174,6 @@ class TestLine:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         line: ap.Line = ap.Line._initialize_for_loop_key_or_value()
         assert line._start_point == ap.Point2D(x=-2, y=-2)
         assert line._end_point == ap.Point2D(x=-1, y=-1)

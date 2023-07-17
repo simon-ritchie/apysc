@@ -14,7 +14,6 @@ from apysc._testing.testing_helper import assert_attrs
 class TestElif:
     @apply_test_settings(retrying_sleep_seconds=1.5)
     def test__append_enter_expression(self) -> None:
-        ap.Stage()
         boolean_1: ap.Boolean = ap.Boolean(True)
         with raises(
             ValueError, match=r"Elif interface can only use right " r"after If or Elif"

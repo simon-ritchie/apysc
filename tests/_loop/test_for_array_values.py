@@ -9,7 +9,6 @@ from apysc._testing.testing_helper import assert_attrs
 class TestForArrayValues:
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         arr: ap.Array[ap.Int] = ap.Array([ap.Int(10), ap.Int(20)])
         for_array_values: ap.ForArrayValues = ap.ForArrayValues(
             arr=arr,
@@ -31,7 +30,6 @@ class TestForArrayValues:
 
     @apply_test_settings()
     def test__get_last_scope(self) -> None:
-        ap.Stage()
         arr: ap.Array[ap.Int] = ap.Array([ap.Int(10), ap.Int(20)])
         for_array_values: ap.ForArrayValues = ap.ForArrayValues(
             arr=arr,
@@ -42,7 +40,6 @@ class TestForArrayValues:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        ap.Stage()
         arr: ap.Array[ap.Int] = ap.Array([ap.Int(10), ap.Int(20)])
         with ap.ForArrayValues(arr=arr, arr_value_type=ap.Int) as value:
             assert isinstance(value, ap.Int)

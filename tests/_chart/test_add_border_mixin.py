@@ -6,7 +6,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestAddBorderMixIn:
     @apply_test_settings()
     def test__add_border(self) -> None:
-        ap.Stage()
         mixin: AddBorderMixIn = AddBorderMixIn()
         border_container: ap.Sprite = ap.Sprite()
         mixin._add_border(

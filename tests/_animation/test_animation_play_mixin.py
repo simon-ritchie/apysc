@@ -7,7 +7,6 @@ import apysc as ap
 class TestAnimationPlayMixIn:
     @apply_test_settings()
     def test_animation_play(self) -> None:
-        ap.Stage()
         mixin: AnimationPlayMixIn = AnimationPlayMixIn()
         mixin.variable_name = "test_animation_play_mixin"
         mixin.animation_play()

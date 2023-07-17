@@ -26,7 +26,6 @@ class TestCyMixIn:
 
     @apply_test_settings()
     def test__append_y_update_expression(self) -> None:
-        ap.Stage()
         mixin: CyMixIn = CyMixIn()
         mixin.variable_name = "test_y_mixin"
         y: ap.Number = ap.Number(10)

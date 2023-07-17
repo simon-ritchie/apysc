@@ -8,7 +8,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestSetInitialOverallContainerCoordinatesMixIn:
     @apply_test_settings()
     def test__set_initial_overall_container_coordinates(self) -> None:
-        ap.Stage()
         mixin: SetInitialOverallContainerCoordinatesMixIn = (
             SetInitialOverallContainerCoordinatesMixIn()
         )

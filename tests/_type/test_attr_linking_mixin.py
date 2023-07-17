@@ -26,7 +26,6 @@ class TestAttrLinkingMixIn:
 
     @apply_test_settings()
     def test__append_applying_new_attr_val_exp(self) -> None:
-        ap.Stage()
         interface: AttrLinkingMixIn = AttrLinkingMixIn()
         attr_1: ap.Int = ap.Int(10)
         attr_2: ap.Int = ap.Int(20)

@@ -65,7 +65,6 @@ class TestSVGText:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         svg_text: SVGText = SVGText(
             text="test text 1",
         )
@@ -87,7 +86,6 @@ class TestSVGText:
 
     @apply_test_settings()
     def test__convert_text_spans_list_to_array(self) -> None:
-        ap.Stage()
         svg_text: SVGText = SVGText(
             text="test text 1",
         )
@@ -158,7 +156,6 @@ class TestSVGText:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         svg_text: ap.SVGText = ap.SVGText._initialize_for_loop_key_or_value()
         assert svg_text.text == ap.String("")
         assert svg_text.visible == ap.Boolean(False)

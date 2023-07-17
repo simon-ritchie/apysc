@@ -8,7 +8,6 @@ from apysc._testing.testing_helper import assert_attrs
 class TestAnimationParallelMixIn:
     @apply_test_settings()
     def test_animation_parallel(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         animations: List[ap.AnimationBase] = [
             sprite.animation_x(x=100),

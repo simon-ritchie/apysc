@@ -7,7 +7,6 @@ import apysc as ap
 class TestAnimationPauseMixIn:
     @apply_test_settings()
     def test_animation_pause(self) -> None:
-        ap.Stage()
         interface: AnimationPauseMixIn = AnimationPauseMixIn()
         interface.variable_name = "test_animation_pause_interface"
         interface.animation_pause()

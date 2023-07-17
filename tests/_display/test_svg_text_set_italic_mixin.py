@@ -22,7 +22,6 @@ class _TestMixIn(
 class TestSVGTextSetItalicMixIn:
     @apply_test_settings()
     def test__set_italic(self) -> None:
-        ap.Stage()
         mixin_1: SVGTextSetItalicMixIn = SVGTextSetItalicMixIn()
         assert_raises(
             expected_error_class=TypeError,

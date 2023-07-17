@@ -22,7 +22,6 @@ class _TestMixIn(
 class TestSVGTextSetLeadingMixIn:
     @apply_test_settings()
     def test__set_leading(self) -> None:
-        ap.Stage()
         mixin_1: SVGTextSetLeadingMixIn = SVGTextSetLeadingMixIn()
         assert_raises(
             expected_error_class=TypeError,

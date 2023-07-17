@@ -112,7 +112,6 @@ class TestEllipse:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         ellipse: ap.Ellipse = ap.Ellipse(
             parent=sprite.graphics, x=50, y=100, width=150, height=200
@@ -122,7 +121,6 @@ class TestEllipse:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         sprite.graphics.line_style(
@@ -162,7 +160,6 @@ class TestEllipse:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         ellipse: ap.Ellipse = ap.Ellipse._initialize_for_loop_key_or_value()
         assert ellipse.x == ap.Number(-1)
         assert ellipse.y == ap.Number(-1)

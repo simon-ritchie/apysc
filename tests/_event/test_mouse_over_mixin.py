@@ -50,7 +50,6 @@ class TestMouseOverMixIn:
 
     @apply_test_settings()
     def test_mouseover(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseOver = _TestMouseOver()
         name: str = mixin_1.mouseover(handler=self.on_mouse_over_1)
         assert name in mixin_1._mouse_over_handlers
@@ -66,7 +65,6 @@ class TestMouseOverMixIn:
 
     @apply_test_settings()
     def test_unbind_mouseover(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseOver = _TestMouseOver()
         name: str = mixin_1.mouseover(handler=self.on_mouse_over_1)
         mixin_1.unbind_mouseover(handler=self.on_mouse_over_1)
@@ -80,7 +78,6 @@ class TestMouseOverMixIn:
 
     @apply_test_settings()
     def test_unbind_mouseover_all(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseOver = _TestMouseOver()
         mixin_1.mouseover(handler=self.on_mouse_over_1)
         mixin_1.mouseover(handler=self.on_mouse_over_2)

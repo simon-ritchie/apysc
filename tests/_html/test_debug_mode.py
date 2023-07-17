@@ -172,7 +172,6 @@ class TestDebugInfo:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        ap.Stage()
         with DebugInfo(
             callable_=self.test___init__,
             args=[10],
@@ -220,7 +219,6 @@ class TestDebugInfo:
 
     @apply_test_settings()
     def test___exit__(self) -> None:
-        ap.Stage()
         with DebugInfo(
             callable_=self.test___init__,
             args=[],

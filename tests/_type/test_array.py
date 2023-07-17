@@ -17,7 +17,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestArray:
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array((1, 2, 3), variable_name_suffix="test_array")
         expected_attrs: Dict[str, Any] = {
             "_initial_value": (1, 2, 3),
@@ -30,7 +29,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__get_list_value(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         list_val: List[Any] = array_1._get_list_value(value=[4, 5, 6])
         assert list_val == [4, 5, 6]
@@ -44,7 +42,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"var {array_1.variable_name} = [1, 2, 3];"
@@ -57,7 +54,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.value = [4, 5, 6]
         expression: str = expression_data_util.get_current_expression()
@@ -71,7 +67,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_value(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.value = [4, 5, 6]
         assert array_1.value == [4, 5, 6]
@@ -82,7 +77,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_append(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.append(value=4)
         assert array_1.value == [1, 2, 3, 4]
@@ -95,7 +89,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_push_and_append_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.append(value=4)
         expression: str = expression_data_util.get_current_expression()
@@ -104,7 +97,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_extend(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_1.extend(other_arr=[3, 4])
         assert array_1.value == [1, 2, 3, 4]
@@ -114,7 +106,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_extend_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_1.extend(other_arr=[3, 4])
         expression: str = expression_data_util.get_current_expression()
@@ -134,7 +125,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_concat(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = array_1.concat([3, 4])
         assert array_2.value == [1, 2, 3, 4]
@@ -142,7 +132,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_concat_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = array_1.concat([3, 4])
         expression: str = expression_data_util.get_current_expression()
@@ -162,21 +151,18 @@ class TestArray:
 
     @apply_test_settings()
     def test_insert(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 3])
         array_1.insert(index=1, value=2)
         assert array_1.value == [1, 2, 3]
 
     @apply_test_settings()
     def test_insert_at(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 3])
         array_1.insert_at(index=1, value=2)
         assert array_1.value == [1, 2, 3]
 
     @apply_test_settings()
     def test__append_insert_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array[Any] = ap.Array([1, 4])
         array_1.insert(index=1, value=2)
         expression: str = expression_data_util.get_current_expression()
@@ -195,7 +181,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_pop(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         value: int = array_1.pop()
         assert array_1.value == [1]
@@ -203,7 +188,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_pop_expression(self) -> None:
-        ap.Stage()
         int_1: ap.Int = ap.Int(2)
         array_1: ap.Array[Any] = ap.Array([1, int_1, 3])
         _: int = array_1.pop()
@@ -219,14 +203,12 @@ class TestArray:
 
     @apply_test_settings()
     def test_remove(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.remove(value=2)
         assert array_1.value == [1, 3]
 
     @apply_test_settings()
     def test__append_remove_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.remove(2)
         expression: str = expression_data_util.get_current_expression()
@@ -241,7 +223,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_remove_at(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_1.remove_at(index=1)
         assert array_1.value == [1, 3, 4]
@@ -253,7 +234,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_remove_at_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_1.remove_at(index=1)
         expression: str = expression_data_util.get_current_expression()
@@ -268,14 +248,12 @@ class TestArray:
 
     @apply_test_settings()
     def test_reverse(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.reverse()
         assert array_1.value == [3, 2, 1]
 
     @apply_test_settings()
     def test__append_reverse_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.reverse()
         expression: str = expression_data_util.get_current_expression()
@@ -284,7 +262,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_sort(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([3, 5, 1, 4, 2])
         array_1.sort()
         assert array_1.value == [1, 2, 3, 4, 5]
@@ -295,7 +272,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_sort_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([3, 5, 1, 4, 2])
         array_1.sort()
         expression: str = expression_data_util.get_current_expression()
@@ -314,7 +290,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_slice(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_2: ap.Array = array_1.slice(start=1, end=3)
         assert array_2.value == [2, 3]
@@ -327,7 +302,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_slice_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_2: ap.Array = array_1.slice(start=1, end=3)
         expression: str = expression_data_util.get_current_expression()
@@ -358,7 +332,6 @@ class TestArray:
 
     @apply_test_settings()
     def test___getitem__(self) -> None:
-        ap.Stage()
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         testing_helper.assert_raises(
             expected_error_class=ValueError, callable_=array_1.__getitem__, index=(0, 1)
@@ -372,7 +345,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_getitem_expression(self) -> None:
-        ap.Stage()
         int_1: ap.Int = ap.Int(3)
         array_1: ap.Array[Any] = ap.Array([1, 2, int_1])
         _: int = array_1[0]
@@ -406,7 +378,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__validate_index_type_is_int(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_1._validate_index_type_is_int(index=1)
         array_1._validate_index_type_is_int(index=ap.Int(1))
@@ -418,7 +389,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__get_builtin_int_from_index(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         builtin_int_index: int = array_1._get_builtin_int_from_index(index=1)
         assert builtin_int_index == 1
@@ -430,7 +400,6 @@ class TestArray:
 
     @apply_test_settings()
     def test___setitem__(self) -> None:
-        ap.Stage()
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         array_1[1] = 4
         assert array_1.value[1] == 4
@@ -443,7 +412,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_setitem_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         array_1[1] = 4
         expression: str = expression_data_util.get_current_expression()
@@ -466,14 +434,12 @@ class TestArray:
 
     @apply_test_settings()
     def test___delitem__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         del array_1[1]
         assert array_1.value == [1, 3]
 
     @apply_test_settings()
     def test_length(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         length: ap.Int = array_1.length
         assert length == 3
@@ -481,7 +447,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_length_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         length: ap.Int = array_1.length
         expression: str = expression_data_util.get_current_expression()
@@ -490,14 +455,12 @@ class TestArray:
 
     @apply_test_settings()
     def test___len__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         with pytest.raises(Exception):  # type: ignore
             len(array_1)  # type: ignore
 
     @apply_test_settings()
     def test_join(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array(["1", ap.String("2"), 3, ap.Int(4)])
         joined: ap.String = array_1.join(",")
         assert joined == "1,2,3,4"
@@ -506,7 +469,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_join_expression(self) -> None:
-        ap.Stage()
         string_1: ap.String = ap.String("2")
         int_1: ap.Int = ap.Int(4)
         array_1: ap.Array = ap.Array(["1", string_1, 3, int_1])
@@ -521,7 +483,6 @@ class TestArray:
 
     @apply_test_settings()
     def test___str__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array(
             [
                 "1",
@@ -544,7 +505,6 @@ class TestArray:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         assert repr(array_1) == "Array([1, 2])"
 
@@ -556,7 +516,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_index_of(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         index_1: ap.Int = array_1.index_of(value=2)
         assert index_1 == 1
@@ -567,7 +526,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_index_of_expression(self) -> None:
-        ap.Stage()
         int_1: ap.Int = ap.Int(2)
         array_1: ap.Array = ap.Array([1, int_1, 3])
         index_1: ap.Int = array_1.index_of(value=int_1)
@@ -580,7 +538,6 @@ class TestArray:
 
     @apply_test_settings()
     def test___eq__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, ap.Int(2)])
         array_2: ap.Array = ap.Array([1, ap.Int(2)])
         result: ap.Boolean = array_1 == array_2
@@ -598,7 +555,6 @@ class TestArray:
 
     @apply_test_settings()
     def test___bool__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([])
         assert not array_1
 
@@ -607,7 +563,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__make_snapshot(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         snapshot_name: str = "snapshot_1"
         array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -621,7 +576,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__revert(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2, 3])
         snapshot_name: str = "snapshot_1"
         array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -635,7 +589,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_eq_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = ap.Array([3, 4])
         result: ap.Boolean = array_1 == array_2
@@ -662,7 +615,6 @@ class TestArray:
 
     @apply_test_settings()
     def test___ne__(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = ap.Array([3, 4])
         result: ap.Boolean = array_1 != array_2
@@ -675,7 +627,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_ne_expression(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = ap.Array([3, 4])
         result: ap.Boolean = array_1 != array_2
@@ -688,7 +639,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__convert_other_val_to_array(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array([1, 2])
         converted_val: Any = array_1._convert_other_val_to_array(other=[3, 4])
         assert converted_val == [3, 4]
@@ -699,7 +649,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__convert_range_to_list(self) -> None:
-        ap.Stage()
         array_1: ap.Array = ap.Array(range(3))
         assert array_1._initial_value == [0, 1, 2]
 
@@ -708,7 +657,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__append_clear_expression(self) -> None:
-        ap.Stage()
         arr: ap.Array = ap.Array([1, 2, 3])
         arr._append_clear_expression()
         expression: str = expression_data_util.get_current_expression()
@@ -717,7 +665,6 @@ class TestArray:
 
     @apply_test_settings()
     def test_clear(self) -> None:
-        ap.Stage()
         arr: ap.Array = ap.Array([1, 2, 3])
         arr.clear()
         assert arr._value == []
@@ -727,7 +674,6 @@ class TestArray:
 
     @apply_test_settings()
     def test__create_initial_substitution_expression(self) -> None:
-        ap.Stage()
         arr_1: ap.Array = ap.Array([1, 2, 3])
         expression: str = arr_1._create_initial_substitution_expression()
         assert expression == f"{arr_1.variable_name} = [1, 2, 3];"
@@ -739,6 +685,5 @@ class TestArray:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         arr_value: ap.Array = ap.Array._initialize_for_loop_key_or_value()
         assert arr_value == ap.Array([])

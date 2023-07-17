@@ -61,7 +61,6 @@ class TestIfBase:
 
     @apply_test_settings()
     def test___enter__(self) -> None:
-        ap.Stage()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
@@ -78,7 +77,6 @@ class TestIfBase:
 
     @apply_test_settings()
     def test___exit__(self) -> None:
-        ap.Stage()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
@@ -100,7 +98,6 @@ class TestIfBase:
 
     @apply_test_settings()
     def test__append_exit_expression(self) -> None:
-        ap.Stage()
         indent_num.reset()
         with IfSubClass(condition=ap.Boolean(True), locals_={}, globals_={}):
             pass

@@ -23,8 +23,6 @@ def test__get_py_str() -> None:
 class TestStringApplyMaxNumOfDecimalPlacesMixIn:
     @apply_test_settings()
     def test_apply_max_num_of_decimal_places(self) -> None:
-        ap.Stage()
-
         string: ap.String = ap.String("10.123.456")
         result_string: ap.String = string.apply_max_num_of_decimal_places(
             max_num_of_decimal_places=2,

@@ -33,7 +33,6 @@ class TestWeekdayMixIn:
 
     @apply_test_settings()
     def test__append_weekday_js_getter_expression(self) -> None:
-        ap.Stage()
         mixin: WeekdayMixIn = WeekdayMixIn()
         mixin.variable_name = "test_weekday_mixin"
         weekday_val: ap.Int = ap.Int(3)
@@ -44,7 +43,6 @@ class TestWeekdayMixIn:
 
     @apply_test_settings()
     def test_weekday_js(self) -> None:
-        ap.Stage()
         mixin: WeekdayMixIn = WeekdayMixIn()
         mixin.variable_name = "test_weekday_mixin"
         mixin._year = ap.Int(2022)
@@ -85,7 +83,6 @@ class TestWeekdayMixIn:
 
     @apply_test_settings()
     def test__append_weekday_py_getter_expression(self) -> None:
-        ap.Stage()
         mixin: WeekdayMixIn = WeekdayMixIn()
         weekday_val: ap.Int = ap.Int(3)
         mixin._append_weekday_py_getter_expression(weekday_val=weekday_val)
@@ -100,7 +97,6 @@ class TestWeekdayMixIn:
 
     @apply_test_settings()
     def test_weekday_py(self) -> None:
-        ap.Stage()
         mixin: WeekdayMixIn = WeekdayMixIn()
         mixin._year = ap.Int(2022)
         mixin._month = ap.Int(11)

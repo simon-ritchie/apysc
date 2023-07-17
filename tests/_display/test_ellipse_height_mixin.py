@@ -26,7 +26,6 @@ class TestEllipseHeightMixIn:
 
     @apply_test_settings()
     def test__append_ellipse_height_update_expression(self) -> None:
-        ap.Stage()
         mixin: EllipseHeightMixIn = EllipseHeightMixIn()
         mixin.variable_name = "test_ellipse_height_mixin"
         ellipse_height: ap.Int = ap.Int(10)

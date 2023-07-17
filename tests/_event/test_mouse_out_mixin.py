@@ -50,7 +50,6 @@ class TestMouseOutMixIn:
 
     @apply_test_settings()
     def test_mouseout(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseOut = _TestMouseOut()
         name: str = mixin_1.mouseout(
             handler=self.on_mouse_out_1, options={"msg": "Hello!"}
@@ -69,7 +68,6 @@ class TestMouseOutMixIn:
 
     @apply_test_settings()
     def test_unbind_mouseout(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseOut = _TestMouseOut()
         name: str = mixin_1.mouseout(handler=self.on_mouse_out_1)
         mixin_1.unbind_mouseout(handler=self.on_mouse_out_1)
@@ -83,7 +81,6 @@ class TestMouseOutMixIn:
 
     @apply_test_settings()
     def test_unbind_mouseout_all(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseOut = _TestMouseOut()
         mixin_1.mouseout(handler=self.on_mouse_out_1)
         mixin_1.mouseout(handler=self.on_mouse_out_2)

@@ -29,7 +29,6 @@ class TestMouseEventBindingExpressionMixin:
 
     @apply_test_settings()
     def test__append_mouse_event_binding_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestClickMixIn = _TestClickMixIn()
         name: str = mixin_1.click(handler=self.on_click_1)
         mixin_1._append_mouse_event_binding_expression(

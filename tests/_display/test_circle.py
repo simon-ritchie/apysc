@@ -11,7 +11,6 @@ from apysc._testing.testing_helper import assert_attrs
 class TestCircle:
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        ap.Stage()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(parent=sprite.graphics, x=50, y=100, radius=30)
@@ -102,7 +101,6 @@ class TestCircle:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(parent=sprite.graphics, x=50, y=100, radius=30)
         repr_str: str = repr(circle)
@@ -110,7 +108,6 @@ class TestCircle:
 
     @apply_test_settings()
     def test__set_center_coordinates(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(parent=sprite.graphics, x=50, y=100, radius=30)
         assert circle.x == 50
@@ -121,7 +118,6 @@ class TestCircle:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         sprite.graphics.line_style(
@@ -159,7 +155,6 @@ class TestCircle:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         circle: ap.Circle = ap.Circle._initialize_for_loop_key_or_value()
         assert circle.x == ap.Number(-1)
         assert circle.y == ap.Number(-1)

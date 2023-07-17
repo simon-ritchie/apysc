@@ -31,7 +31,6 @@ class TestScaleXFromCenterMixIn:
 
     @apply_test_settings()
     def test__append_scale_x_from_center_update_expression(self) -> None:
-        ap.Stage()
         mixin: _TestMIxIn = _TestMIxIn()
         num_1: ap.Number = ap.Number(0.5)
         num_2: ap.Number = ap.Number(0.3)

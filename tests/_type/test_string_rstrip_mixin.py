@@ -80,7 +80,6 @@ def test__get_py_str_from_current_value() -> None:
 class TestStringRstripMixIn:
     @apply_test_settings()
     def test_rstrip(self) -> None:
-        ap.Stage()
         string: ap.String = ap.String(" \n  aabbccaa  \n   ")
         string = string.rstrip(variable_name_suffix="test_suffix_1")
         assert string == ap.String(" \n  aabbccaa")

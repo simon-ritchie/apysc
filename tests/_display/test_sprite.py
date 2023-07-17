@@ -28,7 +28,6 @@ class TestSprite:
 
     @apply_test_settings()
     def test_add_child(self) -> None:
-        ap.Stage()
         parent_sprite: ap.Sprite = ap.Sprite()
         child_sprite: ap.Sprite = ap.Sprite()
         parent_sprite.add_child(child=child_sprite)
@@ -56,7 +55,6 @@ class TestSprite:
 
     @apply_test_settings()
     def test__make_snapshot(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#333", alpha=0.5)
         snapshot_name: str = "snapshot_1"
@@ -75,7 +73,6 @@ class TestSprite:
 
     @apply_test_settings()
     def test__revert(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#333", alpha=0.5)
         snapshot_name: str = "snapshot_1"
@@ -91,13 +88,11 @@ class TestSprite:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         repr_str: str = repr(sprite)
         assert repr_str == f'Sprite("{sprite.variable_name}")'
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite._initialize_for_loop_key_or_value()
         assert isinstance(sprite, ap.Sprite)

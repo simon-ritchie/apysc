@@ -7,7 +7,6 @@ import apysc as ap
 class TestAnimationResetMixIn:
     @apply_test_settings()
     def test_animation_reset(self) -> None:
-        ap.Stage()
         mixin: AnimationResetMixIn = AnimationResetMixIn()
         mixin.variable_name = "test_animation_reset_mixin"
         mixin.animation_reset()

@@ -8,7 +8,6 @@ import apysc as ap
 class TestBlankObjectMixIn:
     @apply_test_settings()
     def test__initialize_blank_object_if_not_initialized(self) -> None:
-        ap.Stage()
         mixin: BlankObjectMixIn = BlankObjectMixIn()
         mixin._initialize_blank_object_if_not_initialized()
         assert mixin._initialize_blank_object_if_not_initialized

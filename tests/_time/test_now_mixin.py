@@ -9,7 +9,6 @@ from apysc._time import now_mixin
 class TestNowMixIn:
     @apply_test_settings()
     def test_now(self) -> None:
-        ap.Stage()
         now_: datetime = datetime.now()
         now: ap.DateTime = ap.DateTime.now()
         assert now.year == now_.year

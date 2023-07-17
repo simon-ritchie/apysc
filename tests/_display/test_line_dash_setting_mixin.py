@@ -38,7 +38,6 @@ class TestLineDashSettingMixIn:
 
     @apply_test_settings()
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:
-        ap.Stage()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         assert_raises(
             expected_error_class=TypeError,
@@ -61,7 +60,6 @@ class TestLineDashSettingMixIn:
 
     @apply_test_settings()
     def test__append_line_dash_setting_update_expression(self) -> None:
-        ap.Stage()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface._initialize_line_dash_setting_if_not_initialized()
         interface.variable_name = "test_line_dash_interface"
@@ -121,7 +119,6 @@ class TestLineDashSettingMixIn:
 
     @apply_test_settings()
     def test_delete_line_dash_setting(self) -> None:
-        ap.Stage()
         interface: LineDashSettingMixIn = LineDashSettingMixIn()
         interface.variable_name = "test_line_dash_setting_interface"
         interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)

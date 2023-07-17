@@ -33,7 +33,6 @@ def test__get_max_value_variable_name_suffix_from_arr() -> None:
 class TestMaxMixIn:
     @apply_test_settings()
     def test_max(self) -> None:
-        ap.Stage()
         values: ap.Array = ap.Array([10, 10.5, ap.Int(11), ap.Number(10.9)])
         max_value: ap.Number = MaxMixIn.max(values=values)
         assert max_value == ap.Number(11.0)

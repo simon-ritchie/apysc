@@ -52,7 +52,6 @@ class TestMouseUpMixIn:
 
     @apply_test_settings()
     def test_mouseup(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseUp = _TestMouseUp()
         name: str = mixin_1.mouseup(
             handler=self.on_mouse_up_1, options={"msg": "Hello!"}
@@ -70,7 +69,6 @@ class TestMouseUpMixIn:
 
     @apply_test_settings()
     def test_unbind_mouseup(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseUp = _TestMouseUp()
         name: str = mixin_1.mouseup(handler=self.on_mouse_up_1)
         mixin_1.unbind_mouseup(handler=self.on_mouse_up_1)
@@ -84,7 +82,6 @@ class TestMouseUpMixIn:
 
     @apply_test_settings()
     def test_unbind_mouseup_all(self) -> None:
-        ap.Stage()
         mixin_1: _TestMouseUp = _TestMouseUp()
         mixin_1.mouseup(handler=self.on_mouse_up_1)
         mixin_1.mouseup(handler=self.on_mouse_up_2)

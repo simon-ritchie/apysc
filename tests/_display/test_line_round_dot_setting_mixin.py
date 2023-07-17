@@ -69,7 +69,6 @@ class TestLineRoundDotSettingMixIn:
 
     @apply_test_settings()
     def test__append_line_round_dot_setting_update_expression(self) -> None:
-        ap.Stage()
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
         mixin.variable_name = "test_line_round_dot_setting_mixin"
         line_round_dot_setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
@@ -134,7 +133,6 @@ class TestLineRoundDotSettingMixIn:
 
     @apply_test_settings()
     def test_delete_line_round_dot_setting(self) -> None:
-        ap.Stage()
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
         mixin.variable_name = "test_line_round_dot_setting_mixin"
         mixin.line_round_dot_setting = ap.LineRoundDotSetting(

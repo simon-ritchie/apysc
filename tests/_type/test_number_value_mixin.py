@@ -96,7 +96,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test_value(self) -> None:
-        ap.Stage()
         mixin: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin.variable_name = "test_number_value_mixin"
         mixin.value = 200
@@ -107,7 +106,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test_append_constructor_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin_1.variable_name = "test_number_value_mixin_1"
         mixin_1._append_constructor_expression()
@@ -126,7 +124,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=100, type_name="test_mixin")
         mixin_1.variable_name = "test_number_value_mixin_1"
         mixin_1.value = 200
@@ -169,7 +166,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_addition_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 + 10
@@ -199,7 +195,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_subtraction_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=20, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 - 15
@@ -227,7 +222,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_multiplication_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=20, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 * 3
@@ -264,7 +258,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_true_division_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 / 4
@@ -300,7 +293,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_floor_division_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_2: NumberValueMixIn = mixin_1 // 4
@@ -385,7 +377,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test___iadd__(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         int_1: ap.Int = ap.Int(5)
@@ -422,7 +413,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test___isub__(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_1 -= 3
@@ -457,7 +447,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test___imul__(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_1 *= 3
@@ -492,7 +481,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test___itruediv__(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
         mixin_1 /= 4
@@ -679,7 +667,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_eq_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
@@ -708,7 +695,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_ne_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
@@ -738,7 +724,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_lt_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
@@ -767,7 +752,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_le_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
@@ -796,7 +780,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_gt_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
@@ -825,7 +808,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_ge_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
@@ -868,7 +850,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_incremental_calc_substitution_expression(self) -> None:
-        ap.Stage()
         x_mixin, previous_variable_name = self._make_x_mixin_instance()
         x_mixin.x += 10
         self._assert_substitution_expression_to_prev_var_exists(
@@ -878,7 +859,6 @@ class TestNumberValueMixIn:
 
     @apply_test_settings()
     def test__append_modulo_expression(self) -> None:
-        ap.Stage()
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_1"
         mixin_2: NumberValueMixIn = mixin_1 % 10

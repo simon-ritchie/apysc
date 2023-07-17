@@ -5,7 +5,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestYAxisSingleColumnSettings:
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         settings: ap.YAxisSingleColumnSettings = ap.YAxisSingleColumnSettings(
             y_axis_column_name="test_column_1",
             y_min=0,

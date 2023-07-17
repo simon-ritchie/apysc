@@ -60,7 +60,6 @@ class TestLineDashDotSettingMixIn:
 
     @apply_test_settings()
     def test__append_line_dash_dot_setting_update_expression(self) -> None:
-        ap.Stage()
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
         mixin.variable_name = "test_line_dash_dot_setting_mixin"
         mixin._initialize_line_dash_dot_setting_if_not_initialized()
@@ -123,7 +122,6 @@ class TestLineDashDotSettingMixIn:
 
     @apply_test_settings()
     def test_delete_line_dash_dot_setting(self) -> None:
-        ap.Stage()
         mixin: LineDashDotSettingMixIn = LineDashDotSettingMixIn()
         mixin.line_dash_dot_setting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7

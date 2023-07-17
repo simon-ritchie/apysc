@@ -13,7 +13,6 @@ from apysc._testing.testing_helper import assert_raises
 class TestAppendLinePointMixIn:
     @apply_test_settings()
     def test_append_line_point(self) -> None:
-        ap.Stage()
         mixin: AppendLinePointMixIn = AppendLinePointMixIn()
         mixin.variable_name = "test_append_line_point_mixin"
         mixin._variable_name_suffix = "test_mixin"

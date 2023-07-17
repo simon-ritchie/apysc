@@ -22,7 +22,6 @@ class TestCopyMixIn:
 
     @apply_test_settings()
     def test__append_copy_expression(self) -> None:
-        ap.Stage()
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = int_1._copy()
         expression: str = expression_data_util.get_current_expression()
@@ -38,7 +37,6 @@ class TestCopyMixIn:
 
     @apply_test_settings()
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
-        ap.Stage()
         instance: VariableNameMixIn = VariableNameMixIn()
         instance.variable_name = "test_instance"
         int_1: ap.Int = ap.Int(10)

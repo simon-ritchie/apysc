@@ -11,7 +11,6 @@ class TestNumber:
 
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         number_1: ap.Number = ap.Number(value=100, variable_name_suffix="test_number")
         assert number_1.value == 100.0
         assert type_util.is_same_class_instance(class_=float, instance=number_1.value)
@@ -33,7 +32,6 @@ class TestNumber:
 
     @apply_test_settings()
     def test_value(self) -> None:
-        ap.Stage()
         number_1: ap.Number = ap.Number(value=100.5)
         number_1.value = 200.5
         assert number_1.value == 200.5
@@ -62,7 +60,6 @@ class TestNumber:
 
     @apply_test_settings()
     def test_set_value_and_skip_expression_appending(self) -> None:
-        ap.Stage()
         number_1: ap.Number = ap.Number(value=10.5)
         number_1._set_value_and_skip_expression_appending(value=20.5)
         assert number_1.value == 20.5

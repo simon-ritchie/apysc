@@ -25,7 +25,6 @@ from tests._display.test_graphics_expression import assert_y_attr_expression_exi
 class TestRectangle:
     @apply_test_settings()
     def test___init__(self) -> None:
-        ap.Stage()
         rectangle: ap.Rectangle = ap.Rectangle(
             x=50,
             y=100,
@@ -101,7 +100,6 @@ class TestRectangle:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         rectangle_: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50
@@ -141,7 +139,6 @@ class TestRectangle:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         sprite.graphics.line_style(
@@ -182,7 +179,6 @@ class TestRectangle:
 
     @apply_test_settings()
     def test__set_ellipse_settings_if_values_are_not_zero(self) -> None:
-        ap.Stage()
         rectangle: ap.Rectangle = ap.Rectangle(x=0, y=0, width=50, height=50)
         assert not hasattr(rectangle, "_ellipse_width")
         assert not hasattr(rectangle, "_ellipse_height")
@@ -201,7 +197,6 @@ class TestRectangle:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         rectangle: ap.Rectangle = ap.Rectangle._initialize_for_loop_key_or_value()
         assert rectangle.x == ap.Int(-2)
         assert rectangle.y == ap.Int(-2)

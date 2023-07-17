@@ -79,7 +79,6 @@ class TestPath:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         path_data_list: List[ap.PathDataBase] = [
             ap.PathData.MoveTo(x=500, y=100),
@@ -111,7 +110,6 @@ class TestPath:
 
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#0af", alpha=0.5)
         sprite.graphics.line_style(
@@ -148,7 +146,6 @@ class TestPath:
 
     @apply_test_settings()
     def test__initialize_for_loop_key_or_value(self) -> None:
-        ap.Stage()
         path: ap.Path = ap.Path._initialize_for_loop_key_or_value()
         assert path._path_data_list == [
             ap.PathMoveTo(x=-2, y=-2),

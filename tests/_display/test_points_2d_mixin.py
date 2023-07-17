@@ -25,7 +25,6 @@ class TestPoints2DMixIn:
 
     @apply_test_settings()
     def test_points(self) -> None:
-        ap.Stage()
         mixin: Points2DMixIn = Points2DMixIn()
         mixin.variable_name = "test_point_2d_mixin"
         assert mixin.points == []
@@ -38,7 +37,6 @@ class TestPoints2DMixIn:
 
     @apply_test_settings()
     def test__append_points_update_expression(self) -> None:
-        ap.Stage()
         mixin: Points2DMixIn = Points2DMixIn()
         mixin.variable_name = "test_point_2d_mixin"
         mixin._initialize_points_if_not_initialized()
@@ -51,7 +49,6 @@ class TestPoints2DMixIn:
 
     @apply_test_settings()
     def test__make_snapshot(self) -> None:
-        ap.Stage()
         mixin: Points2DMixIn = Points2DMixIn()
         point_1: ap.Point2D = ap.Point2D(10, 20)
         mixin.points = ap.Array([point_1])
@@ -65,7 +62,6 @@ class TestPoints2DMixIn:
 
     @apply_test_settings()
     def test__revert(self) -> None:
-        ap.Stage()
         mixin: Points2DMixIn = Points2DMixIn()
         mixin.variable_name = "test_point_2d_mixin"
         point_1: ap.Point2D = ap.Point2D(10, 20)

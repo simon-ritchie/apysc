@@ -9,7 +9,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestGraphicsClearMixIn:
     @apply_test_settings()
     def test_clear(self) -> None:
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color="#000")
         sprite.graphics.line_style(

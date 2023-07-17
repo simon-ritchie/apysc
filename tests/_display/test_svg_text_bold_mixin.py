@@ -17,7 +17,6 @@ class _TestMIxIn(
 class TestSVGTextBoldMixIn:
     @apply_test_settings()
     def test_bold(self) -> None:
-        ap.Stage()
         mixin: _TestMIxIn = _TestMIxIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"

@@ -46,7 +46,6 @@ class TestChildMixIn:
 
     @apply_test_settings()
     def test__append_contains_expression(self) -> None:
-        ap.Stage()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
@@ -87,7 +86,6 @@ class TestChildMixIn:
 
     @apply_test_settings()
     def test__append_num_children_expression(self) -> None:
-        ap.Stage()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
@@ -111,7 +109,6 @@ class TestChildMixIn:
 
     @apply_test_settings()
     def test__append_get_child_at_expression(self) -> None:
-        ap.Stage()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
@@ -136,7 +133,6 @@ class TestChildMixIn:
 
     @apply_test_settings()
     def test__initialize_children_if_not_initialized(self) -> None:
-        ap.Stage()
         child_interface: ChildMixIn = ChildMixIn()
         child_interface._initialize_children_if_not_initialized()
         assert child_interface._children == []
@@ -198,8 +194,6 @@ class TestChildMixIn:
 
     @apply_test_settings()
     def test__append_expression_of_remove_children(self) -> None:
-        ap.Stage()
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite._append_expression_of_remove_children()
         expression: str = expression_data_util.get_current_expression()
@@ -215,8 +209,6 @@ class TestChildMixIn:
 
     @apply_test_settings()
     def test_remove_children(self) -> None:
-        ap.Stage()
-        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
         sprite.remove_children()

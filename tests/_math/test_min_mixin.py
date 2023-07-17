@@ -45,7 +45,6 @@ def test__get_min_value_variable_name_suffix_from_arr() -> None:
 class TestMinMixIn:
     @apply_test_settings()
     def test_min(self) -> None:
-        ap.Stage()
         values: ap.Array = ap.Array([10, 9.5, ap.Int(9), ap.Number(9.5)])
         min_value: ap.Number = MinMixIn.min(
             values=values,

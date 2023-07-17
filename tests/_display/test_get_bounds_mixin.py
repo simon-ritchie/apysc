@@ -19,7 +19,6 @@ class _TestMixIn(
 class TestGetBoundsMixIn:
     @apply_test_settings()
     def test_get_bounds(self) -> None:
-        ap.Stage()
         mixin: _TestMixIn = _TestMixIn()
         mixin.variable_name = "test_mixin"
         mixin._variable_name_suffix = "test_suffix"

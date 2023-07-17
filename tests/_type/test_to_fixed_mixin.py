@@ -6,7 +6,6 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestToFixedMixIn:
     @apply_test_settings()
     def test_to_fixed(self) -> None:
-        ap.Stage()
         num: ap.Number = ap.Number(10.789789)
         result_str: ap.String = num.to_fixed(digits=2)
         expression: str = expression_data_util.get_current_expression()

@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 assert int_1 == 10
 ```
@@ -24,6 +25,7 @@ assert int_1 == 10
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(int_1)
 ```
@@ -32,6 +34,7 @@ int_2: ap.Int = ap.Int(int_1)
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(int_1)
 int_2 += 15
@@ -44,6 +47,7 @@ assert int_2 == 25
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10.5)
 assert int_1 == 10
 ```
@@ -56,6 +60,7 @@ assert int_1 == 10
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10.5)
 assert number_1 == 10.5
 
@@ -72,6 +77,7 @@ assert number_2 == 21
 # runnable
 import apysc as ap
 
+ap.Stage()
 assert ap.Number == ap.Float
 assert ap.Number(10.5) == ap.Float(10.5)
 ```
@@ -112,6 +118,7 @@ apyscライブラリ上の整数のためのクラスです。<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> int_val: ap.Int = ap.Int(10)
 >>> int_val
 Int(10)
@@ -172,6 +179,7 @@ apyscライブラリ用の浮動小数点数のクラスです。<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> number: ap.Number = ap.Number(10.5)
 >>> number
 Number(10.5)
@@ -216,6 +224,7 @@ Number(20.8)
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> int_val: ap.Int = ap.Int(10)
 >>> int_val.value
 10

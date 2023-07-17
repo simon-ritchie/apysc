@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3, 4])
 length: ap.Int = arr.length
 assert length == 4
@@ -28,6 +29,7 @@ assert length == 4
 ```py
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3, 4])
 len(arr)
 ```
@@ -55,6 +57,7 @@ Exception: Array instance can't apply len function. Please use length property i
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.length
 Int(3)

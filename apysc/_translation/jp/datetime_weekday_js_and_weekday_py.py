@@ -27,7 +27,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "These getter interfaces return a weekday's `Int` value.": "これらのgetterのインターフェイスは`Int`型の曜日の値を返却します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\n# 2022-12-11 is Sunday.\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=11)\nweekday_js: ap.Int = datetime_.weekday_js\nassert weekday_js == 0\n\nweekday_py: ap.Int = datetime_.weekday_py\nassert weekday_py == 6\n```": "```py\n# runnable\nimport apysc as ap\n\n# 2022-12-11 is Sunday.\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=11)\nweekday_js: ap.Int = datetime_.weekday_js\nassert weekday_js == 0\n\nweekday_py: ap.Int = datetime_.weekday_py\nassert weekday_py == 6\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\n\n# 2022-12-11 is Sunday.\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=11)\nweekday_js: ap.Int = datetime_.weekday_js\nassert weekday_js == 0\n\nweekday_py: ap.Int = datetime_.weekday_py\nassert weekday_py == 6\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\n\n# 2022-12-11 is Sunday.\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=11)\nweekday_js: ap.Int = datetime_.weekday_js\nassert weekday_js == 0\n\nweekday_py: ap.Int = datetime_.weekday_py\nassert weekday_py == 6\n```",  # noqa
     ##################################################
     "## weekday_js property API": "## weekday_js 属性のAPI",
     ##################################################
@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_js  # Sunday\nInt(0)\n\n>>> datetime_ = ap.DateTime(year=2022, month=12, day=10)\n>>> datetime_.weekday_js  # Saturday\nInt(6)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_js  # Sunday\nInt(0)\n\n>>> datetime_ = ap.DateTime(year=2022, month=12, day=10)\n>>> datetime_.weekday_js  # Saturday\nInt(6)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_js  # Sunday\nInt(0)\n\n>>> datetime_ = ap.DateTime(year=2022, month=12, day=10)\n>>> datetime_.weekday_js  # Saturday\nInt(6)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_js  # Sunday\nInt(0)\n\n>>> datetime_ = ap.DateTime(year=2022, month=12, day=10)\n>>> datetime_.weekday_js  # Saturday\nInt(6)\n```",  # noqa
     ##################################################
     "## weekday_py property API": "## weekday_py 属性のAPI",
     ##################################################
@@ -95,5 +95,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n>>> datetime_.weekday_py  # Monday\nInt(0)\n\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_py  # Sunday\nInt(6)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n>>> datetime_.weekday_py  # Monday\nInt(0)\n\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_py  # Sunday\nInt(6)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n>>> datetime_.weekday_py  # Monday\nInt(0)\n\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_py  # Sunday\nInt(6)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n>>> datetime_.weekday_py  # Monday\nInt(0)\n\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)\n>>> datetime_.weekday_py  # Sunday\nInt(6)\n```",  # noqa
 }

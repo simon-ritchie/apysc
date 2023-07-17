@@ -25,7 +25,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "You can specify any apysc instance to the `delete` argument.": "`delete`関数の引数へは任意のapyscのインスタンスを指定することができます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nint_val: ap.Int = ap.Int(10)\nap.delete(int_val)\n```": "```py\n# runnable\nimport apysc as ap\n\nint_val: ap.Int = ap.Int(10)\nap.delete(int_val)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_val: ap.Int = ap.Int(10)\nap.delete(int_val)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_val: ap.Int = ap.Int(10)\nap.delete(int_val)\n```",  # noqa
     ##################################################
     "If a specified instance is a `DisplayObject` instance, the `delete` function removes it from a stage.": "もし指定されたインスタンスが`DisplayObject`のインスタンスであれば、`delete`関数はそのインスタンスをステージから取り除きます。",  # noqa
     ##################################################

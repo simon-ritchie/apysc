@@ -23,13 +23,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Its getter interface returns an hour's `Int` value.": "そのインターフェイスのgetterでは`Int`型の時間の値を返却します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\nhour: ap.Int = datetime_.hour\nassert hour == 10\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\nhour: ap.Int = datetime_.hour\nassert hour == 10\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\nhour: ap.Int = datetime_.hour\nassert hour == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\nhour: ap.Int = datetime_.hour\nassert hour == 10\n```",  # noqa
     ##################################################
     "Also, its setter interface accepts an hour's `Int` value.": "また、setterのインターフェイスでは同様に`Int`型の値を受け付けます。",  # noqa
     ##################################################
     "0-23 integer is acceptable.": "0～23の整数を受け付けることができます。",
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\ndatetime_.hour = ap.Int(15)\nassert datetime_.hour == 15\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\ndatetime_.hour = ap.Int(15)\nassert datetime_.hour == 15\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\ndatetime_.hour = ap.Int(15)\nassert datetime_.hour == 15\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)\ndatetime_.hour = ap.Int(15)\nassert datetime_.hour == 15\n```",  # noqa
     ##################################################
     "## hour property API": "## hour 属性のAPI",
     ##################################################
@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)\n>>> datetime_.hour\nInt(5)\n\n>>> datetime_.hour = ap.Int(10)\n>>> datetime_.hour\nInt(10)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)\n>>> datetime_.hour\nInt(5)\n\n>>> datetime_.hour = ap.Int(10)\n>>> datetime_.hour\nInt(10)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)\n>>> datetime_.hour\nInt(5)\n\n>>> datetime_.hour = ap.Int(10)\n>>> datetime_.hour\nInt(10)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)\n>>> datetime_.hour\nInt(5)\n\n>>> datetime_.hour = ap.Int(10)\n>>> datetime_.hour\nInt(10)\n```",  # noqa
 }

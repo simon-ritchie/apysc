@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 3, 5])
 arr.reverse()
 assert arr == [5, 3, 1]
@@ -39,6 +40,7 @@ assert arr == [5, 3, 1]
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.reverse()
 >>> arr

@@ -18,6 +18,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
 day: ap.Int = datetime_.day
 assert day == 5
@@ -31,6 +32,7 @@ assert day == 5
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
 datetime_.day = ap.Int(10)
 assert datetime_.day == 10
@@ -55,6 +57,7 @@ assert datetime_.day == 10
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
 >>> datetime_.day
 Int(1)

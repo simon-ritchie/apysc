@@ -62,6 +62,8 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+
 <span class="c1"># 2022-12-11 is Sunday.</span>
 <span class="n">datetime_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
 <span class="n">weekday_js</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">datetime_</span><span class="o">.</span><span class="n">weekday_js</span>
@@ -88,6 +90,7 @@
 <hr>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">weekday_js</span>  <span class="c1"># Sunday</span>
 <span class="go">Int(0)</span>
@@ -114,6 +117,7 @@
 <hr>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">datetime_</span><span class="o">.</span><span class="n">weekday_py</span>  <span class="c1"># Monday</span>
 <span class="go">Int(0)</span>

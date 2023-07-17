@@ -14,6 +14,8 @@ from typing import Dict
 
 import apysc as ap
 
+ap.Stage()
+
 
 def on_timer(e: ap.TimerEvent, options: Dict[str, str]) -> None:
     """
@@ -42,6 +44,8 @@ timer.start()
 from typing_extensions import TypedDict
 
 import apysc as ap
+
+ap.Stage()
 
 
 class _MsgOptions(TypedDict):

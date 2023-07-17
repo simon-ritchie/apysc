@@ -41,6 +41,7 @@ Get the total seconds in the duration.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
 >>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 6)
 >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2

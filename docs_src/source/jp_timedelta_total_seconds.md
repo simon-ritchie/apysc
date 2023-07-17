@@ -18,6 +18,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7, millisecond=100)
 datetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)
 timedelta_: ap.TimeDelta = datetime_1 - datetime_2
@@ -46,6 +47,7 @@ assert total_seconds == 60 * 60 * 24 * 2 + 0.1
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
 >>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 6)
 >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2

@@ -27,7 +27,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\n\n# This will raise the error!\nint_1 = 20 + int_1\n```": "```py\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\n\n# This will raise the error!\nint_1 = 20 + int_1\n```",  # noqa
     ##################################################
-    "```\nTypeError: unsupported operand type(s) for +: 'int' and 'Int'\n```": "```\nTypeError: unsupported operand type(s) for +: 'int' and 'Int'\n```",  # noqa
+    "```\nTypeError: unsupported operand type(s) for +: \'int\' and \'Int\'\n```": "```\nTypeError: unsupported operand type(s) for +: \'int\' and \'Int\'\n```",  # noqa
     ##################################################
     "## Addition": "## 加算",
     ##################################################
@@ -93,5 +93,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nint_2: int = int_1 % 3\nassert int_2 == 1\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nint_2: int = int_1 % 3\nassert int_2 == 1\n```",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nnumber_1: ap.Number = ap.Number(10.5)\nnumber_2: ap.Number = number_1 % 3\nassert number_2 == 1.5\n```": "```py\n# runnable\nimport apysc as ap\n\nnumber_1: ap.Number = ap.Number(10.5)\nnumber_2: ap.Number = number_1 % 3\nassert number_2 == 1.5\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nnumber_1: ap.Number = ap.Number(10.5)\nnumber_2: ap.Number = number_1 % 3\nassert number_2 == 1.5\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nnumber_1: ap.Number = ap.Number(10.5)\nnumber_2: ap.Number = number_1 % 3\nassert number_2 == 1.5\n```",  # noqa
 }

@@ -12,6 +12,7 @@ apyscのライブラリでは他のPythonパッケージの`import numpy as np`�
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 number_1: ap.Number = int_1 + ap.Number(10.5)
 ```

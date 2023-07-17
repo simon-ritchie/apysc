@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array = ap.Array([10, 20, 30])
 arr.clear()
 assert arr == []

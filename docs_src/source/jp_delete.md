@@ -20,6 +20,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_val: ap.Int = ap.Int(10)
 ap.delete(int_val)
 ```

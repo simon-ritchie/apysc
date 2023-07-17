@@ -12,6 +12,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 result: ap.Boolean = string_1 == "Hello"
 assert result
@@ -26,6 +27,7 @@ assert isinstance(result, ap.Boolean)
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 result: ap.Boolean = string_1 == "Hello"
 assert result
@@ -35,6 +37,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 string_2: ap.String = ap.String("Hello")
 result: ap.Boolean = string_1 == string_2
@@ -49,6 +52,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 result: ap.Boolean = string_1 == "Hello"
 assert result
@@ -62,6 +66,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 result: ap.Boolean = string_1 != "World"
 assert result
@@ -75,6 +80,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("1970-01-05")
 result: ap.Boolean = string_1 < "1970-01-06"
 assert result
@@ -84,6 +90,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("1970-01-05")
 result: ap.Boolean = string_1 <= "1970-01-05"
 assert result
@@ -93,6 +100,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("1970-01-05")
 result: ap.Boolean = string_1 > "1970-01-04"
 assert result
@@ -102,6 +110,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("1970-01-05")
 result: ap.Boolean = string_1 >= "1970-01-05"
 assert result

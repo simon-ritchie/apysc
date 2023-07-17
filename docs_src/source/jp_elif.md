@@ -20,6 +20,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 condition_1: ap.Boolean = ap.Boolean(False)
@@ -37,6 +38,7 @@ with ap.Elif(condition_2):
 ```py
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 condition_1: ap.Boolean = ap.Boolean(False)
@@ -58,6 +60,7 @@ ValueError: Elif interface can only use right after If or Elif interfaces.
 ```py
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 condition_1: ap.Boolean = ap.Boolean(False)

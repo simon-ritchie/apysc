@@ -14,6 +14,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 condition: ap.Boolean = ap.Boolean(False)
 int_1: ap.Int = ap.Int(10)
 
@@ -34,6 +35,7 @@ assert int_1 == 20
 # runnable
 import apysc as ap
 
+ap.Stage()
 condition: ap.Boolean = ap.Boolean(False)
 int_1: ap.Int = ap.Int(10)
 

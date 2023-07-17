@@ -20,6 +20,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr_from_list: ap.Array = ap.Array([1, 2, 3])
 assert arr_from_list == [1, 2, 3]
 
@@ -39,6 +40,7 @@ assert arr_from_arr == [7, 8, 9]
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2])
 int_val: int = arr.pop()
 assert isinstance(int_val, int)
@@ -93,6 +95,7 @@ apyscライブラリの配列を扱うためのクラスです。<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr
 Array([1, 2, 3])
@@ -137,6 +140,7 @@ Array([0, 1, 2])
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.value = [4, 5, 6]
 >>> arr.value

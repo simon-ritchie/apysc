@@ -80,6 +80,7 @@ ap.save_overall_html(dest_dir_path="datetime_now_basic_usage/")
 ```py
 >>> from datetime import datetime
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> py_now: datetime = datetime.now()
 >>> ap_now: ap.DateTime = ap.DateTime.now()
 >>> ap_now.year == py_now.year

@@ -20,6 +20,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array = ap.Array([9, 10, ap.Int(8), ap.Number(9.5), 11])
 min_value: ap.Number = ap.Math.min(values=arr)
 assert min_value == 8
@@ -53,6 +54,7 @@ assert min_value == 8
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([10, 9.5, ap.Int(8), ap.Number(8.5)])
 >>> min_value: ap.Number = ap.Math.min(values=arr)
 >>> min_value

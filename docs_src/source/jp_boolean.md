@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1
 
@@ -34,6 +35,7 @@ assert bool_3
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 assert ap.Boolean == ap.Bool
 assert ap.Boolean(True) == ap.Bool(True)
 ```
@@ -48,6 +50,7 @@ assert ap.Boolean(True) == ap.Bool(True)
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1 == True  # noqa
 assert bool_1 == ap.Boolean(True)
@@ -61,6 +64,7 @@ assert bool_1 == ap.Int(1)
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1 != False  # noqa
 assert bool_1 != ap.Boolean(False)
@@ -74,6 +78,7 @@ assert bool_1 != ap.Int(0)
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1
 
@@ -89,6 +94,7 @@ assert not bool_2
 # runnable
 import apysc as ap
 
+_ = ap.Stage()
 bool_1: ap.Boolean = ap.Boolean(True)
 bool_2: ap.Boolean = bool_1.not_
 assert not bool_2
@@ -128,6 +134,7 @@ BoolクラスはBooleanクラスのエイリアスであり、Booleanクラス�
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> bool_val_1: ap.Boolean = ap.Boolean(True)
 >>> bool_val_1
 Boolean(True)
@@ -162,6 +169,7 @@ Boolean(True)
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> bool_val: ap.Boolean = ap.Boolean(True)
 >>> bool_val.value = False
 >>> bool_val.value
@@ -197,6 +205,7 @@ True
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> bool_val: ap.Boolean = ap.Boolean(True)
 >>> bool_val.not_
 Boolean(False)

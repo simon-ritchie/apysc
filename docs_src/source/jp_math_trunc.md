@@ -20,6 +20,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))
 assert result_int == 10
 
@@ -61,6 +62,7 @@ assert result_int == 1
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))
 >>> result_int
 Int(10)

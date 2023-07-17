@@ -78,6 +78,7 @@ ap.save_overall_html(dest_dir_path="string_lstrip_basic_usage_2/")
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("   aabbcc  ")
 >>> string = string.lstrip()
 >>> string

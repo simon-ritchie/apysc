@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3])
 arr.remove(value=2)
 assert arr == [1, 3]
@@ -27,6 +28,7 @@ assert arr == [1, 3]
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3])
 arr.remove_at(index=1)
 assert arr == [1, 3]
@@ -53,6 +55,7 @@ assert arr == [1, 3]
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3, 5])
 >>> arr.remove(3)
 >>> arr
@@ -80,6 +83,7 @@ Array([1, 5])
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.remove_at(1)
 >>> arr

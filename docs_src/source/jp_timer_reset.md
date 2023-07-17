@@ -116,6 +116,7 @@ ap.save_overall_html(dest_dir_path="timer_reset_basic_usage/")
 ```py
 >>> from typing_extensions import TypedDict
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
 ...

@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 dict_1: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
 assert dict_1.length == 2
 assert isinstance(dict_1.length, ap.Int)
@@ -55,6 +56,7 @@ Exception: Dictionary instance can't apply len function. Please use length prope
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 1, "b": 2})
 >>> dictionary.length
 Int(2)

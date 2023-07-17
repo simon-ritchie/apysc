@@ -28,6 +28,7 @@ Truncate a fraction value from a specified value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))
 >>> result_int
 Int(10)

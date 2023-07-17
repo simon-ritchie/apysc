@@ -18,6 +18,7 @@ from typing import Any, Optional
 
 import apysc as ap
 
+ap.Stage()
 dict_val: ap.Dictionary = ap.Dictionary({"a": 10})
 got_val_1: int = dict_val.get(key="a", default=0)
 assert got_val_1 == 10
@@ -61,6 +62,7 @@ assert got_val_3 is None
 ```py
 >>> from typing import Optional
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> value_1: Optional[int] = dictionary.get("a")
 >>> value_1

@@ -20,6 +20,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array = ap.Array([9, 10, ap.Int(8), ap.Number(9.5), 11])
 max_value: ap.Number = ap.Math.max(values=arr)
 assert max_value == 11
@@ -53,6 +54,7 @@ assert max_value == 11
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([10, 9.5, ap.Int(8), ap.Number(8.5)])
 >>> max_value: ap.Number = ap.Math.max(values=arr)
 >>> max_value

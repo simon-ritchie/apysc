@@ -18,6 +18,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 value = int_1.value
 assert isinstance(value, int)
@@ -27,6 +28,7 @@ assert isinstance(value, int)
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10.5)
 value = number_1.value
 assert isinstance(value, float)
@@ -40,6 +42,7 @@ apyscの基本的なデータクラスにおける`value`のsetterのインタ�
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1.value = 20
 assert int_1 == 20
@@ -49,6 +52,7 @@ assert int_1 == 20
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1.value = ap.Int(20)
 assert int_1 == 20

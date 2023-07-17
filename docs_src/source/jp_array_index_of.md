@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 3, 5])
 index: ap.Int = arr.index_of(value=3)
 assert index == 1
@@ -27,6 +28,7 @@ assert index == 1
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 3, 5])
 index: ap.Int = arr.index_of(value=2)
 assert index == -1
@@ -60,6 +62,7 @@ assert index == -1
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3, 5])
 >>> arr.index_of(3)
 Int(1)

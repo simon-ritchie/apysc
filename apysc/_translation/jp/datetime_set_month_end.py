@@ -23,5 +23,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "This method interface requires no arguments.": "このメソッドでは引数を必要としません。",
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\ndatetime_.set_month_end()\nassert datetime_.day == 31\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\ndatetime_.set_month_end()\nassert datetime_.day == 31\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\ndatetime_.set_month_end()\nassert datetime_.day == 31\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\ndatetime_.set_month_end()\nassert datetime_.day == 31\n```",  # noqa
 }

@@ -21,19 +21,19 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `Point2D` class constructor requires the `x` and `y` arguments. Both parameters type is the Python built-in `int` or `Int`\\.": "`Point2D`クラスのコンストラクタでは`x`と`y`の各引数が必要になります。各引数はPythonのビルトインの`int`の値かもしくはapyscの`Int`の値を受け付けます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\npoint_1: ap.Point2D = ap.Point2D(x=10, y=20)\n\nx: ap.Int = ap.Int(10)\ny: ap.Int = ap.Int(20)\npoint_2: ap.Point2D = ap.Point2D(x=x, y=y)\n```": "```py\n# runnable\nimport apysc as ap\n\npoint_1: ap.Point2D = ap.Point2D(x=10, y=20)\n\nx: ap.Int = ap.Int(10)\ny: ap.Int = ap.Int(20)\npoint_2: ap.Point2D = ap.Point2D(x=x, y=y)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\npoint_1: ap.Point2D = ap.Point2D(x=10, y=20)\n\nx: ap.Int = ap.Int(10)\ny: ap.Int = ap.Int(20)\npoint_2: ap.Point2D = ap.Point2D(x=x, y=y)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\npoint_1: ap.Point2D = ap.Point2D(x=10, y=20)\n\nx: ap.Int = ap.Int(10)\ny: ap.Int = ap.Int(20)\npoint_2: ap.Point2D = ap.Point2D(x=x, y=y)\n```",  # noqa
     ##################################################
     "## X and y getter interfaces": "## XとY座標のgetterのインターフェイス",
     ##################################################
     "The `Point2D` class `x` and `y` property interfaces returns the `Int` type value, as follows:": "`Point2D`クラスの`x`と`y`の属性は以下のコード例のように`Int`型の値を返却します:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\nassert point.x == 10\nassert point.y == 20\n```": "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\nassert point.x == 10\nassert point.y == 20\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\nassert point.x == 10\nassert point.y == 20\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\nassert point.x == 10\nassert point.y == 20\n```",  # noqa
     ##################################################
     "## X and y setter interfaces": "## XとY座標のsetterのインターフェイス",
     ##################################################
     "The `x` and `y` property can be updated with an `Int` type value, as follows:": "`x`と`y`属性は以下のコード例のように`Int`型の値を使って値を更新することができます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Number(30)\nassert point.x == 30\n```": "```py\n# runnable\nimport apysc as ap\n\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Number(30)\nassert point.x == 30\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Number(30)\nassert point.x == 30\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\npoint: ap.Point2D = ap.Point2D(x=10, y=20)\npoint.x = ap.Number(30)\nassert point.x == 30\n```",  # noqa
     ##################################################
     "## Usage example of the draw_polygon interface": "## draw_polygon インターフェイスにおける使用例",  # noqa
     ##################################################
@@ -41,11 +41,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The following draws the triangle vector graphics by specifying the three points:": "以下のコード例では3点の座標を指定することによって三角形のベクターグラフィックスを描画しています。",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color="#0af")\n\nsprite.graphics.draw_polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ]\n)\n\nap.save_overall_html(dest_dir_path="point2d_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color="#0af")\n\nsprite.graphics.draw_polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ]\n)\n\nap.save_overall_html(dest_dir_path="point2d_basic_usage/")\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=150, stage_height=150, background_color=\"#333\", stage_elem_id=\"stage\"\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\n\nsprite.graphics.draw_polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ]\n)\n\nap.save_overall_html(dest_dir_path=\"point2d_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=150, stage_height=150, background_color=\"#333\", stage_elem_id=\"stage\"\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.begin_fill(color=\"#0af\")\n\nsprite.graphics.draw_polygon(\n    points=[\n        ap.Point2D(x=75, y=50),\n        ap.Point2D(x=50, y=100),\n        ap.Point2D(x=100, y=100),\n    ]\n)\n\nap.save_overall_html(dest_dir_path=\"point2d_basic_usage/\")\n```",  # noqa
     ##################################################
     "## Point2D class constructor API": "## Point2D クラスのコンストラクタのAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Y-coordinate.": "  - Y座標。",
     ##################################################
-    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
+    "- `variable_name_suffix`: str, default \'\'": "- `variable_name_suffix`: str, default \'\'",  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -69,11 +69,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color="#0af")\n>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(\n...     points=[\n...         ap.Point2D(x=0, y=0),\n...         ap.Point2D(x=0, y=50),\n...         ap.Point2D(x=50, y=25),\n...     ]\n... )\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color="#0af")\n>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(\n...     points=[\n...         ap.Point2D(x=0, y=0),\n...         ap.Point2D(x=0, y=50),\n...         ap.Point2D(x=50, y=25),\n...     ]\n... )\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(\n...     points=[\n...         ap.Point2D(x=0, y=0),\n...         ap.Point2D(x=0, y=50),\n...         ap.Point2D(x=50, y=25),\n...     ]\n... )\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.begin_fill(color=\"#0af\")\n>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(\n...     points=[\n...         ap.Point2D(x=0, y=0),\n...         ap.Point2D(x=0, y=50),\n...         ap.Point2D(x=50, y=25),\n...     ]\n... )\n```",  # noqa
     ##################################################
     "## x property API": "## x属性のAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -93,7 +93,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## y property API": "## y属性のAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 point_1: ap.Point2D = ap.Point2D(x=10, y=20)
 
 x: ap.Int = ap.Int(10)
@@ -31,6 +32,7 @@ point_2: ap.Point2D = ap.Point2D(x=x, y=y)
 # runnable
 import apysc as ap
 
+ap.Stage()
 point: ap.Point2D = ap.Point2D(x=10, y=20)
 assert point.x == 10
 assert point.y == 20
@@ -44,6 +46,7 @@ assert point.y == 20
 # runnable
 import apysc as ap
 
+ap.Stage()
 point: ap.Point2D = ap.Point2D(x=10, y=20)
 point.x = ap.Number(30)
 assert point.x == 30

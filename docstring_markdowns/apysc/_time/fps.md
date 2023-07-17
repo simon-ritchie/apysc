@@ -12,6 +12,7 @@ Definition of the FPS enum.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
 ...     pass
 >>> ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()

@@ -12,6 +12,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 3, 5])
 result: ap.Boolean = arr == [1, 3, 5]
 assert result
@@ -21,6 +22,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 3, 5])
 other_arr: ap.Array[int] = ap.Array([1, 3, 5])
 result: ap.Boolean = arr == other_arr
@@ -33,6 +35,7 @@ assert result
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 3, 5])
 result: ap.Boolean = arr != [2, 4, 6]
 assert result

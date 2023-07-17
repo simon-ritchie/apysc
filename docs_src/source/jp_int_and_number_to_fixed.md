@@ -73,6 +73,7 @@ ap.save_overall_html(dest_dir_path="to_fixed_basics_usage/")
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> num: ap.Number = ap.Number(10.789)
 >>> fixed_float_str: ap.String = num.to_fixed(digits=2)
 >>> fixed_float_str

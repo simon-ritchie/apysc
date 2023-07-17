@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([5, 1, 3])
 arr.sort()
 assert arr == [1, 3, 5]
@@ -27,6 +28,7 @@ assert arr == [1, 3, 5]
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([5, 1, 3])
 arr.sort(ascending=False)
 assert arr == [5, 3, 1]
@@ -57,6 +59,7 @@ assert arr == [5, 3, 1]
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([3, 5, 1, 4, 2])
 >>> arr.sort()
 >>> arr

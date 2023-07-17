@@ -14,6 +14,7 @@ Set a month-end day.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
 >>> datetime_.set_month_end()
 >>> datetime_.day

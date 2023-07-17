@@ -20,6 +20,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
 assert dict_1 == {"a": 10}
 
@@ -35,6 +36,7 @@ assert dict_1 == dict_2
 # runnable
 import apysc as ap
 
+ap.Stage()
 dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
 dict_1["a"] = 20
 assert dict_1 == {"a": 20}
@@ -48,6 +50,7 @@ assert dict_1 == {"a": 20}
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
 int_2: ap.Int = dict_1["a"]
@@ -63,6 +66,7 @@ assert int_2 == 10
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
 retrieved_val: ap.AnyValue = dict_1["b"]
@@ -77,6 +81,7 @@ assert isinstance(retrieved_val, ap.AnyValue)
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
 del dict_1["a"]
@@ -110,6 +115,7 @@ apyscライブラリのための辞書のクラスです。<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> dictionary
 Dictionary({'a': 10})
@@ -147,6 +153,7 @@ Dictionary({'a': 10})
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({})
 >>> dictionary.value = {"a": 10}
 >>> dictionary.value

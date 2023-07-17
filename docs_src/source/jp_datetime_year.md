@@ -18,6 +18,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
 year: ap.Int = datetime_.year
 assert year == 2022
@@ -31,6 +32,7 @@ assert year == 2022
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
 datetime_.year = ap.Int(2023)
 assert datetime_.year == 2023
@@ -55,6 +57,7 @@ assert datetime_.year == 2023
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
 >>> datetime_.year
 Int(2022)

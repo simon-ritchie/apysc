@@ -82,7 +82,12 @@ def on_x_animation_complete_2(
     ).animation_complete(on_x_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_x(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_x(
     x=100,
     duration=DURATION,
     delay=DELAY,
@@ -132,7 +137,12 @@ def on_y_animation_complete_2(
     ).animation_complete(on_y_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=150, y=50, width=50, height=50,).animation_y(
+sprite.graphics.draw_rect(
+    x=150,
+    y=50,
+    width=50,
+    height=50,
+).animation_y(
     y=100,
     duration=DURATION,
     delay=DELAY,
@@ -178,7 +188,11 @@ def on_cx_animation_complete_2(e: ap.AnimationEvent[ap.Circle], options: dict) -
     ).animation_complete(on_cx_animation_complete_1).start()
 
 
-sprite.graphics.draw_circle(x=275, y=75, radius=25,).animation_x(
+sprite.graphics.draw_circle(
+    x=275,
+    y=75,
+    radius=25,
+).animation_x(
     x=325,
     duration=DURATION,
     delay=DELAY,
@@ -224,7 +238,11 @@ def on_cy_animation_complete_2(e: ap.AnimationEvent[ap.Circle], options: dict) -
     ).animation_complete(on_cy_animation_complete_1).start()
 
 
-sprite.graphics.draw_circle(x=375, y=75, radius=25,).animation_y(
+sprite.graphics.draw_circle(
+    x=375,
+    y=75,
+    radius=25,
+).animation_y(
     y=25,
     duration=DURATION,
     delay=DELAY,
@@ -276,7 +294,12 @@ def on_move_animation_complete_2(
     ).animation_complete(on_move_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=450, y=50, width=50, height=50,).animation_move(
+sprite.graphics.draw_rect(
+    x=450,
+    y=50,
+    width=50,
+    height=50,
+).animation_move(
     x=500,
     y=0,
     duration=DURATION,
@@ -327,7 +350,12 @@ def on_width_animation_complete_2(
     ).animation_complete(on_width_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=150, width=50, height=50,).animation_width(
+sprite.graphics.draw_rect(
+    x=50,
+    y=150,
+    width=50,
+    height=50,
+).animation_width(
     width=100,
     duration=DURATION,
     delay=DELAY,
@@ -377,7 +405,12 @@ def on_height_animation_complete_2(
     ).animation_complete(on_height_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=150, y=150, width=50, height=50,).animation_height(
+sprite.graphics.draw_rect(
+    x=150,
+    y=150,
+    width=50,
+    height=50,
+).animation_height(
     height=100,
     duration=DURATION,
     delay=DELAY,
@@ -427,7 +460,12 @@ def on_ellipse_width_animation_complete_2(
     ).animation_complete(on_ellipse_width_animation_complete_1).start()
 
 
-sprite.graphics.draw_ellipse(x=275, y=175, width=50, height=50,).animation_width(
+sprite.graphics.draw_ellipse(
+    x=275,
+    y=175,
+    width=50,
+    height=50,
+).animation_width(
     width=100,
     duration=DURATION,
     delay=DELAY,
@@ -477,7 +515,12 @@ def on_ellipse_height_animation_complete_2(
     ).animation_complete(on_ellipse_height_animation_complete_1).start()
 
 
-sprite.graphics.draw_ellipse(x=375, y=175, width=50, height=50,).animation_height(
+sprite.graphics.draw_ellipse(
+    x=375,
+    y=175,
+    width=50,
+    height=50,
+).animation_height(
     height=100,
     duration=DURATION,
     delay=DELAY,
@@ -527,7 +570,12 @@ def on_fill_color_animation_complete_2(
     ).animation_complete(on_fill_color_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=450, y=150, width=50, height=50,).animation_fill_color(
+sprite.graphics.draw_rect(
+    x=450,
+    y=150,
+    width=50,
+    height=50,
+).animation_fill_color(
     fill_color="#f0a",
     duration=DURATION,
     delay=DELAY,
@@ -577,7 +625,12 @@ def on_fill_alpha_animation_complete_2(
     ).animation_complete(on_fill_alpha_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=250, width=50, height=50,).animation_fill_alpha(
+sprite.graphics.draw_rect(
+    x=50,
+    y=250,
+    width=50,
+    height=50,
+).animation_fill_alpha(
     alpha=0.0,
     duration=DURATION,
     delay=DELAY,
@@ -628,7 +681,12 @@ def on_line_color_animation_complete_2(
 
 
 sprite.graphics.line_style(color="#fff", thickness=5)
-sprite.graphics.draw_rect(x=150, y=250, width=50, height=50,).animation_line_color(
+sprite.graphics.draw_rect(
+    x=150,
+    y=250,
+    width=50,
+    height=50,
+).animation_line_color(
     line_color="#666",
     duration=DURATION,
     delay=DELAY,
@@ -678,7 +736,12 @@ def on_line_alpha_animation_complete_2(
     ).animation_complete(on_line_alpha_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=250, y=250, width=50, height=50,).animation_line_alpha(
+sprite.graphics.draw_rect(
+    x=250,
+    y=250,
+    width=50,
+    height=50,
+).animation_line_alpha(
     alpha=0.0,
     duration=DURATION,
     delay=DELAY,
@@ -729,7 +792,12 @@ def on_line_thickness_animation_complete_2(
     ).animation_complete(on_line_thickness_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=350, y=250, width=50, height=50,).animation_line_thickness(
+sprite.graphics.draw_rect(
+    x=350,
+    y=250,
+    width=50,
+    height=50,
+).animation_line_thickness(
     thickness=5,
     duration=DURATION,
     delay=DELAY,
@@ -779,7 +847,11 @@ def on_radius_animation_complete_2(
     ).animation_complete(on_radius_animation_complete_1).start()
 
 
-sprite.graphics.draw_circle(x=475, y=275, radius=25,).animation_radius(
+sprite.graphics.draw_circle(
+    x=475,
+    y=275,
+    radius=25,
+).animation_radius(
     radius=50,
     duration=DURATION,
     delay=DELAY,
@@ -1245,7 +1317,12 @@ def on_animation_complete_2(
 
 
 options: EasingOptions = {"easing": ap.Easing.EASE_IN_QUINT}
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_x(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_x(
     x=100,
     duration=DURATION,
     delay=DELAY,
@@ -1256,7 +1333,12 @@ sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_x(
 ).start()
 
 options = {"easing": ap.Easing.EASE_OUT_QUINT}
-sprite.graphics.draw_rect(x=50, y=150, width=50, height=50,).animation_x(
+sprite.graphics.draw_rect(
+    x=50,
+    y=150,
+    width=50,
+    height=50,
+).animation_x(
     x=100,
     duration=DURATION,
     delay=DELAY,
@@ -1267,7 +1349,12 @@ sprite.graphics.draw_rect(x=50, y=150, width=50, height=50,).animation_x(
 ).start()
 
 options = {"easing": ap.Easing.EASE_IN_OUT_QUINT}
-sprite.graphics.draw_rect(x=50, y=250, width=50, height=50,).animation_x(
+sprite.graphics.draw_rect(
+    x=50,
+    y=250,
+    width=50,
+    height=50,
+).animation_x(
     x=100,
     duration=DURATION,
     delay=DELAY,
@@ -1346,7 +1433,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_x(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_x(
     x=100,
     duration=DURATION,
     delay=DELAY,
@@ -1422,7 +1514,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_y(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_y(
     y=100,
     duration=DURATION,
     delay=DELAY,
@@ -1500,7 +1597,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_move(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_move(
     x=100,
     y=100,
     duration=DURATION,
@@ -1577,7 +1679,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_width(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_width(
     width=100,
     duration=DURATION,
     delay=DELAY,
@@ -1653,7 +1760,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_height(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_height(
     height=100,
     duration=DURATION,
     delay=DELAY,
@@ -1729,7 +1841,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_fill_color(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_fill_color(
     fill_color="#f0a",
     duration=DURATION,
     delay=DELAY,
@@ -1805,7 +1922,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_fill_alpha(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_fill_alpha(
     alpha=0.0,
     duration=DURATION,
     delay=DELAY,
@@ -1881,7 +2003,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_line_color(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_line_color(
     line_color="#f0a",
     duration=DURATION,
     delay=DELAY,
@@ -1957,7 +2084,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_line_alpha(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_line_alpha(
     alpha=0.0,
     duration=DURATION,
     delay=DELAY,
@@ -2033,7 +2165,12 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50,).animation_line_thickness(
+sprite.graphics.draw_rect(
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+).animation_line_thickness(
     thickness=5,
     duration=DURATION,
     delay=DELAY,
@@ -2109,7 +2246,11 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Circle], options: dict) -> N
     ).animation_complete(on_animation_complete_1).start()
 
 
-sprite.graphics.draw_circle(x=75, y=75, radius=25,).animation_radius(
+sprite.graphics.draw_circle(
+    x=75,
+    y=75,
+    radius=25,
+).animation_radius(
     radius=50,
     duration=DURATION,
     delay=DELAY,

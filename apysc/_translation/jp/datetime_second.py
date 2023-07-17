@@ -23,13 +23,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Its getter interface returns a second's `Int` value.": "そのインターフェイスのgetterでは`Int`型の秒の値を返却します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\nsecond: ap.Int = datetime_.second\nassert second == 30\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\nsecond: ap.Int = datetime_.second\nassert second == 30\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\nsecond: ap.Int = datetime_.second\nassert second == 30\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\nsecond: ap.Int = datetime_.second\nassert second == 30\n```",  # noqa
     ##################################################
     "Also, its setter interface accepts a second's `Int` value.": "また、setterのインターフェイスでは同様に`Int`型の秒の値を受け付けます。",  # noqa
     ##################################################
     "0-59 integer is acceptable.": "0～59の整数を受け付けることができます。",
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\ndatetime_.second = ap.Int(50)\nassert datetime_.second == 50\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\ndatetime_.second = ap.Int(50)\nassert datetime_.second == 50\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\ndatetime_.second = ap.Int(50)\nassert datetime_.second == 50\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)\ndatetime_.second = ap.Int(50)\nassert datetime_.second == 50\n```",  # noqa
     ##################################################
     "## second property API": "## second 属性のAPI",
     ##################################################
@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)\n>>> datetime_.second\nInt(30)\n\n>>> datetime_.second = ap.Int(50)\n>>> datetime_.second\nInt(50)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)\n>>> datetime_.second\nInt(30)\n\n>>> datetime_.second = ap.Int(50)\n>>> datetime_.second\nInt(50)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)\n>>> datetime_.second\nInt(30)\n\n>>> datetime_.second = ap.Int(50)\n>>> datetime_.second\nInt(50)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)\n>>> datetime_.second\nInt(30)\n\n>>> datetime_.second = ap.Int(50)\n>>> datetime_.second\nInt(50)\n```",  # noqa
 }

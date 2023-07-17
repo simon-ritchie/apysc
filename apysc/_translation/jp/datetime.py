@@ -21,17 +21,17 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The constructor requires the `year`, `month`, and `day` arguments, as follows:": "コンストラクタの引数では`year`、`month`、`day`の各引数の指定を必要とします。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n```": "```py\n# runnable\nimport apysc as ap\n\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\n```",  # noqa
     ##################################################
     "Also, it has the optional `hour`, `minute`, `second`, and `millisecond` arguments:": "また、省略可能な引数として`hour`、`minute`、`second`の引数を指定することもできます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndt: ap.DateTime = ap.DateTime(\n    year=2022, month=12, day=5, hour=10, minute=30, second=50, millisecond=500\n)\n```": "```py\n# runnable\nimport apysc as ap\n\ndt: ap.DateTime = ap.DateTime(\n    year=2022, month=12, day=5, hour=10, minute=30, second=50, millisecond=500\n)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndt: ap.DateTime = ap.DateTime(\n    year=2022, month=12, day=5, hour=10, minute=30, second=50, millisecond=500\n)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndt: ap.DateTime = ap.DateTime(\n    year=2022, month=12, day=5, hour=10, minute=30, second=50, millisecond=500\n)\n```",  # noqa
     ##################################################
     "Each value has a getter and setter interface.": "各値はgetterとsetterのインターフェイスを持っています。",  # noqa
     ##################################################
     "For instance, the `month` value can get or set via the properties:": "例えば`month`属性であれば以下のように属性経由で値の取得や更新を行うことができます。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\nassert dt.month == 12\ndt.month = ap.Int(10)\nassert dt.month == 10\n```": "```py\n# runnable\nimport apysc as ap\n\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\nassert dt.month == 12\ndt.month = ap.Int(10)\nassert dt.month == 10\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\nassert dt.month == 12\ndt.month = ap.Int(10)\nassert dt.month == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)\nassert dt.month == 12\ndt.month = ap.Int(10)\nassert dt.month == 10\n```",  # noqa
     ##################################################
     "Notes: the `weekday_py` and `weekday_js` properties only have a getter interface.": "特記事項: `weekday_py`と`weekday_js`属性はgetterのインターフェイスのみ存在します。",  # noqa
     ##################################################
@@ -109,7 +109,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(\n...     year=2022,\n...     month=12,\n...     day=5,\n...     hour=10,\n...     minute=30,\n...     second=50,\n...     millisecond=500,\n... )\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.day\nInt(5)\n\n>>> datetime_.hour\nInt(10)\n\n>>> datetime_.minute\nInt(30)\n\n>>> datetime_.millisecond\nInt(500)\n\n>>> datetime_.weekday_py\nInt(0)\n\n>>> datetime_.weekday_js\nInt(1)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(\n...     year=2022,\n...     month=12,\n...     day=5,\n...     hour=10,\n...     minute=30,\n...     second=50,\n...     millisecond=500,\n... )\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.day\nInt(5)\n\n>>> datetime_.hour\nInt(10)\n\n>>> datetime_.minute\nInt(30)\n\n>>> datetime_.millisecond\nInt(500)\n\n>>> datetime_.weekday_py\nInt(0)\n\n>>> datetime_.weekday_js\nInt(1)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(\n...     year=2022,\n...     month=12,\n...     day=5,\n...     hour=10,\n...     minute=30,\n...     second=50,\n...     millisecond=500,\n... )\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.day\nInt(5)\n\n>>> datetime_.hour\nInt(10)\n\n>>> datetime_.minute\nInt(30)\n\n>>> datetime_.millisecond\nInt(500)\n\n>>> datetime_.weekday_py\nInt(0)\n\n>>> datetime_.weekday_js\nInt(1)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(\n...     year=2022,\n...     month=12,\n...     day=5,\n...     hour=10,\n...     minute=30,\n...     second=50,\n...     millisecond=500,\n... )\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.day\nInt(5)\n\n>>> datetime_.hour\nInt(10)\n\n>>> datetime_.minute\nInt(30)\n\n>>> datetime_.millisecond\nInt(500)\n\n>>> datetime_.weekday_py\nInt(0)\n\n>>> datetime_.weekday_js\nInt(1)\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

@@ -12,6 +12,7 @@ The class for datetime-related interfaces.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(
 ...     year=2022,
 ...     month=12,
@@ -92,6 +93,7 @@ The class for datetime-related interfaces.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(
 ...     year=2022,
 ...     month=12,

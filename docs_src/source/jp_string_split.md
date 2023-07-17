@@ -55,6 +55,7 @@ ap.save_overall_html(dest_dir_path="string_split_basic_usage/")
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> str_value: ap.String = ap.String("Lorem ipsum dolor sit")
 >>> splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))
 >>> ap.assert_arrays_equal(splitted_strs, ["Lorem", "ipsum", "dolor", "sit"])

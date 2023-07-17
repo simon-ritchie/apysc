@@ -18,6 +18,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, millisecond=500)
 millisecond: ap.Int = datetime_.millisecond
 assert millisecond == 500
@@ -29,6 +30,7 @@ assert millisecond == 500
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, millisecond=500)
 datetime_.millisecond = ap.Int(300)
 assert datetime_.millisecond == 300
@@ -53,6 +55,7 @@ assert datetime_.millisecond == 300
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(
 ...     year=2022, month=12, day=1, millisecond=500
 ... )

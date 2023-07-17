@@ -88,6 +88,7 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
 ...     pass
 >>> _ = ap.Timer(on_timer, delay=33.3, repeat_count=50).start()
@@ -108,6 +109,7 @@ ap.save_overall_html(dest_dir_path="timer_start_and_stop_basic_usage/")
 ```py
 >>> from typing_extensions import TypedDict
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
 ...

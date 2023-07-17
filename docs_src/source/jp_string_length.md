@@ -88,6 +88,7 @@ ap.save_overall_html(dest_dir_path="string_length_notes_2/")
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string.length
 Int(5)

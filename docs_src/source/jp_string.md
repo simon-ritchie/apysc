@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 assert string_1 == "Hello"
 
@@ -61,6 +62,7 @@ apyscライブラリにおける文字列用のクラスです。<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string
 String("Hello")
@@ -96,6 +98,7 @@ String("Hello World!")
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string.value = "World!"
 >>> string.value

@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `length` property has the only getter interface. The return value type is the `Int` type.": "`length`属性はgetterのインターフェイスのみを持ちます。返却値はapyscの`Int`クラスの整数値となります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlength: ap.Int = arr.length\nassert length == 4\n```": "```py\n# runnable\nimport apysc as ap\n\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlength: ap.Int = arr.length\nassert length == 4\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlength: ap.Int = arr.length\nassert length == 4\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3, 4])\nlength: ap.Int = arr.length\nassert length == 4\n```",  # noqa
     ##################################################
     "## Notes of the len() function": "## len()関数における特記事項",
     ##################################################

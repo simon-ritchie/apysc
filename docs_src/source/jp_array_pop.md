@@ -16,6 +16,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3])
 last_value: int = arr.pop()
 assert last_value == 3
@@ -42,6 +43,7 @@ assert last_value == 3
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> popped_val: int = arr.pop()
 >>> popped_val

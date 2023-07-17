@@ -23,13 +23,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Its getter interface returns a month's `Int` value.": "そのgetterのインターフェイスは`Int`型の月の値を返却します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nassert datetime_.month == 12\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nassert datetime_.month == 12\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nassert datetime_.month == 12\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nassert datetime_.month == 12\n```",  # noqa
     ##################################################
     "Also, its setter interface accepts a month's `Int` value.": "また、setter側のインターフェイスでは同様に`Int`型の月の値を受け付けます。",  # noqa
     ##################################################
     "1-12 integer is acceptable.": "1～12の範囲の整数を受け付けることができます。",
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.month = ap.Int(1)\nassert datetime_.month == 1\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.month = ap.Int(1)\nassert datetime_.month == 1\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.month = ap.Int(1)\nassert datetime_.month == 1\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.month = ap.Int(1)\nassert datetime_.month == 1\n```",  # noqa
     ##################################################
     "## month property API": "## month 属性のAPI",
     ##################################################
@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.month = ap.Int(1)\n>>> datetime_.month\nInt(1)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.month = ap.Int(1)\n>>> datetime_.month\nInt(1)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.month = ap.Int(1)\n>>> datetime_.month\nInt(1)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.month\nInt(12)\n\n>>> datetime_.month = ap.Int(1)\n>>> datetime_.month\nInt(1)\n```",  # noqa
 }

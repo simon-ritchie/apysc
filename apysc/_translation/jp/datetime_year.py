@@ -23,13 +23,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Its getter interface returns a year's `Int` value.": "そのgetterインターフェイスは`Int`型の年の値を返却します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nyear: ap.Int = datetime_.year\nassert year == 2022\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nyear: ap.Int = datetime_.year\nassert year == 2022\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nyear: ap.Int = datetime_.year\nassert year == 2022\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\nyear: ap.Int = datetime_.year\nassert year == 2022\n```",  # noqa
     ##################################################
     "Also, its setter interface accepts a year's `Int` value.": "また、`year`属性のsetterインターフェイスも同様に`Int`型の年の値を受け付けます。",  # noqa
     ##################################################
     "A for-digits number is acceptable (e.g., 2023).": "4桁の数字を受け付けることができます（例 : 2023）。",
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.year = ap.Int(2023)\nassert datetime_.year == 2023\n```": "```py\n# runnable\nimport apysc as ap\n\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.year = ap.Int(2023)\nassert datetime_.year == 2023\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.year = ap.Int(2023)\nassert datetime_.year == 2023\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\ndatetime_.year = ap.Int(2023)\nassert datetime_.year == 2023\n```",  # noqa
     ##################################################
     "## year property API": "## year 属性のAPI",
     ##################################################
@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.year = ap.Int(2023)\n>>> datetime_.year\nInt(2023)\n```": "```py\n>>> import apysc as ap\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.year = ap.Int(2023)\n>>> datetime_.year\nInt(2023)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.year = ap.Int(2023)\n>>> datetime_.year\nInt(2023)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)\n>>> datetime_.year\nInt(2022)\n\n>>> datetime_.year = ap.Int(2023)\n>>> datetime_.year\nInt(2023)\n```",  # noqa
 }

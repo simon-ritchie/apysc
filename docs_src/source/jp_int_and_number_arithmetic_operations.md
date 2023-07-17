@@ -12,6 +12,7 @@
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 + 20
 assert int_1 == 30
@@ -23,6 +24,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(20)
 int_1 = int_1 + int_2
@@ -34,6 +36,7 @@ assert int_1 == 30
 ```py
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 # This will raise the error!
@@ -52,6 +55,7 @@ TypeError: unsupported operand type(s) for +: 'int' and 'Int'
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 + 20
 assert int_1 == 30
@@ -61,6 +65,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(20)
 int_1 = int_1 + int_2
@@ -71,6 +76,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10) + ap.Int(20)
 assert int_1 == 30
 ```
@@ -81,6 +87,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 += 20
 assert int_1 == 30
@@ -90,6 +97,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(20)
 int_1 += int_2
@@ -104,6 +112,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(30)
 int_1 = int_1 - 10
 assert int_1 == 20
@@ -113,6 +122,7 @@ assert int_1 == 20
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(30)
 int_2: ap.Int = ap.Int(20)
 int_1 = int_1 - int_2
@@ -125,6 +135,7 @@ assert int_1 == 10
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(50)
 int_1 -= 30
 assert int_1 == 20
@@ -138,6 +149,7 @@ assert int_1 == 20
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 * 3
 assert int_1 == 30
@@ -147,6 +159,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(5)
 int_1 = int_1 * int_2
@@ -159,6 +172,7 @@ assert int_1 == 50
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 *= 3
 assert int_1 == 30
@@ -172,6 +186,7 @@ assert int_1 == 30
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 number_1: ap.Number = int_1 / 4
 assert number_1 == 2.5
@@ -181,6 +196,7 @@ assert number_1 == 2.5
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: ap.Int = ap.Int(4)
 number_1: ap.Number = int_1 / int_2
@@ -193,6 +209,7 @@ assert number_1 == 2.5
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10)
 number_1 /= 4
 assert number_1 == 2.5
@@ -206,6 +223,7 @@ assert number_1 == 2.5
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_1 = int_1 // 4
 assert int_1 == 2
@@ -219,6 +237,7 @@ assert int_1 == 2
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 int_2: int = int_1 % 3
 assert int_2 == 1
@@ -228,6 +247,7 @@ assert int_2 == 1
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10.5)
 number_2: ap.Number = number_1 % 3
 assert number_2 == 1.5

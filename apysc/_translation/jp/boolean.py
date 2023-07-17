@@ -21,13 +21,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `Boolean` class is the apysc boolean class. It can accept `bool` or `Boolean` values at the constructor, as follows:": "`Boolean`クラスはapyscの真偽値のクラスです。コンストラクタの引数には以下のコード例のように`bool`や`Boolean`の値を受け付けます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n\nbool_3: ap.Boolean = ap.Boolean(bool_1)\nassert bool_3\n```": "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n\nbool_3: ap.Boolean = ap.Boolean(bool_1)\nassert bool_3\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n\nbool_3: ap.Boolean = ap.Boolean(bool_1)\nassert bool_3\n```": "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n\nbool_3: ap.Boolean = ap.Boolean(bool_1)\nassert bool_3\n```",  # noqa
     ##################################################
     "## Note for the Bool class alias": "## Boolクラスのエイリアスの特記事項",
     ##################################################
     "The `Bool` class is the alias of the `Boolean` class. And it behaves the same as the `Boolean` class.": "`Bool`クラスは`Boolean`クラスのエイリアスとなります。`Boolean`クラスと同じ挙動をします。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nassert ap.Boolean == ap.Bool\nassert ap.Boolean(True) == ap.Bool(True)\n```": "```py\n# runnable\nimport apysc as ap\n\nassert ap.Boolean == ap.Bool\nassert ap.Boolean(True) == ap.Bool(True)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nassert ap.Boolean == ap.Bool\nassert ap.Boolean(True) == ap.Bool(True)\n```": "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nassert ap.Boolean == ap.Bool\nassert ap.Boolean(True) == ap.Bool(True)\n```",  # noqa
     ##################################################
     "## Boolean comparison": "## Boolean クラスの比較制御",
     ##################################################
@@ -35,21 +35,21 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "You can compare it with the equal comparison operator (`==`), and the `Boolean`\\, `bool`\\, `int`\\, `Int` types are acceptable, as follows:": "等値の比較のオペレーター（`==`）を使って`Boolean`の値と比較することができ、以下のコード例のように`Boolean`や`bool`、`int`、`Int`などの型との比較を行うことができます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 == True  # noqa\nassert bool_1 == ap.Boolean(True)\nassert bool_1 == 1\nassert bool_1 == ap.Int(1)\n```": "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 == True  # noqa\nassert bool_1 == ap.Boolean(True)\nassert bool_1 == 1\nassert bool_1 == ap.Int(1)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 == True  # noqa\nassert bool_1 == ap.Boolean(True)\nassert bool_1 == 1\nassert bool_1 == ap.Int(1)\n```": "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 == True  # noqa\nassert bool_1 == ap.Boolean(True)\nassert bool_1 == 1\nassert bool_1 == ap.Int(1)\n```",  # noqa
     ##################################################
     "Also, the not equal comparison operator (`!=`) is supported, as follows:": "同様に以下のコード例のように非等値のオペレーター（`!=`）もサポートされています。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 != False  # noqa\nassert bool_1 != ap.Boolean(False)\nassert bool_1 != 0\nassert bool_1 != ap.Int(0)\n```": "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 != False  # noqa\nassert bool_1 != ap.Boolean(False)\nassert bool_1 != 0\nassert bool_1 != ap.Int(0)\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 != False  # noqa\nassert bool_1 != ap.Boolean(False)\nassert bool_1 != 0\nassert bool_1 != ap.Int(0)\n```": "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1 != False  # noqa\nassert bool_1 != ap.Boolean(False)\nassert bool_1 != 0\nassert bool_1 != ap.Int(0)\n```",  # noqa
     ##################################################
     "You can skip the comparison operator, as follows:": "以下のコードのように比較のオペレーターを省略して使うこともできます:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n```": "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n```": "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nassert bool_1\n\nbool_2: ap.Boolean = ap.Boolean(False)\nassert not bool_2\n```",  # noqa
     ##################################################
     "## Reverse a Boolean value": "## Boolean の値を反転させる",
     ##################################################
     "The `not_` property returns the reversed `Boolean` value:": "`not_`属性は値が反転した`Boolean`の値を返却します:",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nbool_2: ap.Boolean = bool_1.not_\nassert not bool_2\n\nbool_3: ap.Boolean = bool_2.not_\nassert bool_3\n```": "```py\n# runnable\nimport apysc as ap\n\nbool_1: ap.Boolean = ap.Boolean(True)\nbool_2: ap.Boolean = bool_1.not_\nassert not bool_2\n\nbool_3: ap.Boolean = bool_2.not_\nassert bool_3\n```",  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nbool_2: ap.Boolean = bool_1.not_\nassert not bool_2\n\nbool_3: ap.Boolean = bool_2.not_\nassert bool_3\n```": "```py\n# runnable\nimport apysc as ap\n\n_ = ap.Stage()\nbool_1: ap.Boolean = ap.Boolean(True)\nbool_2: ap.Boolean = bool_1.not_\nassert not bool_2\n\nbool_3: ap.Boolean = bool_2.not_\nassert bool_3\n```",  # noqa
     ##################################################
     "## Boolean class constructor API": "## Boolean クラスのコンストラクタのAPI",
     ##################################################

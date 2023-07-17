@@ -55,7 +55,7 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
         Examples
         --------
         >>> import apysc as ap
-
+        >>> _ = ap.Stage()
         >>> string = ap.String("123.456")
         >>> string = string.apply_max_num_of_decimal_places(max_num_of_decimal_places=1)
         >>> ap.assert_equal(string, "123.4")

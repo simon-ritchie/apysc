@@ -29,6 +29,7 @@ from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._validation.validate_stage_is_created_mixin import ValidateStageIsCreatedMixIn
 
 
 class String(
@@ -46,6 +47,7 @@ class String(
     ToNumberMixIn,
     StringLengthMixIn,
     StringApplyMaxNumOfDecimalPlacesMixIn,
+    ValidateStageIsCreatedMixIn,
 ):
     """
     String class for apysc library.
@@ -66,6 +68,7 @@ class String(
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> string: ap.String = ap.String("Hello")
     >>> string
     String("Hello")
@@ -127,6 +130,7 @@ class String(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> string: ap.String = ap.String("Hello")
         >>> string
         String("Hello")
@@ -138,6 +142,8 @@ class String(
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+
+        self._validate_stage_is_created()
 
         with TemporaryNotHandlerScope():
             value = _escape_str_value(value=value)
@@ -222,6 +228,7 @@ class String(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> string: ap.String = ap.String("Hello")
         >>> string.value = "World!"
         >>> string.value

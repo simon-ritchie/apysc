@@ -79,7 +79,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val\nInt(10)\n\n>>> int_val == 10\nBoolean(True)\n\n>>> int_val == ap.Int(10)\nBoolean(True)\n\n>>> int_val >= 10\nBoolean(True)\n\n>>> int_val += 10\n>>> int_val\nInt(20)\n\n>>> int_val = ap.Int(10.5)\n>>> int_val\nInt(10)\n```": "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val\nInt(10)\n\n>>> int_val == 10\nBoolean(True)\n\n>>> int_val == ap.Int(10)\nBoolean(True)\n\n>>> int_val >= 10\nBoolean(True)\n\n>>> int_val += 10\n>>> int_val\nInt(20)\n\n>>> int_val = ap.Int(10.5)\n>>> int_val\nInt(10)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val\nInt(10)\n\n>>> int_val == 10\nBoolean(True)\n\n>>> int_val == ap.Int(10)\nBoolean(True)\n\n>>> int_val >= 10\nBoolean(True)\n\n>>> int_val += 10\n>>> int_val\nInt(20)\n\n>>> int_val = ap.Int(10.5)\n>>> int_val\nInt(10)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val\nInt(10)\n\n>>> int_val == 10\nBoolean(True)\n\n>>> int_val == ap.Int(10)\nBoolean(True)\n\n>>> int_val >= 10\nBoolean(True)\n\n>>> int_val += 10\n>>> int_val\nInt(20)\n\n>>> int_val = ap.Int(10.5)\n>>> int_val\nInt(10)\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -119,7 +119,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> number: ap.Number = ap.Number(10.5)\n>>> number\nNumber(10.5)\n\n>>> number == 10.5\nBoolean(True)\n\n>>> number == ap.Number(10.5)\nBoolean(True)\n\n>>> number >= 10.5\nBoolean(True)\n\n>>> number += 10.3\n>>> number\nNumber(20.8)\n```": "```py\n>>> import apysc as ap\n>>> number: ap.Number = ap.Number(10.5)\n>>> number\nNumber(10.5)\n\n>>> number == 10.5\nBoolean(True)\n\n>>> number == ap.Number(10.5)\nBoolean(True)\n\n>>> number >= 10.5\nBoolean(True)\n\n>>> number += 10.3\n>>> number\nNumber(20.8)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> number: ap.Number = ap.Number(10.5)\n>>> number\nNumber(10.5)\n\n>>> number == 10.5\nBoolean(True)\n\n>>> number == ap.Number(10.5)\nBoolean(True)\n\n>>> number >= 10.5\nBoolean(True)\n\n>>> number += 10.3\n>>> number\nNumber(20.8)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> number: ap.Number = ap.Number(10.5)\n>>> number\nNumber(10.5)\n\n>>> number == 10.5\nBoolean(True)\n\n>>> number == ap.Number(10.5)\nBoolean(True)\n\n>>> number >= 10.5\nBoolean(True)\n\n>>> number += 10.3\n>>> number\nNumber(20.8)\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -147,7 +147,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val.value\n10\n\n>>> int_val.value = 20\n>>> int_val.value\n20\n\n>>> int_val.value = ap.Int(30)\n>>> int_val.value\n30\n```": "```py\n>>> import apysc as ap\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val.value\n10\n\n>>> int_val.value = 20\n>>> int_val.value\n20\n\n>>> int_val.value = ap.Int(30)\n>>> int_val.value\n30\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val.value\n10\n\n>>> int_val.value = 20\n>>> int_val.value\n20\n\n>>> int_val.value = ap.Int(30)\n>>> int_val.value\n30\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> int_val: ap.Int = ap.Int(10)\n>>> int_val.value\n10\n\n>>> int_val.value = 20\n>>> int_val.value\n20\n\n>>> int_val.value = ap.Int(30)\n>>> int_val.value\n30\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

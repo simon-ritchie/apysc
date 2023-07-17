@@ -31,7 +31,7 @@ class StringLengthMixIn:
         Examples
         --------
         >>> import apysc as ap
-
+        >>> _ = ap.Stage()
         >>> string: ap.String = ap.String("Hello")
         >>> string.length
         Int(5)

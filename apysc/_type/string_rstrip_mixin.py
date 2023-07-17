@@ -54,6 +54,7 @@ class StringRStripMixIn:
         --------
         >>> import apysc as ap
 
+        >>> _ = ap.Stage()
         >>> string: ap.String = ap.String("  aabbcc   ")
         >>> string = string.rstrip()
         >>> string

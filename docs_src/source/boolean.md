@@ -133,6 +133,7 @@ The Bool class is the alias of the Boolean, and it behaves the same as the Boole
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> bool_val_1: ap.Boolean = ap.Boolean(True)
 >>> bool_val_1
 Boolean(True)
@@ -169,6 +170,7 @@ Get a current boolean value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> bool_val: ap.Boolean = ap.Boolean(True)
 >>> bool_val.value = False
 >>> bool_val.value
@@ -206,6 +208,7 @@ Get a not condition Boolean value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> bool_val: ap.Boolean = ap.Boolean(True)
 >>> bool_val.not_
 Boolean(False)

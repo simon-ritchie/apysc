@@ -88,6 +88,7 @@ Get a character length (number).<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string.length
 Int(5)

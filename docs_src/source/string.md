@@ -14,6 +14,7 @@ The `String` class is the apysc string class. It can accept `str` or `String` va
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 assert string_1 == "Hello"
 
@@ -60,6 +61,7 @@ The `Str` class is the alias of `String`.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string
 String("Hello")
@@ -97,6 +99,7 @@ Get a current string value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string.value = "World!"
 >>> string.value

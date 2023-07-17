@@ -81,7 +81,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> bool_val_1: ap.Boolean = ap.Boolean(True)\n>>> bool_val_1\nBoolean(True)\n\n>>> bool_val_2: ap.Bool = ap.Bool(True)\n>>> bool_val_2\nBoolean(True)\n```": "```py\n>>> import apysc as ap\n>>> bool_val_1: ap.Boolean = ap.Boolean(True)\n>>> bool_val_1\nBoolean(True)\n\n>>> bool_val_2: ap.Bool = ap.Bool(True)\n>>> bool_val_2\nBoolean(True)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> bool_val_1: ap.Boolean = ap.Boolean(True)\n>>> bool_val_1\nBoolean(True)\n\n>>> bool_val_2: ap.Bool = ap.Bool(True)\n>>> bool_val_2\nBoolean(True)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> bool_val_1: ap.Boolean = ap.Boolean(True)\n>>> bool_val_1\nBoolean(True)\n\n>>> bool_val_2: ap.Bool = ap.Bool(True)\n>>> bool_val_2\nBoolean(True)\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -107,7 +107,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.value = False\n>>> bool_val.value\nFalse\n\n>>> bool_val.value = ap.Boolean(True)\n>>> bool_val.value\nTrue\n```": "```py\n>>> import apysc as ap\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.value = False\n>>> bool_val.value\nFalse\n\n>>> bool_val.value = ap.Boolean(True)\n>>> bool_val.value\nTrue\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.value = False\n>>> bool_val.value\nFalse\n\n>>> bool_val.value = ap.Boolean(True)\n>>> bool_val.value\nTrue\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.value = False\n>>> bool_val.value\nFalse\n\n>>> bool_val.value = ap.Boolean(True)\n>>> bool_val.value\nTrue\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################
@@ -133,5 +133,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.not_\nBoolean(False)\n\n>>> bool_val.value = False\n>>> bool_val.not_\nBoolean(True)\n```": "```py\n>>> import apysc as ap\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.not_\nBoolean(False)\n\n>>> bool_val.value = False\n>>> bool_val.not_\nBoolean(True)\n```",  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.not_\nBoolean(False)\n\n>>> bool_val.value = False\n>>> bool_val.not_\nBoolean(True)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> bool_val: ap.Boolean = ap.Boolean(True)\n>>> bool_val.not_\nBoolean(False)\n\n>>> bool_val.value = False\n>>> bool_val.not_\nBoolean(True)\n```",  # noqa
 }

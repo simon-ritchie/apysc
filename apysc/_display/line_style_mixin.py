@@ -35,7 +35,6 @@ class LineStyleMixIn(
     RevertMixIn,
     VariableNameSuffixMixIn,
 ):
-
     _line_color: String
     _line_thickness: Int
     _line_alpha: Number

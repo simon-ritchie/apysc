@@ -24,7 +24,6 @@ class FillAlphaMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _fill_alpha: Number
 
     @final

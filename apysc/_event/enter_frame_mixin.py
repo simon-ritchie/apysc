@@ -40,7 +40,6 @@ class EnterFrameMixIn(
     Generic[_Target, _Options],
     VariableNameMixIn,
 ):
-
     _enter_frame_handlers: Dict[str, HandlerData[EnterFrameEvent]]
     _is_stopped_settings: Dict[_HandlerName, Boolean]
     _fps_millisecond_intervals_settings: Dict[_HandlerName, Number]

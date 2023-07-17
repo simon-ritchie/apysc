@@ -20,6 +20,8 @@ These getter interfaces return a weekday's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
+
 # 2022-12-11 is Sunday.
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=11)
 weekday_js: ap.Int = datetime_.weekday_js
@@ -50,6 +52,7 @@ Get a current weekday value. This interface sets the weekday based on the JavaSc
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=4)
 >>> datetime_.weekday_js  # Sunday
 Int(0)
@@ -80,6 +83,7 @@ Get a current weekday value. This interface sets the weekday based on the Python
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
 >>> datetime_.weekday_py  # Monday
 Int(0)

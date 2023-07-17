@@ -23,7 +23,6 @@ def test_get_docs_local_file_path() -> None:
 
 
 class _MockConsoleMessage(ConsoleMessage):
-
     _type: str
     _text: str
 
@@ -99,7 +98,6 @@ def test__get_local_file_console_event_handler() -> None:
 
 
 class _MockError(Error):
-
     _message: str
     _stack: str
 

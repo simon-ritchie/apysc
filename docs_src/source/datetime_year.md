@@ -16,6 +16,7 @@ Its getter interface returns a year's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
 year: ap.Int = datetime_.year
 assert year == 2022
@@ -29,6 +30,7 @@ A for-digits number is acceptable (e.g., 2023).
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
 datetime_.year = ap.Int(2023)
 assert datetime_.year == 2023
@@ -55,6 +57,7 @@ Get a current year's value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
 >>> datetime_.year
 Int(2022)

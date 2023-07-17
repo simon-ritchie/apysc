@@ -13,7 +13,6 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class SetInitialBorderColorMixIn:
-
     _border_color: String
 
     @final

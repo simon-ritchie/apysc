@@ -14,7 +14,6 @@ class NotRevertableValue:
 
 
 class RevertableValue1(RevertMixIn):
-
     _value1: int = 10
     _snapshots1: Optional[Dict[str, int]] = None
 
@@ -46,7 +45,6 @@ class RevertableValue1(RevertMixIn):
 
 
 class RevertableValue2(RevertMixIn):
-
     _value2: int = 20
     _snapshots2: Optional[Dict[str, int]] = None
 
@@ -78,7 +76,6 @@ class RevertableValue2(RevertMixIn):
 
 
 class RevertableValue3(NotRevertableValue, RevertableValue1, RevertableValue2):
-
     _value3: int = 30
     _snapshots3: Optional[Dict[str, int]] = None
 

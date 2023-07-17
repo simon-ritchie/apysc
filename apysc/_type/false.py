@@ -13,7 +13,6 @@ class _False(
     BoolConstMixIn,
     Boolean,
 ):
-
     _value: Final[bool] = False
 
     @final

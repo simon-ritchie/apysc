@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class IsDisplayAxisLabelMixIn:
-
     _is_display_axis_label: Boolean
 
     @final

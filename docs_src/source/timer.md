@@ -111,6 +111,7 @@ Timer class to handle function calling at regular intervals.<hr>
 ```py
 >>> from typing_extensions import TypedDict
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
 ...

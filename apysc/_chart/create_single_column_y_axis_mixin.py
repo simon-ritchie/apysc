@@ -23,7 +23,6 @@ from apysc._type.string import String
 
 
 class CreateSingleColumnYAxisMixIn:
-
     _in_value_y_min: Number
     _in_value_y_max: Number
     _y_axis_height: Int

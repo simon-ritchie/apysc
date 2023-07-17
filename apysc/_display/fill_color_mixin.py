@@ -24,7 +24,6 @@ class FillColorMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _fill_color: String
 
     @property

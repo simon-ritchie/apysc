@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AxisLineThicknessMixIn:
-
     _line_thickness: Int
 
     @final

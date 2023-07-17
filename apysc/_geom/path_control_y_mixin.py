@@ -23,7 +23,6 @@ class PathControlMixIn(
     AttrLinkingMixIn,
     VariableNameSuffixMixIn,
 ):
-
     _control_y: Number
 
     @final

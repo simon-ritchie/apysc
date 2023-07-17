@@ -16,7 +16,6 @@ from apysc._type.boolean import Boolean
 
 
 class IfBase(ABC):
-
     _condition: Optional[Boolean]
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]

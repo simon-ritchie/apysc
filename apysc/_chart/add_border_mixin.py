@@ -12,7 +12,6 @@ from apysc._type.string import String
 
 
 class AddBorderMixIn:
-
     _border: Rectangle
 
     @final

@@ -41,6 +41,7 @@ class NowMixIn:
         --------
         >>> from datetime import datetime
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> py_now: datetime = datetime.now()
         >>> ap_now: ap.DateTime = ap.DateTime.now()
         >>> ap_now.year == py_now.year

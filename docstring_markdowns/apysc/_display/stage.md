@@ -4,6 +4,15 @@
 
 Stage-related implementations.
 
+## `_read_stage_id_from_db` function docstring
+
+Read a stage id from a database.<hr>
+
+**[Returns]**
+
+- ``: 
+  - A stage id. If a created stage doesn't exist, this interface returns None.
+
 ## `_save_stage_id_to_db` function docstring
 
 Save a stage's memory address (id) to the database.<hr>
@@ -45,6 +54,15 @@ Get a current stage's jQuery element string.<hr>
 
 - `stage_elem_str`: str
   - Stage's jQuery element string (e.g., '$("#<stage_elem_id>")').
+
+## `is_stage_created` function docstring
+
+Get a boolean whether a created stage exists or not.<hr>
+
+**[Returns]**
+
+- `result`: bool
+  - If a created stage exists, this interface returns True.
 
 ## `Stage` class docstring
 

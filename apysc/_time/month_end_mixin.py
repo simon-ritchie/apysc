@@ -11,7 +11,6 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class MonthEndMixin(VariableNameMixIn):
-
     _year: Int
     _month: Int
     _day: Int
@@ -25,6 +24,7 @@ class MonthEndMixin(VariableNameMixIn):
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
         >>> datetime_.set_month_end()
         >>> datetime_.day

@@ -33,7 +33,6 @@ class ChildMixIn(
     RevertMixIn,
     VariableNameSuffixMixIn,
 ):
-
     _children: Array[DisplayObject]
     stage: "Stage"
 

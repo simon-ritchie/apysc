@@ -24,7 +24,6 @@ class WidthMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _width: Int
 
     @final

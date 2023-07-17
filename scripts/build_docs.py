@@ -162,7 +162,6 @@ def _apply_translation_mappings() -> None:
         add_mapping_blank_data(lang=lang)
 
         for md_file_path in md_file_paths:
-
             is_en_document: bool = True
             basename: str = os.path.basename(md_file_path)
             for lang_ in Lang:
@@ -757,7 +756,6 @@ def _make_script_data_list(
 
 
 class _CodeBlock:
-
     code_type: str
     code: str
     runnable: bool

@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class VariableNameMixIn(DeletedObjectMixIn):
-
     _variable_name: str
     _variable_name_history: List[str]
 

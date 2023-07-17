@@ -245,6 +245,7 @@ assert int_2 == 1
 # runnable
 import apysc as ap
 
+ap.Stage()
 number_1: ap.Number = ap.Number(10.5)
 number_2: ap.Number = number_1 % 3
 assert number_2 == 1.5

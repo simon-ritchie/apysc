@@ -14,7 +14,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AxisLabelFontFamilyMixIn:
-
     _axis_label_font_family: Optional[Array[String]]
 
     @final

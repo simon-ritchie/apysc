@@ -33,7 +33,6 @@ class NumberValueMixIn(
     InitialSubstitutionExpMixIn,
     Generic[_ValueType, _InstanceType],
 ):
-
     _initial_value: _NumType
     _value: _ValueType
 

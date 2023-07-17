@@ -6,7 +6,6 @@ from apysc._type.number import Number
 
 
 class RectangleGeomTopYMixIn:
-
     _top_y: Number
 
     @property

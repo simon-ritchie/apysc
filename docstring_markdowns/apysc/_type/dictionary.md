@@ -12,6 +12,7 @@ Dictionary class for the apysc library.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> dictionary
 Dictionary({'a': 10})
@@ -98,6 +99,7 @@ Dictionary class for the apysc library.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> dictionary
 Dictionary({'a': 10})
@@ -362,6 +364,7 @@ Get a specified key dictionary value. If this dictionary hasn't a specified key,
 ```py
 >>> from typing import Optional
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
 >>> value_1: Optional[int] = dictionary.get("a")
 >>> value_1

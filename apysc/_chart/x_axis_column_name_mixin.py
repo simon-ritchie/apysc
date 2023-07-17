@@ -9,7 +9,6 @@ from apysc._validation import arg_validation_decos
 
 
 class XAxisColumnNameMixIn:
-
     _x_axis_column_name: str
 
     @final

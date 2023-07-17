@@ -14,7 +14,6 @@ from apysc._validation import arg_validation_decos
 
 
 class LineDotSettingMixIn(VariableNameMixIn, RevertMixIn):
-
     _line_dot_setting: Optional[LineDotSetting]
 
     @final

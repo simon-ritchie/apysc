@@ -6,7 +6,6 @@ from apysc._type.int import Int
 
 
 class RectangleGeomWidthMixIn:
-
     _width: Int
 
     @property

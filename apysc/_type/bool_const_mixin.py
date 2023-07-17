@@ -12,7 +12,6 @@ from apysc._type.int import Int
 
 
 class BoolConstMixIn:
-
     _value: bool
 
     @final

@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class TickTextItalicMixIn:
-
     _tick_text_italic: Boolean
 
     @final

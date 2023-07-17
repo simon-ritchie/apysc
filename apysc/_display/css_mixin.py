@@ -18,7 +18,6 @@ from apysc._validation import arg_validation_decos
 
 
 class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
-
     _css: Dict[str, String]
 
     @final

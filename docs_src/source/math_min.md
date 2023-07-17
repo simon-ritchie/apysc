@@ -18,6 +18,7 @@ Notes: Regardless of the `Array` values' type, this interface returns a `Number`
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array = ap.Array([9, 10, ap.Int(8), ap.Number(9.5), 11])
 min_value: ap.Number = ap.Math.min(values=arr)
 assert min_value == 8
@@ -53,6 +54,7 @@ Get a minimum number from a specified array's values.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([10, 9.5, ap.Int(8), ap.Number(8.5)])
 >>> min_value: ap.Number = ap.Math.min(values=arr)
 >>> min_value

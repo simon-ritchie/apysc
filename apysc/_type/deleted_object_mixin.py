@@ -20,7 +20,6 @@ class _DisabledObjectError(Exception):
 
 
 class DeletedObjectMixIn(RevertMixIn):
-
     __is_deleted_object: bool = False
 
     @property

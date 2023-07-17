@@ -14,7 +14,6 @@ from apysc._validation import arg_validation_decos
 
 
 class TickTextFontFamilyMixIn:
-
     _tick_text_font_family: Optional[Array[String]]
 
     @final

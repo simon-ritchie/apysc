@@ -1,7 +1,6 @@
-from apysc._expression import expression_data_util
+import apysc as ap
 from apysc._loop import loop_count
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 @apply_test_settings()

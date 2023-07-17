@@ -7,7 +7,6 @@ from apysc._loop import loop_count
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
-import apysc as ap
 
 
 class _TestMixIn(ForLoopExitMixIn, GetLastScopeInterface):

@@ -4,7 +4,6 @@ class.
 
 
 class VariableNameSuffixMixIn:
-
     __variable_name_suffix: str = ""
 
     @property

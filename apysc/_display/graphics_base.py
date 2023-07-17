@@ -25,7 +25,6 @@ from apysc._validation import arg_validation_decos
 class GraphicsBase(
     DisplayObject,
 ):
-
     _variable_name: str
 
     @arg_validation_decos.not_empty_string(arg_position_index=1)

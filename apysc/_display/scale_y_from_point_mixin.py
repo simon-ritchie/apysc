@@ -28,7 +28,6 @@ class ScaleYFromPointMixIn(
     SetLowerScaleLimitMixIn,
     RevertMixIn,
 ):
-
     _scale_y_from_point: Dictionary[str, Number]
 
     @final

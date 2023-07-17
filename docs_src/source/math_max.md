@@ -18,6 +18,7 @@ Notes: Regardless of the `Array` values' type, this interface returns a `Number`
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array = ap.Array([9, 10, ap.Int(8), ap.Number(9.5), 11])
 max_value: ap.Number = ap.Math.max(values=arr)
 assert max_value == 11
@@ -53,6 +54,7 @@ Get a maximum number from a specified array's values.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([10, 9.5, ap.Int(8), ap.Number(8.5)])
 >>> max_value: ap.Number = ap.Math.max(values=arr)
 >>> max_value

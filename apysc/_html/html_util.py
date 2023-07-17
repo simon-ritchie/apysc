@@ -165,7 +165,6 @@ def append_indent_to_each_script_line(*, html: str, indent_num: int) -> str:
 
 
 class ScriptLineUtil:
-
     html: str
     script_line_ranges: List[Tuple[int, int]]
 

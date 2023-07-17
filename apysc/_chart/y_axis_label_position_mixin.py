@@ -9,7 +9,6 @@ from apysc._validation import arg_validation_decos
 
 
 class YAxisLabelPositionMixIn:
-
     _y_axis_label_position: YAxisLabelPosition
 
     @final

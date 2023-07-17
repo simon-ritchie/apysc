@@ -15,7 +15,6 @@ class SVGTextItalicMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-
     _italic: bool = False
 
     @property

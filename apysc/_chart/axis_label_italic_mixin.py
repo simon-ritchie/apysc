@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AxisLabelItalicMixIn:
-
     _axis_label_italic: Boolean
 
     @final

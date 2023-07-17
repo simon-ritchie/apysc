@@ -12,6 +12,7 @@ Array class for the apysc library.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr
 Array([1, 2, 3])
@@ -129,6 +130,7 @@ Array class for the apysc library.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr
 Array([1, 2, 3])
@@ -520,6 +522,7 @@ Add any value to the end of this array. This method behaves the same `push` meth
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.append(4)
 >>> arr
@@ -562,6 +565,7 @@ Concatenate argument array to this one. This interface positions the argument ar
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr = arr.concat([4, 5, 6])
 >>> arr
@@ -589,6 +593,7 @@ Concatenate argument array to this one. This interface positions the argument ar
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.extend([4, 5, 6])
 >>> arr
@@ -623,6 +628,7 @@ Search specified value's index and return it.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3, 5])
 >>> arr.index_of(3)
 Int(1)
@@ -651,6 +657,7 @@ Insert value to this array at a specified index. This interface behaves in the s
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3])
 >>> arr.insert(index=1, value=2)
 >>> arr
@@ -680,6 +687,7 @@ Insert value to this array at a specified index. This interface behaves in the s
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3])
 >>> arr.insert_at(index=1, value=2)
 >>> arr
@@ -714,6 +722,7 @@ Join this array value with a specified separator string.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.join(sep=", ")
 String("1, 2, 3")
@@ -740,6 +749,7 @@ Remove this array's last value and return it.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> popped_val: int = arr.pop()
 >>> popped_val
@@ -770,6 +780,7 @@ Add any value to the end of this array. This interface behaves the same as the `
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.push(4)
 >>> arr
@@ -797,6 +808,7 @@ Remove a specified value from this array.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 3, 5])
 >>> arr.remove(3)
 >>> arr
@@ -824,6 +836,7 @@ Remove a specified index value from this array.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.remove_at(1)
 >>> arr
@@ -844,6 +857,7 @@ Reverse this array in place.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3])
 >>> arr.reverse()
 >>> arr
@@ -880,6 +894,7 @@ Slice this array by specified start and end indexes.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([1, 2, 3, 4])
 >>> arr.slice(start=1, end=3)
 Array([2, 3])
@@ -912,6 +927,7 @@ Sort this array in place.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr: ap.Array = ap.Array([3, 5, 1, 4, 2])
 >>> arr.sort()
 >>> arr

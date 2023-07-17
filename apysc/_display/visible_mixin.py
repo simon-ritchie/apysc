@@ -23,7 +23,6 @@ class VisibleMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _visible: Boolean
 
     @final

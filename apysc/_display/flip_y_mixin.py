@@ -23,7 +23,6 @@ class FlipYMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _flip_y: Boolean
 
     @final

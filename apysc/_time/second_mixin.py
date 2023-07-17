@@ -16,7 +16,6 @@ from apysc._validation import arg_validation_decos
 
 
 class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
-
     _initial_second: Union[int, Int]
     _second: Int
 
@@ -76,6 +75,7 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)
         >>> datetime_.second
         Int(30)

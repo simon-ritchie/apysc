@@ -30,7 +30,6 @@ class CustomEventMixIn(
     SetHandlerDataMixIn[_EventType],
     Generic[_EventType],
 ):
-
     _custom_event_handlers: Dict[
         _CustomEventType, Dict[_HandlerName, HandlerData[_EventType]]
     ]

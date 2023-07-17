@@ -27,7 +27,6 @@ class ScaleXFromCenterMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _scale_x_from_center: Number
 
     @final

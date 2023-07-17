@@ -18,7 +18,6 @@ from apysc._validation import arg_validation_decos
 class RelativeMixIn(
     VariableNameSuffixAttrOrVarMixIn, RevertMixIn, VariableNameSuffixMixIn
 ):
-
     _relative: Boolean
 
     @final

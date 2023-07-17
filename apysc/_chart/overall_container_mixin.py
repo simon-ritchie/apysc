@@ -9,7 +9,6 @@ from apysc._validation import arg_validation_decos
 
 
 class OverallContainerMixIn:
-
     _overall_container: Sprite
 
     @final

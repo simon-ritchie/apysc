@@ -13,7 +13,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AddBackgroundMixIn:
-
     _background: Rectangle
 
     @final

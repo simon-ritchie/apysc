@@ -10,7 +10,6 @@ from typing_extensions import final
 
 
 class InitializeLocalsAndGlobalsMixIn:
-
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
 

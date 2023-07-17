@@ -12,7 +12,6 @@ from apysc._validation import arg_validation_decos
 
 
 class YMaxMixIn:
-
     _y_max: Optional[Number]
 
     @final

@@ -17,7 +17,6 @@ class SVGTextFontSizeMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-
     _font_size: int = 16
 
     @property

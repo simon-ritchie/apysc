@@ -87,6 +87,7 @@ class DateTime(
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> datetime_: ap.DateTime = ap.DateTime(
     ...     year=2022,
     ...     month=12,
@@ -189,6 +190,7 @@ class DateTime(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(
         ...     year=2022,
         ...     month=12,

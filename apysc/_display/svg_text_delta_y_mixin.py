@@ -15,7 +15,6 @@ class SVGTextDeltaYMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-
     _delta_y: float = 0.0
 
     @property

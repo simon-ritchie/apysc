@@ -41,6 +41,7 @@ The `ap.print` function is the alias of the `trace` function.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> int_val: ap.Int = ap.Int(10)
 >>> ap.trace("Int value is:", int_val)
 ```

@@ -14,7 +14,6 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class SetInitialBackgroundFillColorMixIn:
-
     _background_fill_color: String
 
     @final

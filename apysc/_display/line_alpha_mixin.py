@@ -24,7 +24,6 @@ class LineAlphaMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _line_alpha: Number
 
     @final

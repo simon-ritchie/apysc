@@ -14,6 +14,7 @@ Subtraction between two `DateTime` instances returns this class's instance.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
 datetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)
 timedelta_: ap.TimeDelta = datetime_1 - datetime_2
@@ -21,10 +22,11 @@ timedelta_: ap.TimeDelta = datetime_1 - datetime_2
 
 A `TimeDelta` instance has each interface, such as the `days`' property or `total_seconds`' method, as follows:
 
-```
+```py
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
 datetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)
 timedelta_: ap.TimeDelta = datetime_1 - datetime_2
@@ -55,6 +57,7 @@ Get days in the duration.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
 >>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 5)
 >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2
@@ -91,6 +94,7 @@ Get the total seconds in the duration.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_1: ap.DateTime = ap.DateTime(2022, 12, 7)
 >>> datetime_2: ap.DateTime = ap.DateTime(2022, 12, 6)
 >>> timedelta_: ap.TimeDelta = datetime_1 - datetime_2

@@ -1,7 +1,6 @@
 from apysc._animation.animation_reverse_mixin import AnimationReverseMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 class TestAnimationReverseMixIn:

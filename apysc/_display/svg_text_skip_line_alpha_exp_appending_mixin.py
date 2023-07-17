@@ -12,7 +12,6 @@ from apysc._type.number import Number
 
 
 class SVGTextSkipLineAlphaExpAppendingMixIn:
-
     _skip_line_alpha_expression_appending: bool = False
 
     @final

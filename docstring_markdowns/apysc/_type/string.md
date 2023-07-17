@@ -38,6 +38,7 @@ The `Str` class is the alias of `String`.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string
 String("Hello")
@@ -201,6 +202,7 @@ The `Str` class is the alias of `String`.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> string: ap.String = ap.String("Hello")
 >>> string
 String("Hello")

@@ -23,7 +23,6 @@ class PathYMixIn(
     AttrLinkingMixIn,
     VariableNameSuffixMixIn,
 ):
-
     _y: Number
 
     @final

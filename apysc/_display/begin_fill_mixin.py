@@ -22,7 +22,6 @@ StrOrString = TypeVar("StrOrString", str, String)
 
 
 class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
-
     _fill_color: String
     _fill_alpha: Number
 

@@ -26,7 +26,6 @@ class RotationAroundCenterMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _rotation_around_center: Int
 
     @final

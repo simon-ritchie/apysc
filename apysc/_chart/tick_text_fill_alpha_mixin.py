@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class TickTextFillAlphaMixIn:
-
     _tick_text_fill_alpha: Number
 
     @final

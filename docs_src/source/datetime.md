@@ -14,6 +14,7 @@ The constructor requires the `year`, `month`, and `day` arguments, as follows:
 # runnable
 import apysc as ap
 
+ap.Stage()
 dt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
 ```
 
@@ -23,6 +24,7 @@ Also, it has the optional `hour`, `minute`, `second`, and `millisecond` argument
 # runnable
 import apysc as ap
 
+ap.Stage()
 dt: ap.DateTime = ap.DateTime(
     year=2022, month=12, day=5, hour=10, minute=30, second=50, millisecond=500
 )
@@ -36,6 +38,7 @@ For instance, the `month` value can get or set via the properties:
 # runnable
 import apysc as ap
 
+ap.Stage()
 dt: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
 assert dt.month == 12
 dt.month = ap.Int(10)
@@ -100,6 +103,7 @@ The class for datetime-related interfaces.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(
 ...     year=2022,
 ...     month=12,

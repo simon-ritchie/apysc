@@ -26,7 +26,6 @@ class RotationAroundPointMixIn(
     AnimationRotationAroundPointMixIn,
     RevertMixIn,
 ):
-
     _rotation_around_point: Dictionary[str, Int]
 
     @final

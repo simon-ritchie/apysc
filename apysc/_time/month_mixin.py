@@ -16,7 +16,6 @@ from apysc._validation import arg_validation_decos
 
 
 class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
-
     _initial_month: Union[int, Int]
     _month: Int
 
@@ -77,6 +76,7 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
         >>> datetime_.month
         Int(12)

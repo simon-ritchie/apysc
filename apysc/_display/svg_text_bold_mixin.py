@@ -14,7 +14,6 @@ class SVGTextBoldMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-
     _bold: bool = False
 
     @property

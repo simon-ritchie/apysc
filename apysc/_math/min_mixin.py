@@ -44,6 +44,7 @@ class MinMixIn:
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> arr: ap.Array = ap.Array([10, 9.5, ap.Int(8), ap.Number(8.5)])
         >>> min_value: ap.Number = ap.Math.min(values=arr)
         >>> min_value

@@ -23,7 +23,6 @@ _DataType = Union[
 
 
 class SetInitialMatrixDataMixIn:
-
     _matrix_data: Array[Dictionary[String, Union[Int, Number, String]]]
 
     @final

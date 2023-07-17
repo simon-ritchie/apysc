@@ -50,6 +50,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
     --------
     >>> from typing_extensions import TypedDict
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> class RectOptions(TypedDict):
     ...     rectangle: ap.Rectangle
     ...
@@ -132,6 +133,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         --------
         >>> from typing_extensions import TypedDict
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> class RectOptions(TypedDict):
         ...     rectangle: ap.Rectangle
         ...
@@ -229,6 +231,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
         ...     pass
         >>> timer: ap.Timer = ap.Timer(on_timer, delay=33.3, repeat_count=50)
@@ -259,6 +262,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
         ...     pass
         >>> timer: ap.Timer = ap.Timer(on_timer, delay=33.3, repeat_count=50)
@@ -283,6 +287,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
         ...     pass
         >>> timer: ap.Timer = ap.Timer(on_timer, delay=33.3, repeat_count=50)
@@ -311,6 +316,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
         ...     timer: ap.Timer = e.this
         ...     ap.trace(timer.current_count)
@@ -334,6 +340,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
         ...     pass
         >>> _ = ap.Timer(on_timer, delay=33.3, repeat_count=50).start()
@@ -462,6 +469,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         --------
         >>> from typing_extensions import TypedDict
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> class RectOptions(TypedDict):
         ...     rectangle: ap.Rectangle
         ...
@@ -530,6 +538,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         --------
         >>> from typing_extensions import TypedDict
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> class RectOptions(TypedDict):
         ...     rectangle: ap.Rectangle
         ...
@@ -587,6 +596,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         --------
         >>> from typing_extensions import TypedDict
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> class RectOptions(TypedDict):
         ...     rectangle: ap.Rectangle
         ...

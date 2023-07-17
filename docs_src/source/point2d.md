@@ -14,6 +14,7 @@ The `Point2D` class constructor requires the `x` and `y` arguments. Both paramet
 # runnable
 import apysc as ap
 
+ap.Stage()
 point_1: ap.Point2D = ap.Point2D(x=10, y=20)
 
 x: ap.Int = ap.Int(10)
@@ -29,6 +30,7 @@ The `Point2D` class `x` and `y` property interfaces returns the `Int` type value
 # runnable
 import apysc as ap
 
+ap.Stage()
 point: ap.Point2D = ap.Point2D(x=10, y=20)
 assert point.x == 10
 assert point.y == 20
@@ -42,6 +44,7 @@ The `x` and `y` property can be updated with an `Int` type value, as follows:
 # runnable
 import apysc as ap
 
+ap.Stage()
 point: ap.Point2D = ap.Point2D(x=10, y=20)
 point.x = ap.Number(30)
 assert point.x == 30

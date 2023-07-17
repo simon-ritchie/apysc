@@ -23,7 +23,6 @@ class EllipseWidthMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _ellipse_width: Int
 
     @final

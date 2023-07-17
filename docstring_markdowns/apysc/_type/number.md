@@ -16,6 +16,7 @@ The `Float` class is the alias of the Number, and it behaves the same as the Num
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> number: ap.Number = ap.Number(10.5)
 >>> number
 Number(10.5)
@@ -74,6 +75,7 @@ The `Float` class is the alias of the Number, and it behaves the same as the Num
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> number: ap.Number = ap.Number(10.5)
 >>> number
 Number(10.5)

@@ -16,7 +16,6 @@ from apysc._validation import arg_validation_decos
 
 
 class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
-
     _initial_minute: Union[int, Int]
     _minute: Int
 
@@ -76,6 +75,7 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, minute=30)
         >>> datetime_.minute
         Int(30)
@@ -107,6 +107,7 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, minute=30)
         >>> datetime_.minute
         Int(30)

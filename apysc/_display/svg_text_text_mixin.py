@@ -17,7 +17,6 @@ class SVGTextTextMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-
     _text: str = ""
 
     @property

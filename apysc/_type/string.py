@@ -29,7 +29,9 @@ from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._validation.validate_stage_is_created_mixin import ValidateStageIsCreatedMixIn
+from apysc._validation.validate_stage_is_created_mixin import (
+    ValidateStageIsCreatedMixIn,
+)
 
 
 class String(

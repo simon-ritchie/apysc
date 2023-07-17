@@ -24,7 +24,6 @@ class LineThicknessMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _line_thickness: Int
 
     @final

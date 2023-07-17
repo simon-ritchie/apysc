@@ -9,7 +9,6 @@ from apysc._validation import arg_validation_decos
 
 
 class YAxisContainerMixIn:
-
     _y_axis_container: Sprite
 
     @final

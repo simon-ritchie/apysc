@@ -14,7 +14,6 @@ from apysc._validation import arg_validation_decos
 
 
 class LineDashSettingMixIn(VariableNameMixIn, RevertMixIn):
-
     _line_dash_setting: Optional[LineDashSetting]
 
     @final

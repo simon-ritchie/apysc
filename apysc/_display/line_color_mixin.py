@@ -24,7 +24,6 @@ class LineColorMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _line_color: String
 
     @property

@@ -8,7 +8,6 @@ from apysc._type import type_util
 
 
 class TestNumber:
-
     @apply_test_settings()
     def test___init__(self) -> None:
         number_1: ap.Number = ap.Number(value=100, variable_name_suffix="test_number")

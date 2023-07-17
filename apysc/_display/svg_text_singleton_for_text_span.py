@@ -10,7 +10,6 @@ if TYPE_CHECKING:
 
 
 class SVGTextSingletonForTextSpan:
-
     _stage_id_key_svg_texts: Dict[int, "SVGText"] = {}
 
     @classmethod

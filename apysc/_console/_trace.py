@@ -66,7 +66,6 @@ _temporary_outer_frames_index_adjustments: Optional[int] = None
 
 
 class TemporaryOuterFramesIndexAdjustment:
-
     _temporary_outer_frames_index_adjustments: int
 
     @final

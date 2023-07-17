@@ -1,4 +1,3 @@
-import apysc as ap
 from apysc._display.any_display_object import AnyDisplayObject
 from apysc._expression import expression_data_util
 from apysc._expression import var_names

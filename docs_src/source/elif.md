@@ -18,6 +18,7 @@ The `Elif` class requires using the `with` statement. Also, The `Elif` class sta
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 condition_1: ap.Boolean = ap.Boolean(False)
@@ -35,6 +36,7 @@ If you insert the code between the `If` (or `Elif`) and `Elif` statements, then 
 ```py
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 condition_1: ap.Boolean = ap.Boolean(False)
@@ -56,6 +58,7 @@ Also, you can't create the condition (`Boolean` value) at the `Elif` constructor
 ```py
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 
 condition_1: ap.Boolean = ap.Boolean(False)

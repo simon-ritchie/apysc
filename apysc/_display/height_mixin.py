@@ -24,7 +24,6 @@ class HeightMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _height: Int
 
     @final

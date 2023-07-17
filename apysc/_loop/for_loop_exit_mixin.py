@@ -11,7 +11,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 
 
 class ForLoopExitMixIn:
-
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
     _snapshot_name: str

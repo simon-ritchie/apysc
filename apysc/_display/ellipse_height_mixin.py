@@ -23,7 +23,6 @@ class EllipseHeightMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _ellipse_height: Int
 
     @final

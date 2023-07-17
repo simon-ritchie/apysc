@@ -13,7 +13,6 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class AxisLabelFillColorMixIn:
-
     _axis_label_fill_color: String
 
     @final

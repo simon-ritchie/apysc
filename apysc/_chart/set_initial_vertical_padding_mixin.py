@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class SetInitialVerticalPaddingMixIn:
-
     _vertical_padding: Int
 
     @final

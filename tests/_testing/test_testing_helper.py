@@ -21,7 +21,6 @@ def test_make_blank_file() -> None:
 @apply_test_settings()
 def test__assert_has_attr() -> None:
     class _TestClass:
-
         a: int = 10
 
     test_instance: _TestClass = _TestClass()
@@ -39,7 +38,6 @@ def test__assert_has_attr() -> None:
 @apply_test_settings()
 def test_assert_attrs() -> None:
     class _TestClass:
-
         a: int = 10
         b: str = ""
 
@@ -78,7 +76,6 @@ def test_assert_raises() -> None:
 @apply_test_settings()
 def test_assert_attrs_type() -> None:
     class _TestClass:
-
         a: int = 10
         b: str = ""
 

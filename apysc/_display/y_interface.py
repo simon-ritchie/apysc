@@ -9,7 +9,6 @@ from apysc._type.number import Number
 
 
 class YInterface(ABC):
-
     _y: Number
 
     @property

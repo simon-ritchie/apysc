@@ -23,7 +23,6 @@ class SkewXMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _skew_x: Int
 
     @final

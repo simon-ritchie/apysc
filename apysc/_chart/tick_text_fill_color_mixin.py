@@ -13,7 +13,6 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class TickTextFillColorMixIn:
-
     _tick_text_fill_color: String
 
     @final

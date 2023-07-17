@@ -22,7 +22,6 @@ _Handler = Callable[[MouseEvent, _Options], None]
 
 
 class ClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin):
-
     _click_handlers: Dict[str, HandlerData[MouseEvent]]
 
     @final

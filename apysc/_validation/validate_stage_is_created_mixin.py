@@ -19,7 +19,8 @@ class ValidateStageIsCreatedMixIn:
         StageNotCreatedError
             If there is no instantiated stage yet.
         """
-        from apysc._display.stage import is_stage_created, StageNotCreatedError
+        from apysc._display.stage import StageNotCreatedError
+        from apysc._display.stage import is_stage_created
 
         if is_stage_created():
             return

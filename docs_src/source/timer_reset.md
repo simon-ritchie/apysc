@@ -117,6 +117,7 @@ Reset the timer count and stop this timer.<hr>
 ```py
 >>> from typing_extensions import TypedDict
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> class RectOptions(TypedDict):
 ...     rectangle: ap.Rectangle
 ...

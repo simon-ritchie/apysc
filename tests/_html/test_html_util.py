@@ -102,7 +102,6 @@ def test_is_script_end_tag_line() -> None:
 
 
 class TestScriptLineUtil:
-
     _TEST_HTML: str = (
         "<html>"
         '\n<script type="text/javascript">'

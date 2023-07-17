@@ -15,7 +15,6 @@ class SVGTextLeadingMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-
     _leading: float = 1.5
 
     @property

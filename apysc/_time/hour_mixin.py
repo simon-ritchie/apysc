@@ -16,7 +16,6 @@ from apysc._validation import arg_validation_decos
 
 
 class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
-
     _initial_hour: Union[int, Int]
     _hour: Int
 
@@ -76,6 +75,7 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)
         >>> datetime_.hour
         Int(5)

@@ -18,6 +18,7 @@ The `Else` requires using the `with` statement. The `Else` class statement is on
 # runnable
 import apysc as ap
 
+ap.Stage()
 condition: ap.Boolean = ap.Boolean(False)
 int_1: ap.Int = ap.Int(10)
 
@@ -34,6 +35,7 @@ If you insert the code between the `If` (or `Elif`) and `Else` statements, it ra
 ```py
 import apysc as ap
 
+ap.Stage()
 condition: ap.Boolean = ap.Boolean(False)
 int_1: ap.Int = ap.Int(10)
 

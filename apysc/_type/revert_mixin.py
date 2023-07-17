@@ -17,7 +17,6 @@ _SnapshotValue = TypeVar("_SnapshotValue")
 
 
 class RevertMixIn(RevertInterface):
-
     _snapshot_exists_: Dict[str, bool]
 
     def _initialize_ss_exists_val_if_not_initialized(self) -> None:

@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class SetInitialYMixIn:
-
     _y: Number
 
     @final

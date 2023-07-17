@@ -19,7 +19,6 @@ from apysc._validation import arg_validation_decos
 
 
 class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMixIn):
-
     _line_joints: String
 
     @final

@@ -151,6 +151,7 @@ This interface is used instead of assert_equal for Array class comparison (JavaS
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr_1: ap.Array = ap.Array([1, 2, 3])
 >>> arr_2: ap.Array = ap.Array([1, 2, 3])
 >>> ap.assert_arrays_equal(arr_1, arr_2)
@@ -187,6 +188,7 @@ This interface is used instead of assert_not_equal for Array class comparison (J
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> arr_1: ap.Array = ap.Array([1, 2, 3])
 >>> arr_2: ap.Array = ap.Array([4, 5, 6])
 >>> ap.assert_arrays_not_equal(arr_1, arr_2)

@@ -12,7 +12,6 @@ from apysc._validation import arg_validation_decos
 
 
 class SetInitialBackgroundFillAlphaMixIn:
-
     _background_fill_alpha: Number
 
     @final

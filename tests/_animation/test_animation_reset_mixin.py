@@ -1,7 +1,6 @@
 from apysc._animation.animation_reset_mixin import AnimationResetMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 class TestAnimationResetMixIn:

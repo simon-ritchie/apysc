@@ -12,7 +12,6 @@ from apysc._validation import arg_validation_decos
 
 
 class YAxisColumnNameMixIn:
-
     _y_axis_column_name: String
 
     @final

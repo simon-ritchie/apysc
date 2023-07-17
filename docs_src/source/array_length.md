@@ -14,6 +14,7 @@ The `length` property has the only getter interface. The return value type is th
 # runnable
 import apysc as ap
 
+ap.Stage()
 arr: ap.Array[int] = ap.Array([1, 2, 3, 4])
 length: ap.Int = arr.length
 assert length == 4

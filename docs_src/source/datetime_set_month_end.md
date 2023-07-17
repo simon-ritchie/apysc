@@ -16,6 +16,7 @@ This method interface requires no arguments.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5)
 datetime_.set_month_end()
 assert datetime_.day == 31

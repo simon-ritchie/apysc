@@ -14,7 +14,6 @@ from apysc._validation import arg_validation_decos
 
 
 class LineDashDotSettingMixIn(VariableNameMixIn, RevertMixIn):
-
     _line_dash_dot_setting: Optional[LineDashDotSetting]
 
     @final

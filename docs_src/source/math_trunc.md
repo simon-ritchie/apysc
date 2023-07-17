@@ -19,6 +19,7 @@ If an argument is a `Boolean` value, this interface returns 0 or 1 `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))
 assert result_int == 10
 
@@ -62,6 +63,7 @@ Truncate a fraction value from a specified value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> result_int: ap.Int = ap.Math.trunc(value=ap.Int(10))
 >>> result_int
 Int(10)

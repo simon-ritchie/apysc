@@ -8,7 +8,6 @@ from typing import Tuple
 
 
 class LastScope(Enum):
-
     NORMAL = 1
     IF = 2
     ELIF = 3

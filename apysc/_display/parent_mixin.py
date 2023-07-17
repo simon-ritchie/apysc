@@ -16,7 +16,6 @@ if TYPE_CHECKING:
 
 
 class ParentMixIn(RevertMixIn):
-
     _parent: Optional["ChildMixIn"] = None
 
     @property

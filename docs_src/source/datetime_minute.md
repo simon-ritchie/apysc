@@ -16,6 +16,7 @@ Its getter interface returns a minute's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, minute=30)
 minute: ap.Int = datetime_.minute
 assert minute == 30
@@ -29,6 +30,7 @@ Also, its setter interface accepts a minute's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, minute=30)
 datetime_.minute = ap.Int(50)
 assert datetime_.minute == 50
@@ -55,6 +57,7 @@ Get a current minute's value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, minute=30)
 >>> datetime_.minute
 Int(30)

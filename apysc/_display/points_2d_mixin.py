@@ -19,7 +19,6 @@ from apysc._validation import arg_validation_decos
 
 
 class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMixIn):
-
     _points: Array[Point2D]
 
     @final

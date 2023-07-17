@@ -34,7 +34,6 @@ class SVGTextAlignMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-
     _align: SVGTextAlign = SVGTextAlign.LEFT
 
     @property

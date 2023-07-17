@@ -15,7 +15,6 @@ from apysc._testing.testing_helper import apply_test_settings
 
 
 class IfSubClass(IfBase):
-
     _entered: bool = False
     _last_scope_is_set: bool = False
 

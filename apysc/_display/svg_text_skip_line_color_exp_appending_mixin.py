@@ -12,7 +12,6 @@ from apysc._type.string import String
 
 
 class SVGTextSkipLineColorExpAppendingMixIn:
-
     _skip_line_color_expression_appending: bool = False
 
     @final

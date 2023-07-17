@@ -24,7 +24,6 @@ class RadiusMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _radius: Int
 
     @final

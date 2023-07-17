@@ -23,7 +23,6 @@ class FlipXMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _flip_x: Boolean
 
     @final

@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class TickTextFontSizeMixIn:
-
     _tick_text_font_size: Int
 
     @final

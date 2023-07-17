@@ -31,7 +31,6 @@ class AnimationBase(
     Generic[_Target],
     ABC,
 ):
-
     _target: _Target
     _duration: Int
     _delay: Int

@@ -107,7 +107,6 @@ class BodyText:
 
 
 class CodeBlock:
-
     _code_block: str
     _overall_code_block: str
     _code_type: str = ""

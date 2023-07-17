@@ -12,6 +12,7 @@ For example, the following code of the condition is `False`\, but the value of i
 # runnable
 import apysc as ap
 
+ap.Stage()
 condition: ap.Boolean = ap.Boolean(False)
 int_1: ap.Int = ap.Int(10)
 
@@ -32,6 +33,7 @@ This interface is occasionally helpful when you don't want to update the variabl
 # runnable
 import apysc as ap
 
+ap.Stage()
 condition: ap.Boolean = ap.Boolean(False)
 int_1: ap.Int = ap.Int(10)
 

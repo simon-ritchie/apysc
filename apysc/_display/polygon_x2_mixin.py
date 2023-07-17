@@ -9,7 +9,6 @@ from apysc._type.number import Number
 
 
 class PolygonX2MixIn(PolygonApplyCurrentPointsMixIn):
-
     _x2: Number
 
     @property

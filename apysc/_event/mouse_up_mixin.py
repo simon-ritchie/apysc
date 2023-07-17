@@ -22,7 +22,6 @@ _Handler = Callable[[MouseEvent, _Options], None]
 
 
 class MouseUpMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin):
-
     _mouse_up_handlers: Dict[str, HandlerData[MouseEvent]]
 
     @final

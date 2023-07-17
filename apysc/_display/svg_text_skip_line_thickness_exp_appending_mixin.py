@@ -12,7 +12,6 @@ from apysc._type.int import Int
 
 
 class SVGTextSkipLineThicknessExpAppendingMixIn:
-
     _skip_line_thickness_expression_appending: bool = False
 
     @final

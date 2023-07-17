@@ -13,7 +13,6 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class AxisLineColorMixIn:
-
     _line_color: String
 
     @final

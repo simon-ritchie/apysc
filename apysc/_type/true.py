@@ -13,7 +13,6 @@ class _True(
     BoolConstMixIn,
     Boolean,
 ):
-
     _value: Final[bool] = True
 
     @final

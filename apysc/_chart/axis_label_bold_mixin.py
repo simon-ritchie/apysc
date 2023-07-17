@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AxisLabelBoldMixIn:
-
     _axis_label_bold: Boolean
 
     @final

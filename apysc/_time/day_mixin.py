@@ -16,7 +16,6 @@ from apysc._validation import arg_validation_decos
 
 
 class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
-
     _initial_day: Union[int, Int]
     _day: Int
 
@@ -76,6 +75,7 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
         >>> datetime_.day
         Int(1)
@@ -106,6 +106,7 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1)
         >>> datetime_.day
         Int(1)

@@ -20,7 +20,6 @@ _Attr = Union[Int, Number, String, Boolean]
 
 
 class AttrLinkingMixIn:
-
     _attr_linking_stack: Dict[_AttrName, List[_Attr]]
 
     @final

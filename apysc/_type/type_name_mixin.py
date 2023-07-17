@@ -3,7 +3,6 @@
 
 
 class TypeNameMixIn:
-
     _type_name: str
 
     @property

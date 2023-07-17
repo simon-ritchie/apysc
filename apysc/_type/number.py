@@ -15,7 +15,9 @@ from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
-from apysc._validation.validate_stage_is_created_mixin import ValidateStageIsCreatedMixIn
+from apysc._validation.validate_stage_is_created_mixin import (
+    ValidateStageIsCreatedMixIn,
+)
 
 
 class Number(

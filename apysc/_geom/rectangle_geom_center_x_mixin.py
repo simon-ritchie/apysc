@@ -6,7 +6,6 @@ from apysc._type.number import Number
 
 
 class RectangleGeomCenterXMixIn:
-
     _center_x: Number
 
     @property

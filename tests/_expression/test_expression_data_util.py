@@ -3,6 +3,7 @@ from typing import Optional
 from typing import Tuple
 
 import apysc as ap
+from apysc._display import stage
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._expression import indent_num
@@ -11,7 +12,6 @@ from apysc._expression.indent_num import Indent
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._display import stage
 
 
 @apply_test_settings()

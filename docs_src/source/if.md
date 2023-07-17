@@ -18,6 +18,7 @@ The `If` class requires the `with` statement as follows:
 # runnable
 import apysc as ap
 
+ap.Stage()
 condition: ap.Boolean = ap.Boolean(True)
 with ap.If(condition):
     ...

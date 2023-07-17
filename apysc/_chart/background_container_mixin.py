@@ -9,7 +9,6 @@ from apysc._validation import arg_validation_decos
 
 
 class BackgroundContainerMixIn:
-
     _background_container: Sprite
 
     @final

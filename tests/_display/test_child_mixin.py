@@ -144,7 +144,6 @@ class TestChildMixIn:
 
     @apply_test_settings()
     def test__make_snapshot(self) -> None:
-
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)

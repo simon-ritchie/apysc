@@ -12,7 +12,6 @@ from apysc._validation import arg_validation_decos
 
 
 class TickTextMaxNumOfDecimalPlacesMixIn:
-
     _tick_text_max_num_of_decimal_places: Int
 
     @final

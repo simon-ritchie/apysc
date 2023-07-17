@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class TickTextBoldMixIn:
-
     _tick_text_bold: Boolean
 
     @final

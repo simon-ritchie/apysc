@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class AxisLabelFontSizeMixIn:
-
     _axis_label_font_size: Int
 
     @final

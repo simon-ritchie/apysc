@@ -35,7 +35,6 @@ from typing_extensions import TypedDict
 
 
 class HashType(Enum):
-
     AUTOFLAKE = "autoflake"
     ISORT = "isort"
     DOCSTRING_SRC = "docstring_src"

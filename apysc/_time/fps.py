@@ -8,7 +8,6 @@ from typing_extensions import final
 
 
 class FPSDefinition:
-
     _fps: int
     _millisecond_interval: Union[int, float]
 
@@ -52,6 +51,7 @@ class FPS(Enum):
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
     ...     pass
     >>> ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()

@@ -11,7 +11,6 @@ from apysc._validation import arg_validation_decos
 
 
 class SetInitialHorizontalPaddingMixIn:
-
     _horizontal_padding: Int
 
     @final

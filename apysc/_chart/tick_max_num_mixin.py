@@ -12,7 +12,6 @@ from apysc._validation import arg_validation_decos
 
 
 class TickMaxNumMixIn:
-
     _tick_max_num: Optional[Int]
 
     @final

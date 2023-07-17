@@ -18,7 +18,6 @@ from apysc._type.string import String
 
 
 class GraphicsClearMixIn:
-
     _fill_color: String
     _fill_alpha: Number
     _line_color: String

@@ -16,6 +16,7 @@ Its getter interface returns a second's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)
 second: ap.Int = datetime_.second
 assert second == 30
@@ -29,6 +30,7 @@ Also, its setter interface accepts a second's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, second=30)
 datetime_.second = ap.Int(50)
 assert datetime_.second == 50
@@ -55,6 +57,7 @@ Get a current second's value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, second=30)
 >>> datetime_.second
 Int(30)

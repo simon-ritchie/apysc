@@ -16,6 +16,7 @@ Its getter interface returns an hour's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)
 hour: ap.Int = datetime_.hour
 assert hour == 10
@@ -29,6 +30,7 @@ Also, its setter interface accepts an hour's `Int` value.
 # runnable
 import apysc as ap
 
+ap.Stage()
 datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=5, hour=10)
 datetime_.hour = ap.Int(15)
 assert datetime_.hour == 15
@@ -55,6 +57,7 @@ Get a current hour's value.<hr>
 
 ```py
 >>> import apysc as ap
+>>> _ = ap.Stage()
 >>> datetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=1, hour=5)
 >>> datetime_.hour
 Int(5)

@@ -178,10 +178,8 @@ def apply_test_settings(
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-
             result: Any = None
             for i in range(retrying_max_attempts_num + 1):
-
                 if i < retrying_max_attempts_num:
                     try:
                         ap.Stage()

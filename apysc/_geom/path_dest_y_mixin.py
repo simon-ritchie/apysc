@@ -23,7 +23,6 @@ class PathDestYMixIn(
     AttrLinkingMixIn,
     VariableNameSuffixMixIn,
 ):
-
     _dest_y: Number
 
     @final

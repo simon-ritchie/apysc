@@ -1,7 +1,6 @@
 from apysc._event.stop_propagation_mixin import StopPropagationMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 class TestStopPropagationMixIn:

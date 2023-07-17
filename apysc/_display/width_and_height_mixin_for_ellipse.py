@@ -35,7 +35,6 @@ class WidthAndHeightMixInForEllipse(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-
     _width: Int
     _height: Int
 

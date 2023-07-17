@@ -62,6 +62,7 @@ class Dictionary(
     Examples
     --------
     >>> import apysc as ap
+    >>> _ = ap.Stage()
     >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
     >>> dictionary
     Dictionary({'a': 10})
@@ -119,6 +120,7 @@ class Dictionary(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
         >>> dictionary
         Dictionary({'a': 10})
@@ -221,6 +223,7 @@ class Dictionary(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> dictionary: ap.Dictionary = ap.Dictionary({})
         >>> dictionary.value = {"a": 10}
         >>> dictionary.value
@@ -347,6 +350,7 @@ class Dictionary(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 1, "b": 2})
         >>> dictionary.length
         Int(2)
@@ -701,6 +705,7 @@ class Dictionary(
         --------
         >>> from typing import Optional
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> dictionary: ap.Dictionary = ap.Dictionary({"a": 10})
         >>> value_1: Optional[int] = dictionary.get("a")
         >>> value_1

@@ -18,6 +18,7 @@ The `Dictionary` class constructor method requires a Python built-in `dict` or `
 # runnable
 import apysc as ap
 
+ap.Stage()
 dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
 assert dict_1 == {"a": 10}
 
@@ -33,6 +34,7 @@ A `Dictionary` value can be updated by indexing, like the Python built-in `dict`
 # runnable
 import apysc as ap
 
+ap.Stage()
 dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
 dict_1["a"] = 20
 assert dict_1 == {"a": 20}
@@ -46,6 +48,7 @@ A `Dictionary` value also can be retrieved by indexing:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
 int_2: ap.Int = dict_1["a"]
@@ -61,6 +64,7 @@ If a `Dictionary` value doesn't have the specified key, a retrieved value type b
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
 retrieved_val: ap.AnyValue = dict_1["b"]
@@ -75,6 +79,7 @@ A `Dictionary` value can be deleted by the `del` statement, as follows:
 # runnable
 import apysc as ap
 
+ap.Stage()
 int_1: ap.Int = ap.Int(10)
 dict_1: ap.Dictionary = ap.Dictionary({"a": int_1})
 del dict_1["a"]

@@ -10,6 +10,7 @@ You can specify the key and value's type at the `Dictionary` type-annotation, as
 # runnable
 import apysc as ap
 
+ap.Stage()
 dict_value: ap.Dictionary[str, int] = ap.Dictionary({"a": 10})
 a_value: int = dict_value["a"]
 ```

@@ -14,6 +14,7 @@ The `length` property interface returns the `Int` value. There is no setter inte
 # runnable
 import apysc as ap
 
+ap.Stage()
 dict_1: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
 assert dict_1.length == 2
 assert isinstance(dict_1.length, ap.Int)

@@ -24,6 +24,7 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._validation.validate_stage_is_created_mixin import ValidateStageIsCreatedMixIn
 
 
 class Boolean(
@@ -36,6 +37,7 @@ class Boolean(
     InitializeForLoopKeyOrValueInterface,
     HashableInterface,
     ToNumberMixIn,
+    ValidateStageIsCreatedMixIn,
 ):
     """
     Boolean class for the apysc library.
@@ -110,6 +112,7 @@ class Boolean(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> bool_val_1: ap.Boolean = ap.Boolean(True)
         >>> bool_val_1
         Boolean(True)
@@ -121,6 +124,8 @@ class Boolean(
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+
+        self._validate_stage_is_created()
 
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix
@@ -233,6 +238,7 @@ class Boolean(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> bool_val: ap.Boolean = ap.Boolean(True)
         >>> bool_val.value = False
         >>> bool_val.value
@@ -521,6 +527,7 @@ class Boolean(
         Examples
         --------
         >>> import apysc as ap
+        >>> _ = ap.Stage()
         >>> bool_val: ap.Boolean = ap.Boolean(True)
         >>> bool_val.not_
         Boolean(False)

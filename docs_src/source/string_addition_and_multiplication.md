@@ -10,6 +10,7 @@ The `String` class addition operation (`+`) returns the concatenated `String` va
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 string_2: ap.String = string_1 + " World!"
 assert string_2 == "Hello World!"
@@ -22,6 +23,7 @@ Also, the `+=` operator is supported:
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 string_1 += " World!"
 assert string_1 == "Hello World!"
@@ -33,6 +35,7 @@ A `String` value + Python built-in `str` operation is supported. Similarly, a `S
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 string_2: ap.String = ap.String(" World!")
 string_3: ap.String = string_1 + string_2
@@ -44,6 +47,7 @@ But a Python built-in `str` + `String` value is not supported; for instance, the
 ```py
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String(" World!")
 string_2: ap.String = "Hello" + string_1
 ```
@@ -60,6 +64,7 @@ The `String` class multiplication operation (`*`) returns the repeated `String` 
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 string_2: ap.String = string_1 * 3
 assert string_2 == "HelloHelloHello"
@@ -71,6 +76,7 @@ The `int` or `Int` values are acceptable at the operation's right-side value:
 # runnable
 import apysc as ap
 
+ap.Stage()
 string_1: ap.String = ap.String("Hello")
 int_1: ap.Int = ap.Int(3)
 string_2: ap.String = string_1 * int_1

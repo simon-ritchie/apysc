@@ -70,7 +70,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Update each lint badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
+        uses: RubbaBoy/BYOB@v1.3.0
         with:
           name: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
           label: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
@@ -78,7 +78,7 @@ jobs:
           color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the passing unit tests Python versions status
-        uses: RubbaBoy/BYOB@v1.2.1
+        uses: RubbaBoy/BYOB@v1.3.0
         with:
           name: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
           label: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
@@ -421,7 +421,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Update each lint badge status
-        uses: RubbaBoy/BYOB@v1.2.1
+        uses: RubbaBoy/BYOB@v1.3.0
         with:
           name: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
           label: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
@@ -431,7 +431,7 @@ jobs:
       - name: Echo the passing unit tests number value
         run: echo ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.COVERAGE }}
       - name: Update tests line coverage
-        uses: RubbaBoy/BYOB@v1.2.1
+        uses: RubbaBoy/BYOB@v1.3.0
         with:
           name: unit_tests_coverage
           label: 'unit tests coverage'
@@ -441,7 +441,7 @@ jobs:
       - name: Echo the passing unit tests number value
         run: echo ${{ needs.RunTestsAndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
       - name: Update the passing unit tests number
-        uses: RubbaBoy/BYOB@v1.2.1
+        uses: RubbaBoy/BYOB@v1.3.0
         with:
           name: passing_unit_tests_num
           label: 'passing unit tests number'
@@ -449,7 +449,7 @@ jobs:
           color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the passsing doctests number
-        uses: RubbaBoy/BYOB@v1.2.1
+        uses: RubbaBoy/BYOB@v1.3.0
         with:
           name: passing_doctests_num
           label: 'passing doctests number'
@@ -457,7 +457,7 @@ jobs:
           color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the passing unit tests Python versions status
-        uses: RubbaBoy/BYOB@v1.2.1
+        uses: RubbaBoy/BYOB@v1.3.0
         with:
           name: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
           label: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'

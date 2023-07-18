@@ -46,7 +46,7 @@ jobs:
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site-packages-path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Set the Python package cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: pip_cache
         with:
           path: ${{ env.site-packages-path }}
@@ -59,7 +59,7 @@ jobs:
         run: pip install -r requirements.txt
       - name: Set the bin cache if there is no site-packages cache
         if: steps.pip_cache.outputs.cache-hit != 'true'
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/
           key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}

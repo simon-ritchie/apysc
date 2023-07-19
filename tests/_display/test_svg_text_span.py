@@ -93,9 +93,7 @@ class TestSVGTextSpan:
 
     @apply_test_settings()
     def test__initialize_with_base_value(self) -> None:
-        svg_text_span_: ap.SVGTextSpan = (
-            ap.SVGTextSpan._initialize_with_base_value()
-        )
+        svg_text_span_: ap.SVGTextSpan = ap.SVGTextSpan._initialize_with_base_value()
         assert svg_text_span_.text == ap.String("")
         assert svg_text_span_.visible == ap.Boolean(False)
 

@@ -10,7 +10,5 @@ class TestInitializeWithBaseValueInterface:
     def test__initialize_with_base_value(self) -> None:
         assert_raises(
             expected_error_class=NotImplementedError,
-            callable_=(
-                InitializeWithBaseValueInterface._initialize_with_base_value
-            ),
+            callable_=(InitializeWithBaseValueInterface._initialize_with_base_value),
         )

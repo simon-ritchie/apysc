@@ -168,9 +168,7 @@ class ForDictValues(
         self._snapshot_name = revert_mixin.make_snapshots_of_each_scope_vars(
             locals_=self._locals, globals_=self._globals
         )
-        dict_value: _DictValue = (
-            self._dict_value_type._initialize_with_base_value()
-        )
+        dict_value: _DictValue = self._dict_value_type._initialize_with_base_value()
         dict_value_variable_name: str = validate_variable_name_mixin_type(
             instance=dict_value,
         ).variable_name

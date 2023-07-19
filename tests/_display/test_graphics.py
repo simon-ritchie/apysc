@@ -416,7 +416,7 @@ class TestGraphics:
         assert triangle._variable_name_suffix == "test_triangle"
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        graphics: Graphics = Graphics._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        graphics: Graphics = Graphics._initialize_with_base_value()
         assert isinstance(graphics.parent, ap.Sprite)
         assert graphics.visible == ap.Boolean(False)

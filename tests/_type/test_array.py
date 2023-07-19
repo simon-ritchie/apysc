@@ -684,6 +684,6 @@ class TestArray:
         assert expression == f"{arr_1.variable_name} = {arr_2.variable_name};"
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        arr_value: ap.Array = ap.Array._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        arr_value: ap.Array = ap.Array._initialize_with_base_value()
         assert arr_value == ap.Array([])

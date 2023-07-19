@@ -190,10 +190,10 @@ class ForDictKeysAndValues(
         )
         dict_key: _DictKey = cast(
             _DictKey,
-            self._dict_key_type._initialize_for_loop_key_or_value(),
+            self._dict_key_type._initialize_with_base_value(),
         )
         dict_value: _DictValue = (
-            self._dict_value_type._initialize_for_loop_key_or_value()
+            self._dict_value_type._initialize_with_base_value()
         )
         dict_value_variable_name: str = validate_variable_name_mixin_type(
             instance=dict_value,

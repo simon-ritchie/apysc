@@ -453,7 +453,7 @@ Get a (Python's) str value from a specified value.<hr>
 - `value`: str
   - Python's built-in str value.
 
-### `_initialize_for_loop_key_or_value` method docstring
+### `_initialize_with_base_value` method docstring
 
 Initialize this instance for a loop key or value.<hr>
 

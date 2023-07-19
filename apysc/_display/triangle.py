@@ -451,7 +451,7 @@ class Triangle(
 
     @classmethod
     @final
-    def _initialize_for_loop_key_or_value(cls) -> "Triangle":
+    def _initialize_with_base_value(cls) -> "Triangle":
         """
         Initialize this instance for a loop key or value.
 

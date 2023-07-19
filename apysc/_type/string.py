@@ -864,7 +864,7 @@ class String(
 
     @classmethod
     @final
-    def _initialize_for_loop_key_or_value(cls) -> "String":
+    def _initialize_with_base_value(cls) -> "String":
         """
         Initialize this instance for a loop key or value.
 

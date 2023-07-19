@@ -435,7 +435,7 @@ class Ellipse(
 
     @classmethod
     @final
-    def _initialize_for_loop_key_or_value(cls) -> "Ellipse":
+    def _initialize_with_base_value(cls) -> "Ellipse":
         """
         Initialize this instance for a loop key or value.
 

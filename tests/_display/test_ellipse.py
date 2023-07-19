@@ -159,8 +159,8 @@ class TestEllipse:
         )
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        ellipse: ap.Ellipse = ap.Ellipse._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        ellipse: ap.Ellipse = ap.Ellipse._initialize_with_base_value()
         assert ellipse.x == ap.Number(-1)
         assert ellipse.y == ap.Number(-1)
         assert ellipse.width == ap.Int(1)

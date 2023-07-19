@@ -1,4 +1,4 @@
-"""The interface implementation for the `_initialize_for_loop_key_or_value` method.
+"""The interface implementation for the `_initialize_with_base_value` method.
 """
 
 from abc import abstractmethod
@@ -8,10 +8,10 @@ from typing import Any
 class InitializeWithBaseValueInterface:
     @classmethod
     @abstractmethod
-    def _initialize_for_loop_key_or_value(cls) -> Any:
+    def _initialize_with_base_value(cls) -> Any:
         """
-        Initialize this instance for a loop key or value.
+        Initialize this instance with a base value(s).
         """
         raise NotImplementedError(
-            "The _initialize_for_loop_key_or_value abstract method must be implemented."
+            "The _initialize_with_base_value abstract method must be implemented."
         )

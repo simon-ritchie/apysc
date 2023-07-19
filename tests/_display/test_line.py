@@ -173,8 +173,8 @@ class TestLine:
         assert line.y == 20
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        line: ap.Line = ap.Line._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        line: ap.Line = ap.Line._initialize_with_base_value()
         assert line._start_point == ap.Point2D(x=-2, y=-2)
         assert line._end_point == ap.Point2D(x=-1, y=-1)
         assert line.visible == ap.Boolean(False)

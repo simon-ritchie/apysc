@@ -93,6 +93,6 @@ class TestSprite:
         assert repr_str == f'Sprite("{sprite.variable_name}")'
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        sprite: ap.Sprite = ap.Sprite._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        sprite: ap.Sprite = ap.Sprite._initialize_with_base_value()
         assert isinstance(sprite, ap.Sprite)

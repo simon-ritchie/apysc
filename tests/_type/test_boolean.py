@@ -311,8 +311,8 @@ class TestBoolean:
         )
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        bool_value: ap.Boolean = ap.Boolean._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        bool_value: ap.Boolean = ap.Boolean._initialize_with_base_value()
         assert bool_value == ap.Boolean(False)
 
     @apply_test_settings()

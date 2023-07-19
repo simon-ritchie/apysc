@@ -137,8 +137,8 @@ class TestTriangle:
         )
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        triangle: ap.Triangle = ap.Triangle._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        triangle: ap.Triangle = ap.Triangle._initialize_with_base_value()
         assert triangle.x1 == ap.Number(-2)
         assert triangle.y1 == ap.Number(-2)
         assert triangle.x2 == ap.Number(-1)

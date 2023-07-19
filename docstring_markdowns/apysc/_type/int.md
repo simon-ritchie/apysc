@@ -120,7 +120,7 @@ Append integer cast (Math.trunc) expression.<hr>
 - `is_number_specified`: bool
   - Boolean value whether a specified value is Number instance or not.
 
-### `_initialize_for_loop_key_or_value` method docstring
+### `_initialize_with_base_value` method docstring
 
 Initialize this instance for a loop key or value.<hr>
 

@@ -374,7 +374,7 @@ class Polygon(
 
     @classmethod
     @final
-    def _initialize_for_loop_key_or_value(cls) -> "Polygon":
+    def _initialize_with_base_value(cls) -> "Polygon":
         """
         Initialize this instance for a loop key or value.
 

@@ -175,7 +175,7 @@ class ForArrayIndicesAndValues(
             locals_=self._locals, globals_=self._globals
         )
         arr_value: _ArrayValue = (
-            self._arr_value_type._initialize_for_loop_key_or_value()
+            self._arr_value_type._initialize_with_base_value()
         )
         arr_value_variable_name: str = validate_variable_name_mixin_type(
             instance=arr_value

@@ -7,10 +7,10 @@ from apysc._testing.testing_helper import assert_raises
 
 class TestInitializeWithBaseValueInterface:
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
+    def test__initialize_with_base_value(self) -> None:
         assert_raises(
             expected_error_class=NotImplementedError,
             callable_=(
-                InitializeWithBaseValueInterface._initialize_for_loop_key_or_value
+                InitializeWithBaseValueInterface._initialize_with_base_value
             ),
         )

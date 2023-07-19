@@ -441,7 +441,7 @@ class Circle(
 
     @classmethod
     @final
-    def _initialize_for_loop_key_or_value(cls) -> "Circle":
+    def _initialize_with_base_value(cls) -> "Circle":
         """
         Initialize this instance for a loop key or value.
 

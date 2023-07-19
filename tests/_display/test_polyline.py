@@ -209,8 +209,8 @@ class TestPolyline:
         assert polyline.y == 20
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
-        polyline: ap.Polyline = ap.Polyline._initialize_for_loop_key_or_value()
+    def test__initialize_with_base_value(self) -> None:
+        polyline: ap.Polyline = ap.Polyline._initialize_with_base_value()
         assert polyline._points == ap.Array(
             [
                 ap.Point2D(x=-2, y=-2),

@@ -169,7 +169,7 @@ class ForDictValues(
             locals_=self._locals, globals_=self._globals
         )
         dict_value: _DictValue = (
-            self._dict_value_type._initialize_for_loop_key_or_value()
+            self._dict_value_type._initialize_with_base_value()
         )
         dict_value_variable_name: str = validate_variable_name_mixin_type(
             instance=dict_value,

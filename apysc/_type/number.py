@@ -193,7 +193,7 @@ class Number(
 
     @classmethod
     @final
-    def _initialize_for_loop_key_or_value(cls) -> "Number":
+    def _initialize_with_base_value(cls) -> "Number":
         """
         Initialize this instance for a loop key or value.
 

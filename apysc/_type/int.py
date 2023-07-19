@@ -214,7 +214,7 @@ class Int(
 
     @classmethod
     @final
-    def _initialize_for_loop_key_or_value(cls) -> "Int":
+    def _initialize_with_base_value(cls) -> "Int":
         """
         Initialize this instance for a loop key or value.
 

@@ -128,7 +128,7 @@ Create a polyline instance with the instance of specified graphics.<hr>
 - `polyline`: Polyline
   - A created polyline instance.
 
-### `_initialize_for_loop_key_or_value` method docstring
+### `_initialize_with_base_value` method docstring
 
 Initialize this instance for a loop key or value.<hr>
 

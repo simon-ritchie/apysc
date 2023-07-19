@@ -92,9 +92,9 @@ class TestSVGTextSpan:
         assert svg_text_span.delta_y == ap.Number(60.5)
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
+    def test__initialize_with_base_value(self) -> None:
         svg_text_span_: ap.SVGTextSpan = (
-            ap.SVGTextSpan._initialize_for_loop_key_or_value()
+            ap.SVGTextSpan._initialize_with_base_value()
         )
         assert svg_text_span_.text == ap.String("")
         assert svg_text_span_.visible == ap.Boolean(False)

@@ -16,9 +16,9 @@ class TestAnyDisplayObject:
         assert f"var {any_display_object.variable_name};" in expression
 
     @apply_test_settings()
-    def test__initialize_for_loop_key_or_value(self) -> None:
+    def test__initialize_with_base_value(self) -> None:
         any_display_object: AnyDisplayObject = (
-            AnyDisplayObject._initialize_for_loop_key_or_value()
+            AnyDisplayObject._initialize_with_base_value()
         )
         expression: str = expression_data_util.get_current_expression()
         assert f"var {any_display_object.variable_name};" in expression

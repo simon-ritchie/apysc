@@ -3328,7 +3328,7 @@ def is_initialize_for_loop_key_or_value_interface_subclass(
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._loop.initialize_for_loop_key_or_value_interface import (
+            from apysc._loop.initialize_with_base_value_interface import (
                 InitializeWithBaseValueInterface,
             )
 

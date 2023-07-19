@@ -6,7 +6,7 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._loop.initialize_for_loop_key_or_value_interface import (
+from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
 from apysc._type.hashable_interface import HashableInterface

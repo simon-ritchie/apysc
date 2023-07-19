@@ -65,7 +65,7 @@ from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._loop.initialize_for_loop_key_or_value_interface import (
+from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
 from apysc._type.array import Array

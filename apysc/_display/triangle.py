@@ -76,7 +76,7 @@ from apysc._display.y_mixin import YMixIn
 from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 from apysc._type.array import Array
 from apysc._type.int import Int
@@ -131,7 +131,7 @@ class Triangle(
     PolygonAppendConstructorExpressionMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 ):
     """
     The triangle vector graphics class.

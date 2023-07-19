@@ -5,7 +5,7 @@ from abc import abstractmethod
 from typing import Any
 
 
-class InitializeForLoopKeyOrValueInterface:
+class InitializeWithBaseValueInterface:
     @classmethod
     @abstractmethod
     def _initialize_for_loop_key_or_value(cls) -> Any:

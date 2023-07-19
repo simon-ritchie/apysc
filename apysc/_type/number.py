@@ -8,7 +8,7 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 from apysc._type.hashable_interface import HashableInterface
 from apysc._type.number_value_mixin import NumberValueMixIn
@@ -22,7 +22,7 @@ from apysc._validation.validate_stage_is_created_mixin import (
 
 class Number(
     NumberValueMixIn[float, "Number"],
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
     ToStringMixIn,
     ToFixedMixIn,
     HashableInterface,

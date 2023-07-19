@@ -30,7 +30,7 @@ The loop implementation class for the `ap.Dictionary` values.<hr>
 - `dict_`: Dictionary[Any, _DictValue]
   - A dictionary to iterate.
 - `dict_value_type`: Type[_DictValue]
-  - A dictionary value type. This interface accepts `InitializeForLoopKeyOrValueInterface` subclasses, such as the `Int`, `String`, or `Rectangle`.
+  - A dictionary value type. This interface accepts `InitializeWithBaseValueInterface` subclasses, such as the `Int`, `String`, or `Rectangle`.
 - `locals_`: Optional[Dict[str, Any]], optional
   - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameMixIn variables (like Int, Sprite) at the end of a with-statement scope. This setting is useful when you don't want to update each variable.
 - `globals_`: Optional[Dict[str, Any]], optional

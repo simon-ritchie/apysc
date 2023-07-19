@@ -11,7 +11,7 @@ from typing_extensions import final
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.hashable_interface import HashableInterface
@@ -44,7 +44,7 @@ class String(
     CustomEventMixIn,
     VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
     HashableInterface,
     ToNumberMixIn,
     StringLengthMixIn,

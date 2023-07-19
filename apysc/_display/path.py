@@ -68,7 +68,7 @@ from apysc._display.y_mixin import YMixIn
 from apysc._geom.path_data_base import PathDataBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -115,7 +115,7 @@ class Path(
     LineDashDotSettingMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 ):
     """
     The path vector graphics class.

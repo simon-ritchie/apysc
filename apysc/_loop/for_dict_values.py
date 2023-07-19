@@ -16,7 +16,7 @@ from apysc._expression.last_scope import LastScope
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.for_loop_exit_mixin import ForLoopExitMixIn
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 from apysc._type.dictionary import Dictionary
 from apysc._type.initialize_locals_and_globals_mixin import (
@@ -25,7 +25,7 @@ from apysc._type.initialize_locals_and_globals_mixin import (
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
-_DictValue = TypeVar("_DictValue", bound=InitializeForLoopKeyOrValueInterface)
+_DictValue = TypeVar("_DictValue", bound=InitializeWithBaseValueInterface)
 
 
 class ForDictValues(
@@ -89,7 +89,7 @@ class ForDictValues(
             A dictionary to iterate.
         dict_value_type : Type[_DictValue]
             A dictionary value type. This interface accepts
-            `InitializeForLoopKeyOrValueInterface` subclasses,
+            `InitializeWithBaseValueInterface` subclasses,
             such as the `Int`, `String`, or `Rectangle`.
         locals_ : Optional[Dict[str, Any]], optional
             Current scope's local variables. Set locals()

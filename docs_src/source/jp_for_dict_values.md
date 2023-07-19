@@ -63,7 +63,7 @@ ap.save_overall_html(dest_dir_path="for_dict_values_basic_usage_1/")
   - イテレーションで扱うための辞書。
 
 - `dict_value_type`: Type[_DictValue]
-  - 辞書の値の型。ごのインターフェイスは`Int`、`String`、`Rectangle`などの`InitializeForLoopKeyOrValueInterface`のサブクラスの型のみ受け付けます。
+  - 辞書の値の型。ごのインターフェイスは`Int`、`String`、`Rectangle`などの`InitializeWithBaseValueInterface`のサブクラスの型のみ受け付けます。
 
 - `locals_`: Optional[Dict[str, Any]], optional
   - 現在のスコープの各ローカル変数。この引数にはlocals()関数の返却値を設定してください。もしこの引数が指定された場合、このインターフェイスはローカルスコープのVariableNameMixInの各変数（例 : IntやSpriteなど）の値をwithステートメントの最後で復元します。この設定は各変数を更新したくない場合等に役立ちます。

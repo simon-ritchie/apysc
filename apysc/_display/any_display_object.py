@@ -14,7 +14,7 @@ from apysc._display.y_mixin import YMixIn
 from apysc._expression import var_names
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 
 
@@ -24,7 +24,7 @@ class AnyDisplayObject(
     DisplayObject,
     XMixIn,
     YMixIn,
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 ):
     """
     This class is for the `DisplayObject` subclass

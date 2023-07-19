@@ -16,7 +16,7 @@ from apysc._display.y_mixin import YMixIn
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
@@ -36,7 +36,7 @@ class Sprite(
     ChildMixIn,
     RevertMixIn,
     VariableNameSuffixMixIn,
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 ):
     """
     This class is for the basic display object that

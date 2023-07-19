@@ -66,7 +66,7 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_for_loop_key_or_value_interface import (
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 )
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
@@ -121,7 +121,7 @@ class SVGText(
     SVGTextSetBoldMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
-    InitializeForLoopKeyOrValueInterface,
+    InitializeWithBaseValueInterface,
 ):
     """
     The class for an SVG text.

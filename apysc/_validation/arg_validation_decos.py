@@ -192,7 +192,7 @@ Mainly the following decorators exist.
         is list of dicts or `ap.Array` of `ap.Dictionary`.
 - is_initialize_for_loop_key_or_value_interface_subclass
     - Set a validation to check a specified class is
-        the `InitializeForLoopKeyOrValueInterface`'s subclas.
+        the `InitializeWithBaseValueInterface`'s subclas.
 """
 
 import functools
@@ -3312,7 +3312,7 @@ def is_initialize_for_loop_key_or_value_interface_subclass(
 ) -> _Callable:
     """
     Set a validation to check a specified class is
-    the `InitializeForLoopKeyOrValueInterface`'s subclas.
+    the `InitializeWithBaseValueInterface`'s subclas.
 
     Parameters
     ----------
@@ -3329,7 +3329,7 @@ def is_initialize_for_loop_key_or_value_interface_subclass(
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
             from apysc._loop.initialize_for_loop_key_or_value_interface import (
-                InitializeForLoopKeyOrValueInterface,
+                InitializeWithBaseValueInterface,
             )
 
             class_: Any = _extract_arg_value(
@@ -3338,14 +3338,14 @@ def is_initialize_for_loop_key_or_value_interface_subclass(
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            if issubclass(class_, InitializeForLoopKeyOrValueInterface):
+            if issubclass(class_, InitializeWithBaseValueInterface):
                 return callable_(*args, **kwargs)
 
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
             raise TypeError(
-                f"A specified class is not an `InitializeForLoopKeyOrValueInterface`'s "
+                f"A specified class is not an `InitializeWithBaseValueInterface`'s "
                 f"subclass: {class_}"
                 f"\n{callable_and_arg_names_msg}"
             )

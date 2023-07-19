@@ -63,7 +63,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `dict_value_type`: Type[_DictValue]": "- `dict_value_type`: Type[_DictValue]",
     ##################################################
-    "  - A dictionary value type. This interface accepts `InitializeForLoopKeyOrValueInterface` subclasses, such as the `Int`, `String`, or `Rectangle`.": "  - 辞書の値の型。ごのインターフェイスは`Int`、`String`、`Rectangle`などの`InitializeForLoopKeyOrValueInterface`のサブクラスの型のみ受け付けます。",  # noqa
+    "  - A dictionary value type. This interface accepts `InitializeWithBaseValueInterface` subclasses, such as the `Int`, `String`, or `Rectangle`.": "  - 辞書の値の型。ごのインターフェイスは`Int`、`String`、`Rectangle`などの`InitializeWithBaseValueInterface`のサブクラスの型のみ受け付けます。",  # noqa
     ##################################################
     "- `locals_`: Optional[Dict[str, Any]], optional": "- `locals_`: Optional[Dict[str, Any]], optional",  # noqa
     ##################################################

@@ -156,7 +156,7 @@ Create a triangle instance with the instance of specified graphics.<hr>
 
 ### `_initialize_with_base_value` method docstring
 
-Initialize this instance for a loop key or value.<hr>
+Initialize this class with a base value(s).<hr>
 
 **[Returns]**
 

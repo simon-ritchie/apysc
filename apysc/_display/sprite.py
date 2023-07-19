@@ -207,7 +207,7 @@ class Sprite(
     @final
     def _initialize_with_base_value(cls) -> "Sprite":
         """
-        Initialize this instance for a loop key or value.
+        Initialize this class with a base value(s).
 
         Returns
         -------

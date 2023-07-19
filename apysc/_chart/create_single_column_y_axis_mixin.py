@@ -138,55 +138,6 @@ class CreateSingleColumnYAxisMixIn:
             tick_text_italic=y_axis_settings._tick_text_bold,
             variable_name_suffix=variable_name_suffix,
         )
-        self._y_axis_border = _create_y_axis_border(
-            y_axis_container=y_axis_container,
-            y_axis_texts_container=self._y_axis_texts_container,
-            y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
-            line_color=y_axis_settings._line_color,
-            line_thickness=y_axis_settings._line_thickness,
-            line_alpha=y_axis_settings._line_alpha,
-        )
-
-
-def _create_y_axis_border(
-    *,
-    y_axis_container: Sprite,
-    y_axis_texts_container: Sprite,
-    y_axis_ticks_y_coordinates: Array[Number],
-    line_color: String,
-    line_thickness: Int,
-    line_alpha: Number,
-) -> Line:
-    """
-    Create a y-axis border.
-
-    Parameters
-    ----------
-    y_axis_container : Sprite
-        A y-axis container instance.
-    y_axis_texts_container : Sprite
-        A y-axis texts container instance.
-    y_axis_ticks_y_coordinates : Array[Number]
-        A y-axis ticks y coordinates.
-    line_color : String
-        A line color setting.
-    line_thickness : Int
-        A line thickness setting.
-    line_alpha : Number
-        A line alpha setting.
-
-    Returns
-    -------
-    line : Line
-        A created line.
-    """
-    import apysc as ap
-
-    bounding_box: ap.RectangleGeom = y_axis_texts_container.get_bounds()
-    x: Number = bounding_box.right_x
-    # y_start: Number = y_axis_ticks_y_coordinates[0]
-    # y_end: Number = 
-    pass
 
 
 def _create_y_axis_ticks_texts(

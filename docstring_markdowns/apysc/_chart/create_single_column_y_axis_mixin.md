@@ -226,6 +226,8 @@ Create a y-axis ticks texts.<hr>
 
 - `y_axis_ticks_texts`: Array[SVGText]
   - Created y-axis ticks texts.
+- `texts_container`: Sprite
+  - A container that contains created texts.
 
 ## `_extract_column_values_from_data` function docstring
 

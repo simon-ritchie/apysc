@@ -210,3 +210,62 @@ def test__create_y_axis_texts_values() -> None:
     assert "for (" in expression
     assert ".match(new RegExp" in expression
     assert "test_suffix" in y_axis_text_values.variable_name
+
+
+@apply_test_settings(retrying_max_attempts_num=0)
+def test__create_y_axis_ticks_texts() -> None:
+    y_axis_container: ap.Sprite = ap.Sprite()
+    horizontal_padding: ap.Int = ap.Int(10)
+    y_axis_text_values: ap.Array[ap.String] = ap.Array(
+        [
+            ap.String("20"),
+            ap.String("10"),
+            ap.String("0"),
+        ]
+    )
+    y_axis_ticks_y_coordinates: ap.Array[ap.Number] = ap.Array(
+        [
+            ap.Number(100),
+            ap.Number(50),
+            ap.Number(0),
+        ]
+    )
+    tick_text_fill_color: ap.String = ap.String("#333333")
+    tick_text_fill_alpha: ap.Number = ap.Number(0.5)
+    tick_text_font_size: ap.Int = ap.Int(12)
+    tick_text_font_family: ap.Array[ap.String] = ap.Array(
+        [
+            ap.String("Arial"),
+        ]
+    )
+    tick_text_bold: ap.Boolean = ap.Boolean(False)
+    tick_text_italic: ap.Boolean = ap.Boolean(False)
+    y_axis_ticks_texts: ap.Array[ap.SVGText]
+    texts_container: ap.Sprite
+    (
+        y_axis_ticks_texts,
+        texts_container,
+    ) = create_single_column_y_axis_mixin._create_y_axis_ticks_texts(
+        y_axis_container=y_axis_container,
+        horizontal_padding=horizontal_padding,
+        y_axis_text_values=y_axis_text_values,
+        y_axis_ticks_y_coordinates=y_axis_ticks_y_coordinates,
+        tick_text_fill_color=tick_text_fill_color,
+        tick_text_fill_alpha=tick_text_fill_alpha,
+        tick_text_font_size=tick_text_font_size,
+        tick_text_font_family=tick_text_font_family,
+        tick_text_bold=tick_text_bold,
+        tick_text_italic=tick_text_italic,
+        variable_name_suffix="test_suffix",
+    )
+    assert y_axis_ticks_texts._value[0].text == ap.String("20")
+    assert y_axis_ticks_texts._value[0].font_size == ap.Int(12)
+    assert y_axis_ticks_texts._value[0].fill_color == ap.String("#333333")
+    assert y_axis_ticks_texts._value[0].fill_alpha == ap.Number(0.5)
+    assert y_axis_ticks_texts._value[0].align == ap.SVGTextAlign.RIGHT
+    assert y_axis_ticks_texts._value[0].bold == ap.Boolean(False)
+    assert y_axis_ticks_texts._value[0].italic == ap.Boolean(False)
+    assert y_axis_ticks_texts._value[0].parent == texts_container
+    assert "test_suffix" in y_axis_ticks_texts._value[0].variable_name
+    expression: str = expression_data_util.get_current_expression()
+    assert "for (" in expression

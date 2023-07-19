@@ -2,7 +2,7 @@
 `_create_y_axis` method.
 """
 
-from typing import Optional
+from typing import Optional, Tuple
 from typing import Union
 from typing import cast
 
@@ -20,6 +20,7 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._display.line import Line
 
 
 class CreateSingleColumnYAxisMixIn:
@@ -33,6 +34,8 @@ class CreateSingleColumnYAxisMixIn:
     _y_axis_ticks_y_coordinates: Array[Number]
     _y_axis_texts_values: Array[String]
     _y_axis_ticks_texts: Array[SVGText]
+    _y_axis_texts_container: Sprite
+    _y_axis_border: Line
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -119,7 +122,10 @@ class CreateSingleColumnYAxisMixIn:
             ),
             variable_name_suffix=variable_name_suffix,
         )
-        self._y_axis_ticks_texts = _create_y_axis_ticks_texts(
+        (
+            self._y_axis_ticks_texts,
+            self._y_axis_texts_container,
+        ) = _create_y_axis_ticks_texts(
             y_axis_container=y_axis_container,
             horizontal_padding=horizontal_padding,
             y_axis_text_values=self._y_axis_texts_values,
@@ -132,6 +138,10 @@ class CreateSingleColumnYAxisMixIn:
             tick_text_italic=y_axis_settings._tick_text_bold,
             variable_name_suffix=variable_name_suffix,
         )
+        # self._y_axis_border = _create_y_axis_border(
+        #     y_axis_container=y_axis_container,
+        #     y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
+        # )
 
 
 def _create_y_axis_ticks_texts(
@@ -147,7 +157,7 @@ def _create_y_axis_ticks_texts(
     tick_text_bold: Boolean,
     tick_text_italic: Boolean,
     variable_name_suffix: str,
-) -> Array[SVGText]:
+) -> Tuple[Array[SVGText], Sprite]:
     """
     Create a y-axis ticks texts.
 
@@ -181,12 +191,14 @@ def _create_y_axis_ticks_texts(
     -------
     y_axis_ticks_texts : Array[SVGText]
         Created y-axis ticks texts.
+    texts_container : Sprite
+        A container that contains created texts.
     """
     import apysc as ap
 
     y_axis_ticks_texts: Array[SVGText] = Array([])
-    x_coordinate_container: Sprite = Sprite()
-    y_axis_container.add_child(x_coordinate_container)
+    texts_container: Sprite = Sprite()
+    y_axis_container.add_child(texts_container)
     with ap.ForArrayIndices(arr=y_axis_ticks_y_coordinates) as i:
         txt: SVGText = SVGText(
             text=y_axis_text_values[i],
@@ -199,17 +211,17 @@ def _create_y_axis_ticks_texts(
             align=ap.SVGTextAlign.RIGHT,
             bold=tick_text_bold,
             italic=tick_text_italic,
-            parent=x_coordinate_container,
+            parent=texts_container,
             variable_name_suffix=variable_name_suffix,
         )
         y_axis_ticks_texts.append(txt)
     _apply_x_coordinate_to_y_axis_ticks_texts(
         horizontal_padding=horizontal_padding,
         y_axis_ticks_texts=y_axis_ticks_texts,
-        x_coordinate_container=x_coordinate_container,
+        x_coordinate_container=texts_container,
         variable_name_suffix=variable_name_suffix,
     )
-    return y_axis_ticks_texts
+    return y_axis_ticks_texts, texts_container
 
 
 def _create_y_axis_texts_values(

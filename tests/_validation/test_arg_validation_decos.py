@@ -1553,8 +1553,8 @@ def test_is_apysc_array() -> None:
 
 
 @apply_test_settings()
-def test_is_initialize_for_loop_key_or_value_interface_subclass() -> None:
-    @arg_validation_decos.is_initialize_for_loop_key_or_value_interface_subclass(
+def test_is_initialize_with_base_value_interface_subclass() -> None:
+    @arg_validation_decos.is_initialize_with_base_value_interface_subclass(
         arg_position_index=0
     )
     def _test_func_1(*, value: Type[ap.Int]) -> int:

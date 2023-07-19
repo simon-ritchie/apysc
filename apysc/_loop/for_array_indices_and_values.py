@@ -68,7 +68,7 @@ class ForArrayIndicesAndValues(
 
     @final
     @arg_validation_decos.is_apysc_array(arg_position_index=1)
-    @arg_validation_decos.is_initialize_for_loop_key_or_value_interface_subclass(
+    @arg_validation_decos.is_initialize_with_base_value_interface_subclass(
         arg_position_index=2,
     )
     @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=False)

@@ -3308,7 +3308,9 @@ def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
 
 
 def is_initialize_with_base_value_interface_subclass(
-    *, arg_position_index: int
+    *,
+    arg_position_index: int,
+    optional: bool = False,
 ) -> _Callable:
     """
     Set a validation to check a specified class is
@@ -3318,6 +3320,9 @@ def is_initialize_with_base_value_interface_subclass(
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean indicating whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -3338,6 +3343,8 @@ def is_initialize_with_base_value_interface_subclass(
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+            if optional and class_ is None:
+                return callable_(*args, **kwargs)
             if issubclass(class_, InitializeWithBaseValueInterface):
                 return callable_(*args, **kwargs)
 

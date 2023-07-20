@@ -1,7 +1,7 @@
 """Class implementation for an array.
 """
 
-from typing import Any
+from typing import Any, Type
 from typing import Dict
 from typing import Generic
 from typing import List
@@ -32,6 +32,9 @@ from apysc._validation.validate_stage_is_created_mixin import (
 )
 
 _ArrValue = TypeVar("_ArrValue")
+_FixedArrayValueType = TypeVar(
+    "_FixedArrayValueType", bound=InitializeWithBaseValueInterface
+)
 
 
 class Array(
@@ -91,14 +94,18 @@ class Array(
 
     _initial_value: Union[List[Any], tuple, "Array"]
     _value: List[_ArrValue]
+    _fixed_value_type: Optional[Type]
 
     @arg_validation_decos.is_acceptable_array_value(arg_position_index=1)
-    @arg_validation_decos.is_builtin_string(arg_position_index=2, optional=False)
+    # @arg_validation_decos.is_initialize_with_base_value_interface_subclass()
+    @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
+    @arg_validation_decos.is_builtin_boolean(arg_position_index=4)
     @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         value: Union[List[_ArrValue], tuple, range, "Array"],
         *,
+        fixed_value_type: Optional[_FixedArrayValueType] = None,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
     ) -> None:
@@ -150,6 +157,7 @@ class Array(
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 
         self._validate_stage_is_created()
+        self._fixed_value_type = fixed_value_type
 
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix
@@ -977,6 +985,8 @@ class Array(
         value: Any
         if len(self._value) <= index:
             value = ap.AnyValue(None)
+        elif self._fixed_value_type is not None and issubclass(self._fixed_value_type, InitializeWithBaseValueInterface):
+            return self._fixed_value_type._initialize_with_base_value()
         else:
             value = self._value[index_]
         self._append_getitem_expression(index=index, value=value)

@@ -1569,6 +1569,21 @@ def test_is_initialize_with_base_value_interface_subclass() -> None:
         value=int,
     )
 
+    @arg_validation_decos.is_initialize_with_base_value_interface_subclass(
+        arg_position_index=0,
+        optional=True,
+    )
+    def _test_func_2(*, value: Optional[Type[ap.Int]]) -> int:
+        return 330
+
+    result = _test_func_2(value=None)
+    result = _test_func_2(value=ap.Int)
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_2,
+        value=int,
+    )
+
 
 @apply_test_settings()
 def test_is_apysc_dict() -> None:

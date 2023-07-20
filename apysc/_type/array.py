@@ -32,9 +32,6 @@ from apysc._validation.validate_stage_is_created_mixin import (
 )
 
 _ArrValue = TypeVar("_ArrValue")
-_FixedArrayValueType = TypeVar(
-    "_FixedArrayValueType", bound=InitializeWithBaseValueInterface
-)
 
 
 class Array(
@@ -94,10 +91,12 @@ class Array(
 
     _initial_value: Union[List[Any], tuple, "Array"]
     _value: List[_ArrValue]
-    _fixed_value_type: Optional[Type]
+    _fixed_value_type: Optional[Type[InitializeWithBaseValueInterface]]
 
     @arg_validation_decos.is_acceptable_array_value(arg_position_index=1)
-    # @arg_validation_decos.is_initialize_with_base_value_interface_subclass()
+    @arg_validation_decos.is_initialize_with_base_value_interface_subclass(
+        arg_position_index=2, optional=True
+    )
     @arg_validation_decos.is_builtin_string(arg_position_index=3, optional=False)
     @arg_validation_decos.is_builtin_boolean(arg_position_index=4)
     @add_debug_info_setting(module_name=__name__)
@@ -105,7 +104,7 @@ class Array(
         self,
         value: Union[List[_ArrValue], tuple, range, "Array"],
         *,
-        fixed_value_type: Optional[_FixedArrayValueType] = None,
+        fixed_value_type: Optional[Type[InitializeWithBaseValueInterface]] = None,
         variable_name_suffix: str = "",
         skip_init_substitution_expression_appending: bool = False,
     ) -> None:
@@ -983,10 +982,15 @@ class Array(
         self._validate_index_type_is_int(index=index)
         index_: int = self._get_builtin_int_from_index(index=index)
         value: Any
-        if len(self._value) <= index:
+        index_is_out_of_bounds: bool = len(self._value) <= index
+        if (
+            index_is_out_of_bounds
+            and self._fixed_value_type is not None
+            and issubclass(self._fixed_value_type, InitializeWithBaseValueInterface)
+        ):
+            value = self._fixed_value_type._initialize_with_base_value()
+        elif index_is_out_of_bounds:
             value = ap.AnyValue(None)
-        elif self._fixed_value_type is not None and issubclass(self._fixed_value_type, InitializeWithBaseValueInterface):
-            return self._fixed_value_type._initialize_with_base_value()
         else:
             value = self._value[index_]
         self._append_getitem_expression(index=index, value=value)

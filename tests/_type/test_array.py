@@ -343,7 +343,7 @@ class TestArray:
         value_2: ap.AnyValue = array_1[3]
         assert isinstance(value_2, ap.AnyValue)
 
-        array_2: ap.Array[ap.Int] = ap.Array([ap.Int(1)])
+        array_2: ap.Array[ap.Int] = ap.Array([ap.Int(1)], fixed_value_type=ap.Int)
         value_3: ap.Int = array_2[5]
         assert value_3 == ap.Int(0)
         assert isinstance(value_3, ap.Int)

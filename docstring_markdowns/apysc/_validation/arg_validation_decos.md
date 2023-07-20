@@ -646,6 +646,8 @@ Set a validation to check a specified class is the `InitializeWithBaseValueInter
 
 - `arg_position_index`: int
   - A target argument position index.
+- `optional`: bool
+  - A boolean indicating whether a target argument accepts optional None value or not.
 
 <hr>
 

@@ -46,6 +46,30 @@ int_val: int = arr.pop()
 assert isinstance(int_val, int)
 ```
 
+## fixed_value_type 引数について
+
+コンストラクタの`fixed_value_type`引数は省略可能な引数になっています。
+
+もし指定された場合、`__getitem__`メソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）などの配列の値に関係した各インターフェイスが指定された型のインスタンスを返却するケースが発生するようになります
+
+この返却処理はPythonランタイム上で配列の添え字が配列の長さを越える場合などに発生するようになります。
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    stage_width=100, stage_height=50, background_color="#333", stage_elem_id="stage"
+)
+arr: ap.Array[ap.Int] = ap.Array([ap.Int(10)], fixed_value_type=ap.Int)
+
+# Index 5 is out of bounds on the Python runtime,
+# but since the `fixed_value_type` is the `ap.Int`,
+# this interface returns an `ap.Int` value.
+int_value: ap.Int = arr[5]
+assert isinstance(int_value, ap.Int)
+```
+
 ## 関連資料
 
 - [基本的なデータクラスの共通の value インターフェイス](jp_fundamental_data_classes_value_interface.md)
@@ -72,7 +96,7 @@ assert isinstance(int_val, int)
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, value: Union[List[~_ArrValue], tuple, range, ForwardRef('Array')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, value: Union[List[~_ArrValue], tuple, range, ForwardRef('Array')], *, fixed_value_type: Union[Type[apysc._loop.initialize_with_base_value_interface.InitializeWithBaseValueInterface], NoneType] = None, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -82,6 +106,9 @@ apyscライブラリの配列を扱うためのクラスです。<hr>
 
 - `value`: Array or list or tuple or range
   - 配列の初期値。
+
+- `fixed_value_type`: Optional[Type[InitializeWithBaseValueInterface]], optional
+  - 配列の値の固定の型。この引数は`ap.Int`、`ap.String`、`ap.Rectangle`などのapyscの型のみ設定することができます。もし指定された場合、`__getitem__`などのメソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）が指定された型のインスタンスを返却するケースが発生するようになります。
 
 - `variable_name_suffix`: str, default ''
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。

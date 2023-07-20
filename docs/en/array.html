@@ -89,6 +89,27 @@
 </pre></div>
 </div>
 </section>
+<section id="fixed-value-type-argument">
+<h2>fixed_value_type argument<a class="headerlink" href="#fixed-value-type-argument" title="Permalink to this heading">¶</a></h2>
+<p>The constructor’s <code class="docutils literal notranslate"><span class="pre">fixed_value_type</span></code> argument is optional.</p>
+<p>If specified, the array value-related interfaces, such as the <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> method (array subscript interface, for example, <code class="docutils literal notranslate"><span class="pre">arr[5]</span></code>), becomes possibly returning a specified type instance.</p>
+<p>It returns an instance of the specified type, especially when an array index exceeds the length of an array on the Python runtime.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span> <span class="n">fixed_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+
+<span class="c1"># Index 5 is out of bounds on the Python runtime,</span>
+<span class="c1"># but since the `fixed_value_type` is the `ap.Int`,</span>
+<span class="c1"># this interface returns an `ap.Int` value.</span>
+<span class="n">int_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">int_value</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
@@ -111,7 +132,7 @@
 <h2>Array class constructor API<a class="headerlink" href="#array-class-constructor-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._type.array.Array.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[List[~_ArrValue],</span> <span class="pre">tuple,</span> <span class="pre">range,</span> <span class="pre">ForwardRef('Array')],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[List[~_ArrValue],</span> <span class="pre">tuple,</span> <span class="pre">range,</span> <span class="pre">ForwardRef('Array')],</span> <span class="pre">*,</span> <span class="pre">fixed_value_type:</span> <span class="pre">Union[Type[apysc._loop.initialize_with_base_value_interface.InitializeWithBaseValueInterface],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>Array class for the apysc library.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -119,6 +140,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Array or list or tuple or range</p>
 <ul>
 <li><p>Initial array value.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fixed_value_type</span></code>: Optional[Type[InitializeWithBaseValueInterface]], optional</p>
+<ul>
+<li><p>A fixed value type of array. This argument only becomes an apysc type, such as the <code class="docutils literal notranslate"><span class="pre">ap.Int</span></code>, <code class="docutils literal notranslate"><span class="pre">ap.String</span></code>, or <code class="docutils literal notranslate"><span class="pre">ap.Rectangle</span></code>. If specified, the array value-related interfaces, such as the <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> method (array subscript interface, for example, <code class="docutils literal notranslate"><span class="pre">arr[5]</span></code>), becomes possibly returning a specified value type instance.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
@@ -210,6 +236,7 @@
 <li><a class="reference internal" href="#what-is-the-array">What is the Array?</a></li>
 <li><a class="reference internal" href="#constructor-method">Constructor method</a></li>
 <li><a class="reference internal" href="#generic-type-annotation">Generic type annotation</a></li>
+<li><a class="reference internal" href="#fixed-value-type-argument">fixed_value_type argument</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#array-class-constructor-api">Array class constructor API</a></li>
 <li><a class="reference internal" href="#value-property-api">value property API</a></li>

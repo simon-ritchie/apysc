@@ -4123,5 +4123,9 @@ MAPPINGS: Mappings = Mappings(
             key="True_ and False_ constants",
             val="True_ と False_ の各定数",
         ),
+        Mapping(
+            key="  - A fixed value type of array. This argument only becomes an apysc type, such as the `ap.Int`, `ap.String`, or `ap.Rectangle`. If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified value type instance.",
+            val="  - 配列の値の固定の型。この引数は`ap.Int`、`ap.String`、`ap.Rectangle`などのapyscの型のみ設定することができます。もし指定された場合、`__getitem__`などのメソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）が指定された型のインスタンスを返却するケースが発生するようになります。",
+        ),
     ]
 )

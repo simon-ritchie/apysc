@@ -44,6 +44,30 @@ int_val: int = arr.pop()
 assert isinstance(int_val, int)
 ```
 
+## fixed_value_type argument
+
+The constructor's `fixed_value_type` argument is optional.
+
+If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified type instance.
+
+It returns an instance of the specified type, especially when an array index exceeds the length of an array on the Python runtime.
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    stage_width=100, stage_height=50, background_color="#333", stage_elem_id="stage"
+)
+arr: ap.Array[ap.Int] = ap.Array([ap.Int(10)], fixed_value_type=ap.Int)
+
+# Index 5 is out of bounds on the Python runtime,
+# but since the `fixed_value_type` is the `ap.Int`,
+# this interface returns an `ap.Int` value.
+int_value: ap.Int = arr[5]
+assert isinstance(int_value, ap.Int)
+```
+
 ## See also
 
 - [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)
@@ -67,7 +91,7 @@ assert isinstance(int_val, int)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value: Union[List[~_ArrValue], tuple, range, ForwardRef('Array')], *, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
+**[Interface signature]** `__init__(self, value: Union[List[~_ArrValue], tuple, range, ForwardRef('Array')], *, fixed_value_type: Union[Type[apysc._loop.initialize_with_base_value_interface.InitializeWithBaseValueInterface], NoneType] = None, variable_name_suffix: str = '', skip_init_substitution_expression_appending: bool = False) -> None`<hr>
 
 **[Interface summary]**
 
@@ -77,6 +101,8 @@ Array class for the apysc library.<hr>
 
 - `value`: Array or list or tuple or range
   - Initial array value.
+- `fixed_value_type`: Optional[Type[InitializeWithBaseValueInterface]], optional
+  - A fixed value type of array. This argument only becomes an apysc type, such as the `ap.Int`, `ap.String`, or `ap.Rectangle`. If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified value type instance.
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 - `skip_init_substitution_expression_appending`: bool, default False

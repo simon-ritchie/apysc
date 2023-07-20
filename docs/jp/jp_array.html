@@ -89,6 +89,27 @@
 </pre></div>
 </div>
 </section>
+<section id="fixed-value-type">
+<h2>fixed_value_type 引数について<a class="headerlink" href="#fixed-value-type" title="Permalink to this heading">¶</a></h2>
+<p>コンストラクタの<code class="docutils literal notranslate"><span class="pre">fixed_value_type</span></code>引数は省略可能な引数になっています。</p>
+<p>もし指定された場合、<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>メソッド（<code class="docutils literal notranslate"><span class="pre">arr[5]</span></code>などの配列の添え字のインターフェイスが該当します）などの配列の値に関係した各インターフェイスが指定された型のインスタンスを返却するケースが発生するようになります</p>
+<p>この返却処理はPythonランタイム上で配列の添え字が配列の長さを越える場合などに発生するようになります。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+<span class="p">)</span>
+<span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span> <span class="n">fixed_value_type</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+
+<span class="c1"># Index 5 is out of bounds on the Python runtime,</span>
+<span class="c1"># but since the `fixed_value_type` is the `ap.Int`,</span>
+<span class="c1"># this interface returns an `ap.Int` value.</span>
+<span class="n">int_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">int_value</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="id4">
 <h2>関連資料<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
@@ -110,7 +131,7 @@
 <section id="array-api">
 <h2>Array クラスのコンストラクタのAPI<a class="headerlink" href="#array-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[List[~_ArrValue],</span> <span class="pre">tuple,</span> <span class="pre">range,</span> <span class="pre">ForwardRef('Array')],</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">Union[List[~_ArrValue],</span> <span class="pre">tuple,</span> <span class="pre">range,</span> <span class="pre">ForwardRef('Array')],</span> <span class="pre">*,</span> <span class="pre">fixed_value_type:</span> <span class="pre">Union[Type[apysc._loop.initialize_with_base_value_interface.InitializeWithBaseValueInterface],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'',</span> <span class="pre">skip_init_substitution_expression_appending:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>apyscライブラリの配列を扱うためのクラスです。<hr></p>
 <p><strong>[引数]</strong></p>
@@ -118,6 +139,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Array or list or tuple or range</p>
 <ul>
 <li><p>配列の初期値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fixed_value_type</span></code>: Optional[Type[InitializeWithBaseValueInterface]], optional</p>
+<ul>
+<li><p>配列の値の固定の型。この引数は<code class="docutils literal notranslate"><span class="pre">ap.Int</span></code>、<code class="docutils literal notranslate"><span class="pre">ap.String</span></code>、<code class="docutils literal notranslate"><span class="pre">ap.Rectangle</span></code>などのapyscの型のみ設定することができます。もし指定された場合、<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>などのメソッド（<code class="docutils literal notranslate"><span class="pre">arr[5]</span></code>などの配列の添え字のインターフェイスが該当します）が指定された型のインスタンスを返却するケースが発生するようになります。</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
@@ -208,6 +234,7 @@
 <li><a class="reference internal" href="#id1">Array クラスとは</a></li>
 <li><a class="reference internal" href="#id2">コンストラクタメソッド</a></li>
 <li><a class="reference internal" href="#id3">ジェネリックの型アノテーション</a></li>
+<li><a class="reference internal" href="#fixed-value-type">fixed_value_type 引数について</a></li>
 <li><a class="reference internal" href="#id4">関連資料</a></li>
 <li><a class="reference internal" href="#array-api">Array クラスのコンストラクタのAPI</a></li>
 <li><a class="reference internal" href="#value-api">value 属性のAPI</a></li>

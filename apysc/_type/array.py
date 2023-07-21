@@ -8,7 +8,7 @@ from typing import List
 from typing import Optional
 from typing import Type
 from typing import TypeVar
-from typing import Union
+from typing import Union, cast
 
 from typing_extensions import final
 
@@ -1572,3 +1572,45 @@ class Array(
             An initialized array value.
         """
         return Array([])
+
+    @property
+    @add_debug_info_setting(module_name=__name__)
+    def last_value(self) -> _ArrValue:
+        """
+        Get an array's last index value.
+
+        Returns
+        -------
+        last_value : _ArrValue
+            An array's last index value.
+
+        Notes
+        -----
+        The constructor's `fixed_value_type` setting affects
+        this property's value type.
+        """
+        import apysc as ap
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type
+        )
+
+        if self._fixed_value_type is not None and issubclass(
+            self._fixed_value_type,
+            InitializeWithBaseValueInterface,
+        ):
+            last_value: _ArrValue = self._fixed_value_type._initialize_with_base_value()
+        elif len(self._value) > 0 and isinstance(self._value[-1], VariableNameMixIn):
+            last_value = self._value[-1]
+        else:
+            last_value = cast(_ArrValue, ap.AnyValue(None))
+
+        last_value_variable_name: str = validate_variable_name_mixin_type(
+            instance=last_value
+        ).variable_name
+        expression: str = (
+            f"{last_value_variable_name} = "
+            f"{self.variable_name}[{self.variable_name}.length - 1];"
+        )
+        ap.append_js_expression(expression=expression)
+
+        return last_value

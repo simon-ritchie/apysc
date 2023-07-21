@@ -692,3 +692,27 @@ class TestArray:
     def test__initialize_with_base_value(self) -> None:
         arr_value: ap.Array = ap.Array._initialize_with_base_value()
         assert arr_value == ap.Array([])
+
+    @apply_test_settings()
+    def test_last_value(self) -> None:
+        arr_1: ap.Array[ap.Int] = ap.Array([], fixed_value_type=ap.Int)
+        last_value_1: ap.Int = arr_1.last_value
+        assert last_value_1 == ap.Int(0)
+
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{last_value_1.variable_name} = "
+            f"{arr_1.variable_name}[{arr_1.variable_name}.length - 1];"
+        )
+        assert expected in expression
+
+        arr_1 = ap.Array([ap.Int(1)])
+        last_value_1 = arr_1.last_value
+        assert last_value_1 == ap.Int(1)
+
+        arr_2: ap.Array[int] = ap.Array([1, 2])
+        last_value_2 = arr_2.last_value
+        assert isinstance(last_value_2, ap.AnyValue)
+
+        
+        pass

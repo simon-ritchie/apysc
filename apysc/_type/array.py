@@ -1590,6 +1590,26 @@ class Array(
             this property's value type.
         - If an array is empty, this value becomes `undefined`
             on the JavaScript runtime.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=100, stage_height=50, background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> arr: ap.Array[ap.Int] = ap.Array([], fixed_value_type=ap.Int)
+        >>> last_value: ap.Int = arr.last_value
+        >>> ap.assert_undefined(last_value)
+
+        >>> arr.append(ap.Int(10))
+        >>> last_value = arr.last_value
+        >>> ap.assert_equal(last_value, 10)
+
+        >>> arr.append(ap.Int(20))
+        >>> last_value = arr.last_value
+        >>> ap.assert_equal(last_value, 20)
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import (

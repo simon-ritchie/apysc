@@ -1586,8 +1586,10 @@ class Array(
 
         Notes
         -----
-        The constructor's `fixed_value_type` setting affects
-        this property's value type.
+        - The constructor's `fixed_value_type` setting affects
+            this property's value type.
+        - If an array is empty, this value becomes `undefined`
+            on the JavaScript runtime.
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import (

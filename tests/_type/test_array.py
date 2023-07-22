@@ -713,6 +713,3 @@ class TestArray:
         arr_2: ap.Array[int] = ap.Array([1, 2])
         last_value_2 = arr_2.last_value
         assert isinstance(last_value_2, ap.AnyValue)
-
-        
-        pass

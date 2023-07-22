@@ -66,7 +66,9 @@ Get an array's last index value.<hr>
 ```py
 >>> import apysc as ap
 >>> _ = ap.Stage(
-...     stage_width=100, stage_height=50, background_color="#333",
+...     stage_width=100,
+...     stage_height=50,
+...     background_color="#333",
 ...     stage_elem_id="stage",
 ... )
 >>> arr: ap.Array[ap.Int] = ap.Array([], fixed_value_type=ap.Int)

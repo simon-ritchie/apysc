@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Before reading on, maybe it is helpful to read the following page:": "事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:",  # noqa
     ##################################################
-    "- [Why the apysc library doesn\'t use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)": "- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)",  # noqa
+    "- [Why the apysc library doesn't use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)": "- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)",  # noqa
     ##################################################
     "## What is the Array?": "## Array クラスとは",
     ##################################################
@@ -35,13 +35,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## fixed_value_type argument": "## fixed_value_type 引数について",
     ##################################################
-    "The constructor\'s `fixed_value_type` argument is optional.": "コンストラクタの`fixed_value_type`引数は省略可能な引数になっています。",  # noqa
+    "The constructor's `fixed_value_type` argument is optional.": "コンストラクタの`fixed_value_type`引数は省略可能な引数になっています。",  # noqa
     ##################################################
     "If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified type instance.": "もし指定された場合、`__getitem__`メソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）などの配列の値に関係した各インターフェイスが指定された型のインスタンスを返却するケースが発生するようになります",  # noqa
     ##################################################
     "It returns an instance of the specified type, especially when an array index exceeds the length of an array on the Python runtime.": "この返却処理はPythonランタイム上で配列の添え字が配列の長さを越える場合などに発生するようになります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=100, stage_height=50, background_color=\"#333\", stage_elem_id=\"stage\"\n)\narr: ap.Array[ap.Int] = ap.Array([ap.Int(10)], fixed_value_type=ap.Int)\n\n# Index 5 is out of bounds on the Python runtime,\n# but since the `fixed_value_type` is the `ap.Int`,\n# this interface returns an `ap.Int` value.\nint_value: ap.Int = arr[5]\nassert isinstance(int_value, ap.Int)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=100, stage_height=50, background_color=\"#333\", stage_elem_id=\"stage\"\n)\narr: ap.Array[ap.Int] = ap.Array([ap.Int(10)], fixed_value_type=ap.Int)\n\n# Index 5 is out of bounds on the Python runtime,\n# but since the `fixed_value_type` is the `ap.Int`,\n# this interface returns an `ap.Int` value.\nint_value: ap.Int = arr[5]\nassert isinstance(int_value, ap.Int)\n```",  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=100, stage_height=50, background_color="#333", stage_elem_id="stage"\n)\narr: ap.Array[ap.Int] = ap.Array([ap.Int(10)], fixed_value_type=ap.Int)\n\n# Index 5 is out of bounds on the Python runtime,\n# but since the `fixed_value_type` is the `ap.Int`,\n# this interface returns an `ap.Int` value.\nint_value: ap.Int = arr[5]\nassert isinstance(int_value, ap.Int)\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=100, stage_height=50, background_color="#333", stage_elem_id="stage"\n)\narr: ap.Array[ap.Int] = ap.Array([ap.Int(10)], fixed_value_type=ap.Int)\n\n# Index 5 is out of bounds on the Python runtime,\n# but since the `fixed_value_type` is the `ap.Int`,\n# this interface returns an `ap.Int` value.\nint_value: ap.Int = arr[5]\nassert isinstance(int_value, ap.Int)\n```',  # noqa
     ##################################################
     "## See also": "## 関連資料",
     ##################################################
@@ -73,7 +73,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Array class constructor API": "## Array クラスのコンストラクタのAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -89,7 +89,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - A fixed value type of array. This argument only becomes an apysc type, such as the `ap.Int`, `ap.String`, or `ap.Rectangle`. If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified value type instance.": "  - 配列の値の固定の型。この引数は`ap.Int`、`ap.String`、`ap.Rectangle`などのapyscの型のみ設定することができます。もし指定された場合、`__getitem__`などのメソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）が指定された型のインスタンスを返却するケースが発生するようになります。",  # noqa
     ##################################################
-    "- `variable_name_suffix`: str, default \'\'": "- `variable_name_suffix`: str, default \'\'",  # noqa
+    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -111,7 +111,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## value property API": "## value 属性のAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

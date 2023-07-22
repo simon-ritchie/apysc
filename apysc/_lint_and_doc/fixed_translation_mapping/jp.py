@@ -4132,15 +4132,15 @@ MAPPINGS: Mappings = Mappings(
             val="## last_value 属性のAPI",
         ),
         Mapping(
-            key="Get an array\'s last index value.<hr>",
+            key="Get an array's last index value.<hr>",
             val="配列の最後のインデックスの値を取得します。<hr>",
         ),
         Mapping(
-            key="  - An array\'s last index value.",
+            key="  - An array's last index value.",
             val="  - 配列の最後のインデックスの値。",
         ),
         Mapping(
-            key=" ・The constructor\'s `fixed_value_type` setting affects this property\'s value type. ",
+            key=" ・The constructor's `fixed_value_type` setting affects this property's value type. ",
             val=" ・コンストラクタの`fixed_value_type`設定はこの属性の値の型に影響します。",
         ),
         Mapping(

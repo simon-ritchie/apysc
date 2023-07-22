@@ -11,7 +11,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "# DateTime class weekday_js and weekday_py properties": "# DateTime クラスの weekday_js と weekday_py 属性",  # noqa
     ##################################################
-    "This page explains the `DateTime` class\'s `weekday_js` and `weekday_py` properties interfaces.": "このページでは`DateTime`クラスの`weekday_js`と`weekday_py`属性の各インターフェイスについて説明します。",  # noqa
+    "This page explains the `DateTime` class's `weekday_js` and `weekday_py` properties interfaces.": "このページでは`DateTime`クラスの`weekday_js`と`weekday_py`属性の各インターフェイスについて説明します。",  # noqa
     ##################################################
     "## What interface are these?": "## 各インターフェイス概要",
     ##################################################
@@ -25,13 +25,13 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "A `DateTime` instance has these properties interfaces.": "`DateTime`クラスのインスタンスがこれらの各属性のインターフェイスを持っています。",  # noqa
     ##################################################
-    "These getter interfaces return a weekday\'s `Int` value.": "これらのgetterのインターフェイスは`Int`型の曜日の値を返却します。",  # noqa
+    "These getter interfaces return a weekday's `Int` value.": "これらのgetterのインターフェイスは`Int`型の曜日の値を返却します。",  # noqa
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\n\n# 2022-12-11 is Sunday.\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=11)\nweekday_js: ap.Int = datetime_.weekday_js\nassert weekday_js == 0\n\nweekday_py: ap.Int = datetime_.weekday_py\nassert weekday_py == 6\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\n\n# 2022-12-11 is Sunday.\ndatetime_: ap.DateTime = ap.DateTime(year=2022, month=12, day=11)\nweekday_js: ap.Int = datetime_.weekday_js\nassert weekday_js == 0\n\nweekday_py: ap.Int = datetime_.weekday_py\nassert weekday_py == 6\n```",  # noqa
     ##################################################
     "## weekday_js property API": "## weekday_js 属性のAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -65,7 +65,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## weekday_py property API": "## weekday_py 属性のAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

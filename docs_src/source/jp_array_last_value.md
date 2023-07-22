@@ -66,7 +66,9 @@ ap.save_overall_html(dest_dir_path="array_last_value_basic_usage_2/")
 ```py
 >>> import apysc as ap
 >>> _ = ap.Stage(
-...     stage_width=100, stage_height=50, background_color="#333",
+...     stage_width=100,
+...     stage_height=50,
+...     background_color="#333",
 ...     stage_elem_id="stage",
 ... )
 >>> arr: ap.Array[ap.Int] = ap.Array([], fixed_value_type=ap.Int)

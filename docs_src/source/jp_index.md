@@ -118,6 +118,7 @@ jp_array_join
 jp_array_index_of
 jp_array_clear
 jp_array_comparison
+jp_array_last_value
 ```
 
 ### Dictionary クラス

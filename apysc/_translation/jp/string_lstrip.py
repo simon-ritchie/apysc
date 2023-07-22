@@ -15,23 +15,23 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `lstrip` method interface removes whitespaces or a specified character(s) from a string's left edge.": "`lstrip`メソッドのインターフェイスは文字列の左端から空白文字もしくは指定された文字（もしくは文字列）を取り除きます。",  # noqa
+    "The `lstrip` method interface removes whitespaces or a specified character(s) from a string\'s left edge.": "`lstrip`メソッドのインターフェイスは文字列の左端から空白文字もしくは指定された文字（もしくは文字列）を取り除きます。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
     "The `lstrip` accepts the optional `string` argument.": "`lstrip`メソッドは省略可能な`string`引数を受け付けます。",  # noqa
     ##################################################
-    "If you skip this argument, this interface removes whitespaces (and line breaks) from a string's left edge.": "もしもこの引数の指定を省略した場合、このインターフェイスは空白文字（スペースや改行など）を文字列の左端から取り除きます。",  # noqa
+    "If you skip this argument, this interface removes whitespaces (and line breaks) from a string\'s left edge.": "もしもこの引数の指定を省略した場合、このインターフェイスは空白文字（スペースや改行など）を文字列の左端から取り除きます。",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")\n\nstring: ap.String = ap.String("  \n　 aabbaa  ")\nstring = string.lstrip()\nap.assert_equal(string, "aabbaa  ")\n\nap.save_overall_html(dest_dir_path="string_lstrip_basic_usage_1/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")\n\nstring: ap.String = ap.String("  \n　 aabbaa  ")\nstring = string.lstrip()\nap.assert_equal(string, "aabbaa  ")\n\nap.save_overall_html(dest_dir_path="string_lstrip_basic_usage_1/")\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\nstring: ap.String = ap.String(\"  \n　 aabbaa  \")\nstring = string.lstrip()\nap.assert_equal(string, \"aabbaa  \")\n\nap.save_overall_html(dest_dir_path=\"string_lstrip_basic_usage_1/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\nstring: ap.String = ap.String(\"  \n　 aabbaa  \")\nstring = string.lstrip()\nap.assert_equal(string, \"aabbaa  \")\n\nap.save_overall_html(dest_dir_path=\"string_lstrip_basic_usage_1/\")\n```",  # noqa
     ##################################################
-    "Also, if you specify any value to the `string` argument, this interface removes its character(s) from a string's left edge.": "また、もしも何らかの文字列の値を`string`引数に指定した場合、このインターフェイスは文字列の左端からその文字（もしくは文字列）を取り除きます。",  # noqa
+    "Also, if you specify any value to the `string` argument, this interface removes its character(s) from a string\'s left edge.": "また、もしも何らかの文字列の値を`string`引数に指定した場合、このインターフェイスは文字列の左端からその文字（もしくは文字列）を取り除きます。",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")\n\nstring: ap.String = ap.String("aabbaa")\nstring = string.lstrip(string="a")\nap.assert_equal(string, "bbaa")\n\nap.save_overall_html(dest_dir_path="string_lstrip_basic_usage_2/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")\n\nstring: ap.String = ap.String("aabbaa")\nstring = string.lstrip(string="a")\nap.assert_equal(string, "bbaa")\n\nap.save_overall_html(dest_dir_path="string_lstrip_basic_usage_2/")\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\nstring: ap.String = ap.String(\"aabbaa\")\nstring = string.lstrip(string=\"a\")\nap.assert_equal(string, \"bbaa\")\n\nap.save_overall_html(dest_dir_path=\"string_lstrip_basic_usage_2/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(stage_width=0, stage_height=0, background_color=\"#333\", stage_elem_id=\"stage\")\n\nstring: ap.String = ap.String(\"aabbaa\")\nstring = string.lstrip(string=\"a\")\nap.assert_equal(string, \"bbaa\")\n\nap.save_overall_html(dest_dir_path=\"string_lstrip_basic_usage_2/\")\n```",  # noqa
     ##################################################
     "## lstrip API": "## lstrip API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -39,7 +39,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    '- `string`: Optional[Union[str, "String"]], optional': '- `string`: Optional[Union[str, "String"]], optional',  # noqa
+    "- `string`: Optional[Union[str, \"String\"]], optional": "- `string`: Optional[Union[str, \"String\"]], optional",  # noqa
     ##################################################
     "  - A character or string to remove from the beginning of this value. If this argument is `None` (default), this method removes spaces and line breaks.": "  - この値の左端から取り除く文字もしくは文字列。もしもこの引数がの値がNone（デフォルト）だった場合、このメソッドはスペースや改行などを取り除きます。",  # noqa
     ##################################################
@@ -59,5 +59,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String("   aabbcc  ")\n>>> string = string.lstrip()\n>>> string\nString("aabbcc  ")\n\n>>> string = ap.String("aabbccaa")\n>>> string = string.lstrip(string="a")\n>>> string\nString("bbccaa")\n```': '```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String("   aabbcc  ")\n>>> string = string.lstrip()\n>>> string\nString("aabbcc  ")\n\n>>> string = ap.String("aabbccaa")\n>>> string = string.lstrip(string="a")\n>>> string\nString("bbccaa")\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"   aabbcc  \")\n>>> string = string.lstrip()\n>>> string\nString(\"aabbcc  \")\n\n>>> string = ap.String(\"aabbccaa\")\n>>> string = string.lstrip(string=\"a\")\n>>> string\nString(\"bbccaa\")\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> string: ap.String = ap.String(\"   aabbcc  \")\n>>> string = string.lstrip()\n>>> string\nString(\"aabbcc  \")\n\n>>> string = ap.String(\"aabbccaa\")\n>>> string = string.lstrip(string=\"a\")\n>>> string\nString(\"bbccaa\")\n```",  # noqa
 }

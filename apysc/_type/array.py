@@ -1591,6 +1591,11 @@ class Array(
         - If an array is empty, this value becomes `undefined`
             on the JavaScript runtime.
 
+        References
+        ----------
+        - Array class last_value property
+            - https://simon-ritchie.github.io/apysc/en/array_last_value.html
+
         Examples
         --------
         >>> import apysc as ap

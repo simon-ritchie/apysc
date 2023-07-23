@@ -39,6 +39,7 @@ def main() -> None:
     y_axis_settings: ap.YAxisSingleColumnSettings = ap.YAxisSingleColumnSettings(
         y_axis_column_name="value",
         tick_text_fill_color="#aaa",
+        tick_text_font_size=10,
     )
     chart: VerticalBarChart = VerticalBarChart(
         data=[
@@ -55,11 +56,10 @@ def main() -> None:
         height=300,
         background_fill_color="#555",
         background_fill_alpha=0.7,
-        border_color="#aaa",
-        border_alpha=0.5,
+        border_color="#666",
+        border_alpha=1,
         border_thickness=1,
     )
-    ap.trace(chart._y_axis_ticks_y_coordinates)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

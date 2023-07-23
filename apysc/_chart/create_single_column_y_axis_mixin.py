@@ -139,27 +139,29 @@ class CreateSingleColumnYAxisMixIn:
             tick_text_italic=y_axis_settings._tick_text_bold,
             variable_name_suffix=variable_name_suffix,
         )
-        self._y_axis_border = _create_y_axis_border(
+        self._y_axis_border = _create_y_axis_vertical_border(
             y_axis_container=y_axis_container,
             y_axis_texts_container=self._y_axis_texts_container,
-            y_axis_ticks_y_coordinates=self._y_axis_ticks_y_coordinates,
             line_color=y_axis_settings._line_color,
             line_thickness=y_axis_settings._line_thickness,
             line_alpha=y_axis_settings._line_alpha,
+            tick_text_font_size=y_axis_settings._tick_text_font_size,
+            variable_name_suffix=variable_name_suffix,
         )
 
 
-def _create_y_axis_border(
+def _create_y_axis_vertical_border(
     *,
     y_axis_container: Sprite,
     y_axis_texts_container: Sprite,
-    y_axis_ticks_y_coordinates: Array[Number],
     line_color: String,
     line_thickness: Int,
     line_alpha: Number,
+    tick_text_font_size: Int,
+    variable_name_suffix: str,
 ) -> Line:
     """
-    Create a y-axis border.
+    Create a y-axis vertical border.
 
     Parameters
     ----------
@@ -167,14 +169,17 @@ def _create_y_axis_border(
         A y-axis container instance.
     y_axis_texts_container : Sprite
         A y-axis texts container instance.
-    y_axis_ticks_y_coordinates : Array[Number]
-        A y-axis ticks y coordinates.
     line_color : String
         A line color setting.
     line_thickness : Int
         A line thickness setting.
     line_alpha : Number
         A line alpha setting.
+    tick_text_font_size : Int
+        A tick text font size setting.
+    variable_name_suffix : str, optional
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
 
     Returns
     -------
@@ -184,8 +189,25 @@ def _create_y_axis_border(
     import apysc as ap
 
     bounding_box: ap.RectangleGeom = y_axis_texts_container.get_bounds()
-    x: Number = bounding_box.right_x
-    pass
+    x: Number = (
+        bounding_box.width.to_number()
+        + chart_const.LARGE_PADDING * 3
+    )
+    y_start: Number = ap.Number(
+        chart_const.SMALL_PADDING,
+        variable_name_suffix=variable_name_suffix,
+    )
+    y_end: Number = bounding_box.height.to_number() + y_start - tick_text_font_size / 2
+    line: Line = Line(
+        start_point=ap.Point2D(x=x, y=y_start),
+        end_point=ap.Point2D(x=x, y=y_end),
+        line_color=line_color,
+        line_thickness=line_thickness,
+        line_alpha=line_alpha,
+        parent=y_axis_container,
+        variable_name_suffix=variable_name_suffix,
+    )
+    return line
 
 
 def _create_y_axis_ticks_texts(
@@ -259,6 +281,8 @@ def _create_y_axis_ticks_texts(
             variable_name_suffix=variable_name_suffix,
         )
         y_axis_ticks_texts.append(txt)
+    ap.trace("tick_text_fill_color:", tick_text_fill_color)
+    ap.trace("tick_text_font_size:", tick_text_font_size)
     _apply_x_coordinate_to_y_axis_ticks_texts(
         horizontal_padding=horizontal_padding,
         y_axis_ticks_texts=y_axis_ticks_texts,

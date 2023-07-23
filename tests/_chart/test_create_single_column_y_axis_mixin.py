@@ -269,3 +269,28 @@ def test__create_y_axis_ticks_texts() -> None:
     assert "test_suffix" in y_axis_ticks_texts._value[0].variable_name
     expression: str = expression_data_util.get_current_expression()
     assert "for (" in expression
+
+
+@apply_test_settings()
+def test__create_y_axis_vertical_border() -> None:
+    y_axis_container: ap.Sprite = ap.Sprite()
+    y_axis_texts_container: ap.Sprite = ap.Sprite()
+    line_color: ap.String = ap.String("#333333")
+    line_thickness: ap.Int = ap.Int(1)
+    line_alpha: ap.Number = ap.Number(0.5)
+    tick_text_font_size: ap.Int = ap.Int(12)
+
+    line: ap.Line = create_single_column_y_axis_mixin._create_y_axis_vertical_border(
+        y_axis_container=y_axis_container,
+        y_axis_texts_container=y_axis_texts_container,
+        line_color=line_color,
+        line_thickness=line_thickness,
+        line_alpha=line_alpha,
+        tick_text_font_size=tick_text_font_size,
+        variable_name_suffix="test_suffix",
+    )
+    assert line.line_color == ap.String("#333333")
+    assert line.line_thickness == ap.Int(1)
+    assert line.line_alpha == ap.Number(0.5)
+    assert line.parent == y_axis_container
+    assert "test_suffix" in line.variable_name

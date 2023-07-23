@@ -41,7 +41,7 @@ def main() -> None:
         tick_text_fill_color="#aaa",
         tick_text_font_size=10,
     )
-    chart: VerticalBarChart = VerticalBarChart(
+    _: VerticalBarChart = VerticalBarChart(
         data=[
             {"value": 10, "date": "2023-01-01"},
             {"value": 20, "data": "2023-01-02"},

@@ -229,6 +229,34 @@ Create a y-axis ticks texts.<hr>
 - `texts_container`: Sprite
   - A container that contains created texts.
 
+## `_create_y_axis_vertical_border` function docstring
+
+Create a y-axis vertical border.<hr>
+
+**[Parameters]**
+
+- `y_axis_container`: Sprite
+  - A y-axis container instance.
+- `y_axis_texts_container`: Sprite
+  - A y-axis texts container instance.
+- `line_color`: String
+  - A line color setting.
+- `line_thickness`: Int
+  - A line thickness setting.
+- `line_alpha`: Number
+  - A line alpha setting.
+- `tick_text_font_size`: Int
+  - A tick text font size setting.
+- `variable_name_suffix`: str, optional
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Returns]**
+
+- `line`: Line
+  - A created line.
+
 ## `_extract_column_values_from_data` function docstring
 
 Get a specified column values array from a specified data.<hr>

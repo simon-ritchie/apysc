@@ -189,10 +189,7 @@ def _create_y_axis_vertical_border(
     import apysc as ap
 
     bounding_box: ap.RectangleGeom = y_axis_texts_container.get_bounds()
-    x: Number = (
-        bounding_box.width.to_number()
-        + chart_const.LARGE_PADDING * 3
-    )
+    x: Number = bounding_box.width.to_number() + chart_const.LARGE_PADDING * 3
     y_start: Number = ap.Number(
         chart_const.SMALL_PADDING,
         variable_name_suffix=variable_name_suffix,

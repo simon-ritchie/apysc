@@ -6,7 +6,6 @@ import apysc as ap
 from apysc._display import stage
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
-from apysc._expression import indent_num
 from apysc._expression.expression_data_util import _LimitClauseCantUseError
 from apysc._expression.indent_num import Indent
 from apysc._testing.testing_helper import apply_test_settings
@@ -19,7 +18,9 @@ def test_get_current_expression() -> None:
     ap.append_js_expression(expression='console.log("Hello!");')
     expression: str = expression_data_util.get_current_expression()
     assert 'console.log("Hello!");' in expression
-    expression_data_util.empty_expression()
+    expression_data_util.empty_expression(
+        skip_before_stage_instantiation_expression=False
+    )
 
 
 @apply_test_settings(retrying_max_attempts_num=0)
@@ -75,7 +76,9 @@ def test__get_current_expression() -> None:
     )
     assert 'console.log("Hello!");\nconsole.log("World!");' in current_expression
 
-    expression_data_util.empty_expression()
+    expression_data_util.empty_expression(
+        skip_before_stage_instantiation_expression=False
+    )
     current_expression = expression_data_util._get_current_expression(
         table_name=expression_data_util.TableName.EXPRESSION_NORMAL
     )
@@ -272,7 +275,10 @@ def test_empty_expression() -> None:
 
 @apply_test_settings()
 def test__get_expression_table_name() -> None:
-    expression_data_util.empty_expression()
+    expression_data_util.empty_expression(
+        skip_before_stage_instantiation_expression=False
+    )
+    stage._is_stage_created = False
     table_name: expression_data_util.TableName = (
         expression_data_util._get_expression_table_name()
     )
@@ -366,7 +372,9 @@ def test__validate_limit_clause() -> None:
 
 @apply_test_settings()
 def test_exec_query() -> None:
-    expression_data_util.empty_expression()
+    expression_data_util.empty_expression(
+        skip_before_stage_instantiation_expression=False
+    )
     table_name: str = expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
     expression_data_util.exec_query(
         sql=f"INSERT INTO {table_name}(name, count) VALUES('a', 1);"
@@ -379,11 +387,32 @@ def test_exec_query() -> None:
     assert result == (1,)
 
 
-@apply_test_settings()
+@apply_test_settings(retrying_max_attempts_num=0)
 def test_get_current_before_stage_instantiation_expression() -> None:
-    expression_data_util.empty_expression()
+    expression_data_util.empty_expression(
+        skip_before_stage_instantiation_expression=False
+    )
+    stage._is_stage_created = False
     expression_data_util.append_js_expression(expression='console.log("Hello!");')
     expression: str = (
         expression_data_util.get_current_before_stage_instantiation_expression()
     )
+    assert 'console.log("Hello!");' in expression
+
+
+@apply_test_settings()
+def test_copy_expression_before_stage_instantiation() -> None:
+    expression_data_util.empty_expression(
+        skip_before_stage_instantiation_expression=False
+    )
+    stage._is_stage_created = False
+    assert_raises(
+        expected_error_class=stage.StageNotCreatedError,
+        callable_=expression_data_util.copy_expression_before_stage_instantiation,
+    )
+
+    expression_data_util.append_js_expression(expression='console.log("Hello!");')
+    ap.Stage()
+    expression_data_util.copy_expression_before_stage_instantiation()
+    expression: str = expression_data_util.get_current_expression()
     assert 'console.log("Hello!");' in expression

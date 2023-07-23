@@ -127,6 +127,7 @@ class Stage(
         global _current_stage
         expression_data_util.empty_expression()
         _save_stage_id_to_db(stage=self)
+        expression_data_util.copy_expression_before_stage_instantiation()
         self._variable_name_suffix = variable_name_suffix
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(

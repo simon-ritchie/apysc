@@ -452,7 +452,7 @@ def _get_expression_table_name() -> TableName:
     from apysc._expression import event_handler_scope
     from apysc._display import stage
 
-    if not stage._is_stage_created:
+    if not stage.is_stage_created():
         return TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
 
     if not event_handler_scope.current_scope_is_in_event_handler():
@@ -592,3 +592,28 @@ def exec_query(*, sql: str, commit: bool = True) -> None:
     cursor.execute(sql)
     if commit:
         connection.commit()
+
+
+def copy_expression_before_stage_instantiation() -> None:
+    """
+    Copy the before stage instantiation expression to the
+    normal expression table.
+
+    Raises
+    ------
+    StageNotCreatedError
+        If this function called before stage creation.
+    """
+    from apysc._display import stage
+
+    if not stage.is_stage_created():
+        raise stage.StageNotCreatedError(
+            "This function must call after stage creation."
+        )
+
+    expression: str = _get_current_expression(
+        table_name=TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
+    )
+    if expression == "":
+        return
+    append_js_expression(expression=expression)

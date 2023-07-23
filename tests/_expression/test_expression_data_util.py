@@ -168,6 +168,15 @@ def test__create_expression_handler_table() -> None:
 
 
 @apply_test_settings()
+def test__create_expression_before_stage_instantiation_table() -> None:
+    expression_data_util._create_expression_before_stage_instantiation_table()
+    result: bool = expression_data_util._table_exists(
+        table_name=expression_data_util.TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
+    )
+    assert result
+
+
+@apply_test_settings()
 def test__create_indent_num_normal_table() -> None:
     expression_data_util._create_indent_num_normal_table()
     result: bool = expression_data_util._table_exists(

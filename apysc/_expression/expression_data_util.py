@@ -26,6 +26,7 @@ class TableName(Enum):
     NOT_EXISTING = "not_existing"
     EXPRESSION_NORMAL = "expression_normal"
     EXPRESSION_HANDLER = "expression_handler"
+    EXPRESSION_BEFORE_STAGE_INSTANTIATION = "expression_before_stage_instantiation"
     INDENT_NUM_NORMAL = "indent_num_normal"
     INDENT_NUM_HANDLER = "indent_num_handler"
     LAST_SCOPE = "last_scope"
@@ -143,7 +144,7 @@ def _make_create_table_query(*, table_name: TableName, column_ddl: str) -> str:
 
 
 _EXPRESSION_TABLE_COLUMN_DDL: str = (
-    "  id INTEGER PRIMARY KEY AUTOINCREMENT," "\n  txt TEXT NOT NULL"
+    "  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  txt TEXT NOT NULL"
 )
 
 
@@ -165,6 +166,18 @@ def _create_expression_handler_table() -> None:
     """
     query: str = _make_create_table_query(
         table_name=TableName.EXPRESSION_HANDLER, column_ddl=_EXPRESSION_TABLE_COLUMN_DDL
+    )
+    cursor.execute(query)
+
+
+@_check_connection
+def _create_expression_before_stage_instantiation_table() -> None:
+    """
+    Create the before stage instantiation expression data SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION,
+        column_ddl=_EXPRESSION_TABLE_COLUMN_DDL,
     )
     cursor.execute(query)
 
@@ -343,6 +356,7 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
         return False
     _create_expression_normal_table()
     _create_expression_handler_table()
+    _create_expression_before_stage_instantiation_table()
     _create_indent_num_normal_table()
     _create_indent_num_handler_table()
     _create_last_scope_table()
@@ -358,15 +372,28 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
     return True
 
 
-def empty_expression() -> None:
+def empty_expression(
+    *,
+    skip_before_stage_instantiation_expression: bool = True,
+) -> None:
     """
     Empty the current js expression data.
+
+    Parameters
+    ----------
+    skip_before_stage_instantiation_expression : bool, default True
+        Whether to skip the before stage instantiation expression emptying.
     """
     from apysc._display import stage
 
     initialize_sqlite_tables_if_not_initialized()
     for table_name in TableName:
         if table_name == TableName.NOT_EXISTING:
+            continue
+        if (
+            skip_before_stage_instantiation_expression
+            and table_name == TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
+        ):
             continue
         query: str = f"DELETE FROM {table_name.value};"
         cursor.execute(query)
@@ -423,6 +450,10 @@ def _get_expression_table_name() -> TableName:
         Target expression table name.
     """
     from apysc._expression import event_handler_scope
+    from apysc._display import stage
+
+    if not stage._is_stage_created:
+        return TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
 
     if not event_handler_scope.current_scope_is_in_event_handler():
         return TableName.EXPRESSION_NORMAL
@@ -466,6 +497,21 @@ def get_current_event_handler_scope_expression() -> str:
     """
     current_expression: str = _get_current_expression(
         table_name=TableName.EXPRESSION_HANDLER
+    )
+    return current_expression
+
+
+def get_current_before_stage_instantiation_expression() -> str:
+    """
+    Get a current expression string that is before stage instantiation.
+
+    Returns
+    -------
+    current_expression : str
+        Current expression's string.
+    """
+    current_expression: str = _get_current_expression(
+        table_name=TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
     )
     return current_expression
 

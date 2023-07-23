@@ -16,72 +16,68 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 
 @apply_test_settings()
 def test_get_current_expression() -> None:
-    expression_data_util.empty_expression()
     ap.append_js_expression(expression='console.log("Hello!");')
     expression: str = expression_data_util.get_current_expression()
-    assert expression == 'console.log("Hello!");'
+    assert 'console.log("Hello!");' in expression
     expression_data_util.empty_expression()
 
-    expression = expression_data_util.get_current_expression()
-    assert expression == ""
 
-
-@apply_test_settings()
+@apply_test_settings(retrying_max_attempts_num=0)
 def test_append_js_expression() -> None:
-    indent_num.reset()
-    expression_data_util.empty_expression()
     ap.append_js_expression(expression='var num = 100;\nvar str = "test";')
     select_query: str = (
-        "SELECT txt FROM " f"{expression_data_util.TableName.EXPRESSION_NORMAL.value};"
+        f"SELECT txt FROM {expression_data_util.TableName.EXPRESSION_NORMAL.value};"
     )
     expression_data_util.exec_query(sql=select_query)
-    result_1: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
-    if result_1 is None:
-        raise AssertionError("result value is None.")
+    result_1: List[Tuple[str]] = expression_data_util.cursor.fetchall()
+    if not result_1:
+        raise AssertionError("result value is empty.")
     expected: str = 'var num = 100;\nvar str = "test";'
-    assert expected in result_1[0]
+    expected_expression_exists: bool = False
+    for tuple_val in result_1:
+        if expected in tuple_val[0]:
+            expected_expression_exists = True
+            break
+    assert expected_expression_exists
 
-    expression_data_util.empty_expression()
+    ap.Stage()
     with Indent():
         ap.append_js_expression(expression=('var num_1 = 10;\nvar str_1 = "test";'))
     expression_data_util.exec_query(sql=select_query)
-    result_2: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
-    if result_2 is None:
-        raise AssertionError("result value is None.")
+    result_2: List[Tuple[str]] = expression_data_util.cursor.fetchall()
+    if not result_2:
+        raise AssertionError("result value is empty.")
     expected = "  var num_1 = 10;" '\n  var str_1 = "test";'
-    assert expected in result_2[0]
-
-    ap.append_js_expression(expression="var num_2 = 20;")
-    expression_data_util.exec_query(sql=select_query)
-    result_3: List[Tuple[str]] = expression_data_util.cursor.fetchall()
-    assert len(result_3) == 2
-    assert result_3[-1][0] == "var num_2 = 20;"
+    expected_expression_exists = False
+    for tuple_val in result_2:
+        if expected in tuple_val[0]:
+            expected_expression_exists = True
+            break
+    assert expected_expression_exists
 
 
 @apply_test_settings()
 def test__get_current_expression() -> None:
-    expression_data_util.empty_expression()
     current_expression: str = expression_data_util._get_current_expression(
         table_name=expression_data_util.TableName.EXPRESSION_NORMAL
     )
-    assert current_expression == ""
+    assert 'console.log("Hello!");' not in current_expression
 
     ap.append_js_expression(expression='console.log("Hello!");')
     current_expression = expression_data_util._get_current_expression(
         table_name=expression_data_util.TableName.EXPRESSION_NORMAL
     )
-    assert current_expression == 'console.log("Hello!");'
+    assert 'console.log("Hello!");' in current_expression
 
     ap.append_js_expression(expression='console.log("World!");')
     current_expression = expression_data_util._get_current_expression(
         table_name=expression_data_util.TableName.EXPRESSION_NORMAL
     )
-    assert current_expression == 'console.log("Hello!");\nconsole.log("World!");'
+    assert 'console.log("Hello!");\nconsole.log("World!");' in current_expression
 
 
 @apply_test_settings()
 def test_get_current_event_handler_scope_expression() -> None:
-    expression_data_util.empty_expression()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with event_handler_scope.HandlerScope(
@@ -227,6 +223,11 @@ def test_empty_expression() -> None:
         f"{expression_data_util.TableName.EXPRESSION_NORMAL.value}"
         '(txt) VALUES ("test_text");'
     )
+    expression_data_util.cursor.execute(
+        "INSERT INTO "
+        f"{expression_data_util.TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION.value}"
+        '(txt) VALUES ("test_text");'
+    )
     expression_data_util.empty_expression()
     expression_data_util.exec_query(
         sql=(
@@ -239,17 +240,38 @@ def test_empty_expression() -> None:
     assert result is None
     assert not stage._is_stage_created
 
+    table_name: str = (
+        expression_data_util.TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION.value
+    )
+    expression_data_util.exec_query(sql=f"SELECT * FROM {table_name} LIMIT 1;")
+    result = expression_data_util.cursor.fetchone()
+    assert result is not None
+
+    expression_data_util.empty_expression(
+        skip_before_stage_instantiation_expression=False
+    )
+    expression_data_util.exec_query(sql=f"SELECT * FROM {table_name} LIMIT 1;")
+    result = expression_data_util.cursor.fetchone()
+    assert result is None
+
 
 @apply_test_settings()
 def test__get_expression_table_name() -> None:
+    expression_data_util.empty_expression()
+    table_name: expression_data_util.TableName = (
+        expression_data_util._get_expression_table_name()
+    )
+    assert table_name == (
+        expression_data_util.TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
+    )
+
+    ap.Stage()
     instance: VariableNameMixIn = VariableNameMixIn()
     instance.variable_name = "test_instance"
     with event_handler_scope.HandlerScope(
         handler_name="test_handler_1", instance=instance
     ):
-        table_name: expression_data_util.TableName = (
-            expression_data_util._get_expression_table_name()
-        )
+        table_name = expression_data_util._get_expression_table_name()
     assert table_name == expression_data_util.TableName.EXPRESSION_HANDLER
 
     table_name = expression_data_util._get_expression_table_name()

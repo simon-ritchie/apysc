@@ -75,6 +75,12 @@ def test__get_current_expression() -> None:
     )
     assert 'console.log("Hello!");\nconsole.log("World!");' in current_expression
 
+    expression_data_util.empty_expression()
+    current_expression = expression_data_util._get_current_expression(
+        table_name=expression_data_util.TableName.EXPRESSION_NORMAL
+    )
+    assert current_expression == ""
+
 
 @apply_test_settings()
 def test_get_current_event_handler_scope_expression() -> None:

@@ -362,3 +362,13 @@ def test_exec_query() -> None:
     )
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
     assert result == (1,)
+
+
+@apply_test_settings()
+def test_get_current_before_stage_instantiation_expression() -> None:
+    expression_data_util.empty_expression()
+    expression_data_util.append_js_expression(expression='console.log("Hello!");')
+    expression: str = (
+        expression_data_util.get_current_before_stage_instantiation_expression()
+    )
+    assert 'console.log("Hello!");' in expression

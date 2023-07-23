@@ -4127,5 +4127,25 @@ MAPPINGS: Mappings = Mappings(
             key="  - A fixed value type of array. This argument only becomes an apysc type, such as the `ap.Int`, `ap.String`, or `ap.Rectangle`. If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified value type instance.",
             val="  - 配列の値の固定の型。この引数は`ap.Int`、`ap.String`、`ap.Rectangle`などのapyscの型のみ設定することができます。もし指定された場合、`__getitem__`などのメソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）が指定された型のインスタンスを返却するケースが発生するようになります。",
         ),
+        Mapping(
+            key="## last_value property API",
+            val="## last_value 属性のAPI",
+        ),
+        Mapping(
+            key="Get an array's last index value.<hr>",
+            val="配列の最後のインデックスの値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - An array's last index value.",
+            val="  - 配列の最後のインデックスの値。",
+        ),
+        Mapping(
+            key=" ・The constructor's `fixed_value_type` setting affects this property's value type. ",
+            val=" ・コンストラクタの`fixed_value_type`設定はこの属性の値の型に影響します。",
+        ),
+        Mapping(
+            key="<br> ・If an array is empty, this value becomes `undefined` on the JavaScript runtime.<hr>",
+            val="<br> ・もし配列が空の場合、この値はJavaScriptのランタイム上では`undefined`となります。<hr>",
+        ),
     ]
 )

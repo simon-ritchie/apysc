@@ -63,7 +63,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "### Array class": "### Array クラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\narray\narray_append_and_push\narray_extend_and_concat\narray_insert_and_insert_at\narray_pop\narray_remove_and_remove_at\narray_sort\narray_reverse\narray_slice\narray_length\narray_join\narray_index_of\narray_clear\narray_comparison\n```": "```{toctree}\n:maxdepth: 1\njp_array\njp_array_append_and_push\njp_array_extend_and_concat\njp_array_insert_and_insert_at\njp_array_pop\njp_array_remove_and_remove_at\njp_array_sort\njp_array_reverse\njp_array_slice\njp_array_length\njp_array_join\njp_array_index_of\njp_array_clear\njp_array_comparison\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\narray\narray_append_and_push\narray_extend_and_concat\narray_insert_and_insert_at\narray_pop\narray_remove_and_remove_at\narray_sort\narray_reverse\narray_slice\narray_length\narray_join\narray_index_of\narray_clear\narray_comparison\narray_last_value\n```": "```{toctree}\n:maxdepth: 1\njp_array\njp_array_append_and_push\njp_array_extend_and_concat\njp_array_insert_and_insert_at\njp_array_pop\njp_array_remove_and_remove_at\njp_array_sort\njp_array_reverse\njp_array_slice\njp_array_length\njp_array_join\njp_array_index_of\njp_array_clear\njp_array_comparison\njp_array_last_value\n```",  # noqa
     ##################################################
     "### Dictionary class": "### Dictionary クラス",
     ##################################################

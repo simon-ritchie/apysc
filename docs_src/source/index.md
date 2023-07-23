@@ -115,6 +115,7 @@ array_join
 array_index_of
 array_clear
 array_comparison
+array_last_value
 ```
 
 ### Dictionary class

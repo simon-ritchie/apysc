@@ -375,6 +375,7 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
 def empty_expression(
     *,
     skip_before_stage_instantiation_expression: bool = True,
+    skip_variable_name_count: bool = True,
 ) -> None:
     """
     Empty the current js expression data.
@@ -383,6 +384,8 @@ def empty_expression(
     ----------
     skip_before_stage_instantiation_expression : bool, default True
         Whether to skip the before stage instantiation expression emptying.
+    skip_variable_name_count : bool, default True
+        Whether to skip the variable name count data emptying.
     """
     from apysc._display import stage
 
@@ -393,6 +396,11 @@ def empty_expression(
         if (
             skip_before_stage_instantiation_expression
             and table_name == TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
+        ):
+            continue
+        if (
+            skip_variable_name_count
+            and table_name == TableName.VARIABLE_NAME_COUNT
         ):
             continue
         query: str = f"DELETE FROM {table_name.value};"

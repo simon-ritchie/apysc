@@ -265,10 +265,28 @@ def test_empty_expression() -> None:
     result = expression_data_util.cursor.fetchone()
     assert result is not None
 
+    expression_data_util.exec_query(
+        sql=f"SELECT * FROM {expression_data_util.TableName.VARIABLE_NAME_COUNT.value} "
+        "LIMIT 1;"
+    )
+    result = expression_data_util.cursor.fetchone()
+    assert result is not None
+
     expression_data_util.empty_expression(
         skip_before_stage_instantiation_expression=False
     )
+    table_name = (
+        expression_data_util.TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION.value
+    )
     expression_data_util.exec_query(sql=f"SELECT * FROM {table_name} LIMIT 1;")
+    result = expression_data_util.cursor.fetchone()
+    assert result is None
+
+    expression_data_util.empty_expression(skip_variable_name_count=False)
+    expression_data_util.exec_query(
+        sql=f"SELECT * FROM {expression_data_util.TableName.VARIABLE_NAME_COUNT.value} "
+        "LIMIT 1;"
+    )
     result = expression_data_util.cursor.fetchone()
     assert result is None
 

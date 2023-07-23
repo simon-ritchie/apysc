@@ -31,8 +31,7 @@ def test__make_variable_name() -> None:
 
 @apply_test_settings()
 def test_get_next_variable_name() -> None:
-    ap.Stage()
-
+    expression_data_util.empty_expression(skip_variable_name_count=False)
     variable_name: str = expression_variables_util.get_next_variable_name(
         type_name="sprite"
     )
@@ -80,9 +79,10 @@ def test_append_substitution_expression_with_names() -> None:
     assert "i_5 = " not in expression
 
 
+@apply_test_settings()
 def test__save_next_variable_name_count() -> None:
     """_save_next_variable_name_count 関数のテスト。"""
-    ap.Stage()
+    expression_data_util.empty_expression(skip_variable_name_count=False)
     expression_variables_util._save_next_variable_name_count(type_name="sp")
     next_variable_num: int = expression_variables_util._get_next_variable_num(
         type_name="sp"

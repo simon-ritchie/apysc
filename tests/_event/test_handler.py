@@ -147,8 +147,9 @@ def test__append_in_handler_head_expression() -> None:
     expression: str = expression_data_util.get_current_expression()
     assert expression == ""
 
+    ap.Stage()
     handler._append_in_handler_head_expression(
         in_handler_head_expression='console.log("hello");'
     )
     expression = expression_data_util.get_current_expression()
-    assert expression == 'console.log("hello");'
+    assert 'console.log("hello");' in expression

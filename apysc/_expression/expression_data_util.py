@@ -398,10 +398,7 @@ def empty_expression(
             and table_name == TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
         ):
             continue
-        if (
-            skip_variable_name_count
-            and table_name == TableName.VARIABLE_NAME_COUNT
-        ):
+        if skip_variable_name_count and table_name == TableName.VARIABLE_NAME_COUNT:
             continue
         query: str = f"DELETE FROM {table_name.value};"
         cursor.execute(query)
@@ -457,8 +454,8 @@ def _get_expression_table_name() -> TableName:
     table_name : str
         Target expression table name.
     """
-    from apysc._expression import event_handler_scope
     from apysc._display import stage
+    from apysc._expression import event_handler_scope
 
     if not stage.is_stage_created():
         return TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION

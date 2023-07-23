@@ -272,6 +272,24 @@ Function for the decoration.<hr>
 - `result`: Any
   - Any returned value.
 
+## `new_func` function docstring
+
+Function for the decoration.<hr>
+
+**[Parameters]**
+
+- `*args`: list
+  - Any positional arguments.
+- `**kwargs`: dict
+  - Any keyword arguments.
+
+<hr>
+
+**[Returns]**
+
+- `result`: Any
+  - Any returned value.
+
 ## `_get_current_expression` function docstring
 
 Get a current expression string from a specified table.<hr>
@@ -372,9 +390,24 @@ Append js expression.<hr>
 
 - [append_js_expression interface](https://simon-ritchie.github.io/apysc/en/append_js_expression.html)
 
+## `copy_expression_before_stage_instantiation` function docstring
+
+Copy the before stage instantiation expression to the normal expression table.<hr>
+
+**[Raises]**
+
+- StageNotCreatedError: If this function called before stage creation.
+
 ## `empty_expression` function docstring
 
-Empty the current js expression data.
+Empty the current js expression data.<hr>
+
+**[Parameters]**
+
+- `skip_before_stage_instantiation_expression`: bool, default True
+  - Whether to skip the before stage instantiation expression emptying.
+- `skip_variable_name_count`: bool, default True
+  - Whether to skip the variable name count data emptying.
 
 ## `exec_query` function docstring
 
@@ -392,6 +425,15 @@ Execute an SQLite SQL query.<hr>
 **[Raises]**
 
 - _LimitClauseCantUseError: If the LIMIT clause used in a DELETE or UPDATE sql.
+
+## `get_current_before_stage_instantiation_expression` function docstring
+
+Get a current expression string that is before stage instantiation.<hr>
+
+**[Returns]**
+
+- `current_expression`: str
+  - Current expression's string.
 
 ## `get_current_event_handler_scope_expression` function docstring
 

@@ -15,9 +15,6 @@ from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
-from apysc._validation.validate_stage_is_created_mixin import (
-    ValidateStageIsCreatedMixIn,
-)
 
 
 class Number(
@@ -26,7 +23,6 @@ class Number(
     ToStringMixIn,
     ToFixedMixIn,
     HashableInterface,
-    ValidateStageIsCreatedMixIn,
 ):
     """
     Floating point number class for the apysc library.
@@ -131,8 +127,6 @@ class Number(
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
-
-        self._validate_stage_is_created()
 
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.NUMBER

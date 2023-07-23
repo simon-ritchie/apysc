@@ -29,9 +29,6 @@ from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._validation.validate_stage_is_created_mixin import (
-    ValidateStageIsCreatedMixIn,
-)
 
 DefaultType = TypeVar("DefaultType")
 _BuiltinKeys = Union[str, int, float]
@@ -48,7 +45,6 @@ class Dictionary(
     InitialSubstitutionExpMixIn,
     PyBuiltInIterDisablingMixIn,
     InitializeWithBaseValueInterface,
-    ValidateStageIsCreatedMixIn,
     Generic[_Key, _Value],
 ):
     """
@@ -137,8 +133,6 @@ class Dictionary(
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
-
-        self._validate_stage_is_created()
 
         with TemporaryNotHandlerScope():
             self._variable_name_suffix = variable_name_suffix

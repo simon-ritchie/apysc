@@ -15,9 +15,6 @@ from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
-from apysc._validation.validate_stage_is_created_mixin import (
-    ValidateStageIsCreatedMixIn,
-)
 
 
 class Int(
@@ -27,7 +24,6 @@ class Int(
     ToFixedMixIn,
     HashableInterface,
     ToNumberMixIn,
-    ValidateStageIsCreatedMixIn,
 ):
     """
     Integer class for the apysc library.
@@ -131,8 +127,6 @@ class Int(
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
         from apysc._type import type_util
-
-        self._validate_stage_is_created()
 
         with TemporaryNotHandlerScope():
             is_number_specified: bool = type_util.is_number(value=value)

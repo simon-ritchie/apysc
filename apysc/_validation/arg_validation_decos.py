@@ -1435,7 +1435,7 @@ def is_hex_color_code_format(*, arg_position_index: int, optional: bool) -> _Cal
     return wrapped  # type: ignore
 
 
-def is_color(*, arg_position_index: int) -> _Callable:
+def is_color(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check a specified argument's value
     is a hexadecimal color code format.
@@ -1444,6 +1444,9 @@ def is_color(*, arg_position_index: int) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean indicating whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -1462,6 +1465,8 @@ def is_color(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+            if optional and color is None:
+                return callable_(*args, **kwargs)
             if not isinstance(color, ap.Color):
                 raise TypeError(
                     "A specified argument's type is not the ap.Color: "

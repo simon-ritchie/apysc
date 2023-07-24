@@ -1602,7 +1602,7 @@ def test_is_apysc_dict() -> None:
 
 @apply_test_settings()
 def test_is_color() -> None:
-    @arg_validation_decos.is_color(arg_position_index=0)
+    @arg_validation_decos.is_color(arg_position_index=0, optional=False)
     def _test_func_1(*, color: ap.Color) -> int:
         return 340
 
@@ -1611,5 +1611,23 @@ def test_is_color() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func_1,
+        color=ap.String("#00aaff"),
+    )
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        color=None,
+    )
+
+    @arg_validation_decos.is_color(arg_position_index=0, optional=True)
+    def _test_func_2(*, color: Optional[ap.Color]) -> int:
+        return 350
+
+    result = _test_func_2(color=ap.Color("#0af"))
+    assert result == 350
+    _ = _test_func_2(color=None)
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_2,
         color=ap.String("#00aaff"),
     )

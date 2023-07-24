@@ -34,12 +34,10 @@ class Color(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
-        from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
         from apysc._color import color_util
 
-        with TemporaryNotHandlerScope():
-            value = color_util.complement_hex_color(hex_color_code=value)
-            self._value = String(
-                value=value,
-                variable_name_suffix=variable_name_suffix,
-            )
+        value = color_util.complement_hex_color(hex_color_code=value)
+        self._value = String(
+            value=value,
+            variable_name_suffix=variable_name_suffix,
+        )

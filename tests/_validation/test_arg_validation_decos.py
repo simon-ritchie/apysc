@@ -1598,3 +1598,18 @@ def test_is_apysc_dict() -> None:
         callable_=_test_func_1,
         dict_=10,
     )
+
+
+@apply_test_settings()
+def test_is_color() -> None:
+    @arg_validation_decos.is_color(arg_position_index=0)
+    def _test_func_1(*, color: ap.Color) -> int:
+        return 340
+
+    result: int = _test_func_1(color=ap.Color("#0af"))
+    assert result == 340
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        color=ap.String("#00aaff"),
+    )

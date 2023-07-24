@@ -132,6 +132,7 @@ from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.y_axis_label_position import YAxisLabelPosition
 from apysc._type.true import _True as __True
 from apysc._type.false import _False as __False
+from apysc._color.color import Color
 
 True_: __True
 False_: __False

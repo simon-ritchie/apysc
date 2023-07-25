@@ -38,7 +38,7 @@ _Value = TypeVar("_Value")
 
 class Dictionary(
     CustomEventMixIn,
-    CopyMixIn,
+    CopyMixIn["Dictionary"],
     RevertMixIn,
     DictionaryStructure,
     VariableNameSuffixMixIn,

@@ -35,7 +35,7 @@ _ArrValue = TypeVar("_ArrValue")
 
 class Array(
     ToStringMixIn,
-    CopyMixIn,
+    CopyMixIn["Array"],
     RevertMixIn,
     CustomEventMixIn,
     VariableNameSuffixMixIn,

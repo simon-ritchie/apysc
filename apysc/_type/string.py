@@ -36,7 +36,7 @@ class String(
     StringLStripMixIn,
     StringStripMixIn,
     StringRStripMixIn,
-    CopyMixIn,
+    CopyMixIn["String"],
     RevertMixIn,
     CustomEventMixIn,
     VariableNameSuffixMixIn,

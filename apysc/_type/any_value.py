@@ -20,7 +20,7 @@ from apysc._validation import arg_validation_decos
 
 class AnyValue(
     ToStringMixIn,
-    CopyMixIn,
+    CopyMixIn["AnyValue"],
     RevertMixIn,
     CustomEventMixIn,
     VariableNameSuffixMixIn,

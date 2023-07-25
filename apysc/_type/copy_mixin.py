@@ -2,7 +2,8 @@
 """
 
 from copy import deepcopy
-from typing import Any
+from typing import Any, cast
+from typing import Generic, TypeVar
 
 from typing_extensions import final
 
@@ -10,24 +11,26 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.type_name_mixin import TypeNameMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
+_SelfType = TypeVar("_SelfType", bound="CopyMixIn")
 
-class CopyMixIn(TypeNameMixIn, VariableNameMixIn):
+
+class CopyMixIn(TypeNameMixIn, VariableNameMixIn, Generic[_SelfType]):
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _copy(self) -> Any:
+    def _copy(self) -> _SelfType:
         """
         Make a deep copy of this instance.
 
         Returns
         -------
-        result : *
+        result : _SelfType
             Copied instance.
         """
         from apysc._expression import expression_variables_util
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 
         with TemporaryNotHandlerScope():
-            result: CopyMixIn = deepcopy(self)
+            result: _SelfType = cast(_SelfType, deepcopy(self))
             result.variable_name = expression_variables_util.get_next_variable_name(
                 type_name=self.type_name
             )

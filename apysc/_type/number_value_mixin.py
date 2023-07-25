@@ -26,7 +26,7 @@ _InstanceType = TypeVar("_InstanceType", bound="NumberValueMixIn")
 
 
 class NumberValueMixIn(
-    CopyMixIn,
+    CopyMixIn[_InstanceType],
     RevertMixIn,
     CustomEventMixIn,
     VariableNameSuffixMixIn,

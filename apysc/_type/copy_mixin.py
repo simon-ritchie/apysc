@@ -10,11 +10,17 @@ from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.type_name_mixin import TypeNameMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.copy_interface import CopyInterface
 
 _SelfType = TypeVar("_SelfType", bound="CopyMixIn")
 
 
-class CopyMixIn(TypeNameMixIn, VariableNameMixIn, Generic[_SelfType]):
+class CopyMixIn(
+    TypeNameMixIn,
+    VariableNameMixIn,
+    CopyInterface,
+    Generic[_SelfType],
+):
     @final
     @add_debug_info_setting(module_name=__name__)
     def _copy(self) -> _SelfType:

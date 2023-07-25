@@ -20,6 +20,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
 
 
 class GraphicsBase(
@@ -62,9 +63,9 @@ class GraphicsBase(
     def _set_initial_basic_values(
         self,
         *,
-        fill_color: Union[str, String],
+        fill_color: Color,
         fill_alpha: Union[float, Number],
-        line_color: Union[str, String],
+        line_color: Color,
         line_thickness: Union[int, Int],
         line_alpha: Union[float, Number],
         line_cap: Optional[Union[String, LineCaps]],
@@ -76,11 +77,11 @@ class GraphicsBase(
 
         Parameters
         ----------
-        fill_color : str or String
+        fill_color : Color
             A fill-color value to set.
         fill_alpha : float or Number
             A fill-alpha value to set.
-        line_color : str or String
+        line_color : Color
             A line-color value to set.
         line_thickness : int or Int
             A line-thickness value to set.

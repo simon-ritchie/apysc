@@ -16,6 +16,8 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class FillColorMixIn(
@@ -24,37 +26,24 @@ class FillColorMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-    _fill_color: String
+    _fill_color: Color
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def fill_color(self) -> String:
+    def fill_color(self) -> Color:
         """
         Get this instance's fill color.
 
         Returns
         -------
-        fill_color : String
+        fill_color : Color
             Current fill color (hexadecimal string, e.g., '#00aaff').
-            If not be set, this interface returns a blank string.
+            If it is not set, it returns the `COLORLESS` constant.
 
         References
         ----------
         - GraphicsBase fill_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color="#0af")
-        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50
-        ... )
-        >>> rectangle.fill_color = ap.String("#f0a")
-        >>> rectangle.fill_color
-        String("#ff00aa")
         """
         import apysc as ap
         from apysc._type import value_util
@@ -104,7 +93,7 @@ class FillColorMixIn(
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_initial_fill_color_if_not_blank(
-        self, *, fill_color: Union[str, String]
+        self, *, fill_color: Color
     ) -> None:
         """
         Set the initial fill color if a specified value
@@ -112,37 +101,29 @@ class FillColorMixIn(
 
         Parameters
         ----------
-        fill_color : str or String
+        fill_color : Color
             Fill color (hexadecimal string, e.g., '#00aaff').
         """
         import apysc as ap
 
         self._initialize_fill_color_if_not_initialized()
-        if fill_color == "":
+        if fill_color == COLORLESS:
             return
-        if isinstance(fill_color, ap.String):
-            fill_color_: ap.String = fill_color
-        else:
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="fill_color"
-            )
-            fill_color_ = String(fill_color, variable_name_suffix=suffix)
-        self._update_fill_color_and_skip_appending_exp(value=fill_color_)
+        self._update_fill_color_and_skip_appending_exp(value=fill_color)
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _update_fill_color_and_skip_appending_exp(self, *, value: String) -> None:
+    def _update_fill_color_and_skip_appending_exp(self, *, value: Color) -> None:
         """
         Update fill color and skip appending expression.
 
         Parameters
         ----------
-        value : String
+        value : Color
             Fill color to set.
         """
         from apysc._color import color_util
 
-        value = color_util.complement_hex_color(hex_color_code=value)
         self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = value
 

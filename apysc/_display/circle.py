@@ -73,6 +73,8 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._color.colorless import COLORLESS
+from apysc._color.color import Color
 
 
 class Circle(
@@ -154,11 +156,11 @@ class Circle(
     @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=3, optional=False)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=4, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=6, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
     # line_thickness
@@ -187,9 +189,9 @@ class Circle(
         x: Union[float, Number],
         y: Union[float, Number],
         radius: Union[int, Int],
-        fill_color: Union[str, String] = "",
+        fill_color: Color = COLORLESS,
         fill_alpha: Union[float, Number] = 1.0,
-        line_color: Union[str, String] = "",
+        line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         line_cap: Optional[Union[String, LineCaps]] = None,
@@ -211,11 +213,11 @@ class Circle(
             Y-coordinate of the circle center.
         radius : Int or int
             Circle radius.
-        fill_color : str or String, default ''
+        fill_color : Color, default COLORLESS
             A fill-color to set.
         fill_alpha : float or Number, default 1.0
             A fill-alpha to set.
-        line_color : str or String, default ''
+        line_color : Color, default COLORLESS
             A line-color to set.
         line_alpha : float or Number, default 1.0
             A line-alpha to set.

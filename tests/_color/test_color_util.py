@@ -50,6 +50,9 @@ def test_complement_hex_color() -> None:
     assert isinstance(hex_color_code_4, ap.String)
     assert hex_color_code_4.variable_name != hex_color_code_5.variable_name
 
+    hex_color_code_6: str = color_util.complement_hex_color(hex_color_code="")
+    assert hex_color_code_6 == ""
+
 
 @apply_test_settings()
 def test__append_complement_hex_color_expression() -> None:

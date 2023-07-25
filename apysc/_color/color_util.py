@@ -43,7 +43,8 @@ def complement_hex_color(*, hex_color_code: StrOrString) -> StrOrString:
     elif char_len == 3:
         value_ = _fill_three_digit_hex_color_code(hex_color_code=value_)
     value_ = value_.lower()
-    value_ = f"#{value_}"
+    if value_ != "":
+        value_ = f"#{value_}"
 
     if isinstance(hex_color_code, ap.String):
         hex_color_code._value = value_

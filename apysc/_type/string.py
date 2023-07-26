@@ -163,11 +163,11 @@ class String(
         """
         Append a constructor expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = self._create_initial_substitution_expression()
         expression = f"var {expression}"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _create_initial_substitution_expression(self) -> str:

@@ -339,9 +339,9 @@ class DebugInfo:
         This class uses this method at the start of the
         with-block.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        if not ap.is_debug_mode():
+        if not is_debug_mode():
             return
         class_info: str = self._get_class_info()
         arguments_info: str = ""
@@ -358,7 +358,7 @@ class DebugInfo:
             f"{class_info}"
             f"{arguments_info}"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         self._indent.__enter__()
 
     @final
@@ -371,9 +371,9 @@ class DebugInfo:
         *args : list
             Positional arguments.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        if not ap.is_debug_mode():
+        if not is_debug_mode():
             return
         class_info: str = self._get_class_info()
         callable_str: str = _get_callable_str(callable_=self._callable)
@@ -384,7 +384,7 @@ class DebugInfo:
             f"\n{self._DIVIDER}"
         )
         self._indent.__exit__()
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
 
 # pyright: reportInvalidTypeVarUse=false

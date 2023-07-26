@@ -7,12 +7,14 @@ from typing_extensions import final
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._color.color_copy_mixin import ColorCopyMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
 
 class Color(
     CustomEventMixIn,
+    ColorCopyMixIn["Color"],
 ):
     _value: String
 

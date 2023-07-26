@@ -1457,7 +1457,7 @@ def is_color(*, arg_position_index: int, optional: bool) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._color.color import Color
 
             color: Any = _extract_arg_value(
                 args=args,
@@ -1467,7 +1467,7 @@ def is_color(*, arg_position_index: int, optional: bool) -> _Callable:
             )
             if optional and color is None:
                 return callable_(*args, **kwargs)
-            if not isinstance(color, ap.Color):
+            if not isinstance(color, Color):
                 raise TypeError(
                     "A specified argument's type is not the ap.Color: "
                     f"{type(color).__name__}"
@@ -1760,7 +1760,8 @@ def are_point_2ds(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._geom.point2d import Point2D
+            from apysc._type.array import Array
 
             points: Any = _extract_arg_value(
                 args=args,
@@ -1771,17 +1772,17 @@ def are_point_2ds(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(points, list) and not isinstance(points, ap.Array):
+            if not isinstance(points, list) and not isinstance(points, Array):
                 raise TypeError(
                     "A specified points argument type is not a list or "
                     f"ap.Array: {type(points)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
 
-            value: List[ap.Point2D] = []
+            value: List[Point2D] = []
             if isinstance(points, list):
                 value = points
-            elif isinstance(points, ap.Array):
+            elif isinstance(points, Array):
                 value = points._value
             for point in value:
                 validate_point_2d_type(

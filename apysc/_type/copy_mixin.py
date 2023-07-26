@@ -87,7 +87,7 @@ class CopyMixIn(
         from apysc._type.type_util import is_immutable_type
 
         if is_immutable_type(value=self):
-            expression: str = f"var {result_variable_name} = " f"{self.variable_name};"
+            expression: str = f"var {result_variable_name} = {self.variable_name};"
         else:
-            expression = f"var {result_variable_name} = " f"cpy({self.variable_name});"
+            expression = f"var {result_variable_name} = cpy({self.variable_name});"
         ap.append_js_expression(expression=expression)

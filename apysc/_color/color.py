@@ -1,7 +1,7 @@
 """The color class implementation.
 """
 
-from typing import TypeVar
+from typing import Any, TypeVar
 from typing_extensions import final
 
 from apysc._event.custom_event_mixin import CustomEventMixIn
@@ -43,3 +43,21 @@ class Color(
             value=value,
             variable_name_suffix=variable_name_suffix,
         )
+
+    def __eq__(self, other: Any) -> bool:
+        """
+        Comparison method between two color values.
+
+        Parameters
+        ----------
+        other : Any
+            The other color value.
+
+        Returns
+        -------
+        result : bool
+            If the two color values are equal, this interface returns True.
+        """
+        if not isinstance(other, Color):
+            return False
+        return self._value._value == other._value._value

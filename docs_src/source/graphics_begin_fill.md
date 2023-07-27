@@ -195,7 +195,7 @@ Get current fill color.<hr>
 **[Returns]**
 
 - `fill_color`: String
-  - Current fill color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.
+  - Current fill color (hexadecimal string color, e.g., '#00aaff'). If not be set, this interface returns a blank string.
 
 <hr>
 

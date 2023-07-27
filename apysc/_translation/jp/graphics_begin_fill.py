@@ -91,7 +91,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `fill_color`: String": "- `fill_color`: String",
     ##################################################
-    "  - Current fill color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.": "  - 現在の塗りの色（`'#00aaff'`などの16進数の文字列）。もしも設定されていない場合空文字が返却されます。",  # noqa
+    "  - Current fill color (hexadecimal string color, e.g., '#00aaff'). If not be set, this interface returns a blank string.": "  - 現在の塗りの色（`'#00aaff'`などの16進数の文字列の色）。もしも設定されていない場合空文字が返却されます。",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

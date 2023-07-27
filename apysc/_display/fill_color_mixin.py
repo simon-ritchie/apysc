@@ -45,23 +45,22 @@ class FillColorMixIn(
         - GraphicsBase fill_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
         """
-        import apysc as ap
         from apysc._type import value_util
 
         self._initialize_fill_color_if_not_initialized()
-        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
+        fill_color: Color = value_util.get_copy(value=self._fill_color)
         return fill_color
 
     @fill_color.setter
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
-    def fill_color(self, value: String) -> None:
+    def fill_color(self, value: Color) -> None:
         """
         Update this instance's fill color.
 
         Parameters
         ----------
-        value : String
+        value : Color
             Fill color to set.
 
         References
@@ -87,7 +86,9 @@ class FillColorMixIn(
         """
         import apysc as ap
 
-        expression: str = f'{self.variable_name}.fill("{self.fill_color}");'
+        expression: str = (
+            f'{self.variable_name}.fill({self.fill_color._value.variable_name});'
+        )
         ap.append_js_expression(expression=expression)
 
     @final
@@ -122,10 +123,8 @@ class FillColorMixIn(
         value : Color
             Fill color to set.
         """
-        from apysc._color import color_util
-
         self._initialize_fill_color_if_not_initialized()
-        self._fill_color.value = value
+        self._fill_color = value
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -136,14 +135,7 @@ class FillColorMixIn(
         """
         if hasattr(self, "_fill_color"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="fill_color"
-        )
-        self._fill_color = String(
-            "",
-            variable_name_suffix=suffix,
-            skip_init_substitution_expression_appending=True,
-        )
+        self._fill_color = COLORLESS
 
     _fill_color_snapshots: Optional[Dict[str, str]] = None
 
@@ -159,7 +151,7 @@ class FillColorMixIn(
         self._initialize_fill_color_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_fill_color_snapshots",
-            value=self._fill_color._value,
+            value=self._fill_color._value._value,
             snapshot_name=snapshot_name,
         )
 
@@ -172,8 +164,8 @@ class FillColorMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        self._fill_color._value = self._get_snapshot_val_if_exists(
-            current_value=self._fill_color._value,
+        self._fill_color._value._value = self._get_snapshot_val_if_exists(
+            current_value=self._fill_color._value._value,
             snapshot_dict=self._fill_color_snapshots,
             snapshot_name=snapshot_name,
         )

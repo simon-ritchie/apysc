@@ -190,7 +190,7 @@ String("#00aaff")
 
 **[Interface summary]**
 
-Get current fill color.<hr>
+Get a current fill color.<hr>
 
 **[Returns]**
 

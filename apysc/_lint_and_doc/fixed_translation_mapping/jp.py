@@ -740,7 +740,7 @@ MAPPINGS: Mappings = Mappings(
         Mapping(key="  - Color opacity (0.0 to 1.0).", val="  - 塗りの透明度（0.0～1.0）。"),
         Mapping(key="## fill_color property API", val="## fill_color 属性のAPI"),
         Mapping(
-            key="Get current fill color.<hr>",
+            key="Get a current fill color.<hr>",
             val="現在の塗りの色を取得します。<hr>",
         ),
         Mapping(

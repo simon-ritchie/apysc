@@ -80,7 +80,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
     @add_debug_info_setting(module_name=__name__)
     def fill_color(self) -> String:
         """
-        Get current fill color.
+        Get a current fill color.
 
         Returns
         -------

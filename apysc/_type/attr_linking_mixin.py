@@ -14,9 +14,10 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._color.color import Color
 
 _AttrName = str
-_Attr = Union[Int, Number, String, Boolean]
+_Attr = Union[Int, Number, String, Boolean, Color]
 
 
 class AttrLinkingMixIn:
@@ -77,9 +78,15 @@ class AttrLinkingMixIn:
             attribute to the linking stack, this interface
             returns True.
         """
+        from apysc._type.variable_name_mixin import VariableNameMixIn
+
         self._initialize_attr_linking_stack(attr_name=attr_name)
+        attr_variable_name: str = _get_variable_name_from_attr(attr=attr)
         for in_stack_value in self._attr_linking_stack[attr_name]:
-            if in_stack_value.variable_name == attr.variable_name:
+            in_stack_value_variable_name: str = _get_variable_name_from_attr(
+                attr=in_stack_value
+            )
+            if in_stack_value_variable_name == attr_variable_name:
                 return True
         return False
 
@@ -100,16 +107,43 @@ class AttrLinkingMixIn:
             Target attribute name.
         """
         import apysc as ap
+        from apysc._type.variable_name_mixin import VariableNameMixIn
 
         self._initialize_attr_linking_stack(attr_name=attr_name)
         if not self._attr_linking_stack:
             return
-        new_attr_name: str = new_attr.variable_name
+        new_attr_name: str = _get_variable_name_from_attr(attr=new_attr)
         expression: str = ""
         for stacked_value in self._attr_linking_stack[attr_name]:
-            if stacked_value.variable_name == new_attr_name:
+            stacked_value_variable_name: str = _get_variable_name_from_attr(
+                attr=stacked_value
+            )
+            if stacked_value_variable_name == new_attr_name:
                 continue
             if expression != "":
                 expression += "\n"
-            expression += f"{stacked_value.variable_name} = {new_attr_name};"
+            expression += f"{stacked_value_variable_name} = {new_attr_name};"
         ap.append_js_expression(expression=expression)
+
+
+def _get_variable_name_from_attr(*, attr: _Attr) -> str:
+    """
+    Get a variable name from a specified attribute.
+
+    Parameters
+    ----------
+    attr : _Attr
+        An attribute.
+
+    Returns
+    -------
+    variable_name : str
+        A specified attribute's variable name.
+    """
+    from apysc._type.variable_name_mixin import VariableNameMixIn
+
+    if isinstance(attr, Color):
+        return attr._value.variable_name
+    if isinstance(attr, VariableNameMixIn):
+        return attr.variable_name
+    return ""

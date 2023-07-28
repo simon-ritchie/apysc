@@ -16,6 +16,8 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class LineColorMixIn(
@@ -24,17 +26,17 @@ class LineColorMixIn(
     RevertMixIn,
     AttrLinkingMixIn,
 ):
-    _line_color: String
+    _line_color: Color
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def line_color(self) -> String:
+    def line_color(self) -> Color:
         """
         Get this instance's line color.
 
         Returns
         -------
-        line_color : String
+        line_color : Color
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, this interface returns a blank string.
 
@@ -42,37 +44,24 @@ class LineColorMixIn(
         ----------
         - GraphicsBase line_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_line_color.html  # noqa
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color="#fff", thickness=10)
-        >>> line: ap.Line = sprite.graphics.draw_line(
-        ...     x_start=50, y_start=50, x_end=150, y_end=50
-        ... )
-        >>> line.line_color = ap.String("#0af")
-        >>> line.line_color
-        String("#00aaff")
         """
-        import apysc as ap
+        from apysc._color.color import Color
         from apysc._type import value_util
 
         self._initialize_line_color_if_not_initialized()
-        line_color: ap.String = value_util.get_copy(value=self._line_color)
+        line_color: Color = value_util.get_copy(value=self._line_color)
         return line_color
 
     @line_color.setter
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
-    def line_color(self, value: String) -> None:
+    def line_color(self, value: Color) -> None:
         """
         Update this instance's line color.
 
         Parameters
         ----------
-        value : str
+        value : Color
             Line color to set.
 
         References
@@ -98,17 +87,15 @@ class LineColorMixIn(
         Append line color updating expression.
         """
         import apysc as ap
-        from apysc._type import value_util
 
-        line_color_str: str = value_util.get_value_str_for_expression(
-            value=self._line_color
+        expression: str = (
+            f"{self.variable_name}.stroke({self._line_color._value.variable_name});"
         )
-        expression: str = f"{self.variable_name}.stroke({line_color_str});"
         ap.append_js_expression(expression=expression)
 
     @final
     def _set_initial_line_color_if_not_blank(
-        self, *, line_color: Union[str, String]
+        self, *, line_color: Color
     ) -> None:
         """
         Set initial line color value if a specified value is
@@ -116,37 +103,26 @@ class LineColorMixIn(
 
         Parameters
         ----------
-        line_color : str or String
+        line_color : Color
             Line color (hexadecimal string, e.g., '#00aaff').
         """
         import apysc as ap
 
         self._initialize_line_color_if_not_initialized()
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_color"
-        )
-        if line_color == "":
+        if line_color == COLORLESS:
             return
-        if isinstance(line_color, ap.String):
-            line_color_: ap.String = line_color
-        else:
-            line_color_ = String(line_color, variable_name_suffix=suffix)
-        self._update_line_color_and_skip_appending_exp(value=line_color_)
+        self._update_line_color_and_skip_appending_exp(value=line_color)
 
     @final
-    def _update_line_color_and_skip_appending_exp(self, *, value: String) -> None:
+    def _update_line_color_and_skip_appending_exp(self, *, value: Color) -> None:
         """
         Update line color and skip appending expression.
 
         Parameters
         ----------
-        value : String
+        value : Color
             Line color to set.
         """
-        from apysc._color import color_util
-
-        self._initialize_line_color_if_not_initialized()
-        value = color_util.complement_hex_color(hex_color_code=value)
         self._initialize_line_color_if_not_initialized()
         self._line_color = value
 
@@ -158,14 +134,7 @@ class LineColorMixIn(
         """
         if hasattr(self, "_line_color"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_color"
-        )
-        self._line_color = String(
-            "",
-            variable_name_suffix=suffix,
-            skip_init_substitution_expression_appending=True,
-        )
+        self._line_color = COLORLESS
 
     _line_color_snapshots: Optional[Dict[str, str]] = None
 
@@ -181,7 +150,7 @@ class LineColorMixIn(
         self._initialize_line_color_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_line_color_snapshots",
-            value=self._line_color._value,
+            value=self._line_color._value._value,
             snapshot_name=snapshot_name,
         )
 
@@ -195,8 +164,8 @@ class LineColorMixIn(
             Target snapshot name.
         """
         self._initialize_line_color_if_not_initialized()
-        self._line_color._value = self._get_snapshot_val_if_exists(
-            current_value=self._line_color._value,
+        self._line_color._value._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_color._value._value,
             snapshot_dict=self._line_color_snapshots,
             snapshot_name=snapshot_name,
         )

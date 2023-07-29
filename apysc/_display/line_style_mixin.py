@@ -25,8 +25,8 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-
-StrOrString = TypeVar("StrOrString", str, String)
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class LineStyleMixIn(
@@ -35,7 +35,7 @@ class LineStyleMixIn(
     RevertMixIn,
     VariableNameSuffixMixIn,
 ):
-    _line_color: String
+    _line_color: Color
     _line_thickness: Int
     _line_alpha: Number
     _line_cap: String
@@ -47,7 +47,7 @@ class LineStyleMixIn(
 
     @final
     @arg_validation_decos.multiple_line_settings_are_not_set(arg_position_index=0)
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=2, optional=False)
     @arg_validation_decos.is_num(arg_position_index=3, optional=False)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3, optional=False)
@@ -61,7 +61,7 @@ class LineStyleMixIn(
     def line_style(
         self,
         *,
-        color: StrOrString,
+        color: Color,
         thickness: Union[int, Int] = 1,
         alpha: Union[float, Number] = 1.0,
         cap: Optional[LineCaps] = None,
@@ -76,8 +76,8 @@ class LineStyleMixIn(
 
         Parameters
         ----------
-        color : String or str
-            Hexadecimal color string. e.g., '#00aaff'
+        color : Color
+            A color setting.
         thickness : Int or int, default 1
             Line thickness (minimum value is 1).
         alpha : float or Number, default 1.0
@@ -114,29 +114,6 @@ class LineStyleMixIn(
         ----------
         - Graphics line_style interface
             - https://simon-ritchie.github.io/apysc/en/graphics_line_style.html  # noqa
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(
-        ...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
-        ... )
-        >>> line: ap.Line = sprite.graphics.draw_line(
-        ...     x_start=50, y_start=50, x_end=150, y_end=50
-        ... )
-        >>> line.line_color
-        String("#ffffff")
-
-        >>> line.line_thickness
-        Int(5)
-
-        >>> line.line_alpha
-        Number(0.5)
-
-        >>> line.line_cap
-        String("round")
         """
         from apysc._color import color_util
 
@@ -144,9 +121,7 @@ class LineStyleMixIn(
         self._initialize_line_thickness_if_not_initialized()
         self._initialize_line_alpha_if_not_initialized()
 
-        if color != "":
-            color = color_util.complement_hex_color(hex_color_code=color)
-        self._line_color.value = color
+        self._line_color = color
         self._line_thickness = self._convert_line_thickness_to_apysc_int(
             thickness=thickness
         )
@@ -261,14 +236,7 @@ class LineStyleMixIn(
         """
         if hasattr(self, "_line_color"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_color"
-        )
-        self._line_color = String(
-            "",
-            variable_name_suffix=suffix,
-            skip_init_substitution_expression_appending=True,
-        )
+        self._line_color = COLORLESS
 
     @final
     def _initialize_line_thickness_if_not_initialized(self) -> None:
@@ -380,31 +348,18 @@ class LineStyleMixIn(
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def line_color(self) -> String:
+    def line_color(self) -> Color:
         """
         Get current line color.
 
         Returns
         -------
-        line_color : String
-            Current line color (hexadecimal string, e.g., '#00aaff').
+        line_color : Color
+            A Current line color.
             If not be set, this interface returns a blank string.
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(
-        ...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
-        ... )
-        >>> sprite.graphics.line_color
-        String("#ffffff")
         """
-        from apysc._type import value_util
-
         self._initialize_line_color_if_not_initialized()
-        return value_util.get_copy(value=self._line_color)
+        return self._line_color._copy()
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -662,7 +617,7 @@ class LineStyleMixIn(
         self._initialize_line_dash_dot_setting_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_line_color_snapshots",
-            value=self._line_color._value,
+            value=self._line_color._value._value,
             snapshot_name=snapshot_name,
         )
         self._set_single_snapshot_val_to_dict(
@@ -715,8 +670,8 @@ class LineStyleMixIn(
         snapshot_name : str
             Target snapshot name.
         """
-        self._line_color._value = self._get_snapshot_val_if_exists(
-            current_value=self._line_color._value,
+        self._line_color._value._value = self._get_snapshot_val_if_exists(
+            current_value=self._line_color._value._value,
             snapshot_dict=self._line_color_snapshots,
             snapshot_name=snapshot_name,
         )

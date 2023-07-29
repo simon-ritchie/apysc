@@ -17,29 +17,29 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
-
-StrOrString = TypeVar("StrOrString", str, String)
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
-    _fill_color: String
+    _fill_color: Color
     _fill_alpha: Number
 
     @final
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
     @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
     def begin_fill(
-        self, *, color: StrOrString, alpha: Union[float, Number] = 1.0
+        self, *, color: Color, alpha: Union[float, Number] = 1.0
     ) -> None:
         """
         Set single color value for fill.
 
         Parameters
         ----------
-        color : str or String
-            Hexadecimal color string. e.g., '#00aaff'
+        color : Color
+            A color setting.
         alpha : float or Number, default 1.0
             Color opacity (0.0 to 1.0).
 
@@ -47,28 +47,13 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         ----------
         - Graphics begin_fill interface
             - https://simon-ritchie.github.io/apysc/en/graphics_begin_fill.html  # noqa
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color="#0af")
-        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50
-        ... )
-        >>> rectangle.fill_color
-        String("#00aaff")
         """
         import apysc as ap
-        from apysc._color import color_util
         from apysc._converter import cast
 
         self._initialize_fill_color_if_not_initialized()
         self._initialize_fill_alpha_if_not_initialized()
-        if color != "":
-            color = color_util.complement_hex_color(hex_color_code=color)
-        self._fill_color.value = color
+        self._fill_color = color
         if not isinstance(alpha, ap.Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
         if isinstance(alpha, ap.Number):
@@ -78,33 +63,19 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def fill_color(self) -> String:
+    def fill_color(self) -> Color:
         """
         Get a current fill color.
 
         Returns
         -------
-        fill_color : String
-            Current fill color (hexadecimal string color, e.g., '#00aaff').
-            If not be set, this interface returns a blank string.
-
-        Examples
-        --------
-        >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color="#0af")
-        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-        ...     x=50, y=50, width=50, height=50
-        ... )
-        >>> rectangle.fill_color
-        String("#00aaff")
+        fill_color : Color
+            Current fill-color.
+            If not be set, this interface returns a `COLORLESS` constant.
         """
-        import apysc as ap
-        from apysc._type import value_util
 
         self._initialize_fill_color_if_not_initialized()
-        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
+        fill_color: Color = self._fill_color._copy()
         return fill_color
 
     @final
@@ -115,14 +86,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         """
         if hasattr(self, "_fill_color"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="fill_color"
-        )
-        self._fill_color = String(
-            "",
-            variable_name_suffix=suffix,
-            skip_init_substitution_expression_appending=True,
-        )
+        self._fill_color = COLORLESS
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -188,7 +152,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         self._initialize_fill_alpha_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name="_fill_color_snapshots",
-            value=self._fill_color._value,
+            value=self._fill_color._value._value,
             snapshot_name=snapshot_name,
         )
         self._set_single_snapshot_val_to_dict(
@@ -206,8 +170,8 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         snapshot_name : str
             Target snapshot name.
         """
-        self._fill_color._value = self._get_snapshot_val_if_exists(
-            current_value=self._fill_color._value,
+        self._fill_color._value._value = self._get_snapshot_val_if_exists(
+            current_value=self._fill_color._value._value,
             snapshot_dict=self._fill_color_snapshots,
             snapshot_name=snapshot_name,
         )

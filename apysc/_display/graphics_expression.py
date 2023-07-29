@@ -5,18 +5,20 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 @add_debug_info_setting(module_name=__name__)
 def append_fill_expression(
-    *, fill_color: String, expression: str, indent_num: int
+    *, fill_color: Color, expression: str, indent_num: int
 ) -> str:
     """
     Append a fill expression to specified expression's string.
 
     Parameters
     ----------
-    fill_color : String
+    fill_color : Color
         A fill-color to use.
     expression : str
         Expression string to be appended fill expression.
@@ -31,10 +33,10 @@ def append_fill_expression(
     from apysc._string import indent_util
 
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    if fill_color._value == "":
+    if fill_color == COLORLESS:
         expression += f'\n{spaces}fill: "none",'
         return expression
-    expression += f"\n{spaces}fill: {fill_color.variable_name},"
+    expression += f"\n{spaces}fill: {fill_color._value.variable_name},"
     return expression
 
 
@@ -120,14 +122,14 @@ def append_y_expression(*, y: Number, expression: str, indent_num: int) -> str:
 
 @add_debug_info_setting(module_name=__name__)
 def append_stroke_expression(
-    *, line_color: String, expression: str, indent_num: int
+    *, line_color: Color, expression: str, indent_num: int
 ) -> str:
     """
     Append stroke expression to specified expression's string.
 
     Parameters
     ----------
-    line_color : String
+    line_color : Color
         A line-color to use.
     expression : str
         Expression string to be appended stroke expression.
@@ -141,10 +143,10 @@ def append_stroke_expression(
     """
     from apysc._string import indent_util
 
-    if line_color._value == "":
+    if line_color == COLORLESS:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += f"\n{spaces}stroke: {line_color.variable_name},"
+    expression += f"\n{spaces}stroke: {line_color._value.variable_name},"
     return expression
 
 

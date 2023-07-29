@@ -10,20 +10,19 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test_append_fill_expression() -> None:
-    fill_color: ap.String = ap.String("")
     expression: str = ".attr({"
     expression = graphics_expression.append_fill_expression(
-        fill_color=fill_color, expression=expression, indent_num=1
+        fill_color=ap.COLORLESS, expression=expression, indent_num=1
     )
     assert expression == '.attr({\n  fill: "none",'
 
-    fill_color.value = ap.String("#333")
+    fill_color: ap.Color = ap.Color("#333")
     expression = ".attr({"
     expression = graphics_expression.append_fill_expression(
         fill_color=fill_color, expression=expression, indent_num=1
     )
     match: Optional[Match] = re.search(
-        pattern=(r"\.attr\(\{" rf"\n  fill: {fill_color.variable_name},"),
+        pattern=(r"\.attr\(\{" rf"\n  fill: {fill_color._value.variable_name},"),
         string=expression,
         flags=re.MULTILINE,
     )
@@ -77,19 +76,18 @@ def test_append_fill_opacity_expression() -> None:
 
 @apply_test_settings()
 def test_append_stroke_expression() -> None:
-    line_color: ap.String = ap.String("")
     expression: str = ".attr({"
     expression = graphics_expression.append_stroke_expression(
-        line_color=line_color, expression=expression, indent_num=1
+        line_color=ap.COLORLESS, expression=expression, indent_num=1
     )
     assert expression == ".attr({"
 
-    line_color.value = ap.String("#666")
+    line_color: ap.Color = ap.Color("#666")
     expression = graphics_expression.append_stroke_expression(
         line_color=line_color, expression=expression, indent_num=1
     )
     match: Optional[Match] = re.search(
-        pattern=(r"\.attr\(\{" rf"\n  stroke: {line_color.variable_name},"),
+        pattern=(r"\.attr\(\{" rf"\n  stroke: {line_color._value.variable_name},"),
         string=expression,
         flags=re.MULTILINE,
     )

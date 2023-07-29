@@ -412,7 +412,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     """
     import apysc as ap
 
-    x: Number = horizontal_padding._copy()
+    x: Number = horizontal_padding._copy().to_number()
     max_arr: ap.Array[Union[Int, Number]] = ap.Array(
         [x],
         variable_name_suffix=variable_name_suffix,

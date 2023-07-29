@@ -8,6 +8,7 @@ from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._color.color_copy_mixin import ColorCopyMixIn
+from apysc._html.debug_mode import add_debug_info_setting
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -19,6 +20,7 @@ class Color(
     _value: String
 
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         value: _StrOrString,
@@ -44,6 +46,7 @@ class Color(
             variable_name_suffix=variable_name_suffix,
         )
 
+    @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: Any) -> bool:
         """
         Comparison method between two color values.

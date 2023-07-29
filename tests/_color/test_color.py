@@ -1,5 +1,5 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import apply_test_settings, assert_raises
 
 
 class TestColor:
@@ -24,4 +24,16 @@ class TestColor:
         color_3: ap.Color = ap.Color("#f0a")
         assert color_1 == color_2
         assert color_1 != color_3
-        assert color_1 != ap.String("#00aaff")
+
+        assert_raises(
+            expected_error_class=TypeError,
+            callable_=color_1.__eq__,
+            other="#00aaff",
+            match="The comparison between the `Color` class and `str`",
+        )
+        assert_raises(
+            expected_error_class=TypeError,
+            callable_=color_1.__eq__,
+            other=ap.String("#00aaff"),
+            match="The comparison between the `Color` class and `String`",
+        )

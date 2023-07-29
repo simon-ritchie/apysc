@@ -58,6 +58,15 @@ class Color(
         result : bool
             If the two color values are equal, this interface returns True.
         """
+        if isinstance(other, str):
+            raise TypeError(
+                "The comparison between the `Color` class and `str` are not supported."
+            )
+        if isinstance(other, String):
+            raise TypeError(
+                "The comparison between the `Color` class and `String` "
+                "are not supported."
+            )
         if not isinstance(other, Color):
             return False
         return self._value._value == other._value._value

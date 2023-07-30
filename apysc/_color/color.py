@@ -9,6 +9,7 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._color.color_copy_mixin import ColorCopyMixIn
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.boolean import Boolean
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -18,6 +19,7 @@ class Color(
     ColorCopyMixIn["Color"],
 ):
     _value: String
+    _variable_name_suffix: str
 
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
     @add_debug_info_setting(module_name=__name__)
@@ -45,9 +47,10 @@ class Color(
             value=value,
             variable_name_suffix=variable_name_suffix,
         )
+        self._variable_name_suffix = variable_name_suffix
 
     @add_debug_info_setting(module_name=__name__)
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: Any) -> Any:
         """
         Comparison method between two color values.
 
@@ -58,9 +61,11 @@ class Color(
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If the two color values are equal, this interface returns True.
         """
+        from apysc._expression import expression_data_util
+
         if isinstance(other, str):
             raise TypeError(
                 "The comparison between the `Color` class and `str` are not supported."
@@ -70,6 +75,20 @@ class Color(
                 "The comparison between the `Color` class and `String` "
                 "are not supported."
             )
-        if not isinstance(other, Color):
-            return False
-        return self._value._value == other._value._value
+        if isinstance(other, Color):
+            result: Boolean = Boolean(
+                self._value._value == other._value._value,
+                variable_name_suffix=self._variable_name_suffix,
+            )
+        else:
+            result = Boolean(
+                False, variable_name_suffix=self._variable_name_suffix
+            )
+        if isinstance(other, Color):
+            expression: str = (
+                f"{result.variable_name} = {self._value.variable_name}"
+                f" === {other._value.variable_name};"
+            )
+            expression_data_util.append_js_expression(expression=expression)
+
+        return result

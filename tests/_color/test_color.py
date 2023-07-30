@@ -1,4 +1,5 @@
 import apysc as ap
+from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings, assert_raises
 
 
@@ -22,8 +23,22 @@ class TestColor:
         color_1: ap.Color = ap.Color("#0af")
         color_2: ap.Color = ap.Color("#00aaff")
         color_3: ap.Color = ap.Color("#f0a")
-        assert color_1 == color_2
-        assert color_1 != color_3
+        result: ap.Boolean = color_1 == color_2
+        assert result
+        assert isinstance(result, ap.Boolean)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{result.variable_name} = {color_1._value.variable_name} "
+            f"=== {color_2._value.variable_name};"
+        )
+        assert expected in expression
+
+        result = color_1 == color_3
+        assert not result
+        assert isinstance(result, ap.Boolean)
+
+        result = color_1 == 100
+        assert not result
 
         assert_raises(
             expected_error_class=TypeError,

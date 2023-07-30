@@ -17,7 +17,7 @@ class TestLine:
         line: ap.Line = ap.Line(
             start_point=ap.Point2D(x=10, y=20),
             end_point=ap.Point2D(x=30, y=40),
-            line_color="fff",
+            line_color=ap.Color("fff"),
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
@@ -28,7 +28,7 @@ class TestLine:
             expected_attrs={
                 "_start_point": ap.Point2D(x=10, y=20),
                 "_end_point": ap.Point2D(x=30, y=40),
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,
@@ -97,7 +97,7 @@ class TestLine:
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.line_style(color="#333", thickness=3)
+        sprite.graphics.line_style(color=ap.Color("#333"), thickness=3)
         line: ap.Line = sprite.graphics.draw_line(
             x_start=10, y_start=20, x_end=30, y_end=40
         )
@@ -131,7 +131,7 @@ class TestLine:
     def test__create_with_graphics(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
-            color="#fff",
+            color=ap.Color("#fff"),
             thickness=3,
             alpha=0.3,
             cap=ap.LineCaps.ROUND,
@@ -147,7 +147,7 @@ class TestLine:
             expected_attrs={
                 "_start_point": ap.Point2D(x=10, y=20),
                 "_end_point": ap.Point2D(x=30, y=40),
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_thickness": 3,
                 "_line_alpha": 0.3,
                 "_line_cap": ap.LineCaps.ROUND.value,

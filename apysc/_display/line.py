@@ -62,6 +62,8 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class Line(
@@ -120,12 +122,12 @@ class Line(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.line_style(color="#fff", thickness=5)
+    >>> sprite.graphics.line_style(color=ap.Color("#fff",) thickness=5)
     >>> line: ap.Line = sprite.graphics.draw_line(
     ...     x_start=50, y_start=50, x_end=150, y_end=50
     ... )
     >>> line.line_color
-    String("#ffffff")
+    Color("#ffffff")
 
     >>> line.line_thickness
     Int(5)
@@ -141,7 +143,7 @@ class Line(
     # end_point
     @arg_validation_decos.is_point_2d(arg_position_index=2)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=3, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=3, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=4, optional=False)
     # line_thickness
@@ -169,7 +171,7 @@ class Line(
         *,
         start_point: "point2d.Point2D",
         end_point: "point2d.Point2D",
-        line_color: Union[str, String] = "",
+        line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         line_cap: Optional[Union[String, LineCaps]] = None,
@@ -189,7 +191,7 @@ class Line(
             Line start point.
         end_point : Points2D
             Line end point.
-        line_color : str or String, default ''
+        line_color : Color, default COLORLESS
             A line-color to set.
         line_alpha : float or Number, default 1.0
             A line-alpha to set.
@@ -242,7 +244,7 @@ class Line(
         )
         self.variable_name = variable_name
         self._set_initial_basic_values(
-            fill_color="",
+            fill_color=COLORLESS,
             fill_alpha=1,
             line_color=line_color,
             line_thickness=line_thickness,

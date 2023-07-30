@@ -131,7 +131,7 @@ class Circle(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.begin_fill(color="#0af")
+    >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
     >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
     >>> circle.x
     Number(100.0)
@@ -258,7 +258,7 @@ class Circle(
         >>> circle.radius
         Int(50)
         >>> circle.fill_color
-        String("#00aaff")
+        Color("#00aaff")
 
         >>> circle = ap.Circle(
         ...     x=100,
@@ -269,7 +269,7 @@ class Circle(
         ...     line_dot_setting=ap.LineDotSetting(dot_size=10),
         ... )
         >>> circle.line_color
-        String("#ffffff")
+        Color("#ffffff")
         >>> circle.line_thickness
         Int(3)
         """

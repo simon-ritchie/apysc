@@ -18,9 +18,9 @@ class TestPath:
         ]
         path: ap.Path = ap.Path(
             path_data_list=path_data_list,
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
             fill_alpha=0.5,
-            line_color="fff",
+            line_color=ap.Color("fff"),
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
@@ -31,9 +31,9 @@ class TestPath:
         assert_attrs(
             expected_attrs={
                 "_path_data_list": path_data_list,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,
@@ -111,9 +111,9 @@ class TestPath:
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
         sprite.graphics.line_style(
-            color="#fff",
+            color=ap.Color("#fff"),
             thickness=3,
             alpha=0.3,
             cap=ap.LineCaps.ROUND,
@@ -131,9 +131,9 @@ class TestPath:
         assert_attrs(
             expected_attrs={
                 "_path_data_list": path_data_list,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_cap": ap.LineCaps.ROUND.value,
                 "_line_joints": ap.LineJoints.BEVEL.value,

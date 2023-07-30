@@ -39,9 +39,9 @@ class TestPolyline:
         points: List[ap.Point2D] = [ap.Point2D(10, 20), ap.Point2D(30, 40)]
         polyline: ap.Polyline = ap.Polyline(
             points=points,
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
             fill_alpha=0.5,
-            line_color="fff",
+            line_color=ap.Color("fff"),
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
@@ -52,9 +52,9 @@ class TestPolyline:
         assert_attrs(
             expected_attrs={
                 "_points": points,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,
@@ -111,9 +111,9 @@ class TestPolyline:
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af")
+        sprite.graphics.begin_fill(color=ap.Color("#0af"))
         sprite.graphics.line_style(
-            color="#f0a",
+            color=ap.Color("#f0a"),
             cap=ap.LineCaps.ROUND,
             joints=ap.LineJoints.BEVEL,
             dot_setting=ap.LineDotSetting(dot_size=10),
@@ -148,8 +148,8 @@ class TestPolyline:
     @apply_test_settings()
     def test_append_line_point(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af")
-        sprite.graphics.line_style(color="#f0a")
+        sprite.graphics.begin_fill(color=ap.Color("#0af"))
+        sprite.graphics.line_style(color=ap.Color("#f0a"))
         points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
         polyline: ap.Polyline = ap.Polyline(parent=sprite.graphics, points=points)
         polyline.append_line_point(x=50, y=60)
@@ -166,9 +166,9 @@ class TestPolyline:
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
         sprite.graphics.line_style(
-            color="fff",
+            color=ap.Color("fff"),
             thickness=3,
             alpha=0.3,
             cap=ap.LineCaps.ROUND,
@@ -179,9 +179,9 @@ class TestPolyline:
         assert_attrs(
             expected_attrs={
                 "_points": [ap.Point2D(x=50, y=100)],
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,

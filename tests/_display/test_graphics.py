@@ -36,10 +36,10 @@ class TestGraphics:
             expected_error_class=ValueError, callable_=graphics.begin_fill, color="red"
         )
 
-        graphics.begin_fill(color="#0af")
+        graphics.begin_fill(color=ap.Color("#0af"))
         testing_helper.assert_attrs(
             expected_attrs={
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
             },
             any_obj=graphics,
         )
@@ -68,7 +68,7 @@ class TestGraphics:
     @apply_test_settings()
     def test_clear(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#333")
+        sprite.graphics.begin_fill(color=ap.Color("#333"))
         sprite.graphics.draw_rect(x=50, y=50, width=100, height=100)
         assert sprite.graphics.num_children == 1
         sprite.graphics.clear()
@@ -187,7 +187,9 @@ class TestGraphics:
     def test_draw_line(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
-            color="#333", thickness=3, dot_setting=ap.LineDotSetting(dot_size=10)
+            color=ap.Color("#333"),
+            thickness=3,
+            dot_setting=ap.LineDotSetting(dot_size=10),
         )
         line: ap.Line = sprite.graphics.draw_line(
             x_start=50,
@@ -196,7 +198,7 @@ class TestGraphics:
             y_end=200,
             variable_name_suffix="test_line",
         )
-        assert line.line_color == "#333333"
+        assert line.line_color == ap.Color("#333333")
         assert line.line_thickness == 3
         assert line.line_dot_setting is None
         self._assert_line_points(line=line)
@@ -210,7 +212,9 @@ class TestGraphics:
     def test_draw_dashed_line(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
-            color="#333", thickness=3, dot_setting=ap.LineDotSetting(dot_size=5)
+            color=ap.Color("#333"),
+            thickness=3,
+            dot_setting=ap.LineDotSetting(dot_size=5),
         )
         line: ap.Line = sprite.graphics.draw_dashed_line(
             x_start=50,
@@ -221,7 +225,7 @@ class TestGraphics:
             space_size=5,
             variable_name_suffix="test_line",
         )
-        assert line.line_color == "#333333"
+        assert line.line_color == ap.Color("#333333")
         assert line.line_thickness == 3
         line_dash_setting: Optional[ap.LineDashSetting] = line.line_dash_setting
         assert isinstance(line_dash_setting, ap.LineDashSetting)
@@ -240,7 +244,8 @@ class TestGraphics:
     def test_draw_dotted_line(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
-            color="#333", dash_setting=ap.LineDashSetting(dash_size=10, space_size=5)
+            color=ap.Color("#333"),
+            dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),
         )
         line: ap.Line = sprite.graphics.draw_dotted_line(
             x_start=50,
@@ -265,7 +270,8 @@ class TestGraphics:
     def test_draw_round_dotted_line(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
-            color="#333", dash_setting=ap.LineDashSetting(dash_size=10, space_size=5)
+            color=ap.Color("#333"),
+            dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),
         )
         line: ap.Line = sprite.graphics.draw_round_dotted_line(
             x_start=50,
@@ -277,7 +283,7 @@ class TestGraphics:
             variable_name_suffix="test_line",
         )
         assert isinstance(line.line_round_dot_setting, ap.LineRoundDotSetting)
-        assert line.line_color == "#333333"
+        assert line.line_color == ap.Color("#333333")
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == "test_line"
         assert line._start_point._variable_name_suffix == "test_line"
@@ -291,7 +297,8 @@ class TestGraphics:
     def test_draw_dash_dotted_line(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
-            color="#333", dash_setting=ap.LineDashSetting(dash_size=10, space_size=5)
+            color=ap.Color("#333"),
+            dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),
         )
         line: ap.Line = sprite.graphics.draw_dash_dotted_line(
             x_start=50,
@@ -304,7 +311,7 @@ class TestGraphics:
             variable_name_suffix="test_line",
         )
         assert isinstance(line.line_dash_dot_setting, ap.LineDashDotSetting)
-        assert line.line_color == "#333333"
+        assert line.line_color == ap.Color("#333333")
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == "test_line"
         assert line._start_point._variable_name_suffix == "test_line"
@@ -317,7 +324,7 @@ class TestGraphics:
     @apply_test_settings()
     def test_draw_polygon(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#333")
+        sprite.graphics.begin_fill(color=ap.Color("#333"))
         polygon: ap.Polygon = sprite.graphics.draw_polygon(
             points=[ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)],
             variable_name_suffix="test_polygon",
@@ -325,7 +332,7 @@ class TestGraphics:
         assert polygon.points == ap.Array(
             [ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)]
         )
-        assert polygon.fill_color == "#333333"
+        assert polygon.fill_color == ap.Color("#333333")
         assert polygon._variable_name_suffix == "test_polygon"
         assert sprite.graphics._children == [polygon]
 
@@ -391,7 +398,7 @@ class TestGraphics:
     @apply_test_settings()
     def test_draw_triangle(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af")
+        sprite.graphics.begin_fill(color=ap.Color("#0af"))
         triangle: ap.Triangle = sprite.graphics.draw_triangle(
             x1=50,
             y1=50,

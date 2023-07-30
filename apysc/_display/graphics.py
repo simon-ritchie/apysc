@@ -111,14 +111,15 @@ class Graphics(
         - Graphics
             - https://simon-ritchie.github.io/apysc/en/graphics.html
         """
-        import apysc as ap
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._validation import display_validation
+        from apysc._display.sprite import Sprite
+        from apysc._color.colorless import COLORLESS
 
         self._variable_name_suffix = variable_name_suffix
         display_validation.validate_sprite(sprite=parent)
-        self.parent_sprite: ap.Sprite = parent
+        self.parent_sprite: Sprite = parent
         if variable_name is None:
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.GRAPHICS
@@ -128,21 +129,21 @@ class Graphics(
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="fill_color"
         )
-        self._fill_color = ap.String("", variable_name_suffix=suffix)
+        self._fill_color = COLORLESS
 
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="fill_alpha")
-        self._fill_alpha = ap.Number(1.0, variable_name_suffix=suffix)
+        self._fill_alpha = Number(1.0, variable_name_suffix=suffix)
 
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="line_color")
-        self._line_color = ap.String("", variable_name_suffix=suffix)
+        self._line_color = COLORLESS
 
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="line_alpha")
-        self._line_alpha = ap.Number(1.0, variable_name_suffix=suffix)
+        self._line_alpha = Number(1.0, variable_name_suffix=suffix)
 
         suffix = self._get_attr_or_variable_name_suffix(
             value_identifier="line_thickness"
         )
-        self._line_thickness = ap.Int(1.0, variable_name_suffix=suffix)
+        self._line_thickness = Int(1.0, variable_name_suffix=suffix)
 
         self._initialize_line_cap_if_not_initialized()
         self._initialize_line_joints_if_not_initialized()
@@ -152,7 +153,7 @@ class Graphics(
         self._initialize_line_dash_dot_setting_if_not_initialized()
 
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="children")
-        self._children = ap.Array([], variable_name_suffix=suffix)
+        self._children = Array([], variable_name_suffix=suffix)
 
         self._append_constructor_expression()
         self.parent_sprite.add_child(child=self)

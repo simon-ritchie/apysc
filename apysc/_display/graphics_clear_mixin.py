@@ -15,12 +15,14 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class GraphicsClearMixIn:
-    _fill_color: String
+    _fill_color: Color
     _fill_alpha: Number
-    _line_color: String
+    _line_color: Color
     _line_thickness: Int
     _line_alpha: Number
     _current_line: Optional[Polyline]
@@ -42,21 +44,21 @@ class GraphicsClearMixIn:
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color="#0af")
+        >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
         >>> _ = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
         >>> _ = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
         >>> sprite.graphics.num_children
         Int(2)
 
         >>> sprite.graphics.fill_color
-        String("#00aaff")
+        Color("#00aaff")
 
         >>> sprite.graphics.clear()
         >>> sprite.graphics.num_children
         Int(0)
 
         >>> sprite.graphics.fill_color
-        String("")
+        Color("")
 
         References
         ----------
@@ -75,13 +77,13 @@ class GraphicsClearMixIn:
 
         if isinstance(self, (FillColorMixIn, BeginFillMixIn)):
             self._initialize_fill_color_if_not_initialized()
-        self._fill_color.value = ""
+        self._fill_color = COLORLESS
         if isinstance(self, (FillAlphaMixIn, BeginFillMixIn)):
             self._initialize_fill_alpha_if_not_initialized()
         self._fill_alpha.value = 1.0
         if isinstance(self, (LineColorMixIn, LineStyleMixIn)):
             self._initialize_line_color_if_not_initialized()
-        self._line_color.value = ""
+        self._line_color = COLORLESS
         if isinstance(self, (LineThicknessMixIn, LineStyleMixIn)):
             self._initialize_line_thickness_if_not_initialized()
         self._line_thickness.value = 1

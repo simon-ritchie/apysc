@@ -10,18 +10,18 @@ class TestGraphicsClearMixIn:
     @apply_test_settings()
     def test_clear(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#000")
+        sprite.graphics.begin_fill(color=ap.Color("#000"))
         sprite.graphics.line_style(
-            color="#aaa",
+            color=ap.Color("#aaa"),
             cap=ap.LineCaps.ROUND,
             joints=ap.LineJoints.BEVEL,
             dot_setting=ap.LineDotSetting(dot_size=10),
         )
 
         expected_attrs: Dict[str, Any] = {
-            "_fill_color": "",
+            "_fill_color": ap.COLORLESS,
             "_fill_alpha": 1.0,
-            "_line_color": "",
+            "_line_color": ap.COLORLESS,
             "_line_thickness": 1,
             "_line_alpha": 1.0,
             "_current_line": None,

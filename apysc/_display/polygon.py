@@ -84,6 +84,8 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class Polygon(
@@ -143,7 +145,7 @@ class Polygon(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.begin_fill(color="#0af")
+    >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
     >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
     ...     points=[
     ...         ap.Point2D(x=50, y=50),
@@ -152,7 +154,7 @@ class Polygon(
     ...     ]
     ... )
     >>> polygon.fill_color
-    String("#00aaff")
+    Color("#00aaff")
     """
 
     # self
@@ -160,11 +162,11 @@ class Polygon(
     # points
     @arg_validation_decos.are_point_2ds(arg_position_index=1)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=2, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=2, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=3, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=4, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5, optional=False)
     # line_thickness
@@ -193,9 +195,9 @@ class Polygon(
         self,
         *,
         points: Union[List[Point2D], Array[Point2D]],
-        fill_color: Union[str, String] = "",
+        fill_color: Color = COLORLESS,
         fill_alpha: Union[float, Number] = 1.0,
-        line_color: Union[str, String] = "",
+        line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         line_cap: Optional[Union[String, LineCaps]] = None,
@@ -216,11 +218,11 @@ class Polygon(
         ----------
         points : Array of Point2D or list of Point2D
             List of polygon vertex points.
-        fill_color : str or String, default ''
+        fill_color : Color, default COLORLESS
             A fill-color to set.
         fill_alpha : float or Number, default 1.0
             A fill-alpha to set.
-        line_color : str or String, default ''
+        line_color : Color, default COLORLESS
             A line-color to set.
         line_alpha : float or Number, default 1.0
             A line-alpha to set.
@@ -264,7 +266,7 @@ class Polygon(
         ...     fill_color="#00aaff",
         ... )
         >>> polygon.fill_color
-        String("#00aaff")
+        Color("#00aaff")
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

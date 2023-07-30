@@ -16,9 +16,9 @@ class TestPolygon:
         ]
         polygon: ap.Polygon = ap.Polygon(
             points=points,
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
             fill_alpha=0.5,
-            line_color="fff",
+            line_color=ap.Color("fff"),
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
@@ -29,9 +29,9 @@ class TestPolygon:
         assert_attrs(
             expected_attrs={
                 "_points": points,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,
@@ -88,12 +88,12 @@ class TestPolygon:
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
         points: ap.Array[ap.Point2D] = ap.Array(
             [ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)]
         )
         sprite.graphics.line_style(
-            color="fff",
+            color=ap.Color("fff"),
             thickness=3,
             alpha=0.3,
             cap=ap.LineCaps.ROUND,
@@ -106,9 +106,9 @@ class TestPolygon:
         assert_attrs(
             expected_attrs={
                 "_points": points,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_thickness": 3,
                 "_line_alpha": 0.3,
                 "_line_cap": ap.LineCaps.ROUND.value,

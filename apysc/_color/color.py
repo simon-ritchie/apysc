@@ -92,3 +92,14 @@ class Color(
             expression_data_util.append_js_expression(expression=expression)
 
         return result
+
+    def __repr__(self) -> str:
+        """
+        Get a representation string of this instance.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string of this instance.
+        """
+        return f'Color("{self._value._value}")'

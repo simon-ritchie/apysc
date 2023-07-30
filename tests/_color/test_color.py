@@ -52,3 +52,9 @@ class TestColor:
             other=ap.String("#00aaff"),
             match="The comparison between the `Color` class and `String`",
         )
+
+    @apply_test_settings()
+    def test___repr__(self) -> None:
+        color: ap.Color = ap.Color("#0af")
+        repr_str: str = repr(color)
+        assert repr_str == 'Color("#00aaff")'

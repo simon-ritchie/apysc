@@ -78,6 +78,8 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class Rectangle(
@@ -138,7 +140,7 @@ class Rectangle(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.begin_fill(color="#0af")
+    >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
     >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     ...     x=50, y=50, width=100, height=75
     ... )
@@ -155,7 +157,7 @@ class Rectangle(
     Int(75)
 
     >>> rectangle.fill_color
-    String("#00aaff")
+    Color("#00aaff")
     """
 
     # self
@@ -177,11 +179,11 @@ class Rectangle(
     @arg_validation_decos.is_integer(arg_position_index=6, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=6, optional=False)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=7, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=9, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=9, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=10, optional=False)
     # line_thickness
@@ -215,9 +217,9 @@ class Rectangle(
         height: Union[int, Int],
         ellipse_width: Union[int, Int] = 0,
         ellipse_height: Union[int, Int] = 0,
-        fill_color: Union[str, String] = "",
+        fill_color: Color = COLORLESS,
         fill_alpha: Union[float, Number] = 1.0,
-        line_color: Union[str, String] = "",
+        line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         line_cap: Optional[Union[String, LineCaps]] = None,
@@ -246,11 +248,11 @@ class Rectangle(
             Ellipse width.
         ellipse_height : int or Int
             Ellipse height.
-        fill_color : str or String, default ''
+        fill_color : Color, default COLORLESS
             A fill-color to set.
         fill_alpha : float or Number, default 1.0
             A fill-alpha to set.
-        line_color : str or String, default ''
+        line_color : Color, default COLORLESS
             A line-color to set.
         line_alpha : float or Number, default 1.0
             A line-alpha to set.

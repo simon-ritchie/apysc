@@ -32,9 +32,9 @@ class TestRectangle:
             height=200,
             ellipse_width=30,
             ellipse_height=35,
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
             fill_alpha=0.5,
-            line_color="fff",
+            line_color=ap.Color("fff"),
             line_alpha=0.3,
             line_thickness=3,
             line_cap=ap.LineCaps.ROUND,
@@ -50,9 +50,9 @@ class TestRectangle:
                 "_height": 200,
                 "_ellipse_width": 30,
                 "_ellipse_height": 35,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 3,
                 "_line_cap": ap.LineCaps.ROUND.value,
@@ -111,7 +111,7 @@ class TestRectangle:
     def test_append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#333", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#333"), alpha=0.5)
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=100, y=200, width=300, height=400
         )
@@ -140,9 +140,9 @@ class TestRectangle:
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
         sprite.graphics.line_style(
-            color="#fff",
+            color=ap.Color("#fff"),
             thickness=3,
             alpha=0.3,
             cap=ap.LineCaps.ROUND,
@@ -164,9 +164,9 @@ class TestRectangle:
                 "_y": 100,
                 "_width": 150,
                 "_height": 200,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_thickness": 3,
                 "_line_alpha": 0.3,
                 "_line_cap": ap.LineCaps.ROUND.value,

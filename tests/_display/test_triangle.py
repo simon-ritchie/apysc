@@ -62,7 +62,7 @@ class TestTriangle:
             y2=50,
             x3=100,
             y3=50,
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
             variable_name_suffix="test_triangle",
         )
         assert_attrs(
@@ -75,7 +75,7 @@ class TestTriangle:
                 "_y3": 50,
                 "_parent": stage,
                 "_variable_name_suffix": "test_triangle",
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
             },
             any_obj=triangle,
         )
@@ -100,10 +100,10 @@ class TestTriangle:
     @apply_test_settings()
     def test__create_with_graphics(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
         dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=10)
         sprite.graphics.line_style(
-            color="#fff",
+            color=ap.Color("#fff"),
             thickness=3,
             alpha=0.3,
             dot_setting=dot_setting,
@@ -126,9 +126,9 @@ class TestTriangle:
                 "_x3": 75,
                 "_y3": 50,
                 "_parent": sprite.graphics,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_thickness": 3,
                 "_line_alpha": 0.3,
                 "_line_dot_setting": dot_setting,

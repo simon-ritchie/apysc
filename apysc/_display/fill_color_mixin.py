@@ -44,6 +44,29 @@ class FillColorMixIn(
         ----------
         - GraphicsBase fill_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> circle: ap.Circle = ap.Circle(
+        ...     x=75,
+        ...     y=75,
+        ...     radius=50,
+        ...     fill_color=ap.Color("#0af"),
+        ... )
+        >>> circle.fill_color
+        Color("#00aaff")
+
+        >>> circle.fill_color = ap.Color("#ff00aa")
+        >>> circle.fill_color
+        Color("#ff00aa")
         """
         from apysc._type import value_util
 
@@ -67,6 +90,29 @@ class FillColorMixIn(
         ----------
         - GraphicsBase fill_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> circle: ap.Circle = ap.Circle(
+        ...     x=75,
+        ...     y=75,
+        ...     radius=50,
+        ...     fill_color=ap.Color("#0af"),
+        ... )
+        >>> circle.fill_color
+        Color("#00aaff")
+
+        >>> circle.fill_color = ap.Color("#ff00aa")
+        >>> circle.fill_color
+        Color("#ff00aa")
         """
         self._update_fill_color_and_skip_appending_exp(value=value)
         self._append_fill_color_update_expression()

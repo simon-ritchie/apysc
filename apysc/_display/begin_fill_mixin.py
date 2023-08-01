@@ -47,6 +47,29 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         ----------
         - Graphics begin_fill interface
             - https://simon-ritchie.github.io/apysc/en/graphics_begin_fill.html  # noqa
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(
+        ...     color=ap.Color("#0af"),
+        ...     alpha=0.5,
+        ... )
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50
+        ... )
+        >>> rectangle.fill_color
+        Color("#00aaff")
+        >>> rectangle.fill_alpha
+        Number(0.5)
         """
         import apysc as ap
         from apysc._converter import cast
@@ -72,6 +95,24 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         fill_color : Color
             Current fill-color.
             If not be set, this interface returns a `COLORLESS` constant.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(
+        ...     color=ap.Color("#0af"),
+        ...     alpha=0.5,
+        ... )
+        >>> sprite.graphics.fill_color
+        Color("#00aaff")
         """
 
         self._initialize_fill_color_if_not_initialized()

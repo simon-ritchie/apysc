@@ -15,6 +15,7 @@ from tests._display.test_graphics_expression import (
 from tests._display.test_graphics_expression import (
     assert_stroke_width_attr_expression_exists,
 )
+from apysc._display import svg_text
 
 
 class TestSVGText:
@@ -25,9 +26,9 @@ class TestSVGText:
             text="test text",
             x=50,
             y=100,
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
             fill_alpha=0.5,
-            line_color="#fff",
+            line_color=ap.Color("#fff"),
             line_alpha=0.3,
             line_thickness=1,
             leading=1.8,
@@ -40,9 +41,9 @@ class TestSVGText:
             expected_attrs={
                 "_x": 50,
                 "_y": 100,
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 1,
                 "_leading": 1.8,
@@ -120,9 +121,9 @@ class TestSVGText:
             font_family=["Arial", "Helvetica"],
             x=50,
             y=100,
-            fill_color="#fff",
+            fill_color=ap.Color("#fff"),
             fill_alpha=0.5,
-            line_color="#0af",
+            line_color=ap.Color("#0af"),
             line_alpha=0.3,
             line_thickness=2,
             leading=1.8,
@@ -140,9 +141,9 @@ class TestSVGText:
                 "_font_size": 14,
                 "_x": 50,
                 "_y": 100,
-                "_fill_color": "#ffffff",
+                "_fill_color": ap.Color("#ffffff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#00aaff",
+                "_line_color": ap.Color("#00aaff"),
                 "_line_alpha": 0.3,
                 "_line_thickness": 2,
                 "_leading": 1.8,
@@ -159,3 +160,24 @@ class TestSVGText:
         svg_text: ap.SVGText = ap.SVGText._initialize_with_base_value()
         assert svg_text.text == ap.String("")
         assert svg_text.visible == ap.Boolean(False)
+
+
+@apply_test_settings()
+def test__copy_fill_color_if_default_value_is_specified() -> None:
+    copied_fill_color: ap.Color = (
+        svg_text._copy_fill_color_if_default_value_is_specified(
+            fill_color=svg_text._DEFAULT_FILL_COLOR,
+        )
+    )
+    assert copied_fill_color == svg_text._DEFAULT_FILL_COLOR
+    assert (
+        copied_fill_color._value.variable_name
+        != svg_text._DEFAULT_FILL_COLOR._value.variable_name
+    )
+
+    fill_color: ap.Color = ap.Color("#0af")
+    copied_fill_color = svg_text._copy_fill_color_if_default_value_is_specified(
+        fill_color=fill_color,
+    )
+    assert copied_fill_color == fill_color
+    assert copied_fill_color._value.variable_name == fill_color._value.variable_name

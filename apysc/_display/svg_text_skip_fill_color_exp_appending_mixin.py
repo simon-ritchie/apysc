@@ -9,6 +9,7 @@ from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
+from apysc._color.color import Color
 
 
 class SVGTextSkipFillColorExpAppendingMixIn:
@@ -19,7 +20,7 @@ class SVGTextSkipFillColorExpAppendingMixIn:
     def _set_fill_color_expression_skipping_attr(
         self,
         *,
-        fill_color: Optional[Union[str, String]],
+        fill_color: Optional[Color],
     ) -> None:
         """
         Set a boolean attribute, whether to skip a fill-color expression's appending
@@ -27,7 +28,7 @@ class SVGTextSkipFillColorExpAppendingMixIn:
 
         Parameters
         ----------
-        fill_color : Optional[Union[str, String]]
+        fill_color : Optional[Color]
             A fill-color setting.
         """
         if fill_color is None:

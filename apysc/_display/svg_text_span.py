@@ -76,6 +76,8 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 
 
 class SVGTextSpan(
@@ -141,11 +143,11 @@ class SVGTextSpan(
         arg_position_index=3, optional=True
     )
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=4, optional=True)
+    @arg_validation_decos.is_color(arg_position_index=4, optional=True)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=5, optional=True)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=True)
+    @arg_validation_decos.is_color(arg_position_index=6, optional=True)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=True)
     # line_thickness
@@ -168,9 +170,9 @@ class SVGTextSpan(
         text: Union[str, String],
         font_size: Optional[Union[int, Int]] = None,
         font_family: Optional[Union[Array[String], List[str]]] = None,
-        fill_color: Optional[Union[str, String]] = None,
+        fill_color: Optional[Color] = None,
         fill_alpha: Optional[Union[float, Number]] = None,
-        line_color: Optional[Union[str, String]] = None,
+        line_color: Optional[Color] = None,
         line_alpha: Optional[Union[float, Number]] = None,
         line_thickness: Optional[Union[int, Int]] = None,
         bold: Optional[Union[bool, Boolean]] = None,
@@ -203,11 +205,11 @@ class SVGTextSpan(
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
-        fill_color : Optional[Union[str, String]], optional
+        fill_color : Optional[Color], optional
             A fill-color setting.
         fill_alpha : Optional[Union[float, Number]], optional
             A fill-alpha setting.
-        line_color : Optional[Union[str, String]], optional
+        line_color : Optional[Color], optional
             A line-color setting.
         line_alpha : Optional[Union[float, Number]], optional
             A line-alpha setting.
@@ -258,9 +260,9 @@ class SVGTextSpan(
         self._set_line_alpha_expression_skipping_attr(line_alpha=line_alpha)
         self._set_line_thickness_expression_skipping_attr(line_thickness=line_thickness)
         self._set_initial_basic_values(
-            fill_color=_get_init_fill_color_str(fill_color=fill_color),
+            fill_color=_get_init_fill_color(fill_color=fill_color),
             fill_alpha=_get_init_fill_alpha_num(fill_alpha=fill_alpha),
-            line_color=_get_init_line_color_str(line_color=line_color),
+            line_color=_get_init_line_color(line_color=line_color),
             line_thickness=_get_init_line_thickness_num(line_thickness=line_thickness),
             line_alpha=_get_init_line_alpha_num(line_alpha=line_alpha),
             line_cap=None,
@@ -355,24 +357,25 @@ class SVGTextSpan(
         return svg_text_span
 
 
-def _get_init_line_color_str(
-    *, line_color: Optional[Union[str, String]]
-) -> Union[str, String]:
+def _get_init_line_color(
+    *, line_color: Optional[Color]
+) -> Color:
     """
-    Get an initial line-color string.
+    Get an initial line-color.
 
     Parameters
     ----------
-    line_color : Optional[Union[str, String]]
-        A line-color setting.
+    line_color : Optional[Color]
+        A line-color.
 
     Returns
     -------
-    line_color_ : Union[str, String]
-        If a specified value is None, this interface returns an empty string.
+    line_color_ : Color
+        If a specified value is None, this interface returns the COLORLESS
+        constant.
     """
     if line_color is None:
-        return ""
+        return COLORLESS
     return line_color
 
 
@@ -397,24 +400,25 @@ def _get_init_fill_alpha_num(
     return fill_alpha
 
 
-def _get_init_fill_color_str(
-    *, fill_color: Optional[Union[str, String]]
-) -> Union[str, String]:
+def _get_init_fill_color(
+    *, fill_color: Optional[Color]
+) -> Color:
     """
-    Get an initial fill-color string.
+    Get an initial fill-color.
 
     Parameters
     ----------
-    fill_color : Optional[Union[str, String]]
+    fill_color : Optional[Color]
         A fill-color setting.
 
     Returns
     -------
-    fill_color_ : Union[str, String]
-        If a specified value is None, this interface returns an empty string.
+    fill_color_ : Color
+        If a specified value is None, this interface returns the COLORLESS
+        constant.
     """
     if fill_color is None:
-        return ""
+        return COLORLESS
     return fill_color
 
 

@@ -14,7 +14,7 @@ class TestSVGTextSpan:
     def test__append_constructor_expression(self) -> None:
         svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(
             text="test_text_span",
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
         )
         svg_text: ap.SVGText = SVGTextSingletonForTextSpan.get_instance()
         expression: str = expression_data_util.get_current_expression()
@@ -51,7 +51,7 @@ class TestSVGTextSpan:
 
         svg_text_span = ap.SVGTextSpan(
             text="test_text_span",
-            fill_color="#0af",
+            fill_color=ap.Color("#0af"),
         )
         assert not svg_text_span._skip_fill_color_expression_appending
 
@@ -63,7 +63,7 @@ class TestSVGTextSpan:
 
         svg_text_span = ap.SVGTextSpan(
             text="test_text_span",
-            line_color="#0af",
+            line_color=ap.Color("#0af"),
         )
         assert not svg_text_span._skip_line_color_expression_appending
 
@@ -99,17 +99,14 @@ class TestSVGTextSpan:
 
 
 @apply_test_settings()
-def test__get_init_fill_color_str() -> None:
-    fill_color_: Union[str, ap.String] = svg_text_span._get_init_fill_color_str(
-        fill_color="#0af"
+def test__get_init_fill_color() -> None:
+    fill_color_: ap.Color = svg_text_span._get_init_fill_color(
+        fill_color=ap.Color("#0af")
     )
-    assert fill_color_ == "#0af"
+    assert fill_color_ == ap.Color("#0af")
 
-    fill_color_ = svg_text_span._get_init_fill_color_str(fill_color=ap.String("#0af"))
-    assert fill_color_ == ap.String("#0af")
-
-    fill_color_ = svg_text_span._get_init_fill_color_str(fill_color=None)
-    assert fill_color_ == ""
+    fill_color_ = svg_text_span._get_init_fill_color(fill_color=None)
+    assert fill_color_ == ap.COLORLESS
 
 
 @apply_test_settings()
@@ -127,17 +124,14 @@ def test__get_init_fill_alpha_num() -> None:
 
 
 @apply_test_settings()
-def test__get_init_line_color_str() -> None:
-    line_color_: Union[str, ap.String] = svg_text_span._get_init_line_color_str(
-        line_color="#0af",
+def test__get_init_line_color() -> None:
+    line_color_: ap.Color = svg_text_span._get_init_line_color(
+        line_color=ap.Color("#0af"),
     )
-    assert line_color_ == "#0af"
+    assert line_color_ == ap.Color("#0af")
 
-    line_color_ = svg_text_span._get_init_line_color_str(line_color=ap.String("#0af"))
-    assert line_color_ == ap.String("#0af")
-
-    line_color_ = svg_text_span._get_init_line_color_str(line_color=None)
-    assert line_color_ == ""
+    line_color_ = svg_text_span._get_init_line_color(line_color=None)
+    assert line_color_ == ap.COLORLESS
 
 
 @apply_test_settings()

@@ -76,6 +76,12 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
+
+_DEFAULT_FILL_COLOR: Color = Color(
+    "#666", variable_name_suffix="default_fill_color"
+)
 
 
 class SVGText(
@@ -140,21 +146,21 @@ class SVGText(
     --------
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage(
-    ...     background_color="#333",
+    ...     background_color=ap.Color("#333"),
     ...     stage_width=200,
     ...     stage_height=50,
     ... )
     >>> svg_text: ap.SVGText = ap.SVGText(
     ...     text="Hello, world!",
     ...     font_size=20,
-    ...     fill_color="#0af",
+    ...     fill_color=ap.Color("#0af"),
     ... )
     >>> svg_text.text
     String("Hello, world!")
     >>> svg_text.font_size
     Int(20)
     >>> svg_text.fill_color
-    String("#00aaff")
+    Color("#00aaff")
     """
 
     # text
@@ -170,11 +176,11 @@ class SVGText(
     # y
     @arg_validation_decos.is_num(arg_position_index=5, optional=False)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=6, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=8, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=8, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9, optional=False)
     # line_thickness
@@ -203,9 +209,9 @@ class SVGText(
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 16.0,
-        fill_color: Union[str, String] = "#666",
+        fill_color: Color = _DEFAULT_FILL_COLOR,
         fill_alpha: Union[float, Number] = 1.0,
-        line_color: Union[str, String] = "",
+        line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
@@ -245,7 +251,7 @@ class SVGText(
             A fill-color setting.
         fill_alpha : float or Number, optional
             A fill-alpha setting.
-        line_color : str or String, default ''
+        line_color : str or String, optional
             A line-color setting.
         line_alpha : float or Number, optional
             A line-alpha setting.
@@ -271,7 +277,7 @@ class SVGText(
         --------
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage(
-        ...     background_color="#333",
+        ...     background_color=ap.Color("#333"),
         ...     stage_width=200,
         ...     stage_height=50,
         ...     stage_elem_id="stage",
@@ -286,10 +292,13 @@ class SVGText(
         >>> svg_text.font_size
         Int(20)
         >>> svg_text.fill_color
-        String("#00aaff")
+        Color("#00aaff")
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        fill_color = _copy_fill_color_if_default_value_is_specified(
+            fill_color=fill_color,
+        )
 
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.SVG_TEXT,
@@ -375,11 +384,11 @@ class SVGText(
     # y
     @arg_validation_decos.is_num(arg_position_index=5, optional=False)
     # fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=6, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=6, optional=False)
     # fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=7, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=8, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=8, optional=False)
     # line_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=9, optional=False)
     # line_thickness
@@ -407,9 +416,9 @@ class SVGText(
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 16.0,
-        fill_color: Union[str, String] = "#666",
+        fill_color: Color = _DEFAULT_FILL_COLOR,
         fill_alpha: Union[float, Number] = 1.0,
-        line_color: Union[str, String] = "",
+        line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
@@ -447,7 +456,7 @@ class SVGText(
             X-coordinate to start drawing.
         y : Union[float, Number], optional
             Y-coordinate to start drawing (please see also the `Notes` section).
-        fill_color : str or String, optional
+        fill_color : Color, optional
             A fill-color setting for an overall text.
         fill_alpha : float or Number, optional
             A fill-alpha setting for an overall text.
@@ -492,7 +501,7 @@ class SVGText(
         ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
         ...     ],
         ...     font_size=20,
-        ...     fill_color="#0af",
+        ...     fill_color=ap.Color("#0af"),
         ... )
         """
         import apysc as ap
@@ -595,3 +604,30 @@ class SVGText(
         svg_text: SVGText = SVGText(text="")
         svg_text.visible = ap.Boolean(False)
         return svg_text
+
+
+def _copy_fill_color_if_default_value_is_specified(
+    *,
+    fill_color: Color,
+) -> Color:
+    """
+    Copy the fill color if the specified value is the default
+    value (i.e., `_DEFAULT_FILL_COLOR`).
+
+    Parameters
+    ----------
+    fill_color : Color
+        A fill color to check.
+
+    Returns
+    -------
+    copied_fill_color : Color
+        A copied fill color.
+    """
+    if (
+        fill_color._value.variable_name == _DEFAULT_FILL_COLOR._value.variable_name
+    ):
+        copied_fill_color: Color = fill_color._copy()
+    else:
+        copied_fill_color = fill_color
+    return copied_fill_color

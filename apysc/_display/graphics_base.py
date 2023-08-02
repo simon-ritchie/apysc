@@ -101,7 +101,7 @@ class GraphicsBase(
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
 
         if isinstance(self, FillColorMixIn):
-            self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
+            self._set_initial_fill_color_if_not_colorless(fill_color=fill_color)
         if isinstance(self, FillAlphaMixIn):
             self._update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         if isinstance(self, LineColorMixIn):

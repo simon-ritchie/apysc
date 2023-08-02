@@ -139,12 +139,12 @@ class FillColorMixIn(
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _set_initial_fill_color_if_not_blank(
+    def _set_initial_fill_color_if_not_colorless(
         self, *, fill_color: Color
     ) -> None:
         """
         Set the initial fill color if a specified value
-        is not a blank string.
+        is not the `COLORLESS` constant.
 
         Parameters
         ----------

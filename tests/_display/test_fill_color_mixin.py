@@ -80,10 +80,10 @@ class TestFillColorMixIn:
         assert fill_color_mixin.fill_color._value == ap.String("#222222")
 
     @apply_test_settings()
-    def test__set_initial_fill_color_if_not_blank(self) -> None:
+    def test__set_initial_fill_color_if_not_colorless(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
-        fill_color_mixin._set_initial_fill_color_if_not_blank(fill_color=ap.COLORLESS)
+        fill_color_mixin._set_initial_fill_color_if_not_colorless(fill_color=ap.COLORLESS)
         assert fill_color_mixin.fill_color == ap.COLORLESS
-        fill_color_mixin._set_initial_fill_color_if_not_blank(fill_color=ap.Color("#0af"))
+        fill_color_mixin._set_initial_fill_color_if_not_colorless(fill_color=ap.Color("#0af"))
         assert fill_color_mixin.fill_color._value == ap.String("#00aaff")

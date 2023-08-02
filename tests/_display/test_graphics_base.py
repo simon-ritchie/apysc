@@ -135,9 +135,9 @@ class TestGraphicsBase:
     def test__set_initial_basic_values(self) -> None:
         graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics_1")
         graphics._set_initial_basic_values(
-            fill_color="#00aaff",
+            fill_color=ap.Color("#00aaff"),
             fill_alpha=0.5,
-            line_color="#ffffff",
+            line_color=ap.Color("#ffffff"),
             line_thickness=3,
             line_alpha=0.3,
             line_cap=ap.LineCaps.ROUND,
@@ -145,9 +145,9 @@ class TestGraphicsBase:
         )
         testing_helper.assert_attrs(
             expected_attrs={
-                "_fill_color": "#00aaff",
+                "_fill_color": ap.Color("#00aaff"),
                 "_fill_alpha": 0.5,
-                "_line_color": "#ffffff",
+                "_line_color": ap.Color("#ffffff"),
                 "_line_thickness": 3,
                 "_line_alpha": 0.3,
                 "_line_cap": ap.LineCaps.ROUND.value,

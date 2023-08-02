@@ -12,13 +12,12 @@ from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-
-StrOrString = TypeVar("StrOrString", str, String)
+from apysc._color.color import Color
 
 
 class AnimationFillColorMixIn(AnimationMixIns):
     @final
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=2, optional=False)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
@@ -26,7 +25,7 @@ class AnimationFillColorMixIn(AnimationMixIns):
     def animation_fill_color(
         self,
         *,
-        fill_color: StrOrString,
+        fill_color: Color,
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR
@@ -41,8 +40,8 @@ class AnimationFillColorMixIn(AnimationMixIns):
 
         Parameters
         ----------
-        fill_color : str or String
-            The final fill color (hex color code) of the animation.
+        fill_color : Color
+            The final fill color of the animation.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.
         delay : Int or int, default 0
@@ -77,12 +76,12 @@ class AnimationFillColorMixIn(AnimationMixIns):
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color="#0af")
+        >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
         >>> _ = rectangle.animation_fill_color(
-        ...     fill_color="#f0a",
+        ...     fill_color=ap.Color("#f0a"),
         ...     duration=1500,
         ...     easing=ap.Easing.EASE_OUT_QUINT,
         ... ).start()

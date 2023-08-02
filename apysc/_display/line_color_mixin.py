@@ -142,17 +142,17 @@ class LineColorMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    def _set_initial_line_color_if_not_blank(
+    def _set_initial_line_color_if_not_colorless(
         self, *, line_color: Color
     ) -> None:
         """
         Set initial line color value if a specified value is
-        not a blank string.
+        not the `COLORLESS` constant.
 
         Parameters
         ----------
         line_color : Color
-            Line color (hexadecimal string, e.g., '#00aaff').
+            A line color.
         """
         import apysc as ap
 

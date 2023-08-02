@@ -93,15 +93,15 @@ class TestLineColorMixIn:
         assert line_color_interface.line_color._value == ap.String("#222222")
 
     @apply_test_settings()
-    def test__set_initial_line_color_if_not_blank(self) -> None:
+    def test__set_initial_line_color_if_not_colorless(self) -> None:
         line_color_interface: LineColorMixIn = LineColorMixIn()
         line_color_interface.variable_name = "test_line_color_interface"
-        line_color_interface._set_initial_line_color_if_not_blank(
+        line_color_interface._set_initial_line_color_if_not_colorless(
             line_color=ap.COLORLESS
         )
         assert line_color_interface.line_color == ap.COLORLESS
 
-        line_color_interface._set_initial_line_color_if_not_blank(
+        line_color_interface._set_initial_line_color_if_not_colorless(
             line_color=ap.Color("0af")
         )
         assert line_color_interface.line_color._value == ap.String("#00aaff")

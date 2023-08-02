@@ -105,7 +105,7 @@ class GraphicsBase(
         if isinstance(self, FillAlphaMixIn):
             self._update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         if isinstance(self, LineColorMixIn):
-            self._set_initial_line_color_if_not_blank(line_color=line_color)
+            self._set_initial_line_color_if_not_colorless(line_color=line_color)
         if isinstance(self, LineThicknessMixIn):
             self._update_line_thickness_and_skip_appending_exp(value=line_thickness)
         if isinstance(self, LineAlphaMixIn):

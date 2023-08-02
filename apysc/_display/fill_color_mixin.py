@@ -149,7 +149,7 @@ class FillColorMixIn(
         Parameters
         ----------
         fill_color : Color
-            Fill color (hexadecimal string, e.g., '#00aaff').
+            A fill color.
         """
         import apysc as ap
 

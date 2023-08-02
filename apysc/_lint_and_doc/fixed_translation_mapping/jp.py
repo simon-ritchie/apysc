@@ -744,8 +744,8 @@ MAPPINGS: Mappings = Mappings(
             val="現在の塗りの色を取得します。<hr>",
         ),
         Mapping(
-            key="  - Current fill color (hexadecimal string color, e.g., '#00aaff'). If not be set, this interface returns a blank string.",
-            val="  - 現在の塗りの色（`'#00aaff'`などの16進数の文字列の色）。もしも設定されていない場合空文字が返却されます。",
+            key="  - Current fill color (hexadecimal string color, e.g., '#00aaff'). If it is not set, it returns the `COLORLESS` constant.",
+            val="  - 現在の塗りの色（`'#00aaff'`などの16進数の文字列の色）。もしも設定されていない場合`COLORLESS`定数の値が返却されます。",
         ),
         Mapping(key="## fill_alpha property API", val="## fill_alpha 属性のAPI"),
         Mapping(
@@ -906,8 +906,8 @@ MAPPINGS: Mappings = Mappings(
             val="インスタンスの線の色を取得します。<hr>",
         ),
         Mapping(
-            key="  - Current line color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.",
-            val="  - '#00aaff'などの16進数の線の色。もし設定されていない場合はこの空文字となります。",
+            key="  - Current line color (hexadecimal string, e.g., '#00aaff'). If it is not set, it returns the `COLORLESS` constant.",
+            val="  - '#00aaff'などの16進数の線の色。もし設定されていない場合は`COLORLESS`の定数が返却されます。",
         ),
         Mapping(
             key="Get a current dash-dot (1-dot chain) setting.<hr>",

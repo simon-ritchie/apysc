@@ -65,7 +65,7 @@ Get this instance's line color.<hr>
 **[Returns]**
 
 - `line_color`: String
-  - Current line color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.
+  - Current line color (hexadecimal string, e.g., '#00aaff'). If it is not set, it returns the `COLORLESS` constant.
 
 <hr>
 

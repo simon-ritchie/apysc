@@ -191,7 +191,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `line_color`: String": "- `line_color`: String",
     ##################################################
-    "  - Current line color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.": "  - '#00aaff'などの16進数の線の色。もし設定されていない場合はこの空文字となります。",  # noqa
+    "  - Current line color (hexadecimal string, e.g., '#00aaff'). If it is not set, it returns the `COLORLESS` constant.": "  - '#00aaff'などの16進数の線の色。もし設定されていない場合は`COLORLESS`定数の値が返却されます。",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

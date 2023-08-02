@@ -380,7 +380,7 @@ class LineStyleMixIn(
         -------
         line_color : Color
             A Current line color.
-            If not be set, this interface returns a blank string.
+            If it is not set, it returns the `COLORLESS` constant.
 
         Examples
         --------

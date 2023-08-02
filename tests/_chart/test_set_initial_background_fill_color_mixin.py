@@ -10,17 +10,6 @@ class TestSetInitialBackgroundColorMixIn:
     def test__set_initial_background_color(self) -> None:
         mixin: SetInitialBackgroundFillColorMixIn = SetInitialBackgroundFillColorMixIn()
         mixin._set_initial_background_fill_color(
-            background_fill_color="#333",
-            variable_name_suffix="test_suffix_1",
+            background_fill_color=ap.Color("#333"),
         )
-        assert mixin._background_fill_color == ap.String("#333333")
-        assert mixin._background_fill_color._variable_name_suffix == "test_suffix_1"
-
-        mixin._set_initial_background_fill_color(
-            background_fill_color=ap.String(
-                "#555",
-                variable_name_suffix="test_suffix_2",
-            ),
-        )
-        assert mixin._background_fill_color == ap.String("#555555")
-        assert mixin._background_fill_color._variable_name_suffix == "test_suffix_2"
+        assert mixin._background_fill_color == ap.Color("#333333")

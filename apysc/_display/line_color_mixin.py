@@ -44,6 +44,30 @@ class LineColorMixIn(
         ----------
         - GraphicsBase line_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_line_color.html  # noqa
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=50,
+        ...     y=50,
+        ...     width=50,
+        ...     height=50,
+        ...     line_color=ap.Color('#0af'),
+        ...     line_thickness=2,
+        ... )
+        >>> rectangle.line_color
+        Color("#00aaff")
+        >>> rectangle.line_color = ap.Color("#ff00aa")
+        >>> rectangle.line_color
+        Color("#ff00aa")
         """
         from apysc._color.color import Color
         from apysc._type import value_util
@@ -68,6 +92,30 @@ class LineColorMixIn(
         ----------
         - GraphicsBase line_color interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_line_color.html  # noqa
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=50,
+        ...     y=50,
+        ...     width=50,
+        ...     height=50,
+        ...     line_color=ap.Color('#0af'),
+        ...     line_thickness=2,
+        ... )
+        >>> rectangle.line_color
+        Color("#00aaff")
+        >>> rectangle.line_color = ap.Color("#ff00aa")
+        >>> rectangle.line_color
+        Color("#ff00aa")
         """
         self._initialize_line_color_if_not_initialized()
         self._update_line_color_and_skip_appending_exp(value=value)

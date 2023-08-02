@@ -114,6 +114,30 @@ class LineStyleMixIn(
         ----------
         - Graphics line_style interface
             - https://simon-ritchie.github.io/apysc/en/graphics_line_style.html  # noqa
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color=ap.Color("#0af"), thickness=2, alpha=0.5
+        ... )
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50
+        ... )
+        >>> rectangle.line_color
+        Color("#00aaff")
+        >>> rectangle.line_thickness
+        Int(2)
+        >>> rectangle.line_alpha
+        Number(0.5)
         """
         from apysc._color import color_util
 
@@ -357,6 +381,23 @@ class LineStyleMixIn(
         line_color : Color
             A Current line color.
             If not be set, this interface returns a blank string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> _ = ap.Stage(
+        ...     stage_width=150,
+        ...     stage_height=150,
+        ...     background_color="#333",
+        ...     stage_elem_id="stage",
+        ... )
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color=ap.Color("#0af"), thickness=2, alpha=0.5
+        ... )
+        >>> sprite.graphics.line_color
+        Color("#00aaff")
         """
         self._initialize_line_color_if_not_initialized()
         return self._line_color._copy()

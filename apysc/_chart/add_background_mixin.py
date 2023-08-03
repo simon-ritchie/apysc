@@ -8,8 +8,8 @@ from apysc._display.sprite import Sprite
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
 
 
 class AddBackgroundMixIn:
@@ -21,7 +21,7 @@ class AddBackgroundMixIn:
     )
     @arg_validation_decos.is_apysc_integer(arg_position_index=2)
     @arg_validation_decos.is_apysc_integer(arg_position_index=3)
-    @arg_validation_decos.is_apysc_string(arg_position_index=4)
+    @arg_validation_decos.is_color(arg_position_index=4, optional=False)
     @arg_validation_decos.is_apysc_num(arg_position_index=5)
     @add_debug_info_setting(module_name=__name__)
     def _add_background(
@@ -30,7 +30,7 @@ class AddBackgroundMixIn:
         background_container: Sprite,
         width: Int,
         height: Int,
-        background_fill_color: String,
+        background_fill_color: Color,
         background_fill_alpha: Number,
         variable_name_suffix: str,
     ) -> None:
@@ -45,7 +45,7 @@ class AddBackgroundMixIn:
             A background width.
         height : Int
             A background height.
-        background_fill_color : String
+        background_fill_color : Color
             A background fill-color.
         background_fill_alpha : Number
             A background fill-alpha.

@@ -9,6 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._color.color import Color
 
 
 class AddBorderMixIn:
@@ -22,7 +23,7 @@ class AddBorderMixIn:
         border_container: Sprite,
         width: Int,
         height: Int,
-        border_color: String,
+        border_color: Color,
         border_alpha: Number,
         border_thickness: Int,
         variable_name_suffix: str,
@@ -38,7 +39,7 @@ class AddBorderMixIn:
             A border width.
         height : Int
             A border height.
-        border_color : String
+        border_color : Color
             A border color.
         border_alpha : Number
             A border alpha.

@@ -12,7 +12,7 @@ class TestAddBorderMixIn:
             border_container=border_container,
             width=ap.Int(500),
             height=ap.Int(300),
-            border_color=ap.String("#aaaaaa"),
+            border_color=ap.Color("#aaaaaa"),
             border_alpha=ap.Number(0.5),
             border_thickness=ap.Int(2),
             variable_name_suffix="test_suffix",
@@ -21,7 +21,7 @@ class TestAddBorderMixIn:
         assert mixin._border._variable_name_suffix == "test_suffix"
         assert mixin._border.width == ap.Int(500)
         assert mixin._border.height == ap.Int(300)
-        assert mixin._border.line_color == ap.String("#aaaaaa")
+        assert mixin._border.line_color == ap.Color("#aaaaaa")
         assert mixin._border.line_alpha == ap.Number(0.5)
         assert mixin._border.line_thickness == ap.Int(2)
         assert mixin._border.parent == border_container

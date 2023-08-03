@@ -8,14 +8,6 @@ class TestSetInitialBorderColorMixIn:
     def test__set_initial_border_color(self) -> None:
         mixin: SetInitialBorderColorMixIn = SetInitialBorderColorMixIn()
         mixin._set_initial_border_color(
-            border_color="#333",
-            variable_name_suffix="test_suffix_1",
+            border_color=ap.Color("#333"),
         )
-        assert mixin._border_color == ap.String("#333333")
-        assert mixin._border_color._variable_name_suffix == "test_suffix_1"
-
-        mixin._set_initial_border_color(
-            border_color=ap.String("#555", variable_name_suffix="test_suffix_2"),
-        )
-        assert mixin._border_color == ap.String("#555555")
-        assert mixin._border_color._variable_name_suffix == "test_suffix_2"
+        assert mixin._border_color == ap.Color("#333333")

@@ -160,24 +160,3 @@ class TestSVGText:
         svg_text: ap.SVGText = ap.SVGText._initialize_with_base_value()
         assert svg_text.text == ap.String("")
         assert svg_text.visible == ap.Boolean(False)
-
-
-@apply_test_settings()
-def test__copy_fill_color_if_default_value_is_specified() -> None:
-    copied_fill_color: ap.Color = (
-        svg_text._copy_fill_color_if_default_value_is_specified(
-            fill_color=svg_text._DEFAULT_FILL_COLOR,
-        )
-    )
-    assert copied_fill_color == svg_text._DEFAULT_FILL_COLOR
-    assert (
-        copied_fill_color._value.variable_name
-        != svg_text._DEFAULT_FILL_COLOR._value.variable_name
-    )
-
-    fill_color: ap.Color = ap.Color("#0af")
-    copied_fill_color = svg_text._copy_fill_color_if_default_value_is_specified(
-        fill_color=fill_color,
-    )
-    assert copied_fill_color == fill_color
-    assert copied_fill_color._value.variable_name == fill_color._value.variable_name

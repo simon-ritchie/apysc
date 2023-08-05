@@ -230,7 +230,7 @@ def test__create_y_axis_ticks_texts() -> None:
             ap.Number(0),
         ]
     )
-    tick_text_fill_color: ap.String = ap.String("#333333")
+    tick_text_fill_color: ap.Color = ap.Color("#333333")
     tick_text_fill_alpha: ap.Number = ap.Number(0.5)
     tick_text_font_size: ap.Int = ap.Int(12)
     tick_text_font_family: ap.Array[ap.String] = ap.Array(
@@ -260,7 +260,7 @@ def test__create_y_axis_ticks_texts() -> None:
     )
     assert y_axis_ticks_texts._value[0].text == ap.String("20")
     assert y_axis_ticks_texts._value[0].font_size == ap.Int(12)
-    assert y_axis_ticks_texts._value[0].fill_color == ap.String("#333333")
+    assert y_axis_ticks_texts._value[0].fill_color == ap.Color("#333333")
     assert y_axis_ticks_texts._value[0].fill_alpha == ap.Number(0.5)
     assert y_axis_ticks_texts._value[0].align == ap.SVGTextAlign.RIGHT
     assert y_axis_ticks_texts._value[0].bold == ap.Boolean(False)
@@ -275,7 +275,7 @@ def test__create_y_axis_ticks_texts() -> None:
 def test__create_y_axis_vertical_border() -> None:
     y_axis_container: ap.Sprite = ap.Sprite()
     y_axis_texts_container: ap.Sprite = ap.Sprite()
-    line_color: ap.String = ap.String("#333333")
+    line_color: ap.Color = ap.Color("#333333")
     line_thickness: ap.Int = ap.Int(1)
     line_alpha: ap.Number = ap.Number(0.5)
     tick_text_font_size: ap.Int = ap.Int(12)
@@ -289,7 +289,7 @@ def test__create_y_axis_vertical_border() -> None:
         tick_text_font_size=tick_text_font_size,
         variable_name_suffix="test_suffix",
     )
-    assert line.line_color == ap.String("#333333")
+    assert line.line_color == ap.Color("#333333")
     assert line.line_thickness == ap.Int(1)
     assert line.line_alpha == ap.Number(0.5)
     assert line.parent == y_axis_container

@@ -22,6 +22,7 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._color.color import Color
 
 
 class CreateSingleColumnYAxisMixIn:
@@ -154,7 +155,7 @@ def _create_y_axis_vertical_border(
     *,
     y_axis_container: Sprite,
     y_axis_texts_container: Sprite,
-    line_color: String,
+    line_color: Color,
     line_thickness: Int,
     line_alpha: Number,
     tick_text_font_size: Int,
@@ -169,7 +170,7 @@ def _create_y_axis_vertical_border(
         A y-axis container instance.
     y_axis_texts_container : Sprite
         A y-axis texts container instance.
-    line_color : String
+    line_color : Color
         A line color setting.
     line_thickness : Int
         A line thickness setting.
@@ -213,7 +214,7 @@ def _create_y_axis_ticks_texts(
     horizontal_padding: Int,
     y_axis_text_values: Array[String],
     y_axis_ticks_y_coordinates: Array[Number],
-    tick_text_fill_color: String,
+    tick_text_fill_color: Color,
     tick_text_fill_alpha: Number,
     tick_text_font_size: Int,
     tick_text_font_family: Optional[Array[String]],
@@ -234,7 +235,7 @@ def _create_y_axis_ticks_texts(
         A y-axis text values.
     y_axis_ticks_y_coordinates : Array[Number]
         A y-axis ticks y coordinates.
-    tick_text_fill_color : String
+    tick_text_fill_color : Color
         A tick text fill-color.
     tick_text_fill_alpha : Number
         A tick text fill-alpha.
@@ -278,8 +279,6 @@ def _create_y_axis_ticks_texts(
             variable_name_suffix=variable_name_suffix,
         )
         y_axis_ticks_texts.append(txt)
-    ap.trace("tick_text_fill_color:", tick_text_fill_color)
-    ap.trace("tick_text_font_size:", tick_text_font_size)
     _apply_x_coordinate_to_y_axis_ticks_texts(
         horizontal_padding=horizontal_padding,
         y_axis_ticks_texts=y_axis_ticks_texts,

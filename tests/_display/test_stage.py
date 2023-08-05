@@ -18,7 +18,7 @@ class TestStage:
         stage: ap.Stage = ap.Stage(
             stage_width=500,
             stage_height=300,
-            background_color="#000000",
+            background_color=ap.Color("#000000"),
             add_to="#line-graph",
             stage_elem_id="line-graph-stage",
             variable_name_suffix="test_stage",
@@ -26,7 +26,7 @@ class TestStage:
         expected_attrs: Dict[str, Any] = {
             "width": 500,
             "height": 300,
-            "_background_color": "#000000",
+            "_background_color": ap.Color("#000000"),
             "_add_to": "#line-graph",
             "_stage_elem_id": "line-graph-stage",
             "_children": [],
@@ -40,7 +40,7 @@ class TestStage:
         stage: ap.Stage = ap.Stage(
             stage_width=100,
             stage_height=200,
-            background_color="#333333",
+            background_color=ap.Color("#333333"),
             add_to="#line-graph",
             stage_elem_id="line-graph-stage",
         )
@@ -69,11 +69,15 @@ class TestStage:
 
     @apply_test_settings()
     def test__make_style_str(self) -> None:
+        color: ap.Color = ap.Color("#333")
         stage: ap.Stage = ap.Stage(
-            stage_width=200, stage_height=300, background_color="#333"
+            stage_width=200, stage_height=300, background_color=color
         )
         style: str = stage._make_style_str()
-        expected_style: str = "width: 200px; height: 300px; background-color: #333333;"
+        expected_style: str = (
+            "width: 200px; height: 300px; "
+            f"background-color: {color._value.variable_name};"
+        )
         assert style == expected_style
 
     @apply_test_settings()

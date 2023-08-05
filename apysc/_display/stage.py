@@ -26,6 +26,8 @@ from apysc._type.initialize_top_level_constants_mixin import (
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colors import Colors
 
 # This is used only for avoiding gabage collection.
 _current_stage: "Stage"
@@ -60,14 +62,14 @@ class Stage(
     ... )
     """
 
-    _background_color: str
+    _background_color: Color
     _add_to: str
     _stage_elem_id: str
     stage: "Stage"
 
     @arg_validation_decos.is_builtin_integer(arg_position_index=1)
     @arg_validation_decos.is_builtin_integer(arg_position_index=2)
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=3, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=3, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=4, optional=False)
     @arg_validation_decos.is_builtin_string(arg_position_index=5, optional=True)
     @arg_validation_decos.is_builtin_string(arg_position_index=6, optional=False)
@@ -76,7 +78,7 @@ class Stage(
         *,
         stage_width: int = 300,
         stage_height: int = 185,
-        background_color: str = "#ffffff",
+        background_color: Color = Colors.WHITE_FFFFFF,
         add_to: str = "body",
         stage_elem_id: Optional[str] = None,
         variable_name_suffix: str = "",
@@ -90,7 +92,7 @@ class Stage(
             Stage width.
         stage_height : int, default 185
             Stage height
-        background_color : str, default '#ffffff'
+        background_color : str, default Colors.WHITE_FFFFFF
             Hexadecimal background color string.
         add_to : str, default 'body'
             Specification of element to add stage.
@@ -119,7 +121,6 @@ class Stage(
         ... )
         """
         import apysc as ap
-        from apysc._color import color_util
         from apysc._expression import expression_data_util
         from apysc._html import html_util
         from apysc._validation import string_validation
@@ -142,9 +143,6 @@ class Stage(
         self._update_width_and_skip_appending_exp(value=ap.Int(stage_width))
         self._update_height_and_skip_appending_exp(value=ap.Int(stage_height))
 
-        background_color = color_util.complement_hex_color(
-            hex_color_code=background_color
-        )
         self._background_color = background_color
         string_validation.validate_not_empty_string(string=add_to)
         self._add_to = add_to
@@ -241,7 +239,7 @@ class Stage(
         style: str = (
             f"width: {self.width}px;"
             f" height: {self.height}px;"
-            f" background-color: {self._background_color};"
+            f" background-color: {self._background_color._value.variable_name};"
         )
         return style
 

@@ -457,7 +457,7 @@ def _get_expression_table_name() -> TableName:
     from apysc._display import stage
     from apysc._expression import event_handler_scope
 
-    if not stage.is_stage_created():
+    if not hasattr(stage, "is_stage_created") or not stage.is_stage_created():
         return TableName.EXPRESSION_BEFORE_STAGE_INSTANTIATION
 
     if not event_handler_scope.current_scope_is_in_event_handler():
@@ -611,7 +611,7 @@ def copy_expression_before_stage_instantiation() -> None:
     """
     from apysc._display import stage
 
-    if not stage.is_stage_created():
+    if not hasattr(stage, "is_stage_created") or not stage.is_stage_created():
         raise stage.StageNotCreatedError(
             "This function must call after stage creation."
         )

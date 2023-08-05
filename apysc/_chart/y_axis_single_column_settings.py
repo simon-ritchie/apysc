@@ -39,8 +39,15 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
+from apysc._color.copy_color_if_default_value_specified_mixin import (
+    CopyColorIfDefaultValueSpecifiedMixIn,
+)
 
-_StrOrString = TypeVar("_StrOrString", str, String)
+_DEFAULT_GRAY_COLOR: Color = Color(
+    "#666666", variable_name_suffix="default_gray_color"
+)
 
 
 class YAxisSingleColumnSettings(
@@ -66,6 +73,7 @@ class YAxisSingleColumnSettings(
     AxisLabelFillAlphaMixIn,
     AxisLabelBoldMixIn,
     AxisLabelItalicMixIn,
+    CopyColorIfDefaultValueSpecifiedMixIn,
 ):
     # y_axis_column_name
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -82,7 +90,7 @@ class YAxisSingleColumnSettings(
         arg_position_index=6, optional=True
     )
     # tick_text_fill_color
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=7, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=7, optional=False)
     # tick_text_fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=8, optional=False)
     # tick_text_bold
@@ -92,7 +100,7 @@ class YAxisSingleColumnSettings(
     # tick_text_max_num_of_decimal_places
     @arg_validation_decos.is_integer(arg_position_index=11, optional=False)
     # line_color
-    @arg_validation_decos.is_hex_color_code_format(
+    @arg_validation_decos.is_color(
         arg_position_index=12, optional=False
     )
     # line_thickness
@@ -113,7 +121,7 @@ class YAxisSingleColumnSettings(
         arg_position_index=18, optional=True
     )
     # axis_label_fill_color
-    @arg_validation_decos.is_hex_color_code_format(
+    @arg_validation_decos.is_color(
         arg_position_index=19, optional=False
     )
     # axis_label_fill_alpha
@@ -133,19 +141,19 @@ class YAxisSingleColumnSettings(
         tick_max_num: Optional[Union[int, Int]] = None,
         tick_text_font_size: Union[int, Int] = 12,
         tick_text_font_family: Optional[Union[Array[String], List[str]]] = None,
-        tick_text_fill_color: _StrOrString = "#666666",
+        tick_text_fill_color: Color = _DEFAULT_GRAY_COLOR,
         tick_text_fill_alpha: Union[float, Number] = 1.0,
         tick_text_bold: Union[bool, Boolean] = False,
         tick_text_italic: Union[bool, Boolean] = False,
         tick_text_max_num_of_decimal_places: Union[int, Int] = 3,
-        line_color: _StrOrString = "#666666",
+        line_color: Color = _DEFAULT_GRAY_COLOR,
         line_thickness: Union[int, Int] = 1,
         line_alpha: Union[float, Number] = 1.0,
         is_display_axis_label: Union[bool, Boolean] = True,
         axis_label_position: YAxisLabelPosition = YAxisLabelPosition.OUTER_TOP,
         axis_label_font_size: Union[int, Int] = 12,
         axis_label_font_family: Optional[Union[Array[String], List[str]]] = None,
-        axis_label_fill_color: _StrOrString = "#666666",
+        axis_label_fill_color: Color = _DEFAULT_GRAY_COLOR,
         axis_label_fill_alpha: Union[float, Number] = 1.0,
         axis_label_bold: Union[bool, Boolean] = False,
         axis_label_italic: Union[bool, Boolean] = False,
@@ -172,7 +180,7 @@ class YAxisSingleColumnSettings(
         tick_text_font_family : Optional[Union[Array[String], List[str]]], optional
             A tick text font family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
-        tick_text_fill_color : _StrOrString, optional
+        tick_text_fill_color : Color, optional
             A tick text fill-color setting.
         tick_text_fill_alpha : Union[float, Number], optional
             A tick text fill-alpha setting.
@@ -182,7 +190,7 @@ class YAxisSingleColumnSettings(
             A boolean, whether a tick text is an italic style or not (normal).
         tick_text_max_num_of_decimal_places : Union[int, Int], optional
             A tick text maximum number of decimal places.
-        line_color : _StrOrString, optional
+        line_color : Color, optional
             An axis line color setting.
         line_thickness : Union[int, Int], optional
             An axis line thickness (line width) setting.
@@ -196,7 +204,7 @@ class YAxisSingleColumnSettings(
             An axis label font size setting.
         axis_label_font_family : Optional[Union[Array[String], List[str]]], optional
             An axis label font family setting.
-        axis_label_fill_color : _StrOrString, optional
+        axis_label_fill_color : Color, optional
             An axis label fill-color setting.
         axis_label_fill_alpha : Union[float, Number], optional
             An axis label fill-alpha setting.
@@ -227,7 +235,6 @@ class YAxisSingleColumnSettings(
         )
         self._set_initial_tick_text_fill_color(
             tick_text_fill_color=tick_text_fill_color,
-            variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_tick_text_fill_alpha(
             tick_text_fill_alpha=tick_text_fill_alpha,
@@ -247,7 +254,6 @@ class YAxisSingleColumnSettings(
         )
         self._set_initial_line_color(
             line_color=line_color,
-            variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_line_thickness(
             line_thickness=line_thickness,
@@ -274,7 +280,6 @@ class YAxisSingleColumnSettings(
         )
         self._set_initial_axis_label_fill_color(
             axis_label_fill_color=axis_label_fill_color,
-            variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_axis_label_fill_alpha(
             axis_label_fill_alpha=axis_label_fill_alpha,

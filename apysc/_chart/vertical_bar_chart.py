@@ -56,15 +56,12 @@ from apysc._color.colorless import COLORLESS
 from apysc._color.copy_color_if_default_value_specified_mixin import (
     CopyColorIfDefaultValueSpecifiedMixIn,
 )
+from apysc._color.colors import Colors
 
 _DataType = Union[
     Array[Dictionary[String, Union[Int, Number, String]]],
     List[Dict[str, Union[int, float, str]]],
 ]
-
-_DEFAULT_WHITE_BACKGROUND_COLOR: Color = Color(
-    "#ffffff", variable_name_suffix="default_white_background_color"
-)
 
 
 class VerticalBarChart(
@@ -111,7 +108,7 @@ class VerticalBarChart(
         y: Union[float, Number] = 0,
         width: Union[int, Int] = 640,
         height: Union[int, Int] = 395,
-        background_fill_color: Color = _DEFAULT_WHITE_BACKGROUND_COLOR,
+        background_fill_color: Color = Colors.WHITE_FFFFFF,
         background_fill_alpha: Union[float, Number] = 1.0,
         border_color: Color = COLORLESS,
         border_alpha: Union[float, Number] = 1.0,
@@ -142,7 +139,7 @@ class VerticalBarChart(
             A chart's width.
         height : Union[int, Int], default 395
             A chart's height.
-        background_fill_color : Color, default _DEFAULT_WHITE_BACKGROUND_COLOR
+        background_fill_color : Color, default Colors.WHITE_FFFFFF
             A chart's background fill-color.
         background_fill_alpha : Union[float, Number], default 1.0
             A chart's background fill-alpha.
@@ -174,7 +171,7 @@ class VerticalBarChart(
         )
         background_fill_color = self._copy_color_if_default_value_specified(
             color=background_fill_color,
-            default_color=_DEFAULT_WHITE_BACKGROUND_COLOR,
+            default_color=Colors.WHITE_FFFFFF,
         )
         self._set_initial_background_fill_color(
             background_fill_color=background_fill_color,

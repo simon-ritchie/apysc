@@ -35,8 +35,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._color.color import Color
-
-_DEFAULT_GRAY_COLOR: Color = Color("#666666")
+from apysc._color.colors import Colors
 
 
 class XAxisSettings(
@@ -116,18 +115,18 @@ class XAxisSettings(
         tick_max_num: Optional[Union[int, Int]] = None,
         tick_text_font_size: Union[int, Int] = 12,
         tick_text_font_family: Optional[Union[Array[String], List[str]]] = None,
-        tick_text_fill_color: Color = _DEFAULT_GRAY_COLOR,
+        tick_text_fill_color: Color = Colors.GRAY_666666,
         tick_text_fill_alpha: Union[float, Number] = 1.0,
         tick_text_bold: Union[bool, Boolean] = False,
         tick_text_italic: Union[bool, Boolean] = False,
-        line_color: Color = _DEFAULT_GRAY_COLOR,
+        line_color: Color = Colors.GRAY_666666,
         line_thickness: Union[int, Int] = 1,
         line_alpha: Union[float, Number] = 1.0,
         is_display_axis_label: Union[bool, Boolean] = True,
         axis_label_position: XAxisLabelPosition = XAxisLabelPosition.OUTER_RIGHT,
         axis_label_font_size: Union[int, Int] = 12,
         axis_label_font_family: Optional[Union[Array[String], List[str]]] = None,
-        axis_label_fill_color: Color = _DEFAULT_GRAY_COLOR,
+        axis_label_fill_color: Color = Colors.GRAY_666666,
         axis_label_fill_alpha: Union[float, Number] = 1.0,
         axis_label_bold: Union[bool, Boolean] = False,
         axis_label_italic: Union[bool, Boolean] = False,

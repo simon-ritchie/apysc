@@ -81,10 +81,7 @@ from apysc._color.colorless import COLORLESS
 from apysc._color.copy_color_if_default_value_specified_mixin import (
     CopyColorIfDefaultValueSpecifiedMixIn
 )
-
-_DEFAULT_FILL_COLOR: Color = Color(
-    "#666", variable_name_suffix="default_fill_color"
-)
+from apysc._color.colors import Colors
 
 
 class SVGText(
@@ -213,7 +210,7 @@ class SVGText(
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 16.0,
-        fill_color: Color = _DEFAULT_FILL_COLOR,
+        fill_color: Color = Colors.GRAY_666666,
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,
@@ -303,7 +300,7 @@ class SVGText(
 
         fill_color = self._copy_color_if_default_value_specified(
             color=fill_color,
-            default_color=_DEFAULT_FILL_COLOR,
+            default_color=Colors.GRAY_666666,
         )
 
         variable_name: str = expression_variables_util.get_next_variable_name(
@@ -422,7 +419,7 @@ class SVGText(
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 16.0,
-        fill_color: Color = _DEFAULT_FILL_COLOR,
+        fill_color: Color = Colors.GRAY_666666,
         fill_alpha: Union[float, Number] = 1.0,
         line_color: Color = COLORLESS,
         line_alpha: Union[float, Number] = 1.0,

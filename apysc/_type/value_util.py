@@ -43,11 +43,14 @@ def get_value_str_for_expression(*, value: Any) -> str:
     """
     from apysc._type.expression_string import ExpressionString
     from apysc._type.variable_name_mixin import VariableNameMixIn
+    from apysc._color.color import Color
 
     if isinstance(value, ExpressionString):
         return value.value
     if isinstance(value, VariableNameMixIn):
         return value.variable_name
+    if isinstance(value, Color):
+        return value._value.variable_name
     if isinstance(value, bool):
         return str(value).lower()
     if isinstance(value, str):

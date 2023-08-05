@@ -15,6 +15,10 @@ def test_get_value_str_for_expression() -> None:
     value_str = value_util.get_value_str_for_expression(value=int_val)
     assert value_str == int_val.variable_name
 
+    color_val: ap.Color = ap.Color("#0af")
+    value_str = value_util.get_value_str_for_expression(value=color_val)
+    assert value_str == color_val._value.variable_name
+
     value_str = value_util.get_value_str_for_expression(value=10)
     assert value_str == "10"
 

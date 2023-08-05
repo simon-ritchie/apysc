@@ -51,12 +51,20 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
+from apysc._color.copy_color_if_default_value_specified_mixin import (
+    CopyColorIfDefaultValueSpecifiedMixIn,
+)
 
 _DataType = Union[
     Array[Dictionary[String, Union[Int, Number, String]]],
     List[Dict[str, Union[int, float, str]]],
 ]
-_StrOrString = TypeVar("_StrOrString", str, String)
+
+_DEFAULT_WHITE_BACKGROUND_COLOR: Color = Color(
+    "#ffffff", variable_name_suffix="default_white_background_color"
+)
 
 
 class VerticalBarChart(
@@ -84,6 +92,7 @@ class VerticalBarChart(
     AddBorderMixIn,
     SetInitialOverallContainerCoordinatesMixIn,
     CreateSingleColumnYAxisMixIn,
+    CopyColorIfDefaultValueSpecifiedMixIn,
 ):
     """
     The class for the vertical bar chart.
@@ -102,9 +111,9 @@ class VerticalBarChart(
         y: Union[float, Number] = 0,
         width: Union[int, Int] = 640,
         height: Union[int, Int] = 395,
-        background_fill_color: _StrOrString = "#ffffff",
+        background_fill_color: Color = _DEFAULT_WHITE_BACKGROUND_COLOR,
         background_fill_alpha: Union[float, Number] = 1.0,
-        border_color: _StrOrString = "",
+        border_color: Color = COLORLESS,
         border_alpha: Union[float, Number] = 1.0,
         border_thickness: Union[int, Int] = 1,
         vertical_padding: Union[int, Int] = 10,
@@ -133,11 +142,11 @@ class VerticalBarChart(
             A chart's width.
         height : Union[int, Int], default 395
             A chart's height.
-        background_fill_color : str or String, default "#ffffff"
+        background_fill_color : Color, default _DEFAULT_WHITE_BACKGROUND_COLOR
             A chart's background fill-color.
         background_fill_alpha : Union[float, Number], default 1.0
             A chart's background fill-alpha.
-        border_color : str or String, default ""
+        border_color : Color, default COLORLESS
             A chart's border color.
         border_alpha : Union[float, Number], default 1.0
             A chart's border alpha.
@@ -163,17 +172,18 @@ class VerticalBarChart(
         self._set_initial_height(
             height=height, variable_name_suffix=variable_name_suffix
         )
+        background_fill_color = self._copy_color_if_default_value_specified(
+            color=background_fill_color,
+            default_color=_DEFAULT_WHITE_BACKGROUND_COLOR,
+        )
         self._set_initial_background_fill_color(
             background_fill_color=background_fill_color,
-            variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_background_fill_alpha(
             background_fill_alpha=background_fill_alpha,
             variable_name_suffix=variable_name_suffix,
         )
-        self._set_initial_border_color(
-            border_color=border_color, variable_name_suffix=variable_name_suffix
-        )
+        self._set_initial_border_color(border_color=border_color)
         self._set_initial_border_alpha(
             border_alpha=border_alpha, variable_name_suffix=variable_name_suffix
         )

@@ -240,7 +240,6 @@ class XAxisSettings(
         )
         self._set_initial_axis_label_fill_color(
             axis_label_fill_color=axis_label_fill_color,
-            variable_name_suffix=variable_name_suffix,
         )
         self._set_initial_axis_label_fill_alpha(
             axis_label_fill_alpha=axis_label_fill_alpha,

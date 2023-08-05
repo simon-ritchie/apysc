@@ -78,6 +78,9 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 from apysc._color.color import Color
 from apysc._color.colorless import COLORLESS
+from apysc._color.copy_color_if_default_value_specified_mixin import (
+    CopyColorIfDefaultValueSpecifiedMixIn
+)
 
 _DEFAULT_FILL_COLOR: Color = Color(
     "#666", variable_name_suffix="default_fill_color"
@@ -128,6 +131,7 @@ class SVGText(
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
+    CopyColorIfDefaultValueSpecifiedMixIn,
 ):
     """
     The class for an SVG text.
@@ -296,8 +300,10 @@ class SVGText(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        fill_color = _copy_fill_color_if_default_value_is_specified(
-            fill_color=fill_color,
+
+        fill_color = self._copy_color_if_default_value_specified(
+            color=fill_color,
+            default_color=_DEFAULT_FILL_COLOR,
         )
 
         variable_name: str = expression_variables_util.get_next_variable_name(
@@ -604,30 +610,3 @@ class SVGText(
         svg_text: SVGText = SVGText(text="")
         svg_text.visible = ap.Boolean(False)
         return svg_text
-
-
-def _copy_fill_color_if_default_value_is_specified(
-    *,
-    fill_color: Color,
-) -> Color:
-    """
-    Copy the fill color if the specified value is the default
-    value (i.e., `_DEFAULT_FILL_COLOR`).
-
-    Parameters
-    ----------
-    fill_color : Color
-        A fill color to check.
-
-    Returns
-    -------
-    copied_fill_color : Color
-        A copied fill color.
-    """
-    if (
-        fill_color._value.variable_name == _DEFAULT_FILL_COLOR._value.variable_name
-    ):
-        copied_fill_color: Color = fill_color._copy()
-    else:
-        copied_fill_color = fill_color
-    return copied_fill_color

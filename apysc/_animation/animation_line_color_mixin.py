@@ -12,13 +12,12 @@ from apysc._animation.easing import Easing
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-
-StrOrString = TypeVar("StrOrString", str, String)
+from apysc._color.color import Color
 
 
 class AnimationLineColorMixIn(AnimationMixIns):
     @final
-    @arg_validation_decos.is_hex_color_code_format(arg_position_index=1, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=2, optional=False)
     @arg_validation_decos.num_is_gt_zero(arg_position_index=2, optional=False)
     @arg_validation_decos.is_integer(arg_position_index=3, optional=False)
@@ -26,7 +25,7 @@ class AnimationLineColorMixIn(AnimationMixIns):
     def animation_line_color(
         self,
         *,
-        line_color: StrOrString,
+        line_color: Color,
         duration: Union[int, Int] = 3000,
         delay: Union[int, Int] = 0,
         easing: Easing = Easing.LINEAR
@@ -41,8 +40,8 @@ class AnimationLineColorMixIn(AnimationMixIns):
 
         Parameters
         ----------
-        line_color : str or String
-            The final line color (hex color code) of the animation.
+        line_color : Color
+            The final line color of the animation.
         duration : Int or int, default 3000
             Milliseconds before an animation ends.
         delay : Int or int, default 0
@@ -77,13 +76,13 @@ class AnimationLineColorMixIn(AnimationMixIns):
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color="#0af")
-        >>> sprite.graphics.line_style(color="#fff", thickness=5)
+        >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
+        >>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
         >>> _ = rectangle.animation_line_color(
-        ...     line_color="#0af",
+        ...     line_color=ap.Color("#0af"),
         ...     duration=1500,
         ...     easing=ap.Easing.EASE_OUT_QUINT,
         ... ).start()

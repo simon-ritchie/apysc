@@ -9,10 +9,8 @@ from typing_extensions import final
 
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
-from apysc._color import color_util
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
-from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._color.color import Color
 

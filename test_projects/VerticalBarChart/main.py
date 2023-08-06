@@ -27,7 +27,7 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
@@ -38,7 +38,7 @@ def main() -> None:
     )
     y_axis_settings: ap.YAxisSingleColumnSettings = ap.YAxisSingleColumnSettings(
         y_axis_column_name="value",
-        tick_text_fill_color="#aaa",
+        tick_text_fill_color=ap.Color("#aaa"),
         tick_text_font_size=10,
     )
     _: VerticalBarChart = VerticalBarChart(
@@ -54,9 +54,9 @@ def main() -> None:
         y=150,
         width=500,
         height=300,
-        background_fill_color="#555",
+        background_fill_color=ap.Color("#555"),
         background_fill_alpha=0.7,
-        border_color="#666",
+        border_color=ap.Color("#666"),
         border_alpha=1,
         border_thickness=1,
     )

@@ -25,16 +25,16 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#0af")
-    sprite.graphics.line_style(color="#fff", thickness=10, joints=ap.LineJoints.BEVEL)
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=10, joints=ap.LineJoints.BEVEL)
     _: ap.Polygon = sprite.graphics.draw_polygon(
         points=[ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)]
     )
 
     sprite.graphics.line_style(
-        color="#fff",
+        color=ap.Color("#fff"),
         round_dot_setting=ap.LineRoundDotSetting(round_size=6, space_size=5),
     )
     polygon_2: ap.Polygon = sprite.graphics.draw_polygon(

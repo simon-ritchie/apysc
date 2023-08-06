@@ -23,7 +23,7 @@ _DEST_DIR_PATH: str = os.path.join(
 
 def main() -> None:
     """Entry point of this test project."""
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     point: ap.Point2D = ap.Point2D(x=10, y=20)
     ap.assert_equal(left=10, right=point.x)

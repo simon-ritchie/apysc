@@ -33,14 +33,14 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
     sprite.y = ap.Number(100)
-    sprite.graphics.begin_fill(color="#00aaff")
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=0, width=50, height=50)
     options: _RectOptions = {"rectangle": rectangle}

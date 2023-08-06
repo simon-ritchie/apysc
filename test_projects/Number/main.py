@@ -23,7 +23,7 @@ _DEST_DIR_PATH: str = os.path.join(
 
 def main() -> None:
     """Entry point of this test project."""
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     number_1: ap.Number = ap.Number(value=10.5)
     ap.assert_equal(left=10.5, right=number_1)

@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     stage: ap.Stage = ap.Stage(
-        background_color="#111", stage_width=100, stage_height=100
+        background_color=ap.Color("#111"), stage_width=100, stage_height=100
     )
     ap.trace(stage, 100, "Hello!")
 

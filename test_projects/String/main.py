@@ -29,7 +29,7 @@ class _Str5Options(TypedDict):
 
 def main() -> None:
     """Entry point of this test project."""
-    stage: ap.Stage = ap.Stage(background_color="#333")
+    stage: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     string_1: ap.String = ap.String(value="Hello")
     ap.assert_equal(left="Hello", right=string_1)

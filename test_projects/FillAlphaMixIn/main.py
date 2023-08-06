@@ -25,9 +25,9 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333")
+    ap.Stage(background_color=ap.Color("#333"))
     sprite_1: ap.Sprite = ap.Sprite()
-    sprite_1.graphics.begin_fill(color="#aaa", alpha=0.5)
+    sprite_1.graphics.begin_fill(color=ap.Color("#aaa"), alpha=0.5)
     rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )

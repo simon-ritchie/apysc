@@ -38,7 +38,7 @@ def main() -> None:
     ap.assert_undefined(int_1)
 
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
     options: _Options = {"sprite": sprite}

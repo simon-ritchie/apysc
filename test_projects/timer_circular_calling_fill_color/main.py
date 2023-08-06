@@ -33,13 +33,13 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#00aaff")
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=400, height=400
@@ -66,7 +66,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    rectangle.fill_color = ap.String("#f0a")
+    rectangle.fill_color = ap.Color("#f0a")
 
 
 def on_timer_complete_1(e: ap.TimerEvent, options: _RectOptions) -> None:
@@ -99,7 +99,7 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    rectangle.fill_color = ap.String("#0af")
+    rectangle.fill_color = ap.Color("#0af")
 
 
 def on_timer_complete_2(e: ap.TimerEvent, options: _RectOptions) -> None:

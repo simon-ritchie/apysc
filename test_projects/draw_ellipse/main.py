@@ -25,16 +25,16 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
 
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(x=50, y=25, width=100, height=50)
     ellipse.click(on_ellipse_click)
 
-    sprite.graphics.begin_fill(color="")
+    sprite.graphics.begin_fill(color=ap.COLORLESS)
     sprite.graphics.line_style(
-        color="#fff", thickness=3, dot_setting=ap.LineDotSetting(dot_size=3)
+        color=ap.Color("#fff"), thickness=3, dot_setting=ap.LineDotSetting(dot_size=3)
     )
     sprite.graphics.draw_ellipse(x=200, y=25, width=100, height=50)
 

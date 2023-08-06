@@ -25,14 +25,14 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
 
     dict_: ap.Dictionary[str, ap.Number] = ap.Dictionary(
         {"a": ap.Number(100), "b": ap.Number(200)},
     )
     values: ap.Array[ap.Number] = ap.Array([])
     with ap.ForDictValues(dict_=dict_, dict_value_type=ap.Number) as value:
-        ap.Rectangle(x=value, y=100, width=50, height=50, fill_color="#0af")
+        ap.Rectangle(x=value, y=100, width=50, height=50, fill_color=ap.Color("#0af"))
         values.append(value)
     values.sort()
     ap.assert_arrays_equal(

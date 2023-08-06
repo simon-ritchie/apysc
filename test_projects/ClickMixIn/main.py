@@ -32,12 +32,12 @@ def main() -> None:
     Entry point of this test project.
     """
     stage: ap.Stage = ap.Stage(
-        background_color="#111", stage_width=1000, stage_height=500
+        background_color=ap.Color("#111"), stage_width=1000, stage_height=500
     )
     stage.click(on_stage_clicked)
 
     sprite_1: ap.Sprite = ap.Sprite()
-    sprite_1.graphics.begin_fill(color="#0af")
+    sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )
@@ -47,7 +47,7 @@ def main() -> None:
     rectangle_1.click(on_rectangle_1_clicked)
 
     sprite_2: ap.Sprite = ap.Sprite()
-    sprite_2.graphics.begin_fill(color="#f0a")
+    sprite_2.graphics.begin_fill(color=ap.Color("#f0a"))
     sprite_2.click(on_sprite_2_clicked)
     rectangle_2: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=150, y=50, width=50, height=50

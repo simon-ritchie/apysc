@@ -23,7 +23,7 @@ _DEST_DIR_PATH: str = os.path.join(
 
 def main() -> None:
     """Entry point of this test project."""
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     any_value_1: ap.AnyValue = ap.AnyValue(10)
     any_value_1 = any_value_1 + 10

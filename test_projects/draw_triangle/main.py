@@ -26,14 +26,14 @@ def main() -> None:
     Entry point of this test project.
     """
     _: ap.Stage = ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1200,
         stage_height=900,
     )
 
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#0af", alpha=0.5)
-    sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.3)
+    sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3, alpha=0.3)
     sprite.graphics.draw_triangle(
         x1=200,
         y1=50,

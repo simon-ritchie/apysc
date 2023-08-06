@@ -26,13 +26,13 @@ def main() -> None:
     Entry point of this test project.
     """
     _: ap.Stage = ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1200,
         stage_height=900,
     )
 
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     sprite.graphics.draw_rect(
         x=150,
@@ -48,7 +48,7 @@ def main() -> None:
         y=bounding_box.top_y,
         width=bounding_box.width,
         height=bounding_box.height,
-        line_color="#fff",
+        line_color=ap.Color("#fff"),
         line_thickness=1,
     )
 

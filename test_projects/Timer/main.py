@@ -39,9 +39,9 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )
@@ -49,13 +49,13 @@ def main() -> None:
     timer_1: ap.Timer = ap.Timer(handler=on_timer_1, delay=16.6, options=options_1)
     timer_1.start()
 
-    sprite.graphics.begin_fill(color="#f0a")
+    sprite.graphics.begin_fill(color=ap.Color("#f0a"))
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50
     )
     rectangle_2.click(on_rectangle_click)
 
-    sprite.graphics.begin_fill(color="#a0f")
+    sprite.graphics.begin_fill(color=ap.Color("#a0f"))
     rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
         x=250, y=50, width=50, height=50
     )
@@ -65,7 +65,7 @@ def main() -> None:
     )
     timer_2.start()
 
-    sprite.graphics.begin_fill(color="#f0a")
+    sprite.graphics.begin_fill(color=ap.Color("#f0a"))
     rectangle_4: ap.Rectangle = sprite.graphics.draw_rect(
         x=350, y=50, width=50, height=50
     )
@@ -75,7 +75,7 @@ def main() -> None:
     )
     timer_3.start()
 
-    sprite.graphics.begin_fill(color="#a0f")
+    sprite.graphics.begin_fill(color=ap.Color("#a0f"))
     rectangle_5: ap.Rectangle = sprite.graphics.draw_rect(
         x=450, y=50, width=50, height=50
     )
@@ -87,7 +87,7 @@ def main() -> None:
     timer_4.timer_complete(on_timer_complete_1, options=options_2)
     timer_4.start()
 
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     rectangle_6: ap.Rectangle = sprite.graphics.draw_rect(
         x=550, y=50, width=50, height=50
     )

@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     _: ap.Stage = ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1200,
         stage_height=900,
     )

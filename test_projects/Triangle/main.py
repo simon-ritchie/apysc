@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     _: ap.Stage = ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1200,
         stage_height=900,
     )
@@ -39,7 +39,7 @@ def main() -> None:
         y2=100,
         x3=100,
         y3=100,
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
         fill_alpha=0.5,
     )
     triangle_1.click(handler=on_triangle_1_click_1)
@@ -52,8 +52,8 @@ def main() -> None:
         y2=100,
         x3=200,
         y3=100,
-        fill_color="#f0a",
-        line_color="#fff",
+        fill_color=ap.Color("#f0a"),
+        line_color=ap.Color("#fff"),
         line_thickness=3,
         line_alpha=0.5,
     )
@@ -66,7 +66,7 @@ def main() -> None:
         y2=100,
         x3=300,
         y3=100,
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
     )
     triangle_3.click(handler=on_triangle_3_click_1)
 
@@ -77,7 +77,7 @@ def main() -> None:
         y2=100,
         x3=400,
         y3=100,
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
     )
     triangle_4.click(handler=on_triangle_4_click_1)
 
@@ -88,7 +88,7 @@ def main() -> None:
         y2=100,
         x3=500,
         y3=100,
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
     )
     triangle_5.click(handler=on_triangle_5_click_1)
 
@@ -99,7 +99,7 @@ def main() -> None:
         y2=100,
         x3=600,
         y3=100,
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
     )
     triangle_6.click(handler=on_triangle_6_click_1)
 
@@ -110,7 +110,7 @@ def main() -> None:
         y2=100,
         x3=700,
         y3=100,
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
     )
     triangle_7.click(handler=on_triangle_7_click_1)
 
@@ -121,7 +121,7 @@ def main() -> None:
         y2=100,
         x3=800,
         y3=100,
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
     )
     triangle_8.click(handler=on_triangle_8_click_1)
 

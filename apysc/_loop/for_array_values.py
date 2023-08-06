@@ -54,7 +54,7 @@ class ForArrayValues(
     ...         x=value,
     ...         y=75,
     ...         radius=25,
-    ...         fill_color="#0af",
+    ...         fill_color=ap.Color("#0af"),
     ...     )
     ...
     """
@@ -122,7 +122,7 @@ class ForArrayValues(
         ...         x=value,
         ...         y=75,
         ...         radius=25,
-        ...         fill_color="#0af",
+        ...         fill_color=ap.Color("#0af"),
         ...     )
         ...
         """

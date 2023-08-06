@@ -25,19 +25,19 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#111", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#111"), stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.line_style(color="#0af", thickness=10)
+    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10)
     sprite.graphics.move_to(x=50, y=100)
     sprite.graphics.line_to(x=80, y=20)
     sprite.graphics.line_to(x=110, y=100)
 
-    sprite.graphics.line_style(color="#0af", thickness=10, joints=ap.LineJoints.ROUND)
+    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.ROUND)
     sprite.graphics.move_to(x=140, y=100)
     sprite.graphics.line_to(x=170, y=20)
     sprite.graphics.line_to(x=200, y=100)
 
-    sprite.graphics.line_style(color="#0af", thickness=10, joints=ap.LineJoints.BEVEL)
+    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.BEVEL)
     polyline: ap.Polyline = sprite.graphics.move_to(x=230, y=100)
     sprite.graphics.line_to(x=260, y=20)
     sprite.graphics.line_to(x=290, y=100)

@@ -36,16 +36,16 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
 
-    circle_1: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color="#0af")
-    circle_2: ap.Circle = ap.Circle(x=200, y=100, radius=50, fill_color="#0af")
-    circle_3: ap.Circle = ap.Circle(x=300, y=100, radius=50, fill_color="#0af")
-    circle_4: ap.Circle = ap.Circle(x=400, y=100, radius=50, fill_color="#0af")
+    circle_1: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Color("#0af"))
+    circle_2: ap.Circle = ap.Circle(x=200, y=100, radius=50, fill_color=ap.Color("#0af"))
+    circle_3: ap.Circle = ap.Circle(x=300, y=100, radius=50, fill_color=ap.Color("#0af"))
+    circle_4: ap.Circle = ap.Circle(x=400, y=100, radius=50, fill_color=ap.Color("#0af"))
 
     options: _CircleOptions = {
         "circle_1": circle_1,

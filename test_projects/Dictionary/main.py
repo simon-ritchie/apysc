@@ -30,7 +30,7 @@ class _Dict1Options(TypedDict):
 
 def main() -> None:
     """Entry point of this test project."""
-    stage: ap.Stage = ap.Stage(background_color="#333")
+    stage: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     ap.assert_dicts_equal(left={"a": 10}, right=dict_1)

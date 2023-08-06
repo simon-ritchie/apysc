@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
@@ -38,13 +38,13 @@ def main() -> None:
             ap.PathMoveTo(x=50, y=50, variable_name_suffix="test_path_1_move_to"),
             ap.PathLineTo(x=150, y=50, variable_name_suffix="test_path_1_line_to"),
         ],
-        line_color="#0af",
+        line_color=ap.Color("#0af"),
         line_thickness=3,
         variable_name_suffix="path_1",
     )
 
     sprite: ap.Sprite = ap.Sprite(variable_name_suffix="sprite_1")
-    sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.7)
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3, alpha=0.7)
     sprite.graphics.draw_path(
         path_data_list=[
             ap.PathMoveTo(x=50, y=100, variable_name_suffix="test_path_1_move_to"),

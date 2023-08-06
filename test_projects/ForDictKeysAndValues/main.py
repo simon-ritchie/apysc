@@ -25,7 +25,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=250, stage_height=300)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=250, stage_height=300)
 
     dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(
         {
@@ -39,7 +39,7 @@ def main() -> None:
         dict_key_type=ap.Number,
         dict_value_type=ap.Number,
     ) as (key, value):
-        ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
+        ap.Rectangle(x=key, y=value, width=50, height=50, fill_color=ap.Color("#0af"))
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

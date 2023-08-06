@@ -1599,7 +1599,7 @@ class Array(
         >>> _ = ap.Stage(
         ...     stage_width=100,
         ...     stage_height=50,
-        ...     background_color="#333",
+        ...     background_color=ap.Color("#333"),
         ...     stage_elem_id="stage",
         ... )
         >>> arr: ap.Array[ap.Int] = ap.Array([], fixed_value_type=ap.Int)

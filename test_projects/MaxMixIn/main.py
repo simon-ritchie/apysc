@@ -25,7 +25,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     result: ap.Number = ap.Math.max(
         values=ap.Array([10, ap.Int(11), ap.Number(9.5), 10.5])

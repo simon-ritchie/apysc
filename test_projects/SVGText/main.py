@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=1000,
         stage_elem_id="stage",
@@ -43,29 +43,29 @@ def main() -> None:
     ap.SVGText(
         text="fill_color test",
         y=40,
-        fill_color="#999",
+        fill_color=ap.Color("#999"),
     )
     ap.SVGText(
         text="fill_alpha test",
         y=60,
-        fill_color="#999",
+        fill_color=ap.Color("#999"),
         fill_alpha=0.3,
     )
     ap.SVGText(
         text="line_color test",
         y=80,
-        line_color="#999",
+        line_color=ap.Color("#999"),
     )
     ap.SVGText(
         text="line_alpha test",
         y=100,
-        line_color="#999",
+        line_color=ap.Color("#999"),
         line_alpha=0.3,
     )
     ap.SVGText(
         text="line_thickness test",
         y=120,
-        line_color="#999",
+        line_color=ap.Color("#999"),
         line_thickness=2,
     )
     sprite: ap.Sprite = ap.Sprite()

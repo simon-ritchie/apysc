@@ -26,14 +26,14 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
 
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.line_style(color="#fff", thickness=5)
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 
     # Test pattern for the MoveTo, LineTo, Horizontal, Vertical,
     # and Close (with absolute coordinates).
@@ -48,7 +48,7 @@ def main() -> None:
     )
 
     # Test pattern for the fill color setting and 2D bezier curve.
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     sprite.graphics.draw_path(
         path_data_list=[
             ap.PathData.MoveTo(x=200, y=100),

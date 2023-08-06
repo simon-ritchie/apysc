@@ -24,7 +24,7 @@ _DEST_DIR_PATH: str = os.path.join(
 
 def main() -> None:
     """Entry point of this test project."""
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     interface: Points2DMixIn = Points2DMixIn()
     interface.variable_name = "test_point_2d_interface"

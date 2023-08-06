@@ -26,16 +26,16 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.line_style(color="f0a", thickness=5)
+    sprite.graphics.line_style(color=ap.Color("f0a"), thickness=5)
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     rectangle.animation_line_color(
-        line_color="0af",
+        line_color=ap.Color("0af"),
         duration=1000,
         delay=500,
         easing=ap.Easing.EASE_OUT_QUINT,
@@ -58,7 +58,7 @@ def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     rectangle: ap.Rectangle = e.this.target
     ap.assert_equal("#00aaff", rectangle.line_color)
     rectangle.animation_line_color(
-        line_color="f0a",
+        line_color=ap.Color("f0a"),
         duration=1000,
         delay=500,
         easing=ap.Easing.EASE_OUT_QUINT,
@@ -79,7 +79,7 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     rectangle: ap.Rectangle = e.this.target
     ap.assert_equal("#ff00aa", rectangle.line_color)
     rectangle.animation_line_color(
-        line_color="0af",
+        line_color=ap.Color("0af"),
         duration=1000,
         delay=500,
         easing=ap.Easing.EASE_OUT_QUINT,

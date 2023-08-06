@@ -25,7 +25,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333")
+    ap.Stage(background_color=ap.Color("#333"))
 
     int_1: ap.Int = ap.Int(3)
     ap.assert_defined(value=int_1)

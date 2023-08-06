@@ -30,7 +30,7 @@ class _Array28Options(TypedDict):
 
 def main() -> None:
     """Entry point of this test project."""
-    stage: ap.Stage = ap.Stage(background_color="#333")
+    stage: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     array_1: ap.Array = ap.Array([1, 2, 3])
     ap.assert_arrays_equal(left=[1, 2, 3], right=array_1)

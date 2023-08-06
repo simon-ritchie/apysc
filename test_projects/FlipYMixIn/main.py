@@ -32,13 +32,13 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite_1: ap.Sprite = ap.Sprite()
-    sprite_1.graphics.begin_fill(color="#0af")
+    sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
     sprite_1.y = ap.Number(150)
 
     polygon_1: ap.Polygon = sprite_1.graphics.draw_polygon(

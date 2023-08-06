@@ -25,7 +25,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
 
     arr: ap.Array = ap.Array(range(2))
     with ap.ForArrayIndices(arr) as i:
@@ -34,7 +34,7 @@ def main() -> None:
         with ap.If(condition):
             ap.Continue()
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#0af")
+        sprite.graphics.begin_fill(color=ap.Color("#0af"))
         sprite.graphics.draw_rect(x=i.to_number() * 50, y=50, width=50, height=50)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)

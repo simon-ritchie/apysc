@@ -26,13 +26,13 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#00aaff")
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
     circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
     animation_radius: ap.AnimationRadius = circle.animation_radius(
         radius=100, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT

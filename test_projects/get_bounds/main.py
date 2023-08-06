@@ -33,7 +33,7 @@ def main() -> None:
     Entry point of this test project.
     """
     _: ap.Stage = ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1200,
         stage_height=900,
     )
@@ -42,8 +42,8 @@ def main() -> None:
         x=200,
         y=200,
         radius=50,
-        fill_color="#0af",
-        line_color="#fff",
+        fill_color=ap.Color("#0af"),
+        line_color=ap.Color("#fff"),
         line_thickness=5,
     )
     bounding_box_rectangle: ap.Rectangle = ap.Rectangle(
@@ -51,7 +51,7 @@ def main() -> None:
         y=50,
         width=50,
         height=50,
-        line_color="#fff",
+        line_color=ap.Color("#fff"),
         line_thickness=1,
         line_alpha=0.3,
     )

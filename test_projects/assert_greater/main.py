@@ -25,7 +25,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     ap.assert_greater(left=10, right=9)
     ap.assert_greater(left=10, right=ap.Int(9))

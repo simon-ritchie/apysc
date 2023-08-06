@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
@@ -38,13 +38,13 @@ def main() -> None:
         y=100,
         width=150,
         height=100,
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
         variable_name_suffix="ellipse_1",
     )
 
     sprite: ap.Sprite = ap.Sprite(variable_name_suffix="sprite_1")
-    sprite.graphics.begin_fill(color="#f0a", alpha=0.5)
-    sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.7)
+    sprite.graphics.begin_fill(color=ap.Color("#f0a"), alpha=0.5)
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3, alpha=0.7)
     sprite.graphics.draw_ellipse(
         x=300, y=100, width=150, height=100, variable_name_suffix="ellipse_2"
     )

@@ -31,7 +31,7 @@ def _main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     arr_1: ap.Array = ap.Array([100, 200])
     arr_1.clear()
     ap.assert_equal(arr_1, [])

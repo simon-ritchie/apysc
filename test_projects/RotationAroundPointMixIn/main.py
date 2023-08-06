@@ -36,10 +36,10 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
 
     sprite_1: ap.Sprite = ap.Sprite()
-    sprite_1.graphics.begin_fill(color="#0af", alpha=0.5)
+    sprite_1.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50
     )
@@ -58,7 +58,7 @@ def main() -> None:
     timer_1.start()
 
     sprite_2: ap.Sprite = ap.Sprite()
-    sprite_2.graphics.begin_fill(color="#f0a", alpha=0.5)
+    sprite_2.graphics.begin_fill(color=ap.Color("#f0a"), alpha=0.5)
     sprite_2.x = ap.Number(50)
     sprite_2.y = ap.Number(50)
     rectangle_3: ap.Rectangle = sprite_2.graphics.draw_rect(

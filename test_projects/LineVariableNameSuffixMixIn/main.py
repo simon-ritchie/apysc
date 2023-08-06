@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
@@ -36,13 +36,13 @@ def main() -> None:
     ap.Line(
         start_point=ap.Point2D(x=50, y=50, variable_name_suffix="test_point_1"),
         end_point=ap.Point2D(x=150, y=50, variable_name_suffix="test_point_2"),
-        line_color="#0af",
+        line_color=ap.Color("#0af"),
         line_thickness=3,
         variable_name_suffix="line_1",
     )
 
     sprite: ap.Sprite = ap.Sprite(variable_name_suffix="sprite_1")
-    sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.7)
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3, alpha=0.7)
     sprite.graphics.draw_line(
         x_start=50, y_start=100, x_end=150, y_end=100, variable_name_suffix="line_2"
     )

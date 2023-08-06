@@ -49,14 +49,14 @@ class ForDictValues(
     >>> _ = ap.Stage(
     ...     stage_width=250,
     ...     stage_height=150,
-    ...     background_color="#333",
+    ...     background_color=ap.Color("#333"),
     ...     stage_elem_id="stage",
     ... )
     >>> dict_: ap.Dictionary[str, ap.Number] = ap.Dictionary(
     ...     {"a": ap.Number(50), "b": ap.Number(150)},
     ... )
     >>> with ap.ForDictValues(dict_=dict_, dict_value_type=ap.Number) as value:
-    ...     _ = ap.Rectangle(x=value, y=50, width=50, height=50, fill_color="#0af")
+    ...     _ = ap.Rectangle(x=value, y=50, width=50, height=50, fill_color=ap.Color("#0af"))
     ...
     """
 
@@ -118,14 +118,14 @@ class ForDictValues(
         >>> _ = ap.Stage(
         ...     stage_width=250,
         ...     stage_height=150,
-        ...     background_color="#333",
+        ...     background_color=ap.Color("#333"),
         ...     stage_elem_id="stage",
         ... )
         >>> dict_: ap.Dictionary[str, ap.Number] = ap.Dictionary(
         ...     {"a": ap.Number(50), "b": ap.Number(150)},
         ... )
         >>> with ap.ForDictValues(dict_=dict_, dict_value_type=ap.Number) as value:
-        ...     _ = ap.Rectangle(x=value, y=50, width=50, height=50, fill_color="#0af")
+        ...     _ = ap.Rectangle(x=value, y=50, width=50, height=50, fill_color=ap.Color("#0af"))
         ...
         """
         self._initialize_locals_and_globals(locals_, globals_=globals_)

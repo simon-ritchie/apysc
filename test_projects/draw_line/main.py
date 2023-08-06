@@ -31,10 +31,10 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.line_style(
-        color="#0af", thickness=5, dot_setting=ap.LineDotSetting(dot_size=10)
+        color=ap.Color("#0af"), thickness=5, dot_setting=ap.LineDotSetting(dot_size=10)
     )
     line_1: ap.Line = sprite.graphics.draw_line(
         x_start=50, y_start=50, x_end=350, y_end=50
@@ -42,7 +42,7 @@ def main() -> None:
     ap.assert_equal(line_1.x, 50)
     ap.assert_equal(line_1.y, 50)
 
-    sprite.graphics.line_style(color="#0af", thickness=10, cap=ap.LineCaps.ROUND)
+    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, cap=ap.LineCaps.ROUND)
     line_2: ap.Line = sprite.graphics.draw_line(
         x_start=50, y_start=80, x_end=350, y_end=80
     )

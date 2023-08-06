@@ -33,9 +33,9 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     sprite_1: ap.Sprite = ap.Sprite()
-    sprite_1.graphics.begin_fill(color="#0af")
+    sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
 
     # The test pattern for the inscremental addition interface.
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
@@ -63,7 +63,7 @@ def main() -> None:
 
     # The test pattern for the container interface.
     sprite_2: ap.Sprite = ap.Sprite()
-    sprite_2.graphics.begin_fill(color="#f0a")
+    sprite_2.graphics.begin_fill(color=ap.Color("#f0a"))
     sprite_2.graphics.draw_rect(x=450, y=50, width=50, height=50)
     sprite_2.click(on_sprite_2_click)
 

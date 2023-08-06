@@ -47,7 +47,7 @@ class TestAnimationParallel:
         animation_x: ap.AnimationX = rectangle.animation_x(x=100)
         animation_y: ap.AnimationY = rectangle.animation_y(y=100)
         animation_fill_color: ap.AnimationFillColor = rectangle.animation_fill_color(
-            fill_color="#0af"
+            fill_color=ap.Color("#0af")
         )
         animations: List[ap.AnimationBase] = [
             animation_x,

@@ -26,7 +26,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     ap.assert_dicts_equal(left={"a": 10}, right=ap.Dictionary({"a": 10}))
     ap.assert_dicts_equal(left=ap.Dictionary({"a": 10}), right={"a": 10})

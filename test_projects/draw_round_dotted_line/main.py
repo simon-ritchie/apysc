@@ -25,10 +25,10 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.line_style(
-        color="#0af", thickness=10, dot_setting=ap.LineDotSetting(dot_size=3)
+        color=ap.Color("#0af"), thickness=10, dot_setting=ap.LineDotSetting(dot_size=3)
     )
     _: ap.Line = sprite.graphics.draw_round_dotted_line(
         x_start=50, y_start=50, x_end=350, y_end=50, round_size=10, space_size=5

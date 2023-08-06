@@ -25,7 +25,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    ap.Stage(background_color="#333", stage_width=1000, stage_height=500)
+    ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
 
     arr: ap.Array[ap.Number] = ap.Array([ap.Number(50), ap.Number(150), ap.Number(250)])
     indices: ap.Array[ap.Int] = ap.Array([])
@@ -33,7 +33,7 @@ def main() -> None:
     with ap.ForArrayIndicesAndValues(arr=arr, arr_value_type=ap.Number) as (i, value):
         indices.append(i)
         values.append(value)
-        ap.Circle(x=value, y=(i + 1) * 50, radius=20, fill_color="#0af")
+        ap.Circle(x=value, y=(i + 1) * 50, radius=20, fill_color=ap.Color("#0af"))
 
     ap.assert_arrays_equal(
         indices,

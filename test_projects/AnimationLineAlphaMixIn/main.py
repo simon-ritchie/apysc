@@ -26,13 +26,13 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.line_style(color="#eee", thickness=3, alpha=1.0)
+    sprite.graphics.line_style(color=ap.Color("#eee"), thickness=3, alpha=1.0)
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     animation_line_alpha: ap.AnimationLineAlpha = rectangle.animation_line_alpha(
         alpha=0.5, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT

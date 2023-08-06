@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
@@ -39,13 +39,13 @@ def main() -> None:
             ap.Point2D(x=50, y=100, variable_name_suffix="polygon_1_point_2"),
             ap.Point2D(x=100, y=100, variable_name_suffix="polygon_1_point_3"),
         ],
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
         variable_name_suffix="polygon_2",
     )
 
     sprite: ap.Sprite = ap.Sprite(variable_name_suffix="sprite_1")
-    sprite.graphics.begin_fill(color="#f0a", alpha=0.5)
-    sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.7)
+    sprite.graphics.begin_fill(color=ap.Color("#f0a"), alpha=0.5)
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3, alpha=0.7)
     sprite.graphics.draw_polygon(
         points=[
             ap.Point2D(x=175, y=50, variable_name_suffix="polygon_2_point_1"),

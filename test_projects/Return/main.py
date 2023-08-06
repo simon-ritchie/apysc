@@ -26,13 +26,13 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     rectangle.click(on_rectangle_click)
 
@@ -50,20 +50,20 @@ def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    fill_color: ap.String = e.this.fill_color
-    condition: ap.Boolean = fill_color == "#00aaff"
+    fill_color: ap.Color = e.this.fill_color
+    condition: ap.Boolean = fill_color == ap.Color("#00aaff")
     with ap.If(condition):
-        e.this.fill_color = ap.String("#f0a")
+        e.this.fill_color = ap.Color("#f0a")
         ap.Return()
 
-    condition = fill_color == "#ff00aa"
+    condition = fill_color == ap.Color("#ff00aa")
     with ap.If(condition):
-        e.this.fill_color = ap.String("#0fa")
+        e.this.fill_color = ap.Color("#0fa")
         ap.Return()
 
-    condition = fill_color == "#00ffaa"
+    condition = fill_color == ap.Color("#00ffaa")
     with ap.If(condition):
-        e.this.fill_color = ap.String("#0af")
+        e.this.fill_color = ap.Color("#0af")
         ap.Return()
 
 

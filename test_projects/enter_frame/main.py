@@ -40,9 +40,9 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color="#333", stage_width=2000)
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"), stage_width=2000)
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#0af")
+    sprite.graphics.begin_fill(color=ap.Color("#0af"))
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50,
         y=50,
@@ -58,7 +58,7 @@ def main() -> None:
         options=options,
     )
 
-    sprite.graphics.begin_fill(color="#f0a")
+    sprite.graphics.begin_fill(color=ap.Color("#f0a"))
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150,
         y=50,
@@ -74,7 +74,7 @@ def main() -> None:
         options=options,
     )
 
-    sprite.graphics.begin_fill(color="#0fa")
+    sprite.graphics.begin_fill(color=ap.Color("#0fa"))
     rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
         x=250,
         y=50,

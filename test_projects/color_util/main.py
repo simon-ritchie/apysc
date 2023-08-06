@@ -26,7 +26,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color="#333")
+    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     string_1: ap.String = color_util.complement_hex_color(
         hex_color_code=ap.String("333")

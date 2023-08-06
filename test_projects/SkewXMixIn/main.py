@@ -32,14 +32,14 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
 
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#00aaff")
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
     rect_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     rect_1.skew_x = ap.Int(50)
     rect_1.skew_x = ap.Int(0)

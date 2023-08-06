@@ -41,7 +41,7 @@ class Point2D(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.begin_fill(color="#0af")
+    >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
     >>> point_1: ap.Point2D = ap.Point2D(x=0, y=0)
     >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
     ...     points=[
@@ -91,7 +91,7 @@ class Point2D(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.begin_fill(color="#0af")
+        >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
         >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
         ...     points=[
         ...         ap.Point2D(x=0, y=0),

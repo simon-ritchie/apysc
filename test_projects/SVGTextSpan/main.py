@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=1000,
         stage_elem_id="stage",
@@ -38,7 +38,7 @@ def main() -> None:
             ap.SVGTextSpan(
                 text="SVGTextSpan test 2 ",
                 font_size=16,
-                fill_color="#aaa",
+                fill_color=ap.Color("#aaa"),
                 font_family=["Arial"],
             ),
             ap.SVGTextSpan(text="SVGTextSpan test 3"),
@@ -47,7 +47,7 @@ def main() -> None:
         font_family=["Impact"],
         x=50,
         y=50,
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
     )
 
     _ = ap.SVGText.create_with_svg_text_spans(
@@ -64,7 +64,7 @@ def main() -> None:
         ],
         x=50,
         y=80,
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
         fill_alpha=0.5,
     )
 
@@ -73,7 +73,7 @@ def main() -> None:
             ap.SVGTextSpan(text="line_color test 1 "),
             ap.SVGTextSpan(
                 text="line_color test 2 ",
-                line_color="#666",
+                line_color=ap.Color("#666"),
             ),
             ap.SVGTextSpan(
                 text="line_color test 3",
@@ -81,8 +81,8 @@ def main() -> None:
         ],
         x=50,
         y=110,
-        fill_color="",
-        line_color="#0af",
+        fill_color=ap.COLORLESS,
+        line_color=ap.Color("#0af"),
     )
 
     _ = ap.SVGText.create_with_svg_text_spans(
@@ -98,8 +98,8 @@ def main() -> None:
         ],
         x=50,
         y=130,
-        fill_color="",
-        line_color="#0af",
+        fill_color=ap.COLORLESS,
+        line_color=ap.Color("#0af"),
         line_alpha=0.5,
     )
 
@@ -116,8 +116,8 @@ def main() -> None:
         ],
         x=50,
         y=150,
-        fill_color="",
-        line_color="#0af",
+        fill_color=ap.COLORLESS,
+        line_color=ap.Color("#0af"),
         line_thickness=3,
     )
 
@@ -134,7 +134,7 @@ def main() -> None:
         ],
         x=50,
         y=170,
-        fill_color="#aaa",
+        fill_color=ap.Color("#aaa"),
         bold=True,
     )
 
@@ -151,7 +151,7 @@ def main() -> None:
         ],
         x=50,
         y=190,
-        fill_color="#aaa",
+        fill_color=ap.Color("#aaa"),
         italic=True,
     )
 
@@ -170,7 +170,7 @@ def main() -> None:
         ],
         x=50,
         y=210,
-        fill_color="#aaa",
+        fill_color=ap.Color("#aaa"),
     )
 
     _ = ap.SVGText.create_with_svg_text_spans(
@@ -188,7 +188,7 @@ def main() -> None:
         ],
         x=50,
         y=240,
-        fill_color="#aaa",
+        fill_color=ap.Color("#aaa"),
     )
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)

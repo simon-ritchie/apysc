@@ -33,15 +33,15 @@ def main() -> None:
     Entry point of this test project.
     """
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
     )
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#00aaff")
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 
-    sprite.graphics.line_style(color="#fff", thickness=6, cap=ap.LineCaps.BUTT)
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=6, cap=ap.LineCaps.BUTT)
     line: ap.Line = sprite.graphics.draw_line(
         x_start=50, y_start=50, x_end=150, y_end=50
     )

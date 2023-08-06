@@ -32,7 +32,7 @@ def main() -> None:
     Entry point of this test project.
     """
     stage: ap.Stage = ap.Stage(
-        background_color="#111", stage_width=1000, stage_height=500
+        background_color=ap.Color("#111"), stage_width=1000, stage_height=500
     )
     int_1: ap.Int = ap.Int(10)
     options: _IntValOptions = {"int_val": int_1}
@@ -41,7 +41,7 @@ def main() -> None:
     int_2: ap.Int = ap.Int(20)
     options = {"int_val": int_2}
     sprite_1.click(on_click, options=options)
-    sprite_1.graphics.begin_fill(color="#0af")
+    sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
     sprite_1.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)

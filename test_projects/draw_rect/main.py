@@ -26,7 +26,7 @@ def main() -> None:
     Entry point of this test project.
     """
     stage: ap.Stage = ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=1000,
         stage_height=500,
         stage_elem_id="stage",
@@ -35,17 +35,17 @@ def main() -> None:
 
     # Basic functional test case.
     sprite: ap.Sprite = ap.Sprite()
-    sprite.graphics.begin_fill(color="#00aaff")
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
     sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     stage.add_child(child=sprite)
 
     # Test for begin_fill interface.
-    sprite.graphics.begin_fill(color="#00aaff", alpha=0.5)
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"), alpha=0.5)
     sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
     # Test for line_style interface.
-    sprite.graphics.begin_fill(color="#00aaff")
-    sprite.graphics.line_style(color="#fff", thickness=3, alpha=0.7)
+    sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
+    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3, alpha=0.7)
     sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
     # Test for rectangle x position update.
@@ -66,7 +66,7 @@ def main() -> None:
 
     # Test for rectangle fill color update.
     rectangle = sprite.graphics.draw_rect(x=800, y=50, width=50, height=50)
-    rectangle.fill_color = ap.String("#f0a")
+    rectangle.fill_color = ap.Color("#f0a")
 
     # Test for rectangle fill alpha update.
     rectangle = sprite.graphics.draw_rect(x=900, y=50, width=50, height=50)
@@ -74,7 +74,7 @@ def main() -> None:
 
     # Test for rectangle line color update.
     rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
-    rectangle.line_color = ap.String("#f0a")
+    rectangle.line_color = ap.Color("#f0a")
 
     # Test for rectangle line thickness update.
     rectangle = sprite.graphics.draw_rect(x=150, y=150, width=50, height=50)
@@ -128,7 +128,7 @@ def main() -> None:
     ap.assert_not_equal(left=height, right=rectangle.height)
 
     sprite.graphics.line_style(
-        color="#fff", thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
+        color=ap.Color("#fff"), thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
     )
     rectangle = sprite.graphics.draw_rect(x=650, y=150, width=50, height=50)
 
@@ -146,7 +146,7 @@ def _another_func(stage: ap.Stage, sprite: ap.Sprite) -> None:
     sprite : Sprite
         Sprite instance.
     """
-    sprite.graphics.begin_fill(color="#f0a")
+    sprite.graphics.begin_fill(color=ap.Color("#f0a"))
     sprite.graphics.draw_rect(x=350, y=150, width=50, height=50)
     stage.add_child(child=sprite)
 

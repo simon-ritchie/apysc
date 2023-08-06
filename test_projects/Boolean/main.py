@@ -29,7 +29,7 @@ class _Bool14Options(TypedDict):
 
 def main() -> None:
     """Entry point of this test project."""
-    stage: ap.Stage = ap.Stage(background_color="#333")
+    stage: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
     boolean_1: ap.Boolean = ap.Boolean(True)
     ap.assert_true(boolean_1)

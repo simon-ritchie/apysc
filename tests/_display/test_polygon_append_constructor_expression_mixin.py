@@ -12,7 +12,7 @@ class TestPolygonAppendConstructorExpressionMixIn:
         points: ap.Array[ap.Point2D] = ap.Array(
             [ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)]
         )
-        sprite.graphics.line_style(color="#333")
+        sprite.graphics.line_style(color=ap.Color("#333"))
         polygon: ap.Polygon = sprite.graphics.draw_polygon(points=points)
         expression: str = expression_data_util.get_current_expression()
         assert_stroke_attr_expression_exists(expression=expression)

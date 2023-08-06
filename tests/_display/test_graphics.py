@@ -33,7 +33,7 @@ class TestGraphics:
         sprite: ap.Sprite = ap.Sprite()
         graphics: Graphics = Graphics(parent=sprite)
         testing_helper.assert_raises(
-            expected_error_class=ValueError, callable_=graphics.begin_fill, color="red"
+            expected_error_class=TypeError, callable_=graphics.begin_fill, color="red"
         )
 
         graphics.begin_fill(color=ap.Color("#0af"))
@@ -256,7 +256,7 @@ class TestGraphics:
             variable_name_suffix="test_line",
         )
         assert isinstance(line.line_dot_setting, ap.LineDotSetting)
-        assert line.line_color == "#333333"
+        assert line.line_color == ap.Color("#333333")
         self._assert_line_points(line=line)
         assert line._variable_name_suffix == "test_line"
         assert line._start_point._variable_name_suffix == "test_line"

@@ -62,7 +62,7 @@ class TestAnimationParallel:
             f"\n  .x({animation_x._x.variable_name})"
             f"\n  .y({animation_y._y.variable_name})"
             "\n  .attr({\n    "
-            f"fill: {animation_fill_color._fill_color.variable_name}\n  }});"
+            f"fill: {animation_fill_color._fill_color._value.variable_name}\n  }});"
         )
         assert expression == expected
 
@@ -185,7 +185,7 @@ class TestAnimationParallel:
             x=50, y=50, width=50, height=50
         )
         animation_fill_color: ap.AnimationFillColor = rectangle.animation_fill_color(
-            fill_color="#0af"
+            fill_color=ap.Color("#0af")
         )
         animation_line_thickness: ap.AnimationLineThickness = (
             rectangle.animation_line_thickness(thickness=5)
@@ -200,7 +200,7 @@ class TestAnimationParallel:
         expression: str = animation_parallel._get_animation_func_expression()
         assert expression == (
             "\n  .attr({"
-            f"\n    fill: {animation_fill_color._fill_color.variable_name},"
+            f"\n    fill: {animation_fill_color._fill_color._value.variable_name},"
             '\n    "stroke-width": '
             f"{animation_line_thickness._line_thickness.variable_name}"
             "\n  });"

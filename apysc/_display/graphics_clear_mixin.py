@@ -77,13 +77,13 @@ class GraphicsClearMixIn:
 
         if isinstance(self, (FillColorMixIn, BeginFillMixIn)):
             self._initialize_fill_color_if_not_initialized()
-        self._fill_color = COLORLESS
+        self._fill_color = COLORLESS._copy()
         if isinstance(self, (FillAlphaMixIn, BeginFillMixIn)):
             self._initialize_fill_alpha_if_not_initialized()
         self._fill_alpha.value = 1.0
         if isinstance(self, (LineColorMixIn, LineStyleMixIn)):
             self._initialize_line_color_if_not_initialized()
-        self._line_color = COLORLESS
+        self._line_color = COLORLESS._copy()
         if isinstance(self, (LineThicknessMixIn, LineStyleMixIn)):
             self._initialize_line_thickness_if_not_initialized()
         self._line_thickness.value = 1

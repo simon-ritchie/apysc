@@ -56,7 +56,7 @@ class TestSprite:
     @apply_test_settings()
     def test__make_snapshot(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#333", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#333"), alpha=0.5)
         snapshot_name: str = "snapshot_1"
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         if sprite.graphics._fill_color_snapshots is None:
@@ -74,12 +74,12 @@ class TestSprite:
     @apply_test_settings()
     def test__revert(self) -> None:
         sprite: ap.Sprite = ap.Sprite()
-        sprite.graphics.begin_fill(color="#333", alpha=0.5)
+        sprite.graphics.begin_fill(color=ap.Color("#333"), alpha=0.5)
         snapshot_name: str = "snapshot_1"
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         sprite.graphics.clear()
         sprite._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert sprite.graphics.fill_color == "#333333"
+        assert sprite.graphics.fill_color == ap.Color("#333333")
         assert sprite.graphics.fill_alpha == 0.5
 
         sprite.graphics.clear()

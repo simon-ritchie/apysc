@@ -235,7 +235,7 @@ class SVGTextSpan(
         --------
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage(
-        ...     background_color="#333", stage_width=200, stage_height=50
+        ...     background_color=ap.Color("#333"), stage_width=200, stage_height=50
         ... )
         >>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
         ...     text_spans=[
@@ -243,7 +243,7 @@ class SVGTextSpan(
         ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
         ...     ],
         ...     font_size=20,
-        ...     fill_color="#0af",
+        ...     fill_color=ap.Color("#0af"),
         ... )
         """
         from apysc._expression import expression_variables_util

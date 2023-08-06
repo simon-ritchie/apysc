@@ -41,7 +41,7 @@ class ParentMixIn(RevertMixIn):
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite_1: ap.Sprite = ap.Sprite()
-        >>> sprite_1.graphics.begin_fill(color="#0af")
+        >>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
         >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )

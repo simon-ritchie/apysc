@@ -263,7 +263,7 @@ class Polygon(
         ...         ap.Point2D(x=50, y=100),
         ...         ap.Point2D(x=100, y=75),
         ...     ],
-        ...     fill_color="#00aaff",
+        ...     fill_color=ap.Color("#00aaff"),
         ... )
         >>> polygon.fill_color
         Color("#00aaff")

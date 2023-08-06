@@ -227,7 +227,7 @@ class Line(
         >>> line: ap.Line = ap.Line(
         ...     start_point=ap.Point2D(x=50, y=50),
         ...     end_point=ap.Point2D(x=150, y=50),
-        ...     line_color="#ffffff",
+        ...     line_color=ap.Color("#ffffff"),
         ...     line_thickness=3,
         ... )
         >>> line.line_color

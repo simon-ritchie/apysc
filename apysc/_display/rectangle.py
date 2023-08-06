@@ -288,7 +288,7 @@ class Rectangle(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> rectangle: ap.Rectangle = ap.Rectangle(
-        ...     x=50, y=50, width=100, height=100, fill_color="#00aaff"
+        ...     x=50, y=50, width=100, height=100, fill_color=ap.Color("#00aaff")
         ... )
         >>> rectangle.x
         Number(50.0)

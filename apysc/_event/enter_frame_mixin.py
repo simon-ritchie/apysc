@@ -86,7 +86,7 @@ class EnterFrameMixIn(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> rectangle: ap.Rectangle = ap.Rectangle(
-        ...     x=50, y=50, width=50, height=50, fill_color="#0af"
+        ...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
         ... )
         >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
         ...     rectangle.x += 1
@@ -340,7 +340,7 @@ class EnterFrameMixIn(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> rectangle: ap.Rectangle = ap.Rectangle(
-        ...     x=50, y=50, width=50, height=50, fill_color="#0af"
+        ...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
         ... )
         >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
         ...     rectangle.x += 1
@@ -375,7 +375,7 @@ class EnterFrameMixIn(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> rectangle: ap.Rectangle = ap.Rectangle(
-        ...     x=50, y=50, width=50, height=50, fill_color="#0af"
+        ...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
         ... )
         >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
         ...     rectangle.x += 1

@@ -57,7 +57,7 @@ class Stage(
     >>> stage: ap.Stage = ap.Stage(
     ...     stage_width=500,
     ...     stage_height=300,
-    ...     background_color="#333",
+    ...     background_color=ap.Color("#333"),
     ...     stage_elem_id="sales_chart",
     ... )
     """
@@ -116,7 +116,7 @@ class Stage(
         >>> stage: ap.Stage = ap.Stage(
         ...     stage_width=500,
         ...     stage_height=300,
-        ...     background_color="#333",
+        ...     background_color=ap.Color("#333"),
         ...     stage_elem_id="sales_chart",
         ... )
         """
@@ -260,7 +260,7 @@ class Stage(
         >>> stage: ap.Stage = ap.Stage(
         ...     stage_width=500,
         ...     stage_height=300,
-        ...     background_color="#333",
+        ...     background_color=ap.Color("#333"),
         ...     stage_elem_id="sales_chart",
         ... )
         >>> stage.stage_elem_id

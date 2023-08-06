@@ -53,7 +53,7 @@ class Sprite(
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite_1: ap.Sprite = ap.Sprite()
     >>> # Create the sprite child rectangle
-    >>> sprite_1.graphics.begin_fill(color="#0af")
+    >>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
     >>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(
     ...     x=50, y=50, width=50, height=50
     ... )
@@ -106,7 +106,7 @@ class Sprite(
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite_1: ap.Sprite = ap.Sprite()
         >>> # Create the sprite child rectangle
-        >>> sprite_1.graphics.begin_fill(color="#0af")
+        >>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
         >>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )

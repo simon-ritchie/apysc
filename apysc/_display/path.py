@@ -152,7 +152,7 @@ class Path(
     >>> import apysc as ap
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
-    >>> sprite.graphics.line_style(color="#fff", thickness=3)
+    >>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
     >>> path: ap.Path = sprite.graphics.draw_path(
     ...     path_data_list=[
     ...         ap.PathMoveTo(x=0, y=50),
@@ -286,7 +286,7 @@ class Path(
         ...         ap.PathMoveTo(x=0, y=50),
         ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
         ...     ],
-        ...     line_color="#ffffff",
+        ...     line_color=ap.Color("#ffffff"),
         ...     line_thickness=3,
         ... )
         >>> path.line_color

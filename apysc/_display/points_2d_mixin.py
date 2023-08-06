@@ -52,7 +52,7 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color="#fff")
+        >>> sprite.graphics.line_style(color=ap.Color("#fff"))
         >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
         ...     points=[
         ...         ap.Point2D(x=0, y=0),

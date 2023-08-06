@@ -256,7 +256,7 @@ class Polyline(
         ...         ap.Point2D(x=100, y=100),
         ...         ap.Point2D(x=150, y=50),
         ...     ],
-        ...     line_color="#ffffff",
+        ...     line_color=ap.Color("#ffffff"),
         ...     line_thickness=3,
         ... )
         >>> polyline.line_color

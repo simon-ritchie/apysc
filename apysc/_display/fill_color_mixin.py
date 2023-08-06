@@ -51,7 +51,7 @@ class FillColorMixIn(
         >>> _ = ap.Stage(
         ...     stage_width=150,
         ...     stage_height=150,
-        ...     background_color="#333",
+        ...     background_color=ap.Color("#333"),
         ...     stage_elem_id="stage",
         ... )
         >>> circle: ap.Circle = ap.Circle(
@@ -97,7 +97,7 @@ class FillColorMixIn(
         >>> _ = ap.Stage(
         ...     stage_width=150,
         ...     stage_height=150,
-        ...     background_color="#333",
+        ...     background_color=ap.Color("#333"),
         ...     stage_elem_id="stage",
         ... )
         >>> circle: ap.Circle = ap.Circle(

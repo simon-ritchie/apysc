@@ -264,7 +264,7 @@ class Ellipse(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> ellipse: ap.Ellipse = ap.Ellipse(
-        ...     x=100, y=100, width=100, height=50, fill_color="#00aaff"
+        ...     x=100, y=100, width=100, height=50, fill_color=ap.Color("#00aaff")
         ... )
         >>> ellipse.x
         Number(100.0)

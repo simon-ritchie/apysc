@@ -54,7 +54,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color="#fff", thickness=10)
+        >>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=10)
         >>> _ = sprite.graphics.move_to(x=50, y=100)
         >>> _ = sprite.graphics.line_to(x=100, y=50)
         >>> line: ap.Polyline = sprite.graphics.line_to(x=150, y=100)

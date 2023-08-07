@@ -12,7 +12,7 @@ wheel==0.40.0
 importlib-metadata==6.8.0
 Sphinx==7.0.1
 groundwork-sphinx-theme==1.1.1
-notebook==6.5.4
+notebook==7.0.2
 pyright==1.1.317
 playwright==1.36.0
 myst-parser==2.0.0

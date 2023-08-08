@@ -51,10 +51,13 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 direction: ap.Int = ap.Int(1)
@@ -106,10 +109,13 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 options: RectOptions = {"rectangle": rectangle}
@@ -160,10 +166,13 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 options: RectOptions = {"rectangle": rectangle}
@@ -226,10 +235,13 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 scale_value: ap.Number = ap.Number(0.01)
@@ -282,10 +294,13 @@ def on_timer(e: ap.TimerEvent, options: LineOptions) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#fff", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 line: ap.Line = sprite.graphics.draw_line(x_start=50, y_start=50, x_end=100, y_end=100)
 
 options: LineOptions = {"line": line}
@@ -336,10 +351,13 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 options: RectOptions = {"rectangle": rectangle}

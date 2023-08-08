@@ -57,7 +57,10 @@ It returns an instance of the specified type, especially when an array index exc
 import apysc as ap
 
 ap.Stage(
-    stage_width=100, stage_height=50, background_color="#333", stage_elem_id="stage"
+    stage_width=100,
+    stage_height=50,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 arr: ap.Array[ap.Int] = ap.Array([ap.Int(10)], fixed_value_type=ap.Int)
 

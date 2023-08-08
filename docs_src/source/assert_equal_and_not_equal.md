@@ -21,7 +21,10 @@ If the `left` value and `right` values are not the same, the `assert_equal` asse
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_1: ap.Int = ap.Int(10)
@@ -47,7 +50,10 @@ The `assert_not_equal` interface has the same arguments, and if the `left` value
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_1: ap.Int = ap.Int(10)

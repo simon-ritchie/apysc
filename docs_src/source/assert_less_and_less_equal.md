@@ -27,7 +27,10 @@ This interface displays a specified `msg` (message) argument to the browser cons
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_val_1: ap.Int = ap.Int(10)
 int_val_2: ap.Int = ap.Int(9)
@@ -47,7 +50,10 @@ The following example fails an assertion and displays the `Assertion failed` mes
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_val_1: ap.Int = ap.Int(9)
 int_val_2: ap.Int = ap.Int(9)

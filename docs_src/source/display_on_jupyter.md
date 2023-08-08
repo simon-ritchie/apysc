@@ -30,12 +30,16 @@ This interface requires the `html_file_name` argument to be unique if you need t
 ```py
 import apysc as ap
 
-ap.Stage(stage_width=250, stage_height=150, background_color="#333")
+ap.Stage(
+    stage_width=250,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+)
 sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-sprite.graphics.begin_fill(color="#f0a")
+sprite.graphics.begin_fill(color=ap.Color("#f0a"))
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 ap.display_on_jupyter(html_file_name="jupyter_sample_1.html")

@@ -32,7 +32,7 @@ def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     """
     rectangle: ap.Rectangle = e.this.target
     rectangle.animation_line_color(
-        line_color="#0af",
+        line_color=ap.Color("#0af"),
         duration=DURATION,
     ).animation_complete(on_animation_complete_2).start()
 
@@ -50,19 +50,22 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     """
     rectangle: ap.Rectangle = e.this.target
     rectangle.animation_line_color(
-        line_color="#f0a",
+        line_color=ap.Color("#f0a"),
         duration=DURATION,
     ).animation_complete(on_animation_complete_1).start()
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_line_color(
-    line_color="#f0a",
+    line_color=ap.Color("#f0a"),
     duration=DURATION,
 ).animation_complete(on_animation_complete_1).start()
 
@@ -114,13 +117,13 @@ To start this animation, you need to call the `start` method of the returned ins
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
->>> sprite.graphics.line_style(color="#fff", thickness=5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> _ = rectangle.animation_line_color(
-...     line_color="#0af",
+...     line_color=ap.Color("#0af"),
 ...     duration=1500,
 ...     easing=ap.Easing.EASE_OUT_QUINT,
 ... ).start()

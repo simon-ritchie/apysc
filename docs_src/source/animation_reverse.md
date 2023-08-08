@@ -53,10 +53,13 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 
 ap.Stage(
-    stage_width=500, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=500,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=400, duration=5000).start()
@@ -101,10 +104,13 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 
 ap.Stage(
-    stage_width=500, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=500,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=400, duration=1000).start()
@@ -147,7 +153,7 @@ Suppose you call this interface multiple times and animations reach the beginnin
 ...     rectangle.animation_reverse()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

@@ -59,10 +59,13 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
 
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_x: ap.AnimationX = rectangle.animation_x(
     x=100, duration=DURATION, easing=EASING
@@ -84,10 +87,13 @@ The `Circle` and `Ellipse` classes' `animation_x` interface will return an `Anim
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 animation_cx: ap.AnimationCx = circle.animation_x(
     x=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT
@@ -137,7 +143,7 @@ To start this animation, you need to call the `start` method of the returned ins
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

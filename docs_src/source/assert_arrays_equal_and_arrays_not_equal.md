@@ -23,7 +23,10 @@ The following example (`assert_arrays_equal` and values are equal) passes:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
@@ -46,7 +49,10 @@ The following example (`assert_arrays_equal` and values are not equal) fails:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
@@ -71,7 +77,10 @@ The following example (`assert_arrays_not_equal` and values are not equal) passe
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
@@ -91,7 +100,10 @@ If an `Array` value is specified to the `assert_equal` or `assert_not_equal` int
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3, 4, 5])

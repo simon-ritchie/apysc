@@ -25,7 +25,10 @@ The following assertion example (`assert_true` and value is the `Boolean(True)`)
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 bool_1: ap.Boolean = ap.Boolean(True)
@@ -49,7 +52,10 @@ The following assertion example (`assert_true` and value is the `Boolean(False)`
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 bool_1: ap.Boolean = ap.Boolean(False)
@@ -75,7 +81,10 @@ The following assertion example (`assert_true` and value is the `Int(1)` and `ty
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_1: ap.Int = ap.Int(1)
@@ -101,7 +110,10 @@ The following assertion example (`assert_true` and value is the `Int(1)` and `ty
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_1: ap.Int = ap.Int(1)
@@ -125,7 +137,10 @@ The following assertion example (`assert_false` and value is the `Boolean(False)
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 bool_1: ap.Boolean = ap.Boolean(False)

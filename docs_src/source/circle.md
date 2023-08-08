@@ -17,9 +17,17 @@ The constructor also accepts each style's argument, such as the `fill_color`.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 
 ap.save_overall_html(dest_dir_path="circle_basic_usage/")
 ```
@@ -43,9 +51,17 @@ The `x` property updates or gets the instance's x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=0, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=0,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 circle.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="circle_x/")
@@ -62,9 +78,17 @@ The `y` property updates or gets the instance's y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=200,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=0, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=0,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 circle.y = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="circle_y/")
@@ -81,9 +105,17 @@ The `radius` property updates or gets the instance's radius:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=0, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=0,
+    fill_color=ap.Color("#0af"),
+)
 circle.radius = ap.Int(30)
 
 ap.save_overall_html(dest_dir_path="circle_radius/")
@@ -100,7 +132,10 @@ The `fill_color` property updates or gets the instance's fill color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 circle: ap.Circle = ap.Circle(x=75, y=75, radius=50)
 circle.fill_color = ap.String("#f0a")
@@ -119,9 +154,17 @@ The `fill_alpha` property updates or gets the instance's fill alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 circle.fill_alpha = ap.Number(0.3)
 
 ap.save_overall_html(dest_dir_path="circle_fill_alpha/")
@@ -138,7 +181,10 @@ The `line_color` property updates or gets the instance's line color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_thickness=5)
 circle.line_color = ap.String("#f0a")
@@ -157,9 +203,18 @@ The `line_alpha` property updates or gets the instance's line alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_color="0af", line_thickness=5)
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    line_color=ap.Color("0af"),
+    line_thickness=5,
+)
 circle.line_alpha = ap.Number(0.3)
 
 ap.save_overall_html(dest_dir_path="circle_line_alpha/")
@@ -176,9 +231,17 @@ The `line_thickness` property updates or gets the instance's line thickness (lin
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_color="0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    line_color=ap.Color("0af"),
+)
 circle.line_thickness = ap.Int(8)
 
 ap.save_overall_html(dest_dir_path="circle_line_thickness/")
@@ -195,9 +258,18 @@ The `line_dot_setting` property updates or gets the instance's line dot-style se
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_color="0af", line_thickness=3)
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    line_color=ap.Color("0af"),
+    line_thickness=3,
+)
 circle.line_dot_setting = ap.LineDotSetting(dot_size=3)
 
 ap.save_overall_html(dest_dir_path="circle_line_dot_setting/")
@@ -214,9 +286,18 @@ The `line_dash_setting` property updates or gets the instance's line dash-style 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_color="0af", line_thickness=3)
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    line_color=ap.Color("0af"),
+    line_thickness=3,
+)
 circle.line_dash_setting = ap.LineDashSetting(dash_size=5, space_size=2)
 
 ap.save_overall_html(dest_dir_path="circle_line_dash_setting/")
@@ -233,9 +314,17 @@ The `line_round_dot_setting` property updates or gets the instance's line-round 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_color="0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    line_color=ap.Color("0af"),
+)
 circle.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=3)
 
 ap.save_overall_html(dest_dir_path="circle_line_round_dot_setting/")
@@ -252,9 +341,18 @@ The `line_dash_dot_setting` property updates or gets the instance's dash-dotted 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_color="0af", line_thickness=3)
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    line_color=ap.Color("0af"),
+    line_thickness=3,
+)
 circle.line_dash_dot_setting = ap.LineDashDotSetting(
     dot_size=3, dash_size=6, space_size=3
 )
@@ -273,9 +371,17 @@ The `rotation_around_center` property updates or gets the instance's rotation va
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 circle.scale_x_from_center = ap.Number(0.5)
 
 
@@ -310,9 +416,17 @@ Similarly, the `get_rotation_around_point` method gets the instance's rotation v
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 circle.scale_x_from_center = ap.Number(0.5)
 x: ap.Int = ap.Int(100)
 y: ap.Int = ap.Int(100)
@@ -349,9 +463,17 @@ The `scale_x_from_center` property updates or gets the instance's scale-x from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 
 
@@ -388,9 +510,17 @@ The `scale_y_from_center` property updates or gets the instance's scale-y from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 
 
@@ -429,9 +559,17 @@ Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 x: ap.Int = ap.Int(125)
 
@@ -473,9 +611,17 @@ Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 y: ap.Int = ap.Int(125)
 
@@ -515,9 +661,17 @@ The `flip_x` property updates or gets the instance's flip-x (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 circle.scale_x_from_center = ap.Number(0.5)
 circle.rotation_around_center = ap.Int(30)
 
@@ -553,9 +707,17 @@ The `flip_y` property updates or gets the instance's flip-y (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 circle.scale_x_from_center = ap.Number(0.5)
 circle.rotation_around_center = ap.Int(30)
 
@@ -591,9 +753,17 @@ The `skew_x` property updates or gets the instance's skew-x (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -627,9 +797,17 @@ The `skew_y` property updates or gets the instance's skew-y (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, fill_color="#0af")
+circle: ap.Circle = ap.Circle(
+    x=75,
+    y=75,
+    radius=50,
+    fill_color=ap.Color("#0af"),
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -706,7 +884,7 @@ Create a circle vector graphic.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
->>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color="#00aaff")
+>>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Color("#00aaff"))
 >>> circle.x
 Number(100.0)
 
@@ -723,7 +901,7 @@ String("#00aaff")
 ...     x=100,
 ...     y=100,
 ...     radius=50,
-...     line_color="#ffffff",
+...     line_color=ap.Color("#ffffff"),
 ...     line_thickness=3,
 ...     line_dot_setting=ap.LineDotSetting(dot_size=10),
 ... )

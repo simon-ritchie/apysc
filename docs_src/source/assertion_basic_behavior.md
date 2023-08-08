@@ -17,7 +17,10 @@ These interfaces display the results on the browser console, as follows:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_1: ap.Int = ap.Int(10)
 ap.assert_equal(left=10, right=int_1)
@@ -41,7 +44,10 @@ If the assertion fails, then an error message also is displayed on the browser c
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_1: ap.Int = ap.Int(10)
 ap.assert_equal(left=11, right=int_1)
@@ -68,7 +74,10 @@ Each assertion interface has the `msg` optional argument. If you provide this ar
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_1: ap.Int = ap.Int(10)
 ap.assert_equal(left=11, right=int_1, msg="Values are not equal!")

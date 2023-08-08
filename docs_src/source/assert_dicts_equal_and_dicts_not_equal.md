@@ -23,7 +23,10 @@ The following example (`assert_dicts_equal` and values are equal) passes:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
@@ -48,7 +51,10 @@ The following example (`assert_dicts_equal` and values are not equal)  fails:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
@@ -73,7 +79,10 @@ The following example (`assert_dicts_not_equal` and values are not equal) passes
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
@@ -98,7 +107,10 @@ If a `Dictionary` value is specified to the `assert_equal` or `assert_not_equal`
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 30})

@@ -22,7 +22,7 @@ import apysc as ap
 def _main() -> None:
     """The entry point of this project."""
     ap.Stage(
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_width=150,
         stage_height=150,
         stage_elem_id="stage",
@@ -62,7 +62,7 @@ class MySprite(ap.Sprite):
             Y-coordinate of the rectangle.
         """
         super(MySprite, self).__init__()
-        self.graphics.begin_fill(color="#0af")
+        self.graphics.begin_fill(color=ap.Color("#0af"))
         self.graphics.draw_rect(x=x, y=y, width=50, height=50)
 
 

@@ -56,10 +56,13 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#eee", thickness=5, alpha=1.0)
+sprite.graphics.line_style(color=ap.Color("#eee"), thickness=5, alpha=1.0)
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_line_alpha(
     alpha=0.0,
@@ -114,8 +117,8 @@ To start this animation, you need to call the `start` method of the returned ins
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
->>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=1.0)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5, alpha=1.0)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

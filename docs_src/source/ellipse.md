@@ -17,9 +17,18 @@ The constructor also accepts each style's argument, such as the `fill_color`.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    fill_color=ap.Color("#0af"),
+)
 
 ap.save_overall_html(dest_dir_path="ellipse_basic_usage/")
 ```
@@ -43,9 +52,18 @@ The `x` property updates or gets the instance's x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=0, y=75, width=100, height=75, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=0,
+    y=75,
+    width=100,
+    height=75,
+    fill_color=ap.Color("#0af"),
+)
 ellipse.x = ap.Number(100)
 
 ap.save_overall_html(dest_dir_path="ellipse_x/")
@@ -62,9 +80,18 @@ The `y` property updates or gets the instance's y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=0, width=100, height=50, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=0,
+    width=100,
+    height=50,
+    fill_color=ap.Color("#0af"),
+)
 ellipse.y = ap.Number(125)
 
 ap.save_overall_html(dest_dir_path="ellipse_y/")
@@ -81,9 +108,18 @@ The `width` property updates or gets the instance's width:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=0, height=75, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=0,
+    height=75,
+    fill_color=ap.Color("#0af"),
+)
 ellipse.width = ap.Int(125)
 
 ap.save_overall_html(dest_dir_path="ellipse_width/")
@@ -100,9 +136,18 @@ The `height` property updates or gets the instance's height:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=75, height=0, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=75,
+    height=0,
+    fill_color=ap.Color("#0af"),
+)
 ellipse.height = ap.Int(125)
 
 ap.save_overall_html(dest_dir_path="ellipse_height/")
@@ -119,10 +164,13 @@ The `fill_color` property updates or gets the instance's fill color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75)
-ellipse.fill_color = ap.String("#f0a")
+ellipse.fill_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="ellipse_fill_color/")
 ```
@@ -138,9 +186,18 @@ The `fill_alpha` property updates or gets the instance's fill alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    fill_color=ap.Color("#0af"),
+)
 ellipse.fill_alpha = ap.Number(0.3)
 
 ap.save_overall_html(dest_dir_path="ellipse_fill_alpha/")
@@ -157,10 +214,13 @@ The `line_color` property updates or gets the instance's line color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, line_thickness=5)
-ellipse.line_color = ap.String("#0af")
+ellipse.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="ellipse_line_color/")
 ```
@@ -176,10 +236,18 @@ The `line_alpha` property updates or gets the instance's line alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=5
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    line_color=ap.Color("0af"),
+    line_thickness=5,
 )
 ellipse.line_alpha = ap.Number(0.3)
 
@@ -197,9 +265,18 @@ The `line_thickness` property updates or gets the instance's line thickness (lin
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, line_color="0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    line_color=ap.Color("0af"),
+)
 ellipse.line_thickness = ap.Int(8)
 
 ap.save_overall_html(dest_dir_path="ellipse_line_thickness/")
@@ -216,10 +293,18 @@ The `line_dot_setting` property updates or gets the instance's line dot-style se
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=2
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    line_color=ap.Color("0af"),
+    line_thickness=2,
 )
 ellipse.line_dot_setting = ap.LineDotSetting(dot_size=2)
 
@@ -237,10 +322,18 @@ The `line_dash_setting` property updates or gets the instance's line dash-style 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=2
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    line_color=ap.Color("0af"),
+    line_thickness=2
 )
 ellipse.line_dash_setting = ap.LineDashSetting(dash_size=6, space_size=2)
 
@@ -258,9 +351,18 @@ The `line_round_dot_setting` property updates or gets the instance's line-round 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=100, height=75, line_color="0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    line_color=ap.Color("0af"),
+)
 ellipse.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=2)
 
 ap.save_overall_html(dest_dir_path="ellipse_line_round_dot_setting/")
@@ -277,10 +379,18 @@ The `line_dash_dot_setting` property updates or gets the instance's dash-dotted 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ellipse: ap.Ellipse = ap.Ellipse(
-    x=75, y=75, width=100, height=75, line_color="0af", line_thickness=2
+    x=75,
+    y=75,
+    width=100,
+    height=75,
+    line_color=ap.Color("0af"),
+    line_thickness=2,
 )
 ellipse.line_dash_dot_setting = ap.LineDashDotSetting(
     dot_size=3, dash_size=6, space_size=3
@@ -300,9 +410,18 @@ The `rotation_around_center` property updates or gets the instance's rotation va
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -336,9 +455,18 @@ Similarly, the `get_rotation_around_point` method gets the instance's rotation v
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 x: ap.Int = ap.Int(100)
 y: ap.Int = ap.Int(100)
 
@@ -374,9 +502,18 @@ The `scale_x_from_center` property updates or gets the instance's scale-x from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 
 
@@ -413,9 +550,18 @@ The `scale_y_from_center` property updates or gets the instance's scale-y from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 
 
@@ -454,9 +600,18 @@ Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 x: ap.Int = ap.Int(150)
 
@@ -498,9 +653,18 @@ Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 direction: ap.Int = ap.Int(-1)
 y: ap.Int = ap.Int(150)
 
@@ -540,9 +704,18 @@ The `flip_x` property updates or gets the instance's flip-x (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 ellipse.rotation_around_center = ap.Int(30)
 
 
@@ -577,9 +750,18 @@ The `flip_y` property updates or gets the instance's flip-y (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 ellipse.rotation_around_center = ap.Int(30)
 
 
@@ -614,9 +796,18 @@ The `skew_x` property updates or gets the instance's skew-x (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -650,9 +841,18 @@ The `skew_y` property updates or gets the instance's skew-y (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
-ellipse: ap.Ellipse = ap.Ellipse(x=75, y=75, width=150, height=100, fill_color="#0af")
+ellipse: ap.Ellipse = ap.Ellipse(
+    x=75,
+    y=75,
+    width=150,
+    height=100,
+    fill_color=ap.Color("#0af"),
+)
 
 
 def on_timer(e: ap.TimerEvent, options: dict) -> None:
@@ -732,7 +932,7 @@ Create an ellipse vector graphic.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> ellipse: ap.Ellipse = ap.Ellipse(
-...     x=100, y=100, width=100, height=50, fill_color="#00aaff"
+...     x=100, y=100, width=100, height=50, fill_color=ap.Color("#00aaff")
 ... )
 >>> ellipse.x
 Number(100.0)

@@ -17,10 +17,13 @@ The following example sets the 5-pixel line thickness to the first rectangle and
 import apysc as ap
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=250,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#0af", thickness=1)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=1)
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_1.line_thickness = ap.Int(5)
@@ -57,7 +60,7 @@ Get this instance's line thickness.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=5)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 >>> line: ap.Line = sprite.graphics.draw_line(
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )

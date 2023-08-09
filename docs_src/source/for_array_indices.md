@@ -22,7 +22,12 @@ The `as`-keyword value becomes the `Int` type index.
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 arr: ap.Array[ap.Number] = ap.Array([ap.Number(50), ap.Number(150), ap.Number(250)])
 indices: ap.Array[ap.Int] = ap.Array([])
@@ -43,7 +48,10 @@ The following example uses an index and sets a circle center-x coordinate.
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=350,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 x_arr: ap.Array[ap.Number] = ap.Array([ap.Number(75), ap.Number(175), ap.Number(275)])
@@ -53,7 +61,7 @@ with ap.ForArrayIndices(arr=x_arr) as i:
         x=x,
         y=75,
         radius=25,
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
     )
 
 ap.save_overall_html(dest_dir_path="for_array_indices_basic_usage_2/")

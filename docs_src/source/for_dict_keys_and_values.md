@@ -28,7 +28,11 @@ Similarly, the `dict_value_type` only accepts an apysc type, such as the `String
 # runnable
 import apysc as ap
 
-ap.Stage(background_color="#333", stage_width=250, stage_height=300)
+ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=300,
+)
 
 dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(
     {
@@ -42,7 +46,13 @@ with ap.ForDictKeysAndValues(
     dict_key_type=ap.Number,
     dict_value_type=ap.Number,
 ) as (key, value):
-    ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
+    ap.Rectangle(
+        x=key,
+        y=value,
+        width=50,
+        height=50,
+        fill_color=ap.Color("#0af"),
+    )
 
 ap.save_overall_html(dest_dir_path="for_dict_keys_and_values_basic_usage_1/")
 ```
@@ -87,7 +97,7 @@ The loop implementation class for the `ap.Dictionary` keys and values.<hr>
 
 ```py
 >>> import apysc as ap
->>> _ = ap.Stage(background_color="#333", stage_width=250, stage_height=300)
+>>> _ = ap.Stage(background_color=ap.Color("#333"), stage_width=250, stage_height=300)
 >>> dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(
 ...     {
 ...         ap.Number(50): ap.Number(50),
@@ -100,5 +110,5 @@ The loop implementation class for the `ap.Dictionary` keys and values.<hr>
 ...     dict_key_type=ap.Number,
 ...     dict_value_type=ap.Number,
 ... ) as (key, value):
-...     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color="#0af")
+...     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color=ap.Color("#0af"))
 ```

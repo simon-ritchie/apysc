@@ -17,10 +17,13 @@ The following example sets the 0.5 line alpha to the second rectangle and 0.25 t
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=350,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
@@ -59,7 +62,7 @@ Get this instance's line alpha (opacity).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=1.0)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5, alpha=1.0)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

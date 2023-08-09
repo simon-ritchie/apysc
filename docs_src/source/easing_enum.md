@@ -1082,10 +1082,13 @@ def on_animation_complete_2(
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=350,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
 rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
@@ -1178,10 +1181,13 @@ def on_animation_complete_2(
 
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=350,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
 rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
@@ -1273,10 +1279,13 @@ def on_animation_complete_2(
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=250,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
 rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)
@@ -1363,10 +1372,13 @@ def on_animation_complete_2(
 
 
 ap.Stage(
-    stage_width=200, stage_height=250, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=250,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=150, width=50, height=50)
 rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=250, width=50, height=50)

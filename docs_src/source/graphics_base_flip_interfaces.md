@@ -43,10 +43,13 @@ def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 polygon: ap.Polygon = sprite.graphics.draw_polygon(
     points=[
@@ -90,7 +93,7 @@ Get a boolean value whether the x-axis is flipping or not.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
 ...     points=[
 ...         ap.Point2D(x=0, y=0),
@@ -126,7 +129,7 @@ Get a boolean value whether the y-axis is flipping or not.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
 ...     points=[
 ...         ap.Point2D(x=0, y=0),

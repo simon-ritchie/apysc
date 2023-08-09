@@ -15,11 +15,14 @@ The following code example is adding the rectangle to the sprite container. The 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=450, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=450,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.add_child(rectangle_1)
 
@@ -62,7 +65,7 @@ Get a child at a specified index.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

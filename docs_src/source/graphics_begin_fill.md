@@ -15,19 +15,22 @@ Draw vector graphics interfaces (e.g., `draw_rect`) would use these fill setting
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=350, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=350,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set blue fill color and draw the first rectangle.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Draw the second rectangle (fill color setting will be maintained).
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 # Set the other fill color and draw the third rectangle.
-sprite.graphics.begin_fill(color="#f0a")
+sprite.graphics.begin_fill(color=ap.Color("#f0a"))
 sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="graphics_begin_fill_basic_usage/")
@@ -44,12 +47,15 @@ The `color` argument sets the fill color, and the `begin_fill` interface require
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan fill color and draw the rectangle.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")
@@ -66,14 +72,17 @@ For example, since the following code clears fill color settings, a rectangle gr
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
-# Clear fill color by specifying blank string.
-sprite.graphics.begin_fill(color="")
+# Clear fill color by specifying the `COLORLESS`` constant.
+sprite.graphics.begin_fill(color=ap.COLORLESS)
 
 # Since fill color is not set, the rectangle is invisible.
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
@@ -96,24 +105,27 @@ Color code is acceptable like the following list:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=450, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=450,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Six characters fill color setting (a cyan color).
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Three characters fill color setting (a magenta color).
-sprite.graphics.begin_fill(color="#f0a")
+sprite.graphics.begin_fill(color=ap.Color("#f0a"))
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 # Single characters fill color setting (a black color).
-sprite.graphics.begin_fill(color="#0")
+sprite.graphics.begin_fill(color=ap.Color("#0"))
 sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
 # Fill color that Skipped `#` symbol is also acceptable.
-sprite.graphics.begin_fill(color="999")
+sprite.graphics.begin_fill(color=ap.Color("999"))
 sprite.graphics.draw_rect(x=350, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="graphics_begin_fill_acceptable_color_settings/")
@@ -130,11 +142,14 @@ Fill color alpha (opacity) can be set by the `alpha` argument. It can accept 0.0
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#00aaff", alpha=0.2)
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"), alpha=0.2)
 sprite.graphics.draw_rect(x=50, y=75, width=50, height=50)
 sprite.graphics.draw_rect(x=75, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=75, y=75, width=50, height=50)
@@ -174,7 +189,7 @@ Set single color value for fill.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -205,7 +220,7 @@ Get a current fill color.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -236,7 +251,7 @@ Get current fill color opacity.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

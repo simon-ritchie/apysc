@@ -20,10 +20,13 @@ The `x2` and `y2` are the second vertex coordinate, and the `x3` and `y3` are th
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 triangle: ap.Triangle = sprite.graphics.draw_triangle(
     x1=75,
     y1=50,
@@ -67,10 +70,13 @@ def on_click(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 triangle: ap.Triangle = sprite.graphics.draw_triangle(
     x1=75,
     y1=50,
@@ -130,8 +136,8 @@ Draw a triangle vector graphic.<hr>
 >>> import apysc as ap
 >>> _ = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.7)
->>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.7)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5, alpha=0.5)
 >>> triangle: ap.Triangle = sprite.graphics.draw_triangle(
 ...     x1=75,
 ...     y1=50,

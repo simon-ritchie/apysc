@@ -15,13 +15,16 @@ The `draw_polygon` interface has the `points` argument, which determines the pol
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw the triangle with the draw_polygon interface.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_polygon(
     points=ap.Array(
         [
@@ -60,11 +63,14 @@ The `draw_polygon` interface draws the left triangle. Similarly, the `move_to` a
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.draw_polygon(
@@ -94,14 +100,17 @@ But there is a difference in whether closing the paths is necessary or not. This
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 # Set the line style to see the difference.
-sprite.graphics.line_style(color="#fff", thickness=3)
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.draw_polygon(
@@ -135,11 +144,14 @@ For instance, the following code appends the point and changes from the triangle
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 # Draw the triangle.
 polygon: ap.Polygon = sprite.graphics.draw_polygon(
@@ -195,7 +207,7 @@ Draw a polygon vector graphic. This interface is similar to the Polyline class (
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
 ...     points=[
 ...         ap.Point2D(x=25, y=0),

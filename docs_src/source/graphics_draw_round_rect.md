@@ -17,11 +17,11 @@ This interface also has `ellipse_width` and `ellipse_height` arguments to set th
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=350, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"), stage_width=350, stage_height=150, stage_elem_id="stage"
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 # Set 10-pixel ellipse size and draw the rectangle.
 sprite.graphics.draw_round_rect(
@@ -55,11 +55,14 @@ The `Rectangle` instance has the `ellipse_width` attribute and `ellipse_height` 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 rectangle: ap.Rectangle = sprite.graphics.draw_round_rect(
     x=50, y=50, width=50, height=50, ellipse_width=10, ellipse_height=10
@@ -119,7 +122,7 @@ Draw a rounded rectangle vector graphics.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> round_rect: ap.Rectangle = sprite.graphics.draw_round_rect(
 ...     x=50, y=50, width=50, height=50, ellipse_width=10, ellipse_height=15
 ... )

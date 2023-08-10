@@ -15,12 +15,15 @@ Draw vector graphics interfaces (e.g., the `draw_rect` or `line_to`) use these l
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=162, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=162,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw a white line with 3px line thickness.
-sprite.graphics.line_style(color="#ccc", thickness=8)
+sprite.graphics.line_style(color=ap.Color("#ccc"), thickness=8)
 sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=150, y=50)
 
@@ -29,7 +32,7 @@ sprite.graphics.move_to(x=50, y=80)
 sprite.graphics.line_to(x=150, y=80)
 
 # Change line color and thickness.
-sprite.graphics.line_style(color="#0af", thickness=3)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=3)
 sprite.graphics.move_to(x=50, y=110)
 sprite.graphics.line_to(x=150, y=110)
 
@@ -47,12 +50,15 @@ The required `color` argument sets the line color.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=102, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=102,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan line color and draw the line.
-sprite.graphics.line_style(color="#0af", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_line_color/")
@@ -69,15 +75,18 @@ For example, the result line graphic becomes invisible since the following code 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=102, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=102,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan line color.
-sprite.graphics.line_style(color="#0af", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=4)
 
-# Clear the line color by specifying a blank string.
-sprite.graphics.line_style(color="", thickness=4)
+# Clear the line color by specifying the `COLORLESS` constant.
+sprite.graphics.line_style(color=ap.COLORLESS, thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_clear_line_color/")
@@ -98,20 +107,21 @@ Color code is acceptable like the following list (same as `begin_fill` interface
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=162, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200, stage_height=162, stage_elem_id="stage"
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # The six characters line color setting (a cyan color).
-sprite.graphics.line_style(color="#00aaff", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#00aaff"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 # The three characters line color setting (a magenta color).
-sprite.graphics.line_style(color="#f0a", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#f0a"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
 
 # The one character line color setting (a black color).
-sprite.graphics.line_style(color="#5", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#5"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_line_color_color_code/")
@@ -128,20 +138,23 @@ The `thickness` argument sets the line thickness. It can accept greater than or 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=165, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=165,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set 1-pixel line thickness.
-sprite.graphics.line_style(color="#0af", thickness=1)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=1)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 # Set 4-pixel line thickness.
-sprite.graphics.line_style(color="#0af", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
 
 # Set 10-pixel line thickness.
-sprite.graphics.line_style(color="#0af", thickness=10)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_thickness/")
@@ -158,16 +171,19 @@ A line alpha (opacity) can be set by the `alpha` argument. It can accept 0.0 (tr
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw the cyan line from upper-left to lower-right.
-sprite.graphics.line_style(color="#0af", thickness=15, alpha=0.3)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=15, alpha=0.3)
 sprite.graphics.draw_line(x_start=50, x_end=100, y_start=50, y_end=100)
 
 # Draw the magenta line from upper-right to lower-left.
-sprite.graphics.line_style(color="#f0a", thickness=15, alpha=0.3)
+sprite.graphics.line_style(color=ap.Color("#f0a"), thickness=15, alpha=0.3)
 sprite.graphics.draw_line(x_start=100, x_end=50, y_start=50, y_end=100)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_alpha/")
@@ -190,21 +206,24 @@ There are three `LineCaps` options, as follows:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=180, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=180,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # BUTT caps setting (default).
-sprite.graphics.line_style(color="#0af", thickness=20, cap=ap.LineCaps.BUTT)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=20, cap=ap.LineCaps.BUTT)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 # ROUND caps setting.
-sprite.graphics.line_style(color="#0af", thickness=20, cap=ap.LineCaps.ROUND)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=20, cap=ap.LineCaps.ROUND)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=90, y_end=90)
 
 # SQUARE caps setting (same line length setting as BUTT line,
 # but this will be longer for the caps).
-sprite.graphics.line_style(color="#0af", thickness=20, cap=ap.LineCaps.SQUARE)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=20, cap=ap.LineCaps.SQUARE)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=130, y_end=130)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_caps/")
@@ -227,18 +246,21 @@ There are three LineJoints enum values, as follows:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=350, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=350,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set MITER joints setting and draw the polyline.
-sprite.graphics.line_style(color="#0af", thickness=10, joints=ap.LineJoints.MITER)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.MITER)
 sprite.graphics.move_to(x=50, y=100)
 sprite.graphics.line_to(x=75, y=50)
 sprite.graphics.line_to(x=100, y=100)
 
 # Set ROUND joints setting and draw the polyline.
-sprite.graphics.line_style(color="#0af", thickness=10, joints=ap.LineJoints.ROUND)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.ROUND)
 sprite.graphics.move_to(x=150, y=100)
 sprite.graphics.line_to(x=175, y=50)
 sprite.graphics.line_to(x=200, y=100)

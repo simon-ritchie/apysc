@@ -25,7 +25,10 @@ Conversely, the right path graphics use the `Close` class setting, and it connec
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 left_path: ap.Path = ap.Path(
     path_data_list=[
@@ -33,7 +36,7 @@ left_path: ap.Path = ap.Path(
         ap.PathLineTo(x=50, y=100),
         ap.PathLineTo(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -44,7 +47,7 @@ right_path: ap.Path = ap.Path(
         ap.PathLineTo(x=200, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -71,7 +74,7 @@ Path data class for the SVG's `close path` (Z).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=00),

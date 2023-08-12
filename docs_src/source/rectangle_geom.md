@@ -17,7 +17,7 @@ For instance, the `get_bounds` method returns a `RectangleGeom` instance; and se
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_width=300,
     stage_height=200,
     stage_elem_id="stage",
@@ -27,7 +27,7 @@ rectangle: ap.Rectangle = ap.Rectangle(
     y=50,
     width=200,
     height=75,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 bounding_box: ap.RectangleGeom = rectangle.get_bounds()
 text_1: ap.SVGText = ap.SVGText(
@@ -39,7 +39,7 @@ text_1: ap.SVGText = ap.SVGText(
     ),
     x=50,
     y=150,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 ap.save_overall_html(dest_dir_path="rectangle_geom_basic_usage/")
 ```
@@ -55,7 +55,7 @@ The following example shows each attribute point:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_width=600,
     stage_height=440,
     stage_elem_id="stage",
@@ -64,7 +64,7 @@ circle: ap.Circle = ap.Circle(
     x=250,
     y=220,
     radius=150,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 bounding_box: ap.RectangleGeom = circle.get_bounds()
 
@@ -328,14 +328,14 @@ Get an instance's bounding-box geometry data.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=250, stage_height=350
+...     background_color=ap.Color("#333"), stage_width=250, stage_height=350
 ... )
 >>> rectangle: ap.Rectangle = ap.Rectangle(
 ...     x=50,
 ...     y=100,
 ...     width=150,
 ...     height=200,
-...     fill_color="#0af",
+...     fill_color=ap.Color("#0af"),
 ... )
 >>> bounding_box: ap.RectangleGeom = rectangle.get_bounds()
 ```

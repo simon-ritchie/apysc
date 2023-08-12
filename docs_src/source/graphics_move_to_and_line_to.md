@@ -17,11 +17,14 @@ The `move_to` and `line_to` interfaces have x and y arguments.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=300, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 
 # Move to x=50, y=50 point (no drawing).
 sprite.graphics.move_to(x=50, y=50)
@@ -44,11 +47,14 @@ Sequentially, if you call the `line_to` interface, the result line becomes the p
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 
 # Move to x=50, y=50 point (no drawing).
 sprite.graphics.move_to(x=50, y=50)
@@ -80,11 +86,14 @@ If you call the `move_to` interface after calling the `line_to` interface, it cr
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 
 # First move_to interface calling.
 sprite.graphics.move_to(x=50, y=50)
@@ -134,11 +143,14 @@ def on_line_click(e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color="#0af", thickness=30)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=30)
 polyline: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=150, y=50)
 polyline.click(on_line_click)
@@ -187,7 +199,7 @@ Move a line position to a specified point.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=5)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
 >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
 >>> line_1 == line_2
@@ -236,7 +248,7 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=5)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
 >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
 >>> line_3: ap.Polyline = sprite.graphics.line_to(x=50, y=150)

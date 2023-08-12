@@ -21,7 +21,10 @@ The `dest_x` and `dest_y` are the bezier curve's destination coordinates.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 path: ap.Path = ap.Path(
     path_data_list=[
@@ -33,7 +36,7 @@ path: ap.Path = ap.Path(
             dest_y=100,
         ),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -51,7 +54,10 @@ Similarly, the cyan circle shows the destination point.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 CONTROL_X: float = 100
@@ -68,7 +74,7 @@ path: ap.Path = ap.Path(
             dest_y=DEST_Y,
         ),
     ],
-    line_color="#fff",
+    line_color=ap.Color("#fff"),
     line_thickness=5,
 )
 
@@ -77,13 +83,13 @@ magenta_circle: ap.Circle = ap.Circle(
     x=CONTROL_X,
     y=CONTROL_Y,
     radius=RADIUS,
-    fill_color="#f0a",
+    fill_color=ap.Color("#f0a"),
 )
 cyan_circle: ap.Circle = ap.Circle(
     x=DEST_X,
     y=DEST_Y,
     radius=RADIUS,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 ap.save_overall_html(dest_dir_path="path_bezier_2d_basic_usage_2/")
@@ -110,7 +116,10 @@ Since it uses the `relative` setting, the `control_y` parameter becomes the minu
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage"
 )
 
 path: ap.Path = ap.Path(
@@ -120,7 +129,7 @@ path: ap.Path = ap.Path(
             control_x=50, control_y=-75, dest_x=100, dest_y=0, relative=True
         ),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -164,7 +173,7 @@ Path data class for the SVG's `2D bezier curve` (Q).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),

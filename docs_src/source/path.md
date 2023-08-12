@@ -19,14 +19,17 @@ The constructor also accepts each style's argument, such as the `fill_color` and
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 path: ap.Path = ap.Path(
     path_data_list=[
         ap.PathMoveTo(x=50, y=50),
         ap.PathLineTo(x=150, y=50),
     ],
-    line_color="0af",
+    line_colorap.Color("0af"),
     line_thickness=5,
 )
 
@@ -134,7 +137,7 @@ The `x` property updates or gets the instance's x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"), stage_width=150, stage_height=100, stage_elem_id="stage"
 )
 sprite: ap.Sprite = ap.Sprite()
 path: ap.Path = ap.Path(
@@ -144,7 +147,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=50, y=50),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 path.x = ap.Number(50)
@@ -163,7 +166,10 @@ The `y` property updates or gets the instance's y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=100, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=100,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 path: ap.Path = ap.Path(
@@ -173,7 +179,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=50, y=50),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 path.y = ap.Number(50)
@@ -192,7 +198,10 @@ The `fill_color` property updates or gets the instance's fill color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 path: ap.Path = ap.Path(
@@ -219,7 +228,10 @@ The `fill_alpha` property updates or gets the instance's fill alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -230,7 +242,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 path.fill_alpha = ap.Number(0.5)
 
@@ -248,7 +260,10 @@ The `line_color` property updates or gets the instance's line color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -277,7 +292,10 @@ The `line_alpha` property updates or gets the instance's line alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -288,7 +306,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 path.line_alpha = ap.Number(0.5)
@@ -307,7 +325,10 @@ The `line_thickness` property updates or gets the instance's line thickness (lin
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -318,7 +339,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 path.line_thickness = ap.Int(10)
 
@@ -336,7 +357,10 @@ The `line_dot_setting` property updates or gets the instance's line dot-style se
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -347,7 +371,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 path.line_dot_setting = ap.LineDotSetting(dot_size=3)
@@ -366,7 +390,10 @@ The `line_dash_setting` property updates or gets the instance's line dash-style 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -377,7 +404,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 path.line_dash_setting = ap.LineDashSetting(dash_size=7, space_size=2)
@@ -396,7 +423,10 @@ The `line_round_dot_setting` property updates or gets the instance's line-round 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -407,7 +437,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 path.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=4)
 
@@ -425,7 +455,10 @@ The `line_dash_dot_setting` property updates or gets the instance's dash-dotted 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -436,7 +469,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 path.line_dash_dot_setting = ap.LineDashDotSetting(
@@ -459,7 +492,10 @@ The `rotation_around_center` property updates or gets the instance's rotation va
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -470,7 +506,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -506,7 +542,10 @@ Similarly, the `get_rotation_around_point` method gets the instance's rotation v
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -517,7 +556,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 X: ap.Int = ap.Int(100)
@@ -554,7 +593,10 @@ The `scale_x_from_center` property updates or gets the instance's scale-x from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -565,7 +607,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -605,7 +647,10 @@ The `scale_y_from_center` property updates or gets the instance's scale-y from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -616,7 +661,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -658,7 +703,10 @@ Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -669,7 +717,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -713,7 +761,10 @@ Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -724,7 +775,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -766,7 +817,10 @@ The `flip_x` property updates or gets the instance's flip-x (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -777,7 +831,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -811,7 +865,10 @@ The `flip_y` property updates or gets the instance's flip-y (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -822,7 +879,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -856,7 +913,10 @@ The `skew_x` property updates or gets the instance's skew-x (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -867,7 +927,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -901,7 +961,10 @@ The `skew_y` property updates or gets the instance's skew-y (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -912,7 +975,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -992,7 +1055,7 @@ Create a path vector graphic.<hr>
 ...         ap.PathMoveTo(x=0, y=50),
 ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
 ...     ],
-...     line_color="#ffffff",
+...     line_color=ap.Color("#ffffff"),
 ...     line_thickness=3,
 ... )
 >>> path.line_color

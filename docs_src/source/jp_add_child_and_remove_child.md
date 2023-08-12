@@ -48,11 +48,14 @@ def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 options: _RectOptions = {"rectangle": rectangle}
 sprite.click(on_sprite_click, options=options)
@@ -101,11 +104,14 @@ def on_sprite_click(
 
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 first_sprite: ap.Sprite = ap.Sprite()
-first_sprite.graphics.begin_fill(color="#0af")
+first_sprite.graphics.begin_fill(color=ap.Color("#0af"))
 first_sprite.x = ap.Number(50)
 first_sprite.y = ap.Number(50)
 rectangle: ap.Rectangle = first_sprite.graphics.draw_rect(x=0, y=0, width=50, height=50)
@@ -150,7 +156,7 @@ ap.save_overall_html(dest_dir_path="sprite_basic_usage_of_add_child/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
->>> sprite_1.graphics.begin_fill(color="#0af")
+>>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -181,7 +187,7 @@ ap.save_overall_html(dest_dir_path="sprite_basic_usage_of_add_child/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

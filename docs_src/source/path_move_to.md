@@ -23,14 +23,17 @@ The following example sets the x=50 and y=50 coordinates with the `PathMoveTo` i
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 path: ap.Path = ap.Path(
     path_data_list=[
         ap.PathMoveTo(x=50, y=50),
         ap.PathLineTo(x=150, y=50),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -54,7 +57,10 @@ The following example sets the relative setting and moves to the 50px under posi
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 path: ap.Path = ap.Path(
     path_data_list=[
@@ -63,7 +69,7 @@ path: ap.Path = ap.Path(
         ap.PathMoveTo(x=0, y=50, relative=True),
         ap.PathLineTo(x=0, y=50, relative=True),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -103,7 +109,7 @@ Path data class for the SVG `move to` (M).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),

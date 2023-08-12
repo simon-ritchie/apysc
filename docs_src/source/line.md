@@ -17,12 +17,15 @@ The constructor also accepts each style's argument, such as the `line_color`.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -52,12 +55,15 @@ The `x` property updates or gets the instance's x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_ap.Color(color=ap.Color("#0af")),
     line_thickness=5,
 )
 line.x = ap.Number(100)
@@ -78,12 +84,15 @@ The `y` property updates or gets the instance's y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 line.y = ap.Number(80)
@@ -104,7 +113,10 @@ The `line_color` property updates or gets the instance's line color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
@@ -127,12 +139,15 @@ The `line_alpha` property updates or gets the instance's line alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 line.line_alpha = ap.Number(0.3)
@@ -151,12 +166,15 @@ The `line_thickness` property updates or gets the instance's line thickness (lin
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 line.line_thickness = ap.Int(10)
 
@@ -174,12 +192,15 @@ The `line_dot_setting` property updates or gets the instance's line dot-style se
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 line.line_dot_setting = ap.LineDotSetting(dot_size=3)
@@ -198,12 +219,15 @@ The `line_dash_setting` property updates or gets the instance's line dash-style 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 line.line_dash_setting = ap.LineDashSetting(dash_size=6, space_size=2)
@@ -222,12 +246,15 @@ The `line_round_dot_setting` property updates or gets the instance's line-round 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 line.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=3)
 
@@ -245,12 +272,15 @@ The `line_dash_dot_setting` property updates or gets the instance's dash-dotted 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 line.line_dash_dot_setting = ap.LineDashDotSetting(
@@ -271,12 +301,15 @@ The `rotation_around_center` property updates or gets the instance's rotation va
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -312,12 +345,14 @@ Similarly, the `get_rotation_around_point` method gets the instance's rotation v
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100, stage_elem_id="stage"
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 x: ap.Int = ap.Int(100)
@@ -355,12 +390,15 @@ The `scale_x_from_center` property updates or gets the instance's scale-x from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -399,12 +437,15 @@ The `scale_y_from_center` property updates or gets the instance's scale-y from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -445,12 +486,15 @@ Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -494,12 +538,15 @@ Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -541,12 +588,15 @@ The `flip_x` property updates or gets the instance's flip-x (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -582,12 +632,15 @@ The `flip_y` property updates or gets the instance's flip-y (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -623,12 +676,15 @@ The `skew_x` property updates or gets the instance's skew-x (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -664,12 +720,15 @@ The `skew_y` property updates or gets the instance's skew-y (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -745,7 +804,7 @@ Create a line vector graphic.<hr>
 >>> line: ap.Line = ap.Line(
 ...     start_point=ap.Point2D(x=50, y=50),
 ...     end_point=ap.Point2D(x=150, y=50),
-...     line_color="#ffffff",
+...     line_color=ap.Color("#ffffff"),
 ...     line_thickness=3,
 ... )
 >>> line.line_color

@@ -17,7 +17,10 @@ The constructor also accepts each style's argument, such as the `fill_color`.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -25,7 +28,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 ap.save_overall_html(dest_dir_path="polygon_basic_usage/")
@@ -50,7 +53,10 @@ The `x` property updates or gets the instance's x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -58,7 +64,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 polygon.x = ap.Number(100)
 
@@ -78,7 +84,10 @@ The `y` property updates or gets the instance's y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -86,7 +95,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 polygon.y = ap.Number(100)
 
@@ -106,7 +115,10 @@ The `fill_color` property updates or gets the instance's fill color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -131,7 +143,10 @@ The `fill_alpha` property updates or gets the instance's fill alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -139,7 +154,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 polygon.fill_alpha = ap.Number(0.3)
 
@@ -157,7 +172,10 @@ The `line_color` property updates or gets the instance's line color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -183,7 +201,10 @@ The `line_alpha` property updates or gets the instance's line alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -191,7 +212,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 polygon.line_alpha = ap.Number(0.3)
@@ -210,7 +231,10 @@ The `line_thickness` property updates or gets the instance's line thickness (lin
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -218,7 +242,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 polygon.line_thickness = ap.Int(8)
 
@@ -236,7 +260,10 @@ The `line_dot_setting` property updates or gets the instance's line dot-style se
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -244,7 +271,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=2,
 )
 polygon.line_dot_setting = ap.LineDotSetting(dot_size=2)
@@ -263,7 +290,10 @@ The `line_dash_setting` property updates or gets the instance's line dash-style 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -271,7 +301,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=2,
 )
 polygon.line_dash_setting = ap.LineDashSetting(dash_size=5, space_size=2)
@@ -290,7 +320,10 @@ The `line_round_dot_setting` property updates or gets the instance's line-round 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -298,7 +331,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 polygon.line_round_dot_setting = ap.LineRoundDotSetting(round_size=4, space_size=3)
 
@@ -316,7 +349,10 @@ The `line_dash_dot_setting` property updates or gets the instance's dash-dotted 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -324,7 +360,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 polygon.line_dash_dot_setting = ap.LineDashDotSetting(
     dot_size=2, dash_size=5, space_size=2
@@ -344,7 +380,10 @@ The `rotation_around_center` property updates or gets the instance's rotation va
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -352,7 +391,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -387,7 +426,10 @@ Similarly, the `get_rotation_around_point` method gets the instance's rotation v
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -395,7 +437,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 x: ap.Int = ap.Int(100)
 y: ap.Int = ap.Int(100)
@@ -432,7 +474,9 @@ The `scale_x_from_center` property updates or gets the instance's scale-x from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150, stage_elem_id="stage"
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -440,7 +484,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 
@@ -478,7 +522,10 @@ The `scale_y_from_center` property updates or gets the instance's scale-y from t
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -486,7 +533,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 
@@ -526,7 +573,10 @@ Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -534,7 +584,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 x: ap.Int = ap.Int(100)
@@ -577,7 +627,10 @@ Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -585,7 +638,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 y: ap.Int = ap.Int(100)
@@ -626,7 +679,10 @@ The `flip_x` property updates or gets the instance's flip-x (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -634,7 +690,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=75),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -667,7 +723,10 @@ The `flip_y` property updates or gets the instance's flip-y (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -675,7 +734,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -708,7 +767,10 @@ The `skew_x` property updates or gets the instance's skew-x (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -716,7 +778,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -749,7 +811,10 @@ The `skew_y` property updates or gets the instance's skew-y (distortion) value:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -757,7 +822,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -837,7 +902,7 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 ...         ap.Point2D(x=50, y=100),
 ...         ap.Point2D(x=100, y=75),
 ...     ],
-...     fill_color="#00aaff",
+...     fill_color=ap.Color("#00aaff"),
 ... )
 >>> polygon.fill_color
 String("#00aaff")

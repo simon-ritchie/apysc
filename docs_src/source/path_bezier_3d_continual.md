@@ -29,7 +29,10 @@ The `PathBezier3DContinual` class has the restriction, and you can use this clas
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=400, stage_height=420, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=420,
+    stage_elem_id="stage",
 )
 
 path: ap.Path = ap.Path(
@@ -50,7 +53,7 @@ path: ap.Path = ap.Path(
             dest_y=200,
         ),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -66,7 +69,10 @@ In the following example, the cyan circle shows the control point (`control_x` a
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=400, stage_height=420, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=420,
+    stage_elem_id="stage",
 )
 
 CONTROL_X: float = 350
@@ -92,7 +98,7 @@ path: ap.Path = ap.Path(
             dest_y=DEST_Y,
         ),
     ],
-    line_color="#fff",
+    line_color=ap.Color("#fff"),
     line_thickness=5,
 )
 
@@ -102,14 +108,14 @@ cyan_circle: ap.Circle = ap.Circle(
     x=CONTROL_X,
     y=CONTROL_Y,
     radius=RADIUS,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 magenta_circle: ap.Circle = ap.Circle(
     x=DEST_X,
     y=DEST_Y,
     radius=RADIUS,
-    fill_color="#f0a",
+    fill_color=ap.Color("#f0a"),
 )
 
 ap.save_overall_html(dest_dir_path="path_bezier_3d_continual_basic_usage_2/")
@@ -132,7 +138,10 @@ A criteria point is a starting point, not a control point.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=400, stage_height=420, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=420,
+    stage_elem_id="stage",
 )
 
 path: ap.Path = ap.Path(
@@ -154,7 +163,7 @@ path: ap.Path = ap.Path(
             relative=True,
         ),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -198,7 +207,7 @@ Path data class for SVG's `continual 3D bezier curve` (S).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),

@@ -14,7 +14,7 @@ The circle vector graphics class.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> circle.x
 Number(100.0)
@@ -80,7 +80,7 @@ Create a circle vector graphic.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
->>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color="#00aaff")
+>>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Color("#00aaff"))
 >>> circle.x
 Number(100.0)
 
@@ -97,7 +97,7 @@ String("#00aaff")
 ...     x=100,
 ...     y=100,
 ...     radius=50,
-...     line_color="#ffffff",
+...     line_color=ap.Color("#ffffff"),
 ...     line_thickness=3,
 ...     line_dot_setting=ap.LineDotSetting(dot_size=10),
 ... )

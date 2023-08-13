@@ -27,7 +27,10 @@ stage: ap.Stage = ap.Stage()
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="stage")
+stage: ap.Stage = ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 ap.save_overall_html(dest_dir_path="stage_background_color/")
 ```
@@ -45,7 +48,10 @@ This will create HTML with black background stage, as follows:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=500, stage_height=50, background_color="#333", stage_elem_id="stage"
+    stage_width=500,
+    stage_height=50,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="stage_size/")
@@ -63,7 +69,10 @@ Stage element id (HTML id) can be set by `stage_elem_id` argument. If you don't 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="line_chart_1")
+stage: ap.Stage = ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_elem_id="line_chart_1",
+)
 ```
 
 This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.
@@ -86,7 +95,7 @@ def _main() -> None:
     _: ap.Stage = ap.Stage(
         stage_width=150,
         stage_height=150,
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_elem_id="my_stage",
     )
     ...
@@ -140,7 +149,7 @@ Create Stage (overall viewport) instance.<hr>
 >>> stage: ap.Stage = ap.Stage(
 ...     stage_width=500,
 ...     stage_height=300,
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_elem_id="sales_chart",
 ... )
 ```
@@ -169,7 +178,7 @@ Get stage's html element id.<hr>
 >>> stage: ap.Stage = ap.Stage(
 ...     stage_width=500,
 ...     stage_height=300,
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_elem_id="sales_chart",
 ... )
 >>> stage.stage_elem_id
@@ -201,7 +210,7 @@ Add display object child to this instance.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
->>> sprite_1.graphics.begin_fill(color="#0af")
+>>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -240,7 +249,7 @@ Remove display object child from this instance.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -287,7 +296,7 @@ Get a boolean whether this instance contains a specified child.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -328,7 +337,7 @@ Get a current children's number.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -377,7 +386,7 @@ Get a child at a specified index.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

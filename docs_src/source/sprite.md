@@ -19,11 +19,14 @@ The `Sprite` instance has the `graphics` attribute, and you can draw each vector
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="sprite_graphics_attribute/")
@@ -64,11 +67,14 @@ def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=250, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=250,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 sprite.click(on_sprite_click)
@@ -115,7 +121,7 @@ Create a basic display object that can be a parent.<hr>
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
 >>> # Create the sprite child rectangle
->>> sprite_1.graphics.begin_fill(color="#0af")
+>>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

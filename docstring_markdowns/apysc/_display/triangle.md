@@ -20,8 +20,8 @@ The triangle vector graphics class.<hr>
 ...     y2=100,
 ...     x3=100,
 ...     y3=100,
-...     fill_color="#0af",
-...     line_color="#fff",
+...     fill_color=ap.Color("#0af"),
+...     line_color=ap.Color("#fff"),
 ...     line_thickness=3,
 ... )
 >>> triangle.x2
@@ -97,8 +97,8 @@ Create a triangle vector graphics instance.<hr>
 ...     y2=100,
 ...     x3=100,
 ...     y3=100,
-...     fill_color="#0af",
-...     line_color="#fff",
+...     fill_color=ap.Color("#0af"),
+...     line_color=ap.Color("#fff"),
 ...     line_thickness=3,
 ... )
 >>> triangle.x2

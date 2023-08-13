@@ -17,13 +17,16 @@ The constructor also accepts each font's and style's argument, such as the `font
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 ap.save_overall_html(dest_dir_path="svg_text_basic_usage/")
 ```
@@ -41,13 +44,16 @@ So if you specify `y=0` as the coordinate, you can see almost nothing of a text'
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=0,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 ap.save_overall_html(dest_dir_path="svg_text_note_on_the_y_baseline/")
 ```
@@ -63,13 +69,16 @@ The `text` property updates or gets the instance's text.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.text = ap.String("Lorem ipsum")
 ap.save_overall_html(dest_dir_path="svg_text_text/")
@@ -86,13 +95,16 @@ The `font_size` property updates or gets the instance's font size.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=34,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.font_size = ap.Int(24)
 ap.save_overall_html(dest_dir_path="svg_text_font_size/")
@@ -111,13 +123,16 @@ This property requires an `Array` of each font name `String`.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.font_family = ap.Array([ap.String("Impact"), ap.String("Times New Roman")])
 ap.save_overall_html(dest_dir_path="svg_text_font_family/")
@@ -134,12 +149,15 @@ The `x` property updates or gets the instance's x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.x = ap.Number(50)
 ap.save_overall_html(dest_dir_path="svg_text_x/")
@@ -156,13 +174,16 @@ The `y` property updates or gets the instance's y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=70, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=70,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.y = ap.Number(45)
 ap.save_overall_html(dest_dir_path="svg_text_y/")
@@ -179,7 +200,10 @@ The `fill_color` property updates or gets the instance's fill color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
@@ -201,13 +225,16 @@ The `fill_alpha` property updates or gets the instance's fill alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.fill_alpha = ap.Number(0.3)
 ap.save_overall_html(dest_dir_path="svg_text_fill_alpha/")
@@ -224,7 +251,10 @@ The `line_color` property updates or gets the instance's line color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
@@ -232,7 +262,7 @@ svg_text: ap.SVGText = ap.SVGText(
     y=34,
     font_size=24,
     bold=True,
-    fill_color="",
+    fill_color=ap.COLORLESS,
     line_thickness=1,
 )
 svg_text.line_color = ap.String("#0af")
@@ -250,7 +280,10 @@ The `line_alpha` property updates or gets the instance's line alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
@@ -258,8 +291,8 @@ svg_text: ap.SVGText = ap.SVGText(
     y=34,
     font_size=24,
     bold=True,
-    fill_color="",
-    line_color="#0af",
+    fill_color=ap.COLORLESS,
+    line_color=ap.Color("#0af"),
     line_thickness=1,
 )
 svg_text.line_alpha = ap.Number(0.3)
@@ -277,7 +310,10 @@ The `line_thickness` property updates or gets the instance's line thickness (lin
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
@@ -285,8 +321,8 @@ svg_text: ap.SVGText = ap.SVGText(
     y=34,
     font_size=24,
     bold=True,
-    fill_color="",
-    line_color="#0af",
+    fill_color=ap.COLORLESS,
+    line_color=ap.Color("#0af"),
 )
 svg_text.line_thickness = ap.Int(3)
 ap.save_overall_html(dest_dir_path="svg_text_line_thickness/")
@@ -303,14 +339,17 @@ The `leading` property updates or gets the instance's text leading (line height)
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=500, stage_height=120, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=500,
+    stage_height=120,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\n"
     "sed do eiusmod tempor incididunt",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.leading = ap.Number(2.0)
 
@@ -330,14 +369,17 @@ This property requires the `SVGTextAlign` enum.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=500, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=500,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\n"
     "sed do eiusmod tempor incididunt",
     x=250,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.align = ap.SVGTextAlign.CENTER
 
@@ -358,7 +400,7 @@ import apysc as ap
 STAGE_WIDTH: int = 500
 STAGE_HEIGHT: int = 120
 ap.Stage(
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_width=STAGE_WIDTH,
     stage_height=STAGE_HEIGHT,
     stage_elem_id="stage",
@@ -369,12 +411,12 @@ container_sprite.x = ap.Number(STAGE_WIDTH / 2)
 vertical_x0_line: ap.Line = ap.Line(
     start_point=ap.Point2D(0, 0),
     end_point=ap.Point2D(0, STAGE_HEIGHT),
-    line_color="#666",
+    line_color=ap.Color("#666"),
     parent=container_sprite,
 )
 x0_text: ap.SVGText = ap.SVGText(
     text="Text's x=0 position",
-    fill_color="#666",
+    fill_color=ap.Color("#666"),
     x=5,
     y=20,
     parent=container_sprite,
@@ -384,7 +426,7 @@ left_align_sample_text: ap.SVGText = ap.SVGText(
     text="Left align sample (default)",
     x=0,
     y=52,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
 
@@ -392,7 +434,7 @@ center_align_sample_text: ap.SVGText = ap.SVGText(
     text="Center align sample",
     x=0,
     y=72,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
 center_align_sample_text.align = ap.SVGTextAlign.CENTER
@@ -401,7 +443,7 @@ right_align_sample_text: ap.SVGText = ap.SVGText(
     text="Right align sample",
     x=0,
     y=92,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
 right_align_sample_text.align = ap.SVGTextAlign.RIGHT
@@ -420,13 +462,16 @@ The `bold` property updates or gets the instance's `bold` text setting.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Bold style sample",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.bold = ap.Boolean(True)
 ap.save_overall_html(dest_dir_path="svg_text_bold/")
@@ -443,13 +488,16 @@ The `italic` property updates or gets the instance's `italic` style setting.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Italic style sample",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.italic = ap.Boolean(True)
 ap.save_overall_html(dest_dir_path="svg_text_italic/")
@@ -466,13 +514,16 @@ The `rotation_around_center` property updates or gets the instance's rotation va
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=100,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     align=ap.SVGTextAlign.CENTER,
 )
 
@@ -508,7 +559,10 @@ Similarly, the `get_rotation_around_point` method gets the instance's rotation v
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=120, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=120,
+    stage_elem_id="stage",
 )
 X: ap.Number = ap.Number(20)
 Y: ap.Number = ap.Number(32)
@@ -516,7 +570,7 @@ svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=X,
     y=Y,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -564,14 +618,17 @@ The `scale_x_from_center` property updates or gets the instance's scale-x from t
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 direction: ap.Int = ap.Int(-1)
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -612,7 +669,10 @@ Similarly, the `get_scale_x_from_point` method gets the instance's scale-x from 
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 X: ap.Number = ap.Number(20)
 direction: ap.Int = ap.Int(-1)
@@ -620,7 +680,7 @@ svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=X,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -659,13 +719,16 @@ The `flip_x` property updates or gets the instance's flip-x (reflecting state) b
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -698,13 +761,16 @@ The `flip_y` property updates or gets the instance's flip-y (reflecting state) b
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -786,7 +852,7 @@ The class for an SVG text.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_width=200,
 ...     stage_height=50,
 ...     stage_elem_id="stage",
@@ -794,7 +860,7 @@ The class for an SVG text.<hr>
 >>> svg_text: ap.SVGText = ap.SVGText(
 ...     text="Hello, world!",
 ...     font_size=20,
-...     fill_color="#0af",
+...     fill_color=ap.Color("#0af"),
 ... )
 >>> svg_text.text
 String("Hello, world!")

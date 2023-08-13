@@ -21,7 +21,10 @@ For instance, a `Boolean` value becomes `true` or `false`, not `True` or `False`
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=0, stage_height=0, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=0,
+    stage_height=0,
+    stage_elem_id="stage",
 )
 int_value: ap.Int = ap.Int(100)
 string: ap.String = int_value.to_string()
@@ -51,12 +54,15 @@ Sometimes this method becomes useful when using text-related interfaces with its
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=300, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 width: ap.Int = ap.Int(50)
 text: ap.SVGText = ap.SVGText(
     text=ap.String("width is: ") + width.to_string(),
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     x=20,
     y=30,
 )
@@ -89,7 +95,7 @@ Convert this instance to a string.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=200, stage_height=200
+...     background_color=ap.Color("#333"), stage_width=200, stage_height=200
 ... )
 >>> int_value: ap.Int = ap.Int(value=100)
 >>> string: ap.String = int_value.to_string()

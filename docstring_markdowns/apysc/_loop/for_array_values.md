@@ -21,7 +21,7 @@ The loop implementation class for the `ap.Array` values.<hr>
 ...         x=value,
 ...         y=75,
 ...         radius=25,
-...         fill_color="#0af",
+...         fill_color=ap.Color("#0af"),
 ...     )
 ...
 ```
@@ -73,7 +73,7 @@ The loop implementation class for the `ap.Array` values.<hr>
 ...         x=value,
 ...         y=75,
 ...         radius=25,
-...         fill_color="#0af",
+...         fill_color=ap.Color("#0af"),
 ...     )
 ...
 ```

@@ -48,7 +48,7 @@ rectangle: ap.Rectangle = ap.Rectangle(
     y=50,
     width=50,
     height=50,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
     variable_name_suffix="my_rectangle",
 )
 

@@ -31,7 +31,10 @@ Instantiating `Stage` makes this error disappear.
 import apysc as ap
 
 ap.Stage(
-    stage_width=100, stage_height=100, background_color="#333", stage_elem_id="stage"
+    stage_width=100,
+    stage_height=100,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 print(ap.True_)
 ```
@@ -51,13 +54,16 @@ A function or method that takes a `Boolean` argument can accept these constants.
 import apysc as ap
 
 ap.Stage(
-    stage_width=100, stage_height=50, background_color="#333", stage_elem_id="stage"
+    stage_width=100,
+    stage_height=50,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 text: ap.SVGText = ap.SVGText(
     text="Hello!",
     x=10,
     y=31,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     bold=ap.True_,
     italic=ap.False_,
 )

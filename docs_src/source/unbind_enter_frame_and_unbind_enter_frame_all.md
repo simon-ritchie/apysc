@@ -23,11 +23,15 @@ import apysc as ap
 stage: ap.Stage = ap.Stage(
     stage_width=150,
     stage_height=150,
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -80,14 +84,22 @@ import apysc as ap
 stage: ap.Stage = ap.Stage(
     stage_width=250,
     stage_height=150,
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_elem_id="stage",
 )
 left_rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 right_rectangle: ap.Rectangle = ap.Rectangle(
-    x=150, y=50, width=50, height=50, fill_color="#f0a"
+    x=150,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#f0a"),
 )
 
 
@@ -178,7 +190,7 @@ Unbind a specified handler's enter-frame event.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> rectangle: ap.Rectangle = ap.Rectangle(
-...     x=50, y=50, width=50, height=50, fill_color="#0af"
+...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
 ... )
 >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
 ...     rectangle.x += 1
@@ -205,7 +217,7 @@ Unbind all enter-frame events.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> rectangle: ap.Rectangle = ap.Rectangle(
-...     x=50, y=50, width=50, height=50, fill_color="#0af"
+...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
 ... )
 >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
 ...     rectangle.x += 1

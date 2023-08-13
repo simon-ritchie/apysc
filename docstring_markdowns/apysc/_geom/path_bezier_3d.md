@@ -14,7 +14,7 @@ Path data class for the SVG's `3D bezier curve` (C).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),
@@ -89,7 +89,7 @@ Path data class for the SVG's `3D bezier curve` (C).<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),

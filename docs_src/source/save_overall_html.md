@@ -17,7 +17,10 @@ The following code example exports the HTML and JavaScript files, and the export
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="save_overall_html_interface_basic_usage/")
@@ -35,7 +38,10 @@ The `save_overall_html` function has the `minify` optional argument (default is 
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", minify=False)
@@ -53,7 +59,10 @@ Also, the `skip_js_lib_exporting` option is helpful when you want to skip the al
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(
@@ -71,7 +80,10 @@ If you need to change the output HTML file name, use the `html_file_name` option
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", html_file_name="chart.html")
@@ -85,7 +97,10 @@ You can bundle each JavaScript library to the single output HTML file by the `em
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", embed_js_libs=True)
@@ -99,7 +114,10 @@ The `verbose` optional argument changes the exporting stdout behavior. If the sp
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", verbose=0)

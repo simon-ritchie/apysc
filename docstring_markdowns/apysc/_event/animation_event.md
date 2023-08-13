@@ -18,7 +18,7 @@ Animation event class.<hr>
 ...     rectangle: ap.Rectangle = e.this.target
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -46,7 +46,7 @@ Animation event class.<hr>
 ...     rectangle: ap.Rectangle = e.this.target
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

@@ -33,10 +33,13 @@ def on_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=250,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 sprite.click(on_click)
@@ -64,10 +67,10 @@ Remove all children from this instance.<hr>
 >>> import apysc as ap
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> rectangle_1: ap.Rectangle = ap.Rectangle(
-...     x=50, y=50, width=50, height=50, fill_color="#0af"
+...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
 ... )
 >>> rectangle_2: ap.Rectangle = ap.Rectangle(
-...     x=150, y=50, width=50, height=50, fill_color="#0af"
+...     x=150, y=50, width=50, height=50, fill_color=ap.Color("#0af")
 ... )
 >>> sprite.add_child(child=rectangle_1)
 >>> sprite.add_child(child=rectangle_2)

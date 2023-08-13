@@ -16,7 +16,12 @@ The `length` property returns an `Int` value as follows:
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 string: ap.String = ap.String("ABCDEF")
 length: ap.Int = string.length
@@ -37,7 +42,12 @@ Most of the emoji characters behave as expected length, as follows:
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 string: ap.String = ap.String("🎉")
 ap.assert_equal(string.length, 1)
 
@@ -55,7 +65,12 @@ However, in some emojis that have multiple code points, this property returns an
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 assert len("👨‍👩‍👦") == 5
 

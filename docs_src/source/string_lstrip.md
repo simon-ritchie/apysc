@@ -16,7 +16,12 @@ If you skip this argument, this interface removes whitespaces (and line breaks) 
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 string: ap.String = ap.String("  \n　 aabbaa  ")
 string = string.lstrip()
@@ -33,7 +38,12 @@ Also, if you specify any value to the `string` argument, this interface removes 
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 string: ap.String = ap.String("aabbaa")
 string = string.lstrip(string="a")

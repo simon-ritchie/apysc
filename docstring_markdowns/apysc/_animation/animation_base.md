@@ -110,7 +110,7 @@ This interface can only use before an animation starts<hr>
 ...     ap.trace("Animation completed!")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -147,7 +147,7 @@ Start an animation with current settings.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

@@ -14,7 +14,12 @@ The `split` method requires the `sep` `String` argument as a separator.
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 str_value: ap.String = ap.String("Lorem ipsum dolor sit")
 splitted_strs: ap.Array[ap.String] = str_value.split(sep=ap.String(" "))

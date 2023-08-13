@@ -144,7 +144,7 @@ Set line style values.<hr>
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+...     color=ap.Color("#fff"), thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
 ... )
 >>> line: ap.Line = sprite.graphics.draw_line(
 ...     x_start=50, y_start=50, x_end=150, y_end=50

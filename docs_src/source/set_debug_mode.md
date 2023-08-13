@@ -21,7 +21,10 @@ After the stage instantiation, you can set the debug mode by the `set_debug_mode
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 ap.set_debug_mode()
 sprite: ap.Sprite = ap.Sprite()

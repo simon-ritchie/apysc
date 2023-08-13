@@ -16,7 +16,7 @@ Clear all graphics and reset fill and line settings.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> _ = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 >>> _ = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 >>> sprite.graphics.num_children

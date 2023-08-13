@@ -21,11 +21,14 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=350,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
@@ -78,10 +81,13 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 
@@ -157,7 +163,7 @@ Timer class to handle function calling at regular intervals.<hr>
 ...     rectangle.x += 1
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

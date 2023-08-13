@@ -98,7 +98,7 @@ Add display object child to this instance.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
->>> sprite_1.graphics.begin_fill(color="#0af")
+>>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -136,7 +136,7 @@ Get a boolean whether this instance contains a specified child.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -178,7 +178,7 @@ Get a child at a specified index.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -213,7 +213,7 @@ Remove display object child from this instance.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -238,10 +238,10 @@ Remove all children from this instance.<hr>
 >>> import apysc as ap
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> rectangle_1: ap.Rectangle = ap.Rectangle(
-...     x=50, y=50, width=50, height=50, fill_color="#0af"
+...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
 ... )
 >>> rectangle_2: ap.Rectangle = ap.Rectangle(
-...     x=150, y=50, width=50, height=50, fill_color="#0af"
+...     x=150, y=50, width=50, height=50, fill_color=ap.Color("#0af")
 ... )
 >>> sprite.add_child(child=rectangle_1)
 >>> sprite.add_child(child=rectangle_2)

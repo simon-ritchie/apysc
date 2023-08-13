@@ -21,7 +21,10 @@ The constructor also accepts each style's argument, such as the `fill_color`.
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -30,7 +33,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 ap.save_overall_html(dest_dir_path="triangle_basic_usage/")
@@ -55,7 +58,10 @@ The `x` property updates or gets the instance's x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -64,7 +70,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x = ap.Number(100)
 
@@ -82,7 +88,10 @@ The `y` property updates or gets the instance's y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -91,7 +100,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y = ap.Number(100)
 
@@ -109,7 +118,10 @@ The `x1` property updates or gets the instance's first vertex x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -118,7 +130,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x1 = ap.Number(100)
 
@@ -136,7 +148,10 @@ The `y1` property updates or gets the instance's first vertex y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -145,7 +160,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y1 = ap.Number(0)
 
@@ -163,7 +178,10 @@ The `x2` property updates or gets the instance's second vertex x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -172,7 +190,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x2 = ap.Number(75)
 
@@ -190,7 +208,10 @@ The `y2` property updates or gets the instance's second vertex y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -199,7 +220,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y2 = ap.Number(75)
 
@@ -217,7 +238,10 @@ The `x3` property updates or gets the instance's third vertex x-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -226,7 +250,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x3 = ap.Number(75)
 
@@ -244,7 +268,10 @@ The `y3` property updates or gets the instance's third vertex y-coordinate:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -253,7 +280,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y3 = ap.Number(75)
 
@@ -271,7 +298,10 @@ The `fill_color` property updates or gets the instance's fill color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -280,7 +310,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.fill_color = ap.String("#f0a")
 
@@ -298,7 +328,10 @@ The `fill_alpha` property updates or gets the instance's fill alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -307,7 +340,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.fill_alpha = ap.Number(0.3)
 
@@ -325,7 +358,10 @@ The `line_color` property updates or gets the instance's line color:
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -334,7 +370,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
     line_thickness=3,
 )
 triangle.line_color = ap.String("#fff")
@@ -353,7 +389,10 @@ The `line_alpha` property updates or gets the instance's line alpha (opacity):
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -362,7 +401,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 triangle.line_alpha = ap.Number(0.3)
@@ -381,7 +420,10 @@ The `line_thickness` property updates or gets the instance's line thickness (lin
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -390,7 +432,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=1,
 )
 triangle.line_thickness = ap.Int(5)
@@ -409,7 +451,10 @@ The `line_dot_setting` property updates or gets the instance's line dot-style se
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -418,7 +463,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 triangle.line_dot_setting = ap.LineDotSetting(dot_size=3)
@@ -437,7 +482,7 @@ The `line_dash_setting` property updates or gets the instance's line dash-style 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"), stage_width=150, stage_height=150, stage_elem_id="stage"
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -446,7 +491,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 triangle.line_dash_setting = ap.LineDashSetting(dash_size=7, space_size=2)
@@ -465,7 +510,7 @@ The `line_round_dot_setting` property updates or gets the instance's line-round 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"), stage_width=150, stage_height=150, stage_elem_id="stage"
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -474,7 +519,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 triangle.line_round_dot_setting = ap.LineRoundDotSetting(round_size=6, space_size=3)
 
@@ -492,7 +537,7 @@ The `line_dash_dot_setting` property updates or gets the instance's dash-dotted 
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"), stage_width=150, stage_height=150, stage_elem_id="stage"
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -501,7 +546,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 triangle.line_dash_dot_setting = ap.LineDashDotSetting(
@@ -522,7 +567,10 @@ The `rotation_around_center` property updates or gets the instance's rotation va
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -531,7 +579,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -566,7 +614,10 @@ Similarly, the `get_rotation_around_point` method gets the instance's rotation v
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ROTATION_X: ap.Int = ap.Int(100)
 ROTATION_Y: ap.Int = ap.Int(100)
@@ -577,7 +628,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=ROTATION_X,
     y3=ROTATION_Y,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -613,7 +664,10 @@ The `scale_x_from_center` property updates or gets the instance's scale-x from t
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -622,7 +676,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -660,7 +714,10 @@ The `scale_y_from_center` property updates or gets the instance's scale-y from t
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -669,7 +726,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -705,7 +762,10 @@ ap.save_overall_html(dest_dir_path="triangle_scale_y_from_center/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 SCALE_COORDINATE_X: ap.Int = ap.Int(100)
 triangle: ap.Triangle = ap.Triangle(
@@ -715,7 +775,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=SCALE_COORDINATE_X,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -757,7 +817,10 @@ Similarly, the `get_scale_y_from_point` method gets the instance's scale-y from 
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 SCALE_COORDINATE_Y: ap.Int = ap.Int(100)
 triangle: ap.Triangle = ap.Triangle(
@@ -767,7 +830,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=SCALE_COORDINATE_Y,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -807,7 +870,10 @@ The `flip_x` property updates or gets the instance's flip-x (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=50,
@@ -816,7 +882,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -849,7 +915,10 @@ The `flip_y` property updates or gets the instance's flip-y (reflecting state) b
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -858,7 +927,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -891,7 +960,10 @@ The `skew_x` property updates or gets the instance's skew-x (distortion) value:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -900,7 +972,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -933,7 +1005,10 @@ The `skew_y` property updates or gets the instance's skew-y (distortion) value:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -942,7 +1017,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -1033,8 +1108,8 @@ Create a triangle vector graphics instance.<hr>
 ...     y2=100,
 ...     x3=100,
 ...     y3=100,
-...     fill_color="#0af",
-...     line_color="#fff",
+...     fill_color=ap.Color("#0af"),
+...     line_color=ap.Color("#fff"),
 ...     line_thickness=3,
 ... )
 >>> triangle.x2

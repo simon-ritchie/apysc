@@ -51,10 +51,13 @@ def on_timer_complete(e: ap.TimerEvent, options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 options: _RectOptions = {"rectangle": rectangle}
@@ -99,10 +102,13 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 options: _RectOptions = {"rectangle": rectangle}
@@ -147,7 +153,7 @@ Timer event class.<hr>
 ...     rectangle.x += 1
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -192,7 +198,7 @@ Get a timer instance of listening to this event.<hr>
 ...         timer.stop()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

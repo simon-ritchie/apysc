@@ -14,7 +14,7 @@ The animation class for a center x coordinate.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> animation: ap.AnimationCx = circle.animation_x(
 ...     x=100,

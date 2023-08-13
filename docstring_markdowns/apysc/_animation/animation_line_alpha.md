@@ -14,8 +14,8 @@ The animation class for the line alpha.<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
->>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=1.0)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5, alpha=1.0)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

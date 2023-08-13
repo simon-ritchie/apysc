@@ -24,11 +24,14 @@ The apysc library can draw many vector graphics types, like the rectangle, circl
 import apysc as ap
 
 ap.Stage(
-    stage_width=650, stage_height=210, background_color="#333", stage_elem_id="stage"
+    stage_width=650,
+    stage_height=210,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 sprite.graphics.draw_round_rect(
@@ -47,8 +50,8 @@ sprite.graphics.draw_polygon(
     ]
 )
 
-sprite.graphics.begin_fill(color="")
-sprite.graphics.line_style(color="#eee", thickness=3)
+sprite.graphics.begin_fill(color=ap.COLORLESS)
+sprite.graphics.line_style(color=ap.Color("#eee"), thickness=3)
 sprite.graphics.move_to(x=550, y=50)
 sprite.graphics.line_to(x=600, y=50)
 sprite.graphics.line_to(x=550, y=100)
@@ -120,11 +123,14 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
@@ -187,11 +193,14 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 alpha_direction: ap.Int = ap.Int(1)
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 options: _Options = {"rectangle": rectangle, "alpha_direction": alpha_direction}

@@ -45,7 +45,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_basic_usage/")
 
 The return value of the `draw_ellipse` interface is the instance of the `Ellipse` class.
 
-It has the basic interfaces (like the `x` or the `width` attributes) similar to the other graphics classes.
+It has basic interfaces (like the `x` or the `width` attributes) similar to the other graphics classes.
 
 The following code example binds the click event handler. If you click the ellipse, the width and height become wider.
 

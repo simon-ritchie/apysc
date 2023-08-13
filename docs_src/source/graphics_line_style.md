@@ -66,7 +66,7 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_color/")
 
 <iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe>
 
-If you want to clear line color, specify a blank string to this argument.
+If you want to clear line color, specify the `COLORLESS` constant to this argument.
 
 For example, the result line graphic becomes invisible since the following code clears the line color setting.
 

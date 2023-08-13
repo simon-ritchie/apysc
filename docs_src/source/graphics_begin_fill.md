@@ -63,7 +63,7 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")
 
 <iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe>
 
-If you want to clear fill color, specify a blank string to this argument.
+If you want to clear fill color, specify the `COLORLESS` constant to this argument.
 
 For example, since the following code clears fill color settings, a rectangle graphic becomes invisible.
 

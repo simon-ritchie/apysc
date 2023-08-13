@@ -62,7 +62,7 @@ class FlipXMixIn(
         Returns
         -------
         flip_x : Boolean
-            A boolean value whether the x-axis is flipping or not.
+            A boolean value, whether the x-axis is flipping or not.
 
         References
         ----------

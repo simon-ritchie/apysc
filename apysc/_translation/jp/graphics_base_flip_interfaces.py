@@ -41,7 +41,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `flip_x`: Boolean": "- `flip_x`: Boolean",
     ##################################################
-    "  - A boolean value whether the x-axis is flipping or not.": "  - 横方向に反転しているかどうかのBooleanの真偽値。",  # noqa
+    "  - A boolean value, whether the x-axis is flipping or not.": "  - 横方向に反転しているかどうかのBooleanの真偽値。",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

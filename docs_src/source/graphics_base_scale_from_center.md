@@ -42,7 +42,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_
 
 <iframe src="static/graphics_base_scale_from_center_basic_usage_1/index.html" width="350" height="150"></iframe>
 
-These interfaces apply the scaling from the center coordinates, as follows:
+These interfaces apply the scaling from the center coordinates as follows:
 
 ```py
 # runnable

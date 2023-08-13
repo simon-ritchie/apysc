@@ -50,7 +50,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_basic_usage/")
 
 The return value of the `draw_circle` interface is the instance of the `Circle` class.
 
-It has the `radius` attribute or other basic interfaces and you can change these settings.
+It has the `radius` attribute or other basic interfaces, and you can change these settings.
 
 ```py
 # runnable

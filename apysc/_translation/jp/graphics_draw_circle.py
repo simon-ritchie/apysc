@@ -29,7 +29,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The return value of the `draw_circle` interface is the instance of the `Circle` class.": "`draw_circle`インターフェイスの返却値は`Circle`クラスのインスタンスとなります。",  # noqa
     ##################################################
-    "It has the `radius` attribute or other basic interfaces and you can change these settings.": "このインスタンスは`radius`属性や他の基本的な各インターフェイスを持っており生成後に値を更新することができます。",  # noqa
+    "It has the `radius` attribute or other basic interfaces, and you can change these settings.": "このインスタンスは`radius`属性や他の基本的な各インターフェイスを持っており生成後に値を更新することができます。",  # noqa
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=400, stage_height=400, stage_elem_id="stage"\n)\n\nsprite: ap.Sprite = ap.Sprite()\n\n# Draw the small radius circle.\nsprite.graphics.begin_fill(color="#0af")\ncircle: ap.Circle = sprite.graphics.draw_circle(x=200, y=200, radius=25)\n\n# Update circle radius to become the bigger one.\ncircle.radius = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=400, stage_height=400, stage_elem_id="stage"\n)\n\nsprite: ap.Sprite = ap.Sprite()\n\n# Draw the small radius circle.\nsprite.graphics.begin_fill(color="#0af")\ncircle: ap.Circle = sprite.graphics.draw_circle(x=200, y=200, radius=25)\n\n# Update circle radius to become the bigger one.\ncircle.radius = ap.Int(100)\n\nap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")\n```',  # noqa
     ##################################################

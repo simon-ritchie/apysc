@@ -27,7 +27,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The return value of the `draw_ellipse` interface is the instance of the `Ellipse` class.": "`draw_ellipse`インターフェイスの返却値は`Ellipse`クラスのインスタンスとなります。",  # noqa
     ##################################################
-    "It has the basic interfaces (like the `x` or the `width` attributes) similar to the other graphics classes.": "このクラスのインスタンスは他のグラフィックス系のクラスと同様に`x`や`y`、`width`などの基本的なインターフェイスを持っています。",  # noqa
+    "It has basic interfaces (like the `x` or the `width` attributes) similar to the other graphics classes.": "このクラスのインスタンスは他のグラフィックス系のクラスと同様に`x`や`y`、`width`などの基本的なインターフェイスを持っています。",  # noqa
     ##################################################
     "The following code example binds the click event handler. If you click the ellipse, the width and height become wider.": "以下のコード例ではクリックのイベントハンドラを設定しており、楕円をクリックするたびに幅と高さが大きくなるようにしています。",  # noqa
     ##################################################

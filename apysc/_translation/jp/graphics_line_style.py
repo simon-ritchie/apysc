@@ -29,7 +29,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=200, stage_height=102, stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\n\n# Set a cyan line color and draw the line.\nsprite.graphics.line_style(color="#0af", thickness=4)\nsprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)\n\nap.save_overall_html(dest_dir_path="graphics_line_style_line_color/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=200, stage_height=102, stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\n\n# Set a cyan line color and draw the line.\nsprite.graphics.line_style(color="#0af", thickness=4)\nsprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)\n\nap.save_overall_html(dest_dir_path="graphics_line_style_line_color/")\n```',  # noqa
     ##################################################
-    "If you want to clear line color, specify a blank string to this argument.": "もしも線の色設定を削除したい場合にはこの引数に空文字を指定してください。",  # noqa
+    "If you want to clear line color, specify the `COLORLESS` constant to this argument.": "もしも線の色設定を削除したい場合にはこの引数に`COLORLESS`定数を指定してください。",  # noqa
     ##################################################
     "For example, the result line graphic becomes invisible since the following code clears the line color setting.": "例えば以下のコード例では線の色設定を削除しているので線は見えなくなっています。",  # noqa
     ##################################################

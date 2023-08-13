@@ -29,7 +29,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\n\n# Set a cyan fill color and draw the rectangle.\nsprite.graphics.begin_fill(color="#0af")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"\n)\nsprite: ap.Sprite = ap.Sprite()\n\n# Set a cyan fill color and draw the rectangle.\nsprite.graphics.begin_fill(color="#0af")\nsprite.graphics.draw_rect(x=50, y=50, width=50, height=50)\n\nap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")\n```',  # noqa
     ##################################################
-    "If you want to clear fill color, specify a blank string to this argument.": "もしも塗りの色の設定を削除したい場合、空の文字列をこの引数に指定してください。",  # noqa
+    "If you want to clear fill color, specify the `COLORLESS` constant to this argument.": "もしも塗りの色の設定を削除したい場合、`COLORLESS`定数をこの引数に指定してください。",  # noqa
     ##################################################
     "For example, since the following code clears fill color settings, a rectangle graphic becomes invisible.": "以下のコード例では塗りの色の設定を削除しているため、四角のグラフィックは見えなくなります。",  # noqa
     ##################################################

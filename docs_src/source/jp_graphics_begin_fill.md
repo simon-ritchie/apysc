@@ -74,7 +74,7 @@ sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color="#0af")
 
-# Clear fill color by specifying blank string.
+# Clear fill color by specifying the `COLORLESS` constant.
 sprite.graphics.begin_fill(color="")
 
 # Since fill color is not set, the rectangle is invisible.

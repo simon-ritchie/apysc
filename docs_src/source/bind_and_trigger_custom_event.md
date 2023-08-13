@@ -8,7 +8,7 @@ The `bind_custom_event` interface registers your custom event to the instance, a
 
 ## Basic usage
 
-The `bind_custom_event` interface has the `custom_event_type`, `handler`, `e`, and `options` arguments (`options` is optional).
+The `bind_custom_event` interface has the `custom_event_type`, `handler`, `e`, and `options` arguments (`options` argument is optional).
 
 The `custom_event_type` argument is the custom event type name's string. This value needs to specify the same one at the calling of the `trigger_custom_event` interface.
 

@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The `bind_custom_event` interface has the `custom_event_type`, `handler`, `e`, and `options` arguments (`options` is optional).": "`bind_custom_event`インターフェイスは`custom_event_type`と`handler`、`e`、そして`options`引数を持っています（`options`引数は省略可です）。",  # noqa
+    "The `bind_custom_event` interface has the `custom_event_type`, `handler`, `e`, and `options` arguments (`options` argument is optional).": "`bind_custom_event`インターフェイスは`custom_event_type`と`handler`、`e`、そして`options`引数を持っています（`options`引数は省略可です）。",  # noqa
     ##################################################
     "The `custom_event_type` argument is the custom event type name's string. This value needs to specify the same one at the calling of the `trigger_custom_event` interface.": "`custom_event_type`引数は独自のイベントの種類の文字列です。この引数の文字列は`trigger_custom_event`インターフェイスでの指定時でも同じ値を設定する必要があります。",  # noqa
     ##################################################

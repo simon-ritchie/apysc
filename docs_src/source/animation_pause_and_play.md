@@ -10,7 +10,7 @@ These interfaces exist in the instances that have the animation interfaces (such
 
 ## Basic usage
 
-The following example starts the x-coordinate animation and stops after 1 second. After stopping the animation and additionally 500 milliseconds passed, restarting the animation:
+The following example starts the x-coordinate animation and stops after 1 second. After stopping the animation and additionally, 500 milliseconds passed, restarting the animation:
 
 ```py
 # runnable

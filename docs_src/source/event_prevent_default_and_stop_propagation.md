@@ -115,7 +115,7 @@ If you click the following rectangle, the only message of `The rectangle is clic
 
 **[Interface summary]**
 
-Prevent event's default behavior.<hr>
+Prevent the event's default behavior.<hr>
 
 **[Examples]**
 

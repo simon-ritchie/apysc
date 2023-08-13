@@ -967,8 +967,8 @@ MAPPINGS: Mappings = Mappings(
             val="- `0af`などの`#`記号を省略した指定（これは`#00aaff`と同じ値として扱われます）。",
         ),
         Mapping(
-            key="- Blank string, e.g., `''` (this clears line color setting).",
-            val="- `''`などの空文字の指定（これは線の色の削除指定として扱われます）。`",
+            key="- The `COLORLESS` constant (this clears line color setting).",
+            val="- ``COLORLESS`定数の指定（これは線の色の削除指定として扱われます）。`",
         ),
         Mapping(key="## Line thickness setting", val="## 線幅の設定"),
         Mapping(key="## Line alpha (opacity) setting", val="## 線の透明度の設定"),
@@ -2638,7 +2638,7 @@ MAPPINGS: Mappings = Mappings(
             val="elseの分岐条件の表現を追加するためのクラスです。<hr>",
         ),
         Mapping(
-            key="Prevent event's default behavior.<hr>",
+            key="Prevent the event's default behavior.<hr>",
             val="イベントのデフォルトの挙動を無効化します。<hr>",
         ),
         Mapping(

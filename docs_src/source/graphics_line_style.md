@@ -100,7 +100,7 @@ Color code is acceptable like the following list (same as `begin_fill` interface
 - Three characters, e.g., `#0af` (this becomes `#00aaff`).
 - Single character, e.g., `#5` (this becomes `#000005`).
 - Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).
-- Blank string, e.g., `''` (this clears line color setting).
+- The `COLORLESS` constant (this clears line color setting).
 
 ```py
 # runnable

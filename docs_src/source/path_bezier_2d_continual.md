@@ -16,7 +16,7 @@ The `PathBezier2DContinual` class constructor requires the `x` and `y` arguments
 
 These coordinates are the destination points of the bezier curve.
 
-The `PathBezier2DContinual` class has the restriction, and you can use this class only after the `PathBezier2D` or `PathBezier2DContinual`.
+The `PathBezier2DContinual` class has a restriction, and you can use this class only after the `PathBezier2D` or `PathBezier2DContinual`.
 
 ```py
 # runnable

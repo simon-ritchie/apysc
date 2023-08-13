@@ -98,7 +98,7 @@ Color code is acceptable like the following list:
 - Three characters, e.g., `#0af` (this becomes `#00aaff`).
 - Single character, e.g., `#5` (this becomes `#000005`).
 - Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).
-- Blank string, e.g., `''` (this setting clears the fill color setting).
+- The `COLORLESS` constant (this setting clears the fill color setting).
 
 ```py
 # runnable

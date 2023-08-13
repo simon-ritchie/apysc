@@ -12,7 +12,7 @@ class PreventDefaultMixIn(VariableNameMixIn):
     @add_debug_info_setting(module_name=__name__)
     def prevent_default(self) -> None:
         """
-        Prevent event's default behavior.
+        Prevent the event's default behavior.
 
         References
         ----------

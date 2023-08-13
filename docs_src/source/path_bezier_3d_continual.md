@@ -22,7 +22,7 @@ So there are no arguments to set the first control point in the `PathBezier3DCon
 
 The `dest_x` and `dest_y` are the destination point of a bezier curve.
 
-The `PathBezier3DContinual` class has the restriction, and you can use this class only after the `PathBezier3D` or `PathBezier3DContinual`.
+The `PathBezier3DContinual` class has a restriction, and you can use this class only after the `PathBezier3D` or `PathBezier3DContinual`.
 
 ```py
 # runnable

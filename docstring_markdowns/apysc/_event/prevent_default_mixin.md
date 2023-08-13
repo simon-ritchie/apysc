@@ -8,7 +8,7 @@ Class implementation for the prevent_default mix-in.
 
 ### `prevent_default` method docstring
 
-Prevent event's default behavior.<hr>
+Prevent the event's default behavior.<hr>
 
 **[Examples]**
 

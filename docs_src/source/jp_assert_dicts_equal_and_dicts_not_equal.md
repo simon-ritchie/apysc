@@ -25,7 +25,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
@@ -50,7 +53,10 @@ Left value: {a: 10, b: 20} right value: dct_1
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
@@ -75,7 +81,10 @@ Assertion failed: Values are not equal!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 10, "b": 20})
@@ -100,7 +109,10 @@ Left value: {a: 30} right value: dct_1
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 dict_val: ap.Dictionary = ap.Dictionary({"a": 30})

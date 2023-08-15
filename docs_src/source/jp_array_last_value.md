@@ -16,7 +16,12 @@
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 arr: ap.Array[int] = ap.Array([10, 20, 30])
 last_value: int = arr.last_value
 ap.assert_equal(last_value, 30)
@@ -32,7 +37,12 @@ ap.save_overall_html(dest_dir_path="array_last_value_basic_usage_1/")
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 arr: ap.Array[ap.Int] = ap.Array([], fixed_value_type=ap.Int)
 last_value: ap.Int = arr.last_value
 ap.assert_undefined(last_value)
@@ -68,7 +78,7 @@ ap.save_overall_html(dest_dir_path="array_last_value_basic_usage_2/")
 >>> _ = ap.Stage(
 ...     stage_width=100,
 ...     stage_height=50,
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_elem_id="stage",
 ... )
 >>> arr: ap.Array[ap.Int] = ap.Array([], fixed_value_type=ap.Int)

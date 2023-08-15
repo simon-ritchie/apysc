@@ -17,12 +17,15 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=162, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=162,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw a white line with 3px line thickness.
-sprite.graphics.line_style(color="#ccc", thickness=8)
+sprite.graphics.line_style(color=ap.Color("#ccc"), thickness=8)
 sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=150, y=50)
 
@@ -31,7 +34,7 @@ sprite.graphics.move_to(x=50, y=80)
 sprite.graphics.line_to(x=150, y=80)
 
 # Change line color and thickness.
-sprite.graphics.line_style(color="#0af", thickness=3)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=3)
 sprite.graphics.move_to(x=50, y=110)
 sprite.graphics.line_to(x=150, y=110)
 
@@ -49,12 +52,15 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_basics/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=102, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=102,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan line color and draw the line.
-sprite.graphics.line_style(color="#0af", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_line_color/")
@@ -62,7 +68,7 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_color/")
 
 <iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe>
 
-もしも線の色設定を削除したい場合にはこの引数に空文字を指定してください。
+もしも線の色設定を削除したい場合にはこの引数に`COLORLESS`定数を指定してください。
 
 例えば以下のコード例では線の色設定を削除しているので線は見えなくなっています。
 
@@ -71,15 +77,18 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=102, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=102,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan line color.
-sprite.graphics.line_style(color="#0af", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=4)
 
-# Clear the line color by specifying a blank string.
-sprite.graphics.line_style(color="", thickness=4)
+# Clear the line color by specifying the `COLORLESS` constant.
+sprite.graphics.line_style(color=ap.COLORLESS, thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_clear_line_color/")
@@ -95,27 +104,30 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_clear_line_color/")
 - `#5`などの1文字による指定（これは`000005`と同じ値として扱われます）。
 - `0af`などの`#`記号を省略した指定（これは`#00aaff`と同じ値として扱われます）。
 
-- `''`などの空文字の指定（これは線の色の削除指定として扱われます）。`
+- ``COLORLESS`定数の指定（これは線の色の削除指定として扱われます）。`
 
 ```py
 # runnable
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=162, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=162,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # The six characters line color setting (a cyan color).
-sprite.graphics.line_style(color="#00aaff", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#00aaff"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 # The three characters line color setting (a magenta color).
-sprite.graphics.line_style(color="#f0a", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#f0a"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
 
 # The one character line color setting (a black color).
-sprite.graphics.line_style(color="#5", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#5"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_line_color_color_code/")
@@ -132,20 +144,23 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_color_color_code/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=165, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=165,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set 1-pixel line thickness.
-sprite.graphics.line_style(color="#0af", thickness=1)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=1)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 # Set 4-pixel line thickness.
-sprite.graphics.line_style(color="#0af", thickness=4)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
 
 # Set 10-pixel line thickness.
-sprite.graphics.line_style(color="#0af", thickness=10)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_thickness/")
@@ -162,16 +177,19 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_thickness/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw the cyan line from upper-left to lower-right.
-sprite.graphics.line_style(color="#0af", thickness=15, alpha=0.3)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=15, alpha=0.3)
 sprite.graphics.draw_line(x_start=50, x_end=100, y_start=50, y_end=100)
 
 # Draw the magenta line from upper-right to lower-left.
-sprite.graphics.line_style(color="#f0a", thickness=15, alpha=0.3)
+sprite.graphics.line_style(color=ap.Color("#f0a"), thickness=15, alpha=0.3)
 sprite.graphics.draw_line(x_start=100, x_end=50, y_start=50, y_end=100)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_alpha/")
@@ -195,21 +213,24 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=180, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=180,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # BUTT caps setting (default).
-sprite.graphics.line_style(color="#0af", thickness=20, cap=ap.LineCaps.BUTT)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=20, cap=ap.LineCaps.BUTT)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 # ROUND caps setting.
-sprite.graphics.line_style(color="#0af", thickness=20, cap=ap.LineCaps.ROUND)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=20, cap=ap.LineCaps.ROUND)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=90, y_end=90)
 
 # SQUARE caps setting (same line length setting as BUTT line,
 # but this will be longer for the caps).
-sprite.graphics.line_style(color="#0af", thickness=20, cap=ap.LineCaps.SQUARE)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=20, cap=ap.LineCaps.SQUARE)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=130, y_end=130)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_caps/")
@@ -233,24 +254,33 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_caps/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=350, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=350,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set MITER joints setting and draw the polyline.
-sprite.graphics.line_style(color="#0af", thickness=10, joints=ap.LineJoints.MITER)
+sprite.graphics.line_style(
+    color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.MITER
+)
 sprite.graphics.move_to(x=50, y=100)
 sprite.graphics.line_to(x=75, y=50)
 sprite.graphics.line_to(x=100, y=100)
 
 # Set ROUND joints setting and draw the polyline.
-sprite.graphics.line_style(color="#0af", thickness=10, joints=ap.LineJoints.ROUND)
+sprite.graphics.line_style(
+    color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.ROUND
+)
 sprite.graphics.move_to(x=150, y=100)
 sprite.graphics.line_to(x=175, y=50)
 sprite.graphics.line_to(x=200, y=100)
 
 # Set BEVEL joints setting and draw the polyline.
-sprite.graphics.line_style(color="#0af", thickness=10, joints=ap.LineJoints.BEVEL)
+sprite.graphics.line_style(
+    color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.BEVEL
+)
 sprite.graphics.move_to(x=250, y=100)
 sprite.graphics.line_to(x=275, y=50)
 sprite.graphics.line_to(x=300, y=100)
@@ -269,27 +299,36 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_joints/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=300, stage_height=160, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=160,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set the line dot settings with 2-pixel dot size and draw the dotted line.
 sprite.graphics.line_style(
-    color="#0af", thickness=5, dot_setting=ap.LineDotSetting(dot_size=2)
+    color=ap.Color("#0af"),
+    thickness=5,
+    dot_setting=ap.LineDotSetting(dot_size=2),
 )
 sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=250, y=50)
 
 # Set the line dot settings with 5-pixel dot size and draw the dotted line.
 sprite.graphics.line_style(
-    color="#0af", thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
+    color=ap.Color("#0af"),
+    thickness=5,
+    dot_setting=ap.LineDotSetting(dot_size=5),
 )
 sprite.graphics.move_to(x=50, y=80)
 sprite.graphics.line_to(x=250, y=80)
 
 # Set the line dot settings with 10-pixel dot size and draw the dotted line.
 sprite.graphics.line_style(
-    color="#0af", thickness=5, dot_setting=ap.LineDotSetting(dot_size=10)
+    color=ap.Color("#0af"),
+    thickness=5,
+    dot_setting=ap.LineDotSetting(dot_size=10),
 )
 sprite.graphics.move_to(x=50, y=110)
 sprite.graphics.line_to(x=250, y=110)
@@ -306,19 +345,24 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set the line dot setting with 2-pixel dot size and draw the rectangle.
 # Fill color setting is skipped.
 sprite.graphics.line_style(
-    color="#0af", thickness=5, dot_setting=ap.LineDotSetting(dot_size=2)
+    color=ap.Color("#0af"),
+    thickness=5,
+    dot_setting=ap.LineDotSetting(dot_size=2),
 )
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Draw the rectangle with the dotted line setting and the fill color.
-sprite.graphics.begin_fill(color="#038")
+sprite.graphics.begin_fill(color=ap.Color("#038"))
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="graphics_line_style_line_dot_setting_rectangle/")
@@ -337,13 +381,16 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dot_setting_rectang
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=300, stage_height=130, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=130,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set 10-pixel dash size and 3-pixel space size and draw the line.
 sprite.graphics.line_style(
-    color="#0af",
+    color=ap.Color("#0af"),
     thickness=3,
     dash_setting=ap.LineDashSetting(dash_size=10, space_size=3),
 )
@@ -352,7 +399,7 @@ sprite.graphics.line_to(x=250, y=50)
 
 # Set 15-pixel dash size and 5-pixel space size and draw the line.
 sprite.graphics.line_style(
-    color="#0af",
+    color=ap.Color("#0af"),
     thickness=3,
     dash_setting=ap.LineDashSetting(dash_size=15, space_size=5),
 )
@@ -375,13 +422,16 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dash_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=300, stage_height=130, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=130,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set 5-pixel round size and draw the line.
 sprite.graphics.line_style(
-    color="#0af",
+    color=ap.Color("#0af"),
     thickness=5,
     round_dot_setting=ap.LineRoundDotSetting(round_size=5, space_size=5),
 )
@@ -390,7 +440,7 @@ sprite.graphics.line_to(x=250, y=50)
 
 # Set 10-pixel round size and draw the line.
 sprite.graphics.line_style(
-    color="#0af",
+    color=ap.Color("#0af"),
     thickness=5,
     round_dot_setting=ap.LineRoundDotSetting(round_size=10, space_size=5),
 )
@@ -415,13 +465,16 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_round_dot_setting/"
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=300, stage_height=130, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=130,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set 3-pixel dot size and 10-pixel dash size and draw the line.
 sprite.graphics.line_style(
-    color="#0af",
+    color=ap.Color("#0af"),
     thickness=3,
     dash_dot_setting=ap.LineDashDotSetting(dot_size=3, dash_size=10, space_size=3),
 )
@@ -430,7 +483,7 @@ sprite.graphics.line_to(x=250, y=50)
 
 # Set 5-pixel dot size and 15-pixel dash size and draw the line.
 sprite.graphics.line_style(
-    color="#0af",
+    color=ap.Color("#0af"),
     thickness=3,
     dash_dot_setting=ap.LineDashDotSetting(dot_size=5, dash_size=15, space_size=3),
 )
@@ -448,7 +501,7 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dash_dot_setting/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `line_style(self, *, color: ~StrOrString, thickness: Union[int, apysc._type.int.Int] = 1, alpha: Union[float, apysc._type.number.Number] = 1.0, cap: Union[apysc._display.line_caps.LineCaps, NoneType] = None, joints: Union[apysc._display.line_joints.LineJoints, NoneType] = None, dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None) -> None`<hr>
+**[インターフェイスの構造]** `line_style(self, *, color: apysc._color.color.Color, thickness: Union[int, apysc._type.int.Int] = 1, alpha: Union[float, apysc._type.number.Number] = 1.0, cap: Union[apysc._display.line_caps.LineCaps, NoneType] = None, joints: Union[apysc._display.line_joints.LineJoints, NoneType] = None, dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -456,8 +509,8 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dash_dot_setting/")
 
 **[引数]**
 
-- `color`: String or str
-  - '#00aaff'などの16進数の色の文字列。
+- `color`: Color
+  - 色の設定。
 
 - `thickness`: Int or int, default 1
   - 線の幅（1以上の値を受け付けます）。
@@ -489,25 +542,27 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dash_dot_setting/")
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+...     color=ap.Color("#0af"), thickness=2, alpha=0.5
 ... )
->>> line: ap.Line = sprite.graphics.draw_line(
-...     x_start=50, y_start=50, x_end=150, y_end=50
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50
 ... )
->>> line.line_color
-String("#ffffff")
+>>> rectangle.line_color
+Color("#00aaff")
 
->>> line.line_thickness
-Int(5)
+>>> rectangle.line_thickness
+Int(2)
 
->>> line.line_alpha
+>>> rectangle.line_alpha
 Number(0.5)
-
->>> line.line_cap
-String("round")
 ```
 
 ## line_color 属性のAPI
@@ -520,8 +575,8 @@ String("round")
 
 **[返却値]**
 
-- `line_color`: String
-  - '#00aaff'などの16進数の線の色。もし設定されていない場合はこの空文字となります。
+- `line_color`: Color
+  - 現在の線の色。もし設定されていない場合は`COLORLESS`定数の値が返却されます。
 
 <hr>
 
@@ -529,13 +584,18 @@ String("round")
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+...     color=ap.Color("#0af"), thickness=2, alpha=0.5
 ... )
 >>> sprite.graphics.line_color
-String("#ffffff")
+Color("#00aaff")
 ```
 
 ## line_thickness 属性のAPI
@@ -559,7 +619,7 @@ String("#ffffff")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5, alpha=0.5)
 >>> sprite.graphics.line_thickness
 Int(5)
 ```
@@ -586,7 +646,7 @@ Int(5)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+...     color=ap.Color("#fff"), thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
 ... )
 >>> sprite.graphics.line_alpha
 Number(0.5)
@@ -614,7 +674,7 @@ Number(0.5)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff", thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+...     color=ap.Color("#fff"), thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
 ... )
 >>> sprite.graphics.line_cap
 String("round")
@@ -642,7 +702,7 @@ String("round")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff", thickness=5, joints=ap.LineJoints.ROUND
+...     color=ap.Color("#fff"), thickness=5, joints=ap.LineJoints.ROUND
 ... )
 >>> sprite.graphics.line_joints
 String("round")
@@ -670,7 +730,7 @@ String("round")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff", thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
+...     color=ap.Color("#fff"), thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
 ... )
 >>> sprite.graphics.line_dot_setting.dot_size
 Int(5)
@@ -698,7 +758,7 @@ Int(5)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff",
+...     color=ap.Color("#fff"),
 ...     thickness=5,
 ...     dash_setting=ap.LineDashSetting(dash_size=10, space_size=5),
 ... )
@@ -731,7 +791,7 @@ Int(5)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff",
+...     color=ap.Color("#fff"),
 ...     thickness=5,
 ...     round_dot_setting=ap.LineRoundDotSetting(round_size=6, space_size=3),
 ... )
@@ -764,7 +824,7 @@ Int(3)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color="#fff",
+...     color=ap.Color("#fff"),
 ...     thickness=5,
 ...     dash_dot_setting=ap.LineDashDotSetting(
 ...         dot_size=2, dash_size=5, space_size=3

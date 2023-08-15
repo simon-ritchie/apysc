@@ -21,14 +21,17 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 path: ap.Path = ap.Path(
     path_data_list=[
         ap.PathMoveTo(x=50, y=50),
         ap.PathLineTo(x=150, y=50),
     ],
-    line_color="0af",
+    line_color=ap.Color("0af"),
     line_thickness=5,
 )
 
@@ -136,7 +139,10 @@ PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 path: ap.Path = ap.Path(
@@ -146,7 +152,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=50, y=50),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 path.x = ap.Number(50)
@@ -165,7 +171,10 @@ ap.save_overall_html(dest_dir_path="path_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=100, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=100,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 path: ap.Path = ap.Path(
@@ -175,7 +184,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=50, y=50),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 path.y = ap.Number(50)
@@ -194,7 +203,10 @@ ap.save_overall_html(dest_dir_path="path_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 path: ap.Path = ap.Path(
@@ -205,7 +217,7 @@ path: ap.Path = ap.Path(
         ap.PathClose(),
     ],
 )
-path.fill_color = ap.String("#0af")
+path.fill_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="path_fill_color/")
 ```
@@ -221,7 +233,10 @@ ap.save_overall_html(dest_dir_path="path_fill_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -232,7 +247,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 path.fill_alpha = ap.Number(0.5)
 
@@ -250,7 +265,10 @@ ap.save_overall_html(dest_dir_path="path_fill_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -263,7 +281,7 @@ path: ap.Path = ap.Path(
     ],
     line_thickness=5,
 )
-path.line_color = ap.String("#0af")
+path.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="path_line_color/")
 ```
@@ -279,7 +297,10 @@ ap.save_overall_html(dest_dir_path="path_line_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -290,7 +311,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 path.line_alpha = ap.Number(0.5)
@@ -309,7 +330,10 @@ ap.save_overall_html(dest_dir_path="path_line_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -320,7 +344,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 path.line_thickness = ap.Int(10)
 
@@ -338,7 +362,10 @@ ap.save_overall_html(dest_dir_path="path_line_thickness/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -349,7 +376,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 path.line_dot_setting = ap.LineDotSetting(dot_size=3)
@@ -368,7 +395,10 @@ ap.save_overall_html(dest_dir_path="path_line_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -379,7 +409,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 path.line_dash_setting = ap.LineDashSetting(dash_size=7, space_size=2)
@@ -398,7 +428,10 @@ ap.save_overall_html(dest_dir_path="path_line_dash_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -409,7 +442,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 path.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=4)
 
@@ -427,7 +460,10 @@ ap.save_overall_html(dest_dir_path="path_line_round_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -438,7 +474,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 path.line_dash_dot_setting = ap.LineDashDotSetting(
@@ -461,7 +497,10 @@ ap.save_overall_html(dest_dir_path="path_line_dash_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -472,7 +511,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -508,7 +547,10 @@ ap.save_overall_html(dest_dir_path="path_rotation_around_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -519,7 +561,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 X: ap.Int = ap.Int(100)
@@ -556,7 +598,10 @@ ap.save_overall_html(dest_dir_path="path_rotation_around_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -567,7 +612,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -607,7 +652,10 @@ ap.save_overall_html(dest_dir_path="path_scale_x_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -618,7 +666,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -660,7 +708,10 @@ ap.save_overall_html(dest_dir_path="path_scale_y_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -671,7 +722,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -715,7 +766,10 @@ ap.save_overall_html(dest_dir_path="path_scale_x_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -726,7 +780,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 direction: ap.Int = ap.Int(1)
@@ -768,7 +822,10 @@ ap.save_overall_html(dest_dir_path="path_scale_y_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -779,7 +836,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -813,7 +870,10 @@ ap.save_overall_html(dest_dir_path="path_flip_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -824,7 +884,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -858,7 +918,10 @@ ap.save_overall_html(dest_dir_path="path_flip_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -869,7 +932,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -903,7 +966,10 @@ ap.save_overall_html(dest_dir_path="path_skew_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -914,7 +980,7 @@ path: ap.Path = ap.Path(
         ap.PathLineTo(x=100, y=100),
         ap.PathClose(),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -943,7 +1009,7 @@ ap.save_overall_html(dest_dir_path="path_skew_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, path_data_list: List[apysc._geom.path_data_base.PathDataBase], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, path_data_list: List[apysc._geom.path_data_base.PathDataBase], fill_color: apysc._color.color.Color = Color(""), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -954,13 +1020,13 @@ ap.save_overall_html(dest_dir_path="path_skew_y/")
 - `path_data_list`: list of PathDataBase
   - ap.PathData.MoveToなどの対象のパスデータの設定のリスト。
 
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - 設定する塗りの色。
 
 - `fill_alpha`: float or Number, default 1.0
   - 設定する塗りの透明度。
 
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - 設定する線の色。
 
 - `line_alpha`: float or Number, default 1.0
@@ -1005,11 +1071,11 @@ ap.save_overall_html(dest_dir_path="path_skew_y/")
 ...         ap.PathMoveTo(x=0, y=50),
 ...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),
 ...     ],
-...     line_color="#ffffff",
+...     line_color=ap.Color("#ffffff"),
 ...     line_thickness=3,
 ... )
 >>> path.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> path.line_thickness
 Int(3)

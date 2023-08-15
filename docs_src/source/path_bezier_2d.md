@@ -119,7 +119,7 @@ ap.Stage(
     background_color=ap.Color("#333"),
     stage_width=200,
     stage_height=150,
-    stage_elem_id="stage"
+    stage_elem_id="stage",
 )
 
 path: ap.Path = ap.Path(

@@ -2148,7 +2148,8 @@ import apysc as ap
 ap.Stage(
     stage_width=150,
     stage_height=150,
-    background_color=ap.Color("#333"), stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.line_style(color=ap.Color("#fff"), thickness=1)

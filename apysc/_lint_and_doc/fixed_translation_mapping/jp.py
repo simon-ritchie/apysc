@@ -4147,5 +4147,25 @@ MAPPINGS: Mappings = Mappings(
             key="<br> ・If an array is empty, this value becomes `undefined` on the JavaScript runtime.<hr>",
             val="<br> ・もし配列が空の場合、この値はJavaScriptのランタイム上では`undefined`となります。<hr>",
         ),
+        Mapping(
+            key="  - The final line color of the animation.",
+            val="  - アニメーションの最終的な線の色。",
+        ),
+        Mapping(
+            key="  - The final fill color of the animation.",
+            val="  - アニメーションの最終的な塗りの色。",
+        ),
+        Mapping(
+            key="  - A color setting.",
+            val="  - 色の設定。",
+        ),
+        Mapping(
+            key="  - Current fill-color. If not be set, this interface returns a `COLORLESS` constant.",
+            val="  - 現在の塗りの色。もしも設定されていない場合`COLORLESS`定数の値が返却されます。",
+        ),
+        Mapping(
+            key="  - A Current line color. If it is not set, it returns the `COLORLESS` constant.",
+            val="  - 現在の線の色。もし設定されていない場合は`COLORLESS`定数の値が返却されます。",
+        ),
     ]
 )

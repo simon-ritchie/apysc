@@ -34,10 +34,13 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
@@ -85,11 +88,14 @@ def on_sprite_click(e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 sprite.click(on_sprite_click)
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_rectangle_click)
 
@@ -117,11 +123,11 @@ ap.save_overall_html(dest_dir_path="event_stop_propagation_basic_usage/")
 >>> def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     e.prevent_default()
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_mouseup_all()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -147,7 +153,7 @@ ap.save_overall_html(dest_dir_path="event_stop_propagation_basic_usage/")
 ...     ap.trace("Clicked!")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

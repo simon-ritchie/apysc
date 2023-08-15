@@ -71,7 +71,10 @@
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">stage_width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">True_</span><span class="p">)</span>
 </pre></div>
@@ -88,13 +91,16 @@
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">stage_width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
     <span class="n">bold</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">True_</span><span class="p">,</span>
     <span class="n">italic</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">False_</span><span class="p">,</span>
 <span class="p">)</span>

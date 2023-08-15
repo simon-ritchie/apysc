@@ -17,10 +17,13 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_x: ap.AnimationX = rectangle.animation_x(x=100)
 assert isinstance(animation_x.target, ap.Rectangle)
@@ -37,10 +40,13 @@ assert isinstance(animation_x.target, ap.Rectangle)
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_x: ap.AnimationX[ap.Rectangle] = rectangle.animation_x(x=100)
 assert isinstance(animation_x.target, ap.Rectangle)
@@ -69,10 +75,13 @@ def on_animation_complete(e: ap.AnimationEvent[ap.Rectangle], options: dict) -> 
 
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_x: ap.AnimationX = rectangle.animation_x(x=100)
 animation_x.animation_complete(on_animation_complete)
@@ -103,7 +112,7 @@ animation_x.animation_complete(on_animation_complete)
 ...     rectangle: ap.Rectangle = e.this.target
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

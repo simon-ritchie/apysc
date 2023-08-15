@@ -17,17 +17,20 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set the cyan fill color and draw the rectangle.
-sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 cyan_rect: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 cyan_rect.rotation_around_center = ap.Int(30)
 
 # Set the magenta fill color and draw the rectangle.
-sprite.graphics.begin_fill(color="#f0a", alpha=0.5)
+sprite.graphics.begin_fill(color=ap.Color("#f0a"), alpha=0.5)
 magenta_rect: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 # Append the rotation angle with the incremental addition (the result
 # rotation will be 60 degrees).
@@ -64,7 +67,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_rotation_around_center_basic_u
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

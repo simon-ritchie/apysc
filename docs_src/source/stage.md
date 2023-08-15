@@ -119,7 +119,7 @@ _main()
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: str = '#ffffff', add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: apysc._color.color.Color = Color("#ffffff"), add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -131,7 +131,7 @@ Create Stage (overall viewport) instance.<hr>
   - Stage width.
 - `stage_height`: int, default 185
   - Stage height
-- `background_color`: str, default '#ffffff'
+- `background_color`: str, default Colors.WHITE_FFFFFF
   - Hexadecimal background color string.
 - `add_to`: str, default 'body'
   - Specification of element to add stage. Unique tag (e.g., 'body') or ID selector (e.g., '#any-unique-elem') is acceptable.

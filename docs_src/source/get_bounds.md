@@ -40,7 +40,7 @@ box_rectangle: ap.Rectangle = ap.Rectangle(
     line_color=ap.Color("#aaa"),
 )
 
-fill_color: str = "#fd63c3"
+fill_color: ap.Color = ap.Color("#fd63c3")
 left_x_and_top_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.left_x,
     y=bounding_box.top_y,

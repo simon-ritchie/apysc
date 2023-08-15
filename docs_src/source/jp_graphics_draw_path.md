@@ -19,10 +19,13 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=300, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 path: ap.Path = sprite.graphics.draw_path(
     path_data_list=[
         ap.PathMoveTo(x=50, y=100),
@@ -91,7 +94,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_path_basic_usage/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),

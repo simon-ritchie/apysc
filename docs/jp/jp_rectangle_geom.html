@@ -61,7 +61,7 @@
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
@@ -71,7 +71,7 @@
     <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">bounding_box</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">RectangleGeom</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
 <span class="n">text_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
@@ -83,7 +83,7 @@
     <span class="p">),</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#aaa&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;rectangle_geom_basic_usage/&quot;</span><span class="p">)</span>
 </pre></div>
@@ -97,7 +97,7 @@
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
@@ -106,11 +106,11 @@
     <span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">220</span><span class="p">,</span>
     <span class="n">radius</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">bounding_box</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">RectangleGeom</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
 
-<span class="n">LINE_COLOR</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;#aaa&quot;</span>
+<span class="n">LINE_COLOR</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">)</span>
 <span class="n">box_rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span><span class="p">,</span>
@@ -120,7 +120,7 @@
 <span class="p">)</span>
 
 <span class="n">POINT_RADIUS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">fill_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;#fd63c3&quot;</span>
+<span class="n">fill_color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#fd63c3&quot;</span><span class="p">)</span>
 <span class="n">left_x_and_top_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span><span class="p">,</span>
@@ -134,7 +134,7 @@
     <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#ae59e3&quot;</span>
+<span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#ae59e3&quot;</span><span class="p">)</span>
 <span class="n">right_x_and_top_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">right_x</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span><span class="p">,</span>
@@ -148,7 +148,7 @@
     <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#726efa&quot;</span>
+<span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#726efa&quot;</span><span class="p">)</span>
 <span class="n">left_x_and_bottom_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">bottom_y</span><span class="p">,</span>
@@ -162,7 +162,7 @@
     <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#6eaee6&quot;</span>
+<span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#6eaee6&quot;</span><span class="p">)</span>
 <span class="n">right_x_and_bottom_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">right_x</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">bottom_y</span><span class="p">,</span>
@@ -176,7 +176,7 @@
     <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">fill_color</span> <span class="o">=</span> <span class="s2">&quot;#ffffff&quot;</span>
+<span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">)</span>
 <span class="n">center_x_and_center_y_circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">center_x</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">center_y</span><span class="p">,</span>
@@ -375,14 +375,14 @@
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;#333&quot;</span><span class="p">,</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">350</span>
+<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">350</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;#0af&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">),</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bounding_box</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">RectangleGeom</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
 </pre></div>

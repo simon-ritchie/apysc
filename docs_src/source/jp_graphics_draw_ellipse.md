@@ -17,19 +17,24 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=325, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=325,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Set the cyan fill color and draw the ellipse.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_ellipse(x=125, y=100, width=150, height=100)
 
 # Set the only dotted-line style and draw the ellipse.
-sprite.graphics.begin_fill(color="")
+sprite.graphics.begin_fill(color=ap.COLORLESS)
 sprite.graphics.line_style(
-    color="#fff", thickness=3, dot_setting=ap.LineDotSetting(dot_size=3)
+    color=ap.Color("#fff"),
+    thickness=3,
+    dot_setting=ap.LineDotSetting(dot_size=3),
 )
 sprite.graphics.draw_ellipse(x=200, y=100, width=150, height=100)
 
@@ -68,12 +73,15 @@ def on_ellipse_click(e: ap.MouseEvent[ap.Ellipse], options: dict) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(x=125, y=100, width=150, height=100)
 ellipse.click(on_ellipse_click)
 
@@ -124,7 +132,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
 ...     x=100, y=100, width=100, height=50
 ... )
@@ -141,5 +149,5 @@ Int(100)
 Int(50)
 
 >>> ellipse.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

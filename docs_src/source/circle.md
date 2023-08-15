@@ -838,7 +838,7 @@ Notes: Depending on the shape of the instance, this may be difficult to tell the
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], radius: Union[int, apysc._type.int.Int], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], radius: Union[int, apysc._type.int.Int], fill_color: apysc._color.color.Color = Color(""), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -852,11 +852,11 @@ Create a circle vector graphic.<hr>
   - Y-coordinate of the circle center.
 - `radius`: Int or int
   - Circle radius.
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - A fill-color to set.
 - `fill_alpha`: float or Number, default 1.0
   - A fill-alpha to set.
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - A line-color to set.
 - `line_alpha`: float or Number, default 1.0
   - A line-alpha to set.
@@ -884,7 +884,9 @@ Create a circle vector graphic.<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
->>> circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Color("#00aaff"))
+>>> circle: ap.Circle = ap.Circle(
+...     x=100, y=100, radius=50, fill_color=ap.Color("#00aaff")
+... )
 >>> circle.x
 Number(100.0)
 

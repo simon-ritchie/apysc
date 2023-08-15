@@ -17,18 +17,21 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=130, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=130,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set 2-pixel dot size and draw line.
-sprite.graphics.line_style(color="#0af", thickness=2)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=2)
 sprite.graphics.draw_dotted_line(
     x_start=50, y_start=50, x_end=200, y_end=50, dot_size=2
 )
 
 # Set 5-pixel dot size and draw line.
-sprite.graphics.line_style(color="#0af", thickness=2)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=2)
 sprite.graphics.draw_dotted_line(
     x_start=50, y_start=80, x_end=200, y_end=80, dot_size=5
 )
@@ -87,12 +90,12 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dotted_line_basic_usage/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=5)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 >>> line: ap.Line = sprite.graphics.draw_dotted_line(
 ...     x_start=50, y_start=50, x_end=150, y_end=50, dot_size=5
 ... )
 >>> line.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line.line_thickness
 Int(5)

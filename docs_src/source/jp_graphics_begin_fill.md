@@ -17,19 +17,22 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=350, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=350,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set blue fill color and draw the first rectangle.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Draw the second rectangle (fill color setting will be maintained).
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 # Set the other fill color and draw the third rectangle.
-sprite.graphics.begin_fill(color="#f0a")
+sprite.graphics.begin_fill(color=ap.Color("#f0a"))
 sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="graphics_begin_fill_basic_usage/")
@@ -46,12 +49,15 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan fill color and draw the rectangle.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")
@@ -59,7 +65,7 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")
 
 <iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe>
 
-もしも塗りの色の設定を削除したい場合、空の文字列をこの引数に指定してください。
+もしも塗りの色の設定を削除したい場合、`COLORLESS`定数をこの引数に指定してください。
 
 以下のコード例では塗りの色の設定を削除しているため、四角のグラフィックは見えなくなります。
 
@@ -68,14 +74,17 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_fill_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
-# Clear fill color by specifying the `COLORLESS` constant.
-sprite.graphics.begin_fill(color="")
+# Clear fill color by specifying the `COLORLESS`` constant.
+sprite.graphics.begin_fill(color=ap.COLORLESS)
 
 # Since fill color is not set, the rectangle is invisible.
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
@@ -93,31 +102,34 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_color_setting_clear/")
 - `#5`などの1文字による指定（これは`000005`と同じ値として扱われます）。
 - `0af`などの`#`記号を省略した指定（これは`#00aaff`と同じ値として扱われます）。
 
-- ``などの空文字（この指定は塗りの色の設定を削除します）。
+- `COLORLESS`定数（この指定は塗りの色の設定を削除します）。
 
 ```py
 # runnable
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=450, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=450,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # Six characters fill color setting (a cyan color).
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Three characters fill color setting (a magenta color).
-sprite.graphics.begin_fill(color="#f0a")
+sprite.graphics.begin_fill(color=ap.Color("#f0a"))
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 # Single characters fill color setting (a black color).
-sprite.graphics.begin_fill(color="#0")
+sprite.graphics.begin_fill(color=ap.Color("#0"))
 sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
 # Fill color that Skipped `#` symbol is also acceptable.
-sprite.graphics.begin_fill(color="999")
+sprite.graphics.begin_fill(color=ap.Color("999"))
 sprite.graphics.draw_rect(x=350, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="graphics_begin_fill_acceptable_color_settings/")
@@ -134,11 +146,14 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_acceptable_color_setting
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#00aaff", alpha=0.2)
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"), alpha=0.2)
 sprite.graphics.draw_rect(x=50, y=75, width=50, height=50)
 sprite.graphics.draw_rect(x=75, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=75, y=75, width=50, height=50)
@@ -154,7 +169,7 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `begin_fill(self, *, color: ~StrOrString, alpha: Union[float, apysc._type.number.Number] = 1.0) -> None`<hr>
+**[インターフェイスの構造]** `begin_fill(self, *, color: apysc._color.color.Color, alpha: Union[float, apysc._type.number.Number] = 1.0) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -162,8 +177,8 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 
 **[引数]**
 
-- `color`: str or String
-  - '#00aaff'などの16進数の色の文字列。
+- `color`: Color
+  - 色の設定。
 
 - `alpha`: float or Number, default 1.0
   - 塗りの透明度（0.0～1.0）。
@@ -174,14 +189,25 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(
+...     color=ap.Color("#0af"),
+...     alpha=0.5,
+... )
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.fill_color
-String("#00aaff")
+Color("#00aaff")
+
+>>> rectangle.fill_alpha
+Number(0.5)
 ```
 
 ## fill_color 属性のAPI
@@ -194,8 +220,8 @@ String("#00aaff")
 
 **[返却値]**
 
-- `fill_color`: String
-  - 現在の塗りの色（`'#00aaff'`などの16進数の文字列）。もしも設定されていない場合空文字が返却されます。
+- `fill_color`: Color
+  - 現在の塗りの色。もしも設定されていない場合`COLORLESS`定数の値が返却されます。
 
 <hr>
 
@@ -203,14 +229,19 @@ String("#00aaff")
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
->>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
 ... )
->>> rectangle.fill_color
-String("#00aaff")
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(
+...     color=ap.Color("#0af"),
+...     alpha=0.5,
+... )
+>>> sprite.graphics.fill_color
+Color("#00aaff")
 ```
 
 ## fill_alpha 属性のAPI
@@ -234,7 +265,7 @@ String("#00aaff")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

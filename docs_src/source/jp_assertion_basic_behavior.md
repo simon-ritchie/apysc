@@ -19,7 +19,10 @@ JavaScript上の各アサーションのインターフェイスは`assert_`の�
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_1: ap.Int = ap.Int(10)
 ap.assert_equal(left=10, right=int_1)
@@ -43,7 +46,10 @@ Left value: 10 right value: 10
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_1: ap.Int = ap.Int(10)
 ap.assert_equal(left=11, right=int_1)
@@ -70,7 +76,10 @@ Assertion failed:
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_1: ap.Int = ap.Int(10)
 ap.assert_equal(left=11, right=int_1, msg="Values are not equal!")

@@ -168,7 +168,7 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_alpha_setting/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `begin_fill(self, *, color: ~StrOrString, alpha: Union[float, apysc._type.number.Number] = 1.0) -> None`<hr>
+**[Interface signature]** `begin_fill(self, *, color: apysc._color.color.Color, alpha: Union[float, apysc._type.number.Number] = 1.0) -> None`<hr>
 
 **[Interface summary]**
 
@@ -176,8 +176,8 @@ Set single color value for fill.<hr>
 
 **[Parameters]**
 
-- `color`: str or String
-  - Hexadecimal color string. e.g., '#00aaff'
+- `color`: Color
+  - A color setting.
 - `alpha`: float or Number, default 1.0
   - Color opacity (0.0 to 1.0).
 
@@ -187,14 +187,25 @@ Set single color value for fill.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
+>>> sprite.graphics.begin_fill(
+...     color=ap.Color("#0af"),
+...     alpha=0.5,
+... )
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.fill_color
 Color("#00aaff")
+
+>>> rectangle.fill_alpha
+Number(0.5)
 ```
 
 ## fill_color property API
@@ -209,8 +220,8 @@ Get a current fill color.<hr>
 
 **[Returns]**
 
-- `fill_color`: String
-  - Current fill color. If it is not set, it returns the `COLORLESS` constant.
+- `fill_color`: Color
+  - Current fill-color. If not be set, this interface returns a `COLORLESS` constant.
 
 <hr>
 
@@ -218,13 +229,18 @@ Get a current fill color.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
->>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
 ... )
->>> rectangle.fill_color
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(
+...     color=ap.Color("#0af"),
+...     alpha=0.5,
+... )
+>>> sprite.graphics.fill_color
 Color("#00aaff")
 ```
 

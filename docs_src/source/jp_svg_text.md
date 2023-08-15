@@ -19,13 +19,16 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 ap.save_overall_html(dest_dir_path="svg_text_basic_usage/")
 ```
@@ -43,13 +46,16 @@ ap.save_overall_html(dest_dir_path="svg_text_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=0,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 ap.save_overall_html(dest_dir_path="svg_text_note_on_the_y_baseline/")
 ```
@@ -65,13 +71,16 @@ ap.save_overall_html(dest_dir_path="svg_text_note_on_the_y_baseline/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.text = ap.String("Lorem ipsum")
 ap.save_overall_html(dest_dir_path="svg_text_text/")
@@ -88,13 +97,16 @@ ap.save_overall_html(dest_dir_path="svg_text_text/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=34,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.font_size = ap.Int(24)
 ap.save_overall_html(dest_dir_path="svg_text_font_size/")
@@ -113,13 +125,16 @@ ap.save_overall_html(dest_dir_path="svg_text_font_size/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.font_family = ap.Array([ap.String("Impact"), ap.String("Times New Roman")])
 ap.save_overall_html(dest_dir_path="svg_text_font_family/")
@@ -136,12 +151,15 @@ ap.save_overall_html(dest_dir_path="svg_text_font_family/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.x = ap.Number(50)
 ap.save_overall_html(dest_dir_path="svg_text_x/")
@@ -158,13 +176,16 @@ ap.save_overall_html(dest_dir_path="svg_text_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=70, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=70,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.y = ap.Number(45)
 ap.save_overall_html(dest_dir_path="svg_text_y/")
@@ -181,14 +202,17 @@ ap.save_overall_html(dest_dir_path="svg_text_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
 )
-svg_text.fill_color = ap.String("#0af")
+svg_text.fill_color = ap.Color("#0af")
 ap.save_overall_html(dest_dir_path="svg_text_fill_color/")
 ```
 
@@ -203,13 +227,16 @@ ap.save_overall_html(dest_dir_path="svg_text_fill_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.fill_alpha = ap.Number(0.3)
 ap.save_overall_html(dest_dir_path="svg_text_fill_alpha/")
@@ -226,7 +253,10 @@ ap.save_overall_html(dest_dir_path="svg_text_fill_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
@@ -234,10 +264,10 @@ svg_text: ap.SVGText = ap.SVGText(
     y=34,
     font_size=24,
     bold=True,
-    fill_color="",
+    fill_color=ap.COLORLESS,
     line_thickness=1,
 )
-svg_text.line_color = ap.String("#0af")
+svg_text.line_color = ap.Color("#0af")
 ap.save_overall_html(dest_dir_path="svg_text_line_color/")
 ```
 
@@ -252,7 +282,10 @@ ap.save_overall_html(dest_dir_path="svg_text_line_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
@@ -260,8 +293,8 @@ svg_text: ap.SVGText = ap.SVGText(
     y=34,
     font_size=24,
     bold=True,
-    fill_color="",
-    line_color="#0af",
+    fill_color=ap.COLORLESS,
+    line_color=ap.Color("#0af"),
     line_thickness=1,
 )
 svg_text.line_alpha = ap.Number(0.3)
@@ -279,7 +312,10 @@ ap.save_overall_html(dest_dir_path="svg_text_line_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
@@ -287,8 +323,8 @@ svg_text: ap.SVGText = ap.SVGText(
     y=34,
     font_size=24,
     bold=True,
-    fill_color="",
-    line_color="#0af",
+    fill_color=ap.COLORLESS,
+    line_color=ap.Color("#0af"),
 )
 svg_text.line_thickness = ap.Int(3)
 ap.save_overall_html(dest_dir_path="svg_text_line_thickness/")
@@ -305,7 +341,10 @@ ap.save_overall_html(dest_dir_path="svg_text_line_thickness/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=500, stage_height=120, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=500,
+    stage_height=120,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Lorem ipsum dolor sit amet,
@@ -314,7 +353,7 @@ consectetur adipiscing elit,
     "sed do eiusmod tempor incididunt",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.leading = ap.Number(2.0)
 
@@ -334,7 +373,10 @@ ap.save_overall_html(dest_dir_path="svg_text_leading/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=500, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=500,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Lorem ipsum dolor sit amet,
@@ -343,7 +385,7 @@ consectetur adipiscing elit,
     "sed do eiusmod tempor incididunt",
     x=250,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.align = ap.SVGTextAlign.CENTER
 
@@ -364,7 +406,7 @@ import apysc as ap
 STAGE_WIDTH: int = 500
 STAGE_HEIGHT: int = 120
 ap.Stage(
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_width=STAGE_WIDTH,
     stage_height=STAGE_HEIGHT,
     stage_elem_id="stage",
@@ -375,12 +417,12 @@ container_sprite.x = ap.Number(STAGE_WIDTH / 2)
 vertical_x0_line: ap.Line = ap.Line(
     start_point=ap.Point2D(0, 0),
     end_point=ap.Point2D(0, STAGE_HEIGHT),
-    line_color="#666",
+    line_color=ap.Color("#666"),
     parent=container_sprite,
 )
 x0_text: ap.SVGText = ap.SVGText(
     text="Text's x=0 position",
-    fill_color="#666",
+    fill_color=ap.Color("#666"),
     x=5,
     y=20,
     parent=container_sprite,
@@ -390,7 +432,7 @@ left_align_sample_text: ap.SVGText = ap.SVGText(
     text="Left align sample (default)",
     x=0,
     y=52,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
 
@@ -398,7 +440,7 @@ center_align_sample_text: ap.SVGText = ap.SVGText(
     text="Center align sample",
     x=0,
     y=72,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
 center_align_sample_text.align = ap.SVGTextAlign.CENTER
@@ -407,7 +449,7 @@ right_align_sample_text: ap.SVGText = ap.SVGText(
     text="Right align sample",
     x=0,
     y=92,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
 right_align_sample_text.align = ap.SVGTextAlign.RIGHT
@@ -426,13 +468,16 @@ ap.save_overall_html(dest_dir_path="svg_text_align_note/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Bold style sample",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.bold = ap.Boolean(True)
 ap.save_overall_html(dest_dir_path="svg_text_bold/")
@@ -449,13 +494,16 @@ ap.save_overall_html(dest_dir_path="svg_text_bold/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Italic style sample",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 svg_text.italic = ap.Boolean(True)
 ap.save_overall_html(dest_dir_path="svg_text_italic/")
@@ -472,13 +520,16 @@ ap.save_overall_html(dest_dir_path="svg_text_italic/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=100,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     align=ap.SVGTextAlign.CENTER,
 )
 
@@ -514,7 +565,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_rotation_around_center/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=120, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=120,
+    stage_elem_id="stage",
 )
 X: ap.Number = ap.Number(20)
 Y: ap.Number = ap.Number(32)
@@ -522,7 +576,7 @@ svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=X,
     y=Y,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -570,14 +624,17 @@ ap.save_overall_html(dest_dir_path="svg_txt_rotation_around_point/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 direction: ap.Int = ap.Int(-1)
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -618,7 +675,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_scale_x_from_center/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 X: ap.Number = ap.Number(20)
 direction: ap.Int = ap.Int(-1)
@@ -626,7 +686,7 @@ svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=X,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -665,13 +725,16 @@ ap.save_overall_html(dest_dir_path="svg_txt_scale_x_from_point/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -704,13 +767,16 @@ ap.save_overall_html(dest_dir_path="svg_txt_flip_x/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText(
     text="Hello, world!",
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 
@@ -738,7 +804,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_flip_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: Union[str, apysc._type.string.String] = '#666', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -767,7 +833,7 @@ SVGテキストのためのクラスです。<hr>
 - `fill_alpha`: float or Number, optional
   - 塗りの透明度の設定。
 
-- `line_color`: str or String, default ''
+- `line_color`: str or String, optional
   - 線の色の設定。
 
 - `line_alpha`: float or Number, optional
@@ -805,7 +871,7 @@ SVGテキストのためのクラスです。<hr>
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_width=200,
 ...     stage_height=50,
 ...     stage_elem_id="stage",
@@ -813,7 +879,7 @@ SVGテキストのためのクラスです。<hr>
 >>> svg_text: ap.SVGText = ap.SVGText(
 ...     text="Hello, world!",
 ...     font_size=20,
-...     fill_color="#0af",
+...     fill_color=ap.Color("#0af"),
 ... )
 >>> svg_text.text
 String("Hello, world!")
@@ -822,5 +888,5 @@ String("Hello, world!")
 Int(20)
 
 >>> svg_text.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

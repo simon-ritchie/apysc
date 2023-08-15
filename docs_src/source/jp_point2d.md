@@ -63,10 +63,13 @@ assert point.x == 30
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 sprite.graphics.draw_polygon(
     points=[
@@ -110,7 +113,7 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
 ...     points=[
 ...         ap.Point2D(x=0, y=0),

@@ -29,11 +29,14 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=550, stage_height=550, background_color="#333", stage_elem_id="stage"
+    stage_width=550,
+    stage_height=550,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
-sprite.graphics.line_style(color="#fff", thickness=1)
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=1)
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -542,7 +545,7 @@ def on_fill_color_animation_complete_1(
         Optional arguments dictionary.
     """
     e.this.target.animation_fill_color(
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
@@ -563,7 +566,7 @@ def on_fill_color_animation_complete_2(
         Optional arguments dictionary.
     """
     e.this.target.animation_fill_color(
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
@@ -576,7 +579,7 @@ sprite.graphics.draw_rect(
     width=50,
     height=50,
 ).animation_fill_color(
-    fill_color="#f0a",
+    fill_color=ap.Color("#f0a"),
     duration=DURATION,
     delay=DELAY,
     easing=EASING,
@@ -652,7 +655,7 @@ def on_line_color_animation_complete_1(
         Optional arguments dictionary.
     """
     e.this.target.animation_line_color(
-        line_color="#fff",
+        line_color=ap.Color("#fff"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
@@ -673,21 +676,21 @@ def on_line_color_animation_complete_2(
         Optional arguments dictionary.
     """
     e.this.target.animation_line_color(
-        line_color="#666",
+        line_color=ap.Color("#666"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
     ).animation_complete(on_line_color_animation_complete_1).start()
 
 
-sprite.graphics.line_style(color="#fff", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 sprite.graphics.draw_rect(
     x=150,
     y=250,
     width=50,
     height=50,
 ).animation_line_color(
-    line_color="#666",
+    line_color=ap.Color("#666"),
     duration=DURATION,
     delay=DELAY,
     easing=EASING,
@@ -747,7 +750,7 @@ sprite.graphics.draw_rect(
     delay=DELAY,
     easing=EASING,
 ).animation_complete(on_line_alpha_animation_complete_1).start()
-sprite.graphics.line_style(color="#fff", thickness=1)
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=1)
 
 
 def on_line_thickness_animation_complete_1(
@@ -1255,10 +1258,13 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=350, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=350,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1385,10 +1391,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_easing/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1466,10 +1475,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_x/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=200,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1547,10 +1559,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_y/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=200, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=200,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1631,10 +1646,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_move/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1712,10 +1730,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_width/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=200,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1793,10 +1814,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_height/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1815,7 +1839,7 @@ def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
         Optional arguments dictionary.
     """
     e.this.target.animation_fill_color(
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
@@ -1834,7 +1858,7 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
         Optional arguments dictionary.
     """
     e.this.target.animation_fill_color(
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
@@ -1847,7 +1871,7 @@ sprite.graphics.draw_rect(
     width=50,
     height=50,
 ).animation_fill_color(
-    fill_color="#f0a",
+    fill_color=ap.Color("#f0a"),
     duration=DURATION,
     delay=DELAY,
     easing=EASING,
@@ -1874,10 +1898,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_fill_color/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1955,10 +1982,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_fill_alpha/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -1977,7 +2007,7 @@ def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
         Optional arguments dictionary.
     """
     e.this.target.animation_line_color(
-        line_color="#0af",
+        line_color=ap.Color("#0af"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
@@ -1996,7 +2026,7 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
         Optional arguments dictionary.
     """
     e.this.target.animation_line_color(
-        line_color="#f0a",
+        line_color=ap.Color("#f0a"),
         duration=DURATION,
         delay=DELAY,
         easing=EASING,
@@ -2009,7 +2039,7 @@ sprite.graphics.draw_rect(
     width=50,
     height=50,
 ).animation_line_color(
-    line_color="#f0a",
+    line_color=ap.Color("#f0a"),
     duration=DURATION,
     delay=DELAY,
     easing=EASING,
@@ -2036,10 +2066,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_line_color/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#fff", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2117,10 +2150,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_line_alpha/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#fff", thickness=1)
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=1)
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2198,10 +2234,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_line_thickness
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2278,10 +2317,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_radius/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2363,10 +2405,13 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2454,10 +2499,13 @@ ap.save_overall_html(
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2537,10 +2585,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_scale_x_from_c
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2620,10 +2671,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_scale_y_from_c
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500
@@ -2706,10 +2760,13 @@ ap.save_overall_html(dest_dir_path="animation_interfaces_abstract_scale_x_from_p
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 DURATION: int = 1000
 DELAY: int = 500

@@ -19,7 +19,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="save_overall_html_interface_basic_usage/")
@@ -37,7 +40,10 @@ ap.save_overall_html(dest_dir_path="save_overall_html_interface_basic_usage/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", minify=False)
@@ -55,7 +61,10 @@ ap.save_overall_html(dest_dir_path="dest_dir/", minify=False)
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(
@@ -73,7 +82,10 @@ ap.save_overall_html(
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", html_file_name="chart.html")
@@ -87,7 +99,10 @@ ap.save_overall_html(dest_dir_path="dest_dir/", html_file_name="chart.html")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", embed_js_libs=True)
@@ -101,7 +116,10 @@ ap.save_overall_html(dest_dir_path="dest_dir/", embed_js_libs=True)
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="dest_dir/", verbose=0)

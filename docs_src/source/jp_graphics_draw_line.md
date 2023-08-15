@@ -17,11 +17,14 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
 ap.save_overall_html(dest_dir_path="graphics_draw_line_basic_usage/")
@@ -38,13 +41,18 @@ ap.save_overall_html(dest_dir_path="graphics_draw_line_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
 # dot_setting will be ignored, and the result line will not be dotted.
 sprite.graphics.line_style(
-    color="#0af", thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
+    color=ap.Color("#0af"),
+    thickness=5,
+    dot_setting=ap.LineDotSetting(dot_size=5),
 )
 sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
@@ -62,15 +70,18 @@ ap.save_overall_html(dest_dir_path="graphics_draw_line_ignored_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 line: ap.Line = sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
 # Update the line color from cyan to magenta.
-line.line_color = ap.String("#f0a")
+line.line_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="graphics_draw_line_line_instance/")
 ```
@@ -123,12 +134,12 @@ ap.save_overall_html(dest_dir_path="graphics_draw_line_line_instance/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=5)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
 >>> line: ap.Line = sprite.graphics.draw_line(
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
 >>> line.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line.line_thickness
 Int(5)

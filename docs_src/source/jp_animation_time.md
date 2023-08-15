@@ -39,10 +39,13 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 
 ap.Stage(
-    stage_width=500, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=500,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=400, duration=10000).start()
@@ -86,7 +89,7 @@ ap.save_overall_html(dest_dir_path="animation_time_basic_usage/")
 ...     ap.trace("animation_time:", animation_time)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

@@ -23,7 +23,10 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -32,7 +35,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 ap.save_overall_html(dest_dir_path="triangle_basic_usage/")
@@ -57,7 +60,10 @@ ap.save_overall_html(dest_dir_path="triangle_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -66,7 +72,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x = ap.Number(100)
 
@@ -84,7 +90,10 @@ ap.save_overall_html(dest_dir_path="triangle_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -93,7 +102,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y = ap.Number(100)
 
@@ -111,7 +120,10 @@ ap.save_overall_html(dest_dir_path="triangle_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -120,7 +132,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x1 = ap.Number(100)
 
@@ -138,7 +150,10 @@ ap.save_overall_html(dest_dir_path="triangle_x1/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -147,7 +162,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y1 = ap.Number(0)
 
@@ -165,7 +180,10 @@ ap.save_overall_html(dest_dir_path="triangle_y1/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -174,7 +192,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x2 = ap.Number(75)
 
@@ -192,7 +210,10 @@ ap.save_overall_html(dest_dir_path="triangle_x2/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -201,7 +222,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y2 = ap.Number(75)
 
@@ -219,7 +240,10 @@ ap.save_overall_html(dest_dir_path="triangle_y2/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -228,7 +252,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.x3 = ap.Number(75)
 
@@ -246,7 +270,10 @@ ap.save_overall_html(dest_dir_path="triangle_x3/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -255,7 +282,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.y3 = ap.Number(75)
 
@@ -273,7 +300,10 @@ ap.save_overall_html(dest_dir_path="triangle_y3/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -282,9 +312,9 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
-triangle.fill_color = ap.String("#f0a")
+triangle.fill_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="triangle_fill_color/")
 ```
@@ -300,7 +330,10 @@ ap.save_overall_html(dest_dir_path="triangle_fill_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -309,7 +342,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 triangle.fill_alpha = ap.Number(0.3)
 
@@ -327,7 +360,10 @@ ap.save_overall_html(dest_dir_path="triangle_fill_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -336,10 +372,10 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
     line_thickness=3,
 )
-triangle.line_color = ap.String("#fff")
+triangle.line_color = ap.Color("#fff")
 
 ap.save_overall_html(dest_dir_path="triangle_line_color/")
 ```
@@ -355,7 +391,10 @@ ap.save_overall_html(dest_dir_path="triangle_line_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -364,7 +403,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 triangle.line_alpha = ap.Number(0.3)
@@ -383,7 +422,10 @@ ap.save_overall_html(dest_dir_path="triangle_line_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -392,7 +434,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=1,
 )
 triangle.line_thickness = ap.Int(5)
@@ -411,7 +453,10 @@ ap.save_overall_html(dest_dir_path="triangle_line_thickness/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -420,7 +465,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 triangle.line_dot_setting = ap.LineDotSetting(dot_size=3)
@@ -439,7 +484,10 @@ ap.save_overall_html(dest_dir_path="triangle_line_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -448,7 +496,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 triangle.line_dash_setting = ap.LineDashSetting(dash_size=7, space_size=2)
@@ -467,7 +515,10 @@ ap.save_overall_html(dest_dir_path="triangle_line_dash_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -476,7 +527,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 triangle.line_round_dot_setting = ap.LineRoundDotSetting(round_size=6, space_size=3)
 
@@ -494,7 +545,10 @@ ap.save_overall_html(dest_dir_path="triangle_line_round_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -503,7 +557,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 triangle.line_dash_dot_setting = ap.LineDashDotSetting(
@@ -524,7 +578,10 @@ ap.save_overall_html(dest_dir_path="triangle_line_dash_dot_setting/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -533,7 +590,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -568,7 +625,10 @@ ap.save_overall_html(dest_dir_path="triangle_rotation_around_center/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 ROTATION_X: ap.Int = ap.Int(100)
 ROTATION_Y: ap.Int = ap.Int(100)
@@ -579,7 +639,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=ROTATION_X,
     y3=ROTATION_Y,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -615,7 +675,10 @@ ap.save_overall_html(dest_dir_path="triangle_set_rotation_around_point/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -624,7 +687,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -662,7 +725,10 @@ ap.save_overall_html(dest_dir_path="triangle_scale_x_from_center/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -671,7 +737,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -707,7 +773,10 @@ ap.save_overall_html(dest_dir_path="triangle_scale_y_from_center/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 SCALE_COORDINATE_X: ap.Int = ap.Int(100)
 triangle: ap.Triangle = ap.Triangle(
@@ -717,7 +786,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=SCALE_COORDINATE_X,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -759,7 +828,10 @@ ap.save_overall_html(dest_dir_path="triangle_set_scale_x_from_point/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 SCALE_COORDINATE_Y: ap.Int = ap.Int(100)
 triangle: ap.Triangle = ap.Triangle(
@@ -769,7 +841,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=SCALE_COORDINATE_Y,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(1)
 
@@ -809,7 +881,10 @@ ap.save_overall_html(dest_dir_path="triangle_set_scale_y_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=50,
@@ -818,7 +893,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -851,7 +926,10 @@ ap.save_overall_html(dest_dir_path="triangle_flip_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -860,7 +938,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -893,7 +971,10 @@ ap.save_overall_html(dest_dir_path="triangle_flip_y/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -902,7 +983,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -935,7 +1016,10 @@ ap.save_overall_html(dest_dir_path="triangle_skew_x/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -944,7 +1028,7 @@ triangle: ap.Triangle = ap.Triangle(
     y2=100,
     x3=100,
     y3=100,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -972,7 +1056,7 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, x1: Union[float, apysc._type.number.Number], y1: Union[float, apysc._type.number.Number], x2: Union[float, apysc._type.number.Number], y2: Union[float, apysc._type.number.Number], x3: Union[float, apysc._type.number.Number], y3: Union[float, apysc._type.number.Number], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, x1: Union[float, apysc._type.number.Number], y1: Union[float, apysc._type.number.Number], x2: Union[float, apysc._type.number.Number], y2: Union[float, apysc._type.number.Number], x3: Union[float, apysc._type.number.Number], y3: Union[float, apysc._type.number.Number], fill_color: apysc._color.color.Color = Color(""), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -998,13 +1082,13 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 - `y3`: Union[float, Number]
   - 3つ目の頂点のY座標。
 
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - 設定する塗りの色。
 
 - `fill_alpha`: float or Number, default 1.0
   - 設定する塗りの透明度。
 
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - 設定する線の色。
 
 - `line_alpha`: float or Number, default 1.0
@@ -1051,8 +1135,8 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 ...     y2=100,
 ...     x3=100,
 ...     y3=100,
-...     fill_color="#0af",
-...     line_color="#fff",
+...     fill_color=ap.Color("#0af"),
+...     line_color=ap.Color("#fff"),
 ...     line_thickness=3,
 ... )
 >>> triangle.x2

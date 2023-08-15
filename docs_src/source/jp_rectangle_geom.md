@@ -19,7 +19,7 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_width=300,
     stage_height=200,
     stage_elem_id="stage",
@@ -29,7 +29,7 @@ rectangle: ap.Rectangle = ap.Rectangle(
     y=50,
     width=200,
     height=75,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 bounding_box: ap.RectangleGeom = rectangle.get_bounds()
 text_1: ap.SVGText = ap.SVGText(
@@ -41,7 +41,7 @@ text_1: ap.SVGText = ap.SVGText(
     ),
     x=50,
     y=150,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 ap.save_overall_html(dest_dir_path="rectangle_geom_basic_usage/")
 ```
@@ -57,7 +57,7 @@ ap.save_overall_html(dest_dir_path="rectangle_geom_basic_usage/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_width=600,
     stage_height=440,
     stage_elem_id="stage",
@@ -66,11 +66,11 @@ circle: ap.Circle = ap.Circle(
     x=250,
     y=220,
     radius=150,
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 bounding_box: ap.RectangleGeom = circle.get_bounds()
 
-LINE_COLOR: str = "#aaa"
+LINE_COLOR: ap.Color = ap.Color("#aaa")
 box_rectangle: ap.Rectangle = ap.Rectangle(
     x=bounding_box.left_x,
     y=bounding_box.top_y,
@@ -80,7 +80,7 @@ box_rectangle: ap.Rectangle = ap.Rectangle(
 )
 
 POINT_RADIUS: int = 10
-fill_color: str = "#fd63c3"
+fill_color: ap.Color = ap.Color("#fd63c3")
 left_x_and_top_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.left_x,
     y=bounding_box.top_y,
@@ -94,7 +94,7 @@ left_x_and_top_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#ae59e3"
+fill_color = ap.Color("#ae59e3")
 right_x_and_top_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.right_x,
     y=bounding_box.top_y,
@@ -108,7 +108,7 @@ right_x_and_top_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#726efa"
+fill_color = ap.Color("#726efa")
 left_x_and_bottom_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.left_x,
     y=bounding_box.bottom_y,
@@ -122,7 +122,7 @@ left_x_and_bottom_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#6eaee6"
+fill_color = ap.Color("#6eaee6")
 right_x_and_bottom_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.right_x,
     y=bounding_box.bottom_y,
@@ -136,7 +136,7 @@ right_x_and_bottom_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#ffffff"
+fill_color = ap.Color("#ffffff")
 center_x_and_center_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.center_x,
     y=bounding_box.center_y,
@@ -317,14 +317,14 @@ ap.save_overall_html(dest_dir_path="rectangle_geom_each_attribute_point/")
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=250, stage_height=350
+...     background_color=ap.Color("#333"), stage_width=250, stage_height=350
 ... )
 >>> rectangle: ap.Rectangle = ap.Rectangle(
 ...     x=50,
 ...     y=100,
 ...     width=150,
 ...     height=200,
-...     fill_color="#0af",
+...     fill_color=ap.Color("#0af"),
 ... )
 >>> bounding_box: ap.RectangleGeom = rectangle.get_bounds()
 ```

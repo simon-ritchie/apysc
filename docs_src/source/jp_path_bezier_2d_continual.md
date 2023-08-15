@@ -25,7 +25,10 @@ PathBezier2DContinual`クラスはパスに連続した2次元のベジェ曲線
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=400, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 path: ap.Path = ap.Path(
@@ -46,7 +49,7 @@ path: ap.Path = ap.Path(
             y=100,
         ),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -68,7 +71,10 @@ ap.save_overall_html(dest_dir_path="path_bezier_2d_continual_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=400, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 path: ap.Path = ap.Path(
@@ -91,7 +97,7 @@ path: ap.Path = ap.Path(
             relative=True,
         ),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -132,7 +138,7 @@ SVGの連続した2次元のベジェ曲線のデータ設定用のクラスで�
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=3)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 >>> path: ap.Path = sprite.graphics.draw_path(
 ...     path_data_list=[
 ...         ap.PathMoveTo(x=0, y=50),

@@ -19,12 +19,15 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 
@@ -56,12 +59,15 @@ ap.save_overall_html(dest_dir_path="line_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 line.x = ap.Number(100)
@@ -82,12 +88,15 @@ ap.save_overall_html(dest_dir_path="line_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 line.y = ap.Number(80)
@@ -108,14 +117,17 @@ ap.save_overall_html(dest_dir_path="line_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
     line_thickness=5,
 )
-line.line_color = ap.String("#f0a")
+line.line_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="line_line_color/")
 ```
@@ -131,12 +143,15 @@ ap.save_overall_html(dest_dir_path="line_line_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 line.line_alpha = ap.Number(0.3)
@@ -155,12 +170,15 @@ ap.save_overall_html(dest_dir_path="line_line_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 line.line_thickness = ap.Int(10)
 
@@ -178,12 +196,15 @@ ap.save_overall_html(dest_dir_path="line_line_thickness/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 line.line_dot_setting = ap.LineDotSetting(dot_size=3)
@@ -202,12 +223,15 @@ ap.save_overall_html(dest_dir_path="line_line_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 line.line_dash_setting = ap.LineDashSetting(dash_size=6, space_size=2)
@@ -226,12 +250,15 @@ ap.save_overall_html(dest_dir_path="line_line_dash_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 line.line_round_dot_setting = ap.LineRoundDotSetting(round_size=5, space_size=3)
 
@@ -249,12 +276,15 @@ ap.save_overall_html(dest_dir_path="line_line_round_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=50),
     end_point=ap.Point2D(x=150, y=50),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 line.line_dash_dot_setting = ap.LineDashDotSetting(
@@ -275,12 +305,15 @@ ap.save_overall_html(dest_dir_path="line_line_dash_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -316,12 +349,15 @@ ap.save_overall_html(dest_dir_path="line_rotation_around_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 x: ap.Int = ap.Int(100)
@@ -359,12 +395,15 @@ ap.save_overall_html(dest_dir_path="line_set_rotation_around_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -403,12 +442,15 @@ ap.save_overall_html(dest_dir_path="line_scale_x_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -449,12 +491,15 @@ ap.save_overall_html(dest_dir_path="line_scale_y_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -498,12 +543,15 @@ ap.save_overall_html(dest_dir_path="line_scale_x_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=30,
 )
 direction: ap.Int = ap.Int(-1)
@@ -545,12 +593,15 @@ ap.save_overall_html(dest_dir_path="line_scale_y_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -586,12 +637,15 @@ ap.save_overall_html(dest_dir_path="line_flip_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -627,12 +681,15 @@ ap.save_overall_html(dest_dir_path="line_flip_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -668,12 +725,15 @@ ap.save_overall_html(dest_dir_path="line_skew_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=100, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id="stage",
 )
 line: ap.Line = ap.Line(
     start_point=ap.Point2D(x=50, y=40),
     end_point=ap.Point2D(x=150, y=60),
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=3,
 )
 
@@ -704,7 +764,7 @@ ap.save_overall_html(dest_dir_path="line_skew_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, start_point: 'point2d.Point2D', end_point: 'point2d.Point2D', line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, start_point: 'point2d.Point2D', end_point: 'point2d.Point2D', line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -718,7 +778,7 @@ ap.save_overall_html(dest_dir_path="line_skew_y/")
 - `end_point`: Points2D
   - 線の終了座標。
 
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - 設定する線の色。
 
 - `line_alpha`: float or Number, default 1.0
@@ -758,11 +818,11 @@ ap.save_overall_html(dest_dir_path="line_skew_y/")
 >>> line: ap.Line = ap.Line(
 ...     start_point=ap.Point2D(x=50, y=50),
 ...     end_point=ap.Point2D(x=150, y=50),
-...     line_color="#ffffff",
+...     line_color=ap.Color("#ffffff"),
 ...     line_thickness=3,
 ... )
 >>> line.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line.line_thickness
 Int(3)

@@ -29,8 +29,8 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    fill_color: ap.String = rectangle.fill_color
-    with ap.If(fill_color == "#00aaff"):
+    fill_color: ap.Color = rectangle.fill_color
+    with ap.If(fill_color == ap.Color("#00aaff")):
         rectangle.fill_color = ap.Color("#f0a")
     with ap.Else():
         rectangle.fill_color = ap.Color("#0af")
@@ -65,7 +65,7 @@ Get this instance's fill color.<hr>
 
 **[Returns]**
 
-- `fill_color`: String
+- `fill_color`: Color
   - Current fill color. If it is not set, it returns the `COLORLESS` constant.
 
 <hr>
@@ -74,13 +74,22 @@ Get this instance's fill color.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
->>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
 ... )
->>> rectangle.fill_color = ap.Color("#f0a")
->>> rectangle.fill_color
+>>> circle: ap.Circle = ap.Circle(
+...     x=75,
+...     y=75,
+...     radius=50,
+...     fill_color=ap.Color("#0af"),
+... )
+>>> circle.fill_color
+Color("#00aaff")
+
+>>> circle.fill_color = ap.Color("#ff00aa")
+>>> circle.fill_color
 Color("#ff00aa")
 ```

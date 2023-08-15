@@ -39,11 +39,15 @@ import apysc as ap
 stage: ap.Stage = ap.Stage(
     stage_width=150,
     stage_height=150,
-    background_color="#333",
+    background_color=ap.Color("#333"),
     stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -76,7 +80,7 @@ ap.save_overall_html(dest_dir_path="enter_frame_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `enter_frame(self, handler: Callable[[apysc._event.enter_frame_event.EnterFrameEvent, ~_Options], NoneType], *, fps: apysc._time.fps.FPS = <FPS.FPS_60: <apysc._time.fps.FPSDefinition object at 0x7fc849f025b0>>, options: Union[~_Options, NoneType] = None) -> None`<hr>
+**[インターフェイスの構造]** `enter_frame(self, handler: Callable[[apysc._event.enter_frame_event.EnterFrameEvent, ~_Options], NoneType], *, fps: apysc._time.fps.FPS = <FPS.FPS_60: <apysc._time.fps.FPSDefinition object at 0x7fd2a289ef10>>, options: Union[~_Options, NoneType] = None) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -105,7 +109,7 @@ enter frameのイベントのリスナー設定を追加します。<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> rectangle: ap.Rectangle = ap.Rectangle(
-...     x=50, y=50, width=50, height=50, fill_color="#0af"
+...     x=50, y=50, width=50, height=50, fill_color=ap.Color("#0af")
 ... )
 >>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:
 ...     rectangle.x += 1

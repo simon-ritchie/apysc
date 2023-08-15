@@ -26,7 +26,12 @@
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 num: ap.Number = ap.Number(10.789)
 fixed_float_str: ap.String = num.to_fixed(digits=2)
 ap.assert_equal(fixed_float_str, "10.79")

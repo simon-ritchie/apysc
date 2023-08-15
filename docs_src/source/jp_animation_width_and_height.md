@@ -63,10 +63,13 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
 
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_width: ap.AnimationWidth = rectangle.animation_width(
     width=100, duration=DURATION, easing=EASING
@@ -128,10 +131,13 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
 
 
 ap.Stage(
-    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=200,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_height: ap.AnimationHeight = rectangle.animation_height(
     height=100, duration=DURATION, easing=EASING
@@ -153,10 +159,13 @@ ap.save_overall_html(dest_dir_path="./animation_height_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=200,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(x=100, y=100, width=100, height=100)
 animation_width: ap.AnimationWidthForEllipse = ellipse.animation_width(
     width=200, duration=1000
@@ -207,7 +216,7 @@ animation_width.start()
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -274,7 +283,7 @@ animation_width.start()
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

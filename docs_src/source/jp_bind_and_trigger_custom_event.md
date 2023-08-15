@@ -98,10 +98,13 @@ def on_rotate_90_degrees(e: ap.Event, options: _RectOptions) -> None:
 
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=250,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle_1.click(on_rectangle_click)
@@ -172,7 +175,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 ...     rectangle.fill_color = ap.Color("#f0a")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -216,7 +219,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 ...     rectangle.fill_color = ap.Color("#f0a")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -267,7 +270,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 ...     )
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -306,7 +309,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 ...     rectangle.unbind_custom_event_all(custom_event_type="my_custom_event")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

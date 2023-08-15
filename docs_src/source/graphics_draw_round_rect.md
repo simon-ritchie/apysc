@@ -17,7 +17,10 @@ This interface also has `ellipse_width` and `ellipse_height` arguments to set th
 import apysc as ap
 
 ap.Stage(
-    background_color=ap.Color("#333"), stage_width=350, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=350,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()

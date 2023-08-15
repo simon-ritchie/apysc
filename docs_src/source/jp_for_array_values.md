@@ -29,7 +29,10 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=350,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 x_arr: ap.Array[ap.Number] = ap.Array([ap.Number(75), ap.Number(175), ap.Number(275)])
@@ -38,7 +41,7 @@ with ap.ForArrayValues(arr=x_arr, arr_value_type=ap.Number) as value:
         x=value,
         y=75,
         radius=25,
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
     )
 
 ap.save_overall_html(dest_dir_path="for_array_values_basic_usage/")
@@ -93,7 +96,7 @@ ap.save_overall_html(dest_dir_path="for_array_values_basic_usage/")
 ...         x=value,
 ...         y=75,
 ...         radius=25,
-...         fill_color="#0af",
+...         fill_color=ap.Color("#0af"),
 ...     )
 ...
 ```

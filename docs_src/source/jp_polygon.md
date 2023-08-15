@@ -19,7 +19,10 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -27,7 +30,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 
 ap.save_overall_html(dest_dir_path="polygon_basic_usage/")
@@ -52,7 +55,10 @@ ap.save_overall_html(dest_dir_path="polygon_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -60,7 +66,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 polygon.x = ap.Number(100)
 
@@ -80,7 +86,10 @@ ap.save_overall_html(dest_dir_path="polygon_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -88,7 +97,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 polygon.y = ap.Number(100)
 
@@ -108,7 +117,10 @@ ap.save_overall_html(dest_dir_path="polygon_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -117,7 +129,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=100, y=100),
     ]
 )
-polygon.fill_color = ap.String("#f0a")
+polygon.fill_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="polygon_fill_color/")
 ```
@@ -133,7 +145,10 @@ ap.save_overall_html(dest_dir_path="polygon_fill_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -141,7 +156,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    fill_color="#0af",
+    fill_color=ap.Color("#0af"),
 )
 polygon.fill_alpha = ap.Number(0.3)
 
@@ -159,7 +174,10 @@ ap.save_overall_html(dest_dir_path="polygon_fill_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -169,7 +187,7 @@ polygon: ap.Polygon = ap.Polygon(
     ],
     line_thickness=5,
 )
-polygon.line_color = ap.String("#0af")
+polygon.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="polygon_line_color/")
 ```
@@ -185,7 +203,10 @@ ap.save_overall_html(dest_dir_path="polygon_line_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -193,7 +214,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=5,
 )
 polygon.line_alpha = ap.Number(0.3)
@@ -212,7 +233,10 @@ ap.save_overall_html(dest_dir_path="polygon_line_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -220,7 +244,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 polygon.line_thickness = ap.Int(8)
 
@@ -238,7 +262,10 @@ ap.save_overall_html(dest_dir_path="polygon_line_thickness/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -246,7 +273,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=2,
 )
 polygon.line_dot_setting = ap.LineDotSetting(dot_size=2)
@@ -265,7 +292,10 @@ ap.save_overall_html(dest_dir_path="polygon_line_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -273,7 +303,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=2,
 )
 polygon.line_dash_setting = ap.LineDashSetting(dash_size=5, space_size=2)
@@ -292,7 +322,10 @@ ap.save_overall_html(dest_dir_path="polygon_line_dash_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -300,7 +333,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 polygon.line_round_dot_setting = ap.LineRoundDotSetting(round_size=4, space_size=3)
 
@@ -318,7 +351,10 @@ ap.save_overall_html(dest_dir_path="polygon_line_round_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -326,7 +362,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 polygon.line_dash_dot_setting = ap.LineDashDotSetting(
     dot_size=2, dash_size=5, space_size=2
@@ -346,7 +382,10 @@ ap.save_overall_html(dest_dir_path="polygon_line_dash_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -354,7 +393,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -389,7 +428,10 @@ ap.save_overall_html(dest_dir_path="polygon_rotation_around_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -397,7 +439,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 x: ap.Int = ap.Int(100)
 y: ap.Int = ap.Int(100)
@@ -434,7 +476,10 @@ ap.save_overall_html(dest_dir_path="polygon_set_rotation_around_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -442,7 +487,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 
@@ -480,7 +525,10 @@ ap.save_overall_html(dest_dir_path="polygon_scale_x_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -488,7 +536,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 
@@ -528,7 +576,10 @@ ap.save_overall_html(dest_dir_path="polygon_scale_y_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -536,7 +587,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 x: ap.Int = ap.Int(100)
@@ -579,7 +630,10 @@ ap.save_overall_html(dest_dir_path="polygon_scale_x_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -587,7 +641,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 y: ap.Int = ap.Int(100)
@@ -628,7 +682,10 @@ ap.save_overall_html(dest_dir_path="polygon_scale_y_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -636,7 +693,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=75),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -669,7 +726,10 @@ ap.save_overall_html(dest_dir_path="polygon_flip_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -677,7 +737,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -710,7 +770,10 @@ ap.save_overall_html(dest_dir_path="polygon_flip_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -718,7 +781,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -751,7 +814,10 @@ ap.save_overall_html(dest_dir_path="polygon_skew_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 polygon: ap.Polygon = ap.Polygon(
     points=[
@@ -759,7 +825,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=50, y=100),
         ap.Point2D(x=100, y=100),
     ],
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
 )
 
 
@@ -787,7 +853,7 @@ ap.save_overall_html(dest_dir_path="polygon_skew_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, points: Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]], fill_color: apysc._color.color.Color = Color(""), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -798,13 +864,13 @@ ap.save_overall_html(dest_dir_path="polygon_skew_y/")
 - `points`: Array of Point2D or list of Point2D
   - 多角形の各頂点の座標のリスト。
 
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - 設定する塗りの色。
 
 - `fill_alpha`: float or Number, default 1.0
   - 設定する塗りの透明度。
 
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - 設定する線の色。
 
 - `line_alpha`: float or Number, default 1.0
@@ -850,8 +916,8 @@ ap.save_overall_html(dest_dir_path="polygon_skew_y/")
 ...         ap.Point2D(x=50, y=100),
 ...         ap.Point2D(x=100, y=75),
 ...     ],
-...     fill_color="#00aaff",
+...     fill_color=ap.Color("#00aaff"),
 ... )
 >>> polygon.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

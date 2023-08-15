@@ -42,11 +42,14 @@ def on_mousemove(e: ap.MouseEvent[ap.Circle], options: dict) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)
 
@@ -98,11 +101,14 @@ def on_click(e: ap.MouseEvent[ap.Circle], options: dict) -> None:
 
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)
 circle.click(on_click)
@@ -150,7 +156,7 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 ...     ap.trace("stage_x:", stage_x)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -192,7 +198,7 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 ...     rectangle.unbind_mousemove(on_mousemove)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -222,7 +228,7 @@ ap.save_overall_html(dest_dir_path="mousemove_unbind_interface/")
 ...     rectangle.unbind_mousemove_all()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

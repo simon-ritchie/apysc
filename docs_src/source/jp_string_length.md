@@ -18,7 +18,12 @@
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 string: ap.String = ap.String("ABCDEF")
 length: ap.Int = string.length
@@ -39,7 +44,12 @@ ap.save_overall_html(dest_dir_path="string_length_basic_usage_1/")
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 string: ap.String = ap.String("🎉")
 ap.assert_equal(string.length, 1)
 
@@ -57,7 +67,12 @@ ap.save_overall_html(dest_dir_path="string_length_notes_1/")
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 assert len("👨‍👩‍👦") == 5
 

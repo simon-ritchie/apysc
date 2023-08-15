@@ -10,7 +10,7 @@
 
 ## 基本的な使い方
 
-getterとsetterのインターフェイスで扱う値は`String`型の16進数のカラーコードの文字列となります。
+getterとsetterのインターフェイスで扱う値は`Color`型の値となります。
 
 以下のコード例では四角をクリックした際に線の色をシアンからマゼンタに変更しています:
 
@@ -31,19 +31,22 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    line_color: ap.String = rectangle.line_color
-    with ap.If(line_color == "#00aaff"):
-        rectangle.line_color = ap.String("#f0a")
+    line_color: ap.Color = rectangle.line_color
+    with ap.If(line_color == ap.Color("#00aaff")):
+        rectangle.line_color = ap.Color("#f0a")
     with ap.Else():
-        rectangle.line_color = ap.String("#0af")
+        rectangle.line_color = ap.Color("#0af")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0", alpha=0.0)
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.begin_fill(color=ap.Color("#0"), alpha=0.0)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
@@ -63,8 +66,8 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_color_basic_usage/")
 
 **[返却値]**
 
-- `line_color`: String
-  - '#00aaff'などの16進数の線の色。もし設定されていない場合はこの空文字となります。
+- `line_color`: Color
+  - '#00aaff'などの16進数の線の色。もし設定されていない場合は`COLORLESS`の定数が返却されます。
 
 <hr>
 
@@ -72,13 +75,24 @@ ap.save_overall_html(dest_dir_path="./graphics_base_line_color_basic_usage/")
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=10)
->>> line: ap.Line = sprite.graphics.draw_line(
-...     x_start=50, y_start=50, x_end=150, y_end=50
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
 ... )
->>> line.line_color = ap.String("#0af")
->>> line.line_color
-String("#00aaff")
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50,
+...     y=50,
+...     width=50,
+...     height=50,
+...     line_color=ap.Color('#0af'),
+...     line_thickness=2,
+... )
+>>> rectangle.line_color
+Color("#00aaff")
+
+>>> rectangle.line_color = ap.Color("#ff00aa")
+>>> rectangle.line_color
+Color("#ff00aa")
 ```

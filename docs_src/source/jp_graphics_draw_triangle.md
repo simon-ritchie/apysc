@@ -21,10 +21,13 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 triangle: ap.Triangle = sprite.graphics.draw_triangle(
     x1=75,
     y1=50,
@@ -68,10 +71,13 @@ def on_click(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 triangle: ap.Triangle = sprite.graphics.draw_triangle(
     x1=75,
     y1=50,
@@ -135,8 +141,8 @@ ap.save_overall_html(dest_dir_path="./graphics_draw_triangle_triangle_instance/"
 >>> import apysc as ap
 >>> _ = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.7)
->>> sprite.graphics.line_style(color="#fff", thickness=5, alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.7)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5, alpha=0.5)
 >>> triangle: ap.Triangle = sprite.graphics.draw_triangle(
 ...     x1=75,
 ...     y1=50,
@@ -153,7 +159,7 @@ Number(75.0)
 Number(30.0)
 
 >>> triangle.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```
 
 <hr>

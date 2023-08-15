@@ -10,7 +10,7 @@
 
 ## 基本的な使い方
 
-getterのインターフェイスは`String`型の16進数のカラーコードの文字列になります。setterのインターフェイスも`String`型の16進数のカラーコードの指定が必要になります。
+getterのインターフェイスは`Color`型の値になります。setterのインターフェイスも`Color`型の値の指定が必要になります。
 
 以下のコード例では四角をクリックした際に塗りの色をシアンからマゼンタに変更するようにしています:
 
@@ -31,18 +31,21 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    fill_color: ap.String = rectangle.fill_color
-    with ap.If(fill_color == "#00aaff"):
-        rectangle.fill_color = ap.String("#f0a")
+    fill_color: ap.Color = rectangle.fill_color
+    with ap.If(fill_color == ap.Color("#00aaff")):
+        rectangle.fill_color = ap.Color("#f0a")
     with ap.Else():
-        rectangle.fill_color = ap.String("#0af")
+        rectangle.fill_color = ap.Color("#0af")
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
@@ -61,8 +64,8 @@ ap.save_overall_html(dest_dir_path="./graphics_base_fill_color_basic_usage/")
 
 **[返却値]**
 
-- `fill_color`: String
-  - 現在の塗りの色（`'#00aaff'`などの16進数の文字列）。もしも設定されていない場合空文字が返却されます。
+- `fill_color`: Color
+  - 現在の塗りの色（`'#00aaff'`などの16進数の文字列の色）。もしも設定されていない場合`COLORLESS`定数の値が返却されます。
 
 <hr>
 
@@ -70,13 +73,22 @@ ap.save_overall_html(dest_dir_path="./graphics_base_fill_color_basic_usage/")
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
->>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-...     x=50, y=50, width=50, height=50
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
 ... )
->>> rectangle.fill_color = ap.String("#f0a")
->>> rectangle.fill_color
-String("#ff00aa")
+>>> circle: ap.Circle = ap.Circle(
+...     x=75,
+...     y=75,
+...     radius=50,
+...     fill_color=ap.Color("#0af"),
+... )
+>>> circle.fill_color
+Color("#00aaff")
+
+>>> circle.fill_color = ap.Color("#ff00aa")
+>>> circle.fill_color
+Color("#ff00aa")
 ```

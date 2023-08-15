@@ -33,14 +33,14 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    fill_color: ap.String = rectangle.fill_color
-    with ap.If(fill_color == "#00aaff"):
+    fill_color: ap.Color = rectangle.fill_color
+    with ap.If(fill_color == ap.Color("#00aaff")):
         rectangle.fill_color = ap.Color("#ff00aa")
         ap.Return()
-    with ap.If(fill_color == "#ff00aa"):
+    with ap.If(fill_color == ap.Color("#ff00aa")):
         rectangle.fill_color = ap.Color("#00ffaa")
         ap.Return()
-    with ap.If(fill_color == "#00ffaa"):
+    with ap.If(fill_color == ap.Color("#00ffaa")):
         rectangle.fill_color = ap.Color("#00aaff")
         ap.Return()
 

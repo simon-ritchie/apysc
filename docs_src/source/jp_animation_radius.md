@@ -60,10 +60,13 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Circle], options: dict) -> N
 
 
 ap.Stage(
-    stage_width=200, stage_height=200, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=200,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 circle.animation_radius(
     radius=100,
@@ -119,7 +122,7 @@ ap.save_overall_html(dest_dir_path="./animation_radius_basic_usage/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> _ = circle.animation_radius(
 ...     radius=100,

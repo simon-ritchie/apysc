@@ -61,10 +61,13 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
 
 
 ap.Stage(
-    stage_width=150, stage_height=200, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=200,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 animation_y: ap.AnimationY = rectangle.animation_y(
     y=100, duration=DURATION, easing=EASING
@@ -86,10 +89,13 @@ ap.save_overall_html(dest_dir_path="./animation_y_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    stage_width=200, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=200,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 animation_cy: ap.AnimationCy = circle.animation_y(
     y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT
@@ -139,7 +145,7 @@ Y座標のアニメーションを設定します。<hr>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

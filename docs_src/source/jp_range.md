@@ -16,7 +16,12 @@
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 range_arr: ap.Array[ap.Int] = ap.range(5)
 ap.assert_equal(range_arr, [0, 1, 2, 3, 4])
 ap.save_overall_html(dest_dir_path="range_basics_usage_1/")
@@ -30,7 +35,12 @@ ap.save_overall_html(dest_dir_path="range_basics_usage_1/")
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 range_arr: ap.Array[ap.Int] = ap.range(2, 4)
 ap.assert_equal(range_arr, [2, 3])
 ap.save_overall_html(dest_dir_path="range_basics_usage_2/")
@@ -44,7 +54,12 @@ ap.save_overall_html(dest_dir_path="range_basics_usage_2/")
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 range_arr: ap.Array[ap.Int] = ap.range(2, 10, 2)
 ap.assert_equal(range_arr, [2, 4, 6, 8])
 ap.save_overall_html(dest_dir_path="range_basics_usage_3/")

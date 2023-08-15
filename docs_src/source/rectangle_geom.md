@@ -68,7 +68,7 @@ circle: ap.Circle = ap.Circle(
 )
 bounding_box: ap.RectangleGeom = circle.get_bounds()
 
-LINE_COLOR: str = "#aaa"
+LINE_COLOR: ap.Color = ap.Color("#aaa")
 box_rectangle: ap.Rectangle = ap.Rectangle(
     x=bounding_box.left_x,
     y=bounding_box.top_y,
@@ -78,7 +78,7 @@ box_rectangle: ap.Rectangle = ap.Rectangle(
 )
 
 POINT_RADIUS: int = 10
-fill_color: str = "#fd63c3"
+fill_color: ap.Color = ap.Color("#fd63c3")
 left_x_and_top_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.left_x,
     y=bounding_box.top_y,
@@ -92,7 +92,7 @@ left_x_and_top_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#ae59e3"
+fill_color = ap.Color("#ae59e3")
 right_x_and_top_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.right_x,
     y=bounding_box.top_y,
@@ -106,7 +106,7 @@ right_x_and_top_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#726efa"
+fill_color = ap.Color("#726efa")
 left_x_and_bottom_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.left_x,
     y=bounding_box.bottom_y,
@@ -120,7 +120,7 @@ left_x_and_bottom_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#6eaee6"
+fill_color = ap.Color("#6eaee6")
 right_x_and_bottom_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.right_x,
     y=bounding_box.bottom_y,
@@ -134,7 +134,7 @@ right_x_and_bottom_y_text: ap.SVGText = ap.SVGText(
     fill_color=fill_color,
 )
 
-fill_color = "#ffffff"
+fill_color = ap.Color("#ffffff")
 center_x_and_center_y_circle: ap.Circle = ap.Circle(
     x=bounding_box.center_x,
     y=bounding_box.center_y,

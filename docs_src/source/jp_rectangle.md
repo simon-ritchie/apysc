@@ -19,10 +19,17 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=100, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=100,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 
 ap.save_overall_html(dest_dir_path="rectangle_basic_usage/")
@@ -47,10 +54,17 @@ ap.save_overall_html(dest_dir_path="rectangle_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=0, y=50, width=50, height=50, fill_color="#0af"
+    x=0,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.x = ap.Number(100)
 
@@ -68,10 +82,17 @@ ap.save_overall_html(dest_dir_path="rectangle_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=0, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=0,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.y = ap.Number(100)
 
@@ -89,10 +110,17 @@ ap.save_overall_html(dest_dir_path="rectangle_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.width = ap.Int(100)
 
@@ -110,10 +138,17 @@ ap.save_overall_html(dest_dir_path="rectangle_width/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.height = ap.Int(100)
 
@@ -131,10 +166,17 @@ ap.save_overall_html(dest_dir_path="rectangle_height/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.ellipse_width = ap.Int(30)
 rectangle.ellipse_height = ap.Int(15)
@@ -153,10 +195,17 @@ ap.save_overall_html(dest_dir_path="rectangle_ellipse_width/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.ellipse_width = ap.Int(15)
 rectangle.ellipse_height = ap.Int(30)
@@ -175,12 +224,19 @@ ap.save_overall_html(dest_dir_path="rectangle_ellipse_height/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
-rectangle.fill_color = ap.String("#f0a")
+rectangle.fill_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="rectangle_fill_color/")
 ```
@@ -196,10 +252,17 @@ ap.save_overall_html(dest_dir_path="rectangle_fill_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.fill_alpha = ap.Number(0.3)
 
@@ -217,12 +280,15 @@ ap.save_overall_html(dest_dir_path="rectangle_fill_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
     x=50, y=50, width=50, height=50, line_thickness=5
 )
-rectangle.line_color = ap.String("#0af")
+rectangle.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="rectangle_line_color/")
 ```
@@ -238,10 +304,18 @@ ap.save_overall_html(dest_dir_path="rectangle_line_color/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, line_color="#0af", line_thickness=5
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    line_color=ap.Color("#0af"),
+    line_thickness=5,
 )
 rectangle.line_alpha = ap.Number(0.3)
 
@@ -259,10 +333,17 @@ ap.save_overall_html(dest_dir_path="rectangle_line_alpha/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, line_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    line_color=ap.Color("#0af"),
 )
 rectangle.line_thickness = ap.Int(10)
 
@@ -280,10 +361,18 @@ ap.save_overall_html(dest_dir_path="rectangle_line_thickness/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, line_color="#0af", line_thickness=5
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    line_color=ap.Color("#0af"),
+    line_thickness=5,
 )
 rectangle.line_dot_setting = ap.LineDotSetting(dot_size=3)
 
@@ -301,10 +390,18 @@ ap.save_overall_html(dest_dir_path="rectangle_line_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, line_color="#0af", line_thickness=2
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    line_color=ap.Color("#0af"),
+    line_thickness=2,
 )
 rectangle.line_dash_setting = ap.LineDashSetting(dash_size=7, space_size=2)
 
@@ -322,10 +419,17 @@ ap.save_overall_html(dest_dir_path="rectangle_line_dash_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, line_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    line_color=ap.Color("#0af"),
 )
 rectangle.line_round_dot_setting = ap.LineRoundDotSetting(round_size=6, space_size=3)
 
@@ -343,10 +447,18 @@ ap.save_overall_html(dest_dir_path="rectangle_line_round_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, line_color="#0af", line_thickness=3
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    line_color=ap.Color("#0af"),
+    line_thickness=3,
 )
 rectangle.line_dash_dot_setting = ap.LineDashDotSetting(
     dot_size=3, dash_size=7, space_size=3
@@ -366,10 +478,17 @@ ap.save_overall_html(dest_dir_path="rectangle_line_dash_dot_setting/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -404,10 +523,17 @@ ap.save_overall_html(dest_dir_path="rectangle_rotation_around_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 x: ap.Int = ap.Int(100)
 y: ap.Int = ap.Int(100)
@@ -444,10 +570,17 @@ ap.save_overall_html(dest_dir_path="rectangle_set_rotation_around_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 
@@ -485,10 +618,17 @@ ap.save_overall_html(dest_dir_path="rectangle_scale_x_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 
@@ -528,10 +668,17 @@ ap.save_overall_html(dest_dir_path="rectangle_scale_y_from_center/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 x: ap.Int = ap.Int(100)
@@ -574,10 +721,17 @@ ap.save_overall_html(dest_dir_path="rectangle_scale_x_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 direction: ap.Int = ap.Int(-1)
 y: ap.Int = ap.Int(100)
@@ -618,10 +772,17 @@ ap.save_overall_html(dest_dir_path="rectangle_scale_y_from_point/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.rotation_around_center = ap.Int(30)
 
@@ -657,10 +818,17 @@ ap.save_overall_html(dest_dir_path="rectangle_flip_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 rectangle.rotation_around_center = ap.Int(30)
 
@@ -696,10 +864,17 @@ ap.save_overall_html(dest_dir_path="rectangle_flip_y/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -732,10 +907,17 @@ ap.save_overall_html(dest_dir_path="rectangle_skew_x/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
-    x=50, y=50, width=50, height=50, fill_color="#0af"
+    x=50,
+    y=50,
+    width=50,
+    height=50,
+    fill_color=ap.Color("#0af"),
 )
 
 
@@ -763,7 +945,7 @@ ap.save_overall_html(dest_dir_path="rectangle_skew_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int] = 0, ellipse_height: Union[int, apysc._type.int.Int] = 0, fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, x: Union[float, apysc._type.number.Number], y: Union[float, apysc._type.number.Number], width: Union[int, apysc._type.int.Int], height: Union[int, apysc._type.int.Int], ellipse_width: Union[int, apysc._type.int.Int] = 0, ellipse_height: Union[int, apysc._type.int.Int] = 0, fill_color: apysc._color.color.Color = Color(""), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -789,13 +971,13 @@ ap.save_overall_html(dest_dir_path="rectangle_skew_y/")
 - `ellipse_height`: int or Int
   - 楕円の高さ。
 
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - 設定する塗りの色。
 
 - `fill_alpha`: float or Number, default 1.0
   - 設定する塗りの透明度。
 
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - 設定する線の色。
 
 - `line_alpha`: float or Number, default 1.0
@@ -836,7 +1018,7 @@ ap.save_overall_html(dest_dir_path="rectangle_skew_y/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> rectangle: ap.Rectangle = ap.Rectangle(
-...     x=50, y=50, width=100, height=100, fill_color="#00aaff"
+...     x=50, y=50, width=100, height=100, fill_color=ap.Color("#00aaff")
 ... )
 >>> rectangle.x
 Number(50.0)
@@ -851,5 +1033,5 @@ Int(100)
 Int(100)
 
 >>> rectangle.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

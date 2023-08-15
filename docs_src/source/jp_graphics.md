@@ -19,19 +19,22 @@ Sprite のインスタンスは`graphics`属性を持っており、その属性
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=180, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=180,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw the white border and cyan color rectangle.
-sprite.graphics.line_style(color="#fff", thickness=5)
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=5)
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Draw the magenta color polyline.
-sprite.graphics.begin_fill(color="")
-sprite.graphics.line_style(color="#f0a", thickness=5)
+sprite.graphics.begin_fill(color=ap.COLORLESS)
+sprite.graphics.line_style(color=ap.Color("#f0a"), thickness=5)
 sprite.graphics.move_to(x=150, y=50)
 sprite.graphics.line_to(x=200, y=50)
 sprite.graphics.line_to(x=150, y=100)
@@ -58,7 +61,10 @@ ap.save_overall_html(dest_dir_path="graphics_call_interfaces_from_sprite_instanc
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
@@ -81,11 +87,11 @@ def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle.x = ap.Number(100)
     rectangle.y = ap.Number(100)
     rectangle.fill_alpha = ap.Number(0.5)
-    rectangle.fill_color = ap.String("#f0a")
+    rectangle.fill_color = ap.Color("#f0a")
 
 
 # drew_rect interface will return Rectangle instance.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 # Bind click event to the rectangle.

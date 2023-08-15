@@ -29,7 +29,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `enter_frame` interface is less likely to shift the pace of handler calling.": "`enter_frame`のインターフェイスはハンドラの呼び出しの間隔が`Timer`クラスよりもずれにくくなっています。",  # noqa
     ##################################################
-    "On the other hand, the `Timer` class's calling timing can be off if a CPU is busy.": "一方で、`Timer`クラス側はCPU負荷が高い場合などに呼び出しタイミングがずれるケースが発生します。",  # noqa
+    "On the other hand, the `Timer` class\'s calling timing can be off if a CPU is busy.": "一方で、`Timer`クラス側はCPU負荷が高い場合などに呼び出しタイミングがずれるケースが発生します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
@@ -37,11 +37,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `enter_frame` interface requires the `handler` argument (callable object, such as the function or method).": "`enter_frame`インターフェイスは`handler`引数（関数やメソッドなどのcallableオブジェクト）の指定を必要とします。",  # noqa
     ##################################################
-    "The `fps` argument is optional and determines an animation's frame rate (it accepts the `FPS` enum).": "`fps`引数は省略可で、この引数はフレームレートを決定します（`FPS`のenumの指定が可能です）。",  # noqa
+    "The `fps` argument is optional and determines an animation\'s frame rate (it accepts the `FPS` enum).": "`fps`引数は省略可で、この引数はフレームレートを決定します（`FPS`のenumの指定が可能です）。",  # noqa
     ##################################################
     "Also, the `options` argument is an optional dictionary and passes optional parameters to a handler.": "また、`options`引数も省略可であり、この指定はハンドラへと追加のパラメーターを渡すことができます。",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=150,\n    stage_height=150,\n    background_color="#333",\n    stage_elem_id="stage",\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=50, width=50, height=50, fill_color="#0af"\n)\n\n\ndef on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n    """\n    The handler to handle an enter frame event.\n\n    Parameters\n    ----------\n    e : ap.EnterFrameEvent\n        Event instance.\n    options : dict\n        Optional argument dictionary.\n    """\n    rectangle.rotation_around_center += 1\n\n\nstage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\nap.save_overall_html(dest_dir_path="enter_frame_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=150,\n    stage_height=150,\n    background_color="#333",\n    stage_elem_id="stage",\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=50, width=50, height=50, fill_color="#0af"\n)\n\n\ndef on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n    """\n    The handler to handle an enter frame event.\n\n    Parameters\n    ----------\n    e : ap.EnterFrameEvent\n        Event instance.\n    options : dict\n        Optional argument dictionary.\n    """\n    rectangle.rotation_around_center += 1\n\n\nstage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\nap.save_overall_html(dest_dir_path="enter_frame_basic_usage/")\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=150,\n    stage_height=150,\n    background_color=ap.Color(\"#333\"),\n    stage_elem_id=\"stage\",\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50,\n    y=50,\n    width=50,\n    height=50,\n    fill_color=ap.Color(\"#0af\"),\n)\n\n\ndef on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n    \"\"\"\n    The handler to handle an enter frame event.\n\n    Parameters\n    ----------\n    e : ap.EnterFrameEvent\n        Event instance.\n    options : dict\n        Optional argument dictionary.\n    \"\"\"\n    rectangle.rotation_around_center += 1\n\n\nstage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\nap.save_overall_html(dest_dir_path=\"enter_frame_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=150,\n    stage_height=150,\n    background_color=ap.Color(\"#333\"),\n    stage_elem_id=\"stage\",\n)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50,\n    y=50,\n    width=50,\n    height=50,\n    fill_color=ap.Color(\"#0af\"),\n)\n\n\ndef on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n    \"\"\"\n    The handler to handle an enter frame event.\n\n    Parameters\n    ----------\n    e : ap.EnterFrameEvent\n        Event instance.\n    options : dict\n        Optional argument dictionary.\n    \"\"\"\n    rectangle.rotation_around_center += 1\n\n\nstage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\nap.save_overall_html(dest_dir_path=\"enter_frame_basic_usage/\")\n```",  # noqa
     ##################################################
     "## See also": "## 関連資料",
     ##################################################
@@ -51,7 +51,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## enter_frame API": "## enter_frame のAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -79,5 +79,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=50, height=50, fill_color="#0af"\n... )\n>>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n...     rectangle.x += 1\n>>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=50, height=50, fill_color="#0af"\n... )\n>>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n...     rectangle.x += 1\n>>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=50, height=50, fill_color=ap.Color(\"#0af\")\n... )\n>>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n...     rectangle.x += 1\n>>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> rectangle: ap.Rectangle = ap.Rectangle(\n...     x=50, y=50, width=50, height=50, fill_color=ap.Color(\"#0af\")\n... )\n>>> def on_enter_frame(e: ap.EnterFrameEvent, options: dict) -> None:\n...     rectangle.x += 1\n>>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)\n```",  # noqa
 }

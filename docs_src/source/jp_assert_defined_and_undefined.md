@@ -23,7 +23,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_val: ap.Int = ap.Int(10)
@@ -47,7 +50,10 @@ Left value: other than undefined right value: 10
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_val: ap.Int = ap.Int(10)
@@ -74,7 +80,10 @@ Assertion failed: Value is not defined!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_val: ap.Int = ap.Int(10)

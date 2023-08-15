@@ -19,10 +19,13 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=350, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=350,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 left_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50
@@ -48,10 +51,13 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_
 import apysc as ap
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af", alpha=0.3)
+sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.3)
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
@@ -111,14 +117,17 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
-sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-sprite.graphics.begin_fill(color="#f0a", alpha=0.5)
+sprite.graphics.begin_fill(color=ap.Color("#f0a"), alpha=0.5)
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 
@@ -161,7 +170,7 @@ ap.save_overall_html(dest_dir_path="graphics_base_scale_from_center_basic_usage_
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -195,7 +204,7 @@ Number(1.5)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

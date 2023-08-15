@@ -108,7 +108,9 @@ import apysc as ap
 
 ap.Stage(
     background_color=ap.Color("#333"),
-    stage_width=200, stage_height=162, stage_elem_id="stage"
+    stage_width=200,
+    stage_height=162,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -254,19 +256,25 @@ ap.Stage(
 sprite: ap.Sprite = ap.Sprite()
 
 # Set MITER joints setting and draw the polyline.
-sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.MITER)
+sprite.graphics.line_style(
+    color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.MITER
+)
 sprite.graphics.move_to(x=50, y=100)
 sprite.graphics.line_to(x=75, y=50)
 sprite.graphics.line_to(x=100, y=100)
 
 # Set ROUND joints setting and draw the polyline.
-sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.ROUND)
+sprite.graphics.line_style(
+    color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.ROUND
+)
 sprite.graphics.move_to(x=150, y=100)
 sprite.graphics.line_to(x=175, y=50)
 sprite.graphics.line_to(x=200, y=100)
 
 # Set BEVEL joints setting and draw the polyline.
-sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.BEVEL)
+sprite.graphics.line_style(
+    color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.BEVEL
+)
 sprite.graphics.move_to(x=250, y=100)
 sprite.graphics.line_to(x=275, y=50)
 sprite.graphics.line_to(x=300, y=100)
@@ -490,7 +498,7 @@ Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_da
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `line_style(self, *, color: ~StrOrString, thickness: Union[int, apysc._type.int.Int] = 1, alpha: Union[float, apysc._type.number.Number] = 1.0, cap: Union[apysc._display.line_caps.LineCaps, NoneType] = None, joints: Union[apysc._display.line_joints.LineJoints, NoneType] = None, dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None) -> None`<hr>
+**[Interface signature]** `line_style(self, *, color: apysc._color.color.Color, thickness: Union[int, apysc._type.int.Int] = 1, alpha: Union[float, apysc._type.number.Number] = 1.0, cap: Union[apysc._display.line_caps.LineCaps, NoneType] = None, joints: Union[apysc._display.line_joints.LineJoints, NoneType] = None, dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None) -> None`<hr>
 
 **[Interface summary]**
 
@@ -498,8 +506,8 @@ Set line style values.<hr>
 
 **[Parameters]**
 
-- `color`: String or str
-  - Hexadecimal color string. e.g., '#00aaff'
+- `color`: Color
+  - A color setting.
 - `thickness`: Int or int, default 1
   - Line thickness (minimum value is 1).
 - `alpha`: float or Number, default 1.0
@@ -523,25 +531,27 @@ Set line style values.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color=ap.Color("#fff"), thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+...     color=ap.Color("#0af"), thickness=2, alpha=0.5
 ... )
->>> line: ap.Line = sprite.graphics.draw_line(
-...     x_start=50, y_start=50, x_end=150, y_end=50
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50
 ... )
->>> line.line_color
-Color("#ffffff")
+>>> rectangle.line_color
+Color("#00aaff")
 
->>> line.line_thickness
-Int(5)
+>>> rectangle.line_thickness
+Int(2)
 
->>> line.line_alpha
+>>> rectangle.line_alpha
 Number(0.5)
-
->>> line.line_cap
-String("round")
 ```
 
 ## line_color property API
@@ -556,8 +566,8 @@ Get current line color.<hr>
 
 **[Returns]**
 
-- `line_color`: String
-  - Current line color (hexadecimal string, e.g., '#00aaff'). If it is not set, it returns the `COLORLESS` constant.
+- `line_color`: Color
+  - A Current line color. If it is not set, it returns the `COLORLESS` constant.
 
 <hr>
 
@@ -565,13 +575,18 @@ Get current line color.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color=ap.Color("#fff"), thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+...     color=ap.Color("#0af"), thickness=2, alpha=0.5
 ... )
 >>> sprite.graphics.line_color
-Color("#ffffff")
+Color("#00aaff")
 ```
 
 ## line_thickness property API

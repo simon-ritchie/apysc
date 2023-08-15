@@ -32,20 +32,23 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    with ap.If(rectangle.fill_color == "#00aaff"):
-        rectangle.fill_color = ap.String("#f0a")
+    with ap.If(rectangle.fill_color == ap.Color("#00aaff")):
+        rectangle.fill_color = ap.Color("#f0a")
         ap.Return()
 
-    with ap.If(rectangle.fill_color == "#ff00aa"):
-        rectangle.fill_color = ap.String("#0af")
+    with ap.If(rectangle.fill_color == ap.Color("#ff00aa")):
+        rectangle.fill_color = ap.Color("#0af")
         ap.Return()
 
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 

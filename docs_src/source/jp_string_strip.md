@@ -18,7 +18,12 @@
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 string: ap.String = ap.String("  
   aabbaa  ")
@@ -36,7 +41,12 @@ ap.save_overall_html(dest_dir_path="string_strip_basic_usage_1/")
 # runnable
 import apysc as ap
 
-ap.Stage(stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage")
+ap.Stage(
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 string: ap.String = ap.String("aabbccaa")
 string = string.strip(string="a")

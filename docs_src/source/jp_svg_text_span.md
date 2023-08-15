@@ -25,15 +25,18 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     text_spans=[
         ap.SVGTextSpan(text="Lorem "),
-        ap.SVGTextSpan(text="ipsum ", font_size=20, fill_color="#0af"),
+        ap.SVGTextSpan(text="ipsum ", font_size=20, fill_color=ap.Color("#0af")),
         ap.SVGTextSpan(text="dolor ", font_size=12),
     ],
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     font_size=16,
     x=20,
     y=32,
@@ -56,7 +59,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_basic_usage/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     text_spans=[
@@ -68,7 +74,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     ],
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_notes_of_the_line_break/")
@@ -87,7 +93,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_notes_of_the_line_break/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -98,7 +107,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_text/")
@@ -115,7 +124,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_text/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -126,7 +138,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_font_size/")
@@ -145,7 +157,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_font_size/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -156,7 +171,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_font_family/")
@@ -173,18 +188,21 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_font_family/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
-text_span_2.fill_color = ap.String("#0af")
+text_span_2.fill_color = ap.Color("#0af")
 
 svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_fill_color/")
@@ -201,7 +219,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_fill_color/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -212,7 +233,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_fill_alpha/")
@@ -229,23 +250,26 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_fill_alpha/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(
     text="Lorem ", line_thickness=1, font_size=20, bold=True
 )
-text_span_1.line_color = ap.String("#aaa")
+text_span_1.line_color = ap.Color("#aaa")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(
     text="ipsum", line_thickness=1, font_size=20, bold=True
 )
-text_span_2.line_color = ap.String("#0af")
+text_span_2.line_color = ap.Color("#0af")
 
 svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
     y=32,
-    fill_color="",
+    fill_color=ap.COLORLESS,
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_line_color/")
@@ -262,18 +286,21 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_line_color/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(
     text="Lorem ",
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=1,
     font_size=20,
     bold=True,
 )
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(
     text="ipsum",
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     line_thickness=1,
     font_size=20,
     bold=True,
@@ -285,7 +312,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="",
+    fill_color=ap.COLORLESS,
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_line_alpha/")
@@ -302,17 +329,20 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_line_alpha/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(
     text="Lorem ",
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     font_size=20,
     bold=True,
 )
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(
     text="ipsum",
-    line_color="#0af",
+    line_color=ap.Color("#0af"),
     font_size=20,
     bold=True,
 )
@@ -324,7 +354,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="",
+    fill_color=ap.COLORLESS,
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_line_thickness/")
@@ -341,7 +371,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_line_thickness/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -352,7 +385,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_bold/")
@@ -369,7 +402,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_bold/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -380,7 +416,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_italic/")
@@ -397,7 +433,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_italic/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -408,7 +447,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_delta_x/")
@@ -427,7 +466,10 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_x/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=200, stage_height=80, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=80,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum ")
@@ -441,7 +483,7 @@ svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     font_size=16,
     x=20,
     y=32,
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
 )
 
 ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
@@ -453,7 +495,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int, NoneType] = None, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, fill_color: Union[str, apysc._type.string.String, NoneType] = None, fill_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_color: Union[str, apysc._type.string.String, NoneType] = None, line_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_thickness: Union[int, apysc._type.int.Int, NoneType] = None, bold: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, italic: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, delta_x: Union[float, apysc._type.number.Number] = 0.0, delta_y: Union[float, apysc._type.number.Number] = 0.0, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int, NoneType] = None, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, fill_color: Union[apysc._color.color.Color, NoneType] = None, fill_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_color: Union[apysc._color.color.Color, NoneType] = None, line_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_thickness: Union[int, apysc._type.int.Int, NoneType] = None, bold: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, italic: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, delta_x: Union[float, apysc._type.number.Number] = 0.0, delta_y: Union[float, apysc._type.number.Number] = 0.0, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -470,13 +512,13 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 - `font_family`: Optional[Union[Array[String], List[str]]], optional
   - フォントファミリー設定。配列内の各文字列には個別のフォント名を指定する必要があります（例: `Times New Roman`）。
 
-- `fill_color`: Optional[Union[str, String]], optional
+- `fill_color`: Optional[Color], optional
   - 塗りの色の設定。
 
 - `fill_alpha`: Optional[Union[float, Number]], optional
   - 塗りの透明度の設定。
 
-- `line_color`: Optional[Union[str, String]], optional
+- `line_color`: Optional[Color], optional
   - 線の色の設定。
 
 - `line_alpha`: Optional[Union[float, Number]], optional
@@ -511,7 +553,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=200, stage_height=50
+...     background_color=ap.Color("#333"), stage_width=200, stage_height=50
 ... )
 >>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
 ...     text_spans=[
@@ -519,7 +561,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
 ...     ],
 ...     font_size=20,
-...     fill_color="#0af",
+...     fill_color=ap.Color("#0af"),
 ... )
 ```
 
@@ -533,7 +575,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SVGTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: Union[str, apysc._type.string.String] = '#666', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SVGText'`<hr>
+**[インターフェイスの構造]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SVGTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SVGText'`<hr>
 
 **[インターフェイス概要]**
 
@@ -556,7 +598,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 - `y`: Union[float, Number], optional
   - 描画を開始するY座標（`特記事項`の節も確認をお願いします）。
 
-- `fill_color`: str or String, optional
+- `fill_color`: Color, optional
   - テキスト全体に設定する塗りの色。
 
 - `fill_alpha`: float or Number, optional
@@ -607,7 +649,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_width=200,
 ...     stage_height=50,
 ... )
@@ -617,7 +659,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
 ...     ],
 ...     font_size=20,
-...     fill_color="#0af",
+...     fill_color=ap.Color("#0af"),
 ... )
 ```
 

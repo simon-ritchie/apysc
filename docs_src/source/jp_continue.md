@@ -21,7 +21,10 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=250, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=250,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
 
@@ -29,11 +32,11 @@ arr: ap.Array = ap.Array(range(2))
 with ap.ForArrayIndices(arr) as i:
     condition: ap.Boolean = i == 0
     with ap.If(condition):
-        sprite.graphics.begin_fill(color="#0af")
+        sprite.graphics.begin_fill(color=ap.Color("#0af"))
         sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
         ap.Continue()
 
-    sprite.graphics.begin_fill(color="#f0a")
+    sprite.graphics.begin_fill(color=ap.Color("#f0a"))
     sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
 ap.save_overall_html(dest_dir_path="continue_basic_usage/")

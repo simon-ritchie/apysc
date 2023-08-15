@@ -34,7 +34,7 @@ def on_animation_complete_1(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     """
     rectangle: ap.Rectangle = e.this.target
     rectangle.animation_fill_color(
-        fill_color="#0af",
+        fill_color=ap.Color("#0af"),
         duration=DURATION,
     ).animation_complete(on_animation_complete_2).start()
 
@@ -52,19 +52,22 @@ def on_animation_complete_2(e: ap.AnimationEvent[ap.Rectangle], options: dict) -
     """
     rectangle: ap.Rectangle = e.this.target
     rectangle.animation_fill_color(
-        fill_color="#f0a",
+        fill_color=ap.Color("#f0a"),
         duration=DURATION,
     ).animation_complete(on_animation_complete_1).start()
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_fill_color(
-    fill_color="#f0a",
+    fill_color=ap.Color("#f0a"),
     duration=DURATION,
 ).animation_complete(on_animation_complete_1).start()
 
@@ -77,7 +80,7 @@ ap.save_overall_html(dest_dir_path="./animation_fill_color_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `animation_fill_color(self, *, fill_color: ~StrOrString, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_fill_color.AnimationFillColor`<hr>
+**[インターフェイスの構造]** `animation_fill_color(self, *, fill_color: apysc._color.color.Color, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_fill_color.AnimationFillColor`<hr>
 
 **[インターフェイス概要]**
 
@@ -85,8 +88,8 @@ ap.save_overall_html(dest_dir_path="./animation_fill_color_basic_usage/")
 
 **[引数]**
 
-- `fill_color`: str or String
-  - アニメーションの最終的な塗りの色（16進数の色の文字列）。
+- `fill_color`: Color
+  - アニメーションの最終的な塗りの色。
 
 - `duration`: Int or int, default 3000
   - アニメーション完了までのミリ秒。
@@ -116,12 +119,12 @@ ap.save_overall_html(dest_dir_path="./animation_fill_color_basic_usage/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> _ = rectangle.animation_fill_color(
-...     fill_color="#f0a",
+...     fill_color=ap.Color("#f0a"),
 ...     duration=1500,
 ...     easing=ap.Easing.EASE_OUT_QUINT,
 ... ).start()

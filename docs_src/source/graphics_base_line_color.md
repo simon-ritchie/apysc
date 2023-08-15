@@ -29,8 +29,8 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    line_color: ap.String = rectangle.line_color
-    with ap.If(line_color == "#00aaff"):
+    line_color: ap.Color = rectangle.line_color
+    with ap.If(line_color == ap.Color("#00aaff")):
         rectangle.line_color = ap.Color("#f0a")
     with ap.Else():
         rectangle.line_color = ap.Color("#0af")
@@ -67,7 +67,7 @@ Get this instance's line color.<hr>
 
 **[Returns]**
 
-- `line_color`: String
+- `line_color`: Color
   - Current line color (hexadecimal string, e.g., '#00aaff'). If it is not set, it returns the `COLORLESS` constant.
 
 <hr>
@@ -76,13 +76,24 @@ Get this instance's line color.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
->>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=10)
->>> line: ap.Line = sprite.graphics.draw_line(
-...     x_start=50, y_start=50, x_end=150, y_end=50
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
 ... )
->>> line.line_color = ap.Color("#0af")
->>> line.line_color
+>>> rectangle: ap.Rectangle = ap.Rectangle(
+...     x=50,
+...     y=50,
+...     width=50,
+...     height=50,
+...     line_color=ap.Color('#0af'),
+...     line_thickness=2,
+... )
+>>> rectangle.line_color
 Color("#00aaff")
+
+>>> rectangle.line_color = ap.Color("#ff00aa")
+>>> rectangle.line_color
+Color("#ff00aa")
 ```

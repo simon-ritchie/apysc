@@ -21,17 +21,20 @@
 import apysc as ap
 
 ap.Stage(
-    stage_width=400, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=400,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
-sprite.graphics.line_style(color="#fff", thickness=3)
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_parallel(
     animations=[
         rectangle.animation_x(x=300),
-        rectangle.animation_fill_color(fill_color="#f0a"),
+        rectangle.animation_fill_color(fill_color=ap.Color("#f0a")),
         rectangle.animation_fill_alpha(alpha=0.3),
         rectangle.animation_line_thickness(thickness=7),
     ],
@@ -117,14 +120,14 @@ Target animation type: <class 'apysc._animation.animation_x.AnimationX'>
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> _ = rectangle.animation_parallel(
 ...     animations=[
 ...         rectangle.animation_x(x=100),
-...         rectangle.animation_fill_color(fill_color="#f0a"),
+...         rectangle.animation_fill_color(fill_color=ap.Color("#f0a")),
 ...         rectangle.animation_fill_alpha(alpha=0.5),
 ...     ],
 ...     duration=1500,

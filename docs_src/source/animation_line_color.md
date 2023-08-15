@@ -81,7 +81,7 @@ ap.save_overall_html(dest_dir_path="./animation_line_color_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `animation_line_color(self, *, line_color: ~StrOrString, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_line_color.AnimationLineColor`<hr>
+**[Interface signature]** `animation_line_color(self, *, line_color: apysc._color.color.Color, duration: Union[int, apysc._type.int.Int] = 3000, delay: Union[int, apysc._type.int.Int] = 0, easing: apysc._animation.easing.Easing = <Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_line_color.AnimationLineColor`<hr>
 
 **[Interface summary]**
 
@@ -89,8 +89,8 @@ Set the line color animation setting.<hr>
 
 **[Parameters]**
 
-- `line_color`: str or String
-  - The final line color (hex color code) of the animation.
+- `line_color`: Color
+  - The final line color of the animation.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
 - `delay`: Int or int, default 0

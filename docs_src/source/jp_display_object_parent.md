@@ -13,7 +13,10 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
@@ -35,7 +38,10 @@ assert isinstance(rectangle.parent, ap.Graphics)
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
@@ -75,7 +81,7 @@ add_childやremove_childなどのインターフェイスを持った親のイ�
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
->>> sprite_1.graphics.begin_fill(color="#0af")
+>>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

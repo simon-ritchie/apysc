@@ -27,7 +27,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 bool_1: ap.Boolean = ap.Boolean(True)
@@ -51,7 +54,10 @@ Left value: true right value: true
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 bool_1: ap.Boolean = ap.Boolean(False)
@@ -77,7 +83,10 @@ Assertion failed: Boolean value is not True!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_1: ap.Int = ap.Int(1)
@@ -103,7 +112,10 @@ Assertion failed: Value is not Boolean(True)!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 int_1: ap.Int = ap.Int(1)
@@ -127,7 +139,10 @@ Left value: true right value: 1
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 bool_1: ap.Boolean = ap.Boolean(False)

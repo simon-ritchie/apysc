@@ -19,10 +19,13 @@ getterやsetterのインターフェイスの値は`LineDashDotSetting`インス
 import apysc as ap
 
 ap.Stage(
-    stage_width=250, stage_height=100, background_color="#333", stage_elem_id="stage"
+    stage_width=250,
+    stage_height=100,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.line_style(color="#0af", thickness=5)
+sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 
 line: ap.Line = sprite.graphics.draw_line(x_start=50, y_start=50, x_end=200, y_end=50)
 line.line_dash_dot_setting = ap.LineDashDotSetting(
@@ -61,15 +64,18 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 
 
 ap.Stage(
-    stage_width=150, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=150,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 rectangle: ap.Rectangle = ap.Rectangle(
     x=50,
     y=50,
     width=50,
     height=50,
-    fill_color="#666",
-    line_color="#fff",
+    fill_color=ap.Color("#666"),
+    line_color=ap.Color("#fff"),
     line_thickness=2,
     line_dash_dot_setting=ap.LineDashDotSetting(dot_size=2, dash_size=4, space_size=2),
 )
@@ -102,7 +108,7 @@ ap.save_overall_html(
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(color="#fff", thickness=10)
+>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=10)
 >>> line: ap.Line = sprite.graphics.draw_line(
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )

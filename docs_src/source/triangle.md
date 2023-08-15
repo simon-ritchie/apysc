@@ -482,7 +482,10 @@ The `line_dash_setting` property updates or gets the instance's line dash-style 
 import apysc as ap
 
 ap.Stage(
-    background_color=ap.Color("#333"), stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -510,7 +513,10 @@ The `line_round_dot_setting` property updates or gets the instance's line-round 
 import apysc as ap
 
 ap.Stage(
-    background_color=ap.Color("#333"), stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -537,7 +543,10 @@ The `line_dash_dot_setting` property updates or gets the instance's dash-dotted 
 import apysc as ap
 
 ap.Stage(
-    background_color=ap.Color("#333"), stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 triangle: ap.Triangle = ap.Triangle(
     x1=75,
@@ -1047,7 +1056,7 @@ ap.save_overall_html(dest_dir_path="triangle_skew_y/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, x1: Union[float, apysc._type.number.Number], y1: Union[float, apysc._type.number.Number], x2: Union[float, apysc._type.number.Number], y2: Union[float, apysc._type.number.Number], x3: Union[float, apysc._type.number.Number], y3: Union[float, apysc._type.number.Number], fill_color: Union[str, apysc._type.string.String] = '', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, *, x1: Union[float, apysc._type.number.Number], y1: Union[float, apysc._type.number.Number], x2: Union[float, apysc._type.number.Number], y2: Union[float, apysc._type.number.Number], x3: Union[float, apysc._type.number.Number], y3: Union[float, apysc._type.number.Number], fill_color: apysc._color.color.Color = Color(""), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, line_cap: Union[apysc._type.string.String, apysc._display.line_caps.LineCaps, NoneType] = None, line_joints: Union[apysc._type.string.String, apysc._display.line_joints.LineJoints, NoneType] = None, line_dot_setting: Union[apysc._display.line_dot_setting.LineDotSetting, NoneType] = None, line_dash_setting: Union[apysc._display.line_dash_setting.LineDashSetting, NoneType] = None, line_round_dot_setting: Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType] = None, line_dash_dot_setting: Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType] = None, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -1067,11 +1076,11 @@ Create a triangle vector graphics instance.<hr>
   - Third vertex's x coordinate.
 - `y3`: Union[float, Number]
   - Third vertex's y coordinate.
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - A fill-color to set.
 - `fill_alpha`: float or Number, default 1.0
   - A fill-alpha to set.
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - A line-color to set.
 - `line_alpha`: float or Number, default 1.0
   - A line-alpha to set.

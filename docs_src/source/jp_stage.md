@@ -29,7 +29,10 @@ stage: ap.Stage = ap.Stage()
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="stage")
+stage: ap.Stage = ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
+)
 
 ap.save_overall_html(dest_dir_path="stage_background_color/")
 ```
@@ -47,7 +50,10 @@ ap.save_overall_html(dest_dir_path="stage_background_color/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=500, stage_height=50, background_color="#333", stage_elem_id="stage"
+    stage_width=500,
+    stage_height=50,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 ap.save_overall_html(dest_dir_path="stage_size/")
@@ -65,7 +71,10 @@ ap.save_overall_html(dest_dir_path="stage_size/")
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(background_color="#333", stage_elem_id="line_chart_1")
+stage: ap.Stage = ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_elem_id="line_chart_1",
+)
 ```
 
 このオプションはapyscの各プロジェクトで複数回出力などを行う際のIDの識別やバージョン管理などの面で便利です。
@@ -88,7 +97,7 @@ def _main() -> None:
     _: ap.Stage = ap.Stage(
         stage_width=150,
         stage_height=150,
-        background_color="#333",
+        background_color=ap.Color("#333"),
         stage_elem_id="my_stage",
     )
     ...
@@ -110,7 +119,7 @@ _main()
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: str = '#ffffff', add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, stage_width: int = 300, stage_height: int = 185, background_color: apysc._color.color.Color = Color("#ffffff"), add_to: str = 'body', stage_elem_id: Union[str, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -124,7 +133,7 @@ _main()
 - `stage_height`: int, default 185
   - ステージの高さ。
 
-- `background_color`: str, default '#ffffff'
+- `background_color`: str, default Colors.WHITE_FFFFFF
   - 16進数の背景色の文字列。
 
 - `add_to`: str, default 'body'
@@ -145,7 +154,7 @@ _main()
 >>> stage: ap.Stage = ap.Stage(
 ...     stage_width=500,
 ...     stage_height=300,
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_elem_id="sales_chart",
 ... )
 ```
@@ -172,7 +181,7 @@ _main()
 >>> stage: ap.Stage = ap.Stage(
 ...     stage_width=500,
 ...     stage_height=300,
-...     background_color="#333",
+...     background_color=ap.Color("#333"),
 ...     stage_elem_id="sales_chart",
 ... )
 >>> stage.stage_elem_id
@@ -202,7 +211,7 @@ _main()
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite_1: ap.Sprite = ap.Sprite()
->>> sprite_1.graphics.begin_fill(color="#0af")
+>>> sprite_1.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -239,7 +248,7 @@ _main()
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -284,7 +293,7 @@ None
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -323,7 +332,7 @@ Boolean(False)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -370,7 +379,7 @@ Int(2)
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af", alpha=0.5)
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"), alpha=0.5)
 >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

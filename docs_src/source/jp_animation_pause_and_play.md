@@ -56,10 +56,13 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 
 ap.Stage(
-    stage_width=600, stage_height=150, background_color="#333", stage_elem_id="stage"
+    stage_width=600,
+    stage_height=150,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#00aaff")
+sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 rectangle.animation_x(x=500, duration=15_000).start()
 
@@ -95,7 +98,7 @@ ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 ...     rectangle.animation_pause()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -134,7 +137,7 @@ ap.save_overall_html(dest_dir_path="./animation_pause_basic_usage/")
 ...     rectangle.animation_play()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

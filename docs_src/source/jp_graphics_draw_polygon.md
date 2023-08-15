@@ -17,13 +17,16 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw the triangle with the draw_polygon interface.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_polygon(
     points=ap.Array(
         [
@@ -62,11 +65,14 @@ ap.save_overall_html(dest_dir_path="graphics_draw_polygon_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.draw_polygon(
@@ -96,14 +102,17 @@ ap.save_overall_html(dest_dir_path="graphics_draw_polygon_line_to_difference_1/"
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=250, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 # Set the line style to see the difference.
-sprite.graphics.line_style(color="#fff", thickness=3)
+sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.draw_polygon(
@@ -137,11 +146,14 @@ ap.save_overall_html(dest_dir_path="graphics_draw_polygon_line_to_difference_2/"
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 # Draw the triangle.
 polygon: ap.Polygon = sprite.graphics.draw_polygon(
@@ -195,7 +207,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_polygon_append_line_point/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
 ...     points=[
 ...         ap.Point2D(x=25, y=0),
@@ -204,5 +216,5 @@ ap.save_overall_html(dest_dir_path="graphics_draw_polygon_append_line_point/")
 ...     ]
 ... )
 >>> polygon.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

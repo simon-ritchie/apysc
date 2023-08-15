@@ -19,11 +19,14 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 
 class _ColorOptions(TypedDict):
@@ -43,7 +46,7 @@ def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     # Change the clicked rectangle color to the passed color.
     rectangle: ap.Rectangle = e.this
-    color: ap.String = ap.String(options["color"])
+    color: ap.Color = ap.Color(options["color"])
     rectangle.fill_color = color
 
 
@@ -75,11 +78,14 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 
 class _ColorOptions(TypedDict):
@@ -99,7 +105,7 @@ def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     # Change the clicked rectangle color to the passed color.
     rectangle: ap.Rectangle = e.this
-    color: ap.String = ap.String(options["color"])
+    color: ap.Color = ap.Color(options["color"])
     rectangle.fill_color = color
 
 
@@ -129,11 +135,14 @@ from typing_extensions import TypedDict
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 
 class _ColorOptions(TypedDict):
@@ -152,7 +161,7 @@ def change_color_on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) ->
         Optional arguments.
     """
     rectangle: ap.Rectangle = e.this
-    color: ap.String = ap.String(options["color"])
+    color: ap.Color = ap.Color(options["color"])
     rectangle.fill_color = color
 
 
@@ -206,11 +215,14 @@ ap.save_overall_html(dest_dir_path="mouse_event_basic_unbind_all_event_handlers/
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=200, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 
 def on_rectangle_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
@@ -241,11 +253,14 @@ MouseEventクラスのインスタンスは`stage_x`や`stage_y`の各属性の�
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 
 def on_mousemove(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
@@ -283,11 +298,14 @@ MouseEventのインスタンスは`local_x`と`local_y`という属性も持っ�
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=150, stage_height=150, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 
 
 def on_mousemove(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
@@ -346,7 +364,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -377,7 +395,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -408,7 +426,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -439,7 +457,7 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 ...     # Do something here with the coordinate.
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -467,10 +485,10 @@ F12を押してChromeなどのDevToolsを開き、以下の四角の上でマウ
 >>> import apysc as ap
 >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )

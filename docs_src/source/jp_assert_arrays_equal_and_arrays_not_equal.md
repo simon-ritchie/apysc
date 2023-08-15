@@ -25,7 +25,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
@@ -48,7 +51,10 @@ Left value: [1, 2, 3] right value: arr_2
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
@@ -73,7 +79,10 @@ Assertion failed: Values are not equal!
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3])
@@ -93,7 +102,10 @@ ap.save_overall_html(dest_dir_path="assert_arrays_not_equal_basic_usage_1/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 
 arr_1: ap.Array = ap.Array([1, 2, 3, 4, 5])

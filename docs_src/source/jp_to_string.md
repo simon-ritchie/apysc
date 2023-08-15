@@ -23,7 +23,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=0, stage_height=0, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=0,
+    stage_height=0,
+    stage_elem_id="stage",
 )
 int_value: ap.Int = ap.Int(100)
 string: ap.String = int_value.to_string()
@@ -53,12 +56,15 @@ ap.save_overall_html(dest_dir_path="to_string_basic_usage_1/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    background_color="#333", stage_width=300, stage_height=50, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=300,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 width: ap.Int = ap.Int(50)
 text: ap.SVGText = ap.SVGText(
     text=ap.String("width is: ") + width.to_string(),
-    fill_color="#aaa",
+    fill_color=ap.Color("#aaa"),
     x=20,
     y=30,
 )
@@ -89,7 +95,7 @@ ap.save_overall_html(dest_dir_path="to_string_basic_usage_2/")
 ```py
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage(
-...     background_color="#333", stage_width=200, stage_height=200
+...     background_color=ap.Color("#333"), stage_width=200, stage_height=200
 ... )
 >>> int_value: ap.Int = ap.Int(value=100)
 >>> string: ap.String = int_value.to_string()

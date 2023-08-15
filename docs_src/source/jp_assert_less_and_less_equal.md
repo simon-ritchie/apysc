@@ -29,7 +29,10 @@
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_val_1: ap.Int = ap.Int(10)
 int_val_2: ap.Int = ap.Int(9)
@@ -49,7 +52,10 @@ ap.save_overall_html(dest_dir_path="assert_less_and_less_equal_basic_usage_1/")
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
-    stage_width=0, stage_height=0, background_color="#333", stage_elem_id="stage"
+    stage_width=0,
+    stage_height=0,
+    background_color=ap.Color("#333"),
+    stage_elem_id="stage",
 )
 int_val_1: ap.Int = ap.Int(9)
 int_val_2: ap.Int = ap.Int(9)

@@ -24,7 +24,9 @@ import apysc as ap
 
 stage: ap.Stage = ap.Stage(
     background_color=ap.Color("#333"),
-    stage_width=200, stage_height=50, stage_elem_id="stage"
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     text_spans=[
@@ -365,7 +367,9 @@ import apysc as ap
 
 stage: ap.Stage = ap.Stage(
     background_color=ap.Color("#333"),
-    stage_width=200, stage_height=50, stage_elem_id="stage"
+    stage_width=200,
+    stage_height=50,
+    stage_elem_id="stage",
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
@@ -488,7 +492,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int, NoneType] = None, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, fill_color: Union[str, apysc._type.string.String, NoneType] = None, fill_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_color: Union[str, apysc._type.string.String, NoneType] = None, line_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_thickness: Union[int, apysc._type.int.Int, NoneType] = None, bold: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, italic: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, delta_x: Union[float, apysc._type.number.Number] = 0.0, delta_y: Union[float, apysc._type.number.Number] = 0.0, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int, NoneType] = None, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, fill_color: Union[apysc._color.color.Color, NoneType] = None, fill_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_color: Union[apysc._color.color.Color, NoneType] = None, line_alpha: Union[float, apysc._type.number.Number, NoneType] = None, line_thickness: Union[int, apysc._type.int.Int, NoneType] = None, bold: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, italic: Union[bool, apysc._type.boolean.Boolean, NoneType] = None, delta_x: Union[float, apysc._type.number.Number] = 0.0, delta_y: Union[float, apysc._type.number.Number] = 0.0, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -502,11 +506,11 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
   - A font-size setting.
 - `font_family`: Optional[Union[Array[String], List[str]]], optional
   - A font-family setting. Each string in an array needs to be a font name (e.g., `Times New Roman`).
-- `fill_color`: Optional[Union[str, String]], optional
+- `fill_color`: Optional[Color], optional
   - A fill-color setting.
 - `fill_alpha`: Optional[Union[float, Number]], optional
   - A fill-alpha setting.
-- `line_color`: Optional[Union[str, String]], optional
+- `line_color`: Optional[Color], optional
   - A line-color setting.
 - `line_alpha`: Optional[Union[float, Number]], optional
   - A line-alpha setting.
@@ -558,7 +562,7 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SVGTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: Union[str, apysc._type.string.String] = '#666', fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: Union[str, apysc._type.string.String] = '', line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SVGText'`<hr>
+**[Interface signature]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SVGTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SVGText'`<hr>
 
 **[Interface summary]**
 
@@ -576,7 +580,7 @@ Create an `SVGText` instance with specified text spans.<hr>
   - X-coordinate to start drawing.
 - `y`: Union[float, Number], optional
   - Y-coordinate to start drawing (please see also the `Notes` section).
-- `fill_color`: str or String, optional
+- `fill_color`: Color, optional
   - A fill-color setting for an overall text.
 - `fill_alpha`: float or Number, optional
   - A fill-alpha setting for an overall text.

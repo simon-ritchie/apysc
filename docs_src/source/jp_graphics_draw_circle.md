@@ -19,19 +19,24 @@
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=350, stage_height=200, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=350,
+    stage_height=200,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Set the cyan color and draw the circle.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 sprite.graphics.draw_circle(x=100, y=100, radius=50)
 
 # Set the dotted-line style and draw the circle.
-sprite.graphics.begin_fill(color="")
+sprite.graphics.begin_fill(color=ap.Color(""))
 sprite.graphics.line_style(
-    color="#fff", thickness=3, dot_setting=ap.LineDotSetting(dot_size=3)
+    color=ap.Color("#fff"),
+    thickness=3,
+    dot_setting=ap.LineDotSetting(dot_size=3),
 )
 sprite.graphics.draw_circle(x=250, y=100, radius=50)
 
@@ -54,13 +59,16 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_basic_usage/")
 import apysc as ap
 
 ap.Stage(
-    background_color="#333", stage_width=400, stage_height=400, stage_elem_id="stage"
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=400,
+    stage_elem_id="stage",
 )
 
 sprite: ap.Sprite = ap.Sprite()
 
 # Draw the small radius circle.
-sprite.graphics.begin_fill(color="#0af")
+sprite.graphics.begin_fill(color=ap.Color("#0af"))
 circle: ap.Circle = sprite.graphics.draw_circle(x=200, y=200, radius=25)
 
 # Update circle radius to become the bigger one.
@@ -110,7 +118,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_circle_return_value/")
 >>> import apysc as ap
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color="#0af")
+>>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
 >>> circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
 >>> circle.x
 Number(100.0)
@@ -122,5 +130,5 @@ Number(100.0)
 Int(50)
 
 >>> circle.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

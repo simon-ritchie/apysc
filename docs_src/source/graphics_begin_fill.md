@@ -210,7 +210,7 @@ Get a current fill color.<hr>
 **[Returns]**
 
 - `fill_color`: String
-  - Current fill color (hexadecimal string color, e.g., '#00aaff'). If it is not set, it returns the `COLORLESS` constant.
+  - Current fill color. If it is not set, it returns the `COLORLESS` constant.
 
 <hr>
 

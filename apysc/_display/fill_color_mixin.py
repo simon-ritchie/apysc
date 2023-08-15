@@ -36,7 +36,7 @@ class FillColorMixIn(
         Returns
         -------
         fill_color : Color
-            Current fill color (hexadecimal string color, e.g., '#00aaff').
+            Current fill color.
             If it is not set, it returns the `COLORLESS` constant.
 
         References

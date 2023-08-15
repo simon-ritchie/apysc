@@ -239,7 +239,7 @@ class Stage(
         style: str = (
             f"width: {self.width}px;"
             f" height: {self.height}px;"
-            f" background-color: {self._background_color._value.variable_name};"
+            f" background-color: {self._background_color._value};"
         )
         return style
 

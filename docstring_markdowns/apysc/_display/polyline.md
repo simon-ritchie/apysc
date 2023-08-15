@@ -18,7 +18,7 @@ The polyline vector graphics class.<hr>
 >>> _ = sprite.graphics.move_to(x=50, y=50)
 >>> polyline: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
 >>> polyline.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> polyline.line_thickness
 Int(5)
@@ -83,7 +83,7 @@ Create a polyline vector graphic.<hr>
 ...     line_thickness=3,
 ... )
 >>> polyline.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> polyline.line_thickness
 Int(3)

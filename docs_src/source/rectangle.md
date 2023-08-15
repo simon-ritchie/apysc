@@ -286,7 +286,7 @@ ap.Stage(
 rectangle: ap.Rectangle = ap.Rectangle(
     x=50, y=50, width=50, height=50, line_thickness=5
 )
-rectangle.line_color = ap.String("#0af")
+rectangle.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="rectangle_line_color/")
 ```
@@ -1015,5 +1015,5 @@ Int(100)
 Int(100)
 
 >>> rectangle.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

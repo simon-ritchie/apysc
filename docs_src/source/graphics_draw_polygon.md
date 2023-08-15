@@ -216,5 +216,5 @@ Draw a polygon vector graphic. This interface is similar to the Polyline class (
 ...     ]
 ... )
 >>> polygon.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

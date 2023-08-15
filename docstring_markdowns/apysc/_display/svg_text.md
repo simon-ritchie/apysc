@@ -33,7 +33,7 @@ String("Hello, world!")
 Int(20)
 
 >>> svg_text.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```
 
 <hr>
@@ -109,7 +109,7 @@ String("Hello, world!")
 Int(20)
 
 >>> svg_text.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```
 
 <hr>

@@ -210,7 +210,7 @@ svg_text: ap.SVGText = ap.SVGText(
     x=20,
     y=32,
 )
-svg_text.fill_color = ap.String("#0af")
+svg_text.fill_color = ap.Color("#0af")
 ap.save_overall_html(dest_dir_path="svg_text_fill_color/")
 ```
 
@@ -265,7 +265,7 @@ svg_text: ap.SVGText = ap.SVGText(
     fill_color=ap.COLORLESS,
     line_thickness=1,
 )
-svg_text.line_color = ap.String("#0af")
+svg_text.line_color = ap.Color("#0af")
 ap.save_overall_html(dest_dir_path="svg_text_line_color/")
 ```
 
@@ -869,5 +869,5 @@ String("Hello, world!")
 Int(20)
 
 >>> svg_text.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

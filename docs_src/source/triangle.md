@@ -312,7 +312,7 @@ triangle: ap.Triangle = ap.Triangle(
     y3=100,
     fill_color=ap.Color("#0af"),
 )
-triangle.fill_color = ap.String("#f0a")
+triangle.fill_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="triangle_fill_color/")
 ```
@@ -373,7 +373,7 @@ triangle: ap.Triangle = ap.Triangle(
     fill_color=ap.Color("#0af"),
     line_thickness=3,
 )
-triangle.line_color = ap.String("#fff")
+triangle.line_color = ap.Color("#fff")
 
 ap.save_overall_html(dest_dir_path="triangle_line_color/")
 ```

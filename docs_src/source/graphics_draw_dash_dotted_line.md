@@ -98,7 +98,7 @@ Draw a dash-dotted (1-dot chain) line vector graphics.<hr>
 ...     space_size=3,
 ... )
 >>> line.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line.line_dash_dot_setting.dot_size
 Int(2)

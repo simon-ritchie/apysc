@@ -117,9 +117,9 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     color: ap.String = e.this.fill_color
     condition: ap.Boolean = color == "#00aaff"
     with ap.If(condition):
-        e.this.fill_color = ap.String("#f0a")
+        e.this.fill_color = ap.Color("#f0a")
     with ap.Else():
-        e.this.fill_color = ap.String("#0af")
+        e.this.fill_color = ap.Color("#0af")
 
 
 ap.Stage(

@@ -136,7 +136,7 @@ polyline: ap.Polyline = ap.Polyline(
     line_color=ap.Color("#fff"),
     line_thickness=3,
 )
-polyline.fill_color = ap.String("#0af")
+polyline.fill_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="polyline_fill_color/")
 ```
@@ -198,7 +198,7 @@ polyline: ap.Polyline = ap.Polyline(
     ],
     line_thickness=3,
 )
-polyline.line_color = ap.String("#0af")
+polyline.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="polyline_line_color/")
 ```
@@ -943,7 +943,7 @@ Create a polyline vector graphic.<hr>
 ...     line_thickness=3,
 ... )
 >>> polyline.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> polyline.line_thickness
 Int(3)

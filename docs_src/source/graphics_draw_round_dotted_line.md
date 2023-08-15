@@ -125,7 +125,7 @@ This interface ignores line settings, like the `LineDotSetting`, except `LineRou
 ...     x_start=50, y_start=50, x_end=150, y_end=50, round_size=6, space_size=3
 ... )
 >>> line.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line.line_round_dot_setting.round_size
 Int(6)

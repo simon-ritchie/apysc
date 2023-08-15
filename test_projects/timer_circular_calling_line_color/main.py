@@ -64,7 +64,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    rectangle.line_color = ap.String("#f0a")
+    rectangle.line_color = ap.Color("#f0a")
 
 
 def on_timer_complete_1(e: ap.TimerEvent, options: _RectOptions) -> None:
@@ -97,7 +97,7 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options["rectangle"]
-    rectangle.line_color = ap.String("#0af")
+    rectangle.line_color = ap.Color("#0af")
 
 
 def on_timer_complete_2(e: ap.TimerEvent, options: _RectOptions) -> None:

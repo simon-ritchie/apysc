@@ -231,7 +231,7 @@ class Line(
         ...     line_thickness=3,
         ... )
         >>> line.line_color
-        String("#ffffff")
+        Color("#ffffff")
         >>> line.line_thickness
         Int(3)
         """

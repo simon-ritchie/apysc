@@ -90,7 +90,7 @@ Create a path vector graphic.<hr>
 ...     line_thickness=3,
 ... )
 >>> path.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> path.line_thickness
 Int(3)

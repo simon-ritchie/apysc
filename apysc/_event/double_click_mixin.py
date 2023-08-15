@@ -59,7 +59,7 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
         >>> import apysc as ap
         >>> def on_double_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         ...     rectangle: ap.Rectangle = e.this
-        ...     rectangle.fill_color = ap.String("#f0a")
+        ...     rectangle.fill_color = ap.Color("#f0a")
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
         >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
@@ -120,7 +120,7 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
         >>> import apysc as ap
         >>> def on_double_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         ...     rectangle: ap.Rectangle = e.this
-        ...     rectangle.fill_color = ap.String("#f0a")
+        ...     rectangle.fill_color = ap.Color("#f0a")
         ...     rectangle.unbind_dblclick(on_double_click)
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
@@ -150,7 +150,7 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
         >>> import apysc as ap
         >>> def on_double_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         ...     rectangle: ap.Rectangle = e.this
-        ...     rectangle.fill_color = ap.String("#f0a")
+        ...     rectangle.fill_color = ap.Color("#f0a")
         ...     rectangle.unbind_dblclick_all()
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()

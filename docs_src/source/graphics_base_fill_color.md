@@ -31,9 +31,9 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle: ap.Rectangle = e.this
     fill_color: ap.String = rectangle.fill_color
     with ap.If(fill_color == "#00aaff"):
-        rectangle.fill_color = ap.String("#f0a")
+        rectangle.fill_color = ap.Color("#f0a")
     with ap.Else():
-        rectangle.fill_color = ap.String("#0af")
+        rectangle.fill_color = ap.Color("#0af")
 
 
 ap.Stage(
@@ -80,7 +80,7 @@ Get this instance's fill color.<hr>
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
->>> rectangle.fill_color = ap.String("#f0a")
+>>> rectangle.fill_color = ap.Color("#f0a")
 >>> rectangle.fill_color
-String("#ff00aa")
+Color("#ff00aa")
 ```

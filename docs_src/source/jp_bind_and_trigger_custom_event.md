@@ -169,7 +169,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 >>> import apysc as ap
 >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.begin_fill(color="#0af")
@@ -213,7 +213,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 >>> import apysc as ap
 >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.begin_fill(color="#0af")
@@ -261,7 +261,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 >>> import apysc as ap
 >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_custom_event(
 ...         custom_event_type="my_custom_event", handler=on_custom_event
 ...     )
@@ -302,7 +302,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 >>> import apysc as ap
 >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_custom_event_all(custom_event_type="my_custom_event")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()

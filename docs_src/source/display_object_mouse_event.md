@@ -31,7 +31,7 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String("#f0a")
+    rectangle.fill_color = ap.Color("#f0a")
 
 
 ap.Stage(

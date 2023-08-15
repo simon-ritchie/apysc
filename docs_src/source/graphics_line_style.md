@@ -532,7 +532,7 @@ Set line style values.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
 >>> line.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line.line_thickness
 Int(5)
@@ -571,7 +571,7 @@ Get current line color.<hr>
 ...     color=ap.Color("#fff"), thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
 ... )
 >>> sprite.graphics.line_color
-String("#ffffff")
+Color("#ffffff")
 ```
 
 ## line_thickness property API

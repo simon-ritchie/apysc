@@ -23,7 +23,7 @@ The polygon vector graphics class.<hr>
 ...     ]
 ... )
 >>> polygon.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```
 
 <hr>
@@ -84,7 +84,7 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 ...     fill_color=ap.Color("#00aaff"),
 ... )
 >>> polygon.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```
 
 <hr>

@@ -146,5 +146,5 @@ Int(100)
 Int(50)
 
 >>> ellipse.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

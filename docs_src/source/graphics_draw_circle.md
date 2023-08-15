@@ -128,5 +128,5 @@ Number(100.0)
 Int(50)
 
 >>> circle.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

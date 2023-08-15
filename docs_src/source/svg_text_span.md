@@ -188,7 +188,7 @@ stage: ap.Stage = ap.Stage(
 )
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
-text_span_2.fill_color = ap.String("#0af")
+text_span_2.fill_color = ap.Color("#0af")
 
 svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
@@ -251,11 +251,11 @@ stage: ap.Stage = ap.Stage(
 text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(
     text="Lorem ", line_thickness=1, font_size=20, bold=True
 )
-text_span_1.line_color = ap.String("#aaa")
+text_span_1.line_color = ap.Color("#aaa")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(
     text="ipsum", line_thickness=1, font_size=20, bold=True
 )
-text_span_2.line_color = ap.String("#0af")
+text_span_2.line_color = ap.Color("#0af")
 
 svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],

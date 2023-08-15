@@ -124,7 +124,7 @@ Prevent the event's default behavior.<hr>
 >>> def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     e.prevent_default()
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_mouseup_all()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()

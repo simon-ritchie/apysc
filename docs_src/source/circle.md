@@ -138,7 +138,7 @@ ap.Stage(
     stage_elem_id="stage",
 )
 circle: ap.Circle = ap.Circle(x=75, y=75, radius=50)
-circle.fill_color = ap.String("#f0a")
+circle.fill_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="circle_fill_color/")
 ```
@@ -187,7 +187,7 @@ ap.Stage(
     stage_elem_id="stage",
 )
 circle: ap.Circle = ap.Circle(x=75, y=75, radius=50, line_thickness=5)
-circle.line_color = ap.String("#f0a")
+circle.line_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="circle_line_color/")
 ```
@@ -895,7 +895,7 @@ Number(100.0)
 Int(50)
 
 >>> circle.fill_color
-String("#00aaff")
+Color("#00aaff")
 
 >>> circle = ap.Circle(
 ...     x=100,
@@ -906,7 +906,7 @@ String("#00aaff")
 ...     line_dot_setting=ap.LineDotSetting(dot_size=10),
 ... )
 >>> circle.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> circle.line_thickness
 Int(3)

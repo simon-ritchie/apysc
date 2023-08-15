@@ -37,7 +37,7 @@ def on_mouseover(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle: ap.Rectangle = e.this
 
     # Change the rectangle fill color to magenta.
-    rectangle.fill_color = ap.String("#f0a")
+    rectangle.fill_color = ap.Color("#f0a")
 
 
 def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
@@ -54,7 +54,7 @@ def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle: ap.Rectangle = e.this
 
     # Revert the rectangle fill color.
-    rectangle.fill_color = ap.String("#0af")
+    rectangle.fill_color = ap.Color("#0af")
 
 
 ap.Stage(
@@ -101,7 +101,7 @@ def on_mouseover(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String("#f0a")
+    rectangle.fill_color = ap.Color("#f0a")
 
     # Unbind the mouseover handler.
     rectangle.unbind_mouseover(handler=on_mouseover)
@@ -119,7 +119,7 @@ def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this
-    rectangle.fill_color = ap.String("#0af")
+    rectangle.fill_color = ap.Color("#0af")
 
     rectangle.unbind_mouseout(handler=on_mouseout)
 
@@ -181,7 +181,7 @@ Add mouse over event listener setting.<hr>
 >>> import apysc as ap
 >>> def on_mouseover(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
@@ -222,7 +222,7 @@ Unbind a specified handler's mouseover event.<hr>
 >>> import apysc as ap
 >>> def on_mouseover(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_mouseover(on_mouseover)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
@@ -251,7 +251,7 @@ Unbind all mouseover events.<hr>
 >>> import apysc as ap
 >>> def on_mouseover(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_mouseover_all()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
@@ -296,7 +296,7 @@ Add mouse out event listener setting.<hr>
 >>> import apysc as ap
 >>> def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
@@ -337,7 +337,7 @@ Unbind a specified handler's mouse-out event.<hr>
 >>> import apysc as ap
 >>> def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_mouseout(on_mouseout)
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
@@ -366,7 +366,7 @@ Unbind all mouse out events.<hr>
 >>> import apysc as ap
 >>> def on_mouseout(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 ...     rectangle: ap.Rectangle = e.this
-...     rectangle.fill_color = ap.String("#f0a")
+...     rectangle.fill_color = ap.Color("#f0a")
 ...     rectangle.unbind_mouseout_all()
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()

@@ -21,7 +21,7 @@ class TestLineStyleMixIn:
         )
 
         line_style_mixin.line_style(color=ap.Color("222"))
-        assert line_style_mixin.line_color._value == ap.String("#222222")
+        assert line_style_mixin.line_color == ap.Color("#222222")
 
         line_dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=5)
         line_style_mixin.line_style(
@@ -72,7 +72,7 @@ class TestLineStyleMixIn:
         line_style_mixin.line_style(
             color=ap.Color("#333"), thickness=3, alpha=0.5
         )
-        assert line_style_mixin.line_color._value == ap.String("#333333")
+        assert line_style_mixin.line_color == ap.Color("#333333")
 
         line_color_1: ap.Color = line_style_mixin.line_color
         assert (
@@ -115,7 +115,7 @@ class TestLineStyleMixIn:
             color=ap.Color("#333"), thickness=1, alpha=0.5
         )
         line_style_mixin._initialize_line_color_if_not_initialized()
-        assert line_style_mixin.line_color._value == ap.String("#333333")
+        assert line_style_mixin.line_color == ap.Color("#333333")
 
     @apply_test_settings()
     def test__initialize_line_thickness_if_not_initialized(self) -> None:
@@ -257,7 +257,7 @@ class TestLineStyleMixIn:
         line_style_mixin._line_round_dot_setting = None
         line_style_mixin._line_dash_dot_setting = None
         line_style_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert line_style_mixin.line_color._value == ap.String("#333333")
+        assert line_style_mixin.line_color == ap.Color("#333333")
         assert line_style_mixin.line_thickness == 3
         assert line_style_mixin.line_alpha == 0.5
         assert line_style_mixin.line_cap == ap.LineCaps.ROUND.value
@@ -271,7 +271,7 @@ class TestLineStyleMixIn:
             color=ap.Color("#222"), thickness=2, alpha=0.3
         )
         line_style_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert line_style_mixin.line_color._value == ap.String("#222222")
+        assert line_style_mixin.line_color == ap.Color("#222222")
 
     @apply_test_settings()
     def test__set_line_cap(self) -> None:

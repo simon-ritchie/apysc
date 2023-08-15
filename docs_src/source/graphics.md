@@ -85,7 +85,7 @@ def on_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle.x = ap.Number(100)
     rectangle.y = ap.Number(100)
     rectangle.fill_alpha = ap.Number(0.5)
-    rectangle.fill_color = ap.String("#f0a")
+    rectangle.fill_color = ap.Color("#f0a")
 
 
 # drew_rect interface will return Rectangle instance.

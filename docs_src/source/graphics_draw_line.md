@@ -80,7 +80,7 @@ sprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)
 line: ap.Line = sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
 # Update the line color from cyan to magenta.
-line.line_color = ap.String("#f0a")
+line.line_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="graphics_draw_line_line_instance/")
 ```
@@ -137,7 +137,7 @@ Draw a normal line vector graphic.<hr>
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
 >>> line.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line.line_thickness
 Int(5)

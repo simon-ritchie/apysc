@@ -10,14 +10,14 @@ class TestBeginFillMixIn:
         begin_fill_mixin._fill_color = ap.COLORLESS
         begin_fill_mixin._fill_alpha = ap.Number(1.0)
         begin_fill_mixin.begin_fill(color=ap.Color("#333"))
-        assert begin_fill_mixin.fill_color._value == ap.String("#333333")
+        assert begin_fill_mixin.fill_color == ap.Color("#333333")
         assert begin_fill_mixin.fill_alpha == 1.0
 
         begin_fill_mixin.begin_fill(color=ap.Color("#333"), alpha=0.5)
         assert begin_fill_mixin.fill_alpha == 0.5
 
         begin_fill_mixin.begin_fill(color=ap.Color("#333"), alpha=ap.Number(value=0.3))
-        assert begin_fill_mixin.fill_color._value == ap.String("#333333")
+        assert begin_fill_mixin.fill_color == ap.Color("#333333")
         assert begin_fill_mixin.fill_alpha == 0.3
 
         begin_fill_mixin.begin_fill(color=ap.COLORLESS)
@@ -29,7 +29,7 @@ class TestBeginFillMixIn:
         begin_fill_mixin._fill_color = ap.COLORLESS
         begin_fill_mixin._fill_alpha = ap.Number(1.0)
         begin_fill_mixin.begin_fill(color=ap.Color("#333"))
-        assert begin_fill_mixin.fill_color._value == ap.String("#333333")
+        assert begin_fill_mixin.fill_color._value == ap.Color("#333333")
 
         fill_color_1: ap.Color = begin_fill_mixin.fill_color
         assert (
@@ -56,7 +56,7 @@ class TestBeginFillMixIn:
 
         begin_fill_mixin._fill_color = ap.Color("#333333")
         begin_fill_mixin._initialize_fill_color_if_not_initialized()
-        assert begin_fill_mixin.fill_color._value == ap.String("#333333")
+        assert begin_fill_mixin.fill_color == ap.Color("#333333")
 
     @apply_test_settings()
     def test__initialize_fill_alpha_if_not_initialized(self) -> None:
@@ -94,9 +94,9 @@ class TestBeginFillMixIn:
         begin_fill_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name_1)
         begin_fill_mixin.begin_fill(color=ap.Color("#222222"), alpha=0.3)
         begin_fill_mixin._run_all_revert_methods(snapshot_name=snapshot_name_1)
-        assert begin_fill_mixin.fill_color._value == ap.String("#333333")
+        assert begin_fill_mixin.fill_color == ap.Color("#333333")
         assert begin_fill_mixin.fill_alpha == 0.5
 
         begin_fill_mixin.begin_fill(color=ap.Color("#222222"), alpha=0.3)
         begin_fill_mixin._run_all_revert_methods(snapshot_name=snapshot_name_1)
-        assert begin_fill_mixin.fill_color._value == ap.String("#222222")
+        assert begin_fill_mixin.fill_color == ap.Color("#222222")

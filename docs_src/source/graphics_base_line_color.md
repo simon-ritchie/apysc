@@ -31,9 +31,9 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle: ap.Rectangle = e.this
     line_color: ap.String = rectangle.line_color
     with ap.If(line_color == "#00aaff"):
-        rectangle.line_color = ap.String("#f0a")
+        rectangle.line_color = ap.Color("#f0a")
     with ap.Else():
-        rectangle.line_color = ap.String("#0af")
+        rectangle.line_color = ap.Color("#0af")
 
 
 ap.Stage(
@@ -82,7 +82,7 @@ Get this instance's line color.<hr>
 >>> line: ap.Line = sprite.graphics.draw_line(
 ...     x_start=50, y_start=50, x_end=150, y_end=50
 ... )
->>> line.line_color = ap.String("#0af")
+>>> line.line_color = ap.Color("#0af")
 >>> line.line_color
-String("#00aaff")
+Color("#00aaff")
 ```

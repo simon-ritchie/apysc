@@ -23,7 +23,7 @@ Clear all graphics and reset fill and line settings.<hr>
 Int(2)
 
 >>> sprite.graphics.fill_color
-String("#00aaff")
+Color("#00aaff")
 
 >>> sprite.graphics.clear()
 >>> sprite.graphics.num_children

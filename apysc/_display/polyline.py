@@ -260,7 +260,7 @@ class Polyline(
         ...     line_thickness=3,
         ... )
         >>> polyline.line_color
-        String("#ffffff")
+        Color("#ffffff")
         >>> polyline.line_thickness
         Int(3)
         """

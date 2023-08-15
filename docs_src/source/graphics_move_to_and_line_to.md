@@ -138,7 +138,7 @@ def on_line_click(e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
         Optional arguments.
     """
     polyline: ap.Polyline = e.this
-    polyline.line_color = ap.String("#f0a")
+    polyline.line_color = ap.Color("#f0a")
     polyline.line_dot_setting = ap.LineDotSetting(dot_size=5)
 
 
@@ -206,7 +206,7 @@ Move a line position to a specified point.<hr>
 True
 
 >>> line_1.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)
@@ -256,7 +256,7 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
 True
 
 >>> line_1.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> line_1.line_thickness
 Int(5)

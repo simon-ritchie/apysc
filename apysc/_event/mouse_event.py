@@ -36,7 +36,7 @@ class MouseEvent(
     >>> import apysc as ap
     >>> def on_mousedown(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     ...     rectangle: ap.Rectangle = e.this
-    ...     rectangle.fill_color = ap.String("#f0a")
+    ...     rectangle.fill_color = ap.Color("#f0a")
     ...     rectangle.unbind_mousedown_all()
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()

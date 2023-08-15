@@ -27,7 +27,7 @@ class TestAppendLineColorAttrExpressionMixIn:
         )
 
         mixin_2: _TestMixIn = _TestMixIn()
-        mixin_2.line_color = ap.String("#00aaff")
+        mixin_2.line_color = ap.Color("#00aaff")
         expression: str = mixin_2._append_line_color_attr_expression(
             expression=".attr({\n",
             indent_num=2,

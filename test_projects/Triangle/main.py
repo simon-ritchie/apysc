@@ -139,7 +139,7 @@ def on_triangle_1_click_1(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:
     options : dict
         Optional argument dictionary.
     """
-    e.this.fill_color = ap.String("#f0a")
+    e.this.fill_color = ap.Color("#f0a")
 
 
 def on_triangle_1_click_2(e: ap.MouseEvent[ap.Triangle], options: dict) -> None:

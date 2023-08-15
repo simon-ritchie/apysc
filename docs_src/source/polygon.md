@@ -127,7 +127,7 @@ polygon: ap.Polygon = ap.Polygon(
         ap.Point2D(x=100, y=100),
     ]
 )
-polygon.fill_color = ap.String("#f0a")
+polygon.fill_color = ap.Color("#f0a")
 
 ap.save_overall_html(dest_dir_path="polygon_fill_color/")
 ```
@@ -185,7 +185,7 @@ polygon: ap.Polygon = ap.Polygon(
     ],
     line_thickness=5,
 )
-polygon.line_color = ap.String("#0af")
+polygon.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="polygon_line_color/")
 ```
@@ -905,5 +905,5 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 ...     fill_color=ap.Color("#00aaff"),
 ... )
 >>> polygon.fill_color
-String("#00aaff")
+Color("#00aaff")
 ```

@@ -299,7 +299,7 @@ class Rectangle(
         >>> rectangle.height
         Int(100)
         >>> rectangle.fill_color
-        String("#00aaff")
+        Color("#00aaff")
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

@@ -212,7 +212,7 @@ path: ap.Path = ap.Path(
         ap.PathClose(),
     ],
 )
-path.fill_color = ap.String("#0af")
+path.fill_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="path_fill_color/")
 ```
@@ -276,7 +276,7 @@ path: ap.Path = ap.Path(
     ],
     line_thickness=5,
 )
-path.line_color = ap.String("#0af")
+path.line_color = ap.Color("#0af")
 
 ap.save_overall_html(dest_dir_path="path_line_color/")
 ```
@@ -1059,7 +1059,7 @@ Create a path vector graphic.<hr>
 ...     line_thickness=3,
 ... )
 >>> path.line_color
-String("#ffffff")
+Color("#ffffff")
 
 >>> path.line_thickness
 Int(3)

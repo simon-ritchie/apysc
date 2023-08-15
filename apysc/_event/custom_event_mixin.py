@@ -148,7 +148,7 @@ class CustomEventMixIn(
         >>> import apysc as ap
         >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
         ...     rectangle: ap.Rectangle = e.this
-        ...     rectangle.fill_color = ap.String("#f0a")
+        ...     rectangle.fill_color = ap.Color("#f0a")
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
         >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
@@ -240,7 +240,7 @@ class CustomEventMixIn(
         >>> import apysc as ap
         >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
         ...     rectangle: ap.Rectangle = e.this
-        ...     rectangle.fill_color = ap.String("#f0a")
+        ...     rectangle.fill_color = ap.Color("#f0a")
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
         >>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
@@ -291,7 +291,7 @@ class CustomEventMixIn(
         >>> import apysc as ap
         >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
         ...     rectangle: ap.Rectangle = e.this
-        ...     rectangle.fill_color = ap.String("#f0a")
+        ...     rectangle.fill_color = ap.Color("#f0a")
         ...     rectangle.unbind_custom_event(
         ...         custom_event_type="my_custom_event", handler=on_custom_event
         ...     )
@@ -366,7 +366,7 @@ class CustomEventMixIn(
         >>> import apysc as ap
         >>> def on_custom_event(e: ap.Event[ap.Rectangle], options: dict) -> None:
         ...     rectangle: ap.Rectangle = e.this
-        ...     rectangle.fill_color = ap.String("#f0a")
+        ...     rectangle.fill_color = ap.Color("#f0a")
         ...     rectangle.unbind_custom_event_all(custom_event_type="my_custom_event")
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()

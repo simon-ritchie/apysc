@@ -50,13 +50,13 @@ class Color(
         self._variable_name_suffix = variable_name_suffix
 
     @add_debug_info_setting(module_name=__name__)
-    def __eq__(self, other: Any) -> Any:
+    def __eq__(self, other: "Color") -> Any:
         """
         Comparison method between two color values.
 
         Parameters
         ----------
-        other : Any
+        other : Color
             The other color value.
 
         Returns

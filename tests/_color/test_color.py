@@ -37,7 +37,7 @@ class TestColor:
         assert not result
         assert isinstance(result, ap.Boolean)
 
-        result = color_1 == 100
+        result = color_1 == 100  # type: ignore
         assert not result
 
         assert_raises(

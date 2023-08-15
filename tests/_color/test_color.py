@@ -58,3 +58,7 @@ class TestColor:
         color: ap.Color = ap.Color("#0af")
         repr_str: str = repr(color)
         assert repr_str == 'Color("#00aaff")'
+
+        delattr(color, "_value")
+        repr_str = repr(color)
+        assert repr_str == 'Color("")'

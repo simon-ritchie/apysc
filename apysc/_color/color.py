@@ -103,4 +103,6 @@ class Color(
         repr_str : str
             Representation string of this instance.
         """
+        if not hasattr(self, '_value'):
+            return f'Color("")'
         return f'Color("{self._value._value}")'

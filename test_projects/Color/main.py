@@ -49,6 +49,14 @@ def main() -> None:
         fill_color=ap.Colors.GRAY_666666,
     )
 
+    color_1: ap.Color = ap.Color("#0af")
+    color_2: ap.Color = ap.Color("#fff")
+    color_3: ap.Color = ap.Color("#0af")
+    color_4: ap.Color = ap.Color("#00aaff")
+    ap.assert_not_equal(color_1, color_2)
+    ap.assert_equal(color_1, color_3)
+    ap.assert_equal(color_1, color_4)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

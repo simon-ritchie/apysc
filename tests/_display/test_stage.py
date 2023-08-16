@@ -76,7 +76,7 @@ class TestStage:
         style: str = stage._make_style_str()
         expected_style: str = (
             "width: 200px; height: 300px; "
-            f"background-color: {color._value.variable_name};"
+            f"background-color: #333333;"
         )
         assert style == expected_style
 

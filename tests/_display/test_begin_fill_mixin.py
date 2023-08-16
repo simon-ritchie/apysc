@@ -29,7 +29,7 @@ class TestBeginFillMixIn:
         begin_fill_mixin._fill_color = ap.COLORLESS
         begin_fill_mixin._fill_alpha = ap.Number(1.0)
         begin_fill_mixin.begin_fill(color=ap.Color("#333"))
-        assert begin_fill_mixin.fill_color._value == ap.Color("#333333")
+        assert begin_fill_mixin.fill_color == ap.Color("#333333")
 
         fill_color_1: ap.Color = begin_fill_mixin.fill_color
         assert (

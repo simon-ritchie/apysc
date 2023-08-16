@@ -131,6 +131,13 @@ jp_dictionary_get
 jp_dictionary_length
 ```
 
+### Color クラスと各定数
+
+```{toctree}
+:maxdepth: 1
+jp_color
+```
+
 ## DisplayObject と GraphicsBase の各クラス
 
 `DisplayObject`クラスは各表示用のオブジェクトの基底クラスです。`GraphicsBase`クラスは`DisplayObject`のサブクラスであり、且つ`Rectangle`などの各グラフィックスの基底クラスとなります。

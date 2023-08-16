@@ -94,7 +94,7 @@ ap.save_overall_html(dest_dir_path="graphics_begin_fill_color_setting_clear/")
 
 <iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe>
 
-カラーコードは以下の形の指定を受け付けています。
+以下のようなカラーコードが受け付けられます:
 
 - `#00aaff`などの6文字による指定。
 - `#0af`などの3文字による指定（これは`#00aaff`と同じ値として扱われます）。
@@ -128,7 +128,7 @@ sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 sprite.graphics.begin_fill(color=ap.Color("#0"))
 sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
-# Fill color that Skipped `#` symbol is also acceptable.
+# Fill color that a skipped `#` symbol is also acceptable.
 sprite.graphics.begin_fill(color=ap.Color("999"))
 sprite.graphics.draw_rect(x=350, y=50, width=50, height=50)
 

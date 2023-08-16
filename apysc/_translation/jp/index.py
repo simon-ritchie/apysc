@@ -69,6 +69,10 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```{toctree}\n:maxdepth: 1\ndictionary\ndictionary_generic\ndictionary_get\ndictionary_length\n```": "```{toctree}\n:maxdepth: 1\njp_dictionary\njp_dictionary_generic\njp_dictionary_get\njp_dictionary_length\n```",  # noqa
     ##################################################
+    "### Color class and constants": "### Color クラスと各定数",
+    ##################################################
+    "```{toctree}\n:maxdepth: 1\ncolor\n```": "```{toctree}\n:maxdepth: 1\njp_color\n```",  # noqa
+    ##################################################
     "## DisplayObject and GraphicsBase classes": "## DisplayObject と GraphicsBase の各クラス",  # noqa
     ##################################################
     "The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphic class, such as the `Rectangle` class.": "`DisplayObject`クラスは各表示用のオブジェクトの基底クラスです。`GraphicsBase`クラスは`DisplayObject`のサブクラスであり、且つ`Rectangle`などの各グラフィックスの基底クラスとなります。",  # noqa

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Color class &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <script src="static/add_en_to_ja_link.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DisplayObject class" href="display_object.html" />
+    <link rel="prev" title="Dictionary length interface" href="dictionary_length.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dictionary_length.html" title="Dictionary length interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Color class</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="color-class">
+<h1>Color class<a class="headerlink" href="#color-class" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Color</span></code> class.</p>
+<section id="what-class-is-this">
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Color</span></code> class handles color settings.</p>
+<p>Color settings, such as the <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> or <code class="docutils literal notranslate"><span class="pre">line_color</span></code> arguments or properties, require its value.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<p>The constructor of the <code class="docutils literal notranslate"><span class="pre">Color</span></code> class requires a hexadecimal color code string, for example, <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">left_rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">right_rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">),</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./color_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/color_basic_usage/index.html" width="250" height="150"></iframe>
+</section>
+<section id="acceptable-hexadecimal-color-codes">
+<h2>Acceptable hexadecimal color codes<a class="headerlink" href="#acceptable-hexadecimal-color-codes" title="Permalink to this heading">¶</a></h2>
+<p>Color code is acceptable like the following list:</p>
+<ul class="simple">
+<li><p>Six characters, e.g., <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>.</p></li>
+<li><p>Three characters, e.g., <code class="docutils literal notranslate"><span class="pre">#0af</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>A single character, e.g., <code class="docutils literal notranslate"><span class="pre">#5</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#000005</span></code>).</p></li>
+<li><p>A skipped <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol string, e.g., <code class="docutils literal notranslate"><span class="pre">0af</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">COLORLESS</span></code> constant (this setting clears a color setting).</p></li>
+</ul>
+</section>
+<section id="color-constructor-api">
+<h2>Color constructor API<a class="headerlink" href="#color-constructor-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._color.color.Color.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">~_StrOrString,</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong></p>
+<p>The color class implementation.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: str or String</p>
+<ul>
+<li><p>A hexadecimal color code string (e.g., ‘#000000’).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
+<ul>
+<li><p>A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Color class</a><ul>
+<li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#acceptable-hexadecimal-color-codes">Acceptable hexadecimal color codes</a></li>
+<li><a class="reference internal" href="#color-constructor-api">Color constructor API</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="dictionary_length.html"
+                          title="previous chapter">Dictionary length interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="display_object.html"
+                          title="next chapter">DisplayObject class</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dictionary_length.html" title="Dictionary length interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Color class</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    </div>
+  </body>
+</html>

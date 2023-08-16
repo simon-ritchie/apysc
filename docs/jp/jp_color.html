@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Color クラス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DisplayObject クラス" href="jp_display_object.html" />
+    <link rel="prev" title="Dictionary クラスの length インターフェイス" href="jp_dictionary_length.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_display_object.html" title="DisplayObject クラス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_dictionary_length.html" title="Dictionary クラスの length インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Color クラス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/color.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="color">
+<h1>Color クラス<a class="headerlink" href="#color" title="Permalink to this heading">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Color</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Color</span></code>クラスの色の設定を扱います。</p>
+<p>色の設定、例えば<code class="docutils literal notranslate"><span class="pre">fill_color</span></code>や<code class="docutils literal notranslate"><span class="pre">line_color</span></code>などの引数や属性はこの値を必要とします。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Color</span></code>クラスのコンストラクタでは例えば<code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>などの16進数のカラーコードを必要とします。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">left_rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">right_rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#ffffff&quot;</span><span class="p">),</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./color_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/color_basic_usage/index.html" width="250" height="150"></iframe>
+</section>
+<section id="id3">
+<h2>受け付けられる16進数のカラーコード<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>以下のようなカラーコードが受け付けられます:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>などの6文字による指定。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#0af</span></code>などの3文字による指定（これは<code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>と同じ値として扱われます）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#5</span></code>などの1文字による指定（これは<code class="docutils literal notranslate"><span class="pre">000005</span></code>と同じ値として扱われます）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0af</span></code>などの<code class="docutils literal notranslate"><span class="pre">#</span></code>記号を省略した指定（これは<code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>と同じ値として扱われます）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COLORLESS</span></code>定数（この設定は色の設定を削除します）。</p></li>
+</ul>
+</section>
+<section id="color-api">
+<h2>Color クラスのコンストラクタのAPI<a class="headerlink" href="#color-api" title="Permalink to this heading">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:</span> <span class="pre">~_StrOrString,</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>色のクラスの実装です。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: str or String</p>
+<ul>
+<li><p>16進数の色の文字列（例 : ‘#000000’）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default ‘’</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Color クラス</a><ul>
+<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">受け付けられる16進数のカラーコード</a></li>
+<li><a class="reference internal" href="#color-api">Color クラスのコンストラクタのAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_dictionary_length.html"
+                          title="previous chapter">Dictionary クラスの length インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_display_object.html"
+                          title="next chapter">DisplayObject クラス</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_display_object.html" title="DisplayObject クラス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_dictionary_length.html" title="Dictionary クラスの length インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Color クラス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    </div>
+  </body>
+</html>

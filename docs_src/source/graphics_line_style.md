@@ -98,8 +98,8 @@ Color code is acceptable like the following list (same as `begin_fill` interface
 
 - Six characters, e.g., `#00aaff`.
 - Three characters, e.g., `#0af` (this becomes `#00aaff`).
-- Single character, e.g., `#5` (this becomes `#000005`).
-- Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).
+- A single character, e.g., `#5` (this becomes `#000005`).
+- A skipped `#` symbol string, e.g., `0af` (this becomes `#00aaff`).
 - The `COLORLESS` constant (this clears line color setting).
 
 ```py

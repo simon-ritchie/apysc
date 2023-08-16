@@ -96,8 +96,8 @@ Color code is acceptable like the following list:
 
 - Six characters, e.g., `#00aaff`.
 - Three characters, e.g., `#0af` (this becomes `#00aaff`).
-- Single character, e.g., `#5` (this becomes `#000005`).
-- Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).
+- A single character, e.g., `#5` (this becomes `#000005`).
+- A skipped `#` symbol string, e.g., `0af` (this becomes `#00aaff`).
 - The `COLORLESS` constant (this setting clears the fill color setting).
 
 ```py
@@ -124,7 +124,7 @@ sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 sprite.graphics.begin_fill(color=ap.Color("#0"))
 sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
-# Fill color that Skipped `#` symbol is also acceptable.
+# Fill color that a skipped `#` symbol is also acceptable.
 sprite.graphics.begin_fill(color=ap.Color("999"))
 sprite.graphics.draw_rect(x=350, y=50, width=50, height=50)
 

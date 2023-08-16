@@ -128,6 +128,13 @@ dictionary_get
 dictionary_length
 ```
 
+### Color class and constants
+
+```{toctree}
+:maxdepth: 1
+color
+```
+
 ## DisplayObject and GraphicsBase classes
 
 The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphic class, such as the `Rectangle` class.

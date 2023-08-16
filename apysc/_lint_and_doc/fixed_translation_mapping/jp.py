@@ -959,11 +959,11 @@ MAPPINGS: Mappings = Mappings(
             val="- `#0af`などの3文字による指定（これは`#00aaff`と同じ値として扱われます）。",
         ),
         Mapping(
-            key="- Single character, e.g., `#5` (this becomes `#000005`).",
+            key="- A single character, e.g., `#5` (this becomes `#000005`).",
             val="- `#5`などの1文字による指定（これは`000005`と同じ値として扱われます）。",
         ),
         Mapping(
-            key="- Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).",
+            key="- A skipped `#` symbol string, e.g., `0af` (this becomes `#00aaff`).",
             val="- `0af`などの`#`記号を省略した指定（これは`#00aaff`と同じ値として扱われます）。",
         ),
         Mapping(
@@ -4166,6 +4166,38 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="  - A Current line color. If it is not set, it returns the `COLORLESS` constant.",
             val="  - 現在の線の色。もし設定されていない場合は`COLORLESS`定数の値が返却されます。",
+        ),
+        Mapping(
+            key="  - A color setting.",
+            val="  - 色の設定。",
+        ),
+        Mapping(
+            key="### Color class and constants",
+            val="### Color クラスと各定数",
+        ),
+        Mapping(
+            key="## Acceptable hexadecimal color codes",
+            val="## 受け付けられる16進数のカラーコード",
+        ),
+        Mapping(
+            key="Color code is acceptable like the following list:",
+            val="以下のようなカラーコードが受け付けられます:",
+        ),
+        Mapping(
+            key="- The `COLORLESS` constant (this setting clears a color setting).",
+            val="- `COLORLESS`定数（この設定は色の設定を削除します）。",
+        ),
+        Mapping(
+            key="## Color constructor API",
+            val="## Color クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="The color class implementation.<hr>",
+            val="色のクラスの実装です。<hr>",
+        ),
+        Mapping(
+            key="  - A hexadecimal color code string (e.g., \'#000000\').",
+            val="  - 16進数の色の文字列（例 : \'#000000\'）。",
         ),
     ]
 )

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Colors クラス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/doctools.js"></script>
+    <script src="static/sphinx_highlight.js"></script>
+    <script src="static/jquery-3.6.3.min.js"></script>
+    <script src="static/common_func.js"></script>
+    <script src="static/add_navigation_to_footer.js"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DisplayObject クラス" href="jp_display_object.html" />
+    <link rel="prev" title="Color クラス" href="jp_color.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_display_object.html" title="DisplayObject クラス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_color.html" title="Color クラス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Colors クラス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/colors.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="colors">
+<h1>Colors クラス<a class="headerlink" href="#colors" title="Permalink to this heading">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Colors</span></code>クラスについて説明します。</p>
+<section id="id1">
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Colors</span></code>クラスは<code class="docutils literal notranslate"><span class="pre">BLACK_000000</span></code>や<code class="docutils literal notranslate"><span class="pre">GRAY_999999</span></code>、<code class="docutils literal notranslate"><span class="pre">WHITE_FFFFFF</span></code>、<code class="docutils literal notranslate"><span class="pre">RED_FF0000</span></code>などの<code class="docutils literal notranslate"><span class="pre">Color</span></code>クラスの各定数定義を持ちます。</p>
+<p>各サフィックスはその色の16進数のカラーコードになっています。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>これらのクラス定数は<code class="docutils literal notranslate"><span class="pre">Color</span></code>クラスの値と同様に動作します。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">GRAY_333333</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00FFFF</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">WHITE_FFFFFF</span><span class="p">,</span>
+    <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./colors_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/colors_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
+<section id="id3">
+<h2>定義されている各色<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ap.Colors</span></code>:</p>
+<details>
+<summary>コードブロックを表示:</summary>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">RECT_SIZE</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">FONT_SIZE</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">OUTER_MARGIN</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">())</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">OUTER_MARGIN</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">i</span><span class="p">:</span> <span class="nb">int</span>
+<span class="n">constant_name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">constant_name</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">250</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="n">RECT_SIZE</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="n">RECT_SIZE</span><span class="p">,</span>
+        <span class="n">fill_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#fff&quot;</span><span class="p">),</span>
+        <span class="n">line_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">line_alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="n">constant_name</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">x</span> <span class="o">+</span> <span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span> <span class="o">+</span> <span class="n">RECT_SIZE</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">FONT_SIZE</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="n">FONT_SIZE</span><span class="p">,</span>
+        <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#ccc&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./colors_definitions/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details>
+<iframe src="static/colors_definitions/index.html" width="450" height="415"></iframe>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Colors クラス</a><ul>
+<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id3">定義されている各色</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_color.html"
+                          title="previous chapter">Color クラス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_display_object.html"
+                          title="next chapter">DisplayObject クラス</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_display_object.html" title="DisplayObject クラス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_color.html" title="Color クラス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Colors クラス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    </div>
+  </body>
+</html>

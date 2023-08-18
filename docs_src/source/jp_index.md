@@ -136,6 +136,7 @@ jp_dictionary_length
 ```{toctree}
 :maxdepth: 1
 jp_color
+jp_colors
 ```
 
 ## DisplayObject と GraphicsBase の各クラス

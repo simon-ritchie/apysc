@@ -2,6 +2,7 @@
 """
 
 from apysc._color.color import Color
+from apysc._color.get_colors_members_mixin import GetColorsMenmbersMixIn
 
 _000000: Color = Color("#000000")
 _111111: Color = Color("#111111")
@@ -27,7 +28,7 @@ _00FFFF: Color = Color("#00ffff")
 _FF00FF: Color = Color("#ff00ff")
 
 
-class Colors:
+class Colors(GetColorsMenmbersMixIn):
     """
     Color constants class.
     """

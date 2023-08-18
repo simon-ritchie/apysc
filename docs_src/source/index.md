@@ -133,6 +133,7 @@ dictionary_length
 ```{toctree}
 :maxdepth: 1
 color
+colors
 ```
 
 ## DisplayObject and GraphicsBase classes

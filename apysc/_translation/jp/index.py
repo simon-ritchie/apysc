@@ -71,7 +71,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "### Color class and constants": "### Color クラスと各定数",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ncolor\ncolors\n```": "```{toctree}\n:maxdepth: 1\njp_color\njp_colors\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ncolor\ncolors\ncolorless\n```": "```{toctree}\n:maxdepth: 1\njp_color\njp_colors\njp_colorless\n```",  # noqa
     ##################################################
     "## DisplayObject and GraphicsBase classes": "## DisplayObject と GraphicsBase の各クラス",  # noqa
     ##################################################

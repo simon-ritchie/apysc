@@ -134,6 +134,7 @@ dictionary_length
 :maxdepth: 1
 color
 colors
+colorless
 ```
 
 ## DisplayObject and GraphicsBase classes

@@ -4199,5 +4199,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A hexadecimal color code string (e.g., \'#000000\').",
             val="  - 16進数の色の文字列（例 : \'#000000\'）。",
         ),
+        Mapping(
+            key="## What constant is this?",
+            val="## 定数の概要",
+        ),
     ]
 )

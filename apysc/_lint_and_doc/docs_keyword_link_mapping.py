@@ -211,4 +211,10 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "False_": "true_and_false",
     "ap.True_": "true_and_false",
     "ap.False_": "true_and_false",
+    "Color": "color",
+    "ap.Color": "color",
+    "COLORLESS": "colorless",
+    "ap.COLORLESS": "colorless",
+    "Colors": "colors",
+    "ap.Colors": "colors",
 }

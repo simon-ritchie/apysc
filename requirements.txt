@@ -8,7 +8,7 @@ flake8==6.1.0
 numdoclint==0.1.9
 mypy==1.4.1
 html-minifier==0.0.4
-wheel==0.40.0
+wheel==0.41.1
 importlib-metadata==6.8.0
 Sphinx==7.0.1
 groundwork-sphinx-theme==1.1.1

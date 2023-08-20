@@ -189,7 +189,7 @@ jobs:
           max_attempts: 3
           command: python ./scripts/run_tests_and_save_coverage_and_num.py
       - name: Set the environment variables from .env file
-        uses: c-py/action-dotenv-to-setenv@v3
+        uses: c-py/action-dotenv-to-setenv@v4
         with:
           env-file: .env
       - name: Set the coverage to outputs value
@@ -291,7 +291,7 @@ jobs:
       - name: Run the doctest runner command
         run: python ./scripts/run_doctest_and_save_passing_num.py
       - name: Set the environment variables from .env file
-        uses: c-py/action-dotenv-to-setenv@v3
+        uses: c-py/action-dotenv-to-setenv@v4
         with:
           env-file: .env
       - name: Set the passing tests number to outputs value

@@ -4156,10 +4156,6 @@ MAPPINGS: Mappings = Mappings(
             val="  - アニメーションの最終的な塗りの色。",
         ),
         Mapping(
-            key="  - A color setting.",
-            val="  - 色の設定。",
-        ),
-        Mapping(
             key="  - Current fill-color. If not be set, this interface returns a `COLORLESS` constant.",
             val="  - 現在の塗りの色。もしも設定されていない場合`COLORLESS`定数の値が返却されます。",
         ),

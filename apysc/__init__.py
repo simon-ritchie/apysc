@@ -139,4 +139,4 @@ from apysc._color.colorless import COLORLESS
 True_: __True
 False_: __False
 
-__version__: str = "4.0.1"
+__version__: str = "4.0.2"

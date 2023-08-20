@@ -8,19 +8,19 @@ runs:
   using: composite
   steps:
     - name: Set the Python version
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python-version }}
     - name: Set the site package path to the environment variables
       run: python -c "import site; print(f'site-packages-path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       shell: bash
     - name: Restore the Python package cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ env.site-packages-path }}
         key: ${{ runner.os }}-pip-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
     - name: Restore the bin cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: /opt/hostedtoolcache/Python/${{ inputs.python-version }}/x64/bin/
         key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}

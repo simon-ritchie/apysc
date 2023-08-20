@@ -28,7 +28,9 @@ def main() -> None:
     ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.begin_fill(color=ap.Color("#0af"))
-    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=10, joints=ap.LineJoints.BEVEL)
+    sprite.graphics.line_style(
+        color=ap.Color("#fff"), thickness=10, joints=ap.LineJoints.BEVEL
+    )
     _: ap.Polygon = sprite.graphics.draw_polygon(
         points=[ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)]
     )

@@ -38,8 +38,8 @@ Set single color value for fill.<hr>
 
 **[Parameters]**
 
-- `color`: str or String
-  - Hexadecimal color string. e.g., '#00aaff'
+- `color`: Color
+  - A color setting.
 - `alpha`: float or Number, default 1.0
   - Color opacity (0.0 to 1.0).
 
@@ -49,14 +49,25 @@ Set single color value for fill.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.begin_fill(color=ap.Color("#0af"))
+>>> sprite.graphics.begin_fill(
+...     color=ap.Color("#0af"),
+...     alpha=0.5,
+... )
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
 >>> rectangle.fill_color
 Color("#00aaff")
+
+>>> rectangle.fill_alpha
+Number(0.5)
 ```
 
 <hr>

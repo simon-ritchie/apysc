@@ -3,11 +3,12 @@
 
 from typing import Dict
 from typing import Optional
-from typing import TypeVar
 from typing import Union
 
 from typing_extensions import final
 
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
@@ -25,8 +26,6 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
 
 
 class LineStyleMixIn(
@@ -126,9 +125,7 @@ class LineStyleMixIn(
         ...     stage_elem_id="stage",
         ... )
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(
-        ...     color=ap.Color("#0af"), thickness=2, alpha=0.5
-        ... )
+        >>> sprite.graphics.line_style(color=ap.Color("#0af"), thickness=2, alpha=0.5)
         >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=50, y=50, width=50, height=50
         ... )
@@ -139,7 +136,6 @@ class LineStyleMixIn(
         >>> rectangle.line_alpha
         Number(0.5)
         """
-        from apysc._color import color_util
 
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
@@ -393,9 +389,7 @@ class LineStyleMixIn(
         ...     stage_elem_id="stage",
         ... )
         >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(
-        ...     color=ap.Color("#0af"), thickness=2, alpha=0.5
-        ... )
+        >>> sprite.graphics.line_style(color=ap.Color("#0af"), thickness=2, alpha=0.5)
         >>> sprite.graphics.line_color
         Color("#00aaff")
         """
@@ -521,7 +515,9 @@ class LineStyleMixIn(
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
         >>> sprite.graphics.line_style(
-        ...     color=ap.Color("#fff"), thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
+        ...     color=ap.Color("#fff"),
+        ...     thickness=5,
+        ...     dot_setting=ap.LineDotSetting(dot_size=5),
         ... )
         >>> sprite.graphics.line_dot_setting.dot_size
         Int(5)

@@ -1,10 +1,10 @@
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestColor:
-
     @apply_test_settings()
     def test___init__(self) -> None:
         color: ap.Color = ap.Color(

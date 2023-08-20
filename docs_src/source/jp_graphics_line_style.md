@@ -549,9 +549,7 @@ ap.save_overall_html(dest_dir_path="graphics_line_style_line_dash_dot_setting/")
 ...     stage_elem_id="stage",
 ... )
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(
-...     color=ap.Color("#0af"), thickness=2, alpha=0.5
-... )
+>>> sprite.graphics.line_style(color=ap.Color("#0af"), thickness=2, alpha=0.5)
 >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...     x=50, y=50, width=50, height=50
 ... )
@@ -591,9 +589,7 @@ Number(0.5)
 ...     stage_elem_id="stage",
 ... )
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(
-...     color=ap.Color("#0af"), thickness=2, alpha=0.5
-... )
+>>> sprite.graphics.line_style(color=ap.Color("#0af"), thickness=2, alpha=0.5)
 >>> sprite.graphics.line_color
 Color("#00aaff")
 ```
@@ -730,7 +726,9 @@ String("round")
 >>> stage: ap.Stage = ap.Stage()
 >>> sprite: ap.Sprite = ap.Sprite()
 >>> sprite.graphics.line_style(
-...     color=ap.Color("#fff"), thickness=5, dot_setting=ap.LineDotSetting(dot_size=5)
+...     color=ap.Color("#fff"),
+...     thickness=5,
+...     dot_setting=ap.LineDotSetting(dot_size=5),
 ... )
 >>> sprite.graphics.line_dot_setting.dot_size
 Int(5)

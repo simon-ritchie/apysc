@@ -111,11 +111,11 @@ class Graphics(
         - Graphics
             - https://simon-ritchie.github.io/apysc/en/graphics.html
         """
+        from apysc._color.colorless import COLORLESS
+        from apysc._display.sprite import Sprite
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._validation import display_validation
-        from apysc._display.sprite import Sprite
-        from apysc._color.colorless import COLORLESS
 
         self._variable_name_suffix = variable_name_suffix
         display_validation.validate_sprite(sprite=parent)

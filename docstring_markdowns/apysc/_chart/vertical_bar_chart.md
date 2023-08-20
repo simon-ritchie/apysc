@@ -28,11 +28,11 @@ Create a vertical bar chart instance.<hr>
   - A chart's width.
 - `height`: Union[int, Int], default 395
   - A chart's height.
-- `background_fill_color`: str or String, default "#ffffff"
+- `background_fill_color`: Color, default Colors.WHITE_FFFFFF
   - A chart's background fill-color.
 - `background_fill_alpha`: Union[float, Number], default 1.0
   - A chart's background fill-alpha.
-- `border_color`: str or String, default ""
+- `border_color`: Color, default COLORLESS
   - A chart's border color.
 - `border_alpha`: Union[float, Number], default 1.0
   - A chart's border alpha.

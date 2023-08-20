@@ -46,7 +46,7 @@ Create a line vector graphic.<hr>
   - Line start point.
 - `end_point`: Points2D
   - Line end point.
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - A line-color to set.
 - `line_alpha`: float or Number, default 1.0
   - A line-alpha to set.

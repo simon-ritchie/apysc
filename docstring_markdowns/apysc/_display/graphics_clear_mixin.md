@@ -30,7 +30,7 @@ Color("#00aaff")
 Int(0)
 
 >>> sprite.graphics.fill_color
-String("")
+Color("")
 ```
 
 <hr>

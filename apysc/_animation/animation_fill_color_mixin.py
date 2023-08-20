@@ -1,7 +1,6 @@
 """Class implementation for the animation_fill_color mix-in.
 """
 
-from typing import TypeVar
 from typing import Union
 
 from typing_extensions import final
@@ -9,10 +8,9 @@ from typing_extensions import final
 from apysc._animation.animation_fill_color import AnimationFillColor
 from apysc._animation.animation_mixins import AnimationMixIns
 from apysc._animation.easing import Easing
-from apysc._type.int import Int
-from apysc._type.string import String
-from apysc._validation import arg_validation_decos
 from apysc._color.color import Color
+from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class AnimationFillColorMixIn(AnimationMixIns):

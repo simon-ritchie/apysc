@@ -5,7 +5,6 @@
 
 from typing import Dict
 from typing import List
-from typing import TypeVar
 from typing import Union
 
 from apysc._chart.add_background_mixin import AddBackgroundMixIn
@@ -45,18 +44,18 @@ from apysc._chart.x_axis_container_mixin import XAxisContainerMixIn
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_container_mixin import YAxisContainerMixIn
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
+from apysc._color.colors import Colors
+from apysc._color.copy_color_if_default_value_specified_mixin import (
+    CopyColorIfDefaultValueSpecifiedMixIn,
+)
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
-from apysc._color.copy_color_if_default_value_specified_mixin import (
-    CopyColorIfDefaultValueSpecifiedMixIn,
-)
-from apysc._color.colors import Colors
 
 _DataType = Union[
     Array[Dictionary[String, Union[Int, Number, String]]],

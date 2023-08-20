@@ -4196,8 +4196,8 @@ MAPPINGS: Mappings = Mappings(
             val="色のクラスの実装です。<hr>",
         ),
         Mapping(
-            key="  - A hexadecimal color code string (e.g., \'#000000\').",
-            val="  - 16進数の色の文字列（例 : \'#000000\'）。",
+            key="  - A hexadecimal color code string (e.g., '#000000').",
+            val="  - 16進数の色の文字列（例 : '#000000'）。",
         ),
         Mapping(
             key="## What constant is this?",

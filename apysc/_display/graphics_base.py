@@ -6,6 +6,7 @@ from typing import Union
 
 from typing_extensions import final
 
+from apysc._color.color import Color
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.line_caps import LineCaps
@@ -20,7 +21,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
 
 
 class GraphicsBase(

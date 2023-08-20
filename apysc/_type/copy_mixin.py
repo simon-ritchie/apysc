@@ -2,15 +2,16 @@
 """
 
 from copy import deepcopy
-from typing import Any, cast
-from typing import Generic, TypeVar
+from typing import Generic
+from typing import TypeVar
+from typing import cast
 
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.copy_interface import CopyInterface
 from apysc._type.type_name_mixin import TypeNameMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.copy_interface import CopyInterface
 
 _SelfType = TypeVar("_SelfType", bound="CopyMixIn")
 

@@ -13,11 +13,13 @@ class TestCopyColorIfDefaultValueSpecifiedMixIn:
         )
         color: ap.Color = ap.Color("#333")
         copied_color: ap.Color = mixin._copy_color_if_default_value_specified(
-            color=color, default_color=color)
+            color=color, default_color=color
+        )
         assert color == copied_color
         assert color._value.variable_name != copied_color._value.variable_name
 
         copied_color = mixin._copy_color_if_default_value_specified(
-            color=color, default_color=ap.Color('#444'))
+            color=color, default_color=ap.Color("#444")
+        )
         assert color == ap.Color("#333")
         assert color._value.variable_name == copied_color._value.variable_name

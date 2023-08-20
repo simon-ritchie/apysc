@@ -12,7 +12,5 @@ Set a chart's initial border color.<hr>
 
 **[Parameters]**
 
-- `border_color`: _StrOrString
+- `border_color`: Color
   - A chart's initial border color.
-- `variable_name_suffix`: str, optional
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

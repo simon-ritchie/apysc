@@ -2,14 +2,12 @@
 method.
 """
 
-from typing import TypeVar
 
 from typing_extensions import final
 
-from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.string import String
-from apysc._validation import arg_validation_decos
 from apysc._color.color import Color
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class SetInitialBackgroundFillColorMixIn:

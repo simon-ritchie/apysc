@@ -12,7 +12,5 @@ Set an initial tick text fill color setting.<hr>
 
 **[Parameters]**
 
-- `tick_text_fill_color`: Union[str, String]
+- `tick_text_fill_color`: Color
   - A tick text fill-color setting.
-- `variable_name_suffix`: str, optional
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

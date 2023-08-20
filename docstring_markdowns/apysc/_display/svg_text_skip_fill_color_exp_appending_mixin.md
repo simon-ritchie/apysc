@@ -12,5 +12,5 @@ Set a boolean attribute, whether to skip a fill-color expression's appending or 
 
 **[Parameters]**
 
-- `fill_color`: Optional[Union[str, String]]
+- `fill_color`: Optional[Color]
   - A fill-color setting.

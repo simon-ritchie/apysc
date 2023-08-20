@@ -24,7 +24,7 @@ Single column's y-axis settings class.<hr>
   - A tick text font-size setting.
 - `tick_text_font_family`: Optional[Union[Array[String], List[str]]], optional
   - A tick text font family setting. Each string in an array needs to be a font name (e.g., `Times New Roman`).
-- `tick_text_fill_color`: _StrOrString, optional
+- `tick_text_fill_color`: Color, optional
   - A tick text fill-color setting.
 - `tick_text_fill_alpha`: Union[float, Number], optional
   - A tick text fill-alpha setting.
@@ -34,7 +34,7 @@ Single column's y-axis settings class.<hr>
   - A boolean, whether a tick text is an italic style or not (normal).
 - `tick_text_max_num_of_decimal_places`: Union[int, Int], optional
   - A tick text maximum number of decimal places.
-- `line_color`: _StrOrString, optional
+- `line_color`: Color, optional
   - An axis line color setting.
 - `line_thickness`: Union[int, Int], optional
   - An axis line thickness (line width) setting.
@@ -48,7 +48,7 @@ Single column's y-axis settings class.<hr>
   - An axis label font size setting.
 - `axis_label_font_family`: Optional[Union[Array[String], List[str]]], optional
   - An axis label font family setting.
-- `axis_label_fill_color`: _StrOrString, optional
+- `axis_label_fill_color`: Color, optional
   - An axis label fill-color setting.
 - `axis_label_fill_alpha`: Union[float, Number], optional
   - An axis label fill-alpha setting.

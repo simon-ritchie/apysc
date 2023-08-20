@@ -69,9 +69,7 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_color(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
-        line_style_mixin.line_style(
-            color=ap.Color("#333"), thickness=3, alpha=0.5
-        )
+        line_style_mixin.line_style(color=ap.Color("#333"), thickness=3, alpha=0.5)
         assert line_style_mixin.line_color == ap.Color("#333333")
 
         line_color_1: ap.Color = line_style_mixin.line_color
@@ -83,9 +81,7 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_thickness(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
-        line_style_mixin.line_style(
-            color=ap.Color("#333"), thickness=3, alpha=0.5
-        )
+        line_style_mixin.line_style(color=ap.Color("#333"), thickness=3, alpha=0.5)
         assert line_style_mixin.line_thickness == 3
 
         line_thickness: ap.Int = line_style_mixin.line_thickness
@@ -97,9 +93,7 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_alpha(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
-        line_style_mixin.line_style(
-            color=ap.Color("#333"), thickness=3, alpha=0.5
-        )
+        line_style_mixin.line_style(color=ap.Color("#333"), thickness=3, alpha=0.5)
         assert line_style_mixin.line_alpha == 0.5
 
         line_alpha: ap.Number = line_style_mixin.line_alpha
@@ -111,9 +105,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_color_if_not_initialized()
         assert line_style_mixin.line_color == ap.COLORLESS
 
-        line_style_mixin.line_style(
-            color=ap.Color("#333"), thickness=1, alpha=0.5
-        )
+        line_style_mixin.line_style(color=ap.Color("#333"), thickness=1, alpha=0.5)
         line_style_mixin._initialize_line_color_if_not_initialized()
         assert line_style_mixin.line_color == ap.Color("#333333")
 
@@ -123,9 +115,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_thickness_if_not_initialized()
         assert line_style_mixin.line_thickness == 1
 
-        line_style_mixin.line_style(
-            color=ap.Color("#333"), thickness=2, alpha=0.5
-        )
+        line_style_mixin.line_style(color=ap.Color("#333"), thickness=2, alpha=0.5)
         line_style_mixin._initialize_line_thickness_if_not_initialized()
         assert line_style_mixin.line_thickness == 2
 
@@ -135,9 +125,7 @@ class TestLineStyleMixIn:
         line_style_mixin._initialize_line_alpha_if_not_initialized()
         assert line_style_mixin.line_alpha == 1.0
 
-        line_style_mixin.line_style(
-            color=ap.Color("#333"), thickness=2, alpha=0.5
-        )
+        line_style_mixin.line_style(color=ap.Color("#333"), thickness=2, alpha=0.5)
         line_style_mixin._initialize_line_alpha_if_not_initialized()
         assert line_style_mixin.line_alpha == 0.5
 
@@ -213,9 +201,7 @@ class TestLineStyleMixIn:
             == line_dash_dot_setting
         )
 
-        line_style_mixin.line_style(
-            color=ap.Color("#222"), thickness=2, alpha=0.3
-        )
+        line_style_mixin.line_style(color=ap.Color("#222"), thickness=2, alpha=0.3)
         line_style_mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert line_style_mixin._line_color_snapshots[snapshot_name] == "#333333"
 
@@ -267,9 +253,7 @@ class TestLineStyleMixIn:
         assert line_style_mixin.line_round_dot_setting == line_round_dot_setting
         assert line_style_mixin.line_dash_dot_setting == line_dash_dot_setting
 
-        line_style_mixin.line_style(
-            color=ap.Color("#222"), thickness=2, alpha=0.3
-        )
+        line_style_mixin.line_style(color=ap.Color("#222"), thickness=2, alpha=0.3)
         line_style_mixin._run_all_revert_methods(snapshot_name=snapshot_name)
         assert line_style_mixin.line_color == ap.Color("#222222")
 

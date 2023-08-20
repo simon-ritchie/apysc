@@ -1,6 +1,7 @@
 import apysc as ap
 from apysc._display.fill_color_mixin import FillColorMixIn
-from apysc._expression import expression_data_util, var_names
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
 
 
@@ -23,7 +24,7 @@ class TestFillColorMixIn:
         color: ap.Color = ap.Color("#333")
         fill_color_mixin.fill_color = color
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f'test_fill_color_mixin.fill({var_names.STRING}_'
+        expected: str = f"test_fill_color_mixin.fill({var_names.STRING}_"
         assert expected in expression
 
     @apply_test_settings()
@@ -31,9 +32,7 @@ class TestFillColorMixIn:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
         color: ap.Color = ap.Color("#333")
-        fill_color_mixin._update_fill_color_and_skip_appending_exp(
-            value=color
-        )
+        fill_color_mixin._update_fill_color_and_skip_appending_exp(value=color)
         assert fill_color_mixin.fill_color == ap.Color("#333333")
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{fill_color_mixin.variable_name}.fill("
@@ -83,7 +82,11 @@ class TestFillColorMixIn:
     def test__set_initial_fill_color_if_not_colorless(self) -> None:
         fill_color_mixin: FillColorMixIn = FillColorMixIn()
         fill_color_mixin.variable_name = "test_fill_color_mixin"
-        fill_color_mixin._set_initial_fill_color_if_not_colorless(fill_color=ap.COLORLESS)
+        fill_color_mixin._set_initial_fill_color_if_not_colorless(
+            fill_color=ap.COLORLESS
+        )
         assert fill_color_mixin.fill_color == ap.COLORLESS
-        fill_color_mixin._set_initial_fill_color_if_not_colorless(fill_color=ap.Color("#0af"))
+        fill_color_mixin._set_initial_fill_color_if_not_colorless(
+            fill_color=ap.Color("#0af")
+        )
         assert fill_color_mixin.fill_color == ap.Color("#00aaff")

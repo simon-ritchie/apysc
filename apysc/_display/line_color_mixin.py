@@ -3,21 +3,19 @@
 
 from typing import Dict
 from typing import Optional
-from typing import Union
 
 from typing_extensions import final
 
 from apysc._animation.animation_line_color_mixin import AnimationLineColorMixIn
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.string import String
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
 
 
 class LineColorMixIn(
@@ -60,7 +58,7 @@ class LineColorMixIn(
         ...     y=50,
         ...     width=50,
         ...     height=50,
-        ...     line_color=ap.Color('#0af'),
+        ...     line_color=ap.Color("#0af"),
         ...     line_thickness=2,
         ... )
         >>> rectangle.line_color
@@ -108,7 +106,7 @@ class LineColorMixIn(
         ...     y=50,
         ...     width=50,
         ...     height=50,
-        ...     line_color=ap.Color('#0af'),
+        ...     line_color=ap.Color("#0af"),
         ...     line_thickness=2,
         ... )
         >>> rectangle.line_color
@@ -142,9 +140,7 @@ class LineColorMixIn(
         ap.append_js_expression(expression=expression)
 
     @final
-    def _set_initial_line_color_if_not_colorless(
-        self, *, line_color: Color
-    ) -> None:
+    def _set_initial_line_color_if_not_colorless(self, *, line_color: Color) -> None:
         """
         Set initial line color value if a specified value is
         not the `COLORLESS` constant.
@@ -154,7 +150,6 @@ class LineColorMixIn(
         line_color : Color
             A line color.
         """
-        import apysc as ap
 
         self._initialize_line_color_if_not_initialized()
         if line_color == COLORLESS:

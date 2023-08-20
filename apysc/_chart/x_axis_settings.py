@@ -5,7 +5,6 @@
 
 from typing import List
 from typing import Optional
-from typing import TypeVar
 from typing import Union
 
 from apysc._chart.axis_label_bold_mixin import AxisLabelBoldMixIn
@@ -28,14 +27,14 @@ from apysc._chart.tick_text_italic_mixin import TickTextItalicMixIn
 from apysc._chart.x_axis_column_name_mixin import XAxisColumnNameMixIn
 from apysc._chart.x_axis_label_position import XAxisLabelPosition
 from apysc._chart.x_axis_label_position_mixin import XAxisLabelPositionMixIn
+from apysc._color.color import Color
+from apysc._color.colors import Colors
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
-from apysc._color.colors import Colors
 
 
 class XAxisSettings(
@@ -97,9 +96,7 @@ class XAxisSettings(
         arg_position_index=15, optional=True
     )
     # axis_label_fill_color
-    @arg_validation_decos.is_color(
-        arg_position_index=16, optional=False
-    )
+    @arg_validation_decos.is_color(arg_position_index=16, optional=False)
     # axis_label_fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=17, optional=False)
     # axis_label_bold

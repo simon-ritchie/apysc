@@ -1,12 +1,12 @@
 """Graphics class-related expression implementations.
 """
 
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
 
 
 @add_debug_info_setting(module_name=__name__)

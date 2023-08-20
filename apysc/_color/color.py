@@ -1,15 +1,15 @@
 """The color class implementation.
 """
 
-from typing import Any, TypeVar
-from typing_extensions import final
+from typing import Any
+from typing import TypeVar
 
-from apysc._event.custom_event_mixin import CustomEventMixIn
-from apysc._type.string import String
-from apysc._validation import arg_validation_decos
 from apysc._color.color_copy_mixin import ColorCopyMixIn
+from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
+from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -82,9 +82,7 @@ class Color(
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = Boolean(
-                False, variable_name_suffix=self._variable_name_suffix
-            )
+            result = Boolean(False, variable_name_suffix=self._variable_name_suffix)
         if isinstance(other, Color):
             expression: str = (
                 f"{result.variable_name} = {self._value.variable_name}"
@@ -103,6 +101,6 @@ class Color(
         repr_str : str
             Representation string of this instance.
         """
-        if not hasattr(self, '_value'):
-            return f'Color("")'
+        if not hasattr(self, "_value"):
+            return 'Color("")'
         return f'Color("{self._value._value}")'

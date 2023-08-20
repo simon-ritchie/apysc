@@ -3,11 +3,12 @@
 
 from typing import Dict
 from typing import Optional
-from typing import Union
 
 from typing_extensions import final
 
 from apysc._animation.animation_fill_color_mixin import AnimationFillColorMixIn
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.revert_mixin import RevertMixIn
@@ -15,8 +16,6 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
 
 
 class FillColorMixIn(
@@ -132,15 +131,13 @@ class FillColorMixIn(
         import apysc as ap
 
         expression: str = (
-            f'{self.variable_name}.fill({self.fill_color._value.variable_name});'
+            f"{self.variable_name}.fill({self.fill_color._value.variable_name});"
         )
         ap.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _set_initial_fill_color_if_not_colorless(
-        self, *, fill_color: Color
-    ) -> None:
+    def _set_initial_fill_color_if_not_colorless(self, *, fill_color: Color) -> None:
         """
         Set the initial fill color if a specified value
         is not the `COLORLESS` constant.
@@ -150,7 +147,6 @@ class FillColorMixIn(
         fill_color : Color
             A fill color.
         """
-        import apysc as ap
 
         self._initialize_fill_color_if_not_initialized()
         if fill_color == COLORLESS:

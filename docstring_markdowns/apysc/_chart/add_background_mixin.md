@@ -18,7 +18,7 @@ Add a background to a container.<hr>
   - A background width.
 - `height`: Int
   - A background height.
-- `background_fill_color`: String
+- `background_fill_color`: Color
   - A background fill-color.
 - `background_fill_alpha`: Number
   - A background fill-alpha.

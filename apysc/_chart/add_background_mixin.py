@@ -3,13 +3,13 @@
 
 from typing_extensions import final
 
+from apysc._color.color import Color
 from apysc._display.rectangle import Rectangle
 from apysc._display.sprite import Sprite
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
 
 
 class AddBackgroundMixIn:

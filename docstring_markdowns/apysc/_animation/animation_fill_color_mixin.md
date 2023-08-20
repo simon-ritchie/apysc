@@ -12,8 +12,8 @@ Set the fill color animation setting.<hr>
 
 **[Parameters]**
 
-- `fill_color`: str or String
-  - The final fill color (hex color code) of the animation.
+- `fill_color`: Color
+  - The final fill color of the animation.
 - `duration`: Int or int, default 3000
   - Milliseconds before an animation ends.
 - `delay`: Int or int, default 0

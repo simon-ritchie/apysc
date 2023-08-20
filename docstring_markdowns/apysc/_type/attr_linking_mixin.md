@@ -4,6 +4,22 @@
 
 Class implementation for the attribute linking mix-in. This mix-in updates an old property value to achieve consistency in the handler functions.
 
+## `_get_variable_name_from_attr` function docstring
+
+Get a variable name from a specified attribute.<hr>
+
+**[Parameters]**
+
+- `attr`: _Attr
+  - An attribute.
+
+<hr>
+
+**[Returns]**
+
+- `variable_name`: str
+  - A specified attribute's variable name.
+
 ## `AttrLinkingMixIn` class docstring
 
 ### `_append_applying_new_attr_val_exp` method docstring

@@ -6,6 +6,8 @@ from typing import Optional
 
 from typing_extensions import final
 
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
@@ -15,8 +17,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
 
 
 class GraphicsClearMixIn:

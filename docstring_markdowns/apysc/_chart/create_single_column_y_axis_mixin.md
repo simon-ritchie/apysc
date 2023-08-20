@@ -205,7 +205,7 @@ Create a y-axis ticks texts.<hr>
   - A y-axis text values.
 - `y_axis_ticks_y_coordinates`: Array[Number]
   - A y-axis ticks y coordinates.
-- `tick_text_fill_color`: String
+- `tick_text_fill_color`: Color
   - A tick text fill-color.
 - `tick_text_fill_alpha`: Number
   - A tick text fill-alpha.
@@ -239,7 +239,7 @@ Create a y-axis vertical border.<hr>
   - A y-axis container instance.
 - `y_axis_texts_container`: Sprite
   - A y-axis texts container instance.
-- `line_color`: String
+- `line_color`: Color
   - A line color setting.
 - `line_thickness`: Int
   - A line thickness setting.

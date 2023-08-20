@@ -1,11 +1,11 @@
-from typing import List, Tuple
+from typing import List
+from typing import Tuple
+
 import apysc as ap
-from apysc._expression import expression_data_util
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestGetColorsMenmbersMixIn:
-
     @apply_test_settings()
     def test___iter___and___next__(self) -> None:
         colors_members: List[Tuple[str, ap.Color]] = ap.Colors.get_colors_members()

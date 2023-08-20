@@ -5,7 +5,6 @@
 
 from typing import List
 from typing import Optional
-from typing import TypeVar
 from typing import Union
 
 from apysc._chart.axis_label_bold_mixin import AxisLabelBoldMixIn
@@ -33,18 +32,17 @@ from apysc._chart.y_axis_label_position import YAxisLabelPosition
 from apysc._chart.y_axis_label_position_mixin import YAxisLabelPositionMixIn
 from apysc._chart.y_max_mixin import YMaxMixIn
 from apysc._chart.y_min_mixin import YMinMixIn
+from apysc._color.color import Color
+from apysc._color.colors import Colors
+from apysc._color.copy_color_if_default_value_specified_mixin import (
+    CopyColorIfDefaultValueSpecifiedMixIn,
+)
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
-from apysc._color.copy_color_if_default_value_specified_mixin import (
-    CopyColorIfDefaultValueSpecifiedMixIn,
-)
-from apysc._color.colors import Colors
 
 
 class YAxisSingleColumnSettings(
@@ -97,9 +95,7 @@ class YAxisSingleColumnSettings(
     # tick_text_max_num_of_decimal_places
     @arg_validation_decos.is_integer(arg_position_index=11, optional=False)
     # line_color
-    @arg_validation_decos.is_color(
-        arg_position_index=12, optional=False
-    )
+    @arg_validation_decos.is_color(arg_position_index=12, optional=False)
     # line_thickness
     @arg_validation_decos.is_integer(arg_position_index=13, optional=False)
     @arg_validation_decos.num_is_gte_zero(arg_position_index=13, optional=False)
@@ -118,9 +114,7 @@ class YAxisSingleColumnSettings(
         arg_position_index=18, optional=True
     )
     # axis_label_fill_color
-    @arg_validation_decos.is_color(
-        arg_position_index=19, optional=False
-    )
+    @arg_validation_decos.is_color(arg_position_index=19, optional=False)
     # axis_label_fill_alpha
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=20, optional=False)
     # axis_label_bold

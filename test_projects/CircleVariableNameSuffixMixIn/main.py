@@ -34,7 +34,11 @@ def main() -> None:
     )
 
     ap.Circle(
-        x=100, y=100, radius=50, fill_color=ap.Color("#0af"), variable_name_suffix="circle_1"
+        x=100,
+        y=100,
+        radius=50,
+        fill_color=ap.Color("#0af"),
+        variable_name_suffix="circle_1",
     )
 
     sprite: ap.Sprite = ap.Sprite(variable_name_suffix="sprite_1")

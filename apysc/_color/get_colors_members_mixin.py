@@ -1,10 +1,11 @@
-"""A mix-in class for the `get_colors_members` method.
+"""The mix-in class for the `get_colors_members` method.
 """
 
-from typing import List, Tuple, Type
 import inspect
+from typing import List
+from typing import Tuple
+
 from apysc._color.color import Color
-from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
 
 

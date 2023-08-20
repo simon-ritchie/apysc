@@ -20,21 +20,21 @@ Get an initial fill-alpha number.<hr>
 - `fill_alpha_`: Union[float, Number]
   - If a specified value is None, this interface returns a 1.0 number.
 
-## `_get_init_fill_color_str` function docstring
+## `_get_init_fill_color` function docstring
 
-Get an initial fill-color string.<hr>
+Get an initial fill-color.<hr>
 
 **[Parameters]**
 
-- `fill_color`: Optional[Union[str, String]]
+- `fill_color`: Optional[Color]
   - A fill-color setting.
 
 <hr>
 
 **[Returns]**
 
-- `fill_color_`: Union[str, String]
-  - If a specified value is None, this interface returns an empty string.
+- `fill_color_`: Color
+  - If a specified value is None, this interface returns the COLORLESS constant.
 
 ## `_get_init_line_alpha_num` function docstring
 
@@ -52,21 +52,21 @@ Get an initial line-alpha number.<hr>
 - `line_alpha_`: Union[float, Number]
   - If a specified value is None, this interface returns a 1.0 number.
 
-## `_get_init_line_color_str` function docstring
+## `_get_init_line_color` function docstring
 
-Get an initial line-color string.<hr>
+Get an initial line-color.<hr>
 
 **[Parameters]**
 
-- `line_color`: Optional[Union[str, String]]
-  - A line-color setting.
+- `line_color`: Optional[Color]
+  - A line-color.
 
 <hr>
 
 **[Returns]**
 
-- `line_color_`: Union[str, String]
-  - If a specified value is None, this interface returns an empty string.
+- `line_color_`: Color
+  - If a specified value is None, this interface returns the COLORLESS constant.
 
 ## `_get_init_line_thickness_num` function docstring
 
@@ -109,11 +109,11 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
   - A font-size setting.
 - `font_family`: Optional[Union[Array[String], List[str]]], optional
   - A font-family setting. Each string in an array needs to be a font name (e.g., `Times New Roman`).
-- `fill_color`: Optional[Union[str, String]], optional
+- `fill_color`: Optional[Color], optional
   - A fill-color setting.
 - `fill_alpha`: Optional[Union[float, Number]], optional
   - A fill-alpha setting.
-- `line_color`: Optional[Union[str, String]], optional
+- `line_color`: Optional[Color], optional
   - A line-color setting.
 - `line_alpha`: Optional[Union[float, Number]], optional
   - A line-alpha setting.

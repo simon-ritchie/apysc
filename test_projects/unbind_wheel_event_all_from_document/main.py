@@ -26,7 +26,9 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color=ap.Color("#111"), stage_width=1000, stage_height=500)
+    _: ap.Stage = ap.Stage(
+        background_color=ap.Color("#111"), stage_width=1000, stage_height=500
+    )
     ap.bind_wheel_event_to_document(handler=on_document_wheel_1)
     ap.bind_wheel_event_to_document(handler=on_document_wheel_2)
     ap.unbind_wheel_event_all_from_document()

@@ -97,7 +97,9 @@ The loop implementation class for the `ap.Dictionary` keys and values.<hr>
 
 ```py
 >>> import apysc as ap
->>> _ = ap.Stage(background_color=ap.Color("#333"), stage_width=250, stage_height=300)
+>>> _ = ap.Stage(
+...     background_color=ap.Color("#333"), stage_width=250, stage_height=300
+... )
 >>> dict_: ap.Dictionary[ap.Number, ap.Number] = ap.Dictionary(
 ...     {
 ...         ap.Number(50): ap.Number(50),
@@ -110,5 +112,7 @@ The loop implementation class for the `ap.Dictionary` keys and values.<hr>
 ...     dict_key_type=ap.Number,
 ...     dict_value_type=ap.Number,
 ... ) as (key, value):
-...     _ = ap.Rectangle(x=key, y=value, width=50, height=50, fill_color=ap.Color("#0af"))
+...     _ = ap.Rectangle(
+...         x=key, y=value, width=50, height=50, fill_color=ap.Color("#0af")
+...     )
 ```

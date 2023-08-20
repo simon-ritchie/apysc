@@ -12,7 +12,5 @@ Set an initial axis label fill-color setting.<hr>
 
 **[Parameters]**
 
-- `axis_label_fill_color`: _StrOrString
+- `axis_label_fill_color`: Color
   - An axis label fill-color setting.
-- `variable_name_suffix`: str, optional
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

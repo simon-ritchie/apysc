@@ -30,11 +30,11 @@ Set initial fundamental values (such as the fill color or line thickness).<hr>
 
 **[Parameters]**
 
-- `fill_color`: str or String
+- `fill_color`: Color
   - A fill-color value to set.
 - `fill_alpha`: float or Number
   - A fill-alpha value to set.
-- `line_color`: str or String
+- `line_color`: Color
   - A line-color value to set.
 - `line_thickness`: int or Int
   - A line-thickness value to set.

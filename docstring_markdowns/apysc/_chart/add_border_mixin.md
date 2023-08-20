@@ -18,7 +18,7 @@ Add a border to a container.<hr>
   - A border width.
 - `height`: Int
   - A border height.
-- `border_color`: String
+- `border_color`: Color
   - A border color.
 - `border_alpha`: Number
   - A border alpha.

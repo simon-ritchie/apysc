@@ -41,9 +41,9 @@ def get_value_str_for_expression(*, value: Any) -> str:
         e.g., '[10, "Hello!", true, any_variable]'.
         None becomes NaN.
     """
+    from apysc._color.color import Color
     from apysc._type.expression_string import ExpressionString
     from apysc._type.variable_name_mixin import VariableNameMixIn
-    from apysc._color.color import Color
 
     if isinstance(value, ExpressionString):
         return value.value

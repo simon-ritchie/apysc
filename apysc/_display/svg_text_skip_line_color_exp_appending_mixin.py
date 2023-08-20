@@ -3,13 +3,11 @@
 """
 
 from typing import Optional
-from typing import Union
 
 from typing_extensions import final
 
-from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.string import String
 from apysc._color.color import Color
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class SVGTextSkipLineColorExpAppendingMixIn:

@@ -15,7 +15,6 @@ from tests._display.test_graphics_expression import (
 from tests._display.test_graphics_expression import (
     assert_stroke_width_attr_expression_exists,
 )
-from apysc._display import svg_text
 
 
 class TestSVGText:

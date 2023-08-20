@@ -32,12 +32,16 @@ def main() -> None:
     sprite.graphics.line_to(x=80, y=20)
     sprite.graphics.line_to(x=110, y=100)
 
-    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.ROUND)
+    sprite.graphics.line_style(
+        color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.ROUND
+    )
     sprite.graphics.move_to(x=140, y=100)
     sprite.graphics.line_to(x=170, y=20)
     sprite.graphics.line_to(x=200, y=100)
 
-    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.BEVEL)
+    sprite.graphics.line_style(
+        color=ap.Color("#0af"), thickness=10, joints=ap.LineJoints.BEVEL
+    )
     polyline: ap.Polyline = sprite.graphics.move_to(x=230, y=100)
     sprite.graphics.line_to(x=260, y=20)
     sprite.graphics.line_to(x=290, y=100)

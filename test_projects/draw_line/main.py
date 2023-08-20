@@ -42,7 +42,9 @@ def main() -> None:
     ap.assert_equal(line_1.x, 50)
     ap.assert_equal(line_1.y, 50)
 
-    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, cap=ap.LineCaps.ROUND)
+    sprite.graphics.line_style(
+        color=ap.Color("#0af"), thickness=10, cap=ap.LineCaps.ROUND
+    )
     line_2: ap.Line = sprite.graphics.draw_line(
         x_start=50, y_start=80, x_end=350, y_end=80
     )

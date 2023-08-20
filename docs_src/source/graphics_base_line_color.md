@@ -87,7 +87,7 @@ Get this instance's line color.<hr>
 ...     y=50,
 ...     width=50,
 ...     height=50,
-...     line_color=ap.Color('#0af'),
+...     line_color=ap.Color("#0af"),
 ...     line_thickness=2,
 ... )
 >>> rectangle.line_color

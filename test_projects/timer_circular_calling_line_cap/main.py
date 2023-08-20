@@ -41,7 +41,9 @@ def main() -> None:
     sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.begin_fill(color=ap.Color("#00aaff"))
 
-    sprite.graphics.line_style(color=ap.Color("#fff"), thickness=6, cap=ap.LineCaps.BUTT)
+    sprite.graphics.line_style(
+        color=ap.Color("#fff"), thickness=6, cap=ap.LineCaps.BUTT
+    )
     line: ap.Line = sprite.graphics.draw_line(
         x_start=50, y_start=50, x_end=150, y_end=50
     )

@@ -32,14 +32,14 @@ Revert value if snapshot exists.<hr>
 - `snapshot_name`: str
   - Target snapshot name.
 
-### `_set_initial_line_color_if_not_blank` method docstring
+### `_set_initial_line_color_if_not_colorless` method docstring
 
-Set initial line color value if a specified value is not a blank string.<hr>
+Set initial line color value if a specified value is not the `COLORLESS` constant.<hr>
 
 **[Parameters]**
 
-- `line_color`: str or String
-  - Line color (hexadecimal string, e.g., '#00aaff').
+- `line_color`: Color
+  - A line color.
 
 ### `_update_line_color_and_skip_appending_exp` method docstring
 
@@ -47,5 +47,5 @@ Update line color and skip appending expression.<hr>
 
 **[Parameters]**
 
-- `value`: String
+- `value`: Color
   - Line color to set.

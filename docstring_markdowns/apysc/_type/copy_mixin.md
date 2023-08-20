@@ -30,5 +30,5 @@ Make a deep copy of this instance.<hr>
 
 **[Returns]**
 
-- `result`: *
+- `result`: _SelfType
   - Copied instance.

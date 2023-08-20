@@ -12,6 +12,7 @@ from typing_extensions import final
 from apysc._chart import chart_const
 from apysc._chart.x_axis_settings import XAxisSettings
 from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
+from apysc._color.color import Color
 from apysc._display.line import Line
 from apysc._display.sprite import Sprite
 from apysc._display.svg_text import SVGText
@@ -22,7 +23,6 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._color.color import Color
 
 
 class CreateSingleColumnYAxisMixIn:

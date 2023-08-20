@@ -15,6 +15,8 @@ from typing import cast
 
 from typing_extensions import final
 
+from apysc._color.color import Color
+from apysc._color.colors import Colors
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.height_mixin import HeightMixIn
 from apysc._display.width_mixin import WidthMixIn
@@ -26,8 +28,6 @@ from apysc._type.initialize_top_level_constants_mixin import (
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
-from apysc._color.colors import Colors
 
 # This is used only for avoiding gabage collection.
 _current_stage: "Stage"

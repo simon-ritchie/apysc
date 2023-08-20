@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Each types common value utilities. Mainly following interfaces are defined: <br>・get_value_str_for_expression <br> ・Get a value string for expression. <br>・get_copy <br> ・Get a copy of a specified instance if it is an instance of CopyMixIn.
+Each types common value utilities. Mainly following interfaces are defined: <br>・get_value_str_for_expression <br> ・Get a value string for expression. <br>・get_copy <br> ・Get a copy of a specified instance if it is an instance of CopyInterface.
 
 ## `_get_value_str_from_dict` function docstring
 
@@ -53,7 +53,7 @@ Validate whether a dictionary key type is the `int`, `str`, `float`, `bool`, `ap
 
 ## `get_copy` function docstring
 
-Get a copy of a specified instance if it is an instance of CopyMixIn.<hr>
+Get a copy of a specified instance if it is an instance of CopyInterface.<hr>
 
 **[Parameters]**
 
@@ -65,7 +65,7 @@ Get a copy of a specified instance if it is an instance of CopyMixIn.<hr>
 **[Returns]**
 
 - `copied`: *
-  - Copied value. If a value is not an instance of CopyMixIn, this interface returns an argument value directly.
+  - Copied value. If a value is not an instance of CopyInterface, this interface returns an argument value directly.
 
 ## `get_value_str_for_expression` function docstring
 

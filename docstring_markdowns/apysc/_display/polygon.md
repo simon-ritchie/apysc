@@ -41,11 +41,11 @@ Create a polygon vector graphic. This class is similar to the Polyline class, bu
 
 - `points`: Array of Point2D or list of Point2D
   - List of polygon vertex points.
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - A fill-color to set.
 - `fill_alpha`: float or Number, default 1.0
   - A fill-alpha to set.
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - A line-color to set.
 - `line_alpha`: float or Number, default 1.0
   - A line-alpha to set.

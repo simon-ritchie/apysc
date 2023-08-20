@@ -12,7 +12,9 @@ The loop implementation class for the `ap.Array` indices and values.<hr>
 
 ```py
 >>> import apysc as ap
->>> _ = ap.Stage(stage_width=350, stage_height=225, background_color=ap.Color("#333"))
+>>> _ = ap.Stage(
+...     stage_width=350, stage_height=225, background_color=ap.Color("#333")
+... )
 >>> x_arr: ap.Array[ap.Number] = ap.Array(
 ...     [ap.Number(75), ap.Number(175), ap.Number(275)]
 ... )
@@ -66,7 +68,9 @@ The loop implementation class for the `ap.Array` indices and values.<hr>
 
 ```py
 >>> import apysc as ap
->>> _ = ap.Stage(stage_width=350, stage_height=225, background_color=ap.Color("#333"))
+>>> _ = ap.Stage(
+...     stage_width=350, stage_height=225, background_color=ap.Color("#333")
+... )
 >>> x_arr: ap.Array[ap.Number] = ap.Array(
 ...     [ap.Number(75), ap.Number(175), ap.Number(275)]
 ... )

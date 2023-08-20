@@ -116,8 +116,8 @@ Set line style values.<hr>
 
 **[Parameters]**
 
-- `color`: String or str
-  - Hexadecimal color string. e.g., '#00aaff'
+- `color`: Color
+  - A color setting.
 - `thickness`: Int or int, default 1
   - Line thickness (minimum value is 1).
 - `alpha`: float or Number, default 1.0
@@ -141,25 +141,25 @@ Set line style values.<hr>
 
 ```py
 >>> import apysc as ap
->>> stage: ap.Stage = ap.Stage()
+>>> _ = ap.Stage(
+...     stage_width=150,
+...     stage_height=150,
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
 >>> sprite: ap.Sprite = ap.Sprite()
->>> sprite.graphics.line_style(
-...     color=ap.Color("#fff"), thickness=5, alpha=0.5, cap=ap.LineCaps.ROUND
+>>> sprite.graphics.line_style(color=ap.Color("#0af"), thickness=2, alpha=0.5)
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50
 ... )
->>> line: ap.Line = sprite.graphics.draw_line(
-...     x_start=50, y_start=50, x_end=150, y_end=50
-... )
->>> line.line_color
-Color("#ffffff")
+>>> rectangle.line_color
+Color("#00aaff")
 
->>> line.line_thickness
-Int(5)
+>>> rectangle.line_thickness
+Int(2)
 
->>> line.line_alpha
+>>> rectangle.line_alpha
 Number(0.5)
-
->>> line.line_cap
-String("round")
 ```
 
 <hr>

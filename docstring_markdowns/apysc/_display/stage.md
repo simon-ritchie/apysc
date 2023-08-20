@@ -96,7 +96,7 @@ Create Stage (overall viewport) instance.<hr>
   - Stage width.
 - `stage_height`: int, default 185
   - Stage height
-- `background_color`: str, default '#ffffff'
+- `background_color`: str, default Colors.WHITE_FFFFFF
   - Hexadecimal background color string.
 - `add_to`: str, default 'body'
   - Specification of element to add stage. Unique tag (e.g., 'body') or ID selector (e.g., '#any-unique-elem') is acceptable.

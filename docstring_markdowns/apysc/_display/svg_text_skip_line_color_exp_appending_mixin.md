@@ -12,5 +12,5 @@ Set a boolean attribute, whether to skip a line-color expression's appending or 
 
 **[Parameters]**
 
-- `line_color`: Optional[Union[str, String]]
+- `line_color`: Optional[Color]
   - A line-color setting.

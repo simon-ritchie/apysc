@@ -4,21 +4,19 @@
 
 from typing import Dict
 from typing import Optional
-from typing import TypeVar
 from typing import Union
 
 from typing_extensions import final
 
+from apysc._color.color import Color
+from apysc._color.colorless import COLORLESS
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.string import String
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._validation import arg_validation_decos
-from apysc._color.color import Color
-from apysc._color.colorless import COLORLESS
 
 
 class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
@@ -30,9 +28,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
     @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=2, optional=False)
     @add_debug_info_setting(module_name=__name__)
-    def begin_fill(
-        self, *, color: Color, alpha: Union[float, Number] = 1.0
-    ) -> None:
+    def begin_fill(self, *, color: Color, alpha: Union[float, Number] = 1.0) -> None:
         """
         Set single color value for fill.
 

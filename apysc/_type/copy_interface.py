@@ -2,7 +2,8 @@
 """
 
 from abc import abstractmethod
-from typing import Generic, TypeVar
+from typing import Generic
+from typing import TypeVar
 
 _SelfType = TypeVar("_SelfType", bound="CopyInterface")
 

@@ -27,7 +27,9 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: ap.Stage = ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=500)
+    _: ap.Stage = ap.Stage(
+        background_color=ap.Color("#333"), stage_width=1000, stage_height=500
+    )
 
     mixin: BlankObjectMixIn = BlankObjectMixIn()
     variable_name = mixin.blank_object_variable_name

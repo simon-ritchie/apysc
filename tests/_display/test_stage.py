@@ -74,10 +74,7 @@ class TestStage:
             stage_width=200, stage_height=300, background_color=color
         )
         style: str = stage._make_style_str()
-        expected_style: str = (
-            "width: 200px; height: 300px; "
-            f"background-color: #333333;"
-        )
+        expected_style: str = "width: 200px; height: 300px; background-color: #333333;"
         assert style == expected_style
 
     @apply_test_settings()

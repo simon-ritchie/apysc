@@ -31,11 +31,15 @@ def main() -> None:
     sprite.graphics.move_to(x=50, y=30)
     sprite.graphics.line_to(x=150, y=30)
 
-    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, cap=ap.LineCaps.ROUND)
+    sprite.graphics.line_style(
+        color=ap.Color("#0af"), thickness=10, cap=ap.LineCaps.ROUND
+    )
     sprite.graphics.move_to(x=50, y=60)
     sprite.graphics.line_to(x=150, y=60)
 
-    sprite.graphics.line_style(color=ap.Color("#0af"), thickness=10, cap=ap.LineCaps.SQUARE)
+    sprite.graphics.line_style(
+        color=ap.Color("#0af"), thickness=10, cap=ap.LineCaps.SQUARE
+    )
     polyline: ap.Polyline = sprite.graphics.move_to(x=50, y=90)
     sprite.graphics.line_to(x=150, y=90)
     polyline.click(on_polyline_click)

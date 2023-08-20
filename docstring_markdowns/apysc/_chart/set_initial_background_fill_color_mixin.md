@@ -14,5 +14,3 @@ Set a chart's initial background fill-color.<hr>
 
 - `background_fill_color`: str or String
   - A chart's initial background fill-color.
-- `variable_name_suffix`: str, optional
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

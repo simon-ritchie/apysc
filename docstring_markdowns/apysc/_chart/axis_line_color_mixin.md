@@ -12,7 +12,5 @@ Set an initial line color.<hr>
 
 **[Parameters]**
 
-- `line_color`: _StrOrString
+- `line_color`: Color
   - An axis line color setting.
-- `variable_name_suffix`: str, optional
-  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

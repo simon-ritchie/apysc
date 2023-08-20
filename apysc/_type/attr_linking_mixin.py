@@ -10,11 +10,11 @@ from typing import Union
 
 from typing_extensions import final
 
+from apysc._color.color import Color
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._color.color import Color
 
 _AttrName = str
 _Attr = Union[Int, Number, String, Boolean, Color]
@@ -78,7 +78,6 @@ class AttrLinkingMixIn:
             attribute to the linking stack, this interface
             returns True.
         """
-        from apysc._type.variable_name_mixin import VariableNameMixIn
 
         self._initialize_attr_linking_stack(attr_name=attr_name)
         attr_variable_name: str = _get_variable_name_from_attr(attr=attr)
@@ -107,7 +106,6 @@ class AttrLinkingMixIn:
             Target attribute name.
         """
         import apysc as ap
-        from apysc._type.variable_name_mixin import VariableNameMixIn
 
         self._initialize_attr_linking_stack(attr_name=attr_name)
         if not self._attr_linking_stack:

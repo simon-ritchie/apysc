@@ -59,11 +59,11 @@ Create a rectangle vector graphic.<hr>
   - Ellipse width.
 - `ellipse_height`: int or Int
   - Ellipse height.
-- `fill_color`: str or String, default ''
+- `fill_color`: Color, default COLORLESS
   - A fill-color to set.
 - `fill_alpha`: float or Number, default 1.0
   - A fill-alpha to set.
-- `line_color`: str or String, default ''
+- `line_color`: Color, default COLORLESS
   - A line-color to set.
 - `line_alpha`: float or Number, default 1.0
   - A line-alpha to set.

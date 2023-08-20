@@ -1,8 +1,8 @@
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type import attr_linking_mixin
+from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 
 
 class TestAttrLinkingMixIn:
@@ -58,9 +58,7 @@ class TestAttrLinkingMixIn:
         assert variable_name == attr_1.variable_name
 
         attr_2: ap.Color = ap.Color("#333")
-        variable_name = attr_linking_mixin._get_variable_name_from_attr(
-            attr=attr_2
-        )
+        variable_name = attr_linking_mixin._get_variable_name_from_attr(attr=attr_2)
         assert variable_name == attr_2._value.variable_name
 
         variable_name = attr_linking_mixin._get_variable_name_from_attr(

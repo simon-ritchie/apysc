@@ -10,7 +10,7 @@ Append a fill expression to specified expression's string.<hr>
 
 **[Parameters]**
 
-- `fill_color`: String
+- `fill_color`: Color
   - A fill-color to use.
 - `expression`: str
   - Expression string to be appended fill expression.
@@ -50,7 +50,7 @@ Append stroke expression to specified expression's string.<hr>
 
 **[Parameters]**
 
-- `line_color`: String
+- `line_color`: Color
   - A line-color to use.
 - `expression`: str
   - Expression string to be appended stroke expression.

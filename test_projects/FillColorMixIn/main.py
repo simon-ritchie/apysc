@@ -34,11 +34,11 @@ def main() -> None:
     rectangle_1.fill_color = ap.Color("#999")
     color_1: ap.Color = rectangle_1.fill_color
     ap.assert_equal(left=ap.Color("#999999"), right=color_1)
-    color_1._value._value = "#666666"
+    color_1._value.value = "#666666"
     color_2: ap.Color = rectangle_1.fill_color
     ap.assert_not_equal(left=color_1, right=color_2)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 if __name__ == "__main__":

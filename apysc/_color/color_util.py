@@ -27,13 +27,12 @@ def complement_hex_color(*, hex_color_code: StrOrString) -> StrOrString:
     complemented_hex_color_code : str or String
         Result hex color code. e.g., '#ff0000', '#666666, '#000000'
     """
-    import apysc as ap
     from apysc._validation import color_validation
 
     hex_color_code = remove_color_code_sharp_symbol(hex_color_code=hex_color_code)
 
     color_validation.validate_hex_color_code_format(hex_color_code=hex_color_code)
-    if isinstance(hex_color_code, ap.String):
+    if isinstance(hex_color_code, String):
         value_: str = hex_color_code._value
     else:
         value_ = str(hex_color_code)
@@ -46,7 +45,7 @@ def complement_hex_color(*, hex_color_code: StrOrString) -> StrOrString:
     if value_ != "":
         value_ = f"#{value_}"
 
-    if isinstance(hex_color_code, ap.String):
+    if isinstance(hex_color_code, String):
         hex_color_code._value = value_
         _append_complement_hex_color_expression(hex_color_code=hex_color_code)
     else:
@@ -103,7 +102,7 @@ def _append_remove_color_code_sharp_symbol_expression(
     hex_color_code : String
         A sharp symbol removed string instance.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     var_name: str = hex_color_code.variable_name
     expression: str = (
@@ -112,7 +111,7 @@ def _append_remove_color_code_sharp_symbol_expression(
         f"\n  {var_name} = {var_name}.slice(1);"
         "\n}"
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -125,14 +124,14 @@ def _append_complement_hex_color_expression(*, hex_color_code: Any) -> None:
     hex_color_code : String
         Complemented hex color code string.
     """
-    import apysc as ap
     from apysc._expression import expression_variables_util
     from apysc._expression import var_names
+    from apysc._expression import expression_data_util
 
     index_name: str = expression_variables_util.get_next_variable_name(
         type_name=var_names.INDEX
     )
-    hex_color_code_: ap.String = hex_color_code
+    hex_color_code_: String = hex_color_code
     var_name: str = hex_color_code_.variable_name
     expression: str = (
         f"var str_length = {var_name}.length;"
@@ -149,7 +148,7 @@ def _append_complement_hex_color_expression(*, hex_color_code: Any) -> None:
         "\n}"
         f'\n{var_name} = "#" + {var_name};'
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 def _fill_three_digit_hex_color_code(*, hex_color_code: str) -> str:

@@ -125,9 +125,9 @@ class IfBase(ABC):
         """
         Append if branch instruction ending expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        ap.append_js_expression(expression="}")
+        expression_data_util.append_js_expression(expression="}")
 
     @abstractmethod
     def _set_last_scope(self) -> None:

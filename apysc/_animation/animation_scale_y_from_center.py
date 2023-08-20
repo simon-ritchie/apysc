@@ -94,7 +94,6 @@ class AnimationScaleYFromCenter(AnimationBase[_Target], Generic[_Target]):
             If a specified target is not a ScaleYFromCenterMixIn
             instance.
         """
-        import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
         from apysc._expression import expression_variables_util
@@ -117,7 +116,7 @@ class AnimationScaleYFromCenter(AnimationBase[_Target], Generic[_Target]):
                 float_or_num=scale_y_from_center
             )
         )
-        one: ap.Number = ap.Number(1.0)
+        one: Number = Number(1.0)
         self._scale_y_from_center_diff_ratio = (
             one / self._before_scale_y_from_center * self._scale_y_from_center
         )

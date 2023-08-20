@@ -167,16 +167,14 @@ class ChildMixIn(
         >>> sprite.graphics.contains(rectangle)
         Boolean(False)
         """
-        import apysc as ap
-
         self._initialize_children_if_not_initialized()
-        index: ap.Int = self._children.index_of(value=child)
+        index: Int = self._children.index_of(value=child)
         if index == -1:
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 False, variable_name_suffix=self._variable_name_suffix
             )
         else:
-            result = ap.Boolean(True, variable_name_suffix=self._variable_name_suffix)
+            result = Boolean(True, variable_name_suffix=self._variable_name_suffix)
         self._append_contains_expression(result=result, child=child)
         return result
 
@@ -194,13 +192,13 @@ class ChildMixIn(
         child : DisplayObject
             Child instance to check.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name}.has({child.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -233,10 +231,8 @@ class ChildMixIn(
         >>> sprite.graphics.num_children
         Int(2)
         """
-        import apysc as ap
-
         self._initialize_children_if_not_initialized()
-        num_children: ap.Int = ap.Int(
+        num_children: Int = Int(
             value=self._children.length, variable_name_suffix=self._variable_name_suffix
         )
         self._append_num_children_expression(num_children=num_children)
@@ -252,13 +248,13 @@ class ChildMixIn(
         num_children : Int
             Current children number.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{num_children.variable_name} = "
             f"{self.variable_name}.children().length;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
@@ -322,7 +318,7 @@ class ChildMixIn(
         index : int or Int
             Child's index (start from 0).
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         index_str: str = value_util.get_value_str_for_expression(value=index)
@@ -331,7 +327,7 @@ class ChildMixIn(
             f"{self.variable_name}.children()"
             f"[{index_str}];"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -370,7 +366,7 @@ class ChildMixIn(
         """
         Append an expression of the `remove_children` interface.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"var children = {self.variable_name}.children();"
@@ -380,7 +376,7 @@ class ChildMixIn(
             f"\n  {self.variable_name}.remove(child);"
             "\n}"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _children_snapshots: Optional[Dict[str, List[Any]]] = None
 
@@ -439,12 +435,12 @@ def append_expression_of_add_child(*, child: DisplayObject) -> None:
     child : DisplayObject
         Child object to add.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     parent_name: str = child.parent.variable_name  # type: ignore
     child_name: str = child.variable_name
     expression: str = f"{parent_name}.add({child_name});"
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -457,7 +453,7 @@ def append_expression_of_remove_child(*, child: DisplayObject) -> None:
     child : DisplayObject
         Child object to remove.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._expression import expression_variables_util
     from apysc._expression import var_names
 
@@ -471,4 +467,4 @@ def append_expression_of_remove_child(*, child: DisplayObject) -> None:
         f"\n  {parent_name}.removeElement({child_name});"
         "\n}"
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)

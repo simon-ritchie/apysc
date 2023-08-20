@@ -67,15 +67,14 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         >>> rectangle.fill_alpha
         Number(0.5)
         """
-        import apysc as ap
         from apysc._converter import cast
 
         self._initialize_fill_color_if_not_initialized()
         self._initialize_fill_alpha_if_not_initialized()
         self._fill_color = color
-        if not isinstance(alpha, ap.Number):
+        if not isinstance(alpha, Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
-        if isinstance(alpha, ap.Number):
+        if isinstance(alpha, Number):
             self._fill_alpha.value = alpha.value
         else:
             self._fill_alpha.value = alpha
@@ -149,11 +148,10 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         >>> rectangle.fill_alpha
         Number(0.5)
         """
-        import apysc as ap
         from apysc._type import value_util
 
         self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
+        fill_alpha: Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha
 
     @final

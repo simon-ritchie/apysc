@@ -124,7 +124,7 @@ class Elif(IfBase):
         ValueError
             If the last scope is not If or Elif.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         if not self._last_scope_is_if_or_elif():
             raise ValueError(
@@ -143,7 +143,7 @@ class Elif(IfBase):
         if self._condition is None:
             raise ValueError("Elif expression's condition argument can't be set None.")
         expression: str = f"else if ({self._condition.variable_name}) {{"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _set_last_scope(self) -> None:

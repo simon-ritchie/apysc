@@ -79,11 +79,10 @@ class CyMixIn(
         >>> circle.y
         Number(120.0)
         """
-        import apysc as ap
         from apysc._type import value_util
 
         self._initialize_y_if_not_initialized()
-        y: ap.Number = value_util.get_copy(value=self._y)
+        y: Number = value_util.get_copy(value=self._y)
         return y
 
     @y.setter
@@ -115,13 +114,13 @@ class CyMixIn(
         """
         Append y position updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         self._initialize_y_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(value=self._y)
         expression: str = f"{self.variable_name}.cy({value_str});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_y_and_skip_appending_exp(self, *, y: Union[float, Number]) -> None:

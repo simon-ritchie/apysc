@@ -62,7 +62,6 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         >>> sprite.get_css(name="display")
         String("none")
         """
-        import apysc as ap
         from apysc._converter import to_builtin_val_from_apysc
 
         self._initialize_css_if_not_initialized()
@@ -70,9 +69,9 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
             string=name
         )
         if name_ in self._css:
-            css: ap.String = self._css[name_]._copy()
+            css: String = self._css[name_]._copy()
         else:
-            css = ap.String("")
+            css = String("")
         self._append_get_css_expresion(name=name, css=css)
         return css
 
@@ -91,7 +90,7 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         css : String
             CSS value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         name_value_str: str = value_util.get_value_str_for_expression(value=name)
@@ -99,7 +98,7 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         expression: str = (
             f"{css_value_str} = {self.variable_name}." f"css({name_value_str});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -131,14 +130,13 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         >>> sprite.get_css(name="display")
         String("none")
         """
-        import apysc as ap
         from apysc._converter import to_builtin_val_from_apysc
 
         self._initialize_css_if_not_initialized()
         name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
             string=name
         )
-        value_: ap.String = self._get_copied_string_from_builtin_val(
+        value_: String = self._get_copied_string_from_builtin_val(
             string=value, attr_identifier="css"
         )
         self._css[name_] = value_
@@ -159,13 +157,13 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
         value : str or String
             A CSS value string (e.g., 'none').
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         name_value_str: str = value_util.get_value_str_for_expression(value=name)
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = f"{self.variable_name}.css({name_value_str}, {value_str});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _css_snapshot: Optional[Dict[str, Dict[str, String]]] = None
 

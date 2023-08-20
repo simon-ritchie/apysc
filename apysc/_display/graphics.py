@@ -165,11 +165,12 @@ class Graphics(
         """
         Append constructor expression.
         """
-        import apysc as ap
+        from apysc._display.stage import Stage, get_stage
+        from apysc._expression import expression_data_util
 
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         expression: str = f"var {self.variable_name} = {stage.variable_name}.nested();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_num(arg_position_index=1, optional=False)
@@ -314,8 +315,6 @@ class Graphics(
         >>> round_rect.ellipse_height
         Int(15)
         """
-        import apysc as ap
-
         rectangle: Rectangle = Rectangle._create_with_graphics(
             graphics=self,
             x=x,
@@ -325,11 +324,11 @@ class Graphics(
             variable_name_suffix=variable_name_suffix,
         )
         if isinstance(ellipse_width, int):
-            ellipse_width = ap.Int(
+            ellipse_width = Int(
                 ellipse_width, variable_name_suffix=variable_name_suffix
             )
         if isinstance(ellipse_height, int):
-            ellipse_height = ap.Int(
+            ellipse_height = Int(
                 ellipse_height, variable_name_suffix=variable_name_suffix
             )
         rectangle.ellipse_width = ellipse_width

@@ -30,10 +30,8 @@ def get_copied_int_from_builtin_val(
     copied : Int
         Copied Int value.
     """
-    import apysc as ap
-
     if isinstance(integer, int):
-        copied: ap.Int = ap.Int(integer, variable_name_suffix=variable_name_suffix)
+        copied: Int = Int(integer, variable_name_suffix=variable_name_suffix)
     else:
         copied = integer._copy()
     return copied
@@ -59,10 +57,8 @@ def get_copied_number_from_builtin_val(
     copied : Number
         Copied Number value.
     """
-    import apysc as ap
-
     if isinstance(float_or_num, (int, float)):
-        copied: ap.Number = ap.Number(
+        copied: Number = Number(
             float_or_num, variable_name_suffix=variable_name_suffix
         )
     else:
@@ -90,10 +86,9 @@ def get_copied_string_from_builtin_val(
     copied : String
         Copied String value.
     """
-    import apysc as ap
 
     if isinstance(string, str):
-        copied: ap.String = ap.String(string, variable_name_suffix=variable_name_suffix)
+        copied: String = String(string, variable_name_suffix=variable_name_suffix)
     else:
         copied = string._copy()
     return copied
@@ -119,10 +114,10 @@ def get_copied_boolean_from_builtin_val(
     copied : Boolean
         Copied Boolean value.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     if isinstance(bool_val, bool):
-        copied: ap.Boolean = ap.Boolean(
+        copied: Boolean = Boolean(
             bool_val, variable_name_suffix=variable_name_suffix
         )
     else:

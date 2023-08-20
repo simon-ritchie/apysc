@@ -60,8 +60,9 @@ class AppendLinePointMixIn(
         ... )
         >>> polygon.append_line_point(x=50, y=0)
         """
-        import apysc as ap
         from apysc._type import value_util
+        from apysc._geom.point2d import Point2D
+        from apysc._expression import expression_data_util
 
         if not hasattr(self, "_points_var_name"):
             raise AttributeError(
@@ -70,13 +71,13 @@ class AppendLinePointMixIn(
                 "or else."
             )
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="points")
-        point: ap.Point2D = ap.Point2D(x=x, y=y, variable_name_suffix=suffix)
+        point: Point2D = Point2D(x=x, y=y, variable_name_suffix=suffix)
         self.points.append(value=point)
         expression: str
         x_name: str = value_util.get_value_str_for_expression(value=x)
         y_name: str = value_util.get_value_str_for_expression(value=y)
         expression = f"{self._points_var_name}.push([{x_name}, {y_name}]);"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         self._apply_current_points()
 
         if isinstance(self, SetXAndYWithMinimumPointInterfaceBase):

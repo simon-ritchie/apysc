@@ -79,7 +79,7 @@ def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
     >>> int_2: ap.Int = ap.Int(10)
     >>> ap.assert_equal(int_1, int_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     for value in (left, right):
@@ -108,7 +108,7 @@ def assert_equal(left: Any, right: Any, *, msg: str = "") -> None:
 
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert({left_str} === {right_str}, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -146,7 +146,7 @@ def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
     >>> int_2: ap.Int = ap.Int(11)
     >>> ap.assert_not_equal(int_1, int_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     for value in (left, right):
@@ -174,7 +174,7 @@ def assert_not_equal(left: Any, right: Any, *, msg: str = "") -> None:
 
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert({left_str} !== {right_str}, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -206,7 +206,7 @@ def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
     >>> boolean: ap.Boolean = int_val == 10
     >>> ap.assert_true(boolean)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     _trace_info(
@@ -223,7 +223,7 @@ def assert_true(value: Any, *, type_strict: bool = True, msg: str = "") -> None:
         expression=expression, type_strict=type_strict
     )
     expression += f' true, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -255,8 +255,8 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
     >>> boolean: ap.Boolean = int_val == 11
     >>> ap.assert_false(boolean)
     """
-    import apysc as ap
     from apysc._string import string_util
+    from apysc._expression import expression_data_util
 
     _trace_info(
         interface_label=assert_false.__name__,
@@ -272,7 +272,7 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
         expression=expression, type_strict=type_strict
     )
     expression += f' false, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -301,7 +301,7 @@ def assert_greater(
     >>> int_val_2: ap.Int = ap.Int(9)
     >>> ap.assert_greater(left=int_val_1, right=int_val_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     _trace_info(
@@ -315,7 +315,7 @@ def assert_greater(
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert({left_str} > {right_str}, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -346,7 +346,7 @@ def assert_greater_equal(
     >>> int_val_3: ap.Int = ap.Int(10)
     >>> ap.assert_greater_equal(left=int_val_1, right=int_val_3)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     _trace_info(
@@ -360,7 +360,7 @@ def assert_greater_equal(
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert({left_str} >= {right_str}, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -389,7 +389,7 @@ def assert_less(
     >>> int_val_2: ap.Int = ap.Int(10)
     >>> ap.assert_greater_equal(left=int_val_1, right=int_val_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     _trace_info(
@@ -403,7 +403,7 @@ def assert_less(
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert({left_str} < {right_str}, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -434,8 +434,8 @@ def assert_less_equal(
     >>> int_val_3: ap.Int = ap.Int(9)
     >>> ap.assert_greater_equal(left=int_val_1, right=int_val_3)
     """
-    import apysc as ap
     from apysc._string import string_util
+    from apysc._expression import expression_data_util
 
     _trace_info(
         interface_label=assert_less_equal.__name__,
@@ -448,7 +448,7 @@ def assert_less_equal(
     left_str, right_str = _get_left_and_right_strs(left=left, right=right)
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert({left_str} <= {right_str}, "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -491,7 +491,7 @@ def assert_arrays_equal(
     >>> arr_2: ap.Array = ap.Array([1, 2, 3])
     >>> ap.assert_arrays_equal(arr_1, arr_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     _trace_arrays_or_dicts_assertion_info(
         interface_label=assert_arrays_equal.__name__,
@@ -503,7 +503,7 @@ def assert_arrays_equal(
     expression: str = _make_arrays_or_dicts_comparison_expression(
         left=left, right=right, msg=msg, not_condition=False
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -546,7 +546,7 @@ def assert_arrays_not_equal(
     >>> arr_2: ap.Array = ap.Array([4, 5, 6])
     >>> ap.assert_arrays_not_equal(arr_1, arr_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     _trace_arrays_or_dicts_assertion_info(
         interface_label=assert_arrays_not_equal.__name__,
@@ -558,7 +558,7 @@ def assert_arrays_not_equal(
     expression: str = _make_arrays_or_dicts_comparison_expression(
         left=left, right=right, msg=msg, not_condition=True
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -601,7 +601,7 @@ def assert_dicts_equal(
     >>> dict_2: ap.Dictionary = ap.Dictionary({"a": 10})
     >>> ap.assert_dicts_equal(dict_1, dict_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     _trace_arrays_or_dicts_assertion_info(
         interface_label=assert_dicts_equal.__name__,
@@ -613,7 +613,7 @@ def assert_dicts_equal(
     expression: str = _make_arrays_or_dicts_comparison_expression(
         left=left, right=right, msg=msg, not_condition=False
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -656,7 +656,7 @@ def assert_dicts_not_equal(
     >>> dict_2: ap.Dictionary = ap.Dictionary({"a": 20})
     >>> ap.assert_dicts_not_equal(dict_1, dict_2)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     _trace_arrays_or_dicts_assertion_info(
         interface_label=assert_dicts_not_equal.__name__,
@@ -668,7 +668,7 @@ def assert_dicts_not_equal(
     expression: str = _make_arrays_or_dicts_comparison_expression(
         left=left, right=right, msg=msg, not_condition=True
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -695,7 +695,7 @@ def assert_defined(value: Any, *, msg: str = "") -> None:
     >>> int_val: ap.Int = ap.Int(10)
     >>> ap.assert_defined(int_val)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     _trace_info(
@@ -708,7 +708,7 @@ def assert_defined(value: Any, *, msg: str = "") -> None:
 
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert(!_.isUndefined({value_str}), "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -735,7 +735,7 @@ def assert_undefined(value: Any, *, msg: str = "") -> None:
     >>> ap.append_js_expression(expression=f"{int_val.variable_name} = undefined;")
     >>> ap.assert_undefined(int_val)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
 
     _trace_info(
@@ -748,7 +748,7 @@ def assert_undefined(value: Any, *, msg: str = "") -> None:
 
     msg = string_util.escape_str(string=msg)
     expression: str = f'console.assert(_.isUndefined({value_str}), "{msg}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -818,7 +818,8 @@ def _trace_arrays_or_dicts_assertion_info(
         The trace's outer frames index adjustment setting.
         This function uses this argument to adjust the caller's information.
     """
-    import apysc as ap
+    from apysc._type.array import Array
+    from apysc._type.dictionary import Dictionary
     from apysc._type import value_util
 
     left_exp_str: str = value_util.get_value_str_for_expression(value=left)
@@ -827,7 +828,7 @@ def _trace_arrays_or_dicts_assertion_info(
     right_exp_str: str = value_util.get_value_str_for_expression(value=right)
     if isinstance(right, dict):
         right_exp_str = right_exp_str.replace('"', "")
-    if isinstance(left, (ap.Array, ap.Dictionary)):
+    if isinstance(left, (Array, Dictionary)):
         value_str: str = value_util.get_value_str_for_expression(value=left.value)
         value_str = value_str.replace('"', "")
         left_info_str: str = f"{left_exp_str} ({value_str})"
@@ -857,9 +858,9 @@ def _value_type_is_array(*, value: Any) -> bool:
     result : bool
         If the value type is Array, this interface returns True.
     """
-    import apysc as ap
+    from apysc._type.array import Array
 
-    if isinstance(value, ap.Array):
+    if isinstance(value, Array):
         return True
     return False
 
@@ -970,7 +971,7 @@ def _trace_info(
         The trace's outer frames index adjustment setting.
         This function uses this argument to adjust the caller's information.
     """
-    import apysc as ap
+    from apysc._console._trace import trace
     from apysc._type.variable_name_mixin import VariableNameMixIn
 
     info: str = f"[{interface_label}]"
@@ -984,4 +985,4 @@ def _trace_info(
     with TemporaryOuterFramesIndexAdjustment(
         temporary_outer_frames_index_adjustments=outer_frames_index_adjustment
     ):
-        ap.trace(info, "\nLeft value:", left, "right value:", right)
+        trace(info, "\nLeft value:", left, "right value:", right)

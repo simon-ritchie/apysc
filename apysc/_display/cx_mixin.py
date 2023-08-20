@@ -79,11 +79,10 @@ class CxMixIn(
         >>> circle.x
         Number(120.0)
         """
-        import apysc as ap
         from apysc._type import value_util
 
         self._initialize_x_if_not_initialized()
-        x: ap.Number = value_util.get_copy(value=self._x)
+        x: Number = value_util.get_copy(value=self._x)
         return x
 
     @x.setter
@@ -114,13 +113,13 @@ class CxMixIn(
         """
         Append x position updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         self._initialize_x_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(value=self._x)
         expression: str = f"{self.variable_name}.cx({value_str});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_x_and_skip_appending_exp(self, *, x: Union[float, Number]) -> None:

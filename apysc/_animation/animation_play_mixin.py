@@ -47,7 +47,7 @@ class AnimationPlayMixIn(VariableNameMixIn):
         >>> ap.Timer(on_timer_1, delay=500, options=options).start()
         >>> ap.Timer(on_timer_2, delay=1000, options=options).start()
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self.variable_name}.timeline().play();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

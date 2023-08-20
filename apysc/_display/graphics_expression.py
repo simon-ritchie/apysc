@@ -227,10 +227,10 @@ def append_stroke_linecap_expression(
     expression : str
         After appended expression string.
     """
-    import apysc as ap
+    from apysc._display.line_caps import LineCaps
     from apysc._string import indent_util
 
-    if line_cap._value == ap.LineCaps.BUTT.value:
+    if line_cap._value == LineCaps.BUTT.value:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += f'\n{spaces}"stroke-linecap": {line_cap.variable_name},'
@@ -259,10 +259,10 @@ def append_stroke_linejoin_expression(
     expression : str
         After appended expression string.
     """
-    import apysc as ap
+    from apysc._display.line_joints import LineJoints
     from apysc._string import indent_util
 
-    if line_joints._value == ap.LineJoints.MITER.value:
+    if line_joints._value == LineJoints.MITER.value:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += f'\n{spaces}"stroke-linejoin": ' f"{line_joints.variable_name},"

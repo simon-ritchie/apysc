@@ -102,14 +102,14 @@ class Else(IfBase):
         ValueError
             If the last scope is not If or Elif.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         if not self._last_scope_is_if_or_elif():
             raise ValueError(
                 "Else interface can only use right after If or Elif " "interfaces."
             )
         expression: str = "else {"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _set_last_scope(self) -> None:

@@ -35,10 +35,10 @@ def to_int_from_float(*, int_or_float: Union[int, float, NumberValueMixIn]) -> A
     int_val : Int or int
         Converted integer value.
     """
-    import apysc as ap
+    from apysc._type.number import Number
 
-    if isinstance(int_or_float, ap.Number):
-        return ap.Int(int_or_float)
+    if isinstance(int_or_float, Number):
+        return Int(int_or_float)
     if not isinstance(int_or_float, float):
         return int_or_float
     return int(int_or_float)
@@ -60,10 +60,10 @@ def to_float_from_int(*, int_or_float: Union[int, float, NumberValueMixIn]) -> A
     float_val : float or Number
         Converted float value.
     """
-    import apysc as ap
+    from apysc._type.number import Number
 
-    if isinstance(int_or_float, ap.Int):
-        return ap.Number(int_or_float)
+    if isinstance(int_or_float, Int):
+        return Number(int_or_float)
     if not isinstance(int_or_float, int):
         return int_or_float
     return float(int_or_float)

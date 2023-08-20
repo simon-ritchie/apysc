@@ -100,7 +100,6 @@ class AnimationScaleXFromPoint(AnimationBase[_Target], Generic[_Target]):
             If a specified target is not a ScaleXFromPointMixIn
             instance.
         """
-        import apysc as ap
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
         from apysc._expression import expression_variables_util
@@ -126,7 +125,7 @@ class AnimationScaleXFromPoint(AnimationBase[_Target], Generic[_Target]):
                 float_or_num=scale_x_from_point
             )
         )
-        one: ap.Number = ap.Number(1.0)
+        one: Number = Number(1.0)
         self._scale_x_from_point_diff_ratio = (
             one / self._before_scale_x_from_point * self._scale_x_from_point
         )

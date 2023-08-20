@@ -37,7 +37,7 @@ class AnyDisplayObject(
         This class is for the `DisplayObject` subclass
         implementation to avoid an abstract method error.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._expression.expression_variables_util import get_next_variable_name
 
         variable_name: str = get_next_variable_name(
@@ -45,7 +45,7 @@ class AnyDisplayObject(
         )
         super(AnyDisplayObject, self).__init__(variable_name=variable_name)
         expression: str = f"var {variable_name};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @classmethod
     @final
@@ -58,8 +58,8 @@ class AnyDisplayObject(
         any_display_object : AnyDisplayObject
             An initialized object.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         any_display_object: AnyDisplayObject = AnyDisplayObject()
-        any_display_object.visible = ap.Boolean(False)
+        any_display_object.visible = Boolean(False)
         return any_display_object

@@ -140,12 +140,12 @@ class AnimationBase(
         ... )
         >>> _ = rectangle.animation_x(x=100).start()
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = self._get_animation_basic_expression()
         animation_expresssion: str = self._get_animation_func_expression()
         expression += animation_expresssion
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         self._started.value = True
         return self
 
@@ -238,11 +238,11 @@ class AnimationBase(
         ...     .start()
         ... )
         """
-        import apysc as ap
         from apysc._event.custom_event_type import CustomEventType
+        from apysc._event.animation_event import AnimationEvent
 
         self._validate_animation_not_started()
-        e: ap.AnimationEvent[_Target] = ap.AnimationEvent(this=self)
+        e: AnimationEvent[_Target] = AnimationEvent(this=self)
         in_handler_head_expression: str = (
             self._get_complete_event_in_handler_head_expression()
         )

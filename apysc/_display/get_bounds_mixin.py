@@ -144,9 +144,10 @@ class GetBoundsMixIn(VariableNameMixIn):
         height : Int
             The Rectangle height.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
+        from apysc._display.stage import get_stage, Stage
 
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         expression: str = (
             f"var box = {self.variable_name}.rbox({stage.variable_name});"
             f"\n{left_x.variable_name} = box.x;"
@@ -158,4 +159,4 @@ class GetBoundsMixIn(VariableNameMixIn):
             f"\n{width.variable_name} = box.width;"
             f"\n{height.variable_name} = box.height;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

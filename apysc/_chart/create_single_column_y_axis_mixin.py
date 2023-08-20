@@ -187,18 +187,19 @@ def _create_y_axis_vertical_border(
     line : Line
         A created line.
     """
-    import apysc as ap
+    from apysc._geom.rectangle_geom import RectangleGeom
+    from apysc._geom.point2d import Point2D
 
-    bounding_box: ap.RectangleGeom = y_axis_texts_container.get_bounds()
+    bounding_box: RectangleGeom = y_axis_texts_container.get_bounds()
     x: Number = bounding_box.width.to_number() + chart_const.LARGE_PADDING * 3
-    y_start: Number = ap.Number(
+    y_start: Number = Number(
         chart_const.SMALL_PADDING,
         variable_name_suffix=variable_name_suffix,
     )
     y_end: Number = bounding_box.height.to_number() + y_start - tick_text_font_size / 2
     line: Line = Line(
-        start_point=ap.Point2D(x=x, y=y_start),
-        end_point=ap.Point2D(x=x, y=y_end),
+        start_point=Point2D(x=x, y=y_start),
+        end_point=Point2D(x=x, y=y_end),
         line_color=line_color,
         line_thickness=line_thickness,
         line_alpha=line_alpha,
@@ -258,12 +259,13 @@ def _create_y_axis_ticks_texts(
     texts_container : Sprite
         A container that contains created texts.
     """
-    import apysc as ap
+    from apysc._loop.for_array_indices import ForArrayIndices
+    from apysc._display.svg_text_align_mixin import SVGTextAlign
 
     y_axis_ticks_texts: Array[SVGText] = Array([])
     texts_container: Sprite = Sprite()
     y_axis_container.add_child(texts_container)
-    with ap.ForArrayIndices(arr=y_axis_ticks_y_coordinates) as i:
+    with ForArrayIndices(arr=y_axis_ticks_y_coordinates) as i:
         txt: SVGText = SVGText(
             text=y_axis_text_values[i],
             font_size=tick_text_font_size,
@@ -272,7 +274,7 @@ def _create_y_axis_ticks_texts(
             y=y_axis_ticks_y_coordinates[i],
             fill_color=tick_text_fill_color,
             fill_alpha=tick_text_fill_alpha,
-            align=ap.SVGTextAlign.RIGHT,
+            align=SVGTextAlign.RIGHT,
             bold=tick_text_bold,
             italic=tick_text_italic,
             parent=texts_container,
@@ -318,15 +320,16 @@ def _create_y_axis_texts_values(
     y_axis_text_values : Array[String]
         A created y-axis texts values.
     """
-    import apysc as ap
+    from apysc._loop._range import range as ap_range
+    from apysc._loop.for_array_indices import ForArrayIndices
 
     diff: Number = y_axis_max - y_axis_min
     interval: Number = diff / (ticks_num - 1)
     y_axis_text_values: Array[String] = Array(
         [], variable_name_suffix=variable_name_suffix
     )
-    range_arr: Array[Int] = ap.range(ticks_num)
-    with ap.ForArrayIndices(arr=range_arr) as i:
+    range_arr: Array[Int] = ap_range(ticks_num)
+    with ForArrayIndices(arr=range_arr) as i:
         tick_value: Union[Int, Number] = y_axis_min + i * interval
         value_text: String = cast(Union[Int, Number], tick_value).to_string()
         value_text = value_text.apply_max_num_of_decimal_places(
@@ -409,18 +412,22 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
     """
-    import apysc as ap
+    from apysc._type.array import Array
+    from apysc._loop.for_array_indices import ForArrayIndices
+    from apysc._display.svg_text import SVGText
+    from apysc._geom.rectangle_geom import RectangleGeom
+    from apysc._math.math import Math
 
     x: Number = horizontal_padding._copy().to_number()
-    max_arr: ap.Array[Union[Int, Number]] = ap.Array(
+    max_arr: Array[Union[Int, Number]] = Array(
         [x],
         variable_name_suffix=variable_name_suffix,
     )
-    with ap.ForArrayIndices(arr=y_axis_ticks_texts) as i:
-        txt: ap.SVGText = y_axis_ticks_texts[i]
-        bounding_box: ap.RectangleGeom = txt.get_bounds()
+    with ForArrayIndices(arr=y_axis_ticks_texts) as i:
+        txt: SVGText = y_axis_ticks_texts[i]
+        bounding_box: RectangleGeom = txt.get_bounds()
         max_arr.append(bounding_box.width + horizontal_padding)
-    x = ap.Math.max(max_arr)
+    x = Math.max(max_arr)
     x_coordinate_container.x = x
 
 
@@ -455,20 +462,21 @@ def _calculate_y_axis_ticks_y_coordinates(
         Y-axis ticks coordinates. The first index becomes the axis
         starting coordinate (bottom position of a y-axis).
     """
-    import apysc as ap
+    from apysc._loop._range import range as ap_range
+    from apysc._loop.for_array_indices import ForArrayIndices
 
     y_axis_ticks_y_coordinates: Array[Number] = Array(
         [],
         variable_name_suffix=variable_name_suffix,
-        fixed_value_type=ap.Number,
+        fixed_value_type=Number,
     )
     y_start_coordinate: Int = Int(
         vertical_padding + font_size,
         variable_name_suffix=variable_name_suffix,
     )
-    range_arr: Array[Int] = ap.range(y_axis_ticks_num)
+    range_arr: Array[Int] = ap_range(y_axis_ticks_num)
     interval: Number = (y_axis_height - font_size) / (y_axis_ticks_num - 1)
-    with ap.ForArrayIndices(range_arr) as i:
+    with ForArrayIndices(range_arr) as i:
         y_coordinate: Number = interval * i + y_start_coordinate
         y_axis_ticks_y_coordinates.append(y_coordinate)
     y_axis_ticks_y_coordinates.reverse()
@@ -502,19 +510,20 @@ def _calculate_y_axis_ticks_num(
     y_axis_ticks_num : Int
         Y-axis ticks number.
     """
-    import apysc as ap
+    from apysc._type.array import Array
+    from apysc._math.math import Math
 
     interval: Int = tick_text_font_size * 3
     y_axis_ticks_num: Int = y_axis_height // interval
     y_axis_ticks_num += 1
     if tick_max_num is not None:
-        min_arr: ap.Array[Int] = ap.Array(
+        min_arr: Array[Int] = Array(
             [y_axis_ticks_num, tick_max_num],
             variable_name_suffix=variable_name_suffix,
             fixed_value_type=Int,
         )
         y_axis_ticks_num = Int(
-            ap.Math.min(min_arr), variable_name_suffix=variable_name_suffix
+            Math.min(min_arr), variable_name_suffix=variable_name_suffix
         )
     return y_axis_ticks_num
 
@@ -552,14 +561,14 @@ def _calculate_y_axis_height(
     y_axis_height : Int
         Calculate height.
     """
-    import apysc as ap
+    from apysc._branch._if import If
 
     y_axis_height: Int = Int(chart_height, variable_name_suffix=variable_name_suffix)
     y_axis_height -= vertical_padding * 2
     y_axis_height -= axis_label_font_size
     y_axis_height -= chart_const.SMALL_PADDING
     y_axis_height -= chart_const.TICK_SIZE
-    with ap.If(is_display_axis_label):
+    with If(is_display_axis_label):
         y_axis_height -= chart_const.SMALL_PADDING * 2
         y_axis_height -= tick_text_font_size
     return y_axis_height
@@ -589,14 +598,14 @@ def _calculate_y_max_from_data(
     y_max : Number
         A maximum y-axis value.
     """
-    import apysc as ap
+    from apysc._math.math import Math
 
     values: Array[Union[Int, Number]] = _extract_column_values_from_data(
         data=data,
         column_name=y_axis_column_name,
         variable_name_suffix=variable_name_suffix,
     )
-    y_max: Number = ap.Math.max(values)
+    y_max: Number = Math.max(values)
     return y_max
 
 
@@ -624,14 +633,14 @@ def _calculate_y_min_from_data(
     y_min : Number
         A minimum y-axis value.
     """
-    import apysc as ap
+    from apysc._math.math import Math
 
     values: Array[Union[Int, Number]] = _extract_column_values_from_data(
         data=data,
         column_name=y_axis_column_name,
         variable_name_suffix=variable_name_suffix,
     )
-    y_min: Number = ap.Math.min(values)
+    y_min: Number = Math.min(values)
     return y_min
 
 
@@ -659,14 +668,15 @@ def _extract_column_values_from_data(
     values : Array[Union[Int, Number]]
         A values array.
     """
-    import apysc as ap
+    from apysc._type.array import Array
+    from apysc._loop.for_array_indices import ForArrayIndices
 
     values: Array[Union[Int, Number]] = Array(
         [],
         variable_name_suffix=variable_name_suffix,
-        fixed_value_type=ap.Number,
+        fixed_value_type=Number,
     )
-    with ap.ForArrayIndices(data) as i:
+    with ForArrayIndices(data) as i:
         dict_value: Dictionary[String, Union[Int, Number]] = cast(
             Dictionary[String, Union[Int, Number]], data[i]
         )

@@ -111,7 +111,7 @@ class EllipseWidthMixIn(
         """
         Append ellipse width updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         self._initialize_ellipse_width_if_not_initialized()
@@ -127,7 +127,7 @@ class EllipseWidthMixIn(
         expression: str = (
             f"{self.variable_name}.radius({width_value_str}, " f"{height_value_str});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _ellipse_width_snapshots: Optional[Dict[str, int]] = None
 

@@ -109,10 +109,8 @@ class FlipYMixIn(
         - GraphicsBase flip_x and flip_y interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_flip_interfaces.html  # noqa
         """
-        import apysc as ap
-
         self._initialize_flip_y_if_not_initialized()
-        before_value: ap.Boolean = self._flip_y
+        before_value: Boolean = self._flip_y
         self._flip_y = value
         self._append_flip_y_update_expression(before_value=before_value)
 
@@ -129,7 +127,7 @@ class FlipYMixIn(
         before_value : Boolean
             Before updating flipping value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._display import flip_interface_helper
 
         self._initialize_flip_y_if_not_initialized()
@@ -139,7 +137,7 @@ class FlipYMixIn(
             axis=flip_interface_helper.Axis.Y,
             interface_variable_name=self.variable_name,
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _flip_y_snapshots: Optional[Dict[str, bool]] = None
 

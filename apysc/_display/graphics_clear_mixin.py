@@ -65,7 +65,6 @@ class GraphicsClearMixIn:
         - Graphics clear interface
             - https://simon-ritchie.github.io/apysc/en/graphics_clear.html
         """
-        import apysc as ap
         from apysc._display.begin_fill_mixin import BeginFillMixIn
         from apysc._display.child_mixin import ChildMixIn
         from apysc._display.fill_alpha_mixin import FillAlphaMixIn
@@ -74,6 +73,8 @@ class GraphicsClearMixIn:
         from apysc._display.line_color_mixin import LineColorMixIn
         from apysc._display.line_style_mixin import LineStyleMixIn
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
+        from apysc._display.line_caps import LineCaps
+        from apysc._display.line_joints import LineJoints
 
         if isinstance(self, (FillColorMixIn, BeginFillMixIn)):
             self._initialize_fill_color_if_not_initialized()
@@ -96,9 +97,9 @@ class GraphicsClearMixIn:
         if hasattr(self, "_current_line"):
             self._current_line = None
         if hasattr(self, "_line_cap"):
-            self._line_cap = ap.String(ap.LineCaps.BUTT.value)
+            self._line_cap = String(LineCaps.BUTT.value)
         if hasattr(self, "_line_joints"):
-            self._line_joints = ap.String(ap.LineJoints.MITER.value)
+            self._line_joints = String(LineJoints.MITER.value)
         self._line_dot_setting = None
         self._line_dash_setting = None
         self._line_round_dot_setting = None

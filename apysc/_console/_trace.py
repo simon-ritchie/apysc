@@ -40,7 +40,7 @@ def trace(*args: Any) -> None:
     >>> int_val: ap.Int = ap.Int(10)
     >>> ap.trace("Int value is:", int_val)
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._string import string_util
     from apysc._type.variable_name_mixin import VariableNameMixIn
 
@@ -59,7 +59,7 @@ def trace(*args: Any) -> None:
     expression += f', "{func_caller_info}"'
 
     expression += ");"
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 _temporary_outer_frames_index_adjustments: Optional[int] = None

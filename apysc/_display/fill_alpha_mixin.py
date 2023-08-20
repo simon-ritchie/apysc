@@ -87,11 +87,10 @@ class FillAlphaMixIn(
         >>> rectangle.fill_alpha
         Number(0.5)
         """
-        import apysc as ap
         from apysc._type import value_util
 
         self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
+        fill_alpha: Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha
 
     @fill_alpha.setter
@@ -124,12 +123,12 @@ class FillAlphaMixIn(
         """
         Append the fill alpha updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         value_str: str = value_util.get_value_str_for_expression(value=self._fill_alpha)
         expression: str = f"{self.variable_name}.fill({{opacity: {value_str}}});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_fill_alpha_and_skip_appending_exp(

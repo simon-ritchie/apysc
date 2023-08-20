@@ -43,7 +43,7 @@ class AnimationResetMixIn(VariableNameMixIn):
         >>> options: RectOptions = {"rectangle": rectangle}
         >>> ap.Timer(on_timer, delay=750, options=options).start()
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self.variable_name}.timeline().stop();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

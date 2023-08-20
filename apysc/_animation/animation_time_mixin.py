@@ -50,12 +50,12 @@ class AnimationTimeMixIn(VariableNameMixIn):
         >>> options: RectOptions = {"rectangle": rectangle}
         >>> ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         elapsed_time: Number = Number(0.0)
         expression: str = (
             f"{elapsed_time.variable_name} = "
             f"{self.variable_name}.timeline().time();"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return elapsed_time

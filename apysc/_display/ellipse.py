@@ -382,11 +382,12 @@ class Ellipse(
         """
         Append a constructor expression.
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
         from apysc._type import value_util
+        from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         width_str: str = value_util.get_value_str_for_expression(value=self._width)
         height_str: str = value_util.get_value_str_for_expression(value=self._height)
         expression: str = (
@@ -419,7 +420,7 @@ class Ellipse(
             expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:
         """
@@ -446,7 +447,7 @@ class Ellipse(
         ellipse : Ellipse
             An initialized ellipse instance.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         ellipse: Ellipse = Ellipse(
             x=-1,
@@ -454,5 +455,5 @@ class Ellipse(
             width=1,
             height=1,
         )
-        ellipse.visible = ap.Boolean(False)
+        ellipse.visible = Boolean(False)
         return ellipse

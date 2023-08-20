@@ -34,7 +34,7 @@ def main() -> None:
     ap.assert_equal(left=ap.Color("#aaaaaa"), right=rectangle.line_color)
 
     color_1: ap.Color = rectangle.line_color
-    color_1._value._value = "#bbb"
+    color_1._value.value = "#bbb"
     ap.assert_not_equal(left=rectangle.line_color, right=color_1)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)

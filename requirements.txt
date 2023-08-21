@@ -14,7 +14,7 @@ Sphinx==7.1.2
 groundwork-sphinx-theme==1.1.1
 notebook==7.0.2
 pyright==1.1.323
-playwright==1.36.0
+playwright==1.37.0
 myst-parser==2.0.0
 black==23.7.0
 blackdoc==0.3.8

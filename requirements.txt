@@ -18,5 +18,5 @@ playwright==1.36.0
 myst-parser==2.0.0
 black==23.7.0
 blackdoc==0.3.8
-tqdm==4.65.0
+tqdm==4.66.1
 pytest-xdist==3.3.1

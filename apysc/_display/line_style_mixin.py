@@ -170,15 +170,13 @@ class LineStyleMixIn(
         thickness_ : Int
             Converted line thickness value.
         """
-        import apysc as ap
-
-        if isinstance(thickness, ap.Int):
-            thickness_: ap.Int = thickness._copy()
+        if isinstance(thickness, Int):
+            thickness_: Int = thickness._copy()
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="line_thickness"
             )
-            thickness_ = ap.Int(thickness, variable_name_suffix=suffix)
+            thickness_ = Int(thickness, variable_name_suffix=suffix)
         return thickness_
 
     @final
@@ -197,15 +195,13 @@ class LineStyleMixIn(
         alpha_ : Number
             Converted line alpha value.
         """
-        import apysc as ap
-
-        if isinstance(alpha, ap.Number):
-            alpha_: ap.Number = alpha._copy()
+        if isinstance(alpha, Number):
+            alpha_: Number = alpha._copy()
         else:
             suffix = self._get_attr_or_variable_name_suffix(
                 value_identifier="line_alpha"
             )
-            alpha_ = ap.Number(alpha, variable_name_suffix=suffix)
+            alpha_ = Number(alpha, variable_name_suffix=suffix)
         return alpha_
 
     @final
@@ -219,14 +215,12 @@ class LineStyleMixIn(
         joints : LineJoints or None, default None
             Line vertices (joints) style setting.
         """
-        import apysc as ap
-
         if joints is None:
             joints = LineJoints.MITER
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="line_joints"
         )
-        self._line_joints = ap.String(joints.value, variable_name_suffix=suffix)
+        self._line_joints = String(joints.value, variable_name_suffix=suffix)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -239,14 +233,12 @@ class LineStyleMixIn(
         cap : LineCaps or None, default None
             Line cap (edge style) setting.
         """
-        import apysc as ap
-
         if cap is None:
             cap = LineCaps.BUTT
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="line_cap"
         )
-        self._line_cap = ap.String(cap.value, variable_name_suffix=suffix)
+        self._line_cap = String(cap.value, variable_name_suffix=suffix)
 
     @final
     def _initialize_line_color_if_not_initialized(self) -> None:

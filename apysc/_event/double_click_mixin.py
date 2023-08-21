@@ -68,7 +68,8 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
         ... )
         >>> _ = rectangle.dblclick(on_double_click)
         """
-        import apysc as ap
+        from apysc._event.mouse_event_type import MouseEventType
+        from apysc._event.mouse_event import MouseEvent
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_mixin import VariableNameMixIn
@@ -85,9 +86,9 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
             handler=handler, handlers_dict=self._dblclick_handlers, options=options
         )
         self._append_mouse_event_binding_expression(
-            name=name, mouse_event_type=ap.MouseEventType.DBLCLICK
+            name=name, mouse_event_type=MouseEventType.DBLCLICK
         )
-        e: ap.MouseEvent = ap.MouseEvent(this=self_instance)
+        e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._dblclick_handlers[name], handler_name=name, e=e
         )
@@ -130,12 +131,12 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
         ... )
         >>> _ = rectangle.dblclick(on_double_click)
         """
-        import apysc as ap
+        from apysc._event.mouse_event_type import MouseEventType
 
         self._initialize_dblclick_handlers_if_not_initialized()
         self._unbind_mouse_event(
             handler=handler,
-            mouse_event_type=ap.MouseEventType.DBLCLICK,
+            mouse_event_type=MouseEventType.DBLCLICK,
             handlers_dict=self._dblclick_handlers,
         )
 
@@ -160,10 +161,10 @@ class DoubleClickMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixi
         ... )
         >>> _ = rectangle.dblclick(on_double_click)
         """
-        import apysc as ap
+        from apysc._event.mouse_event_type import MouseEventType
 
         self._initialize_dblclick_handlers_if_not_initialized()
         self._unbind_all_mouse_events(
-            mouse_event_type=ap.MouseEventType.DBLCLICK,
+            mouse_event_type=MouseEventType.DBLCLICK,
             handlers_dict=self._dblclick_handlers,
         )

@@ -20,7 +20,7 @@ class SetLowerScaleLimitMixIn:
         value : Number
             A value to apply the lower scale limit.
         """
-        import apysc as ap
+        from apysc._branch._if import If
 
-        with ap.If(value < MIN_SCALE, locals_=locals()):
-            value.value = ap.Number(MIN_SCALE)
+        with If(value < MIN_SCALE, locals_=locals()):
+            value.value = Number(MIN_SCALE)

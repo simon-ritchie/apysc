@@ -78,11 +78,10 @@ class HeightMixIn(
         >>> rectangle.height
         Int(100)
         """
-        import apysc as ap
         from apysc._type import value_util
 
         self._initialize_height_if_not_initialized()
-        height: ap.Int = value_util.get_copy(value=self._height)
+        height: Int = value_util.get_copy(value=self._height)
         return height
 
     @height.setter
@@ -110,12 +109,12 @@ class HeightMixIn(
         """
         Append height updating expression.
         """
-        import apysc as ap
         from apysc._type import value_util
+        from apysc._expression import expression_data_util
 
         height_str: str = value_util.get_value_str_for_expression(value=self._height)
         expression: str = f"{self.variable_name}.height({height_str});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_height_and_skip_appending_exp(self, *, value: Union[int, Int]) -> None:
@@ -127,13 +126,12 @@ class HeightMixIn(
         value : int or Int
             Height value to set.
         """
-        import apysc as ap
         from apysc._converter import cast
 
         self._initialize_height_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
-        if isinstance(value, ap.Int):
-            value_: ap.Int = value
+        if isinstance(value, Int):
+            value_: Int = value
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="height"

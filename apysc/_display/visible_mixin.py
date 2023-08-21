@@ -105,7 +105,7 @@ class VisibleMixIn(
         """
         Append visible property updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"if ({self._visible.variable_name}) {{"
@@ -114,7 +114,7 @@ class VisibleMixIn(
             f"\n  {self.variable_name}.hide();"
             "\n}"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _visible_snapshots: Optional[Dict[str, bool]] = None
 

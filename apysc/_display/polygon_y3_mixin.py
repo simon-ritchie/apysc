@@ -35,10 +35,10 @@ class PolygonY3MixIn(PolygonApplyCurrentPointsMixIn):
         value : Number
             Y-coordinate to set.
         """
-        import apysc as ap
+        from apysc._geom.point2d import Point2D
 
         self._y3._value = value._value
-        new_point: ap.Point2D = self._points[2]
+        new_point: Point2D = self._points[2]
         new_point.y = value
         self._points[2] = new_point
         self._apply_current_points()

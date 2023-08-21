@@ -28,7 +28,7 @@ class SVGTextDeltaYMixIn(
         delta_y : Number
             A current position's delta-y value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -39,7 +39,7 @@ class SVGTextDeltaYMixIn(
         )
         delta_y: Number = Number(self._delta_y, variable_name_suffix=suffix)
         expression: str = f"{delta_y.variable_name} = {self.variable_name}.dy();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return delta_y
 
     @delta_y.setter
@@ -59,11 +59,11 @@ class SVGTextDeltaYMixIn(
         This setting also changes a coordinate of subsequent
         `SVGTextSpan`'s instance.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._delta_y = value._value
         expression: str = f"{self.variable_name}.dy({value.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _delta_y_snapshots: Optional[Dict[str, float]] = None
 

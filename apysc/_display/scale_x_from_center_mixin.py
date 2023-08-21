@@ -36,14 +36,13 @@ class ScaleXFromCenterMixIn(
         Initialize the `_scale_x_from_center` attribute if
         this instance does not initialize it yet.
         """
-        import apysc as ap
 
         if hasattr(self, "_scale_x_from_center"):
             return
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="scale_x_from_center"
         )
-        self._scale_x_from_center = ap.Number(
+        self._scale_x_from_center = Number(
             1.0,
             variable_name_suffix=suffix,
             skip_init_substitution_expression_appending=True,
@@ -123,10 +122,8 @@ class ScaleXFromCenterMixIn(
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_scale_from_center.html  # noqa
         """
-        import apysc as ap
-
         self._initialize_scale_x_from_center_if_not_initialized()
-        before_value: ap.Number = self._scale_x_from_center
+        before_value: Number = self._scale_x_from_center
         self._set_lower_scale_limit(value=value)
         self._scale_x_from_center = value
         self._append_scale_x_from_center_update_expression(before_value=before_value)
@@ -147,7 +144,7 @@ class ScaleXFromCenterMixIn(
         before_value : ap.Number
             Before updating value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         before_value_str: str = value_util.get_value_str_for_expression(
@@ -161,7 +158,7 @@ class ScaleXFromCenterMixIn(
             f"\n{self.variable_name}.scale({after_value_str}, 1);"
             f"\n{before_value_str} = {after_value_str};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _scale_x_from_center_snapshots: Optional[Dict[str, float]] = None
 

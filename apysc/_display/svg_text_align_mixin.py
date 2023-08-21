@@ -61,11 +61,11 @@ class SVGTextAlignMixIn(
         value : SVGTextAlign
             A text-align setting.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._align = value
         expression: str = f'{self.variable_name}.font("anchor", "{value.value}");'
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _align_snapshots: Optional[Dict[str, SVGTextAlign]] = None
 

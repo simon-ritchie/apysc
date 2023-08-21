@@ -206,7 +206,7 @@ class CustomEventMixIn(
         name : str
             Handler's name.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         blank_object_variable_name: str = self.blank_object_variable_name
         expression: str = (
@@ -215,7 +215,7 @@ class CustomEventMixIn(
             f"\n$({blank_object_variable_name})"
             f'.on("{custom_event_type_str}", {name});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -254,7 +254,7 @@ class CustomEventMixIn(
         >>> # Do something here and then trigger the custom event
         >>> rectangle.trigger_custom_event(custom_event_type="my_custom_event")
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         blank_object_variable_name: str = self.blank_object_variable_name
         custom_event_type_str: str = self._get_custom_event_type_str(
@@ -263,7 +263,7 @@ class CustomEventMixIn(
         expression: str = (
             f"$({blank_object_variable_name})" f'.trigger("{custom_event_type_str}");'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.handler_args_num(arg_position_index=2)
@@ -340,13 +340,13 @@ class CustomEventMixIn(
         name : str
             Handler's name.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"$({self.blank_object_variable_name})"
             f'.off("{custom_event_type_str}", {name});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -381,7 +381,7 @@ class CustomEventMixIn(
         >>> # Do something here and then trigger the custom event
         >>> rectangle.trigger_custom_event(custom_event_type="my_custom_event")
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         custom_event_type_str: str = self._get_custom_event_type_str(
             custom_event_type=custom_event_type
@@ -393,4 +393,4 @@ class CustomEventMixIn(
         expression: str = (
             f"$({self.blank_object_variable_name})" f'.off("{custom_event_type_str}");'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

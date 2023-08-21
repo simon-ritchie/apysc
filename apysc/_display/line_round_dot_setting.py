@@ -100,13 +100,11 @@ class LineRoundDotSetting(
         >>> line.line_round_dot_setting.space_size
         Int(5)
         """
-        import apysc as ap
-
         self._variable_name_suffix = variable_name_suffix
-        round_size_: ap.Int = self._get_copied_int_from_builtin_val(
+        round_size_: Int = self._get_copied_int_from_builtin_val(
             integer=round_size, attr_identifier="round_size"
         )
-        space_size_: ap.Int = self._get_copied_int_from_builtin_val(
+        space_size_: Int = self._get_copied_int_from_builtin_val(
             integer=space_size, attr_identifier="space_size"
         )
         super(LineRoundDotSetting, self).__init__(

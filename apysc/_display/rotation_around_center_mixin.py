@@ -111,10 +111,8 @@ class RotationAroundCenterMixIn(
         - GraphicsBase rotation_around_center interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_rotation_around_center.html  # noqa
         """
-        import apysc as ap
-
         self._initialize_rotation_around_center_if_not_initialized()
-        before_value: ap.Int = self._rotation_around_center
+        before_value: Int = self._rotation_around_center
         self._rotation_around_center = value
         self._append_rotation_around_center_update_expression(before_value=before_value)
 
@@ -134,7 +132,7 @@ class RotationAroundCenterMixIn(
         before_value : ap.Int
             Before updating value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         before_value_str: str = value_util.get_value_str_for_expression(
@@ -148,7 +146,7 @@ class RotationAroundCenterMixIn(
             f"\n{self.variable_name}.rotate({after_value_str});"
             f"\n{before_value_str} = {after_value_str};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _rotation_around_center_snapshots: Optional[Dict[str, int]] = None
 

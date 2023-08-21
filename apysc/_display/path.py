@@ -375,11 +375,12 @@ class Path(
         """
         Append a constructor expression.
         """
-        import apysc as ap
         from apysc._geom.path_data_util import make_paths_expression_from_list
         from apysc._string import indent_util
+        from apysc._display.stage import get_stage, Stage
+        from apysc._expression import expression_data_util
 
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         path_data_expression: str = make_paths_expression_from_list(
             path_data_list=self._path_data_list
         )
@@ -420,7 +421,7 @@ class Path(
         if self._fill_color == COLORLESS:
             expression += f'\n{spaces}fill: "transparent",'
         expression += "\n  });"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:
         """
@@ -447,13 +448,15 @@ class Path(
         path : Path
             An initialized path instance.
         """
-        import apysc as ap
+        from apysc._geom.path_move_to import PathMoveTo
+        from apysc._geom.path_line_to import PathLineTo
+        from apysc._type.boolean import Boolean
 
         path: Path = Path(
             path_data_list=[
-                ap.PathMoveTo(x=-2, y=-2),
-                ap.PathLineTo(x=-1, y=-1),
+                PathMoveTo(x=-2, y=-2),
+                PathLineTo(x=-1, y=-1),
             ],
         )
-        path.visible = ap.Boolean(False)
+        path.visible = Boolean(False)
         return path

@@ -123,14 +123,14 @@ class LineAlphaMixIn(
         """
         Append line alpha updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         line_alpha_str: str = value_util.get_value_str_for_expression(
             value=self._line_alpha
         )
         expression: str = f"{self.variable_name}.stroke({{opacity: {line_alpha_str}}});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_line_alpha_and_skip_appending_exp(
@@ -144,10 +144,8 @@ class LineAlphaMixIn(
         value : float or Number
             Line alpha (opacity) to set.
         """
-        import apysc as ap
-
-        if isinstance(value, ap.Number):
-            value_: ap.Number = value
+        if isinstance(value, Number):
+            value_: Number = value
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="line_alpha"

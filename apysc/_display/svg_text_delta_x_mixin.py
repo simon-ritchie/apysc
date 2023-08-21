@@ -28,7 +28,7 @@ class SVGTextDeltaXMixIn(
         delta_x : Number
             A current position's delta-x value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -39,7 +39,7 @@ class SVGTextDeltaXMixIn(
         )
         delta_x: Number = Number(self._delta_x, variable_name_suffix=suffix)
         expression: str = f"{delta_x.variable_name} = {self.variable_name}.dx();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return delta_x
 
     @delta_x.setter
@@ -59,11 +59,11 @@ class SVGTextDeltaXMixIn(
         This setting also changes a coordinate of subsequent
         `SVGTextSpan`'s instance.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._delta_x = value._value
         expression: str = f"{self.variable_name}.dx({value.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _delta_x_snapshots: Optional[Dict[str, float]] = None
 

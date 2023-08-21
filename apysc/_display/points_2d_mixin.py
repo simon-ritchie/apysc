@@ -136,10 +136,10 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         value : Array
             Points value to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self._points.variable_name} = {value.variable_name};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _points_snapshots: Optional[Dict[str, Array]] = None
 

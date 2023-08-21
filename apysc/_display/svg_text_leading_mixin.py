@@ -28,7 +28,7 @@ class SVGTextLeadingMixIn(
         leading : Number
             A current leading setting.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -41,7 +41,7 @@ class SVGTextLeadingMixIn(
         expression: str = (
             f'{leading.variable_name} = {self.variable_name}.font("leading");'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return leading
 
     @leading.setter
@@ -56,13 +56,13 @@ class SVGTextLeadingMixIn(
         value : Number
             A leading setting.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._leading = value._value
         expression: str = (
             f'{self.variable_name}.font("leading", {value.variable_name});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _leading_snapshots: Optional[Dict[str, float]] = None
 

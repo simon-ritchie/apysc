@@ -120,7 +120,7 @@ class LineThicknessMixIn(
         """
         Append line thickness update expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         line_thickness_str: str = value_util.get_value_str_for_expression(
@@ -129,7 +129,7 @@ class LineThicknessMixIn(
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-width": ' f"{line_thickness_str}}});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_line_thickness_and_skip_appending_exp(
@@ -143,10 +143,10 @@ class LineThicknessMixIn(
         value : Int or int
             Line thickness to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        if isinstance(value, ap.Int):
-            value_: ap.Int = value
+        if isinstance(value, Int):
+            value_: Int = value
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="line_thickness"

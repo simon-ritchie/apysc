@@ -109,7 +109,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         """
         Append line cap updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         joints_name: str = value_util.get_value_str_for_expression(
@@ -118,7 +118,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         expression: str = (
             f"{self.variable_name}.attr" f'({{"stroke-linejoin": {joints_name}}});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _line_joints_snapshots: Optional[Dict[str, str]] = None
 

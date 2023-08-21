@@ -54,11 +54,11 @@ class SVGTextFontSizeMixIn(
         value : Int
             A font-size setting.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._font_size = value._value
         expression: str = f'{self.variable_name}.font("size", {value.variable_name});'
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -71,12 +71,12 @@ class SVGTextFontSizeMixIn(
         font_size : Int
             A target font-size setting.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f'{font_size.variable_name} = {self.variable_name}.font("size");'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _font_size_snapshots: Optional[Dict[str, int]] = None
 

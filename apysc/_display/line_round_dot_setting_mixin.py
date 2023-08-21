@@ -82,14 +82,14 @@ class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
         value : LineRoundDotSetting or None
             Line round setting to set.
         """
-        import apysc as ap
+        from apysc._display.line_caps import LineCaps
 
         self._update_line_round_dot_setting_and_skip_appending_exp(value=value)
         if value is not None:
-            self.line_cap = ap.LineCaps.ROUND
+            self.line_cap = LineCaps.ROUND
             self.line_thickness = value.round_size
         else:
-            self.line_cap = ap.LineCaps.BUTT
+            self.line_cap = LineCaps.BUTT
         self._append_line_round_dot_setting_update_expression()
 
     @final
@@ -118,7 +118,7 @@ class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
         """
         Append line round dot setting updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         if self._line_round_dot_setting is None:
             setting_str: str = '""'
@@ -129,7 +129,7 @@ class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
         expression: str = (
             f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -142,10 +142,10 @@ class LineRoundDotSettingMixIn(LineCapMixIn, LineThicknessMixIn):
         - GraphicsBase line_round_dot interface
             - https://simon-ritchie.github.io/apysc/en/graphics_base_line_round_dot_setting.html  # noqa
         """
-        import apysc as ap
+        from apysc._display.line_caps import LineCaps
 
         self._update_line_round_dot_setting_and_skip_appending_exp(value=None)
-        self.line_cap = ap.LineCaps.BUTT
+        self.line_cap = LineCaps.BUTT
         self._append_line_round_dot_setting_update_expression()
 
     _line_round_dot_setting_snapshots: Optional[

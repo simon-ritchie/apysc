@@ -185,7 +185,7 @@ class WidthAndHeightMixInForEllipse(
         """
         Append an ellipse width and height updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         self._initialize_width_and_height_if_not_initialized()
@@ -200,7 +200,7 @@ class WidthAndHeightMixInForEllipse(
             f"Math.trunc({width_value_str} / 2), "
             f"Math.trunc({height_value_str}) / 2);"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _width_snapshots: Optional[Dict[str, int]] = None
     _height_snapshots: Optional[Dict[str, int]] = None

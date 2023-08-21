@@ -115,13 +115,12 @@ class RadiusMixIn(
         radius : Int
             Type converted radius value.
         """
-        import apysc as ap
 
-        if not isinstance(radius, ap.Int):
+        if not isinstance(radius, Int):
             suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="radius"
             )
-            return ap.Int(radius, variable_name_suffix=suffix)
+            return Int(radius, variable_name_suffix=suffix)
         return radius
 
     @final
@@ -130,13 +129,13 @@ class RadiusMixIn(
         """
         Append radius value updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         self._initialize_radius_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(value=self._radius)
         expression: str = f"{self.variable_name}.radius({value_str});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _radius_snapshots: Optional[Dict[str, int]] = None
 

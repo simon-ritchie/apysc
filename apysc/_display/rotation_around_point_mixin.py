@@ -85,18 +85,17 @@ class RotationAroundPointMixIn(
         >>> rectangle.get_rotation_around_point(x=x, y=y)
         Int(45)
         """
-        import apysc as ap
         from apysc._display import rotation_interface_helper
         from apysc._type.expression_string import ExpressionString
 
         self._initialize_rotation_around_point_if_not_initialized()
-        default_val: ap.Int = ap.Int(0)
+        default_val: Int = Int(0)
         key_exp_str: ExpressionString = (
             rotation_interface_helper.get_coordinates_key_for_expression(
                 x=float(x._value), y=float(y._value)
             )
         )
-        rotation: ap.Int = self._rotation_around_point.get(
+        rotation: Int = self._rotation_around_point.get(
             key=key_exp_str, default=default_val
         )
         return rotation
@@ -156,12 +155,12 @@ class RotationAroundPointMixIn(
         y : Number
             Y-coordinate.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = self._get_rotation_around_point_updating_expression(
             rotation=rotation, x=x, y=y
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _get_rotation_around_point_updating_expression(

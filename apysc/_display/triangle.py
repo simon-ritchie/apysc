@@ -462,7 +462,7 @@ class Triangle(
         triangle : Triangle
             An initialized triangle instance.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         triangle: Triangle = Triangle(
             x1=-2,
@@ -472,5 +472,5 @@ class Triangle(
             x3=-1,
             y3=-1,
         )
-        triangle.visible = ap.Boolean(False)
+        triangle.visible = Boolean(False)
         return triangle

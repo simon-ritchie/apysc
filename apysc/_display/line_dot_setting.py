@@ -81,10 +81,8 @@ class LineDotSetting(
         >>> line.line_dot_setting.dot_size
         Int(5)
         """
-        import apysc as ap
-
         self._variable_name_suffix = variable_name_suffix
-        dot_size_: ap.Int = self._get_copied_int_from_builtin_val(
+        dot_size_: Int = self._get_copied_int_from_builtin_val(
             integer=dot_size, attr_identifier="dot_size"
         )
         super(LineDotSetting, self).__init__(

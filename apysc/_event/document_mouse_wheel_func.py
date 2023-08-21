@@ -44,21 +44,23 @@ def bind_wheel_event_to_document(
     - About the handler options' type
         - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
     """
-    import apysc as ap
     from apysc._event.handler import HandlerData
     from apysc._event.handler import append_handler_expression
     from apysc._event.handler import get_handler_name
+    from apysc._display._document import document
+    from apysc._expression import expression_data_util
+    from apysc._event.wheel_event import WheelEvent
 
-    name: str = get_handler_name(handler=handler, instance=ap.document)
-    expression: str = f'$({ap.document.variable_name}).on("mousewheel", {name});'
-    ap.append_js_expression(expression=expression)
+    name: str = get_handler_name(handler=handler, instance=document)
+    expression: str = f'$({document.variable_name}).on("mousewheel", {name});'
+    expression_data_util.append_js_expression(expression=expression)
 
     if options is None:
         options = {}  # type: ignore
     handler_data: HandlerData[WheelEvent] = HandlerData(
         handler=handler, options=options
     )
-    e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
+    e: WheelEvent = WheelEvent(this=document)
     append_handler_expression(handler_data=handler_data, handler_name=name, e=e)
     return name
 
@@ -75,12 +77,13 @@ def unbind_wheel_event_from_document(*, handler: _Handler[_Options]) -> None:
     handler : _Handler
         Callable to unbind.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._event.handler import get_handler_name
+    from apysc._display._document import document
 
-    name: str = get_handler_name(handler=handler, instance=ap.document)
-    expression: str = f'$({ap.document.variable_name}).off("mousewheel", {name});'
-    ap.append_js_expression(expression=expression)
+    name: str = get_handler_name(handler=handler, instance=document)
+    expression: str = f'$({document.variable_name}).off("mousewheel", {name});'
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -88,7 +91,8 @@ def unbind_wheel_event_all_from_document() -> None:
     """
     Unbind all wheels event from the document (overall window).
     """
-    import apysc as ap
+    from apysc._display._document import document
+    from apysc._expression import expression_data_util
 
-    expression: str = f'$({ap.document.variable_name}).off("mousewheel");'
-    ap.append_js_expression(expression=expression)
+    expression: str = f'$({document.variable_name}).off("mousewheel");'
+    expression_data_util.append_js_expression(expression=expression)

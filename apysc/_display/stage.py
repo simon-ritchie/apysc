@@ -120,7 +120,8 @@ class Stage(
         ...     stage_elem_id="sales_chart",
         ... )
         """
-        import apysc as ap
+        from apysc._type.int import Int
+        from apysc._type.array import Array
         from apysc._expression import expression_data_util
         from apysc._html import html_util
         from apysc._validation import string_validation
@@ -140,8 +141,8 @@ class Stage(
             str_val=self._stage_elem_id
         )
         self.variable_name = self._stage_elem_id.replace("-", "_")
-        self._update_width_and_skip_appending_exp(value=ap.Int(stage_width))
-        self._update_height_and_skip_appending_exp(value=ap.Int(stage_height))
+        self._update_width_and_skip_appending_exp(value=Int(stage_width))
+        self._update_height_and_skip_appending_exp(value=Int(stage_height))
 
         self._background_color = background_color
         string_validation.validate_not_empty_string(string=add_to)
@@ -151,7 +152,7 @@ class Stage(
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="children"
         )
-        self._children = ap.Array([], variable_name_suffix=suffix)
+        self._children = Array([], variable_name_suffix=suffix)
         _current_stage = self
 
         self._initialize_top_level_constants()
@@ -200,10 +201,10 @@ class Stage(
         """
         Append stage constructor expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = self._make_constructor_expression()
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _make_constructor_expression(self) -> str:

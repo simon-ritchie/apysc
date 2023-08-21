@@ -126,12 +126,13 @@ class Sprite(
         >>> sprite_2.x
         Number(50.0)
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        from apysc._type.array import Array
 
         self._variable_name_suffix = variable_name_suffix
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         if variable_name == "":
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.SPRITE
@@ -140,7 +141,7 @@ class Sprite(
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="children"
         )
-        self._children = ap.Array([], variable_name_suffix=suffix)
+        self._children = Array([], variable_name_suffix=suffix)
 
         super(Sprite, self).__init__(variable_name=variable_name)
         self._append_constructor_expression()
@@ -155,13 +156,14 @@ class Sprite(
         """
         Append Sprite constructor expression.
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
+        from apysc._expression import expression_data_util
 
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         expression: str = (
             f"\nvar {self.variable_name} = {stage.variable_name}.nested();"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
@@ -214,8 +216,8 @@ class Sprite(
         sprite : Sprite
             An initialized sprite instance.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         sprite: Sprite = Sprite()
-        sprite.visible = ap.Boolean(False)
+        sprite.visible = Boolean(False)
         return sprite

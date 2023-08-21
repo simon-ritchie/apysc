@@ -16,7 +16,8 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         """
         Append a polygon's constructor expression.
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
+        from apysc._expression import expression_data_util
         from apysc._display.append_fill_alpha_attr_expression_mixin import (
             AppendFillAlphaAttrExpressionMixIn,
         )
@@ -46,7 +47,7 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         )
 
         INDENT_NUM: int = 2
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         points_var_name: str
         points_expression: str
         points_var_name, points_expression = self._make_2dim_points_expression()
@@ -93,5 +94,5 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
                 expression=expression, indent_num=INDENT_NUM
             )
         expression += "\n  });"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         self._points_var_name = points_var_name

@@ -443,11 +443,12 @@ class Rectangle(
         """
         Append constructor expression.
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
+        from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
         variable_name: str = self.variable_name
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         expression: str = (
             f"var {variable_name} = {stage.variable_name}"
             f"\n  .rect({self.width.variable_name}, "
@@ -482,7 +483,7 @@ class Rectangle(
             expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @classmethod
     @final
@@ -495,8 +496,8 @@ class Rectangle(
         rectangle : Rectangle
             An initialized rectangle instance.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         rectangle: Rectangle = Rectangle(x=-2, y=-2, width=1, height=1)
-        rectangle.visible = ap.Boolean(False)
+        rectangle.visible = Boolean(False)
         return rectangle

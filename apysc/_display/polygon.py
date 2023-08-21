@@ -385,7 +385,7 @@ class Polygon(
         polygon : Polygon
             An initialized polygon instance.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         polygon: Polygon = Polygon(
             points=[
@@ -394,5 +394,5 @@ class Polygon(
                 Point2D(x=-1, y=-1),
             ]
         )
-        polygon.visible = ap.Boolean(False)
+        polygon.visible = Boolean(False)
         return polygon

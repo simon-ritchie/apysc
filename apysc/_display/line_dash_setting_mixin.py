@@ -108,8 +108,6 @@ class LineDashSettingMixIn(VariableNameMixIn, RevertMixIn):
         """
         Append line dash setting updating expression.
         """
-        import apysc as ap
-
         if self._line_dash_setting is None:
             setting_str: str = '""'
         else:

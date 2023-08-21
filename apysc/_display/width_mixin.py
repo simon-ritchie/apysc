@@ -76,11 +76,10 @@ class WidthMixIn(
         >>> rectangle.width
         Int(100)
         """
-        import apysc as ap
         from apysc._type import value_util
 
         self._initialize_width_if_not_initialized()
-        width: ap.Int = value_util.get_copy(value=self._width)
+        width: Int = value_util.get_copy(value=self._width)
         return width
 
     @width.setter
@@ -108,12 +107,12 @@ class WidthMixIn(
         """
         Append width updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         width_str: str = value_util.get_value_str_for_expression(value=self._width)
         expression: str = f"{self.variable_name}.width({width_str});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_width_and_skip_appending_exp(self, *, value: Union[int, Int]) -> None:
@@ -125,13 +124,12 @@ class WidthMixIn(
         value : int or Int
             Width value to set.
         """
-        import apysc as ap
         from apysc._converter import cast
 
         self._initialize_width_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
-        if isinstance(value, ap.Int):
-            value_: ap.Int = value
+        if isinstance(value, Int):
+            value_: Int = value
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="width"

@@ -341,11 +341,12 @@ class SVGText(
         """
         Append a constructor expression string.
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
+        from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
         variable_name: str = self.variable_name
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         expression: str = (
             f"var {variable_name} = {stage.variable_name}" "\n  .text()\n  .attr({"
         )
@@ -371,7 +372,7 @@ class SVGText(
             expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @classmethod
     # text_spans
@@ -507,7 +508,8 @@ class SVGText(
         ...     fill_color=ap.Color("#0af"),
         ... )
         """
-        import apysc as ap
+        from apysc._loop.for_array_indices import ForArrayIndices
+        from apysc._expression import expression_data_util
 
         svg_text: SVGText = SVGText(
             text="",
@@ -531,7 +533,7 @@ class SVGText(
             text_spans=text_spans
         )
         i: Int
-        with ap.ForArrayIndices(
+        with ForArrayIndices(
             arr=text_spans_,
             locals_=locals(),
             globals_=globals(),
@@ -540,7 +542,7 @@ class SVGText(
             expression: str = (
                 f"{svg_text.variable_name}.add({text_span.variable_name});"
             )
-            ap.append_js_expression(expression=expression)
+            expression_data_util.append_js_expression(expression=expression)
         return svg_text
 
     @final
@@ -602,8 +604,6 @@ class SVGText(
         svg_text : SVGText
             An initialized svg text instance.
         """
-        import apysc as ap
-
         svg_text: SVGText = SVGText(text="")
-        svg_text.visible = ap.Boolean(False)
+        svg_text.visible = Boolean(False)
         return svg_text

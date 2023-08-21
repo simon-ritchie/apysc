@@ -86,18 +86,17 @@ class ScaleXFromPointMixIn(
         >>> rectangle.get_scale_x_from_point(x=x)
         Number(1.5)
         """
-        import apysc as ap
         from apysc._display import scale_interface_helper
         from apysc._type.expression_string import ExpressionString
 
         self._initialize_scale_x_from_point_if_not_initialized()
-        default_val: ap.Number = ap.Number(1.0)
+        default_val: Number = Number(1.0)
         key_exp_str: ExpressionString = (
             scale_interface_helper.get_coordinate_key_for_expression(
                 coordinate=float(x._value)
             )
         )
-        scale_x: ap.Number = self._scale_x_from_point.get(
+        scale_x: Number = self._scale_x_from_point.get(
             key=key_exp_str, default=default_val
         )
         return scale_x
@@ -165,7 +164,7 @@ class ScaleXFromPointMixIn(
         x : Number
             X-coordinate.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._display import scale_interface_helper
 
         expression: str
@@ -175,7 +174,7 @@ class ScaleXFromPointMixIn(
             interface_variable_name=self.variable_name,
             coordinate_type=scale_interface_helper.CoordinateType.X,
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _scale_x_from_point_snapshots: Optional[Dict[str, Dict[str, Any]]] = None
 

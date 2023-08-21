@@ -86,14 +86,14 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         """
         Append line cap updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         cap_name: str = value_util.get_value_str_for_expression(value=self._line_cap)
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _update_line_cap_and_skip_appending_exp(

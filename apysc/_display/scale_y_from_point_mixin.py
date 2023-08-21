@@ -83,17 +83,16 @@ class ScaleYFromPointMixIn(
         >>> rectangle.get_scale_y_from_point(y=y)
         Number(1.5)
         """
-        import apysc as ap
         from apysc._display import scale_interface_helper
 
         self._initialize_scale_y_from_point_if_not_initialized()
-        default_val: ap.Number = ap.Number(1.0)
+        default_val: Number = Number(1.0)
         key_exp_str: ExpressionString = (
             scale_interface_helper.get_coordinate_key_for_expression(
                 coordinate=float(y._value)
             )
         )
-        scale_y: ap.Number = self._scale_y_from_point.get(
+        scale_y: Number = self._scale_y_from_point.get(
             key=key_exp_str, default=default_val
         )
         return scale_y
@@ -156,7 +155,7 @@ class ScaleYFromPointMixIn(
         y : Number
             Y-coordinate.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._display import scale_interface_helper
 
         expression: str
@@ -166,7 +165,7 @@ class ScaleYFromPointMixIn(
             interface_variable_name=self.variable_name,
             coordinate_type=scale_interface_helper.CoordinateType.Y,
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _scale_y_from_point_snapshots: Optional[Dict[str, Dict[str, Any]]] = None
 

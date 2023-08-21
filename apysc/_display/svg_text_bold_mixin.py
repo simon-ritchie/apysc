@@ -27,7 +27,7 @@ class SVGTextBoldMixIn(
         bold_ : Boolean
             A boolean, whether this text is a bold style or not.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -40,7 +40,7 @@ class SVGTextBoldMixIn(
         expression: str = (
             f'{bold_.variable_name} = {self.variable_name}.font("weight") === "bold";'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return bold_
 
     @bold.setter
@@ -53,7 +53,7 @@ class SVGTextBoldMixIn(
         value : Boolean
             A boolean, whether this text is a bold style or not.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._bold = value._value
         expression: str = (
@@ -63,7 +63,7 @@ class SVGTextBoldMixIn(
             f'\n  {self.variable_name}.font("weight", "normal");'
             "\n}"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _bold_snapshots: Optional[Dict[str, bool]] = None
 

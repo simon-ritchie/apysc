@@ -54,13 +54,13 @@ class SVGTextFontFamilyMixIn(
             A font-family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         font_family_str: String = value.join(sep=String(","))
         expression: str = (
             f'{self.variable_name}.font({{"family": {font_family_str.variable_name}}});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -77,10 +77,10 @@ class SVGTextFontFamilyMixIn(
         font_family_string : String
             _description_
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{font_family_string.variable_name} = "
             f'{self.variable_name}.font("family");'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

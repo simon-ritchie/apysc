@@ -778,12 +778,12 @@ class Graphics(
         >>> line.line_dot_setting.dot_size
         Int(5)
         """
-        import apysc as ap
+        from apysc._display.line_dot_setting import LineDotSetting
 
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_dot_setting = ap.LineDotSetting(
+        self._line_dot_setting = LineDotSetting(
             dot_size=dot_size, variable_name_suffix=variable_name_suffix
         )
         line: _line.Line = _line.Line._create_with_graphics(
@@ -875,12 +875,12 @@ class Graphics(
         >>> line.line_dash_setting.space_size
         Int(2)
         """
-        import apysc as ap
+        from apysc._display.line_dash_setting import LineDashSetting
 
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_dash_setting = ap.LineDashSetting(
+        self._line_dash_setting = LineDashSetting(
             dash_size=dash_size,
             space_size=space_size,
             variable_name_suffix=variable_name_suffix,
@@ -974,12 +974,12 @@ class Graphics(
         >>> line.line_round_dot_setting.space_size
         Int(3)
         """
-        import apysc as ap
+        from apysc._display.line_round_dot_setting import LineRoundDotSetting
 
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_round_dot_setting = ap.LineRoundDotSetting(
+        self._line_round_dot_setting = LineRoundDotSetting(
             round_size=round_size,
             space_size=space_size,
             variable_name_suffix=variable_name_suffix,
@@ -1082,12 +1082,12 @@ class Graphics(
         >>> line.line_dash_dot_setting.space_size
         Int(3)
         """
-        import apysc as ap
+        from apysc._display.line_dash_dot_setting import LineDashDotSetting
 
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_dash_dot_setting = ap.LineDashDotSetting(
+        self._line_dash_dot_setting = LineDashDotSetting(
             dot_size=dot_size,
             dash_size=dash_size,
             space_size=space_size,
@@ -1343,9 +1343,9 @@ class Graphics(
         graphics : Graphics
             An initialized graphics instance.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         sprite_: sprite.Sprite = sprite.Sprite()
         graphics: Graphics = Graphics(parent=sprite_)
-        graphics.visible = ap.Boolean(False)
+        graphics.visible = Boolean(False)
         return graphics

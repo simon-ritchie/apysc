@@ -330,10 +330,11 @@ class Line(
         """
         Append a constructor expression.
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
+        from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         points_str: str = self._make_points_expression()
         expression: str = (
             f"var {self.variable_name} = {stage.variable_name}"
@@ -359,7 +360,7 @@ class Line(
             expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _make_points_expression(self) -> str:
@@ -371,10 +372,10 @@ class Line(
         expression : str
             Each point expression.
         """
-        import apysc as ap
+        from apysc._geom.point2d import Point2D
 
-        start_point: ap.Point2D = self._start_point
-        end_point: ap.Point2D = self._end_point
+        start_point: Point2D = self._start_point
+        end_point: Point2D = self._end_point
         expression: str = (
             f"{start_point.x.variable_name}, "
             f"{start_point.y.variable_name}, "
@@ -408,11 +409,11 @@ class Line(
         line : Line
             An initialized line instance.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         line: Line = Line(
             start_point=point2d.Point2D(x=-2, y=-2),
             end_point=point2d.Point2D(x=-1, y=-1),
         )
-        line.visible = ap.Boolean(False)
+        line.visible = Boolean(False)
         return line

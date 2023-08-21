@@ -95,13 +95,11 @@ class LineDashSetting(
         >>> line.line_dash_setting.space_size
         Int(2)
         """
-        import apysc as ap
-
         self._variable_name_suffix = variable_name_suffix
-        dash_size_: ap.Int = self._get_copied_int_from_builtin_val(
+        dash_size_: Int = self._get_copied_int_from_builtin_val(
             integer=dash_size, attr_identifier="dash_size"
         )
-        space_size_: ap.Int = self._get_copied_int_from_builtin_val(
+        space_size_: Int = self._get_copied_int_from_builtin_val(
             integer=space_size, attr_identifier="space_size"
         )
         super(LineDashSetting, self).__init__(

@@ -286,13 +286,13 @@ class SVGTextSpan(
         """
         Append a constructor expression string.
         """
-        import apysc as ap
+        from apysc._display.svg_text import SVGText
         from apysc._display.svg_text_singleton_for_text_span import (
             SVGTextSingletonForTextSpan,
         )
 
         INDENT_NUM: int = 2
-        parent: ap.SVGText = SVGTextSingletonForTextSpan.get_instance()
+        parent: SVGText = SVGTextSingletonForTextSpan.get_instance()
         variable_name: str = self.variable_name
         expression: str = (
             f"var {variable_name} = {parent.variable_name}" "\n  .tspan()\n  .attr({"
@@ -350,10 +350,8 @@ class SVGTextSpan(
         svg_text_span : SVGTextSpan
             An initialized text span instance.
         """
-        import apysc as ap
-
         svg_text_span: SVGTextSpan = SVGTextSpan(text="")
-        svg_text_span.visible = ap.Boolean(False)
+        svg_text_span.visible = Boolean(False)
         return svg_text_span
 
 

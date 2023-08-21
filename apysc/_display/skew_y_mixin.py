@@ -104,10 +104,8 @@ class SkewYMixIn(
         - GraphicsBase skew_x and skew_y interfaces
             - https://simon-ritchie.github.io/apysc/en/graphics_base_skew.html
         """
-        import apysc as ap
-
         self._initialize_skew_y_if_not_initialized()
-        before_value: ap.Int = self._skew_y
+        before_value: Int = self._skew_y
         self._skew_y = value
         self._append_skew_y_update_expression(before_value=before_value)
 
@@ -124,7 +122,7 @@ class SkewYMixIn(
         before_value : ap.Int
             Before updating value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         before_value_str: str = value_util.get_value_str_for_expression(
@@ -138,7 +136,7 @@ class SkewYMixIn(
             f"\n{self.variable_name}.skew(0, {after_value_str});"
             f"\n{before_value_str} = {after_value_str};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _skew_y_snapshot: Optional[Dict[str, int]] = None
 

@@ -132,12 +132,12 @@ class LineColorMixIn(
         """
         Append line color updating expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{self.variable_name}.stroke({self._line_color._value.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _set_initial_line_color_if_not_colorless(self, *, line_color: Color) -> None:

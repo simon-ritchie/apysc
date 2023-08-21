@@ -376,10 +376,11 @@ class Polyline(
         """
         Append constructor expression.
         """
-        import apysc as ap
+        from apysc._display.stage import get_stage, Stage
+        from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
-        stage: ap.Stage = ap.get_stage()
+        stage: Stage = get_stage()
         points_var_name: str
         points_expression: str
         points_var_name, points_expression = self._make_2dim_points_expression()
@@ -417,7 +418,7 @@ class Polyline(
             expression=expression, indent_num=INDENT_NUM
         )
         expression += "\n  });"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         self._points_var_name = points_var_name
 
     @classmethod
@@ -431,7 +432,7 @@ class Polyline(
         polyline : Polyline
             An initialized polyline instance
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         polyline: Polyline = Polyline(
             points=[
@@ -439,5 +440,5 @@ class Polyline(
                 Point2D(x=-1, y=-1),
             ]
         )
-        polyline.visible = ap.Boolean(False)
+        polyline.visible = Boolean(False)
         return polyline

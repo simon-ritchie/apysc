@@ -92,11 +92,11 @@ class EnterFrameMixIn(
         ...     rectangle.x += 1
         >>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
         """
-        import apysc as ap
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        from apysc._event.enter_frame_event import EnterFrameEvent
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
@@ -131,7 +131,7 @@ class EnterFrameMixIn(
                 value_identifier="prev_time",
             ),
         )
-        event: ap.EnterFrameEvent = ap.EnterFrameEvent(this=self)
+        event: EnterFrameEvent = EnterFrameEvent(this=self)
         millisecond_interval: Number = _get_millisecond_interval_from_fps(fps=fps)
         self._append_enter_frame_expression(
             handler_name=handler_name,
@@ -166,15 +166,17 @@ class EnterFrameMixIn(
         fps : FPS, default FPS.FPS_60
             Frame per second to set.
         """
-        import apysc as ap
+        from apysc._branch._if import If
+        from apysc._time.datetime_ import DateTime
+        from apysc._expression import expression_data_util
 
-        with ap.If(self._is_stopped_settings[handler_name]):
+        with If(self._is_stopped_settings[handler_name]):
             self._is_stopped_settings[handler_name].value = False
             self._fps_millisecond_intervals_settings[
                 handler_name
             ].value = _get_millisecond_interval_from_fps(fps=fps)
             prev_time: DateTime = self._prev_time_settings[handler_name]
-            now: DateTime = ap.DateTime.now()
+            now: DateTime = DateTime.now()
             prev_time.year = now.year
             prev_time.month = now.month
             prev_time.day = now.day
@@ -182,7 +184,7 @@ class EnterFrameMixIn(
             prev_time.minute = now.minute
             prev_time.second = now.second
             prev_time.millisecond = now.millisecond
-            ap.append_js_expression(
+            expression_data_util.append_js_expression(
                 expression=(
                     "requestAnimationFrame("
                     f"{self._loop_func_name_settings[handler_name]});"
@@ -241,8 +243,11 @@ class EnterFrameMixIn(
         prev_time : DateTime
             Previous time to calculate the duration.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._expression.indent_num import Indent
+        from apysc._time.timedelta_ import TimeDelta
+        from apysc._type.array import Array
+        from apysc._math.math import Math
 
         expression: str = (
             f"function {loop_func_name}() {{"
@@ -250,7 +255,7 @@ class EnterFrameMixIn(
             "\n    return;"
             "\n  }"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         with Indent():
             current_time: DateTime = DateTime.now(
                 variable_name_suffix=self._get_attr_or_variable_name_suffix(
@@ -269,28 +274,30 @@ class EnterFrameMixIn(
                     value_identifier="limited_count",
                 ),
             )
-            timedelta_: ap.TimeDelta = current_time - prev_time
+            timedelta_: TimeDelta = current_time - prev_time
             total_milliseconds: Number = timedelta_.total_seconds() * 1000
-            limited_total_milliseconds: Number = ap.Math.min(
-                ap.Array([total_milliseconds, 1000])
+            limited_total_milliseconds: Number = Math.min(
+                Array([total_milliseconds, 1000])
             )
-            count.value = ap.Math.trunc(total_milliseconds / millisecond_interval)
-            liimted_count.value = ap.Math.trunc(
+            count.value = Math.trunc(total_milliseconds / millisecond_interval)
+            liimted_count.value = Math.trunc(
                 limited_total_milliseconds / millisecond_interval
             )
-            ap.append_js_expression(
+            expression_data_util.append_js_expression(
                 expression=(
                     f"for (var i = 0; i < {liimted_count.variable_name}; i++) {{"
                     f"\n  {handler_name}();"
                     "\n}"
                 )
             )
-            ap.append_js_expression(
+            expression_data_util.append_js_expression(
                 expression=f"requestAnimationFrame({loop_func_name});"
             )
             prev_time.millisecond += count * millisecond_interval
-        ap.append_js_expression(expression="}")
-        ap.append_js_expression(expression=f"requestAnimationFrame({loop_func_name});")
+        expression_data_util.append_js_expression(expression="}")
+        expression_data_util.append_js_expression(
+            expression=f"requestAnimationFrame({loop_func_name});"
+        )
 
     def _initialize_enter_frame_handlers_if_not_initialized(self) -> None:
         """

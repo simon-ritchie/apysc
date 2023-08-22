@@ -45,9 +45,7 @@ class WheelEvent(Event):
         delta_x : Number
             Delta x value.
         """
-        import apysc as ap
-
-        delta_x: ap.Number = ap.Number(0)
+        delta_x: Number = Number(0)
         self._append_delta_x_getter_expression(delta_x=delta_x)
         return delta_x
 
@@ -62,10 +60,10 @@ class WheelEvent(Event):
         delta_x : Number
             Target delta x value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{delta_x.variable_name} = " f"{self.variable_name}.deltaX;"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -78,9 +76,9 @@ class WheelEvent(Event):
         delta_y : Number
             Delta y value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        delta_y: ap.Number = ap.Number(0)
+        delta_y: Number = Number(0)
         self._append_delta_y_getter_expression(delta_y=delta_y)
         return delta_y
 
@@ -95,7 +93,7 @@ class WheelEvent(Event):
         delta_y : Number
             Target delta y value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{delta_y.variable_name} = " f"{self.variable_name}.deltaY;"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

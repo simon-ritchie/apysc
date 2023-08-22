@@ -109,9 +109,7 @@ class MouseEvent(
         ... )
         >>> _ = rectangle.mousedown(on_mousedown)
         """
-        import apysc as ap
-
-        x: ap.Number = ap.Number(0)
+        x: Number = Number(0)
         self._append_stage_x_getter_expression(x=x)
         return x
 
@@ -126,14 +124,14 @@ class MouseEvent(
         x : Number
             Target x-coordinate value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._display.stage import get_stage_elem_str
 
         expression: str = (
             f"{x.variable_name} = {self.variable_name}.pageX - "
             f"{get_stage_elem_str()}.offset().left;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -165,9 +163,7 @@ class MouseEvent(
         ... )
         >>> _ = rectangle.mousedown(on_mousedown)
         """
-        import apysc as ap
-
-        y: ap.Number = ap.Number(0)
+        y: Number = Number(0)
         self._append_stage_y_getter_expression(y=y)
         return y
 
@@ -182,14 +178,14 @@ class MouseEvent(
         y : Number
             Target y-coordinate value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._display.stage import get_stage_elem_str
 
         expression: str = (
             f"{y.variable_name} = {self.variable_name}.pageY - "
             f"{get_stage_elem_str()}.offset().top;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -223,9 +219,7 @@ class MouseEvent(
         ... )
         >>> _ = rectangle.mousedown(on_mousedown)
         """
-        import apysc as ap
-
-        x: ap.Number = ap.Number(0)
+        x: Number = Number(0)
         self._append_local_x_getter_expression(x=x)
         return x
 
@@ -240,15 +234,15 @@ class MouseEvent(
         x : Number
             Target x-coordinate value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        stage_x: ap.Number = self.stage_x
+        stage_x: Number = self.stage_x
         this: _Target = self.this
         expression: str = (
             f"{x.variable_name} = {stage_x.variable_name} - "
             f"get_total_x({this.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -282,9 +276,7 @@ class MouseEvent(
         ... )
         >>> _ = rectangle.mousedown(on_mousedown)
         """
-        import apysc as ap
-
-        y: ap.Number = ap.Number(0)
+        y: Number = Number(0)
         self._append_local_y_getter_expression(y=y)
         return y
 
@@ -299,12 +291,12 @@ class MouseEvent(
         y : Number
             Target y-coordinate value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        stage_y: ap.Number = self.stage_y
+        stage_y: Number = self.stage_y
         this: _Target = self.this
         expression: str = (
             f"{y.variable_name} = {stage_y.variable_name} - "
             f"get_total_y({this.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

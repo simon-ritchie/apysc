@@ -23,7 +23,7 @@ class MouseEventBindingExpressionMixin:
         mouse_event_type : MouseEventType
             Event type to bind.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_mixin import VariableNameMixIn
         from apysc._validation.variable_name_validation import (
             validate_variable_name_mixin_type,
@@ -35,4 +35,4 @@ class MouseEventBindingExpressionMixin:
         expression: str = (
             f"{self_instance.variable_name}.{mouse_event_type.value}({name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

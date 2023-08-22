@@ -144,11 +144,11 @@ def _display_debug_mode_ignoring_minify_setting_info(
     msg : str
         Displayed message.
     """
-    import apysc as ap
+    from apysc._html.debug_mode import is_debug_mode
 
     if not minify:
         return ""
-    if not ap.is_debug_mode():
+    if not is_debug_mode():
         return ""
     msg: str = "The minify setting is ignored since the debug mode has been " "enabled."
     _display_info(msg=msg, verbose=verbose)
@@ -200,11 +200,11 @@ def _minify_html(*, html_str: str, minify: bool) -> str:
     html_str : str
         Result html string.
     """
-    import apysc as ap
+    from apysc._html.debug_mode import is_debug_mode
 
     if not minify:
         return html_str
-    if ap.is_debug_mode():
+    if is_debug_mode():
         return html_str
     minifier = Minifier(html=html_str)
     html_str = minifier.minify()
@@ -225,11 +225,11 @@ def _append_stage_global_variable_to_html(*, html_str: str) -> str:
     html_str : str
         After appended HTML string.
     """
-    import apysc as ap
+    from apysc._display.stage import get_stage, Stage
     from apysc._html import html_const
     from apysc._html import html_util
 
-    stage: ap.Stage = ap.get_stage()
+    stage: Stage = get_stage()
     html_str = html_util.append_html_to_str(
         to_append_html=html_const.SCRIPT_START_TAG, dest_html=html_str, indent_num=0
     )
@@ -251,9 +251,9 @@ def get_entry_point_func_name() -> str:
     entry_point_func_name : str
         An entry point function name.
     """
-    import apysc as ap
+    from apysc._display.stage import get_stage, Stage
 
-    stage: ap.Stage = ap.get_stage()
+    stage: Stage = get_stage()
     entry_point_func_name: str = f"main_{stage.variable_name}"
     return entry_point_func_name
 
@@ -272,11 +272,11 @@ def _append_entry_point_function_call(*, html_str: str) -> str:
     html_str : str
         After appended html string.
     """
-    import apysc as ap
+    from apysc._display._document import document
 
     html_str += (
         '\n<script type="text/javascript">'
-        f"\n$({ap.document.variable_name}).ready(function() {{"
+        f"\n$({document.variable_name}).ready(function() {{"
     )
     entry_point_func_name: str = get_entry_point_func_name()
     html_str += f"\n  {entry_point_func_name}();"

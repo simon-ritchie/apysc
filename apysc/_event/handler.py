@@ -85,7 +85,7 @@ def append_handler_expression(
         Optional expression to be added at the handler function's
         head position.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._event.handler_circular_calling_util import is_handler_circular_calling
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
@@ -104,13 +104,13 @@ def append_handler_expression(
         )
         if not is_handler_circular_calling_:
             expression: str = f"function {handler_name}({e.variable_name}) {{"
-            ap.append_js_expression(expression=expression)
+            expression_data_util.append_js_expression(expression=expression)
             with Indent():
                 _append_in_handler_head_expression(
                     in_handler_head_expression=in_handler_head_expression
                 )
                 handler_data.handler(e, handler_data.options)
-            ap.append_js_expression(expression="}")
+            expression_data_util.append_js_expression(expression="}")
 
     revert_mixin.revert_variables(snapshot_name=snapshot_name, variables=variables)
 
@@ -126,11 +126,11 @@ def _append_in_handler_head_expression(*, in_handler_head_expression: str) -> No
         Optional expression to be added at the handler function's
         head position if it is not blank.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     if in_handler_head_expression == "":
         return
-    ap.append_js_expression(expression=in_handler_head_expression)
+    expression_data_util.append_js_expression(expression=in_handler_head_expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -149,14 +149,14 @@ def append_unbinding_expression(
     mouse_event_type : MouseEventType
         Event type to unbind.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._validation import event_validation
 
     event_validation.validate_event_type(mouse_event_type=mouse_event_type)
     expression: str = (
         f'{this.variable_name}.off("{mouse_event_type.value}", ' f"{handler_name});"
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 @add_debug_info_setting(module_name=__name__)
@@ -173,9 +173,9 @@ def append_unbinding_all_expression(
     mouse_event_type : MouseEventType
         Event type to unbind.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
     from apysc._validation import event_validation
 
     event_validation.validate_event_type(mouse_event_type=mouse_event_type)
     expression: str = f'{this.variable_name}.off("{mouse_event_type.value}");'
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)

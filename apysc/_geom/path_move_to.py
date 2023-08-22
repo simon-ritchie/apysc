@@ -189,10 +189,8 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
         if not isinstance(other, PathMoveTo):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 False, variable_name_suffix=self._variable_name_suffix
             )
             return result
@@ -216,8 +214,6 @@ class PathMoveTo(PathDataBase, PathXMixIn, PathYMixIn):
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self == other
+        result: Boolean = self == other
         result = result.not_
         return result

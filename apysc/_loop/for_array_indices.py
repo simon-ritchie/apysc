@@ -151,14 +151,14 @@ class ForArrayIndices(
         i : Int
             Loop index value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         arr_name: str = self._arr.variable_name
         i_name: str = i.variable_name
         expression: str = (
             f"for ({i_name} = 0; {i_name} < {arr_name}.length; {i_name}++) {{"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _get_last_scope(self) -> LastScope:

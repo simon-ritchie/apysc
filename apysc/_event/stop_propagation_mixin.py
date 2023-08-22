@@ -34,7 +34,7 @@ class StopPropagationMixIn(VariableNameMixIn):
         >>> _ = sprite.click(on_click)
         >>> _ = rectangle.click(on_click)
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self.variable_name}.stopPropagation();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

@@ -81,7 +81,7 @@ def _create_triple_args_case_arr(*, start: Int, end: Int, step: Int) -> Array[In
     arr : Array[Int]
         A created array of integers.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     arr: Array[Int] = Array([])
     expression: str = (
@@ -90,7 +90,7 @@ def _create_triple_args_case_arr(*, start: Int, end: Int, step: Int) -> Array[In
         f"\n  {arr.variable_name}.push(i);"
         "\n}"
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
     return arr
 
 
@@ -110,7 +110,7 @@ def _create_double_args_case_arr(*, start: Int, end: Int) -> Array[Int]:
     arr : Array[Int]
         A created array of integers.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     arr: Array[Int] = Array([])
     expression: str = (
@@ -118,7 +118,7 @@ def _create_double_args_case_arr(*, start: Int, end: Int) -> Array[Int]:
         f"\n  {arr.variable_name}.push(i);"
         "\n}"
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
     return arr
 
 
@@ -136,7 +136,7 @@ def _create_single_arg_case_arr(*, end: Int) -> Array[Int]:
     arr : Array[Int]
         A created array of integers.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     arr: Array[Int] = Array([])
     expression: str = (
@@ -144,5 +144,5 @@ def _create_single_arg_case_arr(*, end: Int) -> Array[Int]:
         f"\n  {arr.variable_name}.push(i);"
         "\n}"
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
     return arr

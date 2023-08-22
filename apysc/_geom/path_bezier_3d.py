@@ -320,10 +320,8 @@ class PathBezier3D(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
         if not isinstance(other, PathBezier3D):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 False, variable_name_suffix=self._variable_name_suffix
             )
             return result
@@ -353,8 +351,6 @@ class PathBezier3D(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self == other
+        result: Boolean = self == other
         result = result.not_
         return result

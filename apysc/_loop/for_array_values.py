@@ -155,7 +155,7 @@ class ForArrayValues(
         arr_value : _ArrayValue
             A value of iteration.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
         from apysc._validation.variable_name_validation import (
@@ -174,7 +174,7 @@ class ForArrayValues(
         expression: str = (
             f"for ({arr_value_variable_name} of {self._arr.variable_name}) {{"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
         self._indent.__enter__()
         return arr_value

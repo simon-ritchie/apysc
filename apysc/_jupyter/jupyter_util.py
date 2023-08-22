@@ -31,14 +31,14 @@ def _save_overall_html(*, html_file_name: str, minify: bool) -> None:
     minify : bool, default True
         Boolean value whether minify a HTML or not.
     """
-    import apysc as ap
+    from apysc._html.exporter import save_overall_html
 
     timestamp: float = datetime.now().timestamp()
     random_int: int = randint(10000, 100000)
     dest_dir_path: str = (
         f"{_TMP_ROOT_DIR_PATH}tmp_apysc_jupyter_{timestamp}{random_int}/"
     )
-    ap.save_overall_html(
+    save_overall_html(
         dest_dir_path=dest_dir_path,
         html_file_name=html_file_name,
         minify=minify,
@@ -79,9 +79,9 @@ def display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None:
     from IPython.display import IFrame
     from IPython.display import display
 
-    import apysc as ap
+    from apysc._display.stage import Stage, get_stage
 
-    stage: ap.Stage = ap.get_stage()
+    stage: Stage = get_stage()
     _save_overall_html(html_file_name=html_file_name, minify=minify)
     display(
         IFrame(

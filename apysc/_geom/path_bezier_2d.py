@@ -251,10 +251,8 @@ class PathBezier2D(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
         if not isinstance(other, PathBezier2D):
-            result: ap.Boolean = ap.Boolean(False)
+            result: Boolean = Boolean(False)
             return result
         return (
             self.control_x == other.control_x
@@ -280,8 +278,6 @@ class PathBezier2D(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self == other
+        result: Boolean = self == other
         result = result.not_
         return result

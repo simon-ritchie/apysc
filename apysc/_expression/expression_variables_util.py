@@ -129,10 +129,10 @@ def append_substitution_expression(
     right_value : VariableNameMixIn
         Any right value.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     expression: str = f"{left_value.variable_name} = {right_value.variable_name};"
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 def append_substitution_expression_with_names(
@@ -153,9 +153,9 @@ def append_substitution_expression_with_names(
     right_variable_name : str
         Right-side variable name.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     if left_variable_name == "" or right_variable_name == "":
         return
     expression: str = f"{left_variable_name} = {right_variable_name};"
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)

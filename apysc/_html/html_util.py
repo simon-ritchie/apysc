@@ -83,7 +83,7 @@ def _append_remove_first_selector_symbol_char_expression(
     str_val : String
         A first character removed string instance.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     var_name: str = str_val.variable_name
     expression: str = (
@@ -92,7 +92,7 @@ def _append_remove_first_selector_symbol_char_expression(
         f"\n  {var_name} = {var_name}.slice(1);"
         "\n}"
     )
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
 
 def append_html_to_str(*, to_append_html: str, dest_html: str, indent_num: int) -> str:

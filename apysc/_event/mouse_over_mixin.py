@@ -70,7 +70,8 @@ class MouseOverMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin)
         ... )
         >>> _ = rectangle.mouseout(on_mouseover)
         """
-        import apysc as ap
+        from apysc._event.mouse_event import MouseEvent
+        from apysc._event.mouse_event_type import MouseEventType
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_mixin import VariableNameMixIn
@@ -87,9 +88,9 @@ class MouseOverMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin)
             handler=handler, handlers_dict=self._mouse_over_handlers, options=options
         )
         self._append_mouse_event_binding_expression(
-            name=name, mouse_event_type=ap.MouseEventType.MOUSEOVER
+            name=name, mouse_event_type=MouseEventType.MOUSEOVER
         )
-        e: ap.MouseEvent = ap.MouseEvent(this=self_instance)
+        e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._mouse_over_handlers[name], handler_name=name, e=e
         )
@@ -137,12 +138,12 @@ class MouseOverMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin)
         ... )
         >>> _ = rectangle.mouseout(on_mouseover)
         """
-        import apysc as ap
+        from apysc._event.mouse_event_type import MouseEventType
 
         self._initialize_mouse_over_handlers_if_not_initialized()
         self._unbind_mouse_event(
             handler=handler,
-            mouse_event_type=ap.MouseEventType.MOUSEOVER,
+            mouse_event_type=MouseEventType.MOUSEOVER,
             handlers_dict=self._mouse_over_handlers,
         )
 
@@ -172,10 +173,10 @@ class MouseOverMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin)
         ... )
         >>> _ = rectangle.mouseout(on_mouseover)
         """
-        import apysc as ap
+        from apysc._event.mouse_event_type import MouseEventType
 
         self._initialize_mouse_over_handlers_if_not_initialized()
         self._unbind_all_mouse_events(
-            mouse_event_type=ap.MouseEventType.MOUSEOVER,
+            mouse_event_type=MouseEventType.MOUSEOVER,
             handlers_dict=self._mouse_over_handlers,
         )

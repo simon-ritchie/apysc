@@ -55,7 +55,7 @@ class Continue:
         ...         _ = ap.Continue()
         ...
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._loop import loop_count
 
         current_loop_count: int = loop_count.get_current_loop_count()
@@ -66,4 +66,4 @@ class Continue:
                 "`with ap.ForArrayIndices(...):` statement."
             )
             raise Exception(err_msg)
-        ap.append_js_expression(expression="continue;")
+        expression_data_util.append_js_expression(expression="continue;")

@@ -100,21 +100,20 @@ class Point2D(
         ...     ]
         ... )
         """
-        import apysc as ap
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
 
         self._variable_name_suffix = variable_name_suffix
-        if isinstance(x, ap.Number):
-            x_: ap.Number = x
+        if isinstance(x, Number):
+            x_: Number = x
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-            x_ = ap.Number(x, variable_name_suffix=suffix)
-        if isinstance(y, ap.Number):
-            y_: ap.Number = y
+            x_ = Number(x, variable_name_suffix=suffix)
+        if isinstance(y, Number):
+            y_: Number = y
         else:
             suffix = self._get_attr_or_variable_name_suffix(value_identifier="y")
-            y_ = ap.Number(y, variable_name_suffix=suffix)
+            y_ = Number(y, variable_name_suffix=suffix)
         self._x = x_
         self._y = y_
         self.variable_name = expression_variables_util.get_next_variable_name(
@@ -128,14 +127,14 @@ class Point2D(
         """
         Append constructor expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"var {self.variable_name} = {{"
             f'"x": {self._x.variable_name}, '
             f'"y": {self._y.variable_name}}};'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -156,10 +155,8 @@ class Point2D(
         >>> point.x
         Number(150.0)
         """
-        import apysc as ap
-
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-        x: ap.Number = ap.Number(self._x._value, variable_name_suffix=suffix)
+        x: Number = Number(self._x._value, variable_name_suffix=suffix)
         self._append_x_getter_expression(x=x)
         return x
 
@@ -175,11 +172,9 @@ class Point2D(
         value : Number
             X-coordinate to set.
         """
-        import apysc as ap
-
-        if not isinstance(value, ap.Number):
+        if not isinstance(value, Number):
             suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
-            value = ap.Number(value, variable_name_suffix=suffix)
+            value = Number(value, variable_name_suffix=suffix)
         self._x = value
         self._x._append_incremental_calc_substitution_expression()
         self._append_x_setter_expression(value=value)
@@ -195,10 +190,10 @@ class Point2D(
         x : Number
             Target x value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{x.variable_name} = " f'{self.variable_name}["x"];'
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -211,10 +206,10 @@ class Point2D(
         value : Number
             X-coordinate to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f'{self.variable_name}["x"] = {value.variable_name};'
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -235,10 +230,8 @@ class Point2D(
         >>> point.y
         Number(150.0)
         """
-        import apysc as ap
-
         suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
-        y: ap.Number = ap.Number(self._y._value, variable_name_suffix=suffix)
+        y: Number = Number(self._y._value, variable_name_suffix=suffix)
         self._append_y_getter_expression(y=y)
         return y
 
@@ -254,11 +247,9 @@ class Point2D(
         value : Number
             Y-coordinate to set.
         """
-        import apysc as ap
-
-        if not isinstance(value, ap.Number):
+        if not isinstance(value, Number):
             suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="y")
-            value = ap.Number(value, variable_name_suffix=suffix)
+            value = Number(value, variable_name_suffix=suffix)
         self._y = value
         self._y._append_incremental_calc_substitution_expression()
         self._append_y_setter_expression(value=value)
@@ -274,10 +265,10 @@ class Point2D(
         y : Number
             Target y value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{y.variable_name} = " f'{self.variable_name}["y"];'
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -290,10 +281,10 @@ class Point2D(
         value : Number
             Y-coordinate to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f'{self.variable_name}["y"] = {value.variable_name};'
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -311,11 +302,12 @@ class Point2D(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
+        from apysc._type.boolean import Boolean
 
-        result: ap.Boolean
+        result: Boolean
         if not isinstance(other, Point2D):
-            result = ap.Boolean(False, variable_name_suffix=self._variable_name_suffix)
+            result = Boolean(False, variable_name_suffix=self._variable_name_suffix)
             return result
         return other.x == self.x and other.y == self.y
 
@@ -335,9 +327,9 @@ class Point2D(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
-        result: ap.Boolean = self == other
+        result: Boolean = self == other
         result = result.not_
         return result
 

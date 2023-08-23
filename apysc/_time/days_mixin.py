@@ -104,10 +104,10 @@ class DaysMixIn(
         days : Int
             Target days value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{days.variable_name} = Math.trunc({self.variable_name} / "
             "(1000 * 60 * 60 * 24));"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

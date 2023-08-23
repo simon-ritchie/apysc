@@ -84,7 +84,7 @@ class AnyValue(
         """
         Append constructor expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         expression: str = f"var {self.variable_name} = "
@@ -93,7 +93,7 @@ class AnyValue(
         else:
             value_str: str = value_util.get_value_str_for_expression(value=self._value)
             expression += f"{value_str};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -143,14 +143,14 @@ class AnyValue(
         value : *
             Any value to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self.variable_name} = "
         if isinstance(value, VariableNameMixIn):
             expression += f"{value.variable_name};"
         else:
             expression += f"{value};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -172,7 +172,7 @@ class AnyValue(
         result : AnyValue
             Calculated result value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         value_str: str = get_value_str_for_expression(value=other)
@@ -180,7 +180,7 @@ class AnyValue(
         expression: str = (
             f"{result.variable_name} = " f"{self.variable_name} {operator} {value_str};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return result
 
     @final
@@ -283,7 +283,7 @@ class AnyValue(
         result : AnyValue
             Floor division result value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         result: AnyValue = self._copy()
@@ -292,7 +292,7 @@ class AnyValue(
             f"{result.variable_name} = "
             f"Math.trunc({self.variable_name} / {value_str});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return result
 
     @final
@@ -311,12 +311,12 @@ class AnyValue(
         operator : str
             JavaScript arithmetic operator, like '+=', '*=', and so on.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = f"{self.variable_name} {operator} {value_str};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -425,16 +425,16 @@ class AnyValue(
             False on Python since the correct comparison
             is impossible.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
-        result: ap.Boolean = ap.Boolean(False)
+        result: Boolean = Boolean(False)
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} {comparison_operator} {value_str};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return result
 
     @final
@@ -455,9 +455,7 @@ class AnyValue(
             False on Python since the correct comparison
             is impossible.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self._append_comparison_expression(
+        result: Boolean = self._append_comparison_expression(
             comparison_operator="===", other=other
         )
         return result
@@ -480,9 +478,7 @@ class AnyValue(
             False on Python since the correct comparison
             is impossible.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self._append_comparison_expression(
+        result: Boolean = self._append_comparison_expression(
             comparison_operator="!==", other=other
         )
         return result
@@ -505,9 +501,7 @@ class AnyValue(
             False on Python since the correct comparison
             is impossible.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self._append_comparison_expression(
+        result: Boolean = self._append_comparison_expression(
             comparison_operator="<", other=other
         )
         return result
@@ -530,9 +524,7 @@ class AnyValue(
             False on Python since the correct comparison
             is impossible.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self._append_comparison_expression(
+        result: Boolean = self._append_comparison_expression(
             comparison_operator="<=", other=other
         )
         return result
@@ -555,9 +547,7 @@ class AnyValue(
             False on Python since the correct comparison
             is impossible.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self._append_comparison_expression(
+        result: Boolean = self._append_comparison_expression(
             comparison_operator=">", other=other
         )
         return result
@@ -579,9 +569,7 @@ class AnyValue(
             Comparison result. This value always becomes
             False on Python since the correct comparison is impossible.
         """
-        import apysc as ap
-
-        result: ap.Boolean = self._append_comparison_expression(
+        result: Boolean = self._append_comparison_expression(
             comparison_operator=">=", other=other
         )
         return result

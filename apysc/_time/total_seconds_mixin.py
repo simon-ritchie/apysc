@@ -109,9 +109,9 @@ class TotalSecondsMixIn(
         total_seconds : Number
             Total seconds value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{total_seconds.variable_name} = {self.variable_name} / 1000;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

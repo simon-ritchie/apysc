@@ -130,12 +130,12 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         minute_val : Int
             A month value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{minute_val.variable_name} = {self.variable_name}.getMinutes();"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_minute_int(arg_position_index=1)
@@ -149,12 +149,12 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         minute_val : Int
             A minute value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{self.variable_name}.setMinutes({minute_val.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

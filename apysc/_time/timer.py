@@ -149,12 +149,12 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         >>> options: RectOptions = {"rectangle": rectangle}
         >>> _ = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
         """
-        import apysc as ap
         from apysc._event.handler import get_handler_name
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
         from apysc._validation import number_validation
+        from apysc._expression import expression_data_util
 
         with TemporaryNotHandlerScope():
             self.variable_name = expression_variables_util.get_next_variable_name(
@@ -163,23 +163,23 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
             self._handler_name = get_handler_name(handler=handler, instance=self)
             handler = self._wrap_handler(handler=handler)
             self._handler: _Handler[_ConstructorOptions] = handler
-            delay_: ap.Number = self._convert_delay_to_number(delay=delay)
+            delay_: Number = self._convert_delay_to_number(delay=delay)
             number_validation.validate_num_is_gte_zero(num=delay_)
             self._delay = delay_
-            if isinstance(repeat_count, ap.Int):
-                repeat_count_: ap.Int = repeat_count
+            if isinstance(repeat_count, Int):
+                repeat_count_: Int = repeat_count
             else:
-                repeat_count_ = ap.Int(repeat_count)
+                repeat_count_ = Int(repeat_count)
             self._repeat_count = repeat_count_
-            self._running = ap.Boolean(False)
-            self._current_count = ap.Int(0)
+            self._running = Boolean(False)
+            self._current_count = Int(0)
             if options is None:
                 options = {}  # type: ignore
             self._handler_data = HandlerData(
                 handler=self._handler,
                 options=options,
             )
-            ap.append_js_expression(expression=f"var {self.variable_name};")
+            expression_data_util.append_js_expression(expression=f"var {self.variable_name};")
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -200,14 +200,13 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         delay_ : Number
             Converted delay value.
         """
-        import apysc as ap
         from apysc._time.fps import FPSDefinition
 
         if isinstance(delay, FPS):
             fps_definition: FPSDefinition = delay.value
             delay = fps_definition.millisecond_interval
-        if not isinstance(delay, ap.Number):
-            delay_: ap.Number = ap.Number(delay)
+        if not isinstance(delay, Number):
+            delay_: Number = Number(delay)
         else:
             delay_ = delay
         return delay_
@@ -345,7 +344,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         ...     pass
         >>> _ = ap.Timer(on_timer, delay=33.3, repeat_count=50).start()
         """
-        import apysc as ap
+        from apysc._event.timer_event import TimerEvent
         from apysc._event import handler_circular_calling_util
         from apysc._event.handler import append_handler_expression
         from apysc._expression import expression_data_util
@@ -375,7 +374,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         )
         expression_data_util.append_js_expression(expression=expression)
 
-        e: ap.TimerEvent = ap.TimerEvent(this=self)
+        e: TimerEvent = TimerEvent(this=self)
         append_handler_expression(
             handler_data=self._handler_data, handler_name=handler_name, e=e
         )
@@ -616,10 +615,10 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         >>> _ = timer.timer_complete(on_timer_complete)
         >>> timer.start()
         """
-        import apysc as ap
+        from apysc._event.timer_event import TimerEvent
         from apysc._event.custom_event_type import CustomEventType
 
-        e: ap.TimerEvent = ap.TimerEvent(this=self)
+        e: TimerEvent = TimerEvent(this=self)
         name: str = self.bind_custom_event(
             custom_event_type=CustomEventType.TIMER_COMPLETE,
             handler=handler,

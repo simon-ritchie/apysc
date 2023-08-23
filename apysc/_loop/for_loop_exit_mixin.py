@@ -22,7 +22,7 @@ class ForLoopExitMixIn:
         """
         The exiting method for the beginning of with-statement.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._expression import last_scope
         from apysc._expression.get_last_scope_interface import GetLastScopeInterface
         from apysc._loop import loop_count
@@ -35,7 +35,7 @@ class ForLoopExitMixIn:
             globals_=self._globals,
         )
         self._indent.__exit__()
-        ap.append_js_expression(expression="}")
+        expression_data_util.append_js_expression(expression="}")
         if isinstance(self, GetLastScopeInterface):
             last_scope.set_last_scope(value=self._get_last_scope())
         else:

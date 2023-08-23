@@ -61,7 +61,7 @@ class CopyMixIn(
         result_variable_name : str
             Copied value's variable name.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._expression import event_handler_scope
         from apysc._type.type_util import is_immutable_type
 
@@ -71,7 +71,7 @@ class CopyMixIn(
             expression: str = f"{result_variable_name} = {self.variable_name};"
         else:
             expression = f"{result_variable_name} = " f"cpy({self.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -84,11 +84,11 @@ class CopyMixIn(
         result_variable_name : str
             Copied value's variable name.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.type_util import is_immutable_type
 
         if is_immutable_type(value=self):
             expression: str = f"var {result_variable_name} = {self.variable_name};"
         else:
             expression = f"var {result_variable_name} = cpy({self.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

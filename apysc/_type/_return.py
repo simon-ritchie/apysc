@@ -48,10 +48,10 @@ class Return:
         ...     ap.trace("Not returned.")
         >>> ap.Timer(on_timer, delay=100).start()
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._validate_current_scope_is_event_handler()
-        ap.append_js_expression(expression="return;")
+        expression_data_util.append_js_expression(expression="return;")
 
     @final
     def _validate_current_scope_is_event_handler(self) -> None:

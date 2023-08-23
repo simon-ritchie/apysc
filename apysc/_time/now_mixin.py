@@ -70,7 +70,6 @@ class NowMixIn:
         return dt
 
 
-@final
 @add_debug_info_setting(module_name=__name__)
 @arg_validation_decos.is_apysc_datetime(arg_position_index=0)
 def _append_now_expression(*, dt: "DateTime") -> None:
@@ -82,7 +81,7 @@ def _append_now_expression(*, dt: "DateTime") -> None:
     dt : DateTime
         A target `DateTime` instance.
     """
-    import apysc as ap
+    from apysc._expression import expression_data_util
 
     expression: str = f"{dt.variable_name} = new Date();"
-    ap.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)

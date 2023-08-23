@@ -141,12 +141,12 @@ class MillisecondMixIn(
         millisecond_val : Int
             A millisecond value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{millisecond_val.variable_name} = {self.variable_name}.getMilliseconds();"
         )
-        ap.append_js_expression(expression)
+        expression_data_util.append_js_expression(expression)
 
     def _append_millisecond_setter_expression(self, *, millisecond_val: Int) -> None:
         """
@@ -157,12 +157,12 @@ class MillisecondMixIn(
         millisecond_val : Int
             A millisecond value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{self.variable_name}.setMilliseconds({millisecond_val.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

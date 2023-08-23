@@ -155,11 +155,11 @@ class Dictionary(
         """
         Append constructor expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = self._create_initial_substitution_expression()
         expression = f"var {expression}"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _create_initial_substitution_expression(self) -> str:
@@ -260,12 +260,12 @@ class Dictionary(
         value : dict or Dictionary.
             Dictionary value to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = f"{self.variable_name} = {value_str};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _value_snapshot: Optional[Dict[str, Dict[_Key, _Value]]] = None
 
@@ -351,9 +351,9 @@ class Dictionary(
         >>> dictionary.length
         Int(2)
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
-        length: ap.Int = ap.Int(len(self._value))
+        length: Int = Int(len(self._value))
         self._append_length_expression(length=length)
         return length
 
@@ -368,12 +368,12 @@ class Dictionary(
         length : Int
             Created length Int variable.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{length.variable_name} = " f"Object.keys({self.variable_name}).length;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def __len__(self) -> None:
@@ -402,7 +402,7 @@ class Dictionary(
         value : *
             Specified key's value.
         """
-        import apysc as ap
+        from apysc._type.any_value import AnyValue
 
         self._validate_key_type_is_str_or_numeric(key=key)
         key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
@@ -410,7 +410,7 @@ class Dictionary(
         if has_key:
             value: Any = self._value[key_]  # type: ignore
         else:
-            value = ap.AnyValue(None)
+            value = AnyValue(None)
         self._append_getitem_expression(key=key, value=value)
         return value
 
@@ -454,16 +454,17 @@ class Dictionary(
         value : *
             Specified key's value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
+        from apysc._type.any_value import AnyValue
 
         if not isinstance(value, VariableNameMixIn):
-            value = ap.AnyValue(None)
+            value = AnyValue(None)
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (
             f"var {value.variable_name} = " f"{self.variable_name}[{key_str}];"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _validate_key_type_is_str_or_numeric(
@@ -523,13 +524,13 @@ class Dictionary(
         value : *
             Any value to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         key_str: str = value_util.get_value_str_for_expression(value=key)
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = f"{self.variable_name}[{key_str}] = {value_str};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -558,12 +559,12 @@ class Dictionary(
         key : _Key
             Dictionary key to delete.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = f"delete {self.variable_name}[{key_str}];"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -582,12 +583,12 @@ class Dictionary(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         if isinstance(other, Dictionary):
-            result: ap.Boolean = ap.Boolean(self._value == other._value)
+            result: Boolean = Boolean(self._value == other._value)
         else:
-            result = ap.Boolean(self._value == other)
+            result = Boolean(self._value == other)
             if isinstance(other, dict):
                 other = Dictionary(other)
         if isinstance(other, VariableNameMixIn):
@@ -609,13 +610,13 @@ class Dictionary(
         other : Dictionary
             The Dictionary's other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"_.isEqual({self.variable_name}, {other.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -634,11 +635,9 @@ class Dictionary(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
         if isinstance(other, dict):
             other = Dictionary(other)
-        result: ap.Boolean = self == other
+        result: Boolean = self == other
         result = result.not_
         if isinstance(other, VariableNameMixIn):
             self._append_ne_expression(result=result, other=other)
@@ -659,13 +658,13 @@ class Dictionary(
         other : Dictionary
             The Dictionary's other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"!_.isEqual({self.variable_name}, {other.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -741,7 +740,7 @@ class Dictionary(
             Any default value. Basic apysc types (e.g.,
             Int, Number, String, and so on) are necessary.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type import value_util
 
         key_str: str = value_util.get_value_str_for_expression(value=key)
@@ -758,7 +757,7 @@ class Dictionary(
             f"\n  {result_value_str} = {default_value_str};"
             "\n}"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @classmethod
     @final

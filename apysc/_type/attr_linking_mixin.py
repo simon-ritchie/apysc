@@ -105,7 +105,7 @@ class AttrLinkingMixIn:
         attr_name : str
             Target attribute name.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         self._initialize_attr_linking_stack(attr_name=attr_name)
         if not self._attr_linking_stack:
@@ -121,7 +121,7 @@ class AttrLinkingMixIn:
             if expression != "":
                 expression += "\n"
             expression += f"{stacked_value_variable_name} = {new_attr_name};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
 
 def _get_variable_name_from_attr(*, attr: _Attr) -> str:

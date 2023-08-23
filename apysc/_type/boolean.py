@@ -190,11 +190,11 @@ class Boolean(
         """
         Append constructor expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = self._create_initial_substitution_expression()
         expression = f"var {expression}"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _create_initial_substitution_expression(self) -> str:
@@ -284,7 +284,7 @@ class Boolean(
         value : bool or VariableNameMixIn
             Any value to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_mixin import VariableNameMixIn
 
         expression: str = f"{self.variable_name} = "
@@ -294,7 +294,7 @@ class Boolean(
             expression += "true;"
         else:
             expression += "false;"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
         self, *, value: Union[bool, Literal[0, 1], Int, "Boolean"]
@@ -383,8 +383,6 @@ class Boolean(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
         self._validate_comparison_other_type(other=other)
         result: Boolean
         if issubclass(type(other), Boolean):
@@ -394,7 +392,7 @@ class Boolean(
             )
             self._append_eq_expression(result=result, other=other)
             return result
-        elif isinstance(other, ap.Int):
+        elif isinstance(other, Int):
             other_ = bool(other.value)
             result = Boolean(
                 self._value == other_, variable_name_suffix=self._variable_name_suffix
@@ -424,9 +422,7 @@ class Boolean(
             If the other value type is not Boolean, Int, bool,
             and int.
         """
-        import apysc as ap
-
-        ACCEPTABLE_TYPES: tuple = (Boolean, bool, ap.Int, int)
+        ACCEPTABLE_TYPES: tuple = (Boolean, bool, Int, int)
         if isinstance(other, ACCEPTABLE_TYPES):
             return
         raise ValueError(
@@ -450,15 +446,15 @@ class Boolean(
         other : Boolean or Int
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         other_str: str = other.variable_name
-        if isinstance(other, ap.Int):
+        if isinstance(other, Int):
             other_str = f"Boolean({other_str});"
         expression: str = (
             f"{result.variable_name} = " f"{self.variable_name} === {other_str};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -476,11 +472,9 @@ class Boolean(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
-
         result: Boolean = self == other
         result = result.not_
-        if isinstance(other, (Boolean, ap.Int)):
+        if isinstance(other, (Boolean, Int)):
             self._append_ne_expression(result=result, other=other)
         return result
 
@@ -499,15 +493,15 @@ class Boolean(
         other : Boolean or Int
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         other_str: str = other.variable_name
-        if isinstance(other, ap.Int):
+        if isinstance(other, Int):
             other_str = f"Boolean({other_str});"
         expression: str = (
             f"{result.variable_name} = " f"{self.variable_name} !== {other_str};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @property
     @add_debug_info_setting(module_name=__name__)
@@ -549,10 +543,10 @@ class Boolean(
         result : Boolean
             A result Boolean value.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{result.variable_name} = " f"!{self.variable_name};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @classmethod
     @final

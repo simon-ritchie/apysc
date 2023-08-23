@@ -168,7 +168,7 @@ def apply_test_settings(
     ValueError
         If a specified `retrying_sleep_seconds` is greater than 10.
     """
-    import apysc as ap
+    from apysc._display.stage import Stage
 
     if retrying_sleep_seconds is None:
         retrying_sleep_seconds = randint(10, 3000) / 1000
@@ -182,13 +182,13 @@ def apply_test_settings(
             for i in range(retrying_max_attempts_num + 1):
                 if i < retrying_max_attempts_num:
                     try:
-                        ap.Stage()
+                        Stage()
                         result = callable_(*args, **kwargs)
                         break
                     except Exception:
                         time.sleep(retrying_sleep_seconds_)
                         continue
-                ap.Stage()
+                Stage()
                 result = callable_(*args, **kwargs)
                 break
             return result

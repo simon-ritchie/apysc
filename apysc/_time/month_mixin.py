@@ -129,12 +129,12 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
         month_val : Int
             A month value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{month_val.variable_name} = {self.variable_name}.getMonth() + 1;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -147,12 +147,12 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
         month_val : Int
             A month value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{self.variable_name}.setMonth({month_val.variable_name} - 1);"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

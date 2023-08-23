@@ -50,7 +50,7 @@ class MaxMixIn:
         >>> max_value
         Number(10.0)
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         max_value_variable_name_suffix: str = (
             _get_max_value_variable_name_suffix_from_arr(arr=values)
@@ -64,7 +64,7 @@ class MaxMixIn:
             f"{max_value.variable_name} = {values.variable_name}.reduce("
             "function (a, b) {return Math.max(a, b)});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return max_value
 
 

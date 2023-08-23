@@ -129,10 +129,10 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         day_val : Int
             A day value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{day_val.variable_name} = {self.variable_name}.getDate();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _append_day_setter_expression(self, *, day_val: Int) -> None:
         """
@@ -143,10 +143,10 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         day_val : Int
             A day value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self.variable_name}.setDate({day_val.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

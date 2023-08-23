@@ -129,10 +129,10 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         hour_val : Int
             An hour value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{hour_val.variable_name} = {self.variable_name}.getHours();"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_hour_int(arg_position_index=1)
@@ -146,10 +146,10 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         hour_val : Int
             An hour value to use in an expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self.variable_name}.setHours({hour_val.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

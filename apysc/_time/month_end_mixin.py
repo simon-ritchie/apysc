@@ -35,7 +35,7 @@ class MonthEndMixin(VariableNameMixIn):
         - DateTime class set_month_end interface
             - https://simon-ritchie.github.io/apysc/en/datetime_set_month_end.html
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         variable_name: str = self.variable_name
         expression: str = (
@@ -43,7 +43,7 @@ class MonthEndMixin(VariableNameMixIn):
             f"\n{variable_name}.setMonth({variable_name}.getMonth() + 1);"
             f"\n{variable_name}.setDate(0);"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         month_end_day: int = calendar.monthrange(
             year=self._year._value,
             month=self._month._value,

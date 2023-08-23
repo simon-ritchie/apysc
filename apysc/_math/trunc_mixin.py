@@ -62,7 +62,7 @@ class TruncMixIn:
         >>> result_int
         Int(0)
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         suffix: str = ""
         if isinstance(value, VariableNameSuffixMixIn):
@@ -76,5 +76,5 @@ class TruncMixIn:
         except Exception:
             pass
         expression: str = f"{result.variable_name} = Math.trunc({value.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return result

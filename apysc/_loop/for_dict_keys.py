@@ -161,7 +161,7 @@ class ForDictKeys(
         dict_key : _DictKey
             A dictionary key of iteration.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
 
@@ -177,7 +177,7 @@ class ForDictKeys(
         expression: str = (
             f"for ({dict_key.variable_name} in {self._dict.variable_name}) {{"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
         self._indent.__enter__()
         return dict_key

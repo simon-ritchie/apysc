@@ -159,14 +159,14 @@ class Int(
             Boolean value whether a specified value is Number
             instance or not.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         if not is_number_specified:
             return
         expression: str = (
             f"{self.variable_name} = Math.trunc({self.variable_name}, 10);"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _set_value_and_skip_expression_appending(

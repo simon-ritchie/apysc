@@ -161,7 +161,7 @@ class ForDictValues(
         dict_value : _DictValue
             A dictionary value of iteration.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._loop import loop_count
         from apysc._type import revert_mixin
         from apysc._validation.variable_name_validation import (
@@ -183,7 +183,7 @@ class ForDictValues(
             f"\n  {dict_value_variable_name} = {self._dict.variable_name}"
             f"[{dict_key.variable_name}];"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
         self._indent.__enter__()
         return dict_value

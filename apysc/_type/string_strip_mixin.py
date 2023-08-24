@@ -65,10 +65,10 @@ class StringStripMixIn:
         >>> string
         String("bbcc")
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_mixin import VariableNameMixIn
 
-        result: ap.String = ap.String("", variable_name_suffix=variable_name_suffix)
+        result: String = String("", variable_name_suffix=variable_name_suffix)
         self_variable_name: str = ""
         if isinstance(self, VariableNameMixIn):
             self_variable_name = self.variable_name
@@ -84,7 +84,7 @@ class StringStripMixIn:
                 self_variable_name=self_variable_name,
                 variable_name_suffix=variable_name_suffix,
             )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         py_str: str = _get_py_str_from_current_value(
             self_str=self,
             removing_string=string,
@@ -115,10 +115,8 @@ def _get_py_str_from_current_value(
     py_str : str
         A Python string.
     """
-    import apysc as ap
-
     py_str: str = ""
-    if isinstance(self_str, ap.String):
+    if isinstance(self_str, String):
         py_str = self_str._value
     if removing_string is None:
         py_str = (
@@ -130,7 +128,7 @@ def _get_py_str_from_current_value(
             .strip()
         )
         return py_str
-    if isinstance(removing_string, ap.String):
+    if isinstance(removing_string, String):
         py_str = py_str.strip(removing_string._value)
         return py_str
     if isinstance(removing_string, str):
@@ -169,10 +167,8 @@ def _create_string_not_none_case_expression(
     expression : str
         A created expression.
     """
-    import apysc as ap
-
-    if not isinstance(removing_string, ap.String):
-        removing_string_: ap.String = ap.String(
+    if not isinstance(removing_string, String):
+        removing_string_: String = String(
             removing_string, variable_name_suffix=variable_name_suffix
         )
     else:

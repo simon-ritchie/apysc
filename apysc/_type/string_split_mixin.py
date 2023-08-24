@@ -67,10 +67,10 @@ class StringSplitMixIn(VariableNameMixIn):
         sep : String
             A separator string.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{splitted_strs.variable_name} = "
             f"{self.variable_name}.split({sep.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)

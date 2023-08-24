@@ -60,18 +60,18 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
         >>> string = string.apply_max_num_of_decimal_places(max_num_of_decimal_places=1)
         >>> ap.assert_equal(string, "123.4")
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._validation import variable_name_validation
 
-        if not isinstance(max_num_of_decimal_places, ap.Int):
-            max_num_of_decimal_places_: ap.Int = ap.Int(
+        if not isinstance(max_num_of_decimal_places, Int):
+            max_num_of_decimal_places_: Int = Int(
                 max_num_of_decimal_places, variable_name_suffix=variable_name_suffix
             )
         else:
             max_num_of_decimal_places_ = max_num_of_decimal_places
-        string: ap.String = ap.String("", variable_name_suffix=variable_name_suffix)
+        string: String = String("", variable_name_suffix=variable_name_suffix)
         string._value = _get_py_str(
             max_num_of_decimal_places=max_num_of_decimal_places_,
             self_str=self,
@@ -95,7 +95,7 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
             f"\n  {string.variable_name} = {self_variable_name};"
             "\n}"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
         return string
 
@@ -122,10 +122,8 @@ def _get_py_str(
     py_str : str
         A Python value string.
     """
-    import apysc as ap
-
     py_str: str = ""
-    if isinstance(self_str, ap.String):
+    if isinstance(self_str, String):
         py_str = self_str._value
     match_: Optional[Match] = re.match(
         pattern=rf"^(\d+\.\d{{{max_num_of_decimal_places._value}}})\d*$",

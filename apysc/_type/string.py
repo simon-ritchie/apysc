@@ -263,14 +263,14 @@ class String(
         value : String or str
             Any string value to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = f"{self.variable_name} = "
         if isinstance(value, String):
             expression += f"{value.variable_name};"
         else:
             expression += f'"{value}";'
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -313,14 +313,14 @@ class String(
         other : String or str
             The other string value to concatenate.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"var {result.variable_name} = " f"{self.variable_name} + {right_value};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
@@ -339,9 +339,9 @@ class String(
         result : String
             Repeated result string.
         """
-        import apysc as ap
+        from apysc._type.int import Int
 
-        if isinstance(other, ap.Int):
+        if isinstance(other, Int):
             value: int = other.value  # type: ignore
         else:
             value = other
@@ -365,18 +365,19 @@ class String(
         other : Int or int
             String repetition number.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
+        from apysc._type.int import Int
 
         expression: str = f'var {result.variable_name} = "";'
         expression += "\nfor (var i = 0; i < "
-        if isinstance(other, ap.Int):
+        if isinstance(other, Int):
             expression += f"{other.variable_name}"
         else:
             expression += f"{other}"
         expression += "; i++) {"
         expression += f"\n  {result.variable_name} += {self.variable_name};"
         expression += "\n}"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -460,19 +461,19 @@ class String(
             Comparison result. If the equal value of a String
             or str is specified, this interface returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, str):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value == other, variable_name_suffix=self._variable_name_suffix
             )
         elif isinstance(other, String):
-            result = ap.Boolean(
+            result = Boolean(
                 self._value == other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(False)
+            result = Boolean(False)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameMixIn):
             self._append_eq_expression(result=result, other=other)
@@ -516,13 +517,13 @@ class String(
         other : VariableNameMixIn
             Other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} === {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -542,19 +543,19 @@ class String(
             the equal value of a String or str, this interface
             returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, str):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value != other, variable_name_suffix=self._variable_name_suffix
             )
         elif isinstance(other, String):
-            result = ap.Boolean(
+            result = Boolean(
                 self._value != other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(True, variable_name_suffix=self._variable_name_suffix)
+            result = Boolean(True, variable_name_suffix=self._variable_name_suffix)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameMixIn):
             self._append_ne_expression(result=result, other=other)
@@ -575,13 +576,13 @@ class String(
         other : VariableNameMixIn
             Other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} !== {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -600,10 +601,10 @@ class String(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(
+        result: Boolean = Boolean(
             self._value < value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
@@ -626,13 +627,13 @@ class String(
         other : VariableNameMixIn
             Other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} < {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -651,10 +652,10 @@ class String(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(
+        result: Boolean = Boolean(
             self._value <= value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
@@ -677,13 +678,13 @@ class String(
         other : VariableNameMixIn
             Other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} <= {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -702,10 +703,10 @@ class String(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(
+        result: Boolean = Boolean(
             self._value > value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
@@ -728,13 +729,13 @@ class String(
         other : VariableNameMixIn
             Other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} > {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -753,10 +754,10 @@ class String(
         result : Boolean
             Comparison result.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(
+        result: Boolean = Boolean(
             self._value >= value, variable_name_suffix=self._variable_name_suffix
         )
         other = self._convert_other_val_to_string(other=other)
@@ -779,13 +780,13 @@ class String(
         other : VariableNameMixIn
             Other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} >= {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def __int__(self) -> int:
         """

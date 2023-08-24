@@ -42,9 +42,9 @@ def validate_stage(*, stage: Any) -> None:
     ValueError
         If a specified instance is not stage type.
     """
-    import apysc as ap
+    from apysc._display.stage import Stage
 
-    if isinstance(stage, ap.Stage):
+    if isinstance(stage, Stage):
         return
     raise ValueError(f"Specified instance is not Stage type: {type(stage)}")
 
@@ -132,9 +132,9 @@ def validate_sprite(*, sprite: Any) -> None:
     ValueError
         If a specified instance is not Sprite type.
     """
-    import apysc as ap
+    from apysc._display.sprite import Sprite
 
-    if isinstance(sprite, ap.Sprite):
+    if isinstance(sprite, Sprite):
         return
     raise ValueError(f"Specified instance is not Sprite type: {type(sprite)}")
 
@@ -177,13 +177,14 @@ def validate_line_cap(*, cap: Any, additional_err_msg: str = "") -> None:
         If a specified cap setting type is not LineCaps or not defined
         string value.
     """
-    import apysc as ap
+    from apysc._display.line_caps import LineCaps
+    from apysc._type.string import String
     from apysc._validation import validation_common_utils
 
-    if isinstance(cap, ap.LineCaps):
+    if isinstance(cap, LineCaps):
         return
-    if isinstance(cap, ap.String):
-        for line_cap in ap.LineCaps:
+    if isinstance(cap, String):
+        for line_cap in LineCaps:
             if line_cap.value == cap._value:
                 return
         err_msg: str = (
@@ -218,13 +219,14 @@ def validate_line_joints(*, joints: Any, additional_err_msg: str = "") -> None:
         If specified joints setting type is not LineJoints or not defined
         string value.
     """
-    import apysc as ap
+    from apysc._display.line_joints import LineJoints
+    from apysc._type.string import String
     from apysc._validation import validation_common_utils
 
-    if isinstance(joints, ap.LineJoints):
+    if isinstance(joints, LineJoints):
         return
-    if isinstance(joints, ap.String):
-        for line_joints in ap.LineJoints:
+    if isinstance(joints, String):
+        for line_joints in LineJoints:
             if line_joints.value == joints._value:
                 return
         err_msg: str = (

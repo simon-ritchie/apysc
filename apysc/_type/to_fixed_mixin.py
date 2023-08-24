@@ -63,12 +63,13 @@ class ToFixedMixIn:
         >>> fixed_float_str
         String("11")
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_mixin import VariableNameMixIn
+        from apysc._type.number import Number
 
         result_str: String = String("", variable_name_suffix=variable_name_suffix)
         if isinstance(digits, int):
-            digits_: ap.Int = ap.Int(digits, variable_name_suffix=variable_name_suffix)
+            digits_: Int = Int(digits, variable_name_suffix=variable_name_suffix)
         else:
             digits_ = digits
         variable_name: str = ""
@@ -78,10 +79,10 @@ class ToFixedMixIn:
             f"{result_str.variable_name} = "
             f"{variable_name}.toFixed({digits_.variable_name});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
         value: float = 0.0
-        if isinstance(self, (ap.Int, ap.Number)):
+        if isinstance(self, (Int, Number)):
             value = self._value
         value = round(value, digits_._value)
         py_fixed_floating_point_value: str = f"{value:.{digits_._value}f}"

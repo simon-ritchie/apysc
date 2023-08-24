@@ -35,7 +35,7 @@ class ToStringMixIn(VariableNameMixIn):
         >>> string: ap.String = int_value.to_string()
         >>> ap.assert_equal(string, "100")
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -45,5 +45,5 @@ class ToStringMixIn(VariableNameMixIn):
         )
         string: String = String("", variable_name_suffix=suffix)
         expression: str = f"{string.variable_name} = String({self.variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return string

@@ -29,20 +29,23 @@ class ToNumberMixIn:
         number : Number
             A converted number.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._validation.variable_name_validation import (
             validate_variable_name_mixin_type,
         )
+        from apysc._type.int import Int
+        from apysc._type.string import String
+        from apysc._type.boolean import Boolean
 
         self_variable_name: str = validate_variable_name_mixin_type(
             instance=self
         ).variable_name
-        number: ap.Number = ap.Number(0.0, variable_name_suffix=variable_name_suffix)
+        number: Number = Number(0.0, variable_name_suffix=variable_name_suffix)
         py_value: float = 0
-        if isinstance(self, (ap.Int, ap.String, ap.Boolean)):
+        if isinstance(self, (Int, String, Boolean)):
             py_value = float(self._value)
         number._value = py_value
         expression: str = f"{number.variable_name} = Number({self_variable_name});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
         return number

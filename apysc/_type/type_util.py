@@ -37,9 +37,9 @@ def is_number(*, value: Any) -> bool:
     result : bool
         If a Number value is specified, this interface returns True.
     """
-    import apysc as ap
+    from apysc._type.number import Number
 
-    if isinstance(value, ap.Number):
+    if isinstance(value, Number):
         return True
     return False
 
@@ -83,11 +83,12 @@ def is_bool(*, value: Any) -> bool:
         If bool or Boolean value is specified, this interface
         returns True.
     """
+    from apysc._type.boolean import Boolean
+
     if is_same_class_instance(class_=bool, instance=value):
         return True
-    import apysc as ap
 
-    if isinstance(value, ap.Boolean):
+    if isinstance(value, Boolean):
         return True
     return False
 
@@ -142,7 +143,10 @@ def is_immutable_type(*, value: Any) -> bool:
         This interface checks the apysc value types as
         immutable to match the JavaScript behavior.
     """
-    import apysc as ap
+    from apysc._type.int import Int
+    from apysc._type.number import Number
+    from apysc._type.string import String
+    from apysc._type.boolean import Boolean
 
     immutable_types: Tuple = (
         int,
@@ -153,10 +157,10 @@ def is_immutable_type(*, value: Any) -> bool:
         tuple,
         range,
         bytes,
-        ap.Int,
-        ap.Number,
-        ap.String,
-        ap.Boolean,
+        Int,
+        Number,
+        String,
+        Boolean,
     )
     if isinstance(value, immutable_types):
         return True

@@ -707,7 +707,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.int import Int
 
             integer: Any = _extract_arg_value(
                 args=args,
@@ -719,7 +719,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(integer, ap.Int):
+            if not isinstance(integer, Int):
                 raise TypeError(
                     "A specified argument value is not `ap.Int` "
                     f"type: {type(integer)}"
@@ -752,7 +752,8 @@ def is_apysc_int_or_number(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.int import Int
+            from apysc._type.number import Number
 
             int_or_number: Any = _extract_arg_value(
                 args=args,
@@ -760,7 +761,7 @@ def is_apysc_int_or_number(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            if not isinstance(int_or_number, (ap.Int, ap.Number)):
+            if not isinstance(int_or_number, (Int, Number)):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -1043,12 +1044,12 @@ def all_variadic_args_are_integers(*, optional: bool) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.int import Int
 
             for arg in args:
                 if optional and arg is None:
                     continue
-                if isinstance(arg, (int, ap.Int)):
+                if isinstance(arg, (int, Int)):
                     continue
                 raise TypeError(
                     "A specified variadic argument value is not `int` or "
@@ -1168,7 +1169,7 @@ def is_apysc_boolean(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.boolean import Boolean
 
             boolean: Any = _extract_arg_value(
                 args=args,
@@ -1180,7 +1181,7 @@ def is_apysc_boolean(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(boolean, ap.Boolean):
+            if not isinstance(boolean, Boolean):
                 raise TypeError(
                     "A specified argument value is not a `Boolean` type: "
                     f"{type(boolean)}"
@@ -1213,7 +1214,7 @@ def is_easing(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._animation.easing import Easing
 
             easing: Any = _extract_arg_value(
                 args=args,
@@ -1225,7 +1226,7 @@ def is_easing(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(easing, ap.Easing):
+            if not isinstance(easing, Easing):
                 raise TypeError(
                     "A specified easing argument's type is not the "
                     f"ap.Easing: {type(easing)}"
@@ -1356,7 +1357,7 @@ def is_apysc_string(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.string import String
 
             string: Any = _extract_arg_value(
                 args=args,
@@ -1365,7 +1366,7 @@ def is_apysc_string(*, arg_position_index: int) -> _Callable:
                 callable_=callable_,
             )
 
-            if not isinstance(string, ap.String):
+            if not isinstance(string, String):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -1499,7 +1500,7 @@ def are_animations(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._animation.animation_base import AnimationBase
 
             animations: Any = _extract_arg_value(
                 args=args,
@@ -1519,7 +1520,7 @@ def are_animations(*, arg_position_index: int) -> _Callable:
                 )
 
             for i, animation in enumerate(animations):
-                if isinstance(animation, ap.AnimationBase):
+                if isinstance(animation, AnimationBase):
                     continue
                 raise TypeError(
                     "A specified animations' list cannot contain "
@@ -1816,7 +1817,7 @@ def is_valid_path_data_list(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._geom.path_data_base import PathDataBase
             from apysc._validation.path_validation import validate_path_data_list
 
             path_data_list = _extract_arg_value(
@@ -1838,7 +1839,7 @@ def is_valid_path_data_list(*, arg_position_index: int) -> _Callable:
                 )
 
             for path_data in path_data_list:
-                if isinstance(path_data, ap.PathDataBase):
+                if isinstance(path_data, PathDataBase):
                     continue
                 raise TypeError(
                     "A value of path_data_list argument is not a "
@@ -2019,7 +2020,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._display.line_dot_setting import LineDotSetting
 
             setting: Any = _extract_arg_value(
                 args=args,
@@ -2031,7 +2032,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(setting, (type(None), ap.LineDotSetting)):
+            if not isinstance(setting, (type(None), LineDotSetting)):
                 raise TypeError(
                     "A specified setting is not the `ap.LineDotSetting` "
                     f"type or None: {type(setting)}"
@@ -2064,7 +2065,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._display.line_dash_setting import LineDashSetting
 
             setting: Any = _extract_arg_value(
                 args=args,
@@ -2076,7 +2077,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(setting, (type(None), ap.LineDashSetting)):
+            if not isinstance(setting, (type(None), LineDashSetting)):
                 raise TypeError(
                     "A specified setting is not the `ap.LineDashSetting`"
                     f" type or None: {type(setting)}"
@@ -2109,7 +2110,7 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._display.line_dash_dot_setting import LineDashDotSetting
 
             setting: Any = _extract_arg_value(
                 args=args,
@@ -2121,7 +2122,7 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(setting, (type(None), ap.LineDashDotSetting)):
+            if not isinstance(setting, (type(None), LineDashDotSetting)):
                 raise TypeError(
                     "A specified setting is not the "
                     "`ap.LineDashDotSetting` type or None: "
@@ -2155,7 +2156,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._display.line_round_dot_setting import LineRoundDotSetting
 
             setting: Any = _extract_arg_value(
                 args=args,
@@ -2167,7 +2168,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(setting, (type(None), ap.LineRoundDotSetting)):
+            if not isinstance(setting, (type(None), LineRoundDotSetting)):
                 raise TypeError(
                     "A specified setting is not the `ap.LineRoundDotSetting` "
                     f"type or None: {type(setting)}"
@@ -2244,7 +2245,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.array import Array
 
             value: Any = _extract_arg_value(
                 args=args,
@@ -2253,7 +2254,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _Callable:
                 callable_=callable_,
             )
 
-            acceptable_types: Tuple = (list, tuple, range, ap.Array)
+            acceptable_types: Tuple = (list, tuple, range, Array)
             if not isinstance(value, acceptable_types):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
@@ -2290,7 +2291,7 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.dictionary import Dictionary
 
             value: Any = _extract_arg_value(
                 args=args,
@@ -2298,7 +2299,7 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            acceptable_types: Tuple = (dict, ap.Dictionary)
+            acceptable_types: Tuple = (dict, Dictionary)
             if not isinstance(value, acceptable_types):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
@@ -2376,7 +2377,7 @@ def is_apysc_dict(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.dictionary import Dictionary
 
             value: Any = _extract_arg_value(
                 args=args,
@@ -2384,7 +2385,7 @@ def is_apysc_dict(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            if not isinstance(value, ap.Dictionary):
+            if not isinstance(value, Dictionary):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -2419,8 +2420,9 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
             from apysc._validation import number_validation
+            from apysc._type.int import Int
+            from apysc._type.boolean import Boolean
 
             value: Any = _extract_arg_value(
                 args=args,
@@ -2431,7 +2433,7 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _Callable:
 
             number_validation.validate_int_is_zero_or_one(integer=value)
 
-            acceptable_types: Tuple = (bool, int, ap.Int, ap.Boolean)
+            acceptable_types: Tuple = (bool, int, Int, Boolean)
             if not isinstance(value, acceptable_types):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
@@ -2468,7 +2470,7 @@ def is_fps(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._time.fps import FPS
 
             value: Any = _extract_arg_value(
                 args=args,
@@ -2477,7 +2479,7 @@ def is_fps(*, arg_position_index: int) -> _Callable:
                 callable_=callable_,
             )
 
-            if not isinstance(value, ap.FPS):
+            if not isinstance(value, FPS):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -2512,8 +2514,8 @@ def is_four_digit_year(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
             from apysc._validation.number_validation import validate_integer
+            from apysc._type.int import Int
 
             year: Any = _extract_arg_value(
                 args=args,
@@ -2530,7 +2532,7 @@ def is_four_digit_year(*, arg_position_index: int) -> _Callable:
             is_length_check_target: bool = False
             if isinstance(year, int):
                 is_length_check_target = True
-            if isinstance(year, ap.Int) and year._value != 0:
+            if isinstance(year, Int) and year._value != 0:
                 is_length_check_target = True
             if is_length_check_target:
                 year_str: str = str(year)
@@ -2565,8 +2567,8 @@ def is_month_int(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
             from apysc._validation.number_validation import validate_integer
+            from apysc._type.int import Int
 
             month: Any = _extract_arg_value(
                 args=args,
@@ -2583,9 +2585,9 @@ def is_month_int(*, arg_position_index: int) -> _Callable:
             is_checking_target: bool = False
             if isinstance(month, int):
                 is_checking_target = True
-            if isinstance(month, ap.Int) and month._value != 0:
+            if isinstance(month, Int) and month._value != 0:
                 is_checking_target = True
-            if isinstance(month, ap.Int):
+            if isinstance(month, Int):
                 month = month._value
             if is_checking_target:
                 if month < 1 or 12 < month:
@@ -2619,8 +2621,8 @@ def is_day_int(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
             from apysc._validation.number_validation import validate_integer
+            from apysc._type.int import Int
 
             day: Any = _extract_arg_value(
                 args=args,
@@ -2638,9 +2640,9 @@ def is_day_int(*, arg_position_index: int) -> _Callable:
             is_checking_target: bool = False
             if isinstance(day, int):
                 is_checking_target = True
-            if isinstance(day, ap.Int) and day._value != 0:
+            if isinstance(day, Int) and day._value != 0:
                 is_checking_target = True
-            if isinstance(day, ap.Int):
+            if isinstance(day, Int):
                 day = day._value
             if is_checking_target:
                 if day < 1 or 31 < day:
@@ -2904,7 +2906,7 @@ def is_apysc_array(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.array import Array
 
             arr: Any = _extract_arg_value(
                 args=args,
@@ -2913,7 +2915,7 @@ def is_apysc_array(*, arg_position_index: int) -> _Callable:
                 callable_=callable_,
             )
 
-            if not isinstance(arr, ap.Array):
+            if not isinstance(arr, Array):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -2948,7 +2950,9 @@ def is_nums_array(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.array import Array
+            from apysc._type.int import Int
+            from apysc._type.number import Number
 
             arr: Any = _extract_arg_value(
                 args=args,
@@ -2960,13 +2964,13 @@ def is_nums_array(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(arr, ap.Array):
+            if not isinstance(arr, Array):
                 raise TypeError(
                     f"A specified argument is not an `Array` instance: {type(arr)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             for value in arr._value:
-                if isinstance(value, (int, float, ap.Int, ap.Number)):
+                if isinstance(value, (int, float, Int, Number)):
                     continue
                 raise ValueError(
                     f"A specified array contains a non-number value: {type(value)}"
@@ -3006,7 +3010,8 @@ def is_apysc_string_array(
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.string import String
+            from apysc._type.array import Array
 
             arr: Any = _extract_arg_value(
                 args=args,
@@ -3021,13 +3026,13 @@ def is_apysc_string_array(
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(arr, ap.Array):
+            if not isinstance(arr, Array):
                 raise TypeError(
                     f"A specified argument is not an `Array` instance: {type(arr)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             for value in arr._value:
-                if isinstance(value, ap.String):
+                if isinstance(value, String):
                     continue
                 raise TypeError(
                     "A value in an array is not an apysc's String instance: "
@@ -3067,7 +3072,8 @@ def is_builtin_str_list_or_apysc_str_arr(
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.array import Array
+            from apysc._type.string import String
 
             arr_or_list: Any = _extract_arg_value(
                 args=args,
@@ -3091,9 +3097,9 @@ def is_builtin_str_list_or_apysc_str_arr(
                             f"\n{callable_and_arg_names_msg}"
                         )
                 return callable_(*args, **kwargs)
-            if isinstance(arr_or_list, ap.Array):
+            if isinstance(arr_or_list, Array):
                 for value in arr_or_list._value:
-                    if not isinstance(value, ap.String):
+                    if not isinstance(value, String):
                         raise TypeError(
                             "A value in an array is not an apysc's String instance: "
                             f"{type(value)}"
@@ -3130,7 +3136,7 @@ def is_svg_text_align(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._display.svg_text_align_mixin import SVGTextAlign
 
             align: Any = _extract_arg_value(
                 args=args,
@@ -3138,7 +3144,7 @@ def is_svg_text_align(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            if not isinstance(align, ap.SVGTextAlign):
+            if not isinstance(align, SVGTextAlign):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -3174,7 +3180,8 @@ def are_text_spans(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.array import Array
+            from apysc._display.svg_text_span import SVGTextSpan
 
             text_spans: Any = _extract_arg_value(
                 args=args,
@@ -3185,7 +3192,7 @@ def are_text_spans(*, arg_position_index: int) -> _Callable:
             callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                 callable_=callable_, arg_position_index=arg_position_index
             )
-            if not isinstance(text_spans, (list, ap.Array)):
+            if not isinstance(text_spans, (list, Array)):
                 raise TypeError(
                     "A specified argument is not a list or `Array` instance: "
                     f"{type(text_spans)}"
@@ -3193,16 +3200,16 @@ def are_text_spans(*, arg_position_index: int) -> _Callable:
                 )
             if isinstance(text_spans, list):
                 for i, text_span in enumerate(text_spans):
-                    if isinstance(text_span, ap.SVGTextSpan):
+                    if isinstance(text_span, SVGTextSpan):
                         continue
                     raise TypeError(
                         "There is a non-`SVGTextSpan` instance in a list: "
                         f"{type(text_span)}\nIndex: {i}"
                         f"\n{callable_and_arg_names_msg}"
                     )
-            if isinstance(text_spans, ap.Array):
+            if isinstance(text_spans, Array):
                 for i, text_span in enumerate(text_spans._value):
-                    if isinstance(text_span, ap.SVGTextSpan):
+                    if isinstance(text_span, SVGTextSpan):
                         continue
                     raise TypeError(
                         "There is a non-`SVGTextSpan` instance in an array: "
@@ -3235,7 +3242,7 @@ def is_x_axis_label_position(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._chart.x_axis_label_position import XAxisLabelPosition
 
             x_axis_label_position: Any = _extract_arg_value(
                 args=args,
@@ -3243,7 +3250,7 @@ def is_x_axis_label_position(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            if not isinstance(x_axis_label_position, ap.XAxisLabelPosition):
+            if not isinstance(x_axis_label_position, XAxisLabelPosition):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -3278,7 +3285,7 @@ def is_y_axis_label_position(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._chart.y_axis_label_position import YAxisLabelPosition
 
             y_axis_label_position: Any = _extract_arg_value(
                 args=args,
@@ -3286,7 +3293,7 @@ def is_y_axis_label_position(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            if not isinstance(y_axis_label_position, ap.YAxisLabelPosition):
+            if not isinstance(y_axis_label_position, YAxisLabelPosition):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
@@ -3321,7 +3328,7 @@ def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            import apysc as ap
+            from apysc._type.array import Array
             from apysc._validation import matrix_data_validation
 
             matrix_data: Any = _extract_arg_value(
@@ -3339,7 +3346,7 @@ def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
                     additional_err_msg=callable_and_arg_names_msg,
                 )
                 return callable_(*args, **kwargs)
-            if isinstance(matrix_data, ap.Array):
+            if isinstance(matrix_data, Array):
                 matrix_data_validation.validate_matrix_array_data(
                     matrix_array_data=matrix_data,
                     additional_err_msg=callable_and_arg_names_msg,

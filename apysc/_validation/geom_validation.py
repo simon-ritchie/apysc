@@ -22,10 +22,10 @@ def validate_point_2d_type(*, point: Any, additional_err_msg: str = "") -> None:
     ValueError
         If a specified value's type is not Point2D.
     """
-    import apysc as ap
+    from apysc._geom.point2d import Point2D
     from apysc._validation import validation_common_utils
 
-    if isinstance(point, ap.Point2D):
+    if isinstance(point, Point2D):
         return
     err_msg: str = f"Specified value's type is not Point2D: {type(point)}"
     err_msg = validation_common_utils.append_additional_err_msg(

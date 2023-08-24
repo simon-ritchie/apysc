@@ -106,11 +106,14 @@ def _validate_dict_key_type(*, key: Any) -> None:
         If a key-type isn't the `int`, `str`, `float`, `bool`, `ap.Int`,
         `ap.Number`, `ap.String`, or `ap.Boolean`.
     """
-    import apysc as ap
+    from apysc._type.string import String
+    from apysc._type.int import Int
+    from apysc._type.number import Number
+    from apysc._type.boolean import Boolean
 
     if isinstance(
         key,
-        (str, int, float, bool, ap.String, ap.Int, ap.Number, ap.Boolean),
+        (str, int, float, bool, String, Int, Number, Boolean),
     ):
         return
     raise TypeError(

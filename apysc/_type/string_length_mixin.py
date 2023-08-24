@@ -36,19 +36,20 @@ class StringLengthMixIn:
         >>> string.length
         Int(5)
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._validation.variable_name_validation import (
             validate_variable_name_mixin_type,
         )
+        from apysc._type.string import String
 
         self_variable_name: str = validate_variable_name_mixin_type(
             instance=self,
         ).variable_name
-        characters_length: ap.Int = ap.Int(0)
-        if isinstance(self, ap.String):
+        characters_length: Int = Int(0)
+        if isinstance(self, String):
             characters_length._value = len(self._value)
         expression: str = (
             f"{characters_length.variable_name} = [...{self_variable_name}].length;"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
         return characters_length

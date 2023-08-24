@@ -69,12 +69,12 @@ class NumberValueMixIn(
         """
         Append a current value's constructor expression.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = self._create_initial_substitution_expression()
 
         expression = f"var {expression}"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     def _create_initial_substitution_expression(self) -> str:
@@ -172,14 +172,14 @@ class NumberValueMixIn(
         value : NumberValueMixIn or int or float
             Any number value to set.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         if isinstance(value, NumberValueMixIn):
             right_value: Union[str, int, float] = value.variable_name
         else:
             right_value = value  # type: ignore
         expression: str = f"{self.variable_name} = {right_value};"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_num(arg_position_index=1, optional=False)
@@ -222,14 +222,14 @@ class NumberValueMixIn(
         other : NumberValueMixIn or int or float
             Other value to add.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"var {result.variable_name} = " f"{self.variable_name} + {right_value};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_num(arg_position_index=1, optional=False)
@@ -272,14 +272,14 @@ class NumberValueMixIn(
         other : NumberValueMixIn or int or float
             Other value to subtract.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"var {result.variable_name} = " f"{self.variable_name} - {right_value};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_num(arg_position_index=1, optional=False)
@@ -322,14 +322,14 @@ class NumberValueMixIn(
         other : NumberValueMixIn or int or float
             Other value to multiply.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"var {result.variable_name} = " f"{self.variable_name} * {right_value};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_num(arg_position_index=1, optional=False)
@@ -348,9 +348,9 @@ class NumberValueMixIn(
         result : Number
             True division result value.
         """
-        import apysc as ap
+        from apysc._type.number import Number
 
-        result: ap.Number = ap.Number(value=self)
+        result: Number = Number(value=self)
         if isinstance(other, NumberValueMixIn):
             if other._value != 0:
                 value: _NumType = result._value / other._value
@@ -380,14 +380,14 @@ class NumberValueMixIn(
         other : NumberValueMixIn or int or float
             Other value for true division.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"{result.variable_name} = {self.variable_name} / " f"{right_value};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @arg_validation_decos.is_num(arg_position_index=1, optional=False)
@@ -406,9 +406,9 @@ class NumberValueMixIn(
         result : Int
             Floor division result value.
         """
-        import apysc as ap
+        from apysc._type.int import Int
 
-        result: ap.Int = ap.Int(value=self)
+        result: Int = Int(value=self)
         if isinstance(other, NumberValueMixIn):
             value: _NumType = self._value // other._value
         else:
@@ -432,7 +432,7 @@ class NumberValueMixIn(
         other : NumberValueMixIn or int or float
             Other value for floor division.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         right_value: str = get_value_str_for_expression(value=other)
@@ -440,7 +440,7 @@ class NumberValueMixIn(
             f"{result.variable_name} = "
             f"Math.trunc({self.variable_name} / {right_value});"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _incremental_calc_prev_name: str = ""
 
@@ -609,14 +609,14 @@ class NumberValueMixIn(
         other : NumberValueMixIn or int or float
             The other value to use in the modulo operation.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"var {result.variable_name} = " f"{self.variable_name} % {right_value};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def __str__(self) -> str:
         """
@@ -673,15 +673,15 @@ class NumberValueMixIn(
             If a specified value is the same amount, this interface
             returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, NumberValueMixIn):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value == other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(
+            result = Boolean(
                 self._value == other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
@@ -711,12 +711,13 @@ class NumberValueMixIn(
             to a Number value. This interface returns the
             other type directly (not to be converted).
         """
-        import apysc as ap
+        from apysc._type.int import Int
+        from apysc._type.number import Number
 
         if isinstance(other, int):
-            return ap.Int(other, variable_name_suffix=self._variable_name_suffix)
+            return Int(other, variable_name_suffix=self._variable_name_suffix)
         if isinstance(other, float):
-            return ap.Number(other, variable_name_suffix=self._variable_name_suffix)
+            return Number(other, variable_name_suffix=self._variable_name_suffix)
         return other
 
     @final
@@ -734,13 +735,13 @@ class NumberValueMixIn(
         other : VariableNameMixIn
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} === {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -760,15 +761,15 @@ class NumberValueMixIn(
             If a specified value is not the same amount, this interface
             returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, NumberValueMixIn):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value != other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(
+            result = Boolean(
                 self._value != other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
@@ -791,13 +792,13 @@ class NumberValueMixIn(
         other : VariableNameMixIn
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} !== {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -817,15 +818,15 @@ class NumberValueMixIn(
             If this value is less than a specified value,
             this interface returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, NumberValueMixIn):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value < other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(
+            result = Boolean(
                 self._value < other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
@@ -848,13 +849,13 @@ class NumberValueMixIn(
         other : VariableNameMixIn
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} < {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -874,15 +875,15 @@ class NumberValueMixIn(
             If this value is less than or equal to a specified
             value, this interface returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, NumberValueMixIn):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value <= other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(
+            result = Boolean(
                 self._value <= other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
@@ -905,13 +906,13 @@ class NumberValueMixIn(
         other : VariableNameMixIn
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} <= {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -931,15 +932,15 @@ class NumberValueMixIn(
             If this value is greater than a specified value,
             this interface returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, NumberValueMixIn):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value > other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(
+            result = Boolean(
                 self._value > other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
@@ -962,13 +963,13 @@ class NumberValueMixIn(
         other : VariableNameMixIn
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} > {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -988,15 +989,15 @@ class NumberValueMixIn(
             If this value is greater than or equal to a specified
             value, this interface returns True.
         """
-        import apysc as ap
+        from apysc._type.boolean import Boolean
 
         if isinstance(other, NumberValueMixIn):
-            result: ap.Boolean = ap.Boolean(
+            result: Boolean = Boolean(
                 self._value >= other._value,
                 variable_name_suffix=self._variable_name_suffix,
             )
         else:
-            result = ap.Boolean(
+            result = Boolean(
                 self._value >= other, variable_name_suffix=self._variable_name_suffix
             )
         other = self._convert_other_val_to_int_or_number(other=other)
@@ -1019,13 +1020,13 @@ class NumberValueMixIn(
         other : VariableNameMixIn
             The other value to compare.
         """
-        import apysc as ap
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{result.variable_name} = "
             f"{self.variable_name} >= {other.variable_name};"
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     _value_snapshots: Optional[Dict[str, _ValueType]] = None
 

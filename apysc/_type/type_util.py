@@ -143,10 +143,10 @@ def is_immutable_type(*, value: Any) -> bool:
         This interface checks the apysc value types as
         immutable to match the JavaScript behavior.
     """
+    from apysc._type.boolean import Boolean
     from apysc._type.int import Int
     from apysc._type.number import Number
     from apysc._type.string import String
-    from apysc._type.boolean import Boolean
 
     immutable_types: Tuple = (
         int,

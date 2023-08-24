@@ -76,7 +76,6 @@ class WheelEvent(Event):
         delta_y : Number
             Delta y value.
         """
-        from apysc._expression import expression_data_util
 
         delta_y: Number = Number(0)
         self._append_delta_y_getter_expression(delta_y=delta_y)

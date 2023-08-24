@@ -44,12 +44,12 @@ def bind_wheel_event_to_document(
     - About the handler options' type
         - https://simon-ritchie.github.io/apysc/en/about_handler_options_type.html  # noqa
     """
+    from apysc._display._document import document
     from apysc._event.handler import HandlerData
     from apysc._event.handler import append_handler_expression
     from apysc._event.handler import get_handler_name
-    from apysc._display._document import document
-    from apysc._expression import expression_data_util
     from apysc._event.wheel_event import WheelEvent
+    from apysc._expression import expression_data_util
 
     name: str = get_handler_name(handler=handler, instance=document)
     expression: str = f'$({document.variable_name}).on("mousewheel", {name});'
@@ -77,9 +77,9 @@ def unbind_wheel_event_from_document(*, handler: _Handler[_Options]) -> None:
     handler : _Handler
         Callable to unbind.
     """
-    from apysc._expression import expression_data_util
-    from apysc._event.handler import get_handler_name
     from apysc._display._document import document
+    from apysc._event.handler import get_handler_name
+    from apysc._expression import expression_data_util
 
     name: str = get_handler_name(handler=handler, instance=document)
     expression: str = f'$({document.variable_name}).off("mousewheel", {name});'

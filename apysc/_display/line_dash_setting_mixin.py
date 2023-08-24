@@ -108,6 +108,8 @@ class LineDashSettingMixIn(VariableNameMixIn, RevertMixIn):
         """
         Append line dash setting updating expression.
         """
+        from apysc._expression import expression_data_util
+
         if self._line_dash_setting is None:
             setting_str: str = '""'
         else:
@@ -121,7 +123,7 @@ class LineDashSettingMixIn(VariableNameMixIn, RevertMixIn):
         expression: str = (
             f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
         )
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     @final
     @add_debug_info_setting(module_name=__name__)

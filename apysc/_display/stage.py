@@ -120,10 +120,10 @@ class Stage(
         ...     stage_elem_id="sales_chart",
         ... )
         """
-        from apysc._type.int import Int
-        from apysc._type.array import Array
         from apysc._expression import expression_data_util
         from apysc._html import html_util
+        from apysc._type.array import Array
+        from apysc._type.int import Int
         from apysc._validation import string_validation
 
         global _current_stage

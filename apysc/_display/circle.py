@@ -391,10 +391,10 @@ class Circle(
         """
         Append a constructor expression.
         """
-        from apysc._display.stage import get_stage
         from apysc._display.stage import Stage
-        from apysc._type import value_util
+        from apysc._display.stage import get_stage
         from apysc._expression import expression_data_util
+        from apysc._type import value_util
 
         INDENT_NUM: int = 2
         stage: Stage = get_stage()

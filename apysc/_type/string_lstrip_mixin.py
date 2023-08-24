@@ -66,6 +66,7 @@ class StringLStripMixIn:
         String("bbccaa")
         """
         from apysc._expression import expression_data_util
+        from apysc._type.string import String
         from apysc._type.variable_name_mixin import VariableNameMixIn
 
         result: String = String("", variable_name_suffix=variable_name_suffix)
@@ -115,6 +116,8 @@ def _get_py_str_from_current_value(
     py_str : str
         A Python string.
     """
+    from apysc._type.string import String
+
     py_str: str = ""
     if isinstance(self_str, String):
         py_str = self_str._value
@@ -167,6 +170,8 @@ def _create_string_not_none_case_expression(
     expression : str
         A created expression.
     """
+    from apysc._type.string import String
+
     if not isinstance(removing_string, String):
         removing_string_: String = String(
             removing_string, variable_name_suffix=variable_name_suffix

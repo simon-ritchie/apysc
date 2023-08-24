@@ -109,8 +109,8 @@ class HeightMixIn(
         """
         Append height updating expression.
         """
-        from apysc._type import value_util
         from apysc._expression import expression_data_util
+        from apysc._type import value_util
 
         height_str: str = value_util.get_value_str_for_expression(value=self._height)
         expression: str = f"{self.variable_name}.height({height_str});"

@@ -85,8 +85,8 @@ def append_handler_expression(
         Optional expression to be added at the handler function's
         head position.
     """
-    from apysc._expression import expression_data_util
     from apysc._event.handler_circular_calling_util import is_handler_circular_calling
+    from apysc._expression import expression_data_util
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
     from apysc._type import revert_mixin

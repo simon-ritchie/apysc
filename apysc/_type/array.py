@@ -1055,9 +1055,9 @@ class Array(
         value : *
             Specified index's value.
         """
-        from apysc._type.any_value import AnyValue
         from apysc._expression import expression_data_util
         from apysc._type import value_util
+        from apysc._type.any_value import AnyValue
 
         value_: VariableNameMixIn
         if not isinstance(value, VariableNameMixIn):
@@ -1598,10 +1598,10 @@ class Array(
         >>> ap.assert_equal(last_value, 20)
         """
         from apysc._expression import expression_data_util
+        from apysc._type.any_value import AnyValue
         from apysc._validation.variable_name_validation import (
             validate_variable_name_mixin_type,
         )
-        from apysc._type.any_value import AnyValue
 
         if self._fixed_value_type is not None and issubclass(
             self._fixed_value_type,

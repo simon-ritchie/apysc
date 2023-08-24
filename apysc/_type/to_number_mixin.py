@@ -30,12 +30,13 @@ class ToNumberMixIn:
             A converted number.
         """
         from apysc._expression import expression_data_util
+        from apysc._type.boolean import Boolean
+        from apysc._type.int import Int
+        from apysc._type.number import Number
+        from apysc._type.string import String
         from apysc._validation.variable_name_validation import (
             validate_variable_name_mixin_type,
         )
-        from apysc._type.int import Int
-        from apysc._type.string import String
-        from apysc._type.boolean import Boolean
 
         self_variable_name: str = validate_variable_name_mixin_type(
             instance=self

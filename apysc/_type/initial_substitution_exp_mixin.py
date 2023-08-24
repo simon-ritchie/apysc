@@ -33,8 +33,8 @@ class InitialSubstitutionExpMixIn(ABC):
             A boolean indicates whether to skip appending an expression
             or not.
         """
-        from apysc._expression import expression_data_util
         from apysc._expression import event_handler_scope
+        from apysc._expression import expression_data_util
 
         if skip_appending:
             return

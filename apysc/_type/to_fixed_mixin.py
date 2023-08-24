@@ -64,8 +64,9 @@ class ToFixedMixIn:
         String("11")
         """
         from apysc._expression import expression_data_util
-        from apysc._type.variable_name_mixin import VariableNameMixIn
+        from apysc._type.int import Int
         from apysc._type.number import Number
+        from apysc._type.variable_name_mixin import VariableNameMixIn
 
         result_str: String = String("", variable_name_suffix=variable_name_suffix)
         if isinstance(digits, int):

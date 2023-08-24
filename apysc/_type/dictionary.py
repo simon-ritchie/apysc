@@ -351,7 +351,6 @@ class Dictionary(
         >>> dictionary.length
         Int(2)
         """
-        from apysc._expression import expression_data_util
 
         length: Int = Int(len(self._value))
         self._append_length_expression(length=length)
@@ -583,7 +582,6 @@ class Dictionary(
         result : Boolean
             Comparison result.
         """
-        from apysc._expression import expression_data_util
 
         if isinstance(other, Dictionary):
             result: Boolean = Boolean(self._value == other._value)

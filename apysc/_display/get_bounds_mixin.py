@@ -144,8 +144,9 @@ class GetBoundsMixIn(VariableNameMixIn):
         height : Int
             The Rectangle height.
         """
+        from apysc._display.stage import Stage
+        from apysc._display.stage import get_stage
         from apysc._expression import expression_data_util
-        from apysc._display.stage import get_stage, Stage
 
         stage: Stage = get_stage()
         expression: str = (

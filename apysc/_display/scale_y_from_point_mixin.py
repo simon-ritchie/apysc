@@ -155,8 +155,8 @@ class ScaleYFromPointMixIn(
         y : Number
             Y-coordinate.
         """
-        from apysc._expression import expression_data_util
         from apysc._display import scale_interface_helper
+        from apysc._expression import expression_data_util
 
         expression: str
         expression = scale_interface_helper.get_scale_updating_expression(

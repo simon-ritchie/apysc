@@ -127,8 +127,8 @@ class FlipXMixIn(
         before_value : Boolean
             Before updating flipping value.
         """
-        from apysc._expression import expression_data_util
         from apysc._display import flip_interface_helper
+        from apysc._expression import expression_data_util
 
         self._initialize_flip_x_if_not_initialized()
         expression: str = flip_interface_helper.make_flip_update_expression(

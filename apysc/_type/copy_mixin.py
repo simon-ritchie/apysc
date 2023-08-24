@@ -61,8 +61,8 @@ class CopyMixIn(
         result_variable_name : str
             Copied value's variable name.
         """
-        from apysc._expression import expression_data_util
         from apysc._expression import event_handler_scope
+        from apysc._expression import expression_data_util
         from apysc._type.type_util import is_immutable_type
 
         if not event_handler_scope.current_scope_is_in_event_handler():

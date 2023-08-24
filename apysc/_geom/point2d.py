@@ -302,7 +302,6 @@ class Point2D(
         result : Boolean
             Comparison result.
         """
-        from apysc._expression import expression_data_util
         from apysc._type.boolean import Boolean
 
         result: Boolean

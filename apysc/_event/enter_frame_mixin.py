@@ -92,11 +92,11 @@ class EnterFrameMixIn(
         ...     rectangle.x += 1
         >>> stage.enter_frame(handler=on_enter_frame, fps=ap.FPS.FPS_30)
         """
+        from apysc._event.enter_frame_event import EnterFrameEvent
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._event.enter_frame_event import EnterFrameEvent
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
@@ -167,8 +167,8 @@ class EnterFrameMixIn(
             Frame per second to set.
         """
         from apysc._branch._if import If
-        from apysc._time.datetime_ import DateTime
         from apysc._expression import expression_data_util
+        from apysc._time.datetime_ import DateTime
 
         with If(self._is_stopped_settings[handler_name]):
             self._is_stopped_settings[handler_name].value = False
@@ -245,9 +245,9 @@ class EnterFrameMixIn(
         """
         from apysc._expression import expression_data_util
         from apysc._expression.indent_num import Indent
+        from apysc._math.math import Math
         from apysc._time.timedelta_ import TimeDelta
         from apysc._type.array import Array
-        from apysc._math.math import Math
 
         expression: str = (
             f"function {loop_func_name}() {{"

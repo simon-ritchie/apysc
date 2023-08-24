@@ -150,11 +150,11 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         >>> _ = ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
         """
         from apysc._event.handler import get_handler_name
+        from apysc._expression import expression_data_util
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
         from apysc._validation import number_validation
-        from apysc._expression import expression_data_util
 
         with TemporaryNotHandlerScope():
             self.variable_name = expression_variables_util.get_next_variable_name(
@@ -179,7 +179,9 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
                 handler=self._handler,
                 options=options,
             )
-            expression_data_util.append_js_expression(expression=f"var {self.variable_name};")
+            expression_data_util.append_js_expression(
+                expression=f"var {self.variable_name};"
+            )
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -344,9 +346,9 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         ...     pass
         >>> _ = ap.Timer(on_timer, delay=33.3, repeat_count=50).start()
         """
-        from apysc._event.timer_event import TimerEvent
         from apysc._event import handler_circular_calling_util
         from apysc._event.handler import append_handler_expression
+        from apysc._event.timer_event import TimerEvent
         from apysc._expression import expression_data_util
         from apysc._type import value_util
 
@@ -615,8 +617,8 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
         >>> _ = timer.timer_complete(on_timer_complete)
         >>> timer.start()
         """
-        from apysc._event.timer_event import TimerEvent
         from apysc._event.custom_event_type import CustomEventType
+        from apysc._event.timer_event import TimerEvent
 
         e: TimerEvent = TimerEvent(this=self)
         name: str = self.bind_custom_event(

@@ -63,6 +63,8 @@ class StringApplyMaxNumOfDecimalPlacesMixIn:
         from apysc._expression import expression_data_util
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        from apysc._type.int import Int
+        from apysc._type.string import String
         from apysc._validation import variable_name_validation
 
         if not isinstance(max_num_of_decimal_places, Int):
@@ -122,6 +124,8 @@ def _get_py_str(
     py_str : str
         A Python value string.
     """
+    from apysc._type.string import String
+
     py_str: str = ""
     if isinstance(self_str, String):
         py_str = self_str._value

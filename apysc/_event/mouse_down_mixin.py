@@ -71,14 +71,14 @@ class MouseDownMixIn(MouseEventUnbindingMixIn, MouseEventBindingExpressionMixin)
         ... )
         >>> _ = rectangle.mousedown(on_mousedown)
         """
-        from apysc._event.mouse_event_type import MouseEventType
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
+        from apysc._event.mouse_event import MouseEvent
+        from apysc._event.mouse_event_type import MouseEventType
         from apysc._type.variable_name_mixin import VariableNameMixIn
         from apysc._validation.variable_name_validation import (
             validate_variable_name_mixin_type,
         )
-        from apysc._event.mouse_event import MouseEvent
 
         self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
             instance=self

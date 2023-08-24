@@ -124,9 +124,9 @@ def _append_complement_hex_color_expression(*, hex_color_code: Any) -> None:
     hex_color_code : String
         Complemented hex color code string.
     """
+    from apysc._expression import expression_data_util
     from apysc._expression import expression_variables_util
     from apysc._expression import var_names
-    from apysc._expression import expression_data_util
 
     index_name: str = expression_variables_util.get_next_variable_name(
         type_name=var_names.INDEX

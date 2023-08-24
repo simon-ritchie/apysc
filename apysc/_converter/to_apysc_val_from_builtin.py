@@ -58,9 +58,7 @@ def get_copied_number_from_builtin_val(
         Copied Number value.
     """
     if isinstance(float_or_num, (int, float)):
-        copied: Number = Number(
-            float_or_num, variable_name_suffix=variable_name_suffix
-        )
+        copied: Number = Number(float_or_num, variable_name_suffix=variable_name_suffix)
     else:
         copied = float_or_num._copy()
     return copied
@@ -114,12 +112,9 @@ def get_copied_boolean_from_builtin_val(
     copied : Boolean
         Copied Boolean value.
     """
-    from apysc._expression import expression_data_util
 
     if isinstance(bool_val, bool):
-        copied: Boolean = Boolean(
-            bool_val, variable_name_suffix=variable_name_suffix
-        )
+        copied: Boolean = Boolean(bool_val, variable_name_suffix=variable_name_suffix)
     else:
         copied = bool_val._copy()
     return copied

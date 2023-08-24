@@ -22,7 +22,8 @@ class SVGTextSingletonForTextSpan:
         svg_text : SVGText
             A target text instance.
         """
-        from apysc._display.stage import get_stage, Stage
+        from apysc._display.stage import Stage
+        from apysc._display.stage import get_stage
         from apysc._display.svg_text import SVGText
         from apysc._type.boolean import Boolean
 

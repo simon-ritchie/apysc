@@ -126,7 +126,8 @@ class Sprite(
         >>> sprite_2.x
         Number(50.0)
         """
-        from apysc._display.stage import get_stage, Stage
+        from apysc._display.stage import Stage
+        from apysc._display.stage import get_stage
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._type.array import Array
@@ -156,7 +157,8 @@ class Sprite(
         """
         Append Sprite constructor expression.
         """
-        from apysc._display.stage import get_stage, Stage
+        from apysc._display.stage import Stage
+        from apysc._display.stage import get_stage
         from apysc._expression import expression_data_util
 
         stage: Stage = get_stage()

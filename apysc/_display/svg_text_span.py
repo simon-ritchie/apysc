@@ -290,6 +290,7 @@ class SVGTextSpan(
         from apysc._display.svg_text_singleton_for_text_span import (
             SVGTextSingletonForTextSpan,
         )
+        from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
         parent: SVGText = SVGTextSingletonForTextSpan.get_instance()
@@ -323,7 +324,7 @@ class SVGTextSpan(
             skip_appending=self._skip_line_alpha_expression_appending,
         )
         expression += "\n});"
-        ap.append_js_expression(expression=expression)
+        expression_data_util.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:
         """

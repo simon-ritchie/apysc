@@ -341,7 +341,8 @@ class SVGText(
         """
         Append a constructor expression string.
         """
-        from apysc._display.stage import get_stage, Stage
+        from apysc._display.stage import Stage
+        from apysc._display.stage import get_stage
         from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
@@ -508,8 +509,8 @@ class SVGText(
         ...     fill_color=ap.Color("#0af"),
         ... )
         """
-        from apysc._loop.for_array_indices import ForArrayIndices
         from apysc._expression import expression_data_util
+        from apysc._loop.for_array_indices import ForArrayIndices
 
         svg_text: SVGText = SVGText(
             text="",

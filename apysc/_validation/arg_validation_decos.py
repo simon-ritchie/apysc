@@ -2420,9 +2420,9 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._validation import number_validation
-            from apysc._type.int import Int
             from apysc._type.boolean import Boolean
+            from apysc._type.int import Int
+            from apysc._validation import number_validation
 
             value: Any = _extract_arg_value(
                 args=args,
@@ -2514,8 +2514,8 @@ def is_four_digit_year(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._validation.number_validation import validate_integer
             from apysc._type.int import Int
+            from apysc._validation.number_validation import validate_integer
 
             year: Any = _extract_arg_value(
                 args=args,
@@ -2567,8 +2567,8 @@ def is_month_int(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._validation.number_validation import validate_integer
             from apysc._type.int import Int
+            from apysc._validation.number_validation import validate_integer
 
             month: Any = _extract_arg_value(
                 args=args,
@@ -2621,8 +2621,8 @@ def is_day_int(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._validation.number_validation import validate_integer
             from apysc._type.int import Int
+            from apysc._validation.number_validation import validate_integer
 
             day: Any = _extract_arg_value(
                 args=args,
@@ -3010,8 +3010,8 @@ def is_apysc_string_array(
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._type.string import String
             from apysc._type.array import Array
+            from apysc._type.string import String
 
             arr: Any = _extract_arg_value(
                 args=args,
@@ -3180,8 +3180,8 @@ def are_text_spans(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._type.array import Array
             from apysc._display.svg_text_span import SVGTextSpan
+            from apysc._type.array import Array
 
             text_spans: Any = _extract_arg_value(
                 args=args,

@@ -60,9 +60,9 @@ class AppendLinePointMixIn(
         ... )
         >>> polygon.append_line_point(x=50, y=0)
         """
-        from apysc._type import value_util
-        from apysc._geom.point2d import Point2D
         from apysc._expression import expression_data_util
+        from apysc._geom.point2d import Point2D
+        from apysc._type import value_util
 
         if not hasattr(self, "_points_var_name"):
             raise AttributeError(

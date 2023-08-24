@@ -187,8 +187,8 @@ def _create_y_axis_vertical_border(
     line : Line
         A created line.
     """
-    from apysc._geom.rectangle_geom import RectangleGeom
     from apysc._geom.point2d import Point2D
+    from apysc._geom.rectangle_geom import RectangleGeom
 
     bounding_box: RectangleGeom = y_axis_texts_container.get_bounds()
     x: Number = bounding_box.width.to_number() + chart_const.LARGE_PADDING * 3
@@ -259,8 +259,8 @@ def _create_y_axis_ticks_texts(
     texts_container : Sprite
         A container that contains created texts.
     """
-    from apysc._loop.for_array_indices import ForArrayIndices
     from apysc._display.svg_text_align_mixin import SVGTextAlign
+    from apysc._loop.for_array_indices import ForArrayIndices
 
     y_axis_ticks_texts: Array[SVGText] = Array([])
     texts_container: Sprite = Sprite()
@@ -412,11 +412,11 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
     """
-    from apysc._type.array import Array
-    from apysc._loop.for_array_indices import ForArrayIndices
     from apysc._display.svg_text import SVGText
     from apysc._geom.rectangle_geom import RectangleGeom
+    from apysc._loop.for_array_indices import ForArrayIndices
     from apysc._math.math import Math
+    from apysc._type.array import Array
 
     x: Number = horizontal_padding._copy().to_number()
     max_arr: Array[Union[Int, Number]] = Array(
@@ -510,8 +510,8 @@ def _calculate_y_axis_ticks_num(
     y_axis_ticks_num : Int
         Y-axis ticks number.
     """
-    from apysc._type.array import Array
     from apysc._math.math import Math
+    from apysc._type.array import Array
 
     interval: Int = tick_text_font_size * 3
     y_axis_ticks_num: Int = y_axis_height // interval
@@ -668,8 +668,8 @@ def _extract_column_values_from_data(
     values : Array[Union[Int, Number]]
         A values array.
     """
-    from apysc._type.array import Array
     from apysc._loop.for_array_indices import ForArrayIndices
+    from apysc._type.array import Array
 
     values: Array[Union[Int, Number]] = Array(
         [],

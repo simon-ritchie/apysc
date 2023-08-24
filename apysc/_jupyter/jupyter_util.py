@@ -79,7 +79,8 @@ def display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None:
     from IPython.display import IFrame
     from IPython.display import display
 
-    from apysc._display.stage import Stage, get_stage
+    from apysc._display.stage import Stage
+    from apysc._display.stage import get_stage
 
     stage: Stage = get_stage()
     _save_overall_html(html_file_name=html_file_name, minify=minify)

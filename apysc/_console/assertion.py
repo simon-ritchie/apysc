@@ -255,8 +255,8 @@ def assert_false(value: Any, *, type_strict: bool = True, msg: str = "") -> None
     >>> boolean: ap.Boolean = int_val == 11
     >>> ap.assert_false(boolean)
     """
-    from apysc._string import string_util
     from apysc._expression import expression_data_util
+    from apysc._string import string_util
 
     _trace_info(
         interface_label=assert_false.__name__,
@@ -434,8 +434,8 @@ def assert_less_equal(
     >>> int_val_3: ap.Int = ap.Int(9)
     >>> ap.assert_greater_equal(left=int_val_1, right=int_val_3)
     """
-    from apysc._string import string_util
     from apysc._expression import expression_data_util
+    from apysc._string import string_util
 
     _trace_info(
         interface_label=assert_less_equal.__name__,
@@ -818,9 +818,9 @@ def _trace_arrays_or_dicts_assertion_info(
         The trace's outer frames index adjustment setting.
         This function uses this argument to adjust the caller's information.
     """
+    from apysc._type import value_util
     from apysc._type.array import Array
     from apysc._type.dictionary import Dictionary
-    from apysc._type import value_util
 
     left_exp_str: str = value_util.get_value_str_for_expression(value=left)
     if isinstance(left, dict):

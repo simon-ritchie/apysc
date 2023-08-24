@@ -143,7 +143,6 @@ class LineThicknessMixIn(
         value : Int or int
             Line thickness to set.
         """
-        from apysc._expression import expression_data_util
 
         if isinstance(value, Int):
             value_: Int = value

@@ -124,8 +124,8 @@ class MouseEvent(
         x : Number
             Target x-coordinate value.
         """
-        from apysc._expression import expression_data_util
         from apysc._display.stage import get_stage_elem_str
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{x.variable_name} = {self.variable_name}.pageX - "
@@ -178,8 +178,8 @@ class MouseEvent(
         y : Number
             Target y-coordinate value.
         """
-        from apysc._expression import expression_data_util
         from apysc._display.stage import get_stage_elem_str
+        from apysc._expression import expression_data_util
 
         expression: str = (
             f"{y.variable_name} = {self.variable_name}.pageY - "

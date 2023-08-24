@@ -375,10 +375,11 @@ class Path(
         """
         Append a constructor expression.
         """
+        from apysc._display.stage import Stage
+        from apysc._display.stage import get_stage
+        from apysc._expression import expression_data_util
         from apysc._geom.path_data_util import make_paths_expression_from_list
         from apysc._string import indent_util
-        from apysc._display.stage import get_stage, Stage
-        from apysc._expression import expression_data_util
 
         stage: Stage = get_stage()
         path_data_expression: str = make_paths_expression_from_list(
@@ -448,8 +449,8 @@ class Path(
         path : Path
             An initialized path instance.
         """
-        from apysc._geom.path_move_to import PathMoveTo
         from apysc._geom.path_line_to import PathLineTo
+        from apysc._geom.path_move_to import PathMoveTo
         from apysc._type.boolean import Boolean
 
         path: Path = Path(

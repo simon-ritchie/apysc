@@ -238,8 +238,8 @@ class AnimationBase(
         ...     .start()
         ... )
         """
-        from apysc._event.custom_event_type import CustomEventType
         from apysc._event.animation_event import AnimationEvent
+        from apysc._event.custom_event_type import CustomEventType
 
         self._validate_animation_not_started()
         e: AnimationEvent[_Target] = AnimationEvent(this=self)

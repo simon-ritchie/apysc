@@ -70,11 +70,11 @@ class GraphicsClearMixIn:
         from apysc._display.fill_alpha_mixin import FillAlphaMixIn
         from apysc._display.fill_color_mixin import FillColorMixIn
         from apysc._display.line_alpha_mixin import LineAlphaMixIn
+        from apysc._display.line_caps import LineCaps
         from apysc._display.line_color_mixin import LineColorMixIn
+        from apysc._display.line_joints import LineJoints
         from apysc._display.line_style_mixin import LineStyleMixIn
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
-        from apysc._display.line_caps import LineCaps
-        from apysc._display.line_joints import LineJoints
 
         if isinstance(self, (FillColorMixIn, BeginFillMixIn)):
             self._initialize_fill_color_if_not_initialized()

@@ -10,41 +10,6 @@
 
 反対に、`ap.False_`は`Boolean`の`False`の値を示すための定数となります。
 
-## 初期化タイミングにおける特記事項
-
-これらの定数は`Stage`の初期化（インスタンス化）後のみ利用可能です。
-
-もし`Stage`の初期化前にこれらの定数を参照した場合はエラーとなります。
-
-```py
-import apysc as ap
-
-print(ap.True_)
-```
-
-```
-AttributeError: module 'apysc' has no attribute 'True_'
-```
-
-`Stage`の初期化を行うことでエラーは発生しなくなります。
-
-```py
-# runnable
-import apysc as ap
-
-ap.Stage(
-    stage_width=100,
-    stage_height=100,
-    background_color=ap.Color("#333"),
-    stage_elem_id="stage",
-)
-print(ap.True_)
-```
-
-```
-Boolean(True)
-```
-
 ## 基本的な使い方
 
 `True_`と`False_`の各定数は`ap.Boolean(True)`や`ap.Boolean(False)`などと同じように振る舞います。

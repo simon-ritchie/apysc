@@ -55,36 +55,7 @@
 <p>反対に、<code class="docutils literal notranslate"><span class="pre">ap.False_</span></code>は<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の<code class="docutils literal notranslate"><span class="pre">False</span></code>の値を示すための定数となります。</p>
 </section>
 <section id="id2">
-<h2>初期化タイミングにおける特記事項<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p>これらの定数は<code class="docutils literal notranslate"><span class="pre">Stage</span></code>の初期化（インスタンス化）後のみ利用可能です。</p>
-<p>もし<code class="docutils literal notranslate"><span class="pre">Stage</span></code>の初期化前にこれらの定数を参照した場合はエラーとなります。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">True_</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="n">module</span> <span class="s1">&#39;apysc&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;True_&#39;</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code>の初期化を行うことでエラーは発生しなくなります。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-
-<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">stage_width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
-    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">True_</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="id3">
-<h2>基本的な使い方<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">True_</span></code>と<code class="docutils literal notranslate"><span class="pre">False_</span></code>の各定数は<code class="docutils literal notranslate"><span class="pre">ap.Boolean(True)</span></code>や<code class="docutils literal notranslate"><span class="pre">ap.Boolean(False)</span></code>などと同じように振る舞います。</p>
 <p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>の引数を取る関数やメソッドなどではこれらの定数を指定することができます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -127,8 +98,7 @@
     <ul>
 <li><a class="reference internal" href="#">True_ と False_ の各定数</a><ul>
 <li><a class="reference internal" href="#id1">各定数の概要</a></li>
-<li><a class="reference internal" href="#id2">初期化タイミングにおける特記事項</a></li>
-<li><a class="reference internal" href="#id3">基本的な使い方</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 </ul>
 </li>
 </ul>

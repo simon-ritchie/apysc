@@ -19,22 +19,6 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Conversely, the `ap.False_` is the constant that indicates `Boolean`'s `False` value.": "反対に、`ap.False_`は`Boolean`の`False`の値を示すための定数となります。",  # noqa
     ##################################################
-    "## Notes for the initialization timing": "## 初期化タイミングにおける特記事項",
-    ##################################################
-    "These constants are only available after the `Stage` initialization (instantiation).": "これらの定数は`Stage`の初期化（インスタンス化）後のみ利用可能です。",  # noqa
-    ##################################################
-    "If you reference its constant before `Stage` initialization, it raises an exception.": "もし`Stage`の初期化前にこれらの定数を参照した場合はエラーとなります。",  # noqa
-    ##################################################
-    "```py\nimport apysc as ap\n\nprint(ap.True_)\n```": "```py\nimport apysc as ap\n\nprint(ap.True_)\n```",  # noqa
-    ##################################################
-    "```\nAttributeError: module 'apysc' has no attribute 'True_'\n```": "```\nAttributeError: module 'apysc' has no attribute 'True_'\n```",  # noqa
-    ##################################################
-    "Instantiating `Stage` makes this error disappear.": "`Stage`の初期化を行うことでエラーは発生しなくなります。",  # noqa
-    ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=100,\n    stage_height=100,\n    background_color=ap.Color("#333"),\n    stage_elem_id="stage",\n)\nprint(ap.True_)\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    stage_width=100,\n    stage_height=100,\n    background_color=ap.Color("#333"),\n    stage_elem_id="stage",\n)\nprint(ap.True_)\n```',  # noqa
-    ##################################################
-    "```\nBoolean(True)\n```": "```\nBoolean(True)\n```",
-    ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
     "The `True_` and `False_` constants behave like `ap.Boolean(True)` and `ap.Boolean(False)`.": "`True_`と`False_`の各定数は`ap.Boolean(True)`や`ap.Boolean(False)`などと同じように振る舞います。",  # noqa

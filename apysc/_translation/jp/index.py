@@ -11,7 +11,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "# apysc documentation": "# apysc ドキュメント",
     ##################################################
-    "Welcome to apysc documentation! apysc is the Python front-end library (currently developing and only works partially).": "apyscのドキュメントページへようこそ。apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。",  # noqa
+    "Welcome to apysc documentation! apysc is a Python front-end library (currently developing and only works partially).": "apyscのドキュメントページへようこそ。apyscはPythonのフロントエンド用のライブラリです（現在開発中であり部分的にのみ動作します）。",  # noqa
     ##################################################
     "## Project links": "## プロジェクトの関連リンク",
     ##################################################

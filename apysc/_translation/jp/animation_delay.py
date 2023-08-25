@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `delay` setting determines the delay time before the animation starts. For instance, if you specify 3000 to the `delay` argument, the animation starts after 3 seconds after.": "`delay`の設定はアニメーション開始前の遅延時間を値を設定することができます。たとえば`delay`の引数に3000を指定すればアニメーションは3秒後に開始します。",  # noqa
     ##################################################
-    "Each animation method interface (such as the `animation_move`\\, `animation_x`\\, and so on) has the `delay` argument.": "`animation_move`や`animation_x`などの各アニメーションのインターフェイスはこの`delay`引数を持っています。",  # noqa
+    "Each animation method interface (such as the `animation_move`, `animation_x`, and so on) has the `delay`'s argument.": "`animation_move`や`animation_x`などの各アニメーションのインターフェイスはこの`delay`引数を持っています。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

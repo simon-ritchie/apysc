@@ -1,16 +1,16 @@
 # Animation interfaces duration setting
 
-This page explains the animation interfaces `duration` setting.
+This page explains the animation interfaces' `duration` setting.
 
 ## What setting is this?
 
 The `duration` setting determines the animation time from start to end in milliseconds. For instance, if you specify 3000 to the `duration` argument, the animation takes 3 seconds to complete.
 
-Each animation method interface (such as the `animation_move`\, `animation_x`\, and so on) has the `duration` argument.
+Each animation method interface (such as the `animation_move`, `animation_x`, and so on) has the `duration`'s argument.
 
 ## Basic usage
 
-The following example sets 3 seconds to the `duration` option and animates x-coordinate.
+The following example sets 3 seconds to the `duration` option and animates an x-coordinate.
 
 ```py
 # runnable

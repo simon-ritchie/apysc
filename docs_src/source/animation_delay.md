@@ -6,7 +6,7 @@ This page explains the animation interfaces `delay` setting.
 
 The `delay` setting determines the delay time before the animation starts. For instance, if you specify 3000 to the `delay` argument, the animation starts after 3 seconds after.
 
-Each animation method interface (such as the `animation_move`\, `animation_x`\, and so on) has the `delay` argument.
+Each animation method interface (such as the `animation_move`, `animation_x`, and so on) has the `delay`'s argument.
 
 ## Basic usage
 

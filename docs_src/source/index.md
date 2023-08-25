@@ -1,6 +1,6 @@
 # apysc documentation
 
-Welcome to apysc documentation! apysc is the Python front-end library (currently developing and only works partially).
+Welcome to apysc documentation! apysc is a Python front-end library (currently developing and only works partially).
 
 ## Project links
 

@@ -23,9 +23,6 @@ from apysc._display.width_mixin import WidthMixIn
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._event.mouse_event_mixins import MouseEventMixIns
-from apysc._type.initialize_top_level_constants_mixin import (
-    InitializeTopLevelConstantsMixIn,
-)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
@@ -41,7 +38,6 @@ class Stage(
     MouseEventMixIns,
     CustomEventMixIn,
     VariableNameSuffixMixIn,
-    InitializeTopLevelConstantsMixIn,
 ):
     """
     The Stage (overall view-area) class.
@@ -154,8 +150,6 @@ class Stage(
         )
         self._children = Array([], variable_name_suffix=suffix)
         _current_stage = self
-
-        self._initialize_top_level_constants()
 
     @final
     def _save_stage_elem_id(self) -> None:

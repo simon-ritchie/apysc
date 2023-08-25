@@ -136,7 +136,7 @@ from apysc._color.color import Color
 from apysc._color.colors import Colors
 from apysc._color.colorless import COLORLESS
 
-True_: __True
-False_: __False
+True_: __True = __True()
+False_: __False = __False()
 
 __version__: str = "4.0.5"

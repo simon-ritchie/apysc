@@ -4,7 +4,7 @@ This page explains the `COLORLESS` constant.
 
 ## What constant is this?
 
-The `COLORLESS` constant is a no-color setting.
+The `COLORLESS` constant is the no-color setting.
 
 If you set this constant to each color-related argument or property, the `apysc` clears its color.
 
@@ -14,7 +14,7 @@ The `COLORLESS` constant is a subclass of the `Color` class.
 
 So, you can specify its constant to each color-related argument or property.
 
-The `apysc` displays no color since the `fill_color` and `line_color` arguments' values are the `COLORLESS` constant in the following example:
+The `apysc` displays no color since the `fill_color` and `line_color` argument's values are the `COLORLESS` constant in the following example:
 
 ```py
 # runnable

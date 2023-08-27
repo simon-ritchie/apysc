@@ -19,7 +19,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The `flip_x` and `flip_y` can be set a `Boolean` value. If you set the `True`\\, an object becomes flipped. Conversely, if you set the `False`\\, an object resets flipping.": "`flip_x`と`flip_y`には`Boolean`型の値を設定できます。もし`True`を指定すれば反転した状態になり、`False`を設定すれ反転がリセットされます。",  # noqa
+    "You can set a `Boolean` value to the `flip_x` and `flip_y` properties.": "`flip_x`と`flip_y`属性には`Boolean`の値を設定することができます。",
+    ##################################################
+    "If you set the `True`, an object becomes flipped. Conversely, if you set the `False`, an object resets flipping.": "もし`True`を指定すれば反転した状態になり、`False`を設定すれ反転がリセットされます。",  # noqa
     ##################################################
     "The getter interface returns a `Boolean` value of a current flipping value.": "getterのインターフェイスでは現在の反転設定の`Boolean`型の値を返却します。",  # noqa
     ##################################################

@@ -21,7 +21,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "You can bind event handler (callable) with each interface, like the `click`\\, `mouseover`\\.": "`click`や`mouseover`などの各インターフェイスで任意のイベントハンドラ（Callableオブジェクト）を登録することができます。",  # noqa
+    "You can bind an event handler (callable) with each interface like the `click`, `mouseover`.": "`click`や`mouseover`などの各インターフェイスで任意のイベントハンドラ（Callableオブジェクト）を登録することができます。",  # noqa
     ##################################################
     "The following example binds the click event handler, and if you click the rectangle, the fill color is changed.": "以下のコード例ではクリックのイベントハンドラを設定しており、四角をクリックすると色が変わるようにしています。",  # noqa
     ##################################################

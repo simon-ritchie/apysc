@@ -10,4 +10,4 @@ Occasionally, these are unnecessary to create HTML. Still, these types become es
 
 The apysc library automatically sets each variable's names and uses them when exporting the HTML and JavaScript files. It also tracks variables creation and updating and applies them to the exported JavaScript.
 
-Using the Python built-in data type, these variables' values become fixed (the apysc doesn't apply asynchronous function's changes).
+Using the Python built-in data types, values of these variables become fixed (the apysc doesn't apply changes made by asynchronous functions).

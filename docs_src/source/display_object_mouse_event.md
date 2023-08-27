@@ -10,7 +10,7 @@ These interfaces can bind the mouse event to a `DisplayObject` instance. So, for
 
 ## Basic usage
 
-You can bind event handler (callable) with each interface, like the `click`\, `mouseover`\.
+You can bind an event handler (callable) with each interface like the `click`, `mouseover`.
 
 The following example binds the click event handler, and if you click the rectangle, the fill color is changed.
 

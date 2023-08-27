@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `delete` function deletes any instance, and it becomes an `undefined` object.": "`delete`関数は任意のインスタンスの削除を行います。削除された対象は`undefined`のオブジェクトになります。",  # noqa
     ##################################################
-    "If an instance is a `DisplayObject` instance, this interface removes an instance from a stage.": "もし対象のインスタンスが`DisplayObject`のインスタンスであれば、このインターフェイスはそのインスタンスをステージから取り除きます。",  # noqa
+    "If an instance is a `DisplayObject` instance, this interface removes an instance from the stage.": "もし対象のインスタンスが`DisplayObject`のインスタンスであれば、このインターフェイスはそのインスタンスをステージから取り除きます。",  # noqa
     ##################################################
     "For example, this interface removes a `Sprite` or `Rectangle` instance.": "例えば`Sprite`や`Rectangle`などのインスタンスであればこのインターフェイスはそれらのインスタンスを取り除きます。",  # noqa
     ##################################################
@@ -27,7 +27,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_val: ap.Int = ap.Int(10)\nap.delete(int_val)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_val: ap.Int = ap.Int(10)\nap.delete(int_val)\n```",  # noqa
     ##################################################
-    "If a specified instance is a `DisplayObject` instance, the `delete` function removes it from a stage.": "もし指定されたインスタンスが`DisplayObject`のインスタンスであれば、`delete`関数はそのインスタンスをステージから取り除きます。",  # noqa
+    "If a specified instance is a `DisplayObject` instance, this function removes it from a stage.": "もし指定されたインスタンスが`DisplayObject`のインスタンスであれば、`delete`関数はそのインスタンスをステージから取り除きます。",  # noqa
     ##################################################
     "Also, it becomes an undefined object.": "また、削除されたインスタンスはundefinedのオブジェクトになります。",
     ##################################################

@@ -15,9 +15,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `value` getter interface returns each data class value. And the setter interface updates these data class values.": "`value`のgetterのインターフェイスは各データクラスの値を返却します。setterのインターフェイスではそれらの値の更新を行います。",  # noqa
+    "The `value` getter interface returns each data class value, and the setter interface updates these data class values.": "`value`のgetterのインターフェイスは各データクラスの値を返却します。setterのインターフェイスではそれらの値の更新を行います。",  # noqa
     ##################################################
-    "A return value of the getter interface becomes a Python built-in value, like the `int`\\, `float`\\, `str`\\, `list`\\.": "返却値は基本的に`int`や`float`、`str`などのPythonビルトインの値になります。",  # noqa
+    "A return value of the getter interface becomes a Python built-in value, like the `int`, `float`, `str`, `list`.": "返却値は基本的に`int`や`float`、`str`などのPythonビルトインの値になります。",  # noqa
     ##################################################
     "## Basic usage of the getter interface": "## getterのインターフェイスの基本的な使い方",
     ##################################################

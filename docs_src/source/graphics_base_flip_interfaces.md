@@ -8,7 +8,9 @@ The `flip_x` property flips an object in the x-axis direction, and the `flip_y` 
 
 ## Basic usage
 
-The `flip_x` and `flip_y` can be set a `Boolean` value. If you set the `True`\, an object becomes flipped. Conversely, if you set the `False`\, an object resets flipping.
+You can set a `Boolean` value to the `flip_x` and `flip_y` properties.
+
+If you set the `True`, an object becomes flipped. Conversely, if you set the `False`, an object resets flipping.
 
 The getter interface returns a `Boolean` value of a current flipping value.
 

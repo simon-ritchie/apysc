@@ -1,6 +1,6 @@
 # contains interface
 
-This page explains the container class, like the `Graphics`\, `Sprite`\, `Stage`) `contains` method interface.
+This page explains a container class, like the `Graphics`, `Sprite`, and `Stage`'s `contains` method interface.
 
 ## What interface is this?
 

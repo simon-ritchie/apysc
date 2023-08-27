@@ -4,7 +4,7 @@ This page explains how to animate sequentially.
 
 ## Sequential animation interface calling on the same instance
 
-If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completion, the second one starts).
+If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completes, the second one starts).
 
 The following example sets the four animations of the coordinates. These animations do not start simultaneously:
 
@@ -35,7 +35,7 @@ ap.save_overall_html(dest_dir_path="sequential_animation_example_1/")
 
 ## animation_complete handler setting
 
-Also, you can use the `animation_complete` interface to register a handler for the sequence animation. For the details, please see:
+Also, you can use the `animation_complete` interface to register a handler for the sequential animation. For the details, please see:
 
 - [animation_complete interface](animation_complete.md)
 

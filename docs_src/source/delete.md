@@ -6,7 +6,7 @@ This page explains the `delete` function interface.
 
 The `delete` function deletes any instance, and it becomes an `undefined` object.
 
-If an instance is a `DisplayObject` instance, this interface removes an instance from a stage.
+If an instance is a `DisplayObject` instance, this interface removes an instance from the stage.
 
 For example, this interface removes a `Sprite` or `Rectangle` instance.
 
@@ -23,7 +23,7 @@ int_val: ap.Int = ap.Int(10)
 ap.delete(int_val)
 ```
 
-If a specified instance is a `DisplayObject` instance, the `delete` function removes it from a stage.
+If a specified instance is a `DisplayObject` instance, this function removes it from a stage.
 
 Also, it becomes an undefined object.
 

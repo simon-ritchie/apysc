@@ -21,5 +21,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The apysc library automatically sets each variable's names and uses them when exporting the HTML and JavaScript files. It also tracks variables creation and updating and applies them to the exported JavaScript.": "apysc ライブラリではそれらの型の内部で自動的に変数名を割り振り、HTMLやJavaScriptのファイルを出力する際にそれらの変数名を使用します。また、変数の生成や更新などの内容も出力されるJavaScriptのコードに反映されます。",  # noqa
     ##################################################
-    "Using the Python built-in data type, these variables' values become fixed (the apysc doesn't apply asynchronous function's changes).": "もしPythonビルトインの型を使った場合、これらの値JavaScript上では固定値で設定されます（apysc上では非同期の関数などでの変数の変更が反映されなくなります）。",  # noqa
+    "Using the Python built-in data types, values of these variables become fixed (the apysc doesn't apply changes made by asynchronous functions).": "もしPythonビルトインの型を使った場合、これらの値JavaScript上では固定値で設定されます（apysc上では非同期の関数などでの変数の変更が反映されなくなります）。",  # noqa
 }

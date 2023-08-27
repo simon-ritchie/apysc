@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Sequential animation interface calling on the same instance": "## 同じインスタンス上でアニメーションのインターフェイスを連続して呼び出す",  # noqa
     ##################################################
-    "If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completion, the second one starts).": "アニメーションのインターフェイスを連続して呼び出した場合、各アニメーションは順番にスタートします（例えば、最初のアニメーションが終わったら次のアニメーションの再生がスタートじます）。",  # noqa
+    "If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completes, the second one starts).": "アニメーションのインターフェイスを連続して呼び出した場合、各アニメーションは順番にスタートします（例えば、最初のアニメーションが終わったら次のアニメーションの再生がスタートじます）。",  # noqa
     ##################################################
     "The following example sets the four animations of the coordinates. These animations do not start simultaneously:": "以下のコード例では4つの座標のアニメーションを設定しています。これらのアニメーションは同時にはスタートしません:",  # noqa
     ##################################################
@@ -23,7 +23,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## animation_complete handler setting": "## animation_complete のハンドラ設定",
     ##################################################
-    "Also, you can use the `animation_complete` interface to register a handler for the sequence animation. For the details, please see:": "また、`animation_complete`インターフェイスを使ってアニメーション終了時のハンドラを設定して連続したアニメーションを設定することもできます。詳細は以下をご確認ください:",  # noqa
+    "Also, you can use the `animation_complete` interface to register a handler for the sequential animation. For the details, please see:": "また、`animation_complete`インターフェイスを使ってアニメーション終了時のハンドラを設定して連続したアニメーションを設定することもできます。詳細は以下をご確認ください:",  # noqa
     ##################################################
     "- [animation_complete interface](animation_complete.md)": "- [animation_complete インターフェイス](jp_animation_complete.md)",  # noqa
     ##################################################

@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `length` property interface returns a current array's values length.": "`length`属性のインターフェイスは配列の値の長さ（件数）を返却します。",  # noqa
+    "The `length` property interface returns a current array value length.": "`length`属性のインターフェイスは配列の値の長さ（件数）を返却します。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

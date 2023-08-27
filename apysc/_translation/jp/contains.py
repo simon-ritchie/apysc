@@ -11,7 +11,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "# contains interface": "# contains インターフェイス",
     ##################################################
-    "This page explains the container class, like the `Graphics`\\, `Sprite`\\, `Stage`) `contains` method interface.": "このページでは`Graphics`や`Sprite`、`Stage`などのコンテナとしての各クラスが持つ`contains`メソッドのインターフェイスについて説明します。",  # noqa
+    "This page explains a container class, like the `Graphics`, `Sprite`, and `Stage`'s, `contains` method interface.": "このページでは`Graphics`や`Sprite`、`Stage`などのコンテナとしての各クラスが持つ`contains`メソッドのインターフェイスについて説明します。",  # noqa
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################

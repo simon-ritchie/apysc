@@ -4,9 +4,9 @@ This page explains the apysc fundamental data classes (such as the `Int`\, `Numb
 
 ## What interface is this?
 
-The `value` getter interface returns each data class value. And the setter interface updates these data class values.
+The `value` getter interface returns each data class value, and the setter interface updates these data class values.
 
-A return value of the getter interface becomes a Python built-in value, like the `int`\, `float`\, `str`\, `list`\.
+A return value of the getter interface becomes a Python built-in value, like the `int`, `float`, `str`, `list`.
 
 ## Basic usage of the getter interface
 

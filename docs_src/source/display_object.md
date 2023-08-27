@@ -4,7 +4,7 @@ This page explains the `DisplayObject` class.
 
 ## What is the DisplayObject?
 
-The `DisplayObject` is the apysc base class for each display class, such as  `Sprite`\, `Rectangle`\, `Circle`\, or something else.
+The `DisplayObject` is the apysc base class for each display class, such as  `Sprite`, `Rectangle`, `Circle`, or something else.
 
 You can verify the `DisplayObject` inheritance with each instance by the `isinstance` function.
 
@@ -28,9 +28,9 @@ assert isinstance(sprite, ap.DisplayObject)
 assert isinstance(circle, ap.DisplayObject)
 ```
 
-The apysc uses this class for the basic interfaces or the creating the new display object with the `DisplayObject` inheritance.
+The apysc uses this class for basic interfaces or creates a new `DisplayObject` instance with the `DisplayObject` inheritance.
 
-The `DisplayObject` class has the basic interfaces, like `x`\, `y`\, `visible`\, each mouse event binding, or others. The following page explains these interfaces one by one.
+The `DisplayObject` class has the basic interfaces, like `x`, `y`, `visible`, each mouse event binding, or others. The following page explains these interfaces one by one.
 
 ## See also
 

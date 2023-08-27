@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Also, it packages internal logic modules with the underscore prefix, like the `_file`.": "また、パッケージの内部で使用するロジックの各モジュールは`_file`のようにアンダースコアのプレフィックスが設定されています。",  # noqa
     ##################################################
-    "These packages are not necessary for you.": "基本的にこれらのプレフィックスの付いたパッケージの利用は不要です。",  # noqa
+    "These packages are unnecessary for you.": "基本的にこれらのプレフィックスの付いたパッケージの利用は不要です。",
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nnumber_1: ap.Number = int_1 + ap.Number(10.5)\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\nnumber_1: ap.Number = int_1 + ap.Number(10.5)\n```",  # noqa
 }

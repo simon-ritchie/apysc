@@ -54,7 +54,7 @@
 <p>The apysc library needs to track variable creation and update to convert the Python code to JavaScript. For this reason, apysc using the original data types, such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code> (<code class="docutils literal notranslate"><span class="pre">Float</span></code>), <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">Array</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
 <p>Occasionally, these are unnecessary to create HTML. Still, these types become essential when you use the asynchronous function, such as the event handler.</p>
 <p>The apysc library automatically sets each variable’s names and uses them when exporting the HTML and JavaScript files. It also tracks variables creation and updating and applies them to the exported JavaScript.</p>
-<p>Using the Python built-in data type, these variables’ values become fixed (the apysc doesn’t apply asynchronous function’s changes).</p>
+<p>Using the Python built-in data types, values of these variables become fixed (the apysc doesn’t apply changes made by asynchronous functions).</p>
 </section>
 </section>
 

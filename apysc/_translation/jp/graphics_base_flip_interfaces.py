@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "You can set a `Boolean` value to the `flip_x` and `flip_y` properties.": "`flip_x`と`flip_y`属性には`Boolean`の値を設定することができます。",
+    "You can set a `Boolean` value to the `flip_x` and `flip_y` properties.": "`flip_x`と`flip_y`属性には`Boolean`の値を設定することができます。",  # noqa
     ##################################################
     "If you set the `True`, an object becomes flipped. Conversely, if you set the `False`, an object resets flipping.": "もし`True`を指定すれば反転した状態になり、`False`を設定すれ反転がリセットされます。",  # noqa
     ##################################################

@@ -51,7 +51,7 @@
 <p>This page explains how to animate sequentially.</p>
 <section id="sequential-animation-interface-calling-on-the-same-instance">
 <h2>Sequential animation interface calling on the same instance<a class="headerlink" href="#sequential-animation-interface-calling-on-the-same-instance" title="Permalink to this heading">¶</a></h2>
-<p>If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completion, the second one starts).</p>
+<p>If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completes, the second one starts).</p>
 <p>The following example sets the four animations of the coordinates. These animations do not start simultaneously:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -79,7 +79,7 @@
 </section>
 <section id="animation-complete-handler-setting">
 <h2>animation_complete handler setting<a class="headerlink" href="#animation-complete-handler-setting" title="Permalink to this heading">¶</a></h2>
-<p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> interface to register a handler for the sequence animation. For the details, please see:</p>
+<p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> interface to register a handler for the sequential animation. For the details, please see:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="animation_complete.html"><span class="std std-doc">animation_complete interface</span></a></p></li>
 </ul>

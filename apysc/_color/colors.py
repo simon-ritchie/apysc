@@ -1017,7 +1017,7 @@ class Colors(GetColorsMenmbersMixIn):
     TAN_BROWN_ECE5B6: Color = _ECE5B6
     DIRTY_WHITE_E8E4C9: Color = _E8E4C9
     PALE_GOLDEN_ROD_EEE8AA: Color = _EEE8AA
-    Khaki_F0E68C: Color = _F0E68C
+    KHAKI_F0E68C: Color = _F0E68C
     CARDBOARD_BROWN_EDDA74: Color = _EDDA74
     HARVEST_GOLD_EDE275: Color = _EDE275
     SUN_YELLOW_FFE87C: Color = _FFE87C
@@ -1129,8 +1129,8 @@ class Colors(GetColorsMenmbersMixIn):
     CARROT_ORANGE_F88017: Color = _F88017
     DARK_ORANGE_FF8C00: Color = _FF8C00
     CONSTRUCTION_CONE_ORANGE_F87431: Color = _F87431
-    Indian_Saffron_FF7722: Color = _FF7722
-    Sunrise_Orange_E67451: Color = _E67451
+    INDIAN_SAFFRON_FF7722: Color = _FF7722
+    SUNRISE_ORANGE_E67451: Color = _E67451
     MANGO_ORANGE_FF8040: Color = _FF8040
     CORAL_FF7F50: Color = _FF7F50
     BASKET_BALL_ORANGE_F88158: Color = _F88158
@@ -1170,7 +1170,7 @@ class Colors(GetColorsMenmbersMixIn):
     SAFFRON_RED_931314: Color = _931314
     CRIMSON_RED_990000: Color = _990000
     RED_WINE_990012: Color = _990012
-    Dark_Red_8B0000: Color = _8B0000
+    DARK_RED_8B0000: Color = _8B0000
     MAROON_RED_8F0B0B: Color = _8F0B0B
     MAROON_800000: Color = _800000
     BURGUNDY_8C001A: Color = _8C001A
@@ -1190,7 +1190,7 @@ class Colors(GetColorsMenmbersMixIn):
     PLUM_VELVET_7D0552: Color = _7D0552
     DARK_RASPBERRY_872657: Color = _872657
     VELVET_MAROON_7E354D: Color = _7E354D
-    Rosy_Finch_7F4E52: Color = _7F4E52
+    ROSY_FINCH_7F4E52: Color = _7F4E52
     DULL_PURPLE_7F525D: Color = _7F525D
     PUCE_7F5A58: Color = _7F5A58
     ROSE_DUST_997070: Color = _997070
@@ -1318,7 +1318,7 @@ class Colors(GetColorsMenmbersMixIn):
     CLEMATIS_VIOLET_842DCE: Color = _842DCE
     BLUE_VIOLET_8A2BE2: Color = _8A2BE2
     PURPLE_SAGE_BUSH_7A5DC7: Color = _7A5DC7
-    Lovely_Purple_7F38EC: Color = _7F38EC
+    LOVELY_PURPLE_7F38EC: Color = _7F38EC
     NEON_PURPLE_9D00FF: Color = _9D00FF
     PURPLE_PLUM_8E35EF: Color = _8E35EF
     AZTECH_PURPLE_893BFF: Color = _893BFF
@@ -1341,7 +1341,7 @@ class Colors(GetColorsMenmbersMixIn):
     WISTERIA_PURPLE_C6AEC7: Color = _C6AEC7
     PURPLE_THISTLE_D2B9D3: Color = _D2B9D3
     THISTLE_D8BFD8: Color = _D8BFD8
-    Purple_White_DFD3E3: Color = _DFD3E3
+    PURPLE_WHITE_DFD3E3: Color = _DFD3E3
     PERIWINKLE_PINK_E9CFEC: Color = _E9CFEC
     COTTON_CANDY_FCDFFF: Color = _FCDFFF
     LAVENDER_PINOCCHIO_EBDDE2: Color = _EBDDE2
@@ -1364,7 +1364,7 @@ class Colors(GetColorsMenmbersMixIn):
     FLORAL_WHITE_FFFAF0: Color = _FFFAF0
     IVORY_FFFFF0: Color = _FFFFF0
     WHITE_GOLD_FFFFF4: Color = _FFFFF4
-    Light_White_FFFFF7: Color = _FFFFF7
+    LIGHT_WHITE_FFFFF7: Color = _FFFFF7
     WHITE_SMOKE_F5F5F5: Color = _F5F5F5
     COTTON_FBFBF9: Color = _FBFBF9
     SNOW_FFFAFA: Color = _FFFAFA

@@ -64,5 +64,28 @@ def _assert_constants_are_instances_of_color(*, object: Any) -> None:
         )
 
 
+@apply_test_settings()
 def test_assert_Colors_constsnts_are_instances_of_Color() -> None:
     _assert_constants_are_instances_of_color(object=ap.Colors)
+
+
+def _assert_constants_suffixes_and_values_are_same(*, object: Any) -> None:
+    """
+    Assert the specified object's all constants suffixes
+    and values' colors are same.
+
+    Parameters
+    ----------
+    object : Any
+        The target object to check constants.
+    """
+    for name, value in inspect.getmembers(object):
+        if not isinstance(value, ap.Color):
+            continue
+        SUFFIX: str = name.split("_")[-1]
+        assert f"#{SUFFIX.lower()}" == value._value._value
+
+
+@apply_test_settings()
+def test_assert_Colors_constsnts_suffixes_and_values_are_same() -> None:
+    _assert_constants_suffixes_and_values_are_same(object=ap.Colors)

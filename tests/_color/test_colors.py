@@ -5,7 +5,7 @@ import inspect
 from apysc._color import colors
 
 
-def _assert_all_constants_are_uppercase(*, object: Any) -> None:
+def _assert_constants_names_are_uppercase(*, object: Any) -> None:
     """
     Assert the specified object's all constants are uppercase.
 
@@ -25,8 +25,8 @@ def _assert_all_constants_are_uppercase(*, object: Any) -> None:
 
 
 @apply_test_settings()
-def test_check_Colors_constsnts_are_uppercase() -> None:
-    _assert_all_constants_are_uppercase(object=ap.Colors)
+def test_assert_Colors_constsnts_are_uppercase() -> None:
+    _assert_constants_names_are_uppercase(object=ap.Colors)
 
 
 @apply_test_settings()
@@ -39,3 +39,30 @@ def test_all_module_constants_names_and_values_are_same() -> None:
     for member_name, member_value in module_members:
         expected_color_code_value: str = f"#{member_name.replace('_', '', 1).lower()}"
         assert member_value._value._value == expected_color_code_value
+
+
+def _assert_constants_are_instances_of_color(*, object: Any) -> None:
+    """
+    Assert the specified object's all constants are instances of `Color`.
+
+    Parameters
+    ----------
+    object : Any
+        The target object to check constants.
+    """
+    members: list[tuple[str, Any]] = inspect.getmembers(object)
+    for member_name, member_value in members:
+        if member_name.startswith("_"):
+            continue
+        if callable(member_value):
+            continue
+        if isinstance(member_value, ap.Color):
+            continue
+        raise AssertionError(
+            "The specified object's constant value is not an instance of "
+            f"`Color`: `{type(member_value)}`"
+        )
+
+
+def test_assert_Colors_constsnts_are_instances_of_Color() -> None:
+    _assert_constants_are_instances_of_color(object=ap.Colors)

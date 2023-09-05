@@ -2,6 +2,7 @@ import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 from typing import Any
 import inspect
+from apysc._color import colors
 
 
 def _assert_all_constants_are_uppercase(*, object: Any) -> None:
@@ -26,3 +27,15 @@ def _assert_all_constants_are_uppercase(*, object: Any) -> None:
 @apply_test_settings()
 def test_check_Colors_constsnts_are_uppercase() -> None:
     _assert_all_constants_are_uppercase(object=ap.Colors)
+
+
+@apply_test_settings()
+def test_all_module_constants_names_and_values_are_same() -> None:
+    module_members: list[tuple[str, ap.Color]] = inspect.getmembers(
+        colors,
+        lambda x: isinstance(x, ap.Color),
+    )
+    member_value: ap.Color
+    for member_name, member_value in module_members:
+        expected_color_code_value: str = f"#{member_name.replace('_', '', 1).lower()}"
+        assert member_value._value._value == expected_color_code_value

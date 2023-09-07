@@ -137,7 +137,6 @@ def _get_value_str_from_iterable(*, value: Union[list, tuple, Array]) -> str:
         Converted string, e.g., '[10, "Hello!", true, any_variable]'.
     """
     from apysc._type.variable_name_mixin import VariableNameMixIn
-    from apysc._color.color import Color
 
     if isinstance(value, Array):
         value_: List[Any] = value.value  # type: ignore

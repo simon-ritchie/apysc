@@ -1,7 +1,6 @@
 """The mix-in class for the `get_colors_members` method.
 """
 
-import inspect
 from typing import List
 from typing import Tuple
 

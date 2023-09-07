@@ -486,6 +486,7 @@ def _target_js_variable_is_used(*, var_name: str, exp_lines: List[str]) -> bool:
     var_pattern: Pattern = re.compile(pattern=rf"var ({var_name}) = ")
     used_pattern_1: Pattern = re.compile(pattern=rf"{var_name}[ ;\)\.}},\]\[]")
     used_pattern_2: Pattern = re.compile(pattern=rf"{var_name}$")
+    used_pattern_3: Pattern = re.compile(pattern=rf": {var_name}")
     for line in exp_lines:
         if "//" in line:
             continue
@@ -498,6 +499,9 @@ def _target_js_variable_is_used(*, var_name: str, exp_lines: List[str]) -> bool:
         if match is not None:
             return True
         match = used_pattern_2.search(string=line)
+        if match is not None:
+            return True
+        match = used_pattern_3.search(string=line)
         if match is not None:
             return True
     return False

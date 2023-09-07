@@ -10,6 +10,8 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 
@@ -17,6 +19,8 @@ _StrOrString = TypeVar("_StrOrString", str, String)
 class Color(
     CustomEventMixIn,
     ColorCopyMixIn["Color"],
+    VariableNameMixIn,
+    VariableNameSuffixMixIn,
 ):
     _value: String
     _variable_name_suffix: str
@@ -49,6 +53,7 @@ class Color(
             variable_name_suffix=variable_name_suffix,
         )
         self._variable_name_suffix = variable_name_suffix
+        self._variable_name = self._value._variable_name
 
     @add_debug_info_setting(module_name=__name__)
     def __eq__(self, other: "Color") -> Any:

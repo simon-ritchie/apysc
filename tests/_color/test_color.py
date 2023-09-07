@@ -62,3 +62,11 @@ class TestColor:
         delattr(color, "_value")
         repr_str = repr(color)
         assert repr_str == 'Color("")'
+
+    # @apply_test_settings()
+    def test_variable_name(self) -> None:
+        color: ap.Color = ap.Color("#0af")
+        assert color.variable_name == color._value.variable_name
+
+        color = ap.Color("#0af", variable_name_suffix="test_suffix")
+        assert color.variable_name == color._value.variable_name

@@ -2,7 +2,6 @@
 """
 
 from typing_extensions import Final
-from datetime import datetime
 from apysc._color.color import Color
 from apysc._color.get_colors_members_mixin import GetColorsMenmbersMixIn
 

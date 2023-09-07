@@ -23,8 +23,9 @@ class GetColorsMenmbersMixIn:
             A tuple's first element is a constant name,
             and second is a color instance.
         """
-        members: List[Tuple[str, Color]] = inspect.getmembers(
-            cls,
-            predicate=lambda x: isinstance(x, Color),
-        )
+        members: List[Tuple[str, Color]] = []
+        for member_name, member_value in cls.__dict__.items():
+            if not isinstance(member_value, Color):
+                continue
+            members.append((member_name, member_value))
         return members

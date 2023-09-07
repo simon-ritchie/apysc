@@ -63,7 +63,7 @@ class TestColor:
         repr_str = repr(color)
         assert repr_str == 'Color("")'
 
-    # @apply_test_settings()
+    @apply_test_settings()
     def test_variable_name(self) -> None:
         color: ap.Color = ap.Color("#0af")
         assert color.variable_name == color._value.variable_name

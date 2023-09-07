@@ -88,6 +88,8 @@
 <details>
 <summary>コードブロックを表示:</summary>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">RECT_SIZE</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
@@ -95,21 +97,33 @@
 <span class="n">OUTER_MARGIN</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
-    <span class="n">stage_width</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span>
-    <span class="n">stage_height</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">())</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
     <span class="o">+</span> <span class="n">OUTER_MARGIN</span> <span class="o">*</span> <span class="mi">2</span>
     <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">i</span><span class="p">:</span> <span class="nb">int</span>
-<span class="n">constant_name</span><span class="p">:</span> <span class="nb">str</span>
 <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">constant_name</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">()):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">250</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="n">colors_members</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">()</span>
+<span class="n">color_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">color_name</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors_members</span><span class="p">:</span>
+    <span class="n">color_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">color_name</span><span class="p">))</span>
+    <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">constant_names_arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">color_names</span><span class="p">)</span>
+<span class="n">colors_arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+
+<span class="n">i</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
+<span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">ForArrayIndices</span><span class="p">(</span><span class="n">constant_names_arr</span><span class="p">)</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">OUTER_MARGIN</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Else</span><span class="p">():</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">350</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">colors_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">constant_name</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">constant_names_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
         <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
         <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
@@ -132,7 +146,13 @@
 </pre></div>
 </div>
 </details>
-<iframe src="static/colors_definitions/index.html" width="450" height="415"></iframe>
+<iframe src="static/colors_definitions/index.html" width="700" height="11860"></iframe>
+</section>
+<section id="id4">
+<h2>参考文献・参考資料<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.computerhope.com/jp_htmcolor.html">Computer Hope, HTML color codes and names</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -153,6 +173,7 @@
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#id3">定義されている各色</a></li>
+<li><a class="reference internal" href="#id4">参考文献・参考資料</a></li>
 </ul>
 </li>
 </ul>

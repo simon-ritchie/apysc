@@ -49,6 +49,8 @@ ap.save_overall_html(dest_dir_path="./colors_basic_usage/")
 
 ```py
 # runnable
+from typing import List, Tuple
+
 import apysc as ap
 
 RECT_SIZE: int = 25
@@ -56,21 +58,33 @@ FONT_SIZE: int = 12
 OUTER_MARGIN: int = 20
 _: ap.Stage = ap.Stage(
     background_color=ap.Color("#333"),
-    stage_width=450,
-    stage_height=(len(ap.Colors.get_colors_members()) // 2) * (RECT_SIZE + 10)
+    stage_width=700,
+    stage_height=((len(ap.Colors.get_colors_members()) + 1) // 2) * (RECT_SIZE + 10)
     + OUTER_MARGIN * 2
     - 10,
 )
 
-i: int
-constant_name: str
 color: ap.Color
-for i, (constant_name, color) in enumerate(ap.Colors.get_colors_members()):
-    if i % 2 == 0:
-        x = 20
-    else:
-        x = 250
-    y: int = (i // 2) * (RECT_SIZE + 10) + 20
+colors_members: List[Tuple[str, ap.Color]] = ap.Colors.get_colors_members()
+color_names: List[ap.String] = []
+colors: List[ap.Color] = []
+for color_name, color in colors_members:
+    color_names.append(ap.String(color_name))
+    colors.append(color)
+constant_names_arr: ap.Array[ap.String] = ap.Array(color_names)
+colors_arr: ap.Array[ap.Color] = ap.Array(colors)
+
+i: ap.Int
+x: ap.Number = ap.Number(0)
+y: ap.Number = ap.Number(0)
+with ap.ForArrayIndices(constant_names_arr) as i:
+    with ap.If(i % 2 == 0):
+        x.value = OUTER_MARGIN
+    with ap.Else():
+        x.value = 350
+    y.value = (i // 2) * (RECT_SIZE + 10) + 20
+    color = colors_arr[i]
+    constant_name: ap.String = constant_names_arr[i]
     ap.Rectangle(
         x=x,
         y=y,
@@ -94,4 +108,8 @@ ap.save_overall_html(dest_dir_path="./colors_definitions/")
 
 </details>
 
-<iframe src="static/colors_definitions/index.html" width="450" height="415"></iframe>
+<iframe src="static/colors_definitions/index.html" width="700" height="11860"></iframe>
+
+## 参考文献・参考資料
+
+- [Computer Hope, HTML color codes and names](https://www.computerhope.com/jp_htmcolor.html)

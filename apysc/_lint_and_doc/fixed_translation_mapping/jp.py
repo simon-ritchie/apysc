@@ -4199,5 +4199,13 @@ MAPPINGS: Mappings = Mappings(
             key="## What constant is this?",
             val="## 定数の概要",
         ),
+        Mapping(
+            key="## References",
+            val="## 参考文献・参考資料",
+        ),
+        Mapping(
+            key="Computer Hope, HTML color codes and names",
+            val="Computer Hope, HTML color codes and names",
+        ),
     ]
 )

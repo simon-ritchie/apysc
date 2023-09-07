@@ -49,6 +49,7 @@ class ColorCopyMixIn(
         if event_handler_scope.current_scope_is_in_event_handler():
             expression_data_util.append_js_expression(expression=expression)
 
+        result._variable_name = result._value.variable_name
         return result
 
     def _get_copy_expression(self, *, result: _SelfType) -> str:

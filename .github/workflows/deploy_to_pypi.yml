@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set the Python version
         uses: actions/setup-python@v4
         with:
@@ -92,7 +92,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -108,7 +108,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -124,7 +124,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -140,7 +140,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -156,7 +156,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -173,7 +173,7 @@ jobs:
       PASSING_TESTS_NUM: ${{ steps.set-passing-tests-num.outputs.passing-tests-num }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -213,7 +213,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -246,7 +246,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -268,7 +268,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -286,7 +286,7 @@ jobs:
       PASSING_TESTS_NUM: ${{ steps.set-passing-tests-num.outputs.passing-tests-num }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -312,7 +312,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -328,7 +328,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -356,7 +356,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -389,7 +389,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -484,7 +484,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
@@ -492,4 +492,4 @@ jobs:
       - name: Run the package installing and testing script
         run: python ./scripts/install_released_package.py
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4

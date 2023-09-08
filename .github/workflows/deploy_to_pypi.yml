@@ -234,9 +234,12 @@ jobs:
       matrix:
         alphabets-group: [
           'a',
-          'bcdef',
+          'bcd',
+          'ef',
           'g',
-          'hijklmnopqrstuvwxyz',
+          'hijkl',
+          'mnopqrs',
+          'tuvwxyz',
         ]
     timeout-minutes: 10
     steps:

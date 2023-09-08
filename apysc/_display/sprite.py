@@ -1,4 +1,4 @@
-# pyright: ignore [reportGeneralTypeIssues]
+# pyright: reportGeneralTypeIssues=false
 
 """Implementations for Sprite class.
 """

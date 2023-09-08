@@ -1,4 +1,4 @@
-# pyright: ignore [reportGeneralTypeIssues]
+# pyright: reportGeneralTypeIssues=false
 
 """Stage-related implementations.
 

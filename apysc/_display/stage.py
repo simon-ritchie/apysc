@@ -1,3 +1,5 @@
+# pyright: ignore [reportGeneralTypeIssues]
+
 """Stage-related implementations.
 
 References

@@ -1,3 +1,5 @@
+# pyright: ignore [reportGeneralTypeIssues]
+
 """Implementations for Sprite class.
 """
 

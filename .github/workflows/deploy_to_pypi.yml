@@ -238,7 +238,9 @@ jobs:
           'ef',
           'g',
           'hijkl',
-          'mnopqrs',
+          'mn',
+          'opq',
+          'rs',
           'tuvwxyz',
         ]
     timeout-minutes: 10

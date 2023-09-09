@@ -38,6 +38,7 @@ def escape_str(*, string: str) -> str:
         Escaped string.
     """
     string = repr(string)[1:-1]
+    string = string.replace("\\\\", "\\")
     return string
 
 

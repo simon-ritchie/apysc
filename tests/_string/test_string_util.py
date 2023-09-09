@@ -12,6 +12,9 @@ def test_escape_str() -> None:
     string = string_util.escape_str(string=string)
     assert string == "a\\nb"
 
+    string = string_util.escape_str(string=string)
+    assert string == "a\\nb"
+
 
 @apply_test_settings()
 def test_wrap_by_double_quotation_if_value_is_string() -> None:

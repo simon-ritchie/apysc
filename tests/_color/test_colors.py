@@ -1,5 +1,5 @@
 import inspect
-from typing import Any
+from typing import Any, List, Type
 
 import apysc as ap
 from apysc._color import colors
@@ -89,3 +89,58 @@ def _assert_constants_suffixes_and_values_are_same(*, object: Any) -> None:
 @apply_test_settings()
 def test_assert_Colors_constsnts_suffixes_and_values_are_same() -> None:
     _assert_constants_suffixes_and_values_are_same(object=ap.Colors)
+
+
+@apply_test_settings()
+def test_assert_MaterialDesignColors_constants_are_uppercase() -> None:
+    _assert_constants_names_are_uppercase(object=ap.MaterialDesignColors)
+
+
+@apply_test_settings()
+def test_assert_MaterialDesignColors_constants_are_instances_of_Color() -> None:
+    _assert_constants_are_instances_of_color(object=ap.MaterialDesignColors)
+
+
+@apply_test_settings()
+def test_assert_MaterialDesignColors_constants_suffixes_and_values_are_same() -> None:
+    _assert_constants_suffixes_and_values_are_same(object=ap.MaterialDesignColors)
+
+
+_EXPECTED_MATERIAL_DESIGN_COLORS_NUMBERS: List[str] = [
+    "50",
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+    "A100",
+    "A200",
+    "A400",
+    "A700",
+]
+
+
+def _assert_material_design_colors_numbers(*, class_: Type) -> None:
+    """
+    Assert the specified object's material design colors numbers
+    are in expected string list (`_EXPECTED_MATERIAL_DESIGN_COLORS_NUMBERS`).
+
+    Parameters
+    ----------
+    class_ : Type
+        The target class to check constants.
+    """
+    for name, value in inspect.getmembers(object):
+        if not isinstance(value, ap.Color):
+            continue
+        number_str: str = name.split("_")[-2]
+        assert number_str in _EXPECTED_MATERIAL_DESIGN_COLORS_NUMBERS
+
+
+@apply_test_settings()
+def test_assert_MaterialDesignColors_numbers() -> None:
+    _assert_material_design_colors_numbers(class_=ap.MaterialDesignColors)

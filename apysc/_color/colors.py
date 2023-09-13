@@ -931,7 +931,6 @@ _37474F: Final[Color] = Color("#37474F")
 _263238: Final[Color] = Color("#263238")
 
 
-
 class Colors(GetColorsMenmbersMixIn):
     """
     Color constants class.
@@ -1634,6 +1633,7 @@ class MaterialDesignColors(GetColorsMenmbersMixIn):
     - MaterialDesignColors class
         - https://simon-ritchie.github.io/apysc/en/material_design_colors.html
     """
+
     RED_50_FFEBEE: Final[Color] = _FFEBEE
     RED_100_FFCDD2: Final[Color] = _FFCDD2
     RED_200_EF9A9A: Final[Color] = _EF9A9A

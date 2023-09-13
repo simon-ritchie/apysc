@@ -1,5 +1,7 @@
 import inspect
-from typing import Any, List, Type
+from typing import Any
+from typing import List
+from typing import Type
 
 import apysc as ap
 from apysc._color import colors

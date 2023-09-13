@@ -1,10 +1,10 @@
-# Colors class
+# MaterialDesignColors class
 
-This page explains the `Colors` class.
+This page explains the `MaterialDesignColors` class.
 
 ## What class is this?
 
-The `Colors` class has `Color` constants, such as the `BLACK_000000`, `GRAY_999999`, `WHITE_FFFFFF`, and `RED_FF0000`.
+The `MaterialDesignColors` class has material design's `Color` constants, such as the `RED_100_FFCDD2`, `RED_300_E57373`, `INDIGO_800_283593`, and `INDIGO_A200_536DFE`.
 
 Each suffix is a hexadecimal color code of its color.
 
@@ -19,7 +19,7 @@ import apysc as ap
 stage: ap.Stage = ap.Stage(
     stage_width=150,
     stage_height=150,
-    background_color=ap.Colors.GRAY_333333,
+    background_color=ap.MaterialDesignColors.GRAY_800_424242,
     stage_elem_id="stage",
 )
 
@@ -28,15 +28,15 @@ rectangle: ap.Rectangle = ap.Rectangle(
     y=50,
     width=50,
     height=50,
-    fill_color=ap.Colors.CYAN_00FFFF,
-    line_color=ap.Colors.WHITE_FFFFFF,
+    fill_color=ap.MaterialDesignColors.CYAN_200_80DEEA,
+    line_color=ap.MaterialDesignColors.WHITE_FFFFFF,
     line_thickness=3,
 )
 
-ap.save_overall_html(dest_dir_path="./colors_basic_usage/")
+ap.save_overall_html(dest_dir_path="./material_design_colors_basic_usage/")
 ```
 
-<iframe src="static/colors_basic_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/material_design_colors_basic_usage/index.html" width="150" height="150"></iframe>
 
 ## Defined colors
 
@@ -56,13 +56,16 @@ OUTER_MARGIN: int = 20
 _: ap.Stage = ap.Stage(
     background_color=ap.Color("#333"),
     stage_width=700,
-    stage_height=((len(ap.Colors.get_colors_members()) + 1) // 2) * (RECT_SIZE + 10)
+    stage_height=((len(ap.MaterialDesignColors.get_colors_members()) + 1) // 2)
+    * (RECT_SIZE + 10)
     + OUTER_MARGIN * 2
     - 10,
 )
 
 color: ap.Color
-colors_members: List[Tuple[str, ap.Color]] = ap.Colors.get_colors_members()
+colors_members: List[
+    Tuple[str, ap.Color]
+] = ap.MaterialDesignColors.get_colors_members()
 color_names: List[ap.String] = []
 colors: List[ap.Color] = []
 for color_name, color in colors_members:
@@ -100,13 +103,14 @@ with ap.ForArrayIndices(constant_names_arr) as i:
         fill_color=ap.Color("#ccc"),
     )
 
-ap.save_overall_html(dest_dir_path="./colors_definitions/")
+ap.save_overall_html(dest_dir_path="./material_design_colors_definitions/")
 ```
 
 </details>
 
-<iframe src="static/colors_definitions/index.html" width="700" height="11860"></iframe>
+<iframe src="static/material_design_colors_definitions/index.html" width="700" height="4510"></iframe>
 
 ## References
 
-- [Computer Hope, HTML color codes and names](https://www.computerhope.com/htmcolor.html)
+- [Overview, Material Design](https://m3.material.io/styles/color/overview)
+- [Style, Material Design](https://m1.material.io/style/color.html#)

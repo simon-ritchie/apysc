@@ -134,6 +134,7 @@ dictionary_length
 :maxdepth: 1
 color
 colors
+material_design_colors
 colorless
 ```
 

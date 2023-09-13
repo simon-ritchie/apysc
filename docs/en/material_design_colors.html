@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Colors class &#8212; apysc  documentation</title>
+    <title>MaterialDesignColors class &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
     <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
@@ -21,8 +21,8 @@
     <script src="static/add_en_to_ja_link.js?v=0fffc53d"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MaterialDesignColors class" href="material_design_colors.html" />
-    <link rel="prev" title="Color class" href="color.html" /> 
+    <link rel="next" title="COLORLESS constant" href="colorless.html" />
+    <link rel="prev" title="Colors class" href="colors.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="material_design_colors.html" title="MaterialDesignColors class"
+          <a href="colorless.html" title="COLORLESS constant"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="color.html" title="Color class"
+          <a href="colors.html" title="Colors class"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Colors class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">MaterialDesignColors class</a></li> 
       </ul>
     </div>  
 
@@ -46,12 +46,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="colors-class">
-<h1>Colors class<a class="headerlink" href="#colors-class" title="Permalink to this heading">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Colors</span></code> class.</p>
+  <section id="materialdesigncolors-class">
+<h1>MaterialDesignColors class<a class="headerlink" href="#materialdesigncolors-class" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">MaterialDesignColors</span></code> class.</p>
 <section id="what-class-is-this">
 <h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Colors</span></code> class has <code class="docutils literal notranslate"><span class="pre">Color</span></code> constants, such as the <code class="docutils literal notranslate"><span class="pre">BLACK_000000</span></code>, <code class="docutils literal notranslate"><span class="pre">GRAY_999999</span></code>, <code class="docutils literal notranslate"><span class="pre">WHITE_FFFFFF</span></code>, and <code class="docutils literal notranslate"><span class="pre">RED_FF0000</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">MaterialDesignColors</span></code> class has material design’s <code class="docutils literal notranslate"><span class="pre">Color</span></code> constants, such as the <code class="docutils literal notranslate"><span class="pre">RED_100_FFCDD2</span></code>, <code class="docutils literal notranslate"><span class="pre">RED_300_E57373</span></code>, <code class="docutils literal notranslate"><span class="pre">INDIGO_800_283593</span></code>, and <code class="docutils literal notranslate"><span class="pre">INDIGO_A200_536DFE</span></code>.</p>
 <p>Each suffix is a hexadecimal color code of its color.</p>
 </section>
 <section id="basic-usage">
@@ -63,7 +63,7 @@
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">GRAY_333333</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">MaterialDesignColors</span><span class="o">.</span><span class="n">GRAY_800_424242</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -72,15 +72,15 @@
     <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00FFFF</span><span class="p">,</span>
-    <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">WHITE_FFFFFF</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">MaterialDesignColors</span><span class="o">.</span><span class="n">CYAN_200_80DEEA</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">MaterialDesignColors</span><span class="o">.</span><span class="n">WHITE_FFFFFF</span><span class="p">,</span>
     <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./colors_basic_usage/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./material_design_colors_basic_usage/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/colors_basic_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/material_design_colors_basic_usage/index.html" width="150" height="150"></iframe>
 </section>
 <section id="defined-colors">
 <h2>Defined colors<a class="headerlink" href="#defined-colors" title="Permalink to this heading">¶</a></h2>
@@ -98,13 +98,16 @@
 <span class="n">_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
-    <span class="n">stage_height</span><span class="o">=</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">MaterialDesignColors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="o">*</span> <span class="p">(</span><span class="n">RECT_SIZE</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
     <span class="o">+</span> <span class="n">OUTER_MARGIN</span> <span class="o">*</span> <span class="mi">2</span>
     <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span>
-<span class="n">colors_members</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">()</span>
+<span class="n">colors_members</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span>
+    <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">]</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MaterialDesignColors</span><span class="o">.</span><span class="n">get_colors_members</span><span class="p">()</span>
 <span class="n">color_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">color_name</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors_members</span><span class="p">:</span>
@@ -142,16 +145,17 @@
         <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#ccc&quot;</span><span class="p">),</span>
     <span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./colors_definitions/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./material_design_colors_definitions/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </details>
-<iframe src="static/colors_definitions/index.html" width="700" height="11860"></iframe>
+<iframe src="static/material_design_colors_definitions/index.html" width="700" height="4510"></iframe>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.computerhope.com/htmcolor.html">Computer Hope, HTML color codes and names</a></p></li>
+<li><p><a class="reference external" href="https://m3.material.io/styles/color/overview">Overview, Material Design</a></p></li>
+<li><p><a class="reference external" href="https://m1.material.io/style/color.html#">Style, Material Design</a></p></li>
 </ul>
 </section>
 </section>
@@ -169,7 +173,7 @@
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Colors class</a><ul>
+<li><a class="reference internal" href="#">MaterialDesignColors class</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#defined-colors">Defined colors</a></li>
@@ -181,13 +185,13 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="color.html"
-                          title="previous chapter">Color class</a></p>
+    <p class="topless"><a href="colors.html"
+                          title="previous chapter">Colors class</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="material_design_colors.html"
-                          title="next chapter">MaterialDesignColors class</a></p>
+    <p class="topless"><a href="colorless.html"
+                          title="next chapter">COLORLESS constant</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -210,13 +214,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="material_design_colors.html" title="MaterialDesignColors class"
+          <a href="colorless.html" title="COLORLESS constant"
              >next</a> |</li>
         <li class="right" >
-          <a href="color.html" title="Color class"
+          <a href="colors.html" title="Colors class"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Colors class</a></li> 
+        <li class="nav-item nav-item-this"><a href="">MaterialDesignColors class</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

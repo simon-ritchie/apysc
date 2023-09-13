@@ -1621,7 +1621,7 @@ class Colors(GetColorsMenmbersMixIn):
     HALF_WHITE_FFFEFA: Final[Color] = _FFFEFA
 
 
-class MaterialDesignColors:
+class MaterialDesignColors(GetColorsMenmbersMixIn):
     """
     Material design colors' constants.
 
@@ -1631,6 +1631,8 @@ class MaterialDesignColors:
         - https://m3.material.io/styles/color/overview
     - Style, Material Design
         - https://m1.material.io/style/color.html#
+    - MaterialDesignColors class
+        - https://simon-ritchie.github.io/apysc/en/material_design_colors.html
     """
     RED_50_FFEBEE: Final[Color] = _FFEBEE
     RED_100_FFCDD2: Final[Color] = _FFCDD2

@@ -1,12 +1,12 @@
-<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/colors.html)の確認をお願いします。</span>
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/material_design_colors.html)の確認をお願いします。</span>
 
-# Colors クラス
+# MaterialDesignColors クラス
 
-このページでは`Colors`クラスについて説明します。
+このページでは`MaterialDesignColors`クラスについて説明します。
 
 ## クラス概要
 
-`Colors`クラスは`BLACK_000000`や`GRAY_999999`、`WHITE_FFFFFF`、`RED_FF0000`などの`Color`クラスの各定数定義を持ちます。
+`MaterialDesignColors`クラスは`RED_100_FFCDD2`や`RED_300_E57373`、`INDIGO_800_283593`、`INDIGO_A200_536DFE`などのマテリアルデザインの色の定数を持ちます。
 
 各サフィックスはその色の16進数のカラーコードになっています。
 
@@ -21,7 +21,7 @@ import apysc as ap
 stage: ap.Stage = ap.Stage(
     stage_width=150,
     stage_height=150,
-    background_color=ap.Colors.GRAY_333333,
+    background_color=ap.MaterialDesignColors.GRAY_800_424242,
     stage_elem_id="stage",
 )
 
@@ -30,15 +30,15 @@ rectangle: ap.Rectangle = ap.Rectangle(
     y=50,
     width=50,
     height=50,
-    fill_color=ap.Colors.CYAN_00FFFF,
-    line_color=ap.Colors.WHITE_FFFFFF,
+    fill_color=ap.MaterialDesignColors.CYAN_200_80DEEA,
+    line_color=ap.MaterialDesignColors.WHITE_FFFFFF,
     line_thickness=3,
 )
 
-ap.save_overall_html(dest_dir_path="./colors_basic_usage/")
+ap.save_overall_html(dest_dir_path="./material_design_colors_basic_usage/")
 ```
 
-<iframe src="static/colors_basic_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/material_design_colors_basic_usage/index.html" width="150" height="150"></iframe>
 
 ## 定義されている各色
 
@@ -58,13 +58,16 @@ OUTER_MARGIN: int = 20
 _: ap.Stage = ap.Stage(
     background_color=ap.Color("#333"),
     stage_width=700,
-    stage_height=((len(ap.Colors.get_colors_members()) + 1) // 2) * (RECT_SIZE + 10)
+    stage_height=((len(ap.MaterialDesignColors.get_colors_members()) + 1) // 2)
+    * (RECT_SIZE + 10)
     + OUTER_MARGIN * 2
     - 10,
 )
 
 color: ap.Color
-colors_members: List[Tuple[str, ap.Color]] = ap.Colors.get_colors_members()
+colors_members: List[
+    Tuple[str, ap.Color]
+] = ap.MaterialDesignColors.get_colors_members()
 color_names: List[ap.String] = []
 colors: List[ap.Color] = []
 for color_name, color in colors_members:
@@ -102,13 +105,14 @@ with ap.ForArrayIndices(constant_names_arr) as i:
         fill_color=ap.Color("#ccc"),
     )
 
-ap.save_overall_html(dest_dir_path="./colors_definitions/")
+ap.save_overall_html(dest_dir_path="./material_design_colors_definitions/")
 ```
 
 </details>
 
-<iframe src="static/colors_definitions/index.html" width="700" height="11860"></iframe>
+<iframe src="static/material_design_colors_definitions/index.html" width="700" height="4510"></iframe>
 
 ## 参考文献・参考資料
 
-- [Computer Hope, HTML color codes and names](https://www.computerhope.com/jp_htmcolor.html)
+- [Overview, Material Design](https://m3.material.io/styles/color/overview)
+- [Style, Material Design](https://m1.material.io/style/color.html#)

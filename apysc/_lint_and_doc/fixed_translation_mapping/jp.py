@@ -99,6 +99,10 @@ MAPPINGS: Mappings = Mappings(
             val="<details>\n<summary>コードブロックを表示:</summary>",
         ),
         Mapping(
+            key="<br>\n<details>\n<summary>Display the code block:</summary>",
+            val="<br>\n<details>\n<summary>コードブロックを表示:</summary>",
+        ),
+        Mapping(
             key="animation_x interface",
             val="animation_x （X座標のアニメーション）のインターフェイス",
         ),
@@ -4206,6 +4210,22 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="Computer Hope, HTML color codes and names",
             val="Computer Hope, HTML color codes and names",
+        ),
+        Mapping(
+            key="Each suffix is a hexadecimal color code of its color.",
+            val="各サフィックスはその色の16進数のカラーコードになっています。",
+        ),
+        Mapping(
+            key="These class constants behave the same as a `Color` value.",
+            val="これらのクラス定数は`Color`クラスの値と同様に動作します。",
+        ),
+        Mapping(
+            key="## Defined colors",
+            val="## 定義されている各色",
+        ),
+        Mapping(
+            key="<br><br>",
+            val="<br><br>",
         ),
     ]
 )

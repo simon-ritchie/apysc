@@ -217,4 +217,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "ap.COLORLESS": "colorless",
     "Colors": "colors",
     "ap.Colors": "colors",
+    "MaterialDesignColors": "material_design_colors",
+    "ap.MaterialDesignColors": "material_design_colors",
 }

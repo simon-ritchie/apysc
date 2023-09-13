@@ -137,6 +137,7 @@ jp_dictionary_length
 :maxdepth: 1
 jp_color
 jp_colors
+jp_material_design_colors
 jp_colorless
 ```
 

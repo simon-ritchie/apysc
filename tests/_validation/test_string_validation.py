@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._testing import testing_helper
-from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import apply_test_settings, assert_raises
 from apysc._validation import string_validation
 
 
@@ -45,4 +45,20 @@ def test_validate_builtin_string_type() -> None:
         match="\nTest error!",
         string=ap.String("Hello!"),
         additional_err_msg="Test error!",
+    )
+
+
+@apply_test_settings()
+def test_validate_apysc_string_type() -> None:
+    string: ap.String = ap.String("Test")
+    result_string: ap.String = string_validation.validate_apysc_string_type(
+        string=string
+    )
+    assert result_string == string
+    assert result_string.variable_name == string.variable_name
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=string_validation.validate_apysc_string_type,
+        string="Test",
     )

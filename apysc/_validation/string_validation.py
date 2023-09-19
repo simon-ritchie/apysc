@@ -1,7 +1,7 @@
 """String's validation implementations.
 """
 
-from typing import Union
+from typing import Any, Union
 
 from apysc._type.string import String
 
@@ -62,6 +62,34 @@ def validate_builtin_string_type(*, string: str, additional_err_msg: str = "") -
         err_msg=err_msg, additional_err_msg=additional_err_msg
     )
     raise ValueError(err_msg)
+
+
+def validate_apysc_string_type(*, string: Any) -> String:
+    """
+    Validate whether the specified argument is the apysc's `String`
+    type or noe.
+
+    Parameters
+    ----------
+    string : Any
+        The target string to check.
+
+    Returns
+    -------
+    string : String
+        An apysc's string.
+
+    Raises
+    ------
+    TypeError
+        If the specified argument is not the apysc's `String` type.
+    """
+    if isinstance(string, String):
+        return string
+    raise TypeError(
+        "The specified argument is not the apysc's `String` type: "
+        f"{type(string).__name__}"
+    )
 
 
 def validate_not_empty_string(

@@ -37,28 +37,26 @@ def _get_py_str_from_rgb(
     green: Union[int, Int],
     blue: Union[int, Int],
 ) -> str:
-    red_hex: str = _get_hex_str_from_int(color_int=red)
-    pass
-
-
-def _get_hex_str_from_int(*, color_int: Union[int, Int]) -> str:
     """
-    Get a hexadecimal string from the specified integer value.
+    Get a Python string from RGB values.
 
     Parameters
     ----------
-    color_int : Union[int, Int]
-        A color integer (0 to 255).
+    red : Union[int, Int]
+        The red color.
+    green : Union[int, Int]
+        The green color.
+    blue : Union[int, Int]
+        The blue color.
 
     Returns
     -------
-    hex_str : str
-        A hexadecimal string (e.g., "0F").
+    py_str : str
+        A Python string, e.g., '#0000ff'.
     """
-    if isinstance(color_int, Int):
-        hex_str: str = hex(color_int._value)
-    else:
-        hex_str = hex(color_int)
-    hex_str = hex_str[2:].upper()
-    hex_str = hex_str.zfill(2)
-    return hex_str
+    from apysc._color import color_util
+
+    red_hex: str = color_util.get_hex_str_from_int(color_int=red)
+    green_hex: str = color_util.get_hex_str_from_int(color_int=green)
+    blue_hex: str = color_util.get_hex_str_from_int(color_int=blue)
+    return f"#{red_hex}{green_hex}{blue_hex}"

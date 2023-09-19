@@ -15,3 +15,4 @@ test_output
 /tmp_2.md
 /docs/*/.doctrees/*
 .env
+/apysc.code-workspace

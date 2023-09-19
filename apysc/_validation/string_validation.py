@@ -67,7 +67,7 @@ def validate_builtin_string_type(*, string: str, additional_err_msg: str = "") -
 def validate_apysc_string_type(*, string: Any) -> String:
     """
     Validate whether the specified argument is the apysc's `String`
-    type or noe.
+    type or not.
 
     Parameters
     ----------

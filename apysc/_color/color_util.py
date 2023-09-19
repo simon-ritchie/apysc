@@ -1,11 +1,12 @@
 """Color-related implementations.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import TypeVar
 
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
+from apysc._type.int import Int
 
 StrOrString = TypeVar("StrOrString", str, String)
 
@@ -189,3 +190,26 @@ def _fill_one_digit_hex_color_code(*, hex_color_code: str) -> str:
     """
     filled_color_code: str = hex_color_code.zfill(6)
     return filled_color_code
+
+
+def get_hex_str_from_int(*, color_int: Union[int, Int]) -> str:
+    """
+    Get a hexadecimal string from the specified integer value.
+
+    Parameters
+    ----------
+    color_int : Union[int, Int]
+        A color integer (0 to 255).
+
+    Returns
+    -------
+    hex_str : str
+        A hexadecimal string (e.g., "0F").
+    """
+    if isinstance(color_int, Int):
+        hex_str: str = hex(color_int._value)
+    else:
+        hex_str = hex(color_int)
+    hex_str = hex_str[2:].upper()
+    hex_str = hex_str.zfill(2)
+    return hex_str

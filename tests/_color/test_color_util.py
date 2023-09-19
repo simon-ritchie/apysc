@@ -118,3 +118,18 @@ def test_remove_color_code_sharp_symbol() -> None:
         callable_=color_util.remove_color_code_sharp_symbol,
         hex_color_code=100,
     )
+
+
+@apply_test_settings()
+def test_get_hex_str_from_int() -> None:
+    hex_str: str = color_util.get_hex_str_from_int(color_int=0)
+    assert hex_str == "00"
+
+    hex_str = color_util.get_hex_str_from_int(color_int=1)
+    assert hex_str == "01"
+
+    hex_str = color_util.get_hex_str_from_int(color_int=255)
+    assert hex_str == "FF"
+
+    hex_str = color_util.get_hex_str_from_int(color_int=ap.Int(255))
+    assert hex_str == "FF"

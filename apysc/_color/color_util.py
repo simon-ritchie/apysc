@@ -7,6 +7,7 @@ from typing import TypeVar
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 StrOrString = TypeVar("StrOrString", str, String)
 
@@ -213,3 +214,29 @@ def get_hex_str_from_int(*, color_int: Union[int, Int]) -> str:
     hex_str = hex_str[2:].upper()
     hex_str = hex_str.zfill(2)
     return hex_str
+
+
+@add_debug_info_setting(module_name=__name__)
+@arg_validation_decos.is_integer(arg_position_index=0, optional=False)
+def get_hex_apysc_string_from_int(*, color_int: Union[int, Int]) -> String:
+    """
+    Get an apysc's hexadecimal `String` from the specified integer value.
+
+    Parameters
+    ----------
+    color_int : Union[int, Int]
+        The color integer (0 to 255).
+
+    Returns
+    -------
+    result : String
+        apysc's hexadecimal `String`.
+    """
+    from apysc._converter.to_apysc_val_from_builtin import (
+        get_copied_int_from_builtin_val
+    )
+
+    color_int_: Int = get_copied_int_from_builtin_val(integer=color_int)
+    # result: String = color_int_.to_string()
+    # result = result.zfill(width=2)
+    pass

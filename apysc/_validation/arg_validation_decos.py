@@ -34,6 +34,9 @@ Mainly the following decorators exist.
 - is_apysc_int_or_number
     - Set a validation to check a specified argument's type
         is the `ap.Int` or `ap.Number`.
+- is_uint8_range
+    - Set a validation to check a specified argument's value
+        is a range of 8-bit unsigned integer.
 - num_is_gt_zero
     - Set a validation to check that a specified argument's value
         is greater than zero.
@@ -770,6 +773,61 @@ def is_apysc_int_or_number(*, arg_position_index: int) -> _Callable:
                     f"{type(int_or_number).__name__}, {int_or_number}"
                     f"\n{callable_and_arg_names_msg}"
                 )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_uint8_range(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check a specified argument's value
+    is a range of unsigned integer.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._type.int import Int
+
+            integer: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                callable_=callable_, arg_position_index=arg_position_index
+            )
+            if not isinstance(integer, (int, Int)):
+                raise TypeError(
+                    "A specified argument value is not an integer type: "
+                    f"{type(integer).__name__}\n{callable_and_arg_names_msg}"
+                )
+            py_int: int = 0
+            if isinstance(integer, int):
+                py_int = integer
+            elif isinstance(integer, Int):
+                py_int = integer._value
+            under_or_overflow_err_msg: str = (
+                "A specified argument value is less than zero "
+                f"(range of 0 to 255 is acceptable): {py_int}"
+            )
+            if py_int < 0:
+                raise ValueError(under_or_overflow_err_msg)
+            if py_int > 255:
+                raise ValueError(under_or_overflow_err_msg)
             return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore

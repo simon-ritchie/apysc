@@ -1631,3 +1631,42 @@ def test_is_color() -> None:
         callable_=_test_func_2,
         color=ap.String("#00aaff"),
     )
+
+
+@apply_test_settings()
+def test_is_uint8_range() -> None:
+    @arg_validation_decos.is_uint8_range(arg_position_index=0)
+    def _test_func_1(*, value: Union[int, ap.Int]) -> int:
+        return 360
+
+    result: int = _test_func_1(value=0)
+    assert result == 360
+    _test_func_1(value=255)
+    _test_func_1(value=ap.Int(0))
+    _test_func_1(value=ap.Int(255))
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func_1,
+        value="test",
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        value=-1,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        value=-256,
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        value=ap.Int(-1),
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        callable_=_test_func_1,
+        value=ap.Int(256),
+    )

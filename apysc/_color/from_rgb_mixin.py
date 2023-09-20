@@ -6,6 +6,7 @@ from typing import Union, TYPE_CHECKING
 from typing_extensions import final
 
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
     from apysc._color.color import Color
@@ -14,6 +15,10 @@ if TYPE_CHECKING:
 class FromRgbMixIn:
     @final
     @classmethod
+    @arg_validation_decos.is_uint8_range(arg_position_index=1)
+    @arg_validation_decos.is_uint8_range(arg_position_index=2)
+    @arg_validation_decos.is_uint8_range(arg_position_index=3)
+    @arg_validation_decos.is_builtin_string(arg_position_index=4, optional=False)
     def from_rgb(
         cls,
         *,

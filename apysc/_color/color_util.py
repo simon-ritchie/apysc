@@ -193,6 +193,7 @@ def _fill_one_digit_hex_color_code(*, hex_color_code: str) -> str:
     return filled_color_code
 
 
+@arg_validation_decos.is_uint8_range(arg_position_index=0)
 def get_hex_str_from_int(*, color_int: Union[int, Int]) -> str:
     """
     Get a hexadecimal string from the specified integer value.
@@ -217,7 +218,7 @@ def get_hex_str_from_int(*, color_int: Union[int, Int]) -> str:
 
 
 @add_debug_info_setting(module_name=__name__)
-@arg_validation_decos.is_integer(arg_position_index=0, optional=False)
+@arg_validation_decos.is_uint8_range(arg_position_index=0)
 def get_hex_apysc_string_from_int(*, color_int: Union[int, Int]) -> String:
     """
     Get an apysc's hexadecimal `String` from the specified integer value.

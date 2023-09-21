@@ -15,6 +15,7 @@ from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.to_hex_mixin import ToHexMixIn
 
 
 class Int(
@@ -24,6 +25,7 @@ class Int(
     ToFixedMixIn,
     HashableInterface,
     ToNumberMixIn,
+    ToHexMixIn,
 ):
     """
     Integer class for the apysc library.

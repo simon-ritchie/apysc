@@ -7,6 +7,7 @@ from typing_extensions import final
 
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
+from apysc._html.debug_mode import add_debug_info_setting
 
 if TYPE_CHECKING:
     from apysc._color.color import Color
@@ -19,6 +20,7 @@ class FromRgbMixIn:
     @arg_validation_decos.is_uint8_range(arg_position_index=2)
     @arg_validation_decos.is_uint8_range(arg_position_index=3)
     @arg_validation_decos.is_builtin_string(arg_position_index=4, optional=False)
+    @add_debug_info_setting(module_name=__name__)
     def from_rgb(
         cls,
         *,

@@ -15,6 +15,7 @@ from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.to_hex_mixin import ToHexMixIn
 
 
 class Number(
@@ -23,6 +24,7 @@ class Number(
     ToStringMixIn,
     ToFixedMixIn,
     HashableInterface,
+    ToHexMixIn,
 ):
     """
     Floating point number class for the apysc library.

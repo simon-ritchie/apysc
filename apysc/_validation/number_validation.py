@@ -17,9 +17,11 @@ Mainly following interfaces are defined:
     equal to zero.
 - validate_num_is_0_to_1_range
     - Validate whether a specified number is from 0.0 to 1.0.
+- validate_apysc_int_or_number
+    - Validate whether a specified value is an apysc's `Int` or `Number`.
 """
 
-from typing import Union
+from typing import Any, Union
 
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -255,3 +257,25 @@ def validate_num_is_0_to_1_range(
                 err_msg=err_msg, additional_err_msg=additional_err_msg
             )
             raise ValueError(err_msg)
+
+
+def validate_apysc_int_or_number(*, value: Any) -> Union[Int, Number]:
+    """
+    Validate whether a specified value is an apysc's `Int` or `Number`.
+
+    Parameters
+    ----------
+    value : Any
+        A value to check.
+
+    Returns
+    -------
+    value : Union[Int, Number]
+        An apysc's `Int` or `Number` value.
+    """
+    if not isinstance(value, (Int, Number)):
+        raise TypeError(
+            "A specified value type is not an apysc's `Int` or `Number`: "
+            f"{type(value)}"
+        )
+    return value

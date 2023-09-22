@@ -29,6 +29,26 @@ class FromRgbMixIn:
         blue: Union[int, Int],
         variable_name_suffix: str = "",
     ) -> "Color":
+        """
+        Create a color instance from RGB (red, green, and blue) values.
+
+        Parameters
+        ----------
+        red : Union[int, Int]
+            A red color value (0 to 255).
+        green : Union[int, Int]
+            A green color value (0 to 255).
+        blue : Union[int, Int]
+            A blue color value (0 to 255).
+        variable_name_suffix : str, default ''
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
+
+        Returns
+        -------
+        color : Color
+            A created color instance.
+        """
         from apysc._color.color import Color
         from apysc._type.string import String
         from apysc._color import color_util

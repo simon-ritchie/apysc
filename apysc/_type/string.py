@@ -31,6 +31,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 from apysc._type.string_zfill_mixin import StringZfillMixIn
 from apysc._type.string_lower_mixin import StringLowerMixIn
+from apysc._type.string_upper_mixin import StringUpperMixIn
 
 
 class String(
@@ -50,6 +51,7 @@ class String(
     StringApplyMaxNumOfDecimalPlacesMixIn,
     StringZfillMixIn,
     StringLowerMixIn,
+    StringUpperMixIn,
 ):
     """
     String class for apysc library.

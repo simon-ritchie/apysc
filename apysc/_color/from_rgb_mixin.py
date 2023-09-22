@@ -27,15 +27,35 @@ class FromRgbMixIn:
         red: Union[int, Int],
         green: Union[int, Int],
         blue: Union[int, Int],
-        variable_name_suffix: str,
+        variable_name_suffix: str = "",
     ) -> "Color":
         from apysc._color.color import Color
+        from apysc._type.string import String
+        from apysc._color import color_util
+        from apysc._expression import expression_data_util
 
         color: Color = Color("", variable_name_suffix=variable_name_suffix)
         color._value._value = _get_py_str_from_rgb(
             red=red, green=green, blue=blue
         )
-        pass
+        red_hex_str: String = color_util.get_hex_apysc_string_from_int(
+            color_int=red, variable_name_suffix=variable_name_suffix
+        ).upper()
+        green_hex_str: String = color_util.get_hex_apysc_string_from_int(
+            color_int=green, variable_name_suffix=variable_name_suffix
+        ).upper()
+        blue_hex_str: String = color_util.get_hex_apysc_string_from_int(
+            color_int=blue, variable_name_suffix=variable_name_suffix
+        ).upper()
+        color._value._value = (
+            f"#{red_hex_str._value}{green_hex_str._value}{blue_hex_str._value}"
+        )
+        expression: str = (
+            f'{color._value.variable_name} = "#" + {red_hex_str.variable_name}'
+            f' + {green_hex_str.variable_name} + {blue_hex_str.variable_name};'
+        )
+        expression_data_util.append_js_expression(expression=expression)
+        return color
 
 
 def _get_py_str_from_rgb(

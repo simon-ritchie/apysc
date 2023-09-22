@@ -219,7 +219,11 @@ def get_hex_str_from_int(*, color_int: Union[int, Int]) -> str:
 
 @add_debug_info_setting(module_name=__name__)
 @arg_validation_decos.is_uint8_range(arg_position_index=0)
-def get_hex_apysc_string_from_int(*, color_int: Union[int, Int]) -> String:
+def get_hex_apysc_string_from_int(
+    *,
+    color_int: Union[int, Int],
+    variable_name_suffix: str = "",
+) -> String:
     """
     Get an apysc's hexadecimal `String` from the specified integer value.
 
@@ -227,10 +231,13 @@ def get_hex_apysc_string_from_int(*, color_int: Union[int, Int]) -> String:
     ----------
     color_int : Union[int, Int]
         The color integer (0 to 255).
+    variable_name_suffix : str, default ''
+        A JavaScript variable name suffix string.
+        This setting is sometimes useful for JavaScript debugging.
 
     Returns
     -------
-    result : String
+    hex_str : String
         apysc's hexadecimal `String`.
     """
     from apysc._converter.to_apysc_val_from_builtin import (
@@ -238,6 +245,8 @@ def get_hex_apysc_string_from_int(*, color_int: Union[int, Int]) -> String:
     )
 
     color_int_: Int = get_copied_int_from_builtin_val(integer=color_int)
-    # result: String = color_int_.to_string()
-    # result = result.zfill(width=2)
-    pass
+    hex_str: String = color_int_.to_hex(
+        variable_name_suffix=variable_name_suffix
+    )
+    hex_str = hex_str.zfill(width=2)
+    return hex_str

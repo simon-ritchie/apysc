@@ -48,6 +48,13 @@ class FromRgbMixIn:
         -------
         color : Color
             A created color instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> color: ap.Color = ap.Color.from_rgb(red=0, green=255, blue=0)
+        >>> color
+        Color("#00FF00")
         """
         from apysc._color.color import Color
         from apysc._type.string import String

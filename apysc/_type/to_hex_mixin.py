@@ -31,6 +31,19 @@ class ToHexMixIn:
         -------
         hex_str : String
             A hexadecimal string (e.g., "1f").
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> int_value: ap.Int = ap.Int(28)
+        >>> hex_str: ap.String = int_value.to_hex()
+        >>> hex_str
+        String("1c")
+
+        >>> number: ap.Number = ap.Number(28.5)
+        >>> hex_str = int_value.to_hex()
+        >>> hex_str
+        String("1c")
         """
         from apysc._type.int import Int
         from apysc._type.number import Number

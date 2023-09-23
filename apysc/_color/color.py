@@ -24,6 +24,21 @@ class Color(
     VariableNameSuffixMixIn,
     FromRgbMixIn,
 ):
+    """
+    The color class implementation.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> color: ap.Color = ap.Color("#0af")
+    >>> color
+    Color("#00aaff")
+
+    >>> color = ap.Color("#ffffff")
+    >>> color
+    Color("#ffffff")
+    """
+
     _value: String
     _variable_name_suffix: str
 
@@ -46,6 +61,17 @@ class Color(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> color: ap.Color = ap.Color("#0af")
+        >>> color
+        Color("#00aaff")
+
+        >>> color = ap.Color("#ffffff")
+        >>> color
+        Color("#ffffff")
         """
         from apysc._color import color_util
 

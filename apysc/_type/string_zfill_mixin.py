@@ -29,6 +29,23 @@ class StringZfillMixIn:
         -------
         result : String
             A result string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> _: ap.Stage = ap.Stage()
+        >>> string: ap.String = ap.String("1")
+        >>> string = string.zfill(width=1)
+        >>> string
+        String("1")
+
+        >>> string = string.zfill(width=3)
+        >>> string
+        String("001")
+
+        >>> string = string.zfill(width=5)
+        >>> string
+        String("00001")
         """
         from apysc._type.string import String
         from apysc._validation import string_validation

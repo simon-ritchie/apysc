@@ -76,3 +76,18 @@ ap.save_overall_html(dest_dir_path="./color_basic_usage/")
 
 - `variable_name_suffix`: str, default ''
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> color: ap.Color = ap.Color("#0af")
+>>> color
+Color("#00aaff")
+
+>>> color = ap.Color("#ffffff")
+>>> color
+Color("#ffffff")
+```

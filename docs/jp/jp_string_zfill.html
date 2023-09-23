@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>String クラスの zfill メソッド &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
+    <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css?v=e01785d5" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css?v=5503e606" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js?v=16ad857a"></script>
+    <script src="static/doctools.js?v=888ff710"></script>
+    <script src="static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="static/jquery-3.6.3.min.js?v=25e7c09e"></script>
+    <script src="static/common_func.js?v=c962a8e2"></script>
+    <script src="static/add_navigation_to_footer.js?v=6871d0c2"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Boolean クラス" href="jp_boolean.html" />
+    <link rel="prev" title="String クラスの apply_max_num_of_decimal_places インターフェイス" href="jp_string_apply_max_num_of_decimal_places.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_boolean.html" title="Boolean クラス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_string_apply_max_num_of_decimal_places.html" title="String クラスの apply_max_num_of_decimal_places インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String クラスの zfill メソッド</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/string_zfill.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="string-zfill">
+<h1>String クラスの zfill メソッド<a class="headerlink" href="#string-zfill" title="Permalink to this heading">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">String</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">zfill</span></code>メソッドについて説明します。</p>
+<section id="id1">
+<h2>メソッド概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">zfill</span></code>メソッドは指定された文字数でゼロ埋めされた文字列を返却します。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">zfill</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">width</span></code>引数を必要とします（<code class="docutils literal notranslate"><span class="pre">int</span></code>もしくは<code class="docutils literal notranslate"><span class="pre">ap.Int</span></code>型となります）。</p>
+<p>その設定によって合計の文字数が決定します。</p>
+<p>返却値はコピーされた<code class="docutils literal notranslate"><span class="pre">ap.String</span></code>型の値となります。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;001&quot;</span><span class="p">)</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;00001&quot;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_zfill_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/string_zfill_basic_usage/index.html" width="0" height="0"></iframe>
+</section>
+<section id="zfill-api">
+<h2>zfill メソッドのAPI<a class="headerlink" href="#zfill-api" title="Permalink to this heading">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">zfill(self,</span> <span class="pre">*,</span> <span class="pre">width:</span> <span class="pre">Union[int,</span> <span class="pre">ForwardRef('Int')])</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>文字列の左側を0で埋めた文字列を返却します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Union[int, “Int”]</p>
+<ul>
+<li><p>文字列の幅（長さ）。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: String</p>
+<ul>
+<li><p>結果の文字列。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
+<span class="go">String(&quot;1&quot;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
+<span class="go">String(&quot;001&quot;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
+<span class="go">String(&quot;00001&quot;)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">String クラスの zfill メソッド</a><ul>
+<li><a class="reference internal" href="#id1">メソッド概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#zfill-api">zfill メソッドのAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_string_apply_max_num_of_decimal_places.html"
+                          title="previous chapter">String クラスの apply_max_num_of_decimal_places インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_boolean.html"
+                          title="next chapter">Boolean クラス</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_boolean.html" title="Boolean クラス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_string_apply_max_num_of_decimal_places.html" title="String クラスの apply_max_num_of_decimal_places インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String クラスの zfill メソッド</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+  </body>
+</html>

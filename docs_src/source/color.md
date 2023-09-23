@@ -73,3 +73,18 @@ The color class implementation.<hr>
   - A hexadecimal color code string (e.g., '#000000').
 - `variable_name_suffix`: str, default ''
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> color: ap.Color = ap.Color("#0af")
+>>> color
+Color("#00aaff")
+
+>>> color = ap.Color("#ffffff")
+>>> color
+Color("#ffffff")
+```

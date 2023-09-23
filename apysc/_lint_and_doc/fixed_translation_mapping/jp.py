@@ -4227,5 +4227,25 @@ MAPPINGS: Mappings = Mappings(
             key="<br><br>",
             val="<br><br>",
         ),
+        Mapping(
+            key="## What method is this?",
+            val="## メソッド概要",
+        ),
+        Mapping(
+            key="## zfill method API",
+            val="## zfill メソッドのAPI",
+        ),
+        Mapping(
+            key="Return a copy of the string left filled with 0.<hr>",
+            val="文字列の左側を0で埋めた文字列を返却します。<hr>",
+        ),
+        Mapping(
+            key="  - A width (length) of the string.",
+            val="  - 文字列の幅（長さ）。",
+        ),
+        Mapping(
+            key="  - A result string.",
+            val="  - 結果の文字列。",
+        ),
     ]
 )

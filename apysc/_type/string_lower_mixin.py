@@ -22,6 +22,14 @@ class StringLowerMixIn:
         -------
         string : String
             A copied lower case string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> string: ap.String = ap.String("HELLO")
+        >>> string = string.lower()
+        >>> string
+        String("hello")
         """
         from apysc._validation import string_validation
         from apysc._type.string import String

@@ -22,6 +22,14 @@ class StringUpperMixIn:
         -------
         string : String
             A copied upper case string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> string: ap.String = ap.String("Hello")
+        >>> string = string.upper()
+        >>> string
+        String("HELLO")
         """
         from apysc._validation import string_validation
         from apysc._type.string import String

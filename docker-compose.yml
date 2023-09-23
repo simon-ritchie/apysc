@@ -10,5 +10,4 @@ services:
     volumes:
       - "./:/mnt/apysc"
     image: "apysc"
-    container_name: "apysc"
     command: /bin/sh -c "while true; do sleep 10; done"

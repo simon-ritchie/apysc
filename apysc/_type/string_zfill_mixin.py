@@ -30,6 +30,11 @@ class StringZfillMixIn:
         result : String
             A result string.
 
+        References
+        ----------
+        - String class zfill method
+            - https://simon-ritchie.github.io/apysc/en/string_zfill.html
+
         Examples
         --------
         >>> import apysc as ap

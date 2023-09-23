@@ -49,6 +49,13 @@ class FromRgbMixIn:
         color : Color
             A created color instance.
 
+        References
+        ----------
+        - Color class from_rgb class method
+            - https://simon-ritchie.github.io/apysc/en/color_from_rgb.html
+        - Color class
+            - https://simon-ritchie.github.io/apysc/en/color.html
+
         Examples
         --------
         >>> import apysc as ap

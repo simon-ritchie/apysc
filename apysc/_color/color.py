@@ -37,6 +37,8 @@ class Color(
         - https://simon-ritchie.github.io/apysc/en/material_design_colors.html
     - COLORLESS constant
         - https://simon-ritchie.github.io/apysc/en/colorless.html
+    - Color class from_rgb class method
+        - https://simon-ritchie.github.io/apysc/en/color_from_rgb.html
 
     Examples
     --------
@@ -83,6 +85,8 @@ class Color(
             - https://simon-ritchie.github.io/apysc/en/material_design_colors.html
         - COLORLESS constant
             - https://simon-ritchie.github.io/apysc/en/colorless.html
+        - Color class from_rgb class method
+            - https://simon-ritchie.github.io/apysc/en/color_from_rgb.html
 
         Examples
         --------

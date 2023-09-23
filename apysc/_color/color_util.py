@@ -248,5 +248,5 @@ def get_hex_apysc_string_from_int(
     hex_str: String = color_int_.to_hex(
         variable_name_suffix=variable_name_suffix
     )
-    hex_str = hex_str.zfill(width=2)
+    hex_str = hex_str.zfill(width=2).upper()
     return hex_str

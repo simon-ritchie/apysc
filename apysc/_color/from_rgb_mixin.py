@@ -60,13 +60,13 @@ class FromRgbMixIn:
         )
         red_hex_str: String = color_util.get_hex_apysc_string_from_int(
             color_int=red, variable_name_suffix=variable_name_suffix
-        ).upper()
+        )
         green_hex_str: String = color_util.get_hex_apysc_string_from_int(
             color_int=green, variable_name_suffix=variable_name_suffix
-        ).upper()
+        )
         blue_hex_str: String = color_util.get_hex_apysc_string_from_int(
             color_int=blue, variable_name_suffix=variable_name_suffix
-        ).upper()
+        )
         color._value._value = (
             f"#{red_hex_str._value}{green_hex_str._value}{blue_hex_str._value}"
         )

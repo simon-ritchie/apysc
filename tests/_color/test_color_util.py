@@ -133,3 +133,18 @@ def test_get_hex_str_from_int() -> None:
 
     hex_str = color_util.get_hex_str_from_int(color_int=ap.Int(255))
     assert hex_str == "FF"
+
+
+@apply_test_settings()
+def test_get_hex_apysc_string_from_int() -> None:
+    hex_str: ap.String = color_util.get_hex_apysc_string_from_int(
+        color_int=0,
+        variable_name_suffix="test_suffix",
+    )
+    assert hex_str == "00"
+    assert hex_str._variable_name_suffix == "test_suffix"
+
+    hex_str = color_util.get_hex_apysc_string_from_int(
+        color_int=255,
+    )
+    assert hex_str._value == "FF"

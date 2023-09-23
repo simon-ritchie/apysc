@@ -4247,5 +4247,45 @@ MAPPINGS: Mappings = Mappings(
             key="  - A result string.",
             val="  - 結果の文字列。",
         ),
+        Mapping(
+            key="## What class method is this?",
+            val="## クラスメソッド概要",
+        ),
+        Mapping(
+            key="## from_rgb class method API",
+            val="## from_rgb クラスメソッドのAPI",
+        ),
+        Mapping(
+            key="Create a color instance from RGB (red, green, and blue) values.<hr>",
+            val="RGB（赤、緑、青）の値から色のインスタンスを生成します。<hr>",
+        ),
+        Mapping(
+            key="  - A red color value (0 to 255).",
+            val="  - 赤色の値（0～255）。",
+        ),
+        Mapping(
+            key="  - A green color value (0 to 255).",
+            val="  - 緑色の値（0～255）。",
+        ),
+        Mapping(
+            key="  - A blue color value (0 to 255).",
+            val="  - 青色の値（0～255）。",
+        ),
+        Mapping(
+            key="  - A created color instance.",
+            val="  - 作成された色のインスタンス。",
+        ),
+        Mapping(
+            key="Colors class",
+            val="Colors クラス",
+        ),
+        Mapping(
+            key="MaterialDesignColors class",
+            val="MaterialDesignColors クラス",
+        ),
+        Mapping(
+            key="COLORLESS constant",
+            val="COLORLESS 定数",
+        ),
     ]
 )

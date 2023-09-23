@@ -137,6 +137,7 @@ color
 colors
 material_design_colors
 colorless
+color_from_rgb
 ```
 
 ## DisplayObject and GraphicsBase classes

@@ -88,3 +88,11 @@ Color("#00aaff")
 >>> color
 Color("#ffffff")
 ```
+
+<hr>
+
+**[References]**
+
+- [Colors class](https://simon-ritchie.github.io/apysc/en/colors.html)
+- [MaterialDesignColors class](https://simon-ritchie.github.io/apysc/en/material_design_colors.html)
+- [COLORLESS constant](https://simon-ritchie.github.io/apysc/en/colorless.html)

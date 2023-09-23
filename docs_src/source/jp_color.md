@@ -91,3 +91,12 @@ Color("#00aaff")
 >>> color
 Color("#ffffff")
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Colors クラス](https://simon-ritchie.github.io/apysc/jp/jp_colors.html)
+- [MaterialDesignColors クラス](https://simon-ritchie.github.io/apysc/jp/jp_material_design_colors.html)
+
+- [COLORLESS 定数](https://simon-ritchie.github.io/apysc/jp/jp_colorless.html)

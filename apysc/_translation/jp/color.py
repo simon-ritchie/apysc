@@ -62,4 +62,14 @@ MAPPING: Dict[str, str] = {
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
     "```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color(\"#0af\")\n>>> color\nColor(\"#00aaff\")\n\n>>> color = ap.Color(\"#ffffff\")\n>>> color\nColor(\"#ffffff\")\n```": "```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color(\"#0af\")\n>>> color\nColor(\"#00aaff\")\n\n>>> color = ap.Color(\"#ffffff\")\n>>> color\nColor(\"#ffffff\")\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [Colors class](https://simon-ritchie.github.io/apysc/en/colors.html)": "- [Colors クラス](https://simon-ritchie.github.io/apysc/jp/jp_colors.html)",  # noqa
+    ##################################################
+    "- [MaterialDesignColors class](https://simon-ritchie.github.io/apysc/en/material_design_colors.html)": "- [MaterialDesignColors クラス](https://simon-ritchie.github.io/apysc/jp/jp_material_design_colors.html)",  # noqa
+    ##################################################
+    "- [COLORLESS constant](https://simon-ritchie.github.io/apysc/en/colorless.html)": "- [COLORLESS 定数](https://simon-ritchie.github.io/apysc/jp/jp_colorless.html)",  # noqa
 }

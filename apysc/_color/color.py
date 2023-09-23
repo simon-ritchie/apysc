@@ -27,6 +27,17 @@ class Color(
     """
     The color class implementation.
 
+    References
+    ----------
+    - Color class
+        - https://simon-ritchie.github.io/apysc/en/color.html
+    - Colors class
+        - https://simon-ritchie.github.io/apysc/en/colors.html
+    - MaterialDesignColors class
+        - https://simon-ritchie.github.io/apysc/en/material_design_colors.html
+    - COLORLESS constant
+        - https://simon-ritchie.github.io/apysc/en/colorless.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -61,6 +72,17 @@ class Color(
         variable_name_suffix : str, default ''
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - Color class
+            - https://simon-ritchie.github.io/apysc/en/color.html
+        - Colors class
+            - https://simon-ritchie.github.io/apysc/en/colors.html
+        - MaterialDesignColors class
+            - https://simon-ritchie.github.io/apysc/en/material_design_colors.html
+        - COLORLESS constant
+            - https://simon-ritchie.github.io/apysc/en/colorless.html
 
         Examples
         --------

@@ -4311,5 +4311,17 @@ MAPPINGS: Mappings = Mappings(
             key="Color class",
             val="Color クラス",
         ),
+        Mapping(
+            key="## lower method API",
+            val="## lower メソッドのAPI",
+        ),
+        Mapping(
+            key="Get a copied lower case string.<hr>",
+            val="小文字に変換された文字列のコピーを取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A copied lower case string.",
+            val="  - 小文字に変換された文字列のコピー。",
+        ),
     ]
 )

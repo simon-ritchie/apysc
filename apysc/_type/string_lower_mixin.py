@@ -23,6 +23,11 @@ class StringLowerMixIn:
         string : String
             A copied lower case string.
 
+        References
+        ----------
+        - String class lower method
+            - https://simon-ritchie.github.io/apysc/en/string_lower.html
+
         Examples
         --------
         >>> import apysc as ap

@@ -99,3 +99,9 @@ RGB（赤、緑、青）の値から色のインスタンスを生成します�
 >>> color
 Color("#00FF00")
 ```
+
+<hr>
+
+**[関連資料]**
+
+- [Color クラス](https://simon-ritchie.github.io/apysc/jp/jp_color.html)

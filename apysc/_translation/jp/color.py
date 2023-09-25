@@ -72,4 +72,6 @@ MAPPING: Dict[str, str] = {
     "- [MaterialDesignColors class](https://simon-ritchie.github.io/apysc/en/material_design_colors.html)": "- [MaterialDesignColors クラス](https://simon-ritchie.github.io/apysc/jp/jp_material_design_colors.html)",  # noqa
     ##################################################
     "- [COLORLESS constant](https://simon-ritchie.github.io/apysc/en/colorless.html)": "- [COLORLESS 定数](https://simon-ritchie.github.io/apysc/jp/jp_colorless.html)",  # noqa
+    ##################################################
+    "- [Color class from_rgb class method](https://simon-ritchie.github.io/apysc/en/color_from_rgb.html)": "- [Color クラスの from_rgb クラスメソッド](https://simon-ritchie.github.io/apysc/jp/jp_color_from_rgb.html)",  # noqa
 }

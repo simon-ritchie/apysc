@@ -51,7 +51,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "### Int and Number classes": "### Int と Number クラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nint_and_number\nint_and_number_arithmetic_operations\nint_and_number_comparison_operations\nint_and_number_to_fixed\n```": "```{toctree}\n:maxdepth: 1\njp_int_and_number\njp_int_and_number_arithmetic_operations\njp_int_and_number_comparison_operations\njp_int_and_number_to_fixed\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nint_and_number\nint_and_number_arithmetic_operations\nint_and_number_comparison_operations\nint_and_number_to_fixed\nint_and_number_to_hex\n```": "```{toctree}\n:maxdepth: 1\njp_int_and_number\njp_int_and_number_arithmetic_operations\njp_int_and_number_comparison_operations\njp_int_and_number_to_fixed\njp_int_and_number_to_hex\n```",  # noqa
     ##################################################
     "### String class": "### String クラス",
     ##################################################

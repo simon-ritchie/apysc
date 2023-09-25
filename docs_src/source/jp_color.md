@@ -100,3 +100,4 @@ Color("#ffffff")
 - [MaterialDesignColors クラス](https://simon-ritchie.github.io/apysc/jp/jp_material_design_colors.html)
 
 - [COLORLESS 定数](https://simon-ritchie.github.io/apysc/jp/jp_colorless.html)
+- [Color クラスの from_rgb クラスメソッド](https://simon-ritchie.github.io/apysc/jp/jp_color_from_rgb.html)

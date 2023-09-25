@@ -64,4 +64,10 @@ MAPPING: Dict[str, str] = {
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
     "```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color.from_rgb(red=0, green=255, blue=0)\n>>> color\nColor(\"#00FF00\")\n```": "```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color.from_rgb(red=0, green=255, blue=0)\n>>> color\nColor(\"#00FF00\")\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [Color class](https://simon-ritchie.github.io/apysc/en/color.html)": "- [Color クラス](https://simon-ritchie.github.io/apysc/jp/jp_color.html)",  # noqa
 }

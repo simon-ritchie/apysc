@@ -96,3 +96,9 @@ Create a color instance from RGB (red, green, and blue) values.<hr>
 >>> color
 Color("#00FF00")
 ```
+
+<hr>
+
+**[References]**
+
+- [Color class](https://simon-ritchie.github.io/apysc/en/color.html)

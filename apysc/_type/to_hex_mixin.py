@@ -32,6 +32,11 @@ class ToHexMixIn:
         hex_str : String
             A hexadecimal string (e.g., "1f").
 
+        References
+        ----------
+        - Int and Number classes to_hex method
+            - https://simon-ritchie.github.io/apysc/en/int_and_number_to_hex.html
+
         Examples
         --------
         >>> import apysc as ap

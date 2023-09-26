@@ -93,6 +93,7 @@ jp_string_length
 jp_string_apply_max_num_of_decimal_places
 jp_string_zfill
 jp_string_lower
+jp_string_upper
 ```
 
 ### Boolean クラスと各定数値

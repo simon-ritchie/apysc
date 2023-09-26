@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>String class lower method &#8212; apysc  documentation</title>
+    <title>String class upper method &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
     <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
@@ -21,8 +21,8 @@
     <script src="static/add_en_to_ja_link.js?v=0fffc53d"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="String class upper method" href="string_upper.html" />
-    <link rel="prev" title="String class zfill method" href="string_zfill.html" /> 
+    <link rel="next" title="Boolean class" href="boolean.html" />
+    <link rel="prev" title="String class lower method" href="string_lower.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="string_upper.html" title="String class upper method"
+          <a href="boolean.html" title="Boolean class"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="string_zfill.html" title="String class zfill method"
+          <a href="string_lower.html" title="String class lower method"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String class lower method</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String class upper method</a></li> 
       </ul>
     </div>  
 
@@ -46,16 +46,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="string-class-lower-method">
-<h1>String class lower method<a class="headerlink" href="#string-class-lower-method" title="Permalink to this heading">¶</a></h1>
-<p>This page explains the <code class="docutils literal notranslate"><span class="pre">String</span></code> class <code class="docutils literal notranslate"><span class="pre">lower</span></code> method.</p>
+  <section id="string-class-upper-method">
+<h1>String class upper method<a class="headerlink" href="#string-class-upper-method" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">String</span></code> class <code class="docutils literal notranslate"><span class="pre">upper</span></code> method.</p>
 <section id="what-method-is-this">
 <h2>What method is this?<a class="headerlink" href="#what-method-is-this" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">lower</span></code> method returns a copied lowercase string.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">upper</span></code> method returns a copied uppercase string.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">lower</span></code> method requires no arguments and it returns a <code class="docutils literal notranslate"><span class="pre">ap.String</span></code> type value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">upper</span></code> method requires no arguments and it returns a <code class="docutils literal notranslate"><span class="pre">ap.String</span></code> type value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -66,36 +66,37 @@
     <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;AbC1_&quot;</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;abc1_&quot;</span><span class="p">)</span>
+<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;aBc1_&quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;ABC1_&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_lower_basic_usage/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_upper_basic_usage/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/string_lower_basic_usage/index.html" width="0" height="0"></iframe>
+<iframe src="static/string_upper_basic_usage/index.html" width="0" height="0"></iframe>
 </section>
-<section id="lower-method-api">
-<h2>lower method API<a class="headerlink" href="#lower-method-api" title="Permalink to this heading">¶</a></h2>
-<!-- Docstring: apysc._type.string_lower_mixin.StringLowerMixIn.lower -->
+<section id="upper-method-api">
+<h2>upper method API<a class="headerlink" href="#upper-method-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._type.string_upper_mixin.StringUpperMixIn.upper -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">lower(self)</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">upper(self)</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
-<p>Get a copied lower case string.<hr></p>
+<p>Get a copied upper case string.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: String</p>
 <ul>
-<li><p>A copied lower case string.</p></li>
+<li><p>A copied upper case string.</p></li>
 </ul>
 </li>
 </ul>
 <hr>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
-<span class="go">String(&quot;hello&quot;)</span>
+<span class="go">String(&quot;HELLO&quot;)</span>
 </pre></div>
 </div>
 </section>
@@ -114,10 +115,10 @@
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">String class lower method</a><ul>
+<li><a class="reference internal" href="#">String class upper method</a><ul>
 <li><a class="reference internal" href="#what-method-is-this">What method is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#lower-method-api">lower method API</a></li>
+<li><a class="reference internal" href="#upper-method-api">upper method API</a></li>
 </ul>
 </li>
 </ul>
@@ -125,13 +126,13 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="string_zfill.html"
-                          title="previous chapter">String class zfill method</a></p>
+    <p class="topless"><a href="string_lower.html"
+                          title="previous chapter">String class lower method</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="string_upper.html"
-                          title="next chapter">String class upper method</a></p>
+    <p class="topless"><a href="boolean.html"
+                          title="next chapter">Boolean class</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -154,13 +155,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="string_upper.html" title="String class upper method"
+          <a href="boolean.html" title="Boolean class"
              >next</a> |</li>
         <li class="right" >
-          <a href="string_zfill.html" title="String class zfill method"
+          <a href="string_lower.html" title="String class lower method"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String class lower method</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String class upper method</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

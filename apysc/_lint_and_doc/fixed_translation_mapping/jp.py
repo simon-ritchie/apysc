@@ -4323,5 +4323,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A copied lower case string.",
             val="  - 小文字に変換された文字列のコピー。",
         ),
+        Mapping(
+            key="## upper method API",
+            val="## upper メソッドのAPI",
+        ),
+        Mapping(
+            key="Get a copied upper case string.<hr>",
+            val="大文字に変換された文字列のコピーを返却します。<hr>",
+        ),
+        Mapping(
+            key="  - A copied upper case string.",
+            val="  - 大文字変換された文字列のコピー。",
+        ),
     ]
 )

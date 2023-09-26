@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>String クラスの lower メソッド &#8212; apysc  documentation</title>
+    <title>String クラスの upper メソッド &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
     <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
@@ -20,8 +20,8 @@
     <script src="static/keyword_link_mapping.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="String クラスの upper メソッド" href="jp_string_upper.html" />
-    <link rel="prev" title="String クラスの zfill メソッド" href="jp_string_zfill.html" /> 
+    <link rel="next" title="Boolean クラス" href="jp_boolean.html" />
+    <link rel="prev" title="String クラスの lower メソッド" href="jp_string_lower.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -30,13 +30,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="jp_string_upper.html" title="String クラスの upper メソッド"
+          <a href="jp_boolean.html" title="Boolean クラス"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="jp_string_zfill.html" title="String クラスの zfill メソッド"
+          <a href="jp_string_lower.html" title="String クラスの lower メソッド"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String クラスの lower メソッド</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String クラスの upper メソッド</a></li> 
       </ul>
     </div>  
 
@@ -45,17 +45,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/string_lower.html">英語の原文</a>の確認をお願いします。</span></p>
-<section id="string-lower">
-<h1>String クラスの lower メソッド<a class="headerlink" href="#string-lower" title="Permalink to this heading">¶</a></h1>
-<p>このページでは<code class="docutils literal notranslate"><span class="pre">String</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">lower</span></code>メソッドについて説明します。</p>
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/string_upper.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="string-upper">
+<h1>String クラスの upper メソッド<a class="headerlink" href="#string-upper" title="Permalink to this heading">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">String</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">upper</span></code>メソッドについて説明します。</p>
 <section id="id1">
 <h2>メソッド概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">lower</span></code>メソッドは小文字に変換された文字列のコピーを返却します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">upper</span></code>メソッドは大文字に変換された文字列のコピーを返却します。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">lower</span></code>メソッドは引数を必要とせず、且つ<code class="docutils literal notranslate"><span class="pre">ap.String</span></code>型の値を返却します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">upper</span></code>メソッドは引数の指定を必要とせず、且つ<code class="docutils literal notranslate"><span class="pre">ap.String</span></code>型の値を返却します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -66,35 +66,36 @@
     <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;AbC1_&quot;</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;abc1_&quot;</span><span class="p">)</span>
+<span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;aBc1_&quot;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s2">&quot;ABC1_&quot;</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_lower_basic_usage/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;string_upper_basic_usage/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/string_lower_basic_usage/index.html" width="0" height="0"></iframe>
+<iframe src="static/string_upper_basic_usage/index.html" width="0" height="0"></iframe>
 </section>
-<section id="lower-api">
-<h2>lower メソッドのAPI<a class="headerlink" href="#lower-api" title="Permalink to this heading">¶</a></h2>
+<section id="upper-api">
+<h2>upper メソッドのAPI<a class="headerlink" href="#upper-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">lower(self)</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">upper(self)</span> <span class="pre">-&gt;</span> <span class="pre">'String'</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
-<p>小文字に変換された文字列のコピーを取得します。<hr></p>
+<p>大文字に変換された文字列のコピーを返却します。<hr></p>
 <p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: String</p>
 <ul>
-<li><p>小文字に変換された文字列のコピー。</p></li>
+<li><p>大文字変換された文字列のコピー。</p></li>
 </ul>
 </li>
 </ul>
 <hr>
 <p><strong>[コードサンプル]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
-<span class="go">String(&quot;hello&quot;)</span>
+<span class="go">String(&quot;HELLO&quot;)</span>
 </pre></div>
 </div>
 </section>
@@ -113,10 +114,10 @@
   <div>
     <h3><a href="jp_index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">String クラスの lower メソッド</a><ul>
+<li><a class="reference internal" href="#">String クラスの upper メソッド</a><ul>
 <li><a class="reference internal" href="#id1">メソッド概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
-<li><a class="reference internal" href="#lower-api">lower メソッドのAPI</a></li>
+<li><a class="reference internal" href="#upper-api">upper メソッドのAPI</a></li>
 </ul>
 </li>
 </ul>
@@ -124,13 +125,13 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="jp_string_zfill.html"
-                          title="previous chapter">String クラスの zfill メソッド</a></p>
+    <p class="topless"><a href="jp_string_lower.html"
+                          title="previous chapter">String クラスの lower メソッド</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="jp_string_upper.html"
-                          title="next chapter">String クラスの upper メソッド</a></p>
+    <p class="topless"><a href="jp_boolean.html"
+                          title="next chapter">Boolean クラス</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -153,13 +154,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="jp_string_upper.html" title="String クラスの upper メソッド"
+          <a href="jp_boolean.html" title="Boolean クラス"
              >next</a> |</li>
         <li class="right" >
-          <a href="jp_string_zfill.html" title="String クラスの zfill メソッド"
+          <a href="jp_string_lower.html" title="String クラスの lower メソッド"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">String クラスの lower メソッド</a></li> 
+        <li class="nav-item nav-item-this"><a href="">String クラスの upper メソッド</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -23,6 +23,11 @@ class StringUpperMixIn:
         string : String
             A copied upper case string.
 
+        References
+        ----------
+        - String class upper method
+            - https://simon-ritchie.github.io/apysc/en/string_upper.html
+
         Examples
         --------
         >>> import apysc as ap

@@ -219,4 +219,9 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "ap.Colors": "colors",
     "MaterialDesignColors": "material_design_colors",
     "ap.MaterialDesignColors": "material_design_colors",
+    "zfill": "string_zfill",
+    "from_rgb": "color_from_rgb",
+    "to_hex": "int_and_number_to_hex",
+    "lower": "string_lower",
+    "upper": "string_upper",
 }

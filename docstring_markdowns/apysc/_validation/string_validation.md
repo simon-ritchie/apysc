@@ -4,6 +4,28 @@
 
 String's validation implementations.
 
+## `validate_apysc_string_type` function docstring
+
+Validate whether the specified argument is the apysc's `String` type or not.<hr>
+
+**[Parameters]**
+
+- `string`: Any
+  - The target string to check.
+
+<hr>
+
+**[Returns]**
+
+- `string`: String
+  - An apysc's string.
+
+<hr>
+
+**[Raises]**
+
+- TypeError: If the specified argument is not the apysc's `String` type.
+
 ## `validate_builtin_string_type` function docstring
 
 Validate a specified string's type is Python built-in's str.<hr>

@@ -1,12 +1,13 @@
 """Color-related implementations.
 """
 
-from typing import Any, Union
+from typing import Any
 from typing import TypeVar
+from typing import Union
 
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.string import String
 from apysc._type.int import Int
+from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 StrOrString = TypeVar("StrOrString", str, String)
@@ -208,10 +209,12 @@ def get_hex_str_from_int(*, color_int: Union[int, Int]) -> str:
     hex_str : str
         A hexadecimal string (e.g., "0F").
     """
-    if isinstance(color_int, Int):
-        hex_str: str = hex(color_int._value)
-    else:
+    hex_str: str = ""
+    if isinstance(color_int, int):
         hex_str = hex(color_int)
+    elif isinstance(color_int, Int):
+        int_value: int = color_int._value
+        hex_str = hex(int_value)
     hex_str = hex_str[2:].upper()
     hex_str = hex_str.zfill(2)
     return hex_str
@@ -241,12 +244,10 @@ def get_hex_apysc_string_from_int(
         apysc's hexadecimal `String`.
     """
     from apysc._converter.to_apysc_val_from_builtin import (
-        get_copied_int_from_builtin_val
+        get_copied_int_from_builtin_val,
     )
 
     color_int_: Int = get_copied_int_from_builtin_val(integer=color_int)
-    hex_str: String = color_int_.to_hex(
-        variable_name_suffix=variable_name_suffix
-    )
+    hex_str: String = color_int_.to_hex(variable_name_suffix=variable_name_suffix)
     hex_str = hex_str.zfill(width=2).upper()
     return hex_str

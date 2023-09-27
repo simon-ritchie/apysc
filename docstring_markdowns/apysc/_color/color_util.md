@@ -70,6 +70,40 @@ Complement hex color for convenience; for instance, add # prefix or three digits
 - `complemented_hex_color_code`: str or String
   - Result hex color code. e.g., '#ff0000', '#666666, '#000000'
 
+## `get_hex_apysc_string_from_int` function docstring
+
+Get an apysc's hexadecimal `String` from the specified integer value.<hr>
+
+**[Parameters]**
+
+- `color_int`: Union[int, Int]
+  - The color integer (0 to 255).
+- `variable_name_suffix`: str, default ''
+  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Returns]**
+
+- `hex_str`: String
+  - apysc's hexadecimal `String`.
+
+## `get_hex_str_from_int` function docstring
+
+Get a hexadecimal string from the specified integer value.<hr>
+
+**[Parameters]**
+
+- `color_int`: Union[int, Int]
+  - A color integer (0 to 255).
+
+<hr>
+
+**[Returns]**
+
+- `hex_str`: str
+  - A hexadecimal string (e.g., "0F").
+
 ## `remove_color_code_sharp_symbol` function docstring
 
 Remove a sharp symbol from a specified hexadecimal color code string.<hr>

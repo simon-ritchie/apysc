@@ -4292,16 +4292,16 @@ MAPPINGS: Mappings = Mappings(
             val="## to_hex メソッドのAPI",
         ),
         Mapping(
-            key="  - A hexadecimal string (e.g., \"1f\").",
-            val="  - 16進数の文字列（例 : \"1f\"）",
+            key='  - A hexadecimal string (e.g., "1f").',
+            val='  - 16進数の文字列（例 : "1f"）',
         ),
         Mapping(
             key="This method ignores floating point numbers.<hr>",
             val="このメソッドは浮動小数点数を無視します。<hr>",
         ),
         Mapping(
-            key="Get a hexadecimal string (e.g., \"1f\").<hr>",
-            val="16進数の文字列（例 : \"1f\"）を取得します。<hr>",
+            key='Get a hexadecimal string (e.g., "1f").<hr>',
+            val='16進数の文字列（例 : "1f"）を取得します。<hr>',
         ),
         Mapping(
             key="Color class from_rgb class method",

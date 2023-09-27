@@ -5,6 +5,7 @@ from typing import Any
 from typing import TypeVar
 
 from apysc._color.color_copy_mixin import ColorCopyMixIn
+from apysc._color.from_rgb_mixin import FromRgbMixIn
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
@@ -12,7 +13,6 @@ from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._color.from_rgb_mixin import FromRgbMixIn
 
 _StrOrString = TypeVar("_StrOrString", str, String)
 

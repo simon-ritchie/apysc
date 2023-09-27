@@ -23,7 +23,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `path_data_list` argument is a list of path data, such as the `PathLineTo` or `PathBezier2D`.": "`path_data_list`引数は`PathLineTo`や`PathBezier2D`などのパスデータの配列となります。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color(\"#333\"),\n    stage_width=300,\n    stage_height=150,\n    stage_elem_id=\"stage\",\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.line_style(color=ap.Color(\"#0af\"), thickness=5)\npath: ap.Path = sprite.graphics.draw_path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathLineTo(x=100, y=100),\n        ap.PathLineTo(x=150, y=50),\n        ap.PathBezier2D(\n            control_x=200,\n            control_y=100,\n            dest_x=250,\n            dest_y=50,\n        ),\n    ],\n)\n\nap.save_overall_html(dest_dir_path=\"graphics_draw_path_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color(\"#333\"),\n    stage_width=300,\n    stage_height=150,\n    stage_elem_id=\"stage\",\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.line_style(color=ap.Color(\"#0af\"), thickness=5)\npath: ap.Path = sprite.graphics.draw_path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathLineTo(x=100, y=100),\n        ap.PathLineTo(x=150, y=50),\n        ap.PathBezier2D(\n            control_x=200,\n            control_y=100,\n            dest_x=250,\n            dest_y=50,\n        ),\n    ],\n)\n\nap.save_overall_html(dest_dir_path=\"graphics_draw_path_basic_usage/\")\n```",  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=300,\n    stage_height=150,\n    stage_elem_id="stage",\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)\npath: ap.Path = sprite.graphics.draw_path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathLineTo(x=100, y=100),\n        ap.PathLineTo(x=150, y=50),\n        ap.PathBezier2D(\n            control_x=200,\n            control_y=100,\n            dest_x=250,\n            dest_y=50,\n        ),\n    ],\n)\n\nap.save_overall_html(dest_dir_path="graphics_draw_path_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=300,\n    stage_height=150,\n    stage_elem_id="stage",\n)\nsprite: ap.Sprite = ap.Sprite()\nsprite.graphics.line_style(color=ap.Color("#0af"), thickness=5)\npath: ap.Path = sprite.graphics.draw_path(\n    path_data_list=[\n        ap.PathMoveTo(x=50, y=100),\n        ap.PathLineTo(x=100, y=100),\n        ap.PathLineTo(x=150, y=50),\n        ap.PathBezier2D(\n            control_x=200,\n            control_y=100,\n            dest_x=250,\n            dest_y=50,\n        ),\n    ],\n)\n\nap.save_overall_html(dest_dir_path="graphics_draw_path_basic_usage/")\n```',  # noqa
     ##################################################
     "## See also": "## 関連資料",
     ##################################################
@@ -47,7 +47,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## draw_path API": "## draw_path API",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -59,7 +59,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Target path data settings, such as the ap.PathData.MoveTo.": "  - ap.PathData.MoveToなどの対象のパスデータの設定のリスト。",  # noqa
     ##################################################
-    "- `variable_name_suffix`: str, default \'\'": "- `variable_name_suffix`: str, default \'\'",  # noqa
+    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -75,7 +75,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=ap.Color(\"#fff\"), thickness=3)\n>>> path: ap.Path = sprite.graphics.draw_path(\n...     path_data_list=[\n...         ap.PathMoveTo(x=0, y=50),\n...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),\n...     ]\n... )\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=ap.Color(\"#fff\"), thickness=3)\n>>> path: ap.Path = sprite.graphics.draw_path(\n...     path_data_list=[\n...         ap.PathMoveTo(x=0, y=50),\n...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),\n...     ]\n... )\n```",  # noqa
+    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)\n>>> path: ap.Path = sprite.graphics.draw_path(\n...     path_data_list=[\n...         ap.PathMoveTo(x=0, y=50),\n...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),\n...     ]\n... )\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage()\n>>> sprite: ap.Sprite = ap.Sprite()\n>>> sprite.graphics.line_style(color=ap.Color("#fff"), thickness=3)\n>>> path: ap.Path = sprite.graphics.draw_path(\n...     path_data_list=[\n...         ap.PathMoveTo(x=0, y=50),\n...         ap.PathBezier2D(control_x=50, control_y=0, dest_x=100, dest_y=50),\n...     ]\n... )\n```',  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

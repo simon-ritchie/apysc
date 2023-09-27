@@ -36,13 +36,11 @@ class StringUpperMixIn:
         >>> string
         String("HELLO")
         """
-        from apysc._validation import string_validation
-        from apysc._type.string import String
         from apysc._expression import expression_data_util
+        from apysc._type.string import String
+        from apysc._validation import string_validation
 
-        self_string: String = string_validation.validate_apysc_string_type(
-            string=self
-        )
+        self_string: String = string_validation.validate_apysc_string_type(string=self)
         string: String = self_string._copy()
         string._value = string._value.upper()
         expression: str = (

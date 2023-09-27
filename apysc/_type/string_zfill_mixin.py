@@ -1,15 +1,17 @@
 """The mix-in class for the String's `zfill` method.
 """
 
-from typing import TYPE_CHECKING, Union
+from typing import TYPE_CHECKING
+from typing import Union
+
 from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
-
 if TYPE_CHECKING:
-    from apysc._type.string import String
     from apysc._type.int import Int
+    from apysc._type.string import String
 
 
 class StringZfillMixIn:
@@ -52,13 +54,13 @@ class StringZfillMixIn:
         >>> string
         String("00001")
         """
-        from apysc._type.string import String
-        from apysc._validation import string_validation
-        from apysc._type.int import Int
         from apysc._converter.to_apysc_val_from_builtin import (
-            get_copied_int_from_builtin_val
+            get_copied_int_from_builtin_val,
         )
         from apysc._expression.expression_data_util import append_js_expression
+        from apysc._type.int import Int
+        from apysc._type.string import String
+        from apysc._validation import string_validation
 
         self_string: String = string_validation.validate_apysc_string_type(
             string=self,

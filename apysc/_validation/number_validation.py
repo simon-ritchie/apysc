@@ -21,7 +21,8 @@ Mainly following interfaces are defined:
     - Validate whether a specified value is an apysc's `Int` or `Number`.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc._type.int import Int
 from apysc._type.number import Number

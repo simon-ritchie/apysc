@@ -1,13 +1,14 @@
 """The mix-in class for the `from_rgb` method.
 """
 
-from typing import Union, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import Union
 
 from typing_extensions import final
 
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
-from apysc._html.debug_mode import add_debug_info_setting
 
 if TYPE_CHECKING:
     from apysc._color.color import Color
@@ -63,15 +64,13 @@ class FromRgbMixIn:
         >>> color
         Color("#00FF00")
         """
-        from apysc._color.color import Color
-        from apysc._type.string import String
         from apysc._color import color_util
+        from apysc._color.color import Color
         from apysc._expression import expression_data_util
+        from apysc._type.string import String
 
         color: Color = Color("", variable_name_suffix=variable_name_suffix)
-        color._value._value = _get_py_str_from_rgb(
-            red=red, green=green, blue=blue
-        )
+        color._value._value = _get_py_str_from_rgb(red=red, green=green, blue=blue)
         red_hex_str: String = color_util.get_hex_apysc_string_from_int(
             color_int=red, variable_name_suffix=variable_name_suffix
         )
@@ -86,7 +85,7 @@ class FromRgbMixIn:
         )
         expression: str = (
             f'{color._value.variable_name} = "#" + {red_hex_str.variable_name}'
-            f' + {green_hex_str.variable_name} + {blue_hex_str.variable_name};'
+            f" + {green_hex_str.variable_name} + {blue_hex_str.variable_name};"
         )
         expression_data_util.append_js_expression(expression=expression)
         return color

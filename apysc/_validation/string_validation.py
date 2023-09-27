@@ -1,7 +1,8 @@
 """String's validation implementations.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc._type.string import String
 

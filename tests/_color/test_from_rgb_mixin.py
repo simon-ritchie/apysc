@@ -1,9 +1,11 @@
+import re
+from typing import Match
+from typing import Optional
+
 import apysc as ap
 from apysc._color import from_rgb_mixin
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-import re
-from typing import Optional, Match
 
 
 @apply_test_settings()

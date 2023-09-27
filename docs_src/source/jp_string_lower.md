@@ -24,6 +24,7 @@ ap.Stage(
     stage_elem_id="stage",
 )
 string: ap.String = ap.String("AbC1_")
+string = string.lower()
 ap.assert_equal(string, "abc1_")
 
 ap.save_overall_html(dest_dir_path="string_lower_basic_usage/")

@@ -71,7 +71,7 @@ Draw a path vector graphics.<hr>
 
 - `path_data_list`: list of PathDataBase
   - Target path data settings, such as the ap.PathData.MoveTo.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>

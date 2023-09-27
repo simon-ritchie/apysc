@@ -57,7 +57,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Polygon vertex points.": "  - 多角形の頂点の各座標。",
     ##################################################
-    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
+    "- `variable_name_suffix`: str, default """: "- `variable_name_suffix`: str, default """,  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################

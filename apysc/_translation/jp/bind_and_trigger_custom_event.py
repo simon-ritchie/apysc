@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Optional arguments dictionary to be passed to a handler.": "  - ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。",  # noqa
     ##################################################
-    "- `in_handler_head_expression`: str, default ''": "- `in_handler_head_expression`: str, default ''",  # noqa
+    "- `in_handler_head_expression`: str, default """: "- `in_handler_head_expression`: str, default """,  # noqa
     ##################################################
     "  - Optional expression to be added at the handler function's head position.": "  - 省略可能なハンドラ内の先頭に加える（JavaScriptの）表現の文字列。",  # noqa
     ##################################################

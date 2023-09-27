@@ -99,7 +99,7 @@ class Stage(
         stage_elem_id : str or None, optional
             ID attribute set to stage HTML element (e.g., 'line-graph').
             If None is set, a random integer will be applied.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 

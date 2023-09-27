@@ -113,7 +113,7 @@ ap.save_overall_html(dest_dir_path="sprite_move_instances_simultaneously/")
 - `variable_name`: str, default '
   - このインスタンスの（JavaScript上などで使われる）変数名の設定値。apyscの内部実装で`Sprite`クラスのサブクラスをインスタンス化する時以外は設定は不要です。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

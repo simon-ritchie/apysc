@@ -70,7 +70,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dashed_line_basic_usage/")
 - `space_size`: Int or int
   - 破線間の空白スペースのサイズ。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

@@ -118,7 +118,7 @@ apyscライブラリのための真偽値のクラスです。<hr>
 - `value`: Boolean or Int or bool or int
   - 真偽値の初期値。整数の場合は0か1が受け付けられます。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 - `skip_init_substitution_expression_appending`: bool, default False

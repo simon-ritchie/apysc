@@ -182,7 +182,7 @@ ap.save_overall_html(dest_dir_path="graphics_move_to_and_line_to_polyline/")
 - `y`: float or Number
   - 移動先となるY座標。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>
@@ -231,7 +231,7 @@ Int(5)
 - `y`: float or Number
   - 線の描画先となる終点のY座標。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

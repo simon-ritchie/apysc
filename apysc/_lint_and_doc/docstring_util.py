@@ -812,7 +812,7 @@ class Example:
         ----------
         input_code_block : str
             Input code block string.
-        expected_output : str, default ''
+        expected_output : str, default ""
             Expected output string.
         """
         self._input_code_block = input_code_block

@@ -46,7 +46,7 @@ apyscライブラリにおける文字列用のクラスです。<hr>
 - `value`: String or str
   - 文字列の値の初期値。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 - `skip_init_substitution_expression_appending`: bool, default False

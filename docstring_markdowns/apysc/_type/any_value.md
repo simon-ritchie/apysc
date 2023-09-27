@@ -141,7 +141,7 @@ Class implementation of any value (a value that can't determine type).<hr>
 
 - `value`: *
   - Initial any value.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>

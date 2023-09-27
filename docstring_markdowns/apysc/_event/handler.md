@@ -25,7 +25,7 @@ Append a handler's expression.<hr>
   - Target handler's name.
 - `e`: Event
   - Created event instance.
-- `in_handler_head_expression`: str, default ''
+- `in_handler_head_expression`: str, default ""
   - Optional expression to be added at the handler function's head position.
 
 ## `append_unbinding_all_expression` function docstring

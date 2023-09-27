@@ -167,7 +167,7 @@ SVGの2次のベジェ曲線（Q）のデータを設定するためのクラス
 - `relative`: bool or Boolean, default False
   - パスの座標が相対座標として扱うかもしくは絶対座標として扱うかどうかの真偽値。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

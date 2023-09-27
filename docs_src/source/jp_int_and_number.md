@@ -106,7 +106,7 @@ apyscライブラリ上の整数のためのクラスです。<hr>
 - `value`: int or float or Int or Number
   - 整数の初期値。もしも`float`や`Number`の値が指定された場合このクラスは値を整数へと変換します。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 - `skip_init_substitution_expression_appending`: bool, default False
@@ -163,7 +163,7 @@ apyscライブラリ用の浮動小数点数のクラスです。<hr>
 - `value`: int or float or Int or Number
   - 浮動小数点数の初期値。もしもintやIntなどの型の値が指定された場合このクラスは値を浮動小数点数へ変換します。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 - `skip_init_substitution_expression_appending`: bool, default False

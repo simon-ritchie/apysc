@@ -68,7 +68,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_dotted_line_basic_usage/")
 - `dot_size`: Int or int
   - ドットのサイズ。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

@@ -70,7 +70,7 @@ ap.save_overall_html(dest_dir_path="datetime_now_basic_usage/")
 
 **[引数]**
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

@@ -60,7 +60,7 @@ Floating point number class for apysc library.<hr>
 
 - `value`: int or float or Int or Number
   - Initial floating point number value. This class casts it to float if you specify int or Int value.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 - `skip_init_substitution_expression_appending`: bool, default False
   - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.

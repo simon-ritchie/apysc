@@ -181,7 +181,7 @@ Move a line position to a specified point.<hr>
   - X destination point to move.
 - `y`: float or Number
   - Y destination point to move.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>
@@ -230,7 +230,7 @@ Draw a line from previous point to specified point (initial point is x = 0, y = 
   - X destination point to draw a line.
 - `y`: float or Number
   - Y destination point to draw a line.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>

@@ -121,7 +121,7 @@ Array class for the apysc library.<hr>
   - Initial array value.
 - `fixed_value_type`: Optional[Type[InitializeWithBaseValueInterface]], optional
   - A fixed value type of array. This argument only becomes an apysc type, such as the `ap.Int`, `ap.String`, or `ap.Rectangle`. If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified value type instance.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 - `skip_init_substitution_expression_appending`: bool, default False
   - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.

@@ -118,7 +118,7 @@ Boolean class for apysc library.<hr>
 
 - `value`: Boolean or Int or bool or int
   - Initial boolean value. 0 or 1 are acceptable for an integer value.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 - `skip_init_substitution_expression_appending`: bool, default False
   - A boolean indicates whether to skip an initial substitution expression or not. This class uses this option internally.

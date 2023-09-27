@@ -102,7 +102,7 @@ ap.save_overall_html(dest_dir_path="point2d_basic_usage/")
 - `y`: Union[float, Number]
   - Y座標。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

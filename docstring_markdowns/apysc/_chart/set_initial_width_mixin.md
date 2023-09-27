@@ -14,5 +14,5 @@ Set a chart's initial width.<hr>
 
 - `width`: Union[int, Int]
   - A chart's initial width.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.

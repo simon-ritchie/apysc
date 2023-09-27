@@ -174,7 +174,7 @@ class XAxisSettings(
             A boolean, whether an axis label is a bold style or not.
         axis_label_italic : Union[bool, Boolean], optional
             A boolean, whether an axis label is an italic style or not (normal).
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """

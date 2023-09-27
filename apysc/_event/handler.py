@@ -81,7 +81,7 @@ def append_handler_expression(
         Target handler's name.
     e : Event
         Created event instance.
-    in_handler_head_expression : str, default ''
+    in_handler_head_expression : str, default ""
         Optional expression to be added at the handler function's
         head position.
     """

@@ -154,7 +154,7 @@ ap.save_overall_html(dest_dir_path="bind_and_trigger_custom_event_basic_usage/")
 - `options`: dict or None, default None
   - ハンドラに渡される省略が可能な追加のパラメーターとしての辞書。
 
-- `in_handler_head_expression`: str, default ''
+- `in_handler_head_expression`: str, default ""
   - 省略可能なハンドラ内の先頭に加える（JavaScriptの）表現の文字列。
 
 <hr>

@@ -21,7 +21,7 @@ def get_copied_int_from_builtin_val(
     ----------
     integer : int or Int
         Target integer value.
-    variable_name_suffix : str, default ''
+    variable_name_suffix : str, default ""
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
 
@@ -48,7 +48,7 @@ def get_copied_number_from_builtin_val(
     ----------
     float_or_num : float or Number
         Target float (or Number) value.
-    variable_name_suffix : str, default ''
+    variable_name_suffix : str, default ""
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
 
@@ -75,7 +75,7 @@ def get_copied_string_from_builtin_val(
     ----------
     string : str or String
         Target string value.
-    variable_name_suffix : str, default ''
+    variable_name_suffix : str, default ""
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
 
@@ -103,7 +103,7 @@ def get_copied_boolean_from_builtin_val(
     ----------
     bool_val : bool or Boolean
         Target bool value.
-    variable_name_suffix : str, default ''
+    variable_name_suffix : str, default ""
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
 

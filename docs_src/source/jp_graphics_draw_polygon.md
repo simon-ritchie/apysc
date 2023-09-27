@@ -189,7 +189,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_polygon_append_line_point/")
 - `points`: list of Point2D or Array.
   - 多角形の頂点の各座標。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

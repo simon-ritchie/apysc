@@ -113,7 +113,7 @@ apyscライブラリの配列を扱うためのクラスです。<hr>
 - `fixed_value_type`: Optional[Type[InitializeWithBaseValueInterface]], optional
   - 配列の値の固定の型。この引数は`ap.Int`、`ap.String`、`ap.Rectangle`などのapyscの型のみ設定することができます。もし指定された場合、`__getitem__`などのメソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）が指定された型のインスタンスを返却するケースが発生するようになります。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 - `skip_init_substitution_expression_appending`: bool, default False

@@ -107,7 +107,7 @@ Draw a rounded rectangle vector graphics.<hr>
   - Ellipse width of the rectangle corner.
 - `ellipse_height`: Int or int
   - Ellipse height of the rectangle corner.
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
 <hr>

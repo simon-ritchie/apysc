@@ -114,7 +114,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_ellipse_return_value/")
 - `height`: Int or int
   - 楕円の高さ。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

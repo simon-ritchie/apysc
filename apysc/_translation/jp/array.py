@@ -89,7 +89,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - A fixed value type of array. This argument only becomes an apysc type, such as the `ap.Int`, `ap.String`, or `ap.Rectangle`. If specified, the array value-related interfaces, such as the `__getitem__` method (array subscript interface, for example, `arr[5]`), becomes possibly returning a specified value type instance.": "  - 配列の値の固定の型。この引数は`ap.Int`、`ap.String`、`ap.Rectangle`などのapyscの型のみ設定することができます。もし指定された場合、`__getitem__`などのメソッド（`arr[5]`などの配列の添え字のインターフェイスが該当します）が指定された型のインスタンスを返却するケースが発生するようになります。",  # noqa
     ##################################################
-    "- `variable_name_suffix`: str, default ''": "- `variable_name_suffix`: str, default ''",  # noqa
+    "- `variable_name_suffix`: str, default """: "- `variable_name_suffix`: str, default """,  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################

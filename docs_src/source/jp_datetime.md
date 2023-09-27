@@ -102,7 +102,7 @@ assert dt.month == 10
 - `millisecond`: Optional[Union[int, Int]], optional
   - ミリ秒（0～999）
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 - `skip_init_substitution_expression_appending`: bool, default False

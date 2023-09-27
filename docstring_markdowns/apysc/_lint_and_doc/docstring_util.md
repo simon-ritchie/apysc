@@ -800,7 +800,7 @@ Example value type.<hr>
 
 - `input_code_block`: str
   - Input code block string.
-- `expected_output`: str, default ''
+- `expected_output`: str, default ""
   - Expected output string.
 
 ## `Parameter` class docstring

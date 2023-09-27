@@ -102,7 +102,7 @@ class Graphics(
         variable_name : str or None, default None
             Variable name to set. Specified only when
             a subclass instantiation.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -204,7 +204,7 @@ class Graphics(
             Rectangle width.
         height : Int or int
             Rectangle height.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -287,7 +287,7 @@ class Graphics(
             Ellipse width of the rectangle corner.
         ellipse_height : Int or int
             Ellipse height of the rectangle corner.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -362,7 +362,7 @@ class Graphics(
             Y-coordinate of the circle center.
         radius : Int or int
             Circle radius.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -435,7 +435,7 @@ class Graphics(
             Ellipse width.
         height : Int or int
             Ellipse height.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -505,7 +505,7 @@ class Graphics(
             X destination point to draw a line.
         y : float or Number
             Y destination point to draw a line.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -576,7 +576,7 @@ class Graphics(
             X destination point to move.
         y : float or Number
             Y destination point to move.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -663,7 +663,7 @@ class Graphics(
             Line end x-coordinate.
         y_end : float or Number
             Line end y-coordinate.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -747,7 +747,7 @@ class Graphics(
             Line end y-coordinate.
         dot_size : Int or int
             Dot size.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -844,7 +844,7 @@ class Graphics(
             Dash size.
         space_size : Int or int
             Blank space size between dashes.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -943,7 +943,7 @@ class Graphics(
             Dot round size.
         space_size : Int or int
             Blank space size between dots.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -1042,7 +1042,7 @@ class Graphics(
             Dash size.
         space_size : Int or int
             Blank space size between dots and dashes.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -1127,7 +1127,7 @@ class Graphics(
         ----------
         points : list of Point2D or Array.
             Polygon vertex points.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -1264,7 +1264,7 @@ class Graphics(
         ----------
         path_data_list : list of PathDataBase
             Target path data settings, such as the ap.PathData.MoveTo.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 

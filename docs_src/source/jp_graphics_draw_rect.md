@@ -122,7 +122,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_rect_rectangle/")
 - `height`: Int or int
   - 四角の高さ。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

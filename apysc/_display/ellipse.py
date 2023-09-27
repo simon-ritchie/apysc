@@ -250,7 +250,7 @@ class Ellipse(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -347,7 +347,7 @@ class Ellipse(
             Ellipse width.
         height : Int or int
             Ellipse height.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 

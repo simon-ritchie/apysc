@@ -127,7 +127,7 @@ class CustomEventMixIn(
             Event instance.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.
-        in_handler_head_expression : str, default ''
+        in_handler_head_expression : str, default ""
             Optional expression to be added at the handler function's
             head position.
 

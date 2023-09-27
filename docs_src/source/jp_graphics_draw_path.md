@@ -76,7 +76,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_path_basic_usage/")
 - `path_data_list`: list of PathDataBase
   - ap.PathData.MoveToなどの対象のパスデータの設定のリスト。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

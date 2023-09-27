@@ -112,7 +112,7 @@ ap.save_overall_html(dest_dir_path="graphics_draw_line_line_instance/")
 - `y_end`: float or Number
   - 線の終了位置のY座標。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

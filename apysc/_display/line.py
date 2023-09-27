@@ -211,7 +211,7 @@ class Line(
             A parent instance to add this instance.
             If a specified value is None, this interface uses
             a stage instance.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 
@@ -299,7 +299,7 @@ class Line(
             Line start point.
         end_point : Points2D
             Line end point.
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 

@@ -79,7 +79,7 @@ RGB（赤、緑、青）の値から色のインスタンスを生成します�
 - `blue`: Union[int, Int]
   - 青色の値（0～255）。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

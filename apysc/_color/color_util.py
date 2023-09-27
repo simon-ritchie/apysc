@@ -234,7 +234,7 @@ def get_hex_apysc_string_from_int(
     ----------
     color_int : Union[int, Int]
         The color integer (0 to 255).
-    variable_name_suffix : str, default ''
+    variable_name_suffix : str, default ""
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
 

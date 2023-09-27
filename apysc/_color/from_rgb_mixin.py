@@ -41,7 +41,7 @@ class FromRgbMixIn:
             A green color value (0 to 255).
         blue : Union[int, Int]
             A blue color value (0 to 255).
-        variable_name_suffix : str, default ''
+        variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
 

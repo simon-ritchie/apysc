@@ -74,7 +74,7 @@ ap.save_overall_html(dest_dir_path="./color_basic_usage/")
 - `value`: str or String
   - 16進数の色の文字列（例 : '#000000'）。
 
-- `variable_name_suffix`: str, default ''
+- `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
 
 <hr>

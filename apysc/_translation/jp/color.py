@@ -23,7 +23,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The constructor of the `Color` class requires a hexadecimal color code string, for example, `#00aaff`.": "`Color`クラスのコンストラクタでは例えば`#00aaff`などの16進数のカラーコードを必要とします。",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=250,\n    stage_height=150,\n    background_color=ap.Color("#333"),\n    stage_elem_id="stage",\n)\n\nleft_rectangle: ap.Rectangle = ap.Rectangle(\n    x=50,\n    y=50,\n    width=50,\n    height=50,\n    fill_color=ap.Color("#00aaff"),\n)\n\nright_rectangle: ap.Rectangle = ap.Rectangle(\n    x=150,\n    y=50,\n    width=50,\n    height=50,\n    line_color=ap.Color("#ffffff"),\n    line_thickness=3,\n)\n\nap.save_overall_html(dest_dir_path="./color_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=250,\n    stage_height=150,\n    background_color=ap.Color("#333"),\n    stage_elem_id="stage",\n)\n\nleft_rectangle: ap.Rectangle = ap.Rectangle(\n    x=50,\n    y=50,\n    width=50,\n    height=50,\n    fill_color=ap.Color("#00aaff"),\n)\n\nright_rectangle: ap.Rectangle = ap.Rectangle(\n    x=150,\n    y=50,\n    width=50,\n    height=50,\n    line_color=ap.Color("#ffffff"),\n    line_thickness=3,\n)\n\nap.save_overall_html(dest_dir_path="./color_basic_usage/")\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=250,\n    stage_height=150,\n    background_color=ap.Color(\"#333\"),\n    stage_elem_id=\"stage\",\n)\n\nleft_rectangle: ap.Rectangle = ap.Rectangle(\n    x=50,\n    y=50,\n    width=50,\n    height=50,\n    fill_color=ap.Color(\"#00aaff\"),\n)\n\nright_rectangle: ap.Rectangle = ap.Rectangle(\n    x=150,\n    y=50,\n    width=50,\n    height=50,\n    line_color=ap.Color(\"#ffffff\"),\n    line_thickness=3,\n)\n\nap.save_overall_html(dest_dir_path=\"./color_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    stage_width=250,\n    stage_height=150,\n    background_color=ap.Color(\"#333\"),\n    stage_elem_id=\"stage\",\n)\n\nleft_rectangle: ap.Rectangle = ap.Rectangle(\n    x=50,\n    y=50,\n    width=50,\n    height=50,\n    fill_color=ap.Color(\"#00aaff\"),\n)\n\nright_rectangle: ap.Rectangle = ap.Rectangle(\n    x=150,\n    y=50,\n    width=50,\n    height=50,\n    line_color=ap.Color(\"#ffffff\"),\n    line_thickness=3,\n)\n\nap.save_overall_html(dest_dir_path=\"./color_basic_usage/\")\n```",  # noqa
     ##################################################
     "## Acceptable hexadecimal color codes": "## 受け付けられる16進数のカラーコード",
     ##################################################
@@ -41,7 +41,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Color constructor API": "## Color クラスのコンストラクタのAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -51,9 +51,9 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `value`: str or String": "- `value`: str or String",
     ##################################################
-    "  - A hexadecimal color code string (e.g., '#000000').": "  - 16進数の色の文字列（例 : '#000000'）。",  # noqa
+    "  - A hexadecimal color code string (e.g., \'#000000\').": "  - 16進数の色の文字列（例 : \'#000000\'）。",  # noqa
     ##################################################
-    "- `variable_name_suffix`: str, default """: "- `variable_name_suffix`: str, default """,  # noqa
+    "- `variable_name_suffix`: str, default \"\"": "- `variable_name_suffix`: str, default \"\"",  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -61,7 +61,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color("#0af")\n>>> color\nColor("#00aaff")\n\n>>> color = ap.Color("#ffffff")\n>>> color\nColor("#ffffff")\n```': '```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color("#0af")\n>>> color\nColor("#00aaff")\n\n>>> color = ap.Color("#ffffff")\n>>> color\nColor("#ffffff")\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color(\"#0af\")\n>>> color\nColor(\"#00aaff\")\n\n>>> color = ap.Color(\"#ffffff\")\n>>> color\nColor(\"#ffffff\")\n```": "```py\n>>> import apysc as ap\n>>> color: ap.Color = ap.Color(\"#0af\")\n>>> color\nColor(\"#00aaff\")\n\n>>> color = ap.Color(\"#ffffff\")\n>>> color\nColor(\"#ffffff\")\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

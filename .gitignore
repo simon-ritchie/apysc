@@ -16,3 +16,4 @@ test_output
 /docs/*/.doctrees/*
 .env
 /apysc.code-workspace
+/apysc/*.code-workspace

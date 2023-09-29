@@ -17,3 +17,7 @@ class TestRedColorMixIn:
             f"parseInt({color.variable_name}.substring(1, 3), 16);"
         )
         assert expected in expression
+
+        color = ap.Color("#ff00aa")
+        red_color = color.red_color
+        assert red_color._value == 255

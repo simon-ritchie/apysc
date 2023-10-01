@@ -16,6 +16,11 @@ class GreenColorMixIn:
         -------
         green_color : Int
             Green color integer value (0 to 255).
+
+        References
+        ----------
+        - Color class green_color property
+            - https://simon-ritchie.github.io/apysc/en/green_color.html
         """
         from apysc._color.color import Color
         from apysc._expression import expression_data_util

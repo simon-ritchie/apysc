@@ -21,6 +21,24 @@ class GreenColorMixIn:
         ----------
         - Color class green_color property
             - https://simon-ritchie.github.io/apysc/en/green_color.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> _ = ap.Stage(
+        ...     background_color=ap.Color("#333"),
+        ...     stage_elem_id="stage",
+        ... )
+
+        >>> color: ap.Color = ap.Color("#aa00ff")
+        >>> green_color: ap.Int = color.green_color
+        >>> green_color
+        Int(0)
+
+        >>> color = ap.Color("#00ffaa")
+        >>> green_color = color.green_color
+        >>> green_color
+        Int(255)
         """
         from apysc._color.color import Color
         from apysc._expression import expression_data_util

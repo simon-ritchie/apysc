@@ -21,11 +21,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `join` method requires the `sep` argument as the separator, as follows:": "`join`メソッドは以下のコード例のように区切り文字としての`sep`引数が必要になります。",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=",")\nassert joined == "1,2,3"\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=",")\nassert joined == "1,2,3"\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=\",\")\nassert joined == \"1,2,3\"\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\narr: ap.Array[int] = ap.Array([1, 2, 3])\njoined: ap.String = arr.join(sep=\",\")\nassert joined == \"1,2,3\"\n```",  # noqa
     ##################################################
     "## join API": "## join API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -49,5 +49,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=", ")\nString("1, 2, 3")\n```': '```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=", ")\nString("1, 2, 3")\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=\", \")\nString(\"1, 2, 3\")\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage()\n>>> arr: ap.Array = ap.Array([1, 2, 3])\n>>> arr.join(sep=\", \")\nString(\"1, 2, 3\")\n```",  # noqa
 }

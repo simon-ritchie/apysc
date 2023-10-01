@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -71,7 +71,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "### Color class and constants": "### Color クラスと各定数",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\ncolor\ncolors\nmaterial_design_colors\ncolorless\ncolor_from_rgb\nred_color\n```": "```{toctree}\n:maxdepth: 1\njp_color\njp_colors\njp_material_design_colors\njp_colorless\njp_color_from_rgb\njp_red_color\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\ncolor\ncolors\nmaterial_design_colors\ncolorless\ncolor_from_rgb\nred_color\ngreen_color\n```": "```{toctree}\n:maxdepth: 1\njp_color\njp_colors\njp_material_design_colors\njp_colorless\njp_color_from_rgb\njp_red_color\njp_green_color\n```",  # noqa
     ##################################################
     "## DisplayObject and GraphicsBase classes": "## DisplayObject と GraphicsBase の各クラス",  # noqa
     ##################################################

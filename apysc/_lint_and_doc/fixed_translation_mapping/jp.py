@@ -4351,5 +4351,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - Red color integer value (0 to 255).",
             val="  - 赤色の整数値（0～255）。",
         ),
+        Mapping(
+            key="## green_color property API",
+            val="## green_color 属性のAPI",
+        ),
+        Mapping(
+            key="Get a green color integer value (0 to 255).<hr>",
+            val="緑色の整数値（0～255）を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - Green color integer value (0 to 255).",
+            val="  - 緑色の整数値（0～255）。",
+        ),
     ]
 )

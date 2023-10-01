@@ -17,6 +17,11 @@ class RedColorMixIn:
         red_color : Int
             Red color integer value (0 to 255).
 
+        References
+        ----------
+        - Color class red_color property
+            - https://simon-ritchie.github.io/apysc/en/red_color.html
+
         Examples
         --------
         >>> import apysc as ap

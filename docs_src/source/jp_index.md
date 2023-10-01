@@ -144,6 +144,7 @@ jp_colors
 jp_material_design_colors
 jp_colorless
 jp_color_from_rgb
+jp_red_color
 ```
 
 ## DisplayObject と GraphicsBase の各クラス

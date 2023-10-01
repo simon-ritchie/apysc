@@ -7,6 +7,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 
 class RedColorMixIn:
     @property
+    @add_debug_info_setting(module_name=__name__)
     def red_color(self) -> Int:
         """
         Get a red color integer value (0 to 255).

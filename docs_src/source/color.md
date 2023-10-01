@@ -57,7 +57,7 @@ Color code is acceptable like the following list:
 
 ## Color constructor API
 
-<!-- Docstring: apysc._color.color.Color.__init__ -->
+<!-- Docstring: apysc._color.color.Color.__init__ -->z
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 

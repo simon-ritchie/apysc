@@ -4335,5 +4335,21 @@ MAPPINGS: Mappings = Mappings(
             key="  - A copied upper case string.",
             val="  - 大文字変換された文字列のコピー。",
         ),
+        Mapping(
+            key="This value takes the range from 0 to 255.",
+            val="この値は0～255の範囲を取ります。",
+        ),
+        Mapping(
+            key="## red_color property API",
+            val="## red_color 属性のAPI",
+        ),
+        Mapping(
+            key="Get a red color integer value (0 to 255).<hr>",
+            val="赤色の整数値（0～255）を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - Red color integer value (0 to 255).",
+            val="  - 赤色の整数値（0～255）。",
+        ),
     ]
 )

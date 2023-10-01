@@ -1,8 +1,8 @@
 """The mix-in class implementation for the `red_color` property.
 """
 
-from apysc._type.int import Int
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.int import Int
 
 
 class RedColorMixIn:
@@ -35,12 +35,12 @@ class RedColorMixIn:
         >>> red_color
         Int(255)
         """
+        from apysc._color.color import Color
+        from apysc._expression import expression_data_util
         from apysc._type.variable_name_suffix_utils import (
-            get_attr_or_variable_name_suffix
+            get_attr_or_variable_name_suffix,
         )
         from apysc._validation import variable_name_validation
-        from apysc._expression import expression_data_util
-        from apysc._color.color import Color
 
         suffix: str = get_attr_or_variable_name_suffix(
             instance=self, value_identifier="red_color"

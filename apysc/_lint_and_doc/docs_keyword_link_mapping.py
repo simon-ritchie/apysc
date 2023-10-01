@@ -224,4 +224,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "to_hex": "int_and_number_to_hex",
     "lower": "string_lower",
     "upper": "string_upper",
+    "red_color": "red_color",
+    "green_color": "green_color",
 }

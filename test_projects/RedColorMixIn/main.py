@@ -1,4 +1,4 @@
-"""Test project for `RedColorMixIn` class.
+"""The test project for the `RedColorMixIn` class.
 
 Command examples:
 $ python test_projects/RedColorMixIn/main.py

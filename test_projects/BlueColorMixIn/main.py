@@ -1,7 +1,7 @@
-"""The test project for the `GreenColorMixIn` class.
+"""The test project for the `BlueColorMixIn` class.
 
 Command examples:
-$ python test_projects/GreenColorMixIn/main.py
+$ python test_projects/BlueColorMixIn/main.py
 """
 
 import sys
@@ -27,21 +27,21 @@ def main() -> None:
     """
     _: ap.Stage = ap.Stage(background_color=ap.Color("#333"))
 
-    color: ap.Color = ap.Color("#a0f")
-    green_color: ap.Int = color.green_color
-    ap.assert_equal(green_color, 0)
+    color: ap.Color = ap.Color("#fa0")
+    blue_color: ap.Int = color.blue_color
+    ap.assert_equal(blue_color, 0)
 
-    color = ap.Color("#000100")
-    green_color = color.green_color
-    ap.assert_equal(green_color, 1)
+    color = ap.Color("#000001")
+    blue_color = color.blue_color
+    ap.assert_equal(blue_color, 1)
 
-    color = ap.Color("#0fa")
-    green_color = color.green_color
-    ap.assert_equal(green_color, 255)
+    color = ap.Color("#0af")
+    blue_color = color.blue_color
+    ap.assert_equal(blue_color, 255)
 
-    color = ap.Color("#00fe00")
-    green_color = color.green_color
-    ap.assert_equal(green_color, 254)
+    color = ap.Color("#0000fe")
+    blue_color = color.blue_color
+    ap.assert_equal(blue_color, 254)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

@@ -36,4 +36,10 @@ MAPPING: Dict[str, str] = {
     "- `green_color`: Int": "- `green_color`: Int",
     ##################################################
     "  - Green color integer value (0 to 255).": "  - 緑色の整数値（0～255）。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_elem_id=\"stage\",\n... )\n>>> color: ap.Color = ap.Color(\"#aa00ff\")\n>>> green_color: ap.Int = color.green_color\n>>> green_color\nInt(0)\n\n>>> color = ap.Color(\"#00ffaa\")\n>>> green_color = color.green_color\n>>> green_color\nInt(255)\n```": "```py\n>>> import apysc as ap\n>>> _ = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_elem_id=\"stage\",\n... )\n>>> color: ap.Color = ap.Color(\"#aa00ff\")\n>>> green_color: ap.Int = color.green_color\n>>> green_color\nInt(0)\n\n>>> color = ap.Color(\"#00ffaa\")\n>>> green_color = color.green_color\n>>> green_color\nInt(255)\n```",  # noqa
 }

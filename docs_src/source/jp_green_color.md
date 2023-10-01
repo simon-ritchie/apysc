@@ -48,3 +48,24 @@ ap.save_overall_html(dest_dir_path="./green_color_basic_usage/")
 
 - `green_color`: Int
   - 緑色の整数値（0～255）。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> _ = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_elem_id="stage",
+... )
+>>> color: ap.Color = ap.Color("#aa00ff")
+>>> green_color: ap.Int = color.green_color
+>>> green_color
+Int(0)
+
+>>> color = ap.Color("#00ffaa")
+>>> green_color = color.green_color
+>>> green_color
+Int(255)
+```

@@ -4,7 +4,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestRedColorMixIn:
-    @apply_test_settings(retrying_max_attempts_num=0)
+    @apply_test_settings()
     def test_red_color(self) -> None:
         color: ap.Color = ap.Color("#0af", variable_name_suffix="test_color")
         red_color: ap.Int = color.red_color

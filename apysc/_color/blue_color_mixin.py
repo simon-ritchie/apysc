@@ -17,6 +17,11 @@ class BlueColorMixIn:
         blue_color : Int
             Blue color integer value (0 to 255).
 
+        References
+        ----------
+        - Color class blue_color property
+            - https://simon-ritchie.github.io/apysc/en/blue_color.html
+
         Examples
         --------
         >>> import apysc as ap

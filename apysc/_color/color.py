@@ -4,11 +4,11 @@
 from typing import Any
 from typing import TypeVar
 
+from apysc._color.blue_color_mixin import BlueColorMixIn
 from apysc._color.color_copy_mixin import ColorCopyMixIn
 from apysc._color.from_rgb_mixin import FromRgbMixIn
 from apysc._color.green_color_mixin import GreenColorMixIn
 from apysc._color.red_color_mixin import RedColorMixIn
-from apysc._color.blue_color_mixin import BlueColorMixIn
 from apysc._event.custom_event_mixin import CustomEventMixIn
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean

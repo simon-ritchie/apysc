@@ -4371,5 +4371,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - Blue color integer value (0 to 255).",
             val="  - 青色の整数値（0～255）。",
         ),
+        Mapping(
+            key="Color class red_color property",
+            val="Color クラスの red_color 属性",
+        ),
+        Mapping(
+            key="Color class green_color property",
+            val="Color クラスの green_color 属性",
+        ),
+        Mapping(
+            key="Color class blue_color property",
+            val="Color クラスの blue_color 属性",
+        ),
     ]
 )

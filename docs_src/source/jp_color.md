@@ -101,3 +101,8 @@ Color("#ffffff")
 
 - [COLORLESS 定数](https://simon-ritchie.github.io/apysc/jp/jp_colorless.html)
 - [Color クラスの from_rgb クラスメソッド](https://simon-ritchie.github.io/apysc/jp/jp_color_from_rgb.html)
+
+- [Color クラスの red_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_red_color.html)
+- [Color クラスの green_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_green_color.html)
+
+- [Color クラスの blue_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_blue_color.html)

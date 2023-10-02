@@ -74,4 +74,10 @@ MAPPING: Dict[str, str] = {
     "- [COLORLESS constant](https://simon-ritchie.github.io/apysc/en/colorless.html)": "- [COLORLESS 定数](https://simon-ritchie.github.io/apysc/jp/jp_colorless.html)",  # noqa
     ##################################################
     "- [Color class from_rgb class method](https://simon-ritchie.github.io/apysc/en/color_from_rgb.html)": "- [Color クラスの from_rgb クラスメソッド](https://simon-ritchie.github.io/apysc/jp/jp_color_from_rgb.html)",  # noqa
+    ##################################################
+    "- [Color class red_color property](https://simon-ritchie.github.io/apysc/en/red_color.html)": "- [Color クラスの red_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_red_color.html)",  # noqa
+    ##################################################
+    "- [Color class green_color property](https://simon-ritchie.github.io/apysc/en/green_color.html)": "- [Color クラスの green_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_green_color.html)",  # noqa
+    ##################################################
+    "- [Color class blue_color property](https://simon-ritchie.github.io/apysc/en/blue_color.html)": "- [Color クラスの blue_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_blue_color.html)",  # noqa
 }

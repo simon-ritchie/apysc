@@ -30,6 +30,9 @@ Color("#ffffff")
 - [MaterialDesignColors class](https://simon-ritchie.github.io/apysc/en/material_design_colors.html)
 - [COLORLESS constant](https://simon-ritchie.github.io/apysc/en/colorless.html)
 - [Color class from_rgb class method](https://simon-ritchie.github.io/apysc/en/color_from_rgb.html)
+- [Color class red_color property](https://simon-ritchie.github.io/apysc/en/red_color.html)
+- [Color class green_color property](https://simon-ritchie.github.io/apysc/en/green_color.html)
+- [Color class blue_color property](https://simon-ritchie.github.io/apysc/en/blue_color.html)
 
 ### `__eq__` method docstring
 
@@ -82,6 +85,9 @@ Color("#ffffff")
 - [MaterialDesignColors class](https://simon-ritchie.github.io/apysc/en/material_design_colors.html)
 - [COLORLESS constant](https://simon-ritchie.github.io/apysc/en/colorless.html)
 - [Color class from_rgb class method](https://simon-ritchie.github.io/apysc/en/color_from_rgb.html)
+- [Color class red_color property](https://simon-ritchie.github.io/apysc/en/red_color.html)
+- [Color class green_color property](https://simon-ritchie.github.io/apysc/en/green_color.html)
+- [Color class blue_color property](https://simon-ritchie.github.io/apysc/en/blue_color.html)
 
 ### `__repr__` method docstring
 

@@ -16,6 +16,23 @@ class BlueColorMixIn:
         -------
         blue_color : Int
             Blue color integer value (0 to 255).
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage(
+        ...     background_color=ap.Color("#333"),
+        ...     stage_elem_id="stage",
+        ... )
+        >>> color: ap.Color = ap.Color("#aaff00")
+        >>> blue_color: ap.Int = color.blue_color
+        >>> blue_color
+        Int(0)
+
+        >>> color = ap.Color("#00aaff")
+        >>> blue_color = color.blue_color
+        >>> blue_color
+        Int(255)
         """
         from apysc._color.color import Color
         from apysc._expression import expression_data_util

@@ -143,6 +143,7 @@ colorless
 color_from_rgb
 red_color
 green_color
+blue_color
 ```
 
 ## DisplayObject and GraphicsBase classes

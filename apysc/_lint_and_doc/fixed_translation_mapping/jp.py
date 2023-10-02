@@ -4360,8 +4360,16 @@ MAPPINGS: Mappings = Mappings(
             val="緑色の整数値（0～255）を取得します。<hr>",
         ),
         Mapping(
-            key="  - Green color integer value (0 to 255).",
-            val="  - 緑色の整数値（0～255）。",
+            key="## blue_color property API",
+            val="## blue_color 属性のAPI",
+        ),
+        Mapping(
+            key="Get a blue color integer value (0 to 255).<hr>",
+            val="青色の整数の値（0～255）を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - Blue color integer value (0 to 255).",
+            val="  - 青色の整数値（0～255）。",
         ),
     ]
 )

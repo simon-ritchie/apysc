@@ -32,6 +32,7 @@ from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.string_slice_mixin import StringSliceMixIn
 
 
 class String(
@@ -52,6 +53,7 @@ class String(
     StringZfillMixIn,
     StringLowerMixIn,
     StringUpperMixIn,
+    StringSliceMixIn,
 ):
     """
     String class for apysc library.

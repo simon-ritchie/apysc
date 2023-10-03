@@ -45,6 +45,42 @@ class StringSliceMixIn:
         -------
         result : String
             A sliced result string.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> stage: ap.Stage = ap.Stage(
+        ...     stage_width=0,
+        ...     stage_height=0,
+        ...     background_color=ap.Color("#333"),
+        ...     stage_elem_id="stage",
+        ... )
+
+        >>> string: ap.String = ap.String("012345")
+        >>> result_string: ap.String = string.slice(start=0)
+        >>> result_string
+        String("012345")
+
+        >>> result_string = string.slice(start=1)
+        >>> result_string
+        String("12345")
+
+        >>> result_string = string.slice(start=0, end=2)
+        >>> result_string
+        String("01")
+
+        >>> result_string = string.slice(start=2, end=4)
+        >>> result_string
+        String("23")
+
+        >>> result_string = string.slice(start=-2)
+        >>> result_string
+        String("45")
+
+        >>> result_string = string.slice(start=-3, end=-1)
+        >>> result_string
+        String("34")
         """
         from apysc._type.string import String
         from apysc._type.int import Int

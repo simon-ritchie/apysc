@@ -226,4 +226,5 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "upper": "string_upper",
     "red_color": "red_color",
     "green_color": "green_color",
+    "slice": "string_slice",
 }

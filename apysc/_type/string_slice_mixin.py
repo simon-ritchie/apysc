@@ -46,6 +46,11 @@ class StringSliceMixIn:
         result : String
             A sliced result string.
 
+        References
+        ----------
+        - String class slice method
+            - https://simon-ritchie.github.io/apysc/en/string_slice.html
+
         Examples
         --------
         >>> import apysc as ap

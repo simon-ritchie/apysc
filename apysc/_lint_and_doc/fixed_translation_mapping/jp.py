@@ -4383,5 +4383,25 @@ MAPPINGS: Mappings = Mappings(
             key="Color class blue_color property",
             val="Color クラスの blue_color 属性",
         ),
+        Mapping(
+            key="## slice method API",
+            val="## slice メソッドのAPI",
+        ),
+        Mapping(
+            key="  - A start index of the slice range.",
+            val="  - スライス範囲の開始インデックス。",
+        ),
+        Mapping(
+            key="  - An end index of the slice range. If this argument is not specified, this medhod skips the end position\'s slicing.",
+            val="  - スライス範囲の終了インデックス。もしもこの引数が指定されなかった場合、このメソッドは終了位置のスライスをスキップします。",
+        ),
+        Mapping(
+            key="  - A sliced result string.",
+            val="  - スライス結果の文字列。",
+        ),
+        Mapping(
+            key="Get a sliced string based on the specified arguments range.<hr>",
+            val="指定された引数の範囲に基づいてスライスされた文字列を取得します。<hr>",
+        ),
     ]
 )

@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "### String class": "### String クラス",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nstring_split\nstring_lstrip\nstring_strip\nstring_rstrip\nstring_length\nstring_apply_max_num_of_decimal_places\nstring_zfill\nstring_lower\nstring_upper\n```": "```{toctree}\n:maxdepth: 1\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_string_split\njp_string_lstrip\njp_string_strip\njp_string_rstrip\njp_string_length\njp_string_apply_max_num_of_decimal_places\njp_string_zfill\njp_string_lower\njp_string_upper\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nstring\nstring_comparison_operations\nstring_addition_and_multiplication\nstring_split\nstring_lstrip\nstring_strip\nstring_rstrip\nstring_length\nstring_apply_max_num_of_decimal_places\nstring_zfill\nstring_lower\nstring_upper\nstring_slice\n```": "```{toctree}\n:maxdepth: 1\njp_string\njp_string_comparison_operations\njp_string_addition_and_multiplication\njp_string_split\njp_string_lstrip\njp_string_strip\njp_string_rstrip\njp_string_length\njp_string_apply_max_num_of_decimal_places\njp_string_zfill\njp_string_lower\njp_string_upper\njp_string_slice\n```",  # noqa
     ##################################################
     "### Boolean class and constants": "### Boolean クラスと各定数値",
     ##################################################

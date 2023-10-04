@@ -91,6 +91,7 @@ string_apply_max_num_of_decimal_places
 string_zfill
 string_lower
 string_upper
+string_slice
 ```
 
 ### Boolean class and constants

@@ -66,7 +66,7 @@ Get a sliced string based on the specified arguments range.<hr>
 - `start`: Union[int, "Int"]
   - A start index of the slice range.
 - `end`: Optional[Union[int, "Int"]], optional
-  - An end index of the slice range. If this argument is not specified, this medhod skips the end position's slicing.
+  - An end index of the slice range. If this argument is not specified, this method skips the end position's slicing.
 - `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 

@@ -14,8 +14,7 @@ class TestStringSliceMixIn:
         assert result_string._variable_name_suffix == "test_suffix"
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{result_string.variable_name} = "
-            f"{string.variable_name}.slice("
+            f"{result_string.variable_name} = " f"{string.variable_name}.slice("
         )
         assert expected in expression
 

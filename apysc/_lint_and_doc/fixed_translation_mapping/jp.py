@@ -4392,7 +4392,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - スライス範囲の開始インデックス。",
         ),
         Mapping(
-            key="  - An end index of the slice range. If this argument is not specified, this medhod skips the end position\'s slicing.",
+            key="  - An end index of the slice range. If this argument is not specified, this method skips the end position's slicing.",
             val="  - スライス範囲の終了インデックス。もしもこの引数が指定されなかった場合、このメソッドは終了位置のスライスをスキップします。",
         ),
         Mapping(

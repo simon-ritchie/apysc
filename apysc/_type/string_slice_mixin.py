@@ -1,7 +1,10 @@
 """The mix-in class implementation for the `slice` method.
 """
 
-from typing import TYPE_CHECKING, Optional, Union
+from typing import TYPE_CHECKING
+from typing import Optional
+from typing import Union
+from typing import cast
 
 from typing_extensions import final
 
@@ -9,8 +12,8 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
-    from apysc._type.string import String
     from apysc._type.int import Int
+    from apysc._type.string import String
 
 
 class StringSliceMixIn:
@@ -36,7 +39,7 @@ class StringSliceMixIn:
             A start index of the slice range.
         end : Optional[Union[int, "Int"]], optional
             An end index of the slice range. If this argument is
-            not specified, this medhod skips the end position's slicing.
+            not specified, this method skips the end position's slicing.
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -87,13 +90,13 @@ class StringSliceMixIn:
         >>> result_string
         String("34")
         """
-        from apysc._type.string import String
-        from apysc._type.int import Int
-        from apysc._validation.string_validation import validate_apysc_string_type
         from apysc._converter.to_apysc_val_from_builtin import (
-            get_copied_int_from_builtin_val
+            get_copied_int_from_builtin_val,
         )
         from apysc._expression import expression_data_util
+        from apysc._type.int import Int
+        from apysc._type.string import String
+        from apysc._validation.string_validation import validate_apysc_string_type
 
         result: String = String("", variable_name_suffix=variable_name_suffix)
         self_string: String = validate_apysc_string_type(string=self)
@@ -101,13 +104,13 @@ class StringSliceMixIn:
         end_ap_int: Optional[Int] = None
         if end is not None:
             end_ap_int = get_copied_int_from_builtin_val(integer=end)
-            result._value = self_string._value[start_ap_int._value:end_ap_int._value]
+            result._value = self_string._value[
+                start_ap_int._value : cast(Int, end_ap_int)._value
+            ]
         else:
-            result._value = self_string._value[start_ap_int._value:]
+            result._value = self_string._value[start_ap_int._value :]
 
-        expression: str = (
-            f"{result.variable_name} = {self_string.variable_name}.slice("
-        )
+        expression: str = f"{result.variable_name} = {self_string.variable_name}.slice("
         if end_ap_int is not None:
             expression += f"{start_ap_int.variable_name}, {end_ap_int.variable_name}"
         else:

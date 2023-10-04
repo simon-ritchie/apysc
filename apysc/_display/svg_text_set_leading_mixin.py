@@ -2,6 +2,7 @@
 """
 
 from typing import Union
+from typing import cast
 
 from typing_extensions import final
 
@@ -38,5 +39,5 @@ class SVGTextSetLeadingMixIn:
             )
             leading_: Number = Number(leading, variable_name_suffix=suffix)
         else:
-            leading_ = leading
+            leading_ = cast(Number, leading)
         self.leading = leading_

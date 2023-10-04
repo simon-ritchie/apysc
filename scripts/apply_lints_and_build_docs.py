@@ -46,7 +46,7 @@ _MAX_LINE_LENGTH: int = 88
 
 FLAKE8_NO_PATH_COMMAND: Final[
     str
-] = f"flake8 --max-line-length {_MAX_LINE_LENGTH} --ignore E402,W503"
+] = f"flake8 --max-line-length {_MAX_LINE_LENGTH} --ignore E402,W503,E203"
 
 FLAKE8_COMMAND: Final[str] = f"{FLAKE8_NO_PATH_COMMAND} {_PY_FILE_DIRS_STR}"
 

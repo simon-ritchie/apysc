@@ -6,11 +6,13 @@
 
 ## 属性の概要
 
-`red_color`属性は赤色の`ap.Int`型の値を返します。
+`red_color`属性は赤色の`ap.Int`型の値の返却もしくは設定を行います。
 
 この値は0～255の範囲を取ります。
 
 ## 基本的な使い方
+
+以下の例は`red_color`属性のgetterとsetterの各インターフェイスの使用例となります:
 
 ```py
 # runnable
@@ -28,6 +30,14 @@ red_color: ap.Int = color.red_color
 ap.assert_equal(red_color, 0)
 
 color = ap.Color("#ff00aa")
+red_color = color.red_color
+ap.assert_equal(red_color, 255)
+
+color.red_color = ap.Int(0)
+red_color = color.red_color
+ap.assert_equal(red_color, 0)
+
+color.red_color = ap.Int(255)
 red_color = color.red_color
 ap.assert_equal(red_color, 255)
 
@@ -64,4 +74,9 @@ Int(0)
 >>> red_color = color.red_color
 >>> red_color
 Int(255)
+
+>>> color.red_color = ap.Int(0)
+>>> red_color = color.red_color
+>>> red_color
+Int(0)
 ```

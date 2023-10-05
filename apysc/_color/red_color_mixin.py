@@ -36,6 +36,11 @@ class RedColorMixIn:
         >>> red_color = color.red_color
         >>> red_color
         Int(255)
+
+        >>> color.red_color = ap.Int(0)
+        >>> red_color = color.red_color
+        >>> red_color
+        Int(0)
         """
         from apysc._color.color import Color
         from apysc._expression import expression_data_util
@@ -80,6 +85,24 @@ class RedColorMixIn:
         ----------
         - Color class red_color property
             - https://simon-ritchie.github.io/apysc/en/red_color.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> color: ap.Color = ap.Color("#00aaff")
+        >>> red_color: ap.Int = color.red_color
+        >>> red_color
+        Int(0)
+
+        >>> color = ap.Color("#ff00aa")
+        >>> red_color = color.red_color
+        >>> red_color
+        Int(255)
+
+        >>> color.red_color = ap.Int(0)
+        >>> red_color = color.red_color
+        >>> red_color
+        Int(0)
         """
         from apysc._color.color import Color
         from apysc._color import color_util

@@ -4,11 +4,13 @@ This page explains the `Color` class `red_color` property.
 
 ## What property is this?
 
-The `red_color` property returns a red color `ap.Int` value.
+The `red_color` property returns or sets a red color `ap.Int` value.
 
 This value takes the range from 0 to 255.
 
 ## Basic usage
+
+The following example shows how to use the `red_color` getter and setter interfaces:
 
 ```py
 # runnable
@@ -26,6 +28,14 @@ red_color: ap.Int = color.red_color
 ap.assert_equal(red_color, 0)
 
 color = ap.Color("#ff00aa")
+red_color = color.red_color
+ap.assert_equal(red_color, 255)
+
+color.red_color = ap.Int(0)
+red_color = color.red_color
+ap.assert_equal(red_color, 0)
+
+color.red_color = ap.Int(255)
 red_color = color.red_color
 ap.assert_equal(red_color, 255)
 
@@ -64,4 +74,9 @@ Int(0)
 >>> red_color = color.red_color
 >>> red_color
 Int(255)
+
+>>> color.red_color = ap.Int(0)
+>>> red_color = color.red_color
+>>> red_color
+Int(0)
 ```

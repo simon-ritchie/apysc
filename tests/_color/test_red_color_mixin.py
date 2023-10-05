@@ -26,7 +26,5 @@ class TestRedColorMixIn:
         red_color = color.red_color
         assert red_color._value == 0
         expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{color.variable_name} = "#" + '
-        )
+        expected = f'{color.variable_name} = "#" + '
         assert expected in expression

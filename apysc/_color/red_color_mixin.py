@@ -2,6 +2,7 @@
 """
 
 from typing import cast
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
@@ -104,15 +105,13 @@ class RedColorMixIn:
         >>> red_color
         Int(0)
         """
-        from apysc._color.color import Color
         from apysc._color import color_util
-        from apysc._type.string import String
+        from apysc._color.color import Color
         from apysc._expression import expression_data_util
+        from apysc._type.string import String
 
         self_color: Color = cast(Color, self)
-        red_str: str = color_util.get_hex_str_from_int(
-            color_int=red_color
-        )
+        red_str: str = color_util.get_hex_str_from_int(color_int=red_color)
         self_color._value._value = f"#{red_str}{self_color._value._value[3:]}"
         tail_color_str: String = self_color._value.slice(start=3)
         red_color_str: String = color_util.get_hex_apysc_string_from_int(

@@ -43,6 +43,14 @@ def main() -> None:
     red_color = color.red_color
     ap.assert_equal(red_color, 254)
 
+    color.red_color = ap.Int(0)
+    red_color = color.red_color
+    ap.assert_equal(red_color, 0)
+
+    color.red_color = ap.Int(255)
+    red_color = color.red_color
+    ap.assert_equal(red_color, 255)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

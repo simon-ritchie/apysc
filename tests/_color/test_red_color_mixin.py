@@ -21,3 +21,12 @@ class TestRedColorMixIn:
         color = ap.Color("#ff00aa")
         red_color = color.red_color
         assert red_color._value == 255
+
+        color.red_color = ap.Int(0)
+        red_color = color.red_color
+        assert red_color._value == 0
+        expression = expression_data_util.get_current_expression()
+        expected = (
+            f'{color.variable_name} = "#" + '
+        )
+        assert expected in expression

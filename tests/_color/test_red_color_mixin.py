@@ -1,6 +1,8 @@
 import apysc as ap
-from apysc._expression import expression_data_util
+from apysc._expression import expression_data_util, var_names
 from apysc._testing.testing_helper import apply_test_settings
+import re
+from typing import Optional, Match
 
 
 class TestRedColorMixIn:
@@ -25,6 +27,16 @@ class TestRedColorMixIn:
         color.red_color = ap.Int(0)
         red_color = color.red_color
         assert red_color._value == 0
+        color.red_color = ap.Int(255)
+        red_color = color.red_color
+        assert red_color._value == 255
         expression = expression_data_util.get_current_expression()
-        expected = f'{color.variable_name} = "#" + '
-        assert expected in expression
+        match_: Optional[Match] = re.search(
+            pattern=(
+                rf'{color.variable_name} = "#" \+ {var_names.STRING}_\d+? '
+                rf"\+ {var_names.STRING}_\d+?;"
+            ),
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match_ is not None

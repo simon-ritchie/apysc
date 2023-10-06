@@ -72,6 +72,7 @@ class RedColorMixIn:
     @red_color.setter
     @arg_validation_decos.is_color(arg_position_index=0, optional=False)
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)
+    @arg_validation_decos.is_uint8_range(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def red_color(self, red_color: Int) -> None:
         """
@@ -111,11 +112,11 @@ class RedColorMixIn:
         from apysc._type.string import String
 
         self_color: Color = cast(Color, self)
-        red_str: str = color_util.get_hex_str_from_int(color_int=red_color)
-        self_color._value._value = f"#{red_str}{self_color._value._value[3:]}"
+        red_py_str: str = color_util.get_hex_str_from_int(color_int=red_color)
+        self_color._value._value = f"#{red_py_str}{self_color._value._value[3:]}"
         tail_color_str: String = self_color._value.slice(start=3)
         red_color_str: String = color_util.get_hex_apysc_string_from_int(
-            color_int=red_color, variable_name_suffix=red_color.variable_name
+            color_int=red_color, variable_name_suffix=red_color._variable_name_suffix
         )
         expression: str = (
             f'{self_color.variable_name} = "#" + {red_color_str.variable_name}'

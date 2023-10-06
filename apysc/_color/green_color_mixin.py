@@ -42,6 +42,16 @@ class GreenColorMixIn:
         >>> green_color = color.green_color
         >>> green_color
         Int(255)
+
+        >>> color.green_color = ap.Int(0)
+        >>> green_color = color.green_color
+        >>> green_color
+        Int(0)
+
+        >>> color.green_color = ap.Int(255)
+        >>> green_color = color.green_color
+        >>> green_color
+        Int(255)
         """
         from apysc._color.color import Color
         from apysc._expression import expression_data_util
@@ -87,6 +97,34 @@ class GreenColorMixIn:
         ----------
         - Color class green_color property
             - https://simon-ritchie.github.io/apysc/en/green_color.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> _ = ap.Stage(
+        ...     background_color=ap.Color("#333"),
+        ...     stage_elem_id="stage",
+        ... )
+
+        >>> color: ap.Color = ap.Color("#aa00ff")
+        >>> green_color: ap.Int = color.green_color
+        >>> green_color
+        Int(0)
+
+        >>> color = ap.Color("#00ffaa")
+        >>> green_color = color.green_color
+        >>> green_color
+        Int(255)
+
+        >>> color.green_color = ap.Int(0)
+        >>> green_color = color.green_color
+        >>> green_color
+        Int(0)
+
+        >>> color.green_color = ap.Int(255)
+        >>> green_color = color.green_color
+        >>> green_color
+        Int(255)
         """
         from apysc._color import color_util
         from apysc._color.color import Color

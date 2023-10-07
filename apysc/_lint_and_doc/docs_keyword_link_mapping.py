@@ -227,4 +227,13 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "red_color": "red_color",
     "green_color": "green_color",
     "slice": "string_slice",
+    "ap.Int": "int_and_number",
+    "ap.Number": "int_and_number",
+    "ap.Float": "int_and_number",
+    "ap.Boolean": "boolean",
+    "ap.Bool": "boolean",
+    "ap.String": "string",
+    "ap.Str": "string",
+    "ap.Array": "array",
+    "ap.Dictionary": "dictionary",
 }

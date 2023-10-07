@@ -4,11 +4,13 @@ This page explains the `Color` class `green_color` property.
 
 ## What property is this?
 
-The `green_color` property returns a green color `ap.Int` value.
+The `green_color` property returns or sets a green color `ap.Int` value.
 
 This value takes the range from 0 to 255.
 
 ## Basic usage
+
+The following example shows how to use the `green_color` getter and setter interfaces:
 
 ```py
 # runnable
@@ -26,6 +28,14 @@ green_color: ap.Int = color.green_color
 ap.assert_equal(green_color, 0)
 
 color = ap.Color("#00ffaa")
+green_color = color.green_color
+ap.assert_equal(green_color, 255)
+
+color.green_color = ap.Int(0)
+green_color = color.green_color
+ap.assert_equal(green_color, 0)
+
+color.green_color = ap.Int(255)
 green_color = color.green_color
 ap.assert_equal(green_color, 255)
 
@@ -65,6 +75,16 @@ Get a green color integer value (0 to 255).<hr>
 Int(0)
 
 >>> color = ap.Color("#00ffaa")
+>>> green_color = color.green_color
+>>> green_color
+Int(255)
+
+>>> color.green_color = ap.Int(0)
+>>> green_color = color.green_color
+>>> green_color
+Int(0)
+
+>>> color.green_color = ap.Int(255)
 >>> green_color = color.green_color
 >>> green_color
 Int(255)

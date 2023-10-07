@@ -51,11 +51,12 @@
 <p>このページでは<code class="docutils literal notranslate"><span class="pre">Color</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">green_color</span></code>プロパティについて説明します。</p>
 <section id="id1">
 <h2>属性の概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">green_color</span></code>プロパティは緑色の色の<code class="docutils literal notranslate"><span class="pre">ap.Int</span></code>型の値を返却します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">green_color</span></code>プロパティは緑色の色の<code class="docutils literal notranslate"><span class="pre">ap.Int</span></code>型の値の返却もしくは設定を行います。</p>
 <p>この値は0～255の範囲を取ります。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>以下のコードでは<code class="docutils literal notranslate"><span class="pre">green_color</span></code>のgetterとsetterの各インターフェイスの例を示します:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -71,6 +72,14 @@
 <span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">green_color</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="n">color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00ffaa&quot;</span><span class="p">)</span>
+<span class="n">green_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">green_color</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">green_color</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="n">color</span><span class="o">.</span><span class="n">green_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">green_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">green_color</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">green_color</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">color</span><span class="o">.</span><span class="n">green_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="n">green_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">green_color</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">green_color</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 
@@ -105,6 +114,16 @@
 <span class="go">Int(0)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00ffaa&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">green_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">green_color</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">green_color</span>
+<span class="go">Int(255)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">color</span><span class="o">.</span><span class="n">green_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">green_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">green_color</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">green_color</span>
+<span class="go">Int(0)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">color</span><span class="o">.</span><span class="n">green_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">green_color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">green_color</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">green_color</span>
 <span class="go">Int(255)</span>

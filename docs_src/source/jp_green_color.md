@@ -6,11 +6,13 @@
 
 ## 属性の概要
 
-`green_color`プロパティは緑色の色の`ap.Int`型の値を返却します。
+`green_color`プロパティは緑色の色の`ap.Int`型の値の返却もしくは設定を行います。
 
 この値は0～255の範囲を取ります。
 
 ## 基本的な使い方
+
+以下のコードでは`green_color`のgetterとsetterの各インターフェイスの例を示します:
 
 ```py
 # runnable
@@ -28,6 +30,14 @@ green_color: ap.Int = color.green_color
 ap.assert_equal(green_color, 0)
 
 color = ap.Color("#00ffaa")
+green_color = color.green_color
+ap.assert_equal(green_color, 255)
+
+color.green_color = ap.Int(0)
+green_color = color.green_color
+ap.assert_equal(green_color, 0)
+
+color.green_color = ap.Int(255)
 green_color = color.green_color
 ap.assert_equal(green_color, 255)
 
@@ -65,6 +75,16 @@ ap.save_overall_html(dest_dir_path="./green_color_basic_usage/")
 Int(0)
 
 >>> color = ap.Color("#00ffaa")
+>>> green_color = color.green_color
+>>> green_color
+Int(255)
+
+>>> color.green_color = ap.Int(0)
+>>> green_color = color.green_color
+>>> green_color
+Int(0)
+
+>>> color.green_color = ap.Int(255)
 >>> green_color = color.green_color
 >>> green_color
 Int(255)

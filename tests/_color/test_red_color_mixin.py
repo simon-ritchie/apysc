@@ -1,8 +1,11 @@
-import apysc as ap
-from apysc._expression import expression_data_util, var_names
-from apysc._testing.testing_helper import apply_test_settings
 import re
-from typing import Optional, Match
+from typing import Match
+from typing import Optional
+
+import apysc as ap
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class TestRedColorMixIn:

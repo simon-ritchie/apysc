@@ -6,11 +6,13 @@
 
 ## 属性の概要
 
-`blue_color`属性は青色の`ap.Int`型の値を返却します。
+`blue_color`属性は青色の`ap.Int`型の値の返却もしくは設定を行います。
 
 この値は0～255の範囲を取ります。
 
 ## 基本的な使い方
+
+以下の例では`blue_color`のgetterとsetterの各インターフェイスの使い方を示します:
 
 ```py
 # runnable
@@ -28,6 +30,14 @@ blue_color: ap.Int = color.blue_color
 ap.assert_equal(blue_color, 0)
 
 color = ap.Color("#00aaff")
+blue_color = color.blue_color
+ap.assert_equal(blue_color, 255)
+
+color.blue_color = ap.Int(0)
+blue_color = color.blue_color
+ap.assert_equal(blue_color, 0)
+
+color.blue_color = ap.Int(255)
 blue_color = color.blue_color
 ap.assert_equal(blue_color, 255)
 
@@ -65,6 +75,16 @@ ap.save_overall_html(dest_dir_path="./blue_color_basic_usage/")
 Int(0)
 
 >>> color = ap.Color("#00aaff")
+>>> blue_color = color.blue_color
+>>> blue_color
+Int(255)
+
+>>> color.blue_color = ap.Int(0)
+>>> blue_color = color.blue_color
+>>> blue_color
+Int(0)
+
+>>> color.blue_color = ap.Int(255)
 >>> blue_color = color.blue_color
 >>> blue_color
 Int(255)

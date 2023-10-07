@@ -4,11 +4,13 @@ This page explains the `Color` class `blue_color` property.
 
 ## What property is this?
 
-The `blue_color` property returns a blue clor `ap.Int` value.
+The `blue_color` property returns or sets a blue color `ap.Int` value.
 
 This value takes the range from 0 to 255.
 
 ## Basic usage
+
+The following example shows how to use the `blue_color` getter and setter interface:
 
 ```py
 # runnable
@@ -26,6 +28,14 @@ blue_color: ap.Int = color.blue_color
 ap.assert_equal(blue_color, 0)
 
 color = ap.Color("#00aaff")
+blue_color = color.blue_color
+ap.assert_equal(blue_color, 255)
+
+color.blue_color = ap.Int(0)
+blue_color = color.blue_color
+ap.assert_equal(blue_color, 0)
+
+color.blue_color = ap.Int(255)
 blue_color = color.blue_color
 ap.assert_equal(blue_color, 255)
 
@@ -65,6 +75,16 @@ Get a blue color integer value (0 to 255).<hr>
 Int(0)
 
 >>> color = ap.Color("#00aaff")
+>>> blue_color = color.blue_color
+>>> blue_color
+Int(255)
+
+>>> color.blue_color = ap.Int(0)
+>>> blue_color = color.blue_color
+>>> blue_color
+Int(0)
+
+>>> color.blue_color = ap.Int(255)
 >>> blue_color = color.blue_color
 >>> blue_color
 Int(255)

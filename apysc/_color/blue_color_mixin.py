@@ -1,8 +1,11 @@
 """The mix-in class implementation for the `blue_color` property.
 """
 
+from typing import cast
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
+from apysc._validation import arg_validation_decos
 
 
 class BlueColorMixIn:
@@ -64,3 +67,35 @@ class BlueColorMixIn:
         )
         expression_data_util.append_js_expression(expression=expression)
         return blue_color
+
+    @blue_color.setter
+    @arg_validation_decos.is_color(arg_position_index=0, optional=False)
+    @arg_validation_decos.is_apysc_integer(arg_position_index=1)
+    @arg_validation_decos.is_uint8_range(arg_position_index=1)
+    @add_debug_info_setting(module_name=__name__)
+    def blue_color(self, blue_color: Int) -> None:
+        """
+        Set a blue color integer value (0 to 255).
+
+        Parameters
+        ----------
+        blue_color : Int
+            Blue color integer value (0 to 255).
+        """
+        from apysc._color import color_util
+        from apysc._color.color import Color
+        from apysc._expression import expression_data_util
+        from apysc._type.string import String
+
+        self_color: Color = cast(Color, self)
+        blue_py_str: str = color_util.get_hex_str_from_int(color_int=blue_color)
+        self_color._value._value = f"{self_color._value._value[:-2]}{blue_py_str}"
+        blue_color_str: String = color_util.get_hex_apysc_string_from_int(
+            color_int=blue_color, variable_name_suffix=blue_color._variable_name_suffix
+        )
+        head_color_str: String = self_color._value.slice(start=0, end=-2)
+        expression: str = (
+            f"{self_color.variable_name} = {head_color_str.variable_name} "
+            f"+ {blue_color_str.variable_name};"
+        )
+        expression_data_util.append_js_expression(expression=expression)

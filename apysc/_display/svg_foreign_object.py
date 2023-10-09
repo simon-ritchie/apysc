@@ -50,15 +50,19 @@ class SVGForeignObject(
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
 
+        self._variable_name_suffix = variable_name_suffix
+        suffix = self._get_attr_or_variable_name_suffix(value_identifier="width")
         width_: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
             integer=width,
+            variable_name_suffix=suffix,
         )
+        suffix = self._get_attr_or_variable_name_suffix(value_identifier="height")
         height_: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
             integer=height,
+            variable_name_suffix=suffix,
         )
         self._width = width_
         self._height = height_
-        self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.SVG_FOREIGN_OBJECT,
         )

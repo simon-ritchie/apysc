@@ -38,3 +38,5 @@ class TestSVGForeignObject:
         assert foreign_object._height._value == 150
         assert foreign_object.parent == stage
         assert foreign_object._variable_name_suffix == "test_suffix"
+        assert "width" in foreign_object._width.variable_name
+        assert "height" in foreign_object._height.variable_name

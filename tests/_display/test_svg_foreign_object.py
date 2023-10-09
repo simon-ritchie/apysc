@@ -28,10 +28,13 @@ class TestSVGForeignObject:
     @apply_test_settings()
     def test___init__(self) -> None:
         foreign_object: SVGForeignObject = SVGForeignObject(
-            width=100, height=150,
+            width=100,
+            height=150,
+            variable_name_suffix="test_suffix",
         )
         stage: ap.Stage = ap.get_stage()
         assert f"{var_names.SVG_FOREIGN_OBJECT}_" in foreign_object.variable_name
         assert foreign_object._width._value == 100
         assert foreign_object._height._value == 150
         assert foreign_object.parent == stage
+        assert foreign_object._variable_name_suffix == "test_suffix"

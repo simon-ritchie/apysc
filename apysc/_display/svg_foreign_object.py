@@ -29,15 +29,20 @@ class SVGForeignObject(
         *,
         width: Union[int, Int],
         height: Union[int, Int],
+        variable_name_suffix: str = "",
     ) -> None:
         """
         The class implementation for the SVG's `foreignObject` element.
 
         Parameters
+        ----------
         width : Union[int, Int]
             Width of the foreignObject element.
         height : Union[int, Int]
             Height of the foreignObject element.
+        variable_name_suffix : str, default ""
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
         """
         from apysc._display.stage import Stage
         from apysc._display.stage import get_stage
@@ -53,6 +58,7 @@ class SVGForeignObject(
         )
         self._width = width_
         self._height = height_
+        self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.SVG_FOREIGN_OBJECT,
         )

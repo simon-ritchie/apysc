@@ -15,6 +15,9 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._display.display_object import DisplayObject
+from apysc._loop.initialize_with_base_value_interface import (
+    InitializeWithBaseValueInterface,
+)
 
 
 class SVGForeignObject(
@@ -25,6 +28,7 @@ class SVGForeignObject(
     CssMixIn,
     SetOverflowVisibleSettingMixIn,
     RevertMixIn,
+    InitializeWithBaseValueInterface,
 ):
     def __init__(
         self,
@@ -119,3 +123,16 @@ class SVGForeignObject(
             return
         self._width._run_all_revert_methods(snapshot_name=snapshot_name)
         self._height._run_all_revert_methods(snapshot_name=snapshot_name)
+
+    @classmethod
+    def _initialize_with_base_value(cls) -> "SVGForeignObject":
+        """
+        Initialize this class with a base value(s).
+
+        Returns
+        -------
+        foreign_object : SVGForeignObject
+            An initialized instance.
+        """
+        foreign_object: SVGForeignObject = SVGForeignObject(width=0, height=0)
+        return foreign_object

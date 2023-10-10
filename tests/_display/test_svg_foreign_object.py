@@ -56,3 +56,11 @@ class TestSVGForeignObject:
         foreign_object._run_all_revert_methods(snapshot_name=snapshot_name)
         assert foreign_object._width._value == 100
         assert foreign_object._height._value == 150
+
+    @apply_test_settings()
+    def test__initialize_with_base_value(self) -> None:
+        foreign_object: SVGForeignObject = (
+            SVGForeignObject._initialize_with_base_value()
+        )
+        assert foreign_object._width == 0
+        assert foreign_object._height == 0

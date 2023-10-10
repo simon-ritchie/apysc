@@ -12,6 +12,7 @@ from apysc._expression import expression_data_util
 from apysc._type.int import Int
 from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._display.display_object import DisplayObject
 
@@ -23,6 +24,7 @@ class SVGForeignObject(
     VariableNameSuffixMixIn,
     CssMixIn,
     SetOverflowVisibleSettingMixIn,
+    RevertMixIn,
 ):
     def __init__(
         self,
@@ -89,3 +91,31 @@ class SVGForeignObject(
             f"{self._width.variable_name}, {self._height.variable_name});"
         )
         expression_data_util.append_js_expression(expression=expression)
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make values' snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._width._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._height._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert values if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._width._run_all_revert_methods(snapshot_name=snapshot_name)
+        self._height._run_all_revert_methods(snapshot_name=snapshot_name)

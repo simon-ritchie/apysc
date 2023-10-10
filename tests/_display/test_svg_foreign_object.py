@@ -40,3 +40,19 @@ class TestSVGForeignObject:
         assert foreign_object._variable_name_suffix == "test_suffix"
         assert "width" in foreign_object._width.variable_name
         assert "height" in foreign_object._height.variable_name
+
+    @apply_test_settings()
+    def test__make_snapshot_and__revert(self) -> None:
+        foreign_object: SVGForeignObject = SVGForeignObject(
+            width=100,
+            height=150,
+            variable_name_suffix="test_suffix",
+        )
+        snapshot_name: str = foreign_object._get_next_snapshot_name()
+        foreign_object._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        foreign_object._width._value = 200
+        foreign_object._height._value = 250
+        foreign_object._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert foreign_object._width._value == 100
+        assert foreign_object._height._value == 150

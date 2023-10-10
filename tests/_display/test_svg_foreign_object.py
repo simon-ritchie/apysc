@@ -64,3 +64,21 @@ class TestSVGForeignObject:
         )
         assert foreign_object._width == 0
         assert foreign_object._height == 0
+
+    @apply_test_settings()
+    def test_add_html_str(self) -> None:
+        foreign_object: SVGForeignObject = SVGForeignObject(
+            width=100,
+            height=150,
+        )
+        foreign_object.add_html_str(
+            html_str='<div>test</div>')
+        expression: str = expression_data_util.get_current_expression()
+        match_: Optional[Match] = re.search(
+            pattern=(
+                rf"{foreign_object.variable_name}\.add\({var_names.STRING}_\d+?\);"
+            ),
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match_ is not None

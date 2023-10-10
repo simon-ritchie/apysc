@@ -18,6 +18,7 @@ from apysc._display.display_object import DisplayObject
 from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
+from apysc._type.string import String
 
 
 class SVGForeignObject(
@@ -57,7 +58,9 @@ class SVGForeignObject(
         from apysc._expression import var_names
 
         self._variable_name_suffix = variable_name_suffix
-        suffix = self._get_attr_or_variable_name_suffix(value_identifier="width")
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="width"
+        )
         width_: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
             integer=width,
             variable_name_suffix=suffix,
@@ -136,3 +139,31 @@ class SVGForeignObject(
         """
         foreign_object: SVGForeignObject = SVGForeignObject(width=0, height=0)
         return foreign_object
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def add_html_str(self, html_str: Union[str, String]) -> None:
+        """
+        Add a HTML element string to this instance.
+
+        Parameters
+        ----------
+        html_str : str or String
+            A HTML element string.
+        """
+        from apysc._expression import expression_data_util
+        from apysc._converter import to_apysc_val_from_builtin
+
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="add_html_elem"
+        )
+        html_str_: String = (
+            to_apysc_val_from_builtin.get_copied_string_from_builtin_val(
+                string=html_str,
+                variable_name_suffix=suffix,
+            )
+        )
+        expression: str = (
+            f'{self.variable_name}.add({html_str_.variable_name});'
+        )
+        expression_data_util.append_js_expression(expression=expression)

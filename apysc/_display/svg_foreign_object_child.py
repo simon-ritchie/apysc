@@ -14,7 +14,7 @@ class SVGForeignObjectChild(
     CssMixIn,
     DisplayObject,
     VariableNameSuffixMixIn,
-    # InitializeWithBaseValueInterface,
+    InitializeWithBaseValueInterface,
 ):
     _html_str: String
 
@@ -64,3 +64,16 @@ class SVGForeignObjectChild(
             f"var {self.variable_name} = SVG({self._html_str.variable_name});"
         )
         expression_data_util.append_js_expression(expression=expression)
+
+    @classmethod
+    def _initialize_with_base_value(cls) -> "SVGForeignObjectChild":
+        """
+        Initialize this class with a base value(s).
+
+        Returns
+        -------
+        SVGForeignObjectChild
+            An initialized instance.
+        """
+        foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(html_str="")
+        return foreign_object_child

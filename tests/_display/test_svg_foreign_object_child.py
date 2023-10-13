@@ -20,3 +20,10 @@ class TestSVGForeignObjectChild:
             flags=re.MULTILINE,
         )
         assert match_ is not None
+
+    @apply_test_settings()
+    def test__initialize_with_base_value(self) -> None:
+        foreign_object_child: SVGForeignObjectChild = (
+            SVGForeignObjectChild._initialize_with_base_value()
+        )
+        assert foreign_object_child._html_str == ""

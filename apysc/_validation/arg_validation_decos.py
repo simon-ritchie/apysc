@@ -53,7 +53,7 @@ Mainly the following decorators exist.
     - Set a validation to check a variadic arguments' length is
         a range of minimum and maximum values.
 - all_variadic_args_are_integers
-    - Set a validation to check a specified variadic arguments'
+    - Set a validation to check the specified variadic arguments'
         types are all integers.
 - is_boolean
     - Set a validation to check that the specified argument's type
@@ -173,10 +173,10 @@ Mainly the following decorators exist.
     - Set a validation to check the specified argument's type
         is the `ap.Array`
 - is_nums_array
-    - Set a validation to check a specified `Array`'s values
+    - Set a validation to check the specified `Array`'s values
         are all number-relate type.
 - is_apysc_string_array
-    - Set a validation to check a specified `Array`'s values
+    - Set a validation to check the specified `Array`'s values
         are all apysc's `String` type.
 - is_builtin_str_list_or_apysc_str_arr
     - Set a validation to check the specified argument's type
@@ -197,7 +197,7 @@ Mainly the following decorators exist.
     - Set a validation to check the specified argument's type
         is list of dicts or `ap.Array` of `ap.Dictionary`.
 - is_initialize_with_base_value_interface_subclass
-    - Set a validation to check a specified class is
+    - Set a validation to check the specified class is
         the `InitializeWithBaseValueInterface`'s subclas.
 - is_svg_foreign_object_child
     - Set a validation to check the specified argument's type
@@ -223,15 +223,15 @@ def _extract_arg_value(
     *, args: Any, kwargs: Dict[str, Any], arg_position_index: int, callable_: Callable
 ) -> Any:
     """
-    Extract an argument value from a specified arguments' dictionary
+    Extract an argument value from the specified arguments' dictionary
     or list.
 
     Parameters
     ----------
     args : List[Any]
-        A specified positional arguments' list.
+        The specified positional arguments' list.
     kwargs : Dict[str, Any]
-        A specified keyword arguments' dictionary.'
+        The specified keyword arguments' dictionary.'
     arg_position_index : int
         A target argument position index.
     callable_ : Callable
@@ -260,7 +260,7 @@ def _extract_arg_value(
 
 def _get_arg_name_by_index(*, callable_: Callable, arg_position_index: int) -> str:
     """
-    Get an argument name from a specified argument position index.
+    Get an argument name from the specified argument position index.
 
     Parameters
     ----------
@@ -277,7 +277,7 @@ def _get_arg_name_by_index(*, callable_: Callable, arg_position_index: int) -> s
     signature: Signature = inspect.signature(callable_)
     if len(signature.parameters) - 1 < arg_position_index:
         raise IndexError(
-            "A specified function has no argument parameter "
+            "The specified function has no argument parameter "
             f"at the index of {arg_position_index}"
             f"\nActual argument length: {len(signature.parameters)}"
         )
@@ -593,7 +593,7 @@ def is_apysc_num(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(num, NumberValueMixIn):
                 raise TypeError(
-                    "A specified argument value is not `ap.Int` or "
+                    "The specified argument value is not `ap.Int` or "
                     f"`ap.Number` type: {type(num)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -727,7 +727,7 @@ def is_apysc_integer(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(integer, Int):
                 raise TypeError(
-                    "A specified argument value is not `ap.Int` "
+                    "The specified argument value is not `ap.Int` "
                     f"type: {type(integer)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -772,7 +772,7 @@ def is_apysc_int_or_number(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    f"A specified argument is not `ap.Int` or `ap.Number` type: "
+                    f"The specified argument is not `ap.Int` or `ap.Number` type: "
                     f"{type(int_or_number).__name__}, {int_or_number}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -815,7 +815,7 @@ def is_uint8_range(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(integer, (int, Int)):
                 raise TypeError(
-                    "A specified argument value is not an integer type: "
+                    "The specified argument value is not an integer type: "
                     f"{type(integer).__name__}\n{callable_and_arg_names_msg}"
                 )
             py_int: int = 0
@@ -824,7 +824,7 @@ def is_uint8_range(*, arg_position_index: int) -> _Callable:
             elif isinstance(integer, Int):
                 py_int = integer._value
             under_or_overflow_err_msg: str = (
-                "A specified argument value is less than zero "
+                "The specified argument value is less than zero "
                 f"(range of 0 to 255 is acceptable): {py_int}"
             )
             if py_int < 0:
@@ -1026,12 +1026,12 @@ def num_is_between(
                 )
                 if num < min_value:
                     raise ValueError(
-                        f"A specified argument value ({num}) is less than {min_value}."
+                        f"The specified argument value ({num}) is less than {min_value}."
                         f"\n{callable_and_arg_names_msg}"
                     )
                 if num > max_value:
                     raise ValueError(
-                        f"A specified argument value ({num}) is greater than "
+                        f"The specified argument value ({num}) is greater than "
                         f"{max_value}.\n{callable_and_arg_names_msg}"
                     )
             return callable_(*args, **kwargs)
@@ -1069,12 +1069,12 @@ def variadic_args_len_is_between(
             args_len: int = len(args)
             if args_len < min_length:
                 raise ValueError(
-                    "A specified variadic argument's length is less than "
+                    "The specified variadic argument's length is less than "
                     f"{min_length}.\nActual length: {args_len}"
                 )
             if args_len > max_length:
                 raise ValueError(
-                    "A specified variadic argument's length is greater than "
+                    "The specified variadic argument's length is greater than "
                     f"{max_length}.\nActual length: {args_len}"
                 )
 
@@ -1087,7 +1087,7 @@ def variadic_args_len_is_between(
 
 def all_variadic_args_are_integers(*, optional: bool) -> _Callable:
     """
-    Set a validation to check a specified variadic arguments'
+    Set a validation to check the specified variadic arguments'
     types are all integers.
 
     Parameters
@@ -1113,7 +1113,7 @@ def all_variadic_args_are_integers(*, optional: bool) -> _Callable:
                 if isinstance(arg, (int, Int)):
                     continue
                 raise TypeError(
-                    "A specified variadic argument value is not `int` or "
+                    "The specified variadic argument value is not `int` or "
                     f"`ap.Int`: {type(arg)}, {arg}"
                 )
             return callable_(*args, **kwargs)
@@ -1244,7 +1244,7 @@ def is_apysc_boolean(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(boolean, Boolean):
                 raise TypeError(
-                    "A specified argument value is not a `Boolean` type: "
+                    "The specified argument value is not a `Boolean` type: "
                     f"{type(boolean)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -1289,7 +1289,7 @@ def is_easing(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(easing, Easing):
                 raise TypeError(
-                    "A specified easing argument's type is not the "
+                    "The specified easing argument's type is not the "
                     f"ap.Easing: {type(easing)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -1575,7 +1575,7 @@ def are_animations(*, arg_position_index: int) -> _Callable:
 
             if not isinstance(animations, list):
                 raise TypeError(
-                    "A specified animations list must be a list: "
+                    "The specified animations list must be a list: "
                     f"{type(animations)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -1584,7 +1584,7 @@ def are_animations(*, arg_position_index: int) -> _Callable:
                 if isinstance(animation, AnimationBase):
                     continue
                 raise TypeError(
-                    "A specified animations' list cannot contain "
+                    "The specified animations' list cannot contain "
                     f"non-animation instance: {type(animation)}"
                     f"Invalid index: {i}"
                     f"\n{callable_and_arg_names_msg}"
@@ -1631,7 +1631,7 @@ def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _Callable
 
             if optional and not (isinstance(vars_dict, dict) or vars_dict is None):
                 raise TypeError(
-                    "A specified variables argument value is not a dictionary "
+                    "The specified variables argument value is not a dictionary "
                     f"or None: {type(vars_dict)}"
                     f"\nDictionary value: {vars_dict}"
                     f"\n{callable_and_arg_names_msg}"
@@ -1639,7 +1639,7 @@ def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _Callable
 
             if not optional and not isinstance(vars_dict, dict):
                 raise TypeError(
-                    "A specified variables argument value is not "
+                    "The specified variables argument value is not "
                     f"a dictionary: {vars_dict}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -1649,7 +1649,7 @@ def is_vars_dict(*, arg_position_index: int, optional: bool = True) -> _Callable
                     if isinstance(key, str):
                         continue
                     raise ValueError(
-                        "A specified variables argument dictionary's "
+                        "The specified variables argument dictionary's "
                         f"key cannot contain a non-str value: {type(key)}"
                         f", {key}"
                         f"\n{callable_and_arg_names_msg}"
@@ -1836,7 +1836,7 @@ def are_point_2ds(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(points, list) and not isinstance(points, Array):
                 raise TypeError(
-                    "A specified points argument type is not a list or "
+                    "The specified points argument type is not a list or "
                     f"ap.Array: {type(points)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -1894,7 +1894,7 @@ def is_valid_path_data_list(*, arg_position_index: int) -> _Callable:
 
             if not isinstance(path_data_list, list):
                 raise TypeError(
-                    "A specified `path_data_list`'s type is not the "
+                    "The specified `path_data_list`'s type is not the "
                     f"list: {type(path_data_list)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -1926,7 +1926,7 @@ def is_line_cap(*, arg_position_index: int, optional: bool) -> _Callable:
     arg_position_index : int
         A target argument position index.
     optional : bool
-        A boolean indicating whether a specified argument can be
+        A boolean indicating whether the specified argument can be
         the `None`.
 
     Returns
@@ -1976,7 +1976,7 @@ def are_line_joints(*, arg_position_index: int, optional: bool) -> _Callable:
     arg_position_index : int
         A target argument position index.
     optional : bool
-        A boolean indicating whether a specified argument can be
+        A boolean indicating whether the specified argument can be
         the `None`.
 
     Returns
@@ -2095,7 +2095,7 @@ def is_line_dot_setting(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(setting, (type(None), LineDotSetting)):
                 raise TypeError(
-                    "A specified setting is not the `ap.LineDotSetting` "
+                    "The specified setting is not the `ap.LineDotSetting` "
                     f"type or None: {type(setting)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2140,7 +2140,7 @@ def is_line_dash_setting(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(setting, (type(None), LineDashSetting)):
                 raise TypeError(
-                    "A specified setting is not the `ap.LineDashSetting`"
+                    "The specified setting is not the `ap.LineDashSetting`"
                     f" type or None: {type(setting)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2185,7 +2185,7 @@ def is_line_dash_dot_setting(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(setting, (type(None), LineDashDotSetting)):
                 raise TypeError(
-                    "A specified setting is not the "
+                    "The specified setting is not the "
                     "`ap.LineDashDotSetting` type or None: "
                     f"{type(setting)}"
                     f"\n{callable_and_arg_names_msg}"
@@ -2231,7 +2231,7 @@ def is_line_round_dot_setting(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(setting, (type(None), LineRoundDotSetting)):
                 raise TypeError(
-                    "A specified setting is not the `ap.LineRoundDotSetting` "
+                    "The specified setting is not the `ap.LineRoundDotSetting` "
                     f"type or None: {type(setting)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2321,7 +2321,7 @@ def is_acceptable_array_value(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified value's type is not an acceptable array value: "
+                    "The specified value's type is not an acceptable array value: "
                     f"{type(value)}\nAcceptable types: {acceptable_types}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2366,7 +2366,7 @@ def is_acceptable_dictionary_value(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified value's type is not an acceptable dictionary value "
+                    "The specified value's type is not an acceptable dictionary value "
                     f"type: {type(value)}\nAcceptable types: {acceptable_types}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2408,7 +2408,7 @@ def is_builtin_dict(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified value's type is not the Python's `dict`: "
+                    "The specified value's type is not the Python's `dict`: "
                     f"{type(value).__name__}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2451,7 +2451,7 @@ def is_apysc_dict(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified value's type is not the `ap.Dictionary`: "
+                    "The specified value's type is not the `ap.Dictionary`: "
                     f"{type(value).__name__}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2500,7 +2500,7 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified value's type is not an acceptable boolean value type: "
+                    "The specified value's type is not an acceptable boolean value type: "
                     f"{type(value)}\nAcceptable types: {acceptable_types}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2545,7 +2545,7 @@ def is_fps(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    f"A specified value is not an FPS enum value: {type(value)}"
+                    f"The specified value is not an FPS enum value: {type(value)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
 
@@ -2599,7 +2599,7 @@ def is_four_digit_year(*, arg_position_index: int) -> _Callable:
                 year_str: str = str(year)
                 if len(year_str) != 4:
                     raise ValueError(
-                        f"A specified four-digit year is not a valid length: {year_str}"
+                        f"The specified four-digit year is not a valid length: {year_str}"
                         f"\n{callable_and_arg_names_msg}"
                     )
             return callable_(*args, **kwargs)
@@ -2653,7 +2653,7 @@ def is_month_int(*, arg_position_index: int) -> _Callable:
             if is_checking_target:
                 if month < 1 or 12 < month:
                     raise ValueError(
-                        "A specified month integer is not a valid value (1-12): "
+                        "The specified month integer is not a valid value (1-12): "
                         f"{month}\n{callable_and_arg_names_msg}"
                     )
             return callable_(*args, **kwargs)
@@ -2708,7 +2708,7 @@ def is_day_int(*, arg_position_index: int) -> _Callable:
             if is_checking_target:
                 if day < 1 or 31 < day:
                     raise ValueError(
-                        f"A specified day is out of range (1-31): {day}"
+                        f"The specified day is out of range (1-31): {day}"
                         f"\n{callable_and_arg_names_msg}"
                     )
             return callable_(*args, **kwargs)
@@ -2754,7 +2754,7 @@ def is_hour_int(*, arg_position_index: int) -> _Callable:
             )
             if hour < 0 or 23 < hour:
                 raise ValueError(
-                    f"A specified hour is out of range (0-23): {hour}"
+                    f"The specified hour is out of range (0-23): {hour}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
@@ -2800,7 +2800,7 @@ def is_minute_int(*, arg_position_index: int) -> _Callable:
             )
             if minute < 0 or 59 < minute:
                 raise ValueError(
-                    f"A specified minute is out of range (0-59): {minute}"
+                    f"The specified minute is out of range (0-59): {minute}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
@@ -2846,7 +2846,7 @@ def is_second_int(*, arg_position_index: int) -> _Callable:
             )
             if second < 0 or 59 < second:
                 raise ValueError(
-                    f"A specified second is out of range (0-59): {second}"
+                    f"The specified second is out of range (0-59): {second}"
                     f"\n{callable_and_arg_names_msg}"
                 )
 
@@ -2893,7 +2893,7 @@ def is_millisecond_int(*, arg_position_index: int) -> _Callable:
             )
             if millisecond < 0 or 999 < millisecond:
                 raise ValueError(
-                    f"A specified millisecond is out of range (0-999): {millisecond}"
+                    f"The specified millisecond is out of range (0-999): {millisecond}"
                     f"\n{callable_and_arg_names_msg}"
                 )
 
@@ -2936,7 +2936,7 @@ def is_apysc_datetime(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    f"A specified value of type `{type(datetime_)}` is not an "
+                    f"The specified value of type `{type(datetime_)}` is not an "
                     "apysc's DateTime instance."
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2981,7 +2981,7 @@ def is_apysc_array(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified argument is not "
+                    "The specified argument is not "
                     f"an `ap.Array` instance: {type(arr)}, {arr}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2994,7 +2994,7 @@ def is_apysc_array(*, arg_position_index: int) -> _Callable:
 
 def is_nums_array(*, arg_position_index: int) -> _Callable:
     """
-    Set a validation to check a specified `Array`'s values
+    Set a validation to check the specified `Array`'s values
     are all number-relate type.
 
     Parameters
@@ -3027,14 +3027,14 @@ def is_nums_array(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(arr, Array):
                 raise TypeError(
-                    f"A specified argument is not an `Array` instance: {type(arr)}"
+                    f"The specified argument is not an `Array` instance: {type(arr)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             for value in arr._value:
                 if isinstance(value, (int, float, Int, Number)):
                     continue
                 raise ValueError(
-                    f"A specified array contains a non-number value: {type(value)}"
+                    f"The specified array contains a non-number value: {type(value)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
 
@@ -3051,7 +3051,7 @@ def is_apysc_string_array(
     optional: bool,
 ) -> _Callable:
     """
-    Set a validation to check a specified `Array`'s values
+    Set a validation to check the specified `Array`'s values
     are all apysc's `String` type.
 
     Parameters
@@ -3089,7 +3089,7 @@ def is_apysc_string_array(
             )
             if not isinstance(arr, Array):
                 raise TypeError(
-                    f"A specified argument is not an `Array` instance: {type(arr)}"
+                    f"The specified argument is not an `Array` instance: {type(arr)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             for value in arr._value:
@@ -3168,7 +3168,7 @@ def is_builtin_str_list_or_apysc_str_arr(
                         )
                 return callable_(*args, **kwargs)
             raise TypeError(
-                "A specified argument is not a list or `Array` instance: "
+                "The specified argument is not a list or `Array` instance: "
                 f"{type(arr_or_list)}"
                 f"\n{callable_and_arg_names_msg}"
             )
@@ -3210,7 +3210,7 @@ def is_svg_text_align(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified argument is not a `SVGTextAlign` value: "
+                    "The specified argument is not a `SVGTextAlign` value: "
                     f"{type(align)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -3255,7 +3255,7 @@ def are_text_spans(*, arg_position_index: int) -> _Callable:
             )
             if not isinstance(text_spans, (list, Array)):
                 raise TypeError(
-                    "A specified argument is not a list or `Array` instance: "
+                    "The specified argument is not a list or `Array` instance: "
                     f"{type(text_spans)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -3316,7 +3316,7 @@ def is_x_axis_label_position(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified argument is not a `XAxisLabelPosition` value: "
+                    "The specified argument is not a `XAxisLabelPosition` value: "
                     f"{type(x_axis_label_position).__name__}, {x_axis_label_position}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -3359,7 +3359,7 @@ def is_y_axis_label_position(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "A specified argument is not a `YAxisLabelPosition` value: "
+                    "The specified argument is not a `YAxisLabelPosition` value: "
                     f"{type(y_axis_label_position).__name__}, {y_axis_label_position}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -3414,7 +3414,7 @@ def is_list_or_array_matrix_data(*, arg_position_index: int) -> _Callable:
                 )
                 return callable_(*args, **kwargs)
             raise TypeError(
-                "A specified argument is not a list of dicts or "
+                "The specified argument is not a list of dicts or "
                 f"`ap.Array` of `ap.Dictionary`: {type(matrix_data).__name__}, "
                 f"\n{callable_and_arg_names_msg}"
             )
@@ -3430,7 +3430,7 @@ def is_initialize_with_base_value_interface_subclass(
     optional: bool = False,
 ) -> _Callable:
     """
-    Set a validation to check a specified class is
+    Set a validation to check the specified class is
     the `InitializeWithBaseValueInterface`'s subclas.
 
     Parameters
@@ -3469,10 +3469,55 @@ def is_initialize_with_base_value_interface_subclass(
                 callable_=callable_, arg_position_index=arg_position_index
             )
             raise TypeError(
-                f"A specified class is not an `InitializeWithBaseValueInterface`'s "
+                f"The specified class is not an `InitializeWithBaseValueInterface`'s "
                 f"subclass: {class_}"
                 f"\n{callable_and_arg_names_msg}"
             )
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_svg_foreign_object_child(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check the specified argument's type
+    is the `SVGForeignObjectChild` class.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._display.svg_foreign_object_child import (
+                SVGForeignObjectChild,
+            )
+
+            child: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(child, SVGForeignObjectChild):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    f"The specified argument is not an `SVGForeignObjectChild` "
+                    f"instance: {type(child)}"
+                    f"\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
 
         return inner_wrapped  # type: ignore
 

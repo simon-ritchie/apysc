@@ -20,6 +20,7 @@ from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
 from apysc._type.string import String
+from apysc._validation import arg_validation_decos
 
 
 class SVGForeignObject(
@@ -142,6 +143,7 @@ class SVGForeignObject(
         return foreign_object
 
     @final
+    @arg_validation_decos.is_svg_foreign_object_child(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
     def _add_foreign_object_child(self, *, child: SVGForeignObjectChild) -> None:
         """

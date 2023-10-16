@@ -9,6 +9,7 @@ from typing import Union
 import pytest
 
 import apysc as ap
+from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
@@ -224,7 +225,7 @@ def test_is_easing() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match=r"A specified easing argument\'s type is not the ap\.Easing\: ",
+        match=r"The specified easing argument\'s type is not the ap\.Easing\: ",
         easing=10,
     )
 
@@ -348,13 +349,13 @@ def test_are_animations() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match="A specified animations list must be a list:",
+        match="The specified animations list must be a list:",
         a=10,
     )
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match="A specified animations' list cannot contain " "non-animation instance:",
+        match="The specified animations' list cannot contain " "non-animation instance:",
         a=[10, 20],
     )
 
@@ -376,7 +377,7 @@ def test_is_apysc_boolean() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match="A specified argument value is not a `Boolean` type: ",
+        match="The specified argument value is not a `Boolean` type: ",
         a=True,
     )
 
@@ -392,13 +393,13 @@ def test_is_vars_dict() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func_1,
-        match="A specified variables argument value is not a " "dictionary or None",
+        match="The specified variables argument value is not a " "dictionary or None",
         a=10,
     )
     assert_raises(
         expected_error_class=ValueError,
         callable_=_test_func_1,
-        match="A specified variables argument dictionary's "
+        match="The specified variables argument dictionary's "
         "key cannot contain a non-str value:",
         a={10: 20},
     )
@@ -412,13 +413,13 @@ def test_is_vars_dict() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func_2,
-        match="A specified variables argument value is not " "a dictionary:",
+        match="The specified variables argument value is not " "a dictionary:",
         a=None,
     )
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func_2,
-        match="A specified variables argument value is not " "a dictionary:",
+        match="The specified variables argument value is not " "a dictionary:",
         a=10,
     )
     _test_func_2(a={"b": 10})
@@ -1166,13 +1167,13 @@ def test_is_nums_array() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match="A specified argument is not an `Array` instance: ",
+        match="The specified argument is not an `Array` instance: ",
         arr=100,
     )
     assert_raises(
         expected_error_class=ValueError,
         callable_=_test_func,
-        match="A specified array contains a non-number value: ",
+        match="The specified array contains a non-number value: ",
         arr=ap.Array([10, "test", 20.5, ap.Int(25)]),
     )
 
@@ -1210,7 +1211,7 @@ def test_is_apysc_string_array() -> None:
         expected_error_class=TypeError,
         callable_=_test_func_1,
         strings=100,
-        match="A specified argument is not an `Array` instance: ",
+        match="The specified argument is not an `Array` instance: ",
     )
     assert_raises(
         expected_error_class=TypeError,
@@ -1222,7 +1223,7 @@ def test_is_apysc_string_array() -> None:
         expected_error_class=TypeError,
         callable_=_test_func_1,
         strings=None,
-        match="A specified argument is not an `Array` instance:",
+        match="The specified argument is not an `Array` instance:",
     )
 
     result: int = _test_func_1(
@@ -1238,7 +1239,7 @@ def test_is_apysc_string_array() -> None:
         expected_error_class=TypeError,
         callable_=_test_func_2,
         strings=100,
-        match="A specified argument is not an `Array` instance: ",
+        match="The specified argument is not an `Array` instance: ",
     )
     assert_raises(
         expected_error_class=TypeError,
@@ -1279,7 +1280,7 @@ def test_is_builtin_str_list_or_apysc_str_arr() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func_1,
-        match="A specified argument is not a list or `Array` instance: ",
+        match="The specified argument is not a list or `Array` instance: ",
         value=None,
     )
     result: int = _test_func_1(value=["Lorem", "ipsum"])
@@ -1310,7 +1311,7 @@ def test_is_svg_text_align() -> None:
         expected_error_class=TypeError,
         callable_=_test_func,
         align=100,
-        match="A specified argument is not a `SVGTextAlign` value:",
+        match="The specified argument is not a `SVGTextAlign` value:",
     )
     result: int = _test_func(align=ap.SVGTextAlign.CENTER)
     assert result == 200
@@ -1330,7 +1331,7 @@ def test_are_text_spans() -> None:
         expected_error_class=TypeError,
         callable_=_test_func,
         text_spans=10,
-        match="A specified argument is not a list or `Array` instance: ",
+        match="The specified argument is not a list or `Array` instance: ",
     )
     assert_raises(
         expected_error_class=TypeError,
@@ -1365,7 +1366,7 @@ def test_is_x_axis_label_position() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match="A specified argument is not a `XAxisLabelPosition` value: ",
+        match="The specified argument is not a `XAxisLabelPosition` value: ",
         position=100,
     )
 
@@ -1382,7 +1383,7 @@ def test_is_y_axis_label_position() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match="A specified argument is not a `YAxisLabelPosition` value: ",
+        match="The specified argument is not a `YAxisLabelPosition` value: ",
         position=200,
     )
 
@@ -1547,7 +1548,7 @@ def test_is_apysc_array() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func_1,
-        match="A specified argument is not an `ap.Array` instance: ",
+        match="The specified argument is not an `ap.Array` instance: ",
         array=10,
     )
 
@@ -1669,4 +1670,20 @@ def test_is_uint8_range() -> None:
         expected_error_class=ValueError,
         callable_=_test_func_1,
         value=ap.Int(256),
+    )
+
+
+@apply_test_settings()
+def test_is_svg_foreign_object_child() -> None:
+    @arg_validation_decos.is_svg_foreign_object_child(arg_position_index=0)
+    def _test_func(*, child: SVGForeignObjectChild) -> int:
+        return 370
+
+    result: int = _test_func(child=SVGForeignObjectChild(html_str="<span></span>"))
+    assert result == 370
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        child=100,
     )

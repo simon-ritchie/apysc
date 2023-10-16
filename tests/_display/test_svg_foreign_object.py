@@ -1,5 +1,6 @@
 import apysc as ap
 from apysc._display.svg_foreign_object import SVGForeignObject
+from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
 from apysc._expression import expression_data_util, var_names
 from apysc._testing.testing_helper import apply_test_settings
 import re
@@ -64,3 +65,19 @@ class TestSVGForeignObject:
         )
         assert foreign_object._width == 0
         assert foreign_object._height == 0
+
+    @apply_test_settings()
+    def test__add_foreign_object_child(self) -> None:
+        foreign_object: SVGForeignObject = SVGForeignObject(
+            width=100,
+            height=150,
+        )
+        foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(
+            html_str='<div></div>',
+        )
+        foreign_object._add_foreign_object_child(child=foreign_object_child)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{foreign_object.variable_name}.add({foreign_object_child.variable_name});"
+        )
+        assert expected in expression

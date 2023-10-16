@@ -7,6 +7,7 @@ from apysc._display.height_mixin import HeightMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn
 )
+from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
 from apysc._display.width_mixin import WidthMixIn
 from apysc._expression import expression_data_util
 from apysc._type.int import Int
@@ -139,3 +140,19 @@ class SVGForeignObject(
         """
         foreign_object: SVGForeignObject = SVGForeignObject(width=0, height=0)
         return foreign_object
+
+    @final
+    @add_debug_info_setting(module_name=__name__)
+    def _add_foreign_object_child(self, *, child: SVGForeignObjectChild) -> None:
+        """
+        Add a foreignObject's child object.
+
+        Parameters
+        ----------
+        child : SVGForeignObjectChild
+            A foreignObject's child object.
+        """
+        from apysc._expression import expression_data_util
+
+        expression: str = f"{self.variable_name}.add({child.variable_name});"
+        expression_data_util.append_js_expression(expression=expression)

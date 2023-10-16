@@ -8,6 +8,7 @@ from apysc._display.display_object import DisplayObject
 from apysc._loop.initialize_with_base_value_interface import InitializeWithBaseValueInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._type.revert_mixin import RevertMixIn
 
 
 class SVGForeignObjectChild(
@@ -15,6 +16,7 @@ class SVGForeignObjectChild(
     DisplayObject,
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
+    RevertMixIn,
 ):
     _html_str: String
 
@@ -77,3 +79,33 @@ class SVGForeignObjectChild(
         """
         foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(html_str="")
         return foreign_object_child
+
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
+        """
+        Make values' snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_html_str'):
+            return
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._html_str._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+
+    def _revert(self, *, snapshot_name: str) -> None:
+        """
+        Revert values if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_html_str'):
+            return
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._html_str._run_all_revert_methods(snapshot_name=snapshot_name)

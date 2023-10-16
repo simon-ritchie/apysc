@@ -27,3 +27,16 @@ class TestSVGForeignObjectChild:
             SVGForeignObjectChild._initialize_with_base_value()
         )
         assert foreign_object_child._html_str == ""
+
+    @apply_test_settings()
+    def test__make_snapshot__revert(self) -> None:
+        foreign_object_child = SVGForeignObjectChild(html_str="<div></div>")
+        snapshot_name: str = foreign_object_child._get_next_snapshot_name()
+        foreign_object_child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        foreign_object_child._html_str._value = "<span></span>"
+        foreign_object_child._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert foreign_object_child._html_str == "<div></div>"
+
+        foreign_object_child._html_str._value = "<span></span>"
+        foreign_object_child._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert foreign_object_child._html_str == "<span></span>"

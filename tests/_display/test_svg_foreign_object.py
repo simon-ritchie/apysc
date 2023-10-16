@@ -43,41 +43,9 @@ class TestSVGForeignObject:
         assert "height" in foreign_object._height.variable_name
 
     @apply_test_settings()
-    def test__make_snapshot_and__revert(self) -> None:
-        foreign_object: SVGForeignObject = SVGForeignObject(
-            width=100,
-            height=150,
-            variable_name_suffix="test_suffix",
-        )
-        snapshot_name: str = foreign_object._get_next_snapshot_name()
-        foreign_object._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        foreign_object._width._value = 200
-        foreign_object._height._value = 250
-        foreign_object._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert foreign_object._width._value == 100
-        assert foreign_object._height._value == 150
-
-    @apply_test_settings()
     def test__initialize_with_base_value(self) -> None:
         foreign_object: SVGForeignObject = (
             SVGForeignObject._initialize_with_base_value()
         )
         assert foreign_object._width == 0
         assert foreign_object._height == 0
-
-    @apply_test_settings()
-    def test__add_foreign_object_child(self) -> None:
-        foreign_object: SVGForeignObject = SVGForeignObject(
-            width=100,
-            height=150,
-        )
-        foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(
-            html_str='<div></div>',
-        )
-        foreign_object._add_foreign_object_child(child=foreign_object_child)
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f"{foreign_object.variable_name}.add({foreign_object_child.variable_name});"
-        )
-        assert expected in expression

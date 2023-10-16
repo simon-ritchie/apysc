@@ -7,20 +7,19 @@ from apysc._display.height_mixin import HeightMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn
 )
-from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
 from apysc._display.width_mixin import WidthMixIn
 from apysc._expression import expression_data_util
 from apysc._type.int import Int
 from typing_extensions import final
 from apysc._html.debug_mode import add_debug_info_setting
-from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
-from apysc._type.string import String
-from apysc._validation import arg_validation_decos
+from apysc._display.add_foreign_object_child_mixin import (
+    AddForeignObjectChildMixIn
+)
 
 
 class SVGForeignObject(
@@ -30,8 +29,8 @@ class SVGForeignObject(
     VariableNameSuffixMixIn,
     CssMixIn,
     SetOverflowVisibleSettingMixIn,
-    RevertMixIn,
     InitializeWithBaseValueInterface,
+    AddForeignObjectChildMixIn,
 ):
     def __init__(
         self,
@@ -101,34 +100,6 @@ class SVGForeignObject(
         )
         expression_data_util.append_js_expression(expression=expression)
 
-    def _make_snapshot(self, *, snapshot_name: str) -> None:
-        """
-        Make values' snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._width._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        self._height._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-
-    def _revert(self, *, snapshot_name: str) -> None:
-        """
-        Revert values if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._width._run_all_revert_methods(snapshot_name=snapshot_name)
-        self._height._run_all_revert_methods(snapshot_name=snapshot_name)
-
     @classmethod
     def _initialize_with_base_value(cls) -> "SVGForeignObject":
         """
@@ -141,20 +112,3 @@ class SVGForeignObject(
         """
         foreign_object: SVGForeignObject = SVGForeignObject(width=0, height=0)
         return foreign_object
-
-    @final
-    @arg_validation_decos.is_svg_foreign_object_child(arg_position_index=1)
-    @add_debug_info_setting(module_name=__name__)
-    def _add_foreign_object_child(self, *, child: SVGForeignObjectChild) -> None:
-        """
-        Add a foreignObject's child object.
-
-        Parameters
-        ----------
-        child : SVGForeignObjectChild
-            A foreignObject's child object.
-        """
-        from apysc._expression import expression_data_util
-
-        expression: str = f"{self.variable_name}.add({child.variable_name});"
-        expression_data_util.append_js_expression(expression=expression)

@@ -23,6 +23,9 @@ from apysc._display.add_foreign_object_child_mixin import (
 from apysc._display.append_foreign_object_constructor_expression_mixin import (
     AppendForeignObjectConstructorExpressionMixIn
 )
+from apysc._display.svg_foreign_object_initialize_width_and_height_mixin import (
+    SVGForeignObjectInitializeWidthAndHeightMixIn
+)
 
 
 class SVGForeignObject(
@@ -35,6 +38,7 @@ class SVGForeignObject(
     InitializeWithBaseValueInterface,
     AddForeignObjectChildMixIn,
     AppendForeignObjectConstructorExpressionMixIn,
+    SVGForeignObjectInitializeWidthAndHeightMixIn,
 ):
     def __init__(
         self,
@@ -63,20 +67,7 @@ class SVGForeignObject(
         from apysc._expression import var_names
 
         self._variable_name_suffix = variable_name_suffix
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="width"
-        )
-        width_: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
-            integer=width,
-            variable_name_suffix=suffix,
-        )
-        suffix = self._get_attr_or_variable_name_suffix(value_identifier="height")
-        height_: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
-            integer=height,
-            variable_name_suffix=suffix,
-        )
-        self._width = width_
-        self._height = height_
+        self._initialize_width_and_height(width=width, height=height)
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.SVG_FOREIGN_OBJECT,
         )

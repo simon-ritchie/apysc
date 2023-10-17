@@ -8,23 +8,6 @@ from typing import Match, Optional
 
 
 class TestSVGForeignObject:
-    @apply_test_settings()
-    def test__append_constructor_expression(self) -> None:
-        foreign_object: SVGForeignObject = SVGForeignObject(
-            width=100, height=150,
-        )
-        stage: ap.Stage = ap.get_stage()
-        expression: str = expression_data_util.get_current_expression()
-        match: Optional[Match] = re.search(
-            pattern=(
-                rf"{foreign_object.variable_name} = "
-                rf"{stage.variable_name}.foreignObject\("
-                rf"{var_names.INT}_\d+?, {var_names.INT}_\d+?\);"
-            ),
-            string=expression,
-            flags=re.MULTILINE,
-        )
-        assert match is not None
 
     @apply_test_settings()
     def test___init__(self) -> None:

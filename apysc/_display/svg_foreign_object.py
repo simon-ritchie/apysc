@@ -20,6 +20,9 @@ from apysc._loop.initialize_with_base_value_interface import (
 from apysc._display.add_foreign_object_child_mixin import (
     AddForeignObjectChildMixIn
 )
+from apysc._display.append_foreign_object_constructor_expression_mixin import (
+    AppendForeignObjectConstructorExpressionMixIn
+)
 
 
 class SVGForeignObject(
@@ -31,6 +34,7 @@ class SVGForeignObject(
     SetOverflowVisibleSettingMixIn,
     InitializeWithBaseValueInterface,
     AddForeignObjectChildMixIn,
+    AppendForeignObjectConstructorExpressionMixIn,
 ):
     def __init__(
         self,
@@ -77,28 +81,11 @@ class SVGForeignObject(
             type_name=var_names.SVG_FOREIGN_OBJECT,
         )
         super(SVGForeignObject, self).__init__(variable_name=variable_name)
-        self._append_constructor_expression()
+        self._append_foreign_object_constructor_expression()
 
         stage: Stage = get_stage()
         stage.add_child(child=self)
         self._set_overflow_visible_setting()
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _append_constructor_expression(self) -> None:
-        """
-        Append a constructor expression of the SVG's foreignObject.
-        """
-        from apysc._display.stage import Stage
-        from apysc._display.stage import get_stage
-
-        stage: Stage = get_stage()
-        expression: str = (
-            f"var {self.variable_name} = {stage.variable_name}"
-            ".foreignObject("
-            f"{self._width.variable_name}, {self._height.variable_name});"
-        )
-        expression_data_util.append_js_expression(expression=expression)
 
     @classmethod
     def _initialize_with_base_value(cls) -> "SVGForeignObject":

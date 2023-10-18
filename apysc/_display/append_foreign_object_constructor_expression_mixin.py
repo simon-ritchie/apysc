@@ -10,7 +10,6 @@ from apysc._type.int import Int
 class AppendForeignObjectConstructorExpressionMixIn:
 
     _width: Int
-    _height: Int
 
     @final
     @add_debug_info_setting(module_name=__name__)
@@ -32,6 +31,6 @@ class AppendForeignObjectConstructorExpressionMixIn:
         expression: str = (
             f"var {self_variable_name} = {stage.variable_name}"
             ".foreignObject("
-            f"{self._width.variable_name}, {self._height.variable_name});"
+            f"{self._width.variable_name}, 0);"
         )
         expression_data_util.append_js_expression(expression=expression)

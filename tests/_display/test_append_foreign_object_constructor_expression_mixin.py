@@ -12,7 +12,6 @@ class _TestObject(
     VariableNameMixIn,
 ):
     _width: ap.Int
-    _height: ap.Int
 
     def __init__(self) -> None:
         """
@@ -20,7 +19,6 @@ class _TestObject(
         """
         self._variable_name = "test_object"
         self._width = ap.Int(100)
-        self._height = ap.Int(150)
 
 
 class TestAppendForeignObjectConstructorExpressionMixIn:
@@ -32,7 +30,6 @@ class TestAppendForeignObjectConstructorExpressionMixIn:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f"var {test_object.variable_name} = {stage.variable_name}"
-            f".foreignObject({test_object._width.variable_name}, "
-            f"{test_object._height.variable_name});"
+            f".foreignObject({test_object._width.variable_name}, 0);"
         )
         assert expected in expression

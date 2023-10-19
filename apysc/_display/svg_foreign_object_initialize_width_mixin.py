@@ -19,6 +19,14 @@ class SVGForeignObjectInitializeWidthMixIn:
         *,
         width: Union[int, Int],
     ) -> None:
+        """
+        Initialize the width attribute with the specified argument.
+
+        Parameters
+        ----------
+        width : Union[int, Int]
+            Element width value.
+        """
         from apysc._type.variable_name_suffix_attr_or_var_mixin import (
             VariableNameSuffixAttrOrVarMixIn
         )

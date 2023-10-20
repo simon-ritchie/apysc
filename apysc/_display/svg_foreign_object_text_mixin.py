@@ -21,7 +21,7 @@ class SVGForeignObjectTextMixIn:
         Parameters
         ----------
         text : Union[str, String]
-            Text value.
+            Text value. A HTML tag is available.
         """
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._type.variable_name_suffix_attr_or_var_mixin import (
@@ -36,4 +36,9 @@ class SVGForeignObjectTextMixIn:
         self._text = to_apysc_val_from_builtin.get_copied_string_from_builtin_val(
             string=text,
             variable_name_suffix=suffix,
+        )
+        self._text = String(
+            "<span>", variable_name_suffix=suffix
+        ) + self._text + String(
+            "</span>", variable_name_suffix=suffix
         )

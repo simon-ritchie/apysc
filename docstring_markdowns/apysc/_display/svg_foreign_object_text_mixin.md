@@ -13,4 +13,4 @@ Initialize the `_text` attribute.<hr>
 **[Parameters]**
 
 - `text`: Union[str, String]
-  - Text value. A HTML tag is available.
+  - Text value. An HTML tag is available.

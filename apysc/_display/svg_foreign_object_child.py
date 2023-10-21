@@ -77,7 +77,7 @@ class SVGForeignObjectChild(
 
         Returns
         -------
-        SVGForeignObjectChild
+        instance : SVGForeignObjectChild
             An initialized instance.
         """
         foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(html_str="")

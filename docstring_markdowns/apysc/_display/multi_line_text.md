@@ -13,7 +13,7 @@ The class implementation for a multiline text element.<hr>
 **[Parameters]**
 
 - `text`: Union[str, String]
-  - Text to display. A HTML tag is available.
+  - Text to display. An HTML tag is available.
 - `width`: Union[int, Int]
   - Width of the text to wrap.
 - `variable_name_suffix`: str, default ""

@@ -23,7 +23,7 @@ class SVGForeignObjectTextMixIn:
         Parameters
         ----------
         text : Union[str, String]
-            Text value. A HTML tag is available.
+            Text value. An HTML tag is available.
         """
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._type.variable_name_suffix_attr_or_var_mixin import (

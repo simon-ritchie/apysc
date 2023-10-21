@@ -27,7 +27,7 @@ Initialize this class with a base value(s).<hr>
 
 **[Returns]**
 
-- ``: 
+- `instance`: SVGForeignObjectChild
   - An initialized instance.
 
 ### `_make_snapshot` method docstring

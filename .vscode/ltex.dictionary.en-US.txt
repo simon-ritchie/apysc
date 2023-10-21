@@ -1,2 +1,4 @@
 docstring
 str
+foreignObject
+MultiLineText

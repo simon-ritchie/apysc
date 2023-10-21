@@ -13,6 +13,7 @@ from apysc._color.colors import Colors
 from apysc._color.copy_color_if_default_value_specified_mixin import (
     CopyColorIfDefaultValueSpecifiedMixIn,
 )
+from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
     AppendFillAlphaAttrExpressionMixIn,
 )
@@ -82,7 +83,6 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.add_to_parent_mixin import AddToParentMixIn
 
 
 class SVGText(

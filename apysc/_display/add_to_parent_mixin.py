@@ -4,6 +4,7 @@
 from typing import Optional
 
 from typing_extensions import final
+
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._html.debug_mode import add_debug_info_setting

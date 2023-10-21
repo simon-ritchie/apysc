@@ -2,3 +2,4 @@ docstring
 str
 foreignObject
 MultiLineText
+docstrings

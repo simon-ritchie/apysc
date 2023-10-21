@@ -9,6 +9,7 @@ from typing_extensions import final
 from apysc._color.color import Color
 from apysc._color.colorless import COLORLESS
 from apysc._display import graphics
+from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
     AppendFillAlphaAttrExpressionMixIn,
 )
@@ -77,7 +78,6 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.add_to_parent_mixin import AddToParentMixIn
 
 
 class Ellipse(

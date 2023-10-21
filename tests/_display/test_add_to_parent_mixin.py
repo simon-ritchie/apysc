@@ -1,4 +1,3 @@
-from apysc._display.add_to_parent_mixin import AddToParentMixIn
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 

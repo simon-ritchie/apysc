@@ -1,12 +1,15 @@
 """The class implementation for the `MultiLineText` class.
 """
 
+from typing import Optional
 from typing import Union
 
 from apysc._display.add_foreign_object_child_mixin import AddForeignObjectChildMixIn
+from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_foreign_object_constructor_expression_mixin import (
     AppendForeignObjectConstructorExpressionMixIn,
 )
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.set_overflow_visible_setting_mixin import (
@@ -24,9 +27,6 @@ from apysc._loop.initialize_with_base_value_interface import (
 from apysc._type.int import Int
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._display.add_to_parent_mixin import AddToParentMixIn
-from typing import Optional
-from apysc._display.child_mixin import ChildMixIn
 from apysc._validation import arg_validation_decos
 
 
@@ -64,13 +64,13 @@ class MultiLineText(
             Text to display. An HTML tag is available.
         width : Union[int, Int]
             Width of the text to wrap.
-        variable_name_suffix : str, default ""
-            A JavaScript variable name suffix string.
-            This setting is sometimes useful for JavaScript debugging.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
             a stage instance.
+        variable_name_suffix : str, default ""
+            A JavaScript variable name suffix string.
+            This setting is sometimes useful for JavaScript debugging.
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

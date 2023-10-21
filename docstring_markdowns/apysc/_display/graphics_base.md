@@ -15,15 +15,6 @@ Vector graphic base class.<hr>
 - `variable_name`: str
   - Variable name of this instance. This will be used to js expression.
 
-### `_add_to_parent` method docstring
-
-Add this instance to a specified parent instance.<hr>
-
-**[Parameters]**
-
-- `parent`: Optional[ChildMixIn]
-  - A parent instance. If the specified value is None, this interface uses a stage instance.
-
 ### `_set_initial_basic_values` method docstring
 
 Set initial fundamental values (such as the fill color or line thickness).<hr>

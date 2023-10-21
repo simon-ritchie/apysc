@@ -2,18 +2,18 @@
 
 ## Module summary
 
-This module is for the argument validations' decorators. Mainly the following decorators exist. <br>・not_empty_string <br> ・Set a validation to check that a specified argument's string is not empty. <br>・handler_args_num <br> ・Set a validation to check a specified handler argument's number. <br>・handler_options_type <br> ・Set a validation to check a specified handler-options argument's type. <br>・is_event <br> ・Set a validation to check a specified argument's type is the `ap.Event` or its subclass type. <br>・is_num <br> ・Set a validation to check a specified argument's type is the number-related type. <br>・is_apysc_num <br> ・Set a validation to check a specified argument's type is the `ap.Int` or `ap.Number` type. <br>・is_integer <br> ・Set a validation to check a specified argument's type is the `int` or `ap.Int`. <br>・is_builtin_integer <br> ・Set a validation to check a specified argument's type is the built-in `int`. <br>・is_apysc_integer <br> ・Set a validation to check a specified argument's type is the `ap.Int`. <br>・is_apysc_int_or_number <br> ・Set a validation to check a specified argument's type is the `ap.Int` or `ap.Number`. <br>・is_uint8_range <br> ・Set a validation to check a specified argument's value is a range of 8-bit unsigned integer. <br>・num_is_gt_zero <br> ・Set a validation to check that a specified argument's value is greater than zero. <br>・num_is_gte_zero <br> ・Set a validation to check that a specified argument's value is greater than or equal to zero. <br>・num_is_0_to_1_range <br> ・Set a validation to check that a specified argument's value is 0.0 to 1.0 range. <br>・num_is_between <br> ・Set a validation to check whether a specified argument's value is between minimum and maximum values. <br>・variadic_args_len_is_between <br> ・Set a validation to check a variadic arguments' length is a range of minimum and maximum values. <br>・all_variadic_args_are_integers <br> ・Set a validation to check a specified variadic arguments' types are all integers. <br>・is_boolean <br> ・Set a validation to check that a specified argument's type is the `bool` or `ap.Boolean`. <br>・is_builtin_boolean <br> ・Set a validation to check that a specified argument's type is the built-in `bool`. <br>・is_apysc_boolean <br> ・Set a validation to check that a specified argument's type is the `ap.Boolean`. <br>・is_easing <br> ・Set a validation to check a specified argument's type is the `ap.Easing`. <br>・is_string <br> ・Set a validation to check a specified argument's type is the str or `ap.String`. <br>・is_builtin_string <br> ・Set a validation to check a specified argument's type is the Python built-in's `str`. <br>・is_apysc_string <br> ・Set a validation to check a specified argument's type is the `ap.String`. <br>・is_hex_color_code_format <br> ・Set a validation to check a specified argument's value is a hexadecimal color code format. <br>・is_color <br> ・Set a validation to check a specified argument's type is the `ap.Color`. <br>・are_animations <br> ・Set a validation to check a specified argument's type is the list of `ap.AnimationBase`. <br>・is_vars_dict <br> ・Set a validation to check a specified argument's value is a variables' dictionary. <br>・is_display_object <br> ・Set a validation to check a specified argument's type is the `ap.DisplayObject` or its subclass type. <br>・is_display_object_container <br> ・Set a validation to check a specified argument's type is a container of a display object instance. <br>・is_point_2d <br> ・Set a validation to check a specified argument's type is the `ap.Point2D`. <br>・are_point_2ds <br> ・Set a validation to check a specified argument's type is the list of `ap.Point2D`. <br>・is_valid_path_data_list <br> ・Set a validation to check a specified argument's type is the list of `ap.PathDataBase`. <br>・is_line_cap <br> ・Set a validation to check a specified argument's type is a line cap-related type. <br>・are_line_joints <br> ・Set a validation to check a specified argument's type is a line joints-related type. <br>・multiple_line_settings_are_not_set <br> ・Set a validation to check a specified argument's instance does not have multiple line settings. <br>・is_line_dot_setting <br> ・Set a validation to check a specified argument's type is the `ap.LineDotSetting`. <br>・is_line_dash_setting <br> ・Set a validation to check a specified argument's type is the `ap.LineDashSetting`. <br>・is_line_dash_dot_setting <br> ・Set a validation to check a specified argument's type is the `ap.LineDashDotSetting`. <br>・is_line_round_dot_setting <br> ・Set a validation to check a specified argument's type is the `ap.LineRoundDotSetting`. <br>・is_variable_name_interface_type <br> ・Set a validation to check a specified argument's type is the `ap.VariableNameMixIn` or its subclass type. <br>・is_acceptable_array_value <br> ・Set a validation to check a specified argument's type is an acceptable array value type. <br>・is_acceptable_dictionary_value <br> ・Set a validation to check a specified argument's type is an acceptable dictionary value type. <br>・is_builtin_dict <br> ・Set a validation to check a specified argument's type is the Python's `dict` type. <br>・is_apysc_dict <br> ・Set a validation to check a specified argument's type is the `ap.Dictionary` type. <br>・is_acceptable_boolean_value <br> ・Set a validation to check a specified argument's type is an acceptable boolean value type. <br>・is_fps <br> ・Set a validation to check a specified argument's value is the FPS enum. <br>・is_four_digit_year <br> ・Set a validation to check a specified argument's value is a four-digit year (full-year). <br>・is_month_int <br> ・Set a validation to check a specified argument's value is a valid month integer (1-12). <br>・is_day_int <br> ・Set a validation to check a specified argument's value is a valid day integer (1-31). <br>・is_hour_int <br> ・Set a validation to check a specified argument's value is a valid hour integer (0-23). <br>・is_minute_int <br> ・Set a validation to check a specified argument's value is a valid minute integer (0-59). <br>・is_second_int <br> ・Set a validation to check a specified argument's value is a valid second integer (0-59). <br>・is_millisecond_int <br> ・Set a validation to check a specified argument's value is a valid millisecond integer (0-999). <br>・is_apysc_datetime <br> ・Set a validation to check a specified argument's type is the apysc's `DateTime` type. <br>・is_apysc_array <br> ・Set a validation to check a specified argument's type is the `ap.Array` <br>・is_nums_array <br> ・Set a validation to check a specified `Array`'s values are all number-relate type. <br>・is_apysc_string_array <br> ・Set a validation to check a specified `Array`'s values are all apysc's `String` type. <br>・is_builtin_str_list_or_apysc_str_arr <br> ・Set a validation to check a specified argument's type is list of Python's str or Array of apysc's String. <br>・is_svg_text_align <br> ・Set a validation to check a specified argument's type is the `SVGTextAlign`. <br>・are_text_spans <br> ・Set a validation to check a specified argument's type is the list or `ap.Array` of `ap.SVGTextSpan`. <br>・is_x_axis_label_position <br> ・Set a validation to check a specified argument's type is the `XAxisLabelPosition`. <br>・is_y_axis_label_position <br> ・Set a validation to check a specified argument's type is the `YAxisLabelPosition`. <br>・is_list_or_array_matrix_data <br> ・Set a validation to check a specified argument's type is list of dicts or `ap.Array` of `ap.Dictionary`. <br>・is_initialize_with_base_value_interface_subclass <br> ・Set a validation to check a specified class is the `InitializeWithBaseValueInterface`'s subclas.
+This module is for the argument validations' decorators. Mainly the following decorators exist. <br>・not_empty_string <br> ・Set a validation to check that the specified argument's string is not empty. <br>・handler_args_num <br> ・Set a validation to check the specified handler argument's number. <br>・handler_options_type <br> ・Set a validation to check the specified handler-options argument's type. <br>・is_event <br> ・Set a validation to check the specified argument's type is the `ap.Event` or its subclass type. <br>・is_num <br> ・Set a validation to check the specified argument's type is the number-related type. <br>・is_apysc_num <br> ・Set a validation to check the specified argument's type is the `ap.Int` or `ap.Number` type. <br>・is_integer <br> ・Set a validation to check the specified argument's type is the `int` or `ap.Int`. <br>・is_builtin_integer <br> ・Set a validation to check the specified argument's type is the built-in `int`. <br>・is_apysc_integer <br> ・Set a validation to check the specified argument's type is the `ap.Int`. <br>・is_apysc_int_or_number <br> ・Set a validation to check the specified argument's type is the `ap.Int` or `ap.Number`. <br>・is_uint8_range <br> ・Set a validation to check the specified argument's value is a range of 8-bit unsigned integer. <br>・num_is_gt_zero <br> ・Set a validation to check that the specified argument's value is greater than zero. <br>・num_is_gte_zero <br> ・Set a validation to check that the specified argument's value is greater than or equal to zero. <br>・num_is_0_to_1_range <br> ・Set a validation to check that the specified argument's value is 0.0 to 1.0 range. <br>・num_is_between <br> ・Set a validation to check whether the specified argument's value is between minimum and maximum values. <br>・variadic_args_len_is_between <br> ・Set a validation to check a variadic arguments' length is a range of minimum and maximum values. <br>・all_variadic_args_are_integers <br> ・Set a validation to check the specified variadic arguments' types are all integers. <br>・is_boolean <br> ・Set a validation to check that the specified argument's type is the `bool` or `ap.Boolean`. <br>・is_builtin_boolean <br> ・Set a validation to check that the specified argument's type is the built-in `bool`. <br>・is_apysc_boolean <br> ・Set a validation to check that the specified argument's type is the `ap.Boolean`. <br>・is_easing <br> ・Set a validation to check the specified argument's type is the `ap.Easing`. <br>・is_string <br> ・Set a validation to check the specified argument's type is the str or `ap.String`. <br>・is_builtin_string <br> ・Set a validation to check the specified argument's type is the Python built-in's `str`. <br>・is_apysc_string <br> ・Set a validation to check the specified argument's type is the `ap.String`. <br>・is_hex_color_code_format <br> ・Set a validation to check the specified argument's value is a hexadecimal color code format. <br>・is_color <br> ・Set a validation to check the specified argument's type is the `ap.Color`. <br>・are_animations <br> ・Set a validation to check the specified argument's type is the list of `ap.AnimationBase`. <br>・is_vars_dict <br> ・Set a validation to check the specified argument's value is a variables' dictionary. <br>・is_display_object <br> ・Set a validation to check the specified argument's type is the `ap.DisplayObject` or its subclass type. <br>・is_display_object_container <br> ・Set a validation to check the specified argument's type is a container of a display object instance. <br>・is_point_2d <br> ・Set a validation to check the specified argument's type is the `ap.Point2D`. <br>・are_point_2ds <br> ・Set a validation to check the specified argument's type is the list of `ap.Point2D`. <br>・is_valid_path_data_list <br> ・Set a validation to check the specified argument's type is the list of `ap.PathDataBase`. <br>・is_line_cap <br> ・Set a validation to check the specified argument's type is a line cap-related type. <br>・are_line_joints <br> ・Set a validation to check the specified argument's type is a line joints-related type. <br>・multiple_line_settings_are_not_set <br> ・Set a validation to check the specified argument's instance does not have multiple line settings. <br>・is_line_dot_setting <br> ・Set a validation to check the specified argument's type is the `ap.LineDotSetting`. <br>・is_line_dash_setting <br> ・Set a validation to check the specified argument's type is the `ap.LineDashSetting`. <br>・is_line_dash_dot_setting <br> ・Set a validation to check the specified argument's type is the `ap.LineDashDotSetting`. <br>・is_line_round_dot_setting <br> ・Set a validation to check the specified argument's type is the `ap.LineRoundDotSetting`. <br>・is_variable_name_interface_type <br> ・Set a validation to check the specified argument's type is the `ap.VariableNameMixIn` or its subclass type. <br>・is_acceptable_array_value <br> ・Set a validation to check the specified argument's type is an acceptable array value type. <br>・is_acceptable_dictionary_value <br> ・Set a validation to check the specified argument's type is an acceptable dictionary value type. <br>・is_builtin_dict <br> ・Set a validation to check the specified argument's type is the Python's `dict` type. <br>・is_apysc_dict <br> ・Set a validation to check the specified argument's type is the `ap.Dictionary` type. <br>・is_acceptable_boolean_value <br> ・Set a validation to check the specified argument's type is an acceptable boolean value type. <br>・is_fps <br> ・Set a validation to check the specified argument's value is the FPS enum. <br>・is_four_digit_year <br> ・Set a validation to check the specified argument's value is a four-digit year (full-year). <br>・is_month_int <br> ・Set a validation to check the specified argument's value is a valid month integer (1-12). <br>・is_day_int <br> ・Set a validation to check the specified argument's value is a valid day integer (1-31). <br>・is_hour_int <br> ・Set a validation to check the specified argument's value is a valid hour integer (0-23). <br>・is_minute_int <br> ・Set a validation to check the specified argument's value is a valid minute integer (0-59). <br>・is_second_int <br> ・Set a validation to check the specified argument's value is a valid second integer (0-59). <br>・is_millisecond_int <br> ・Set a validation to check the specified argument's value is a valid millisecond integer (0-999). <br>・is_apysc_datetime <br> ・Set a validation to check the specified argument's type is the apysc's `DateTime` type. <br>・is_apysc_array <br> ・Set a validation to check the specified argument's type is the `ap.Array` <br>・is_nums_array <br> ・Set a validation to check the specified `Array`'s values are all number-relate type. <br>・is_apysc_string_array <br> ・Set a validation to check the specified `Array`'s values are all apysc's `String` type. <br>・is_builtin_str_list_or_apysc_str_arr <br> ・Set a validation to check the specified argument's type is list of Python's str or Array of apysc's String. <br>・is_svg_text_align <br> ・Set a validation to check the specified argument's type is the `SVGTextAlign`. <br>・are_text_spans <br> ・Set a validation to check the specified argument's type is the list or `ap.Array` of `ap.SVGTextSpan`. <br>・is_x_axis_label_position <br> ・Set a validation to check the specified argument's type is the `XAxisLabelPosition`. <br>・is_y_axis_label_position <br> ・Set a validation to check the specified argument's type is the `YAxisLabelPosition`. <br>・is_list_or_array_matrix_data <br> ・Set a validation to check the specified argument's type is list of dicts or `ap.Array` of `ap.Dictionary`. <br>・is_initialize_with_base_value_interface_subclass <br> ・Set a validation to check the specified class is the `InitializeWithBaseValueInterface`'s subclas. <br>・is_svg_foreign_object_child <br> ・Set a validation to check the specified argument's type is the `SVGForeignObjectChild` class.
 
 ## `_extract_arg_value` function docstring
 
-Extract an argument value from a specified arguments' dictionary or list.<hr>
+Extract an argument value from the specified arguments' dictionary or list.<hr>
 
 **[Parameters]**
 
 - `args`: List[Any]
-  - A specified positional arguments' list.
+  - The specified positional arguments' list.
 - `kwargs`: Dict[str, Any]
-  - A specified keyword arguments' dictionary.'
+  - The specified keyword arguments' dictionary.'
 - `arg_position_index`: int
   - A target argument position index.
 - `callable_`: Callable
@@ -28,7 +28,7 @@ Extract an argument value from a specified arguments' dictionary or list.<hr>
 
 ## `_get_arg_name_by_index` function docstring
 
-Get an argument name from a specified argument position index.<hr>
+Get an argument name from the specified argument position index.<hr>
 
 **[Parameters]**
 
@@ -82,7 +82,7 @@ Get a default value of a given name's argument.<hr>
 
 ## `all_variadic_args_are_integers` function docstring
 
-Set a validation to check a specified variadic arguments' types are all integers.<hr>
+Set a validation to check the specified variadic arguments' types are all integers.<hr>
 
 **[Parameters]**
 
@@ -98,7 +98,7 @@ Set a validation to check a specified variadic arguments' types are all integers
 
 ## `are_animations` function docstring
 
-Set a validation to check a specified argument's type is the list of `ap.AnimationBase`.<hr>
+Set a validation to check the specified argument's type is the list of `ap.AnimationBase`.<hr>
 
 **[Parameters]**
 
@@ -114,14 +114,14 @@ Set a validation to check a specified argument's type is the list of `ap.Animati
 
 ## `are_line_joints` function docstring
 
-Set a validation to check a specified argument's type is a line joints-related type.<hr>
+Set a validation to check the specified argument's type is a line joints-related type.<hr>
 
 **[Parameters]**
 
 - `arg_position_index`: int
   - A target argument position index.
 - `optional`: bool
-  - A boolean indicating whether a specified argument can be the `None`.
+  - A boolean indicating whether the specified argument can be the `None`.
 
 <hr>
 
@@ -132,7 +132,7 @@ Set a validation to check a specified argument's type is a line joints-related t
 
 ## `are_point_2ds` function docstring
 
-Set a validation to check a specified argument's type is the list of `ap.Point`.<hr>
+Set a validation to check the specified argument's type is the list of `ap.Point`.<hr>
 
 **[Parameters]**
 
@@ -148,7 +148,7 @@ Set a validation to check a specified argument's type is the list of `ap.Point`.
 
 ## `are_text_spans` function docstring
 
-Set a validation to check a specified argument's type is the list or `ap.Array` of `ap.SVGTextSpan`.<hr>
+Set a validation to check the specified argument's type is the list or `ap.Array` of `ap.SVGTextSpan`.<hr>
 
 **[Parameters]**
 
@@ -164,7 +164,7 @@ Set a validation to check a specified argument's type is the list or `ap.Array` 
 
 ## `handler_args_num` function docstring
 
-Set a validation to check a specified handler argument's number.<hr>
+Set a validation to check the specified handler argument's number.<hr>
 
 **[Parameters]**
 
@@ -180,7 +180,7 @@ Set a validation to check a specified handler argument's number.<hr>
 
 ## `handler_options_type` function docstring
 
-Set a validation to check a specified handler-options argument's type.<hr>
+Set a validation to check the specified handler-options argument's type.<hr>
 
 **[Parameters]**
 
@@ -196,7 +196,7 @@ Set a validation to check a specified handler-options argument's type.<hr>
 
 ## `is_acceptable_array_value` function docstring
 
-Set a validation to check a specified argument's type is an acceptable array value type.<hr>
+Set a validation to check the specified argument's type is an acceptable array value type.<hr>
 
 **[Parameters]**
 
@@ -212,7 +212,7 @@ Set a validation to check a specified argument's type is an acceptable array val
 
 ## `is_acceptable_boolean_value` function docstring
 
-Set a validation to check a specified argument's type is an acceptable boolean value type.<hr>
+Set a validation to check the specified argument's type is an acceptable boolean value type.<hr>
 
 **[Parameters]**
 
@@ -228,7 +228,7 @@ Set a validation to check a specified argument's type is an acceptable boolean v
 
 ## `is_acceptable_dictionary_value` function docstring
 
-Set a validation to check a specified argument's type is an acceptable dictionary value type.<hr>
+Set a validation to check the specified argument's type is an acceptable dictionary value type.<hr>
 
 **[Parameters]**
 
@@ -244,7 +244,7 @@ Set a validation to check a specified argument's type is an acceptable dictionar
 
 ## `is_apysc_array` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Array`<hr>
+Set a validation to check the specified argument's type is the `ap.Array`<hr>
 
 **[Parameters]**
 
@@ -260,7 +260,7 @@ Set a validation to check a specified argument's type is the `ap.Array`<hr>
 
 ## `is_apysc_boolean` function docstring
 
-Set a validation to check that a specified argument's type is the `ap.Boolean`.<hr>
+Set a validation to check that the specified argument's type is the `ap.Boolean`.<hr>
 
 **[Parameters]**
 
@@ -276,7 +276,7 @@ Set a validation to check that a specified argument's type is the `ap.Boolean`.<
 
 ## `is_apysc_datetime` function docstring
 
-Set a validation to check a specified argument's type is the apysc's `DateTime` type.<hr>
+Set a validation to check the specified argument's type is the apysc's `DateTime` type.<hr>
 
 **[Parameters]**
 
@@ -292,7 +292,7 @@ Set a validation to check a specified argument's type is the apysc's `DateTime` 
 
 ## `is_apysc_dict` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Dictionary` type.<hr>
+Set a validation to check the specified argument's type is the `ap.Dictionary` type.<hr>
 
 **[Parameters]**
 
@@ -308,7 +308,7 @@ Set a validation to check a specified argument's type is the `ap.Dictionary` typ
 
 ## `is_apysc_int_or_number` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Int` or `ap.Number`.<hr>
+Set a validation to check the specified argument's type is the `ap.Int` or `ap.Number`.<hr>
 
 **[Parameters]**
 
@@ -324,7 +324,7 @@ Set a validation to check a specified argument's type is the `ap.Int` or `ap.Num
 
 ## `is_apysc_integer` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Int`.<hr>
+Set a validation to check the specified argument's type is the `ap.Int`.<hr>
 
 **[Parameters]**
 
@@ -340,7 +340,7 @@ Set a validation to check a specified argument's type is the `ap.Int`.<hr>
 
 ## `is_apysc_num` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Int` or `ap.Number` type.<hr>
+Set a validation to check the specified argument's type is the `ap.Int` or `ap.Number` type.<hr>
 
 **[Parameters]**
 
@@ -356,7 +356,7 @@ Set a validation to check a specified argument's type is the `ap.Int` or `ap.Num
 
 ## `is_apysc_string` function docstring
 
-Set a validation to check a specified argument's type is the `ap.String`.<hr>
+Set a validation to check the specified argument's type is the `ap.String`.<hr>
 
 **[Parameters]**
 
@@ -372,7 +372,7 @@ Set a validation to check a specified argument's type is the `ap.String`.<hr>
 
 ## `is_apysc_string_array` function docstring
 
-Set a validation to check a specified `Array`'s values are all apysc's `String` type.<hr>
+Set a validation to check the specified `Array`'s values are all apysc's `String` type.<hr>
 
 **[Parameters]**
 
@@ -390,7 +390,7 @@ Set a validation to check a specified `Array`'s values are all apysc's `String` 
 
 ## `is_boolean` function docstring
 
-Set a validation to check that a specified argument's type is the `bool` or `ap.Boolean`.<hr>
+Set a validation to check that the specified argument's type is the `bool` or `ap.Boolean`.<hr>
 
 **[Parameters]**
 
@@ -408,7 +408,7 @@ Set a validation to check that a specified argument's type is the `bool` or `ap.
 
 ## `is_builtin_boolean` function docstring
 
-Set a validation to check that a specified argument's type is the built-in `bool`.<hr>
+Set a validation to check that the specified argument's type is the built-in `bool`.<hr>
 
 **[Parameters]**
 
@@ -424,7 +424,7 @@ Set a validation to check that a specified argument's type is the built-in `bool
 
 ## `is_builtin_dict` function docstring
 
-Set a validation to check a specified argument's type is the Python's `dict` type.<hr>
+Set a validation to check the specified argument's type is the Python's `dict` type.<hr>
 
 **[Parameters]**
 
@@ -440,7 +440,7 @@ Set a validation to check a specified argument's type is the Python's `dict` typ
 
 ## `is_builtin_integer` function docstring
 
-Set a validation to check a specified argument's type is the built-in `int`.<hr>
+Set a validation to check the specified argument's type is the built-in `int`.<hr>
 
 **[Parameters]**
 
@@ -456,7 +456,7 @@ Set a validation to check a specified argument's type is the built-in `int`.<hr>
 
 ## `is_builtin_str_list_or_apysc_str_arr` function docstring
 
-Set a validation to check a specified argument's type is list of Python's str or Array of apysc's String.<hr>
+Set a validation to check the specified argument's type is list of Python's str or Array of apysc's String.<hr>
 
 **[Parameters]**
 
@@ -474,7 +474,7 @@ Set a validation to check a specified argument's type is list of Python's str or
 
 ## `is_builtin_string` function docstring
 
-Set a validation to check a specified argument's type is the Python built-in's `str`.<hr>
+Set a validation to check the specified argument's type is the Python built-in's `str`.<hr>
 
 **[Parameters]**
 
@@ -492,7 +492,7 @@ Set a validation to check a specified argument's type is the Python built-in's `
 
 ## `is_color` function docstring
 
-Set a validation to check a specified argument's value is a hexadecimal color code format.<hr>
+Set a validation to check the specified argument's value is a hexadecimal color code format.<hr>
 
 **[Parameters]**
 
@@ -510,7 +510,7 @@ Set a validation to check a specified argument's value is a hexadecimal color co
 
 ## `is_day_int` function docstring
 
-Set a validation to check a specified argument's value is a valid day integer (1-31).<hr>
+Set a validation to check the specified argument's value is a valid day integer (1-31).<hr>
 
 **[Parameters]**
 
@@ -526,7 +526,7 @@ Set a validation to check a specified argument's value is a valid day integer (1
 
 ## `is_display_object` function docstring
 
-Set a validation to check a specified argument's type is the `ap.DisplayObject` or its subclass type.<hr>
+Set a validation to check the specified argument's type is the `ap.DisplayObject` or its subclass type.<hr>
 
 **[Parameters]**
 
@@ -542,7 +542,7 @@ Set a validation to check a specified argument's type is the `ap.DisplayObject` 
 
 ## `is_display_object_container` function docstring
 
-Set a validation to check a specified argument's type is a container of a display object instance.<hr>
+Set a validation to check the specified argument's type is a container of a display object instance.<hr>
 
 **[Parameters]**
 
@@ -560,7 +560,7 @@ Set a validation to check a specified argument's type is a container of a displa
 
 ## `is_easing` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Easing`.<hr>
+Set a validation to check the specified argument's type is the `ap.Easing`.<hr>
 
 **[Parameters]**
 
@@ -576,7 +576,7 @@ Set a validation to check a specified argument's type is the `ap.Easing`.<hr>
 
 ## `is_event` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Event` or its subclass type.<hr>
+Set a validation to check the specified argument's type is the `ap.Event` or its subclass type.<hr>
 
 **[Parameters]**
 
@@ -592,7 +592,7 @@ Set a validation to check a specified argument's type is the `ap.Event` or its s
 
 ## `is_four_digit_year` function docstring
 
-Set a validation to check a specified argument's value is a four-digit year (full-year).<hr>
+Set a validation to check the specified argument's value is a four-digit year (full-year).<hr>
 
 **[Parameters]**
 
@@ -608,7 +608,7 @@ Set a validation to check a specified argument's value is a four-digit year (ful
 
 ## `is_fps` function docstring
 
-Set a validation to check a specified argument's value is the FPS enum.<hr>
+Set a validation to check the specified argument's value is the FPS enum.<hr>
 
 **[Parameters]**
 
@@ -624,7 +624,7 @@ Set a validation to check a specified argument's value is the FPS enum.<hr>
 
 ## `is_hex_color_code_format` function docstring
 
-Set a validation to check a specified argument's value in a hexadecimal color code format.<hr>
+Set a validation to check the specified argument's value in a hexadecimal color code format.<hr>
 
 **[Parameters]**
 
@@ -642,7 +642,7 @@ Set a validation to check a specified argument's value in a hexadecimal color co
 
 ## `is_hour_int` function docstring
 
-Set a validation to check a specified argument's value is a valid hour integer (0-23).<hr>
+Set a validation to check the specified argument's value is a valid hour integer (0-23).<hr>
 
 **[Parameters]**
 
@@ -658,7 +658,7 @@ Set a validation to check a specified argument's value is a valid hour integer (
 
 ## `is_initialize_with_base_value_interface_subclass` function docstring
 
-Set a validation to check a specified class is the `InitializeWithBaseValueInterface`'s subclas.<hr>
+Set a validation to check the specified class is the `InitializeWithBaseValueInterface`'s subclas.<hr>
 
 **[Parameters]**
 
@@ -676,7 +676,7 @@ Set a validation to check a specified class is the `InitializeWithBaseValueInter
 
 ## `is_integer` function docstring
 
-Set a validation to check a specified argument's type is the `int` or `ap.Int`.<hr>
+Set a validation to check the specified argument's type is the `int` or `ap.Int`.<hr>
 
 **[Parameters]**
 
@@ -694,14 +694,14 @@ Set a validation to check a specified argument's type is the `int` or `ap.Int`.<
 
 ## `is_line_cap` function docstring
 
-Set a validation to check a specified argument's type is a line cap-related type.<hr>
+Set a validation to check the specified argument's type is a line cap-related type.<hr>
 
 **[Parameters]**
 
 - `arg_position_index`: int
   - A target argument position index.
 - `optional`: bool
-  - A boolean indicating whether a specified argument can be the `None`.
+  - A boolean indicating whether the specified argument can be the `None`.
 
 <hr>
 
@@ -712,7 +712,7 @@ Set a validation to check a specified argument's type is a line cap-related type
 
 ## `is_line_dash_dot_setting` function docstring
 
-Set a validation to check a specified argument's type is the `ap.LineDashDotSetting`.<hr>
+Set a validation to check the specified argument's type is the `ap.LineDashDotSetting`.<hr>
 
 **[Parameters]**
 
@@ -728,7 +728,7 @@ Set a validation to check a specified argument's type is the `ap.LineDashDotSett
 
 ## `is_line_dash_setting` function docstring
 
-Set a validation to check a specified argument's type is the `ap.LineDashSetting`.<hr>
+Set a validation to check the specified argument's type is the `ap.LineDashSetting`.<hr>
 
 **[Parameters]**
 
@@ -744,7 +744,7 @@ Set a validation to check a specified argument's type is the `ap.LineDashSetting
 
 ## `is_line_dot_setting` function docstring
 
-Set a validation to check a specified argument's type is the `ap.LineDotSetting`.<hr>
+Set a validation to check the specified argument's type is the `ap.LineDotSetting`.<hr>
 
 **[Parameters]**
 
@@ -760,7 +760,7 @@ Set a validation to check a specified argument's type is the `ap.LineDotSetting`
 
 ## `is_line_round_dot_setting` function docstring
 
-Set a validation to check a specified argument's type is the `ap.LineRoundDotSetting`.<hr>
+Set a validation to check the specified argument's type is the `ap.LineRoundDotSetting`.<hr>
 
 **[Parameters]**
 
@@ -776,7 +776,7 @@ Set a validation to check a specified argument's type is the `ap.LineRoundDotSet
 
 ## `is_list_or_array_matrix_data` function docstring
 
-Set a validation to check a specified argument's type is list of dicts or `ap.Array` of `ap.Dictionary`.<hr>
+Set a validation to check the specified argument's type is list of dicts or `ap.Array` of `ap.Dictionary`.<hr>
 
 **[Parameters]**
 
@@ -792,7 +792,7 @@ Set a validation to check a specified argument's type is list of dicts or `ap.Ar
 
 ## `is_millisecond_int` function docstring
 
-Set a validation to check a specified argument's value is a valid millisecond integer (0-999).<hr>
+Set a validation to check the specified argument's value is a valid millisecond integer (0-999).<hr>
 
 **[Parameters]**
 
@@ -808,7 +808,7 @@ Set a validation to check a specified argument's value is a valid millisecond in
 
 ## `is_minute_int` function docstring
 
-Set a validation to check a specified argument's value is a valid minute integer (0-59).<hr>
+Set a validation to check the specified argument's value is a valid minute integer (0-59).<hr>
 
 **[Parameters]**
 
@@ -824,7 +824,7 @@ Set a validation to check a specified argument's value is a valid minute integer
 
 ## `is_month_int` function docstring
 
-Set a validation to check a specified argument's value is a valid month integer (1-12).<hr>
+Set a validation to check the specified argument's value is a valid month integer (1-12).<hr>
 
 **[Parameters]**
 
@@ -840,7 +840,7 @@ Set a validation to check a specified argument's value is a valid month integer 
 
 ## `is_num` function docstring
 
-Set a validation to check a specified argument's type is the number-related type.<hr>
+Set a validation to check the specified argument's type is the number-related type.<hr>
 
 **[Parameters]**
 
@@ -858,7 +858,7 @@ Set a validation to check a specified argument's type is the number-related type
 
 ## `is_nums_array` function docstring
 
-Set a validation to check a specified `Array`'s values are all number-relate type.<hr>
+Set a validation to check the specified `Array`'s values are all number-relate type.<hr>
 
 **[Parameters]**
 
@@ -874,7 +874,7 @@ Set a validation to check a specified `Array`'s values are all number-relate typ
 
 ## `is_point_2d` function docstring
 
-Set a validation to check a specified argument's type is the `ap.Point2D`.<hr>
+Set a validation to check the specified argument's type is the `ap.Point2D`.<hr>
 
 **[Parameters]**
 
@@ -890,7 +890,7 @@ Set a validation to check a specified argument's type is the `ap.Point2D`.<hr>
 
 ## `is_second_int` function docstring
 
-Set a validation to check a specified argument's value is a valid second integer (0-59).<hr>
+Set a validation to check the specified argument's value is a valid second integer (0-59).<hr>
 
 **[Parameters]**
 
@@ -906,7 +906,7 @@ Set a validation to check a specified argument's value is a valid second integer
 
 ## `is_string` function docstring
 
-Set a validation to check a specified argument's type is the str or `ap.String`.<hr>
+Set a validation to check the specified argument's type is the str or `ap.String`.<hr>
 
 **[Parameters]**
 
@@ -922,9 +922,25 @@ Set a validation to check a specified argument's type is the str or `ap.String`.
 - `wrapped`: Callable
   - Wrapped callable object.
 
+## `is_svg_foreign_object_child` function docstring
+
+Set a validation to check the specified argument's type is the `SVGForeignObjectChild` class.<hr>
+
+**[Parameters]**
+
+- `arg_position_index`: int
+  - A target argument position index.
+
+<hr>
+
+**[Returns]**
+
+- `wrapped`: Callable
+  - Wrapped callable object.
+
 ## `is_svg_text_align` function docstring
 
-Set a validation to check a specified argument's type is the `SVGTextAlign`.<hr>
+Set a validation to check the specified argument's type is the `SVGTextAlign`.<hr>
 
 **[Parameters]**
 
@@ -940,7 +956,7 @@ Set a validation to check a specified argument's type is the `SVGTextAlign`.<hr>
 
 ## `is_uint8_range` function docstring
 
-Set a validation to check a specified argument's value is a range of unsigned integer.<hr>
+Set a validation to check the specified argument's value is a range of unsigned integer.<hr>
 
 **[Parameters]**
 
@@ -956,7 +972,7 @@ Set a validation to check a specified argument's value is a range of unsigned in
 
 ## `is_valid_path_data_list` function docstring
 
-Set a validation to check a specified argument's type is the list of `ap.PathDataBase` and a first value is an instance of the `PathMoveTo`.<hr>
+Set a validation to check the specified argument's type is the list of `ap.PathDataBase` and a first value is an instance of the `PathMoveTo`.<hr>
 
 **[Parameters]**
 
@@ -972,7 +988,7 @@ Set a validation to check a specified argument's type is the list of `ap.PathDat
 
 ## `is_variable_name_interface_type` function docstring
 
-Set a validation to check a specified argument's type is the `ap.VariableNameMixIn` or its subclass type.<hr>
+Set a validation to check the specified argument's type is the `ap.VariableNameMixIn` or its subclass type.<hr>
 
 **[Parameters]**
 
@@ -988,7 +1004,7 @@ Set a validation to check a specified argument's type is the `ap.VariableNameMix
 
 ## `is_vars_dict` function docstring
 
-Set a validation to check a specified argument's value is a variables' dictionary.<hr>
+Set a validation to check the specified argument's value is a variables' dictionary.<hr>
 
 **[Parameters]**
 
@@ -1006,7 +1022,7 @@ Set a validation to check a specified argument's value is a variables' dictionar
 
 ## `is_x_axis_label_position` function docstring
 
-Set a validation to check a specified argument's type is the `XAxisLabelPosition`.<hr>
+Set a validation to check the specified argument's type is the `XAxisLabelPosition`.<hr>
 
 **[Parameters]**
 
@@ -1022,7 +1038,7 @@ Set a validation to check a specified argument's type is the `XAxisLabelPosition
 
 ## `is_y_axis_label_position` function docstring
 
-Set a validation to check a specified argument's type is the `YAxisLabelPosition`.<hr>
+Set a validation to check the specified argument's type is the `YAxisLabelPosition`.<hr>
 
 **[Parameters]**
 
@@ -1038,7 +1054,7 @@ Set a validation to check a specified argument's type is the `YAxisLabelPosition
 
 ## `multiple_line_settings_are_not_set` function docstring
 
-Set a validation to check a specified argument's instance does not have multiple line settings.<hr>
+Set a validation to check the specified argument's instance does not have multiple line settings.<hr>
 
 **[Parameters]**
 
@@ -1054,7 +1070,7 @@ Set a validation to check a specified argument's instance does not have multiple
 
 ## `not_empty_string` function docstring
 
-Set a validation to check that a specified argument's string is not empty.<hr>
+Set a validation to check that the specified argument's string is not empty.<hr>
 
 **[Parameters]**
 
@@ -1070,7 +1086,7 @@ Set a validation to check that a specified argument's string is not empty.<hr>
 
 ## `num_is_0_to_1_range` function docstring
 
-Set a validation to check that a specified argument's value is 0.0 to 1.0 range.<hr>
+Set a validation to check that the specified argument's value is 0.0 to 1.0 range.<hr>
 
 **[Parameters]**
 
@@ -1088,7 +1104,7 @@ Set a validation to check that a specified argument's value is 0.0 to 1.0 range.
 
 ## `num_is_between` function docstring
 
-Set a validation to check whether a specified argument's value is between minimum and maximum values.<hr>
+Set a validation to check whether the specified argument's value is between minimum and maximum values.<hr>
 
 **[Parameters]**
 
@@ -1114,7 +1130,7 @@ This decorator only checks `int` and `float` values.
 
 ## `num_is_gt_zero` function docstring
 
-Set a validation to check that a specified argument's value is greater than zero.<hr>
+Set a validation to check that the specified argument's value is greater than zero.<hr>
 
 **[Parameters]**
 
@@ -1132,7 +1148,7 @@ Set a validation to check that a specified argument's value is greater than zero
 
 ## `num_is_gte_zero` function docstring
 
-Set a validation to check that a specified argument's value is greater than or equal to zero.<hr>
+Set a validation to check that the specified argument's value is greater than or equal to zero.<hr>
 
 **[Parameters]**
 

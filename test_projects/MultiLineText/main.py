@@ -30,7 +30,7 @@ def main() -> None:
         stage_width=1200,
         stage_height=900,
     )
-    text: ap.MultiLineText = ap.MultiLineText(text="<font color='red'>Hello World!</>", width=100)
+    ap.MultiLineText(text="<font color='red'>Hello World!</>", width=100)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

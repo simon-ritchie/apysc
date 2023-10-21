@@ -1,8 +1,9 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 from apysc._display.add_to_stage_mixin import AddToStageMixIn
-from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._display.css_mixin import CssMixIn
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
+from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class _TestValidObject(

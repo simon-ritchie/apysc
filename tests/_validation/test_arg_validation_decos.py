@@ -355,7 +355,8 @@ def test_are_animations() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        match="The specified animations' list cannot contain " "non-animation instance:",
+        match="The specified animations' list cannot contain "
+        "non-animation instance:",
         a=[10, 20],
     )
 

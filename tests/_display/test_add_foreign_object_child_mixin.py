@@ -1,4 +1,3 @@
-import apysc as ap
 from apysc._display.add_foreign_object_child_mixin import AddForeignObjectChildMixIn
 from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
 from apysc._expression import expression_data_util
@@ -19,7 +18,7 @@ class TestAddForeignObjectChildMixIn:
     def test__add_foreign_object_child(self) -> None:
         foreign_object: _TestObject = _TestObject()
         foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(
-            html_str='<div></div>',
+            html_str="<div></div>",
         )
         foreign_object._add_foreign_object_child(child=foreign_object_child)
         expression: str = expression_data_util.get_current_expression()

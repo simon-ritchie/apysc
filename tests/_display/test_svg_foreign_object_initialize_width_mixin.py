@@ -1,12 +1,9 @@
-import apysc as ap
 from apysc._display.svg_foreign_object_initialize_width_mixin import (
-    SVGForeignObjectInitializeWidthMixIn
+    SVGForeignObjectInitializeWidthMixIn,
 )
-from apysc._testing.testing_helper import apply_test_settings
-from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._display.width_mixin import WidthMixIn
-
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class _TestObject(
@@ -15,6 +12,9 @@ class _TestObject(
     SVGForeignObjectInitializeWidthMixIn,
 ):
     def __init__(self) -> None:
+        """
+        The class for testing of the `SVGForeignObjectInitializeWidthMixIn`.
+        """
         self.variable_name = "test_object"
         self._variable_name_suffix = "test_suffix"
 

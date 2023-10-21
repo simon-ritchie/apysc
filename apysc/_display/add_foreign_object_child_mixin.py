@@ -2,9 +2,10 @@
 """
 
 from typing_extensions import final
-from apysc._validation import arg_validation_decos
-from apysc._html.debug_mode import add_debug_info_setting
+
 from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class AddForeignObjectChildMixIn:
@@ -22,7 +23,7 @@ class AddForeignObjectChildMixIn:
         """
         from apysc._expression import expression_data_util
         from apysc._validation.variable_name_validation import (
-            validate_variable_name_mixin_type
+            validate_variable_name_mixin_type,
         )
 
         self_variable_name: str = validate_variable_name_mixin_type(

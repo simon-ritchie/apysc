@@ -2,21 +2,29 @@
 """
 
 from typing import Union
+
 from apysc._display.add_foreign_object_child_mixin import AddForeignObjectChildMixIn
 from apysc._display.add_to_stage_mixin import AddToStageMixIn
-from apysc._display.append_foreign_object_constructor_expression_mixin import AppendForeignObjectConstructorExpressionMixIn
+from apysc._display.append_foreign_object_constructor_expression_mixin import (
+    AppendForeignObjectConstructorExpressionMixIn,
+)
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
-from apysc._display.set_overflow_visible_setting_mixin import SetOverflowVisibleSettingMixIn
-from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
-from apysc._display.svg_foreign_object_initialize_width_mixin import SVGForeignObjectInitializeWidthMixIn
-from apysc._display.width_mixin import WidthMixIn
-from apysc._loop.initialize_with_base_value_interface import InitializeWithBaseValueInterface
-from apysc._type.int import Int
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.string import String
-from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.svg_foreign_object_child_mixin import SVGForeignObjectChildMixIn
+from apysc._display.svg_foreign_object_initialize_width_mixin import (
+    SVGForeignObjectInitializeWidthMixIn,
+)
+from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
+from apysc._display.width_mixin import WidthMixIn
+from apysc._loop.initialize_with_base_value_interface import (
+    InitializeWithBaseValueInterface,
+)
+from apysc._type.int import Int
+from apysc._type.string import String
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class MultiLineText(

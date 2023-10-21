@@ -1026,7 +1026,8 @@ def num_is_between(
                 )
                 if num < min_value:
                     raise ValueError(
-                        f"The specified argument value ({num}) is less than {min_value}."
+                        f"The specified argument value ({num}) is "
+                        f"less than {min_value}."
                         f"\n{callable_and_arg_names_msg}"
                     )
                 if num > max_value:
@@ -1432,7 +1433,8 @@ def is_apysc_string(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    f"the specified argument's type is not the ap.String: {type(string)}"
+                    "the specified argument's type is not the "
+                    f"ap.String: {type(string)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
@@ -2500,7 +2502,8 @@ def is_acceptable_boolean_value(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "The specified value's type is not an acceptable boolean value type: "
+                    "The specified value's type is not an acceptable "
+                    "boolean value type: "
                     f"{type(value)}\nAcceptable types: {acceptable_types}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -2599,8 +2602,8 @@ def is_four_digit_year(*, arg_position_index: int) -> _Callable:
                 year_str: str = str(year)
                 if len(year_str) != 4:
                     raise ValueError(
-                        f"The specified four-digit year is not a valid length: {year_str}"
-                        f"\n{callable_and_arg_names_msg}"
+                        f"The specified four-digit year is not a valid length: "
+                        f"{year_str}\n{callable_and_arg_names_msg}"
                     )
             return callable_(*args, **kwargs)
 
@@ -3498,9 +3501,7 @@ def is_svg_foreign_object_child(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._display.svg_foreign_object_child import (
-                SVGForeignObjectChild,
-            )
+            from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
 
             child: Any = _extract_arg_value(
                 args=args,

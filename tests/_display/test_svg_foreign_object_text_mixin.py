@@ -1,6 +1,6 @@
+import apysc as ap
 from apysc._display.multi_line_text import MultiLineText
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 class TestSVGForeignObjectTextMixIn:

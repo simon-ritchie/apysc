@@ -3,12 +3,15 @@
 
 
 from typing import Union
+
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
-from apysc._loop.initialize_with_base_value_interface import InitializeWithBaseValueInterface
+from apysc._loop.initialize_with_base_value_interface import (
+    InitializeWithBaseValueInterface,
+)
+from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.revert_mixin import RevertMixIn
 
 
 class SVGForeignObjectChild(
@@ -37,9 +40,9 @@ class SVGForeignObjectChild(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
+        from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._converter import to_apysc_val_from_builtin
 
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
@@ -89,7 +92,7 @@ class SVGForeignObjectChild(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_html_str'):
+        if not hasattr(self, "_html_str"):
             return
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
@@ -104,7 +107,7 @@ class SVGForeignObjectChild(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_html_str'):
+        if not hasattr(self, "_html_str"):
             return
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return

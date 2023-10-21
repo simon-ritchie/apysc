@@ -2,6 +2,7 @@
 """
 
 from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 
 
@@ -12,9 +13,9 @@ class AddToStageMixIn:
         """
         Add this instance to a stage instance.
         """
+        from apysc._display.display_object import DisplayObject
         from apysc._display.stage import Stage
         from apysc._display.stage import get_stage
-        from apysc._display.display_object import DisplayObject
 
         if not isinstance(self, DisplayObject):
             raise TypeError(

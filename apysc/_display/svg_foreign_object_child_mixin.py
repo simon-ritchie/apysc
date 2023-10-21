@@ -3,6 +3,7 @@ interfaces.
 """
 
 from typing import Union
+
 from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
 from apysc._type.string import String
 
@@ -27,7 +28,7 @@ class SVGForeignObjectChildMixIn:
             This setting is sometimes useful for JavaScript debugging.
         """
         from apysc._display.add_foreign_object_child_mixin import (
-            AddForeignObjectChildMixIn
+            AddForeignObjectChildMixIn,
         )
 
         if not isinstance(self, AddForeignObjectChildMixIn):

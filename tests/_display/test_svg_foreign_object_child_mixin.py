@@ -1,10 +1,9 @@
+from apysc._display.add_foreign_object_child_mixin import AddForeignObjectChildMixIn
 from apysc._display.svg_foreign_object_child_mixin import SVGForeignObjectChildMixIn
-from apysc._display.add_foreign_object_child_mixin import (
-    AddForeignObjectChildMixIn
-)
 from apysc._expression import expression_data_util
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 
 
 class _TestValidObject(
@@ -35,13 +34,13 @@ class TestSVGForeignObjectChildMixIn:
     def test__initialize_svg_foreign_object_child(self) -> None:
         valid_object: _TestValidObject = _TestValidObject()
         valid_object._initialize_svg_foreign_object_child(
-            html_str='<p>test</p>',
-            variable_name_suffix='test_suffix',
+            html_str="<p>test</p>",
+            variable_name_suffix="test_suffix",
         )
-        assert valid_object._svg_foreign_object_child._html_str == '<p>test</p>'
+        assert valid_object._svg_foreign_object_child._html_str == "<p>test</p>"
         assert (
             valid_object._svg_foreign_object_child._variable_name_suffix
-            == 'test_suffix'
+            == "test_suffix"
         )
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
@@ -54,5 +53,5 @@ class TestSVGForeignObjectChildMixIn:
         assert_raises(
             expected_error_class=TypeError,
             callable_=invalid_object._initialize_svg_foreign_object_child,
-            html_str='<p>test</p>',
+            html_str="<p>test</p>",
         )

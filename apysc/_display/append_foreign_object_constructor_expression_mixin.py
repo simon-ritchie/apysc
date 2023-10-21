@@ -3,12 +3,12 @@ method.
 """
 
 from typing_extensions import final
+
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 
 
 class AppendForeignObjectConstructorExpressionMixIn:
-
     _width: Int
 
     @final
@@ -19,10 +19,10 @@ class AppendForeignObjectConstructorExpressionMixIn:
         """
         from apysc._display.stage import Stage
         from apysc._display.stage import get_stage
-        from apysc._validation.variable_name_validation import (
-            validate_variable_name_mixin_type
-        )
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type,
+        )
 
         self_variable_name: str = validate_variable_name_mixin_type(
             instance=self

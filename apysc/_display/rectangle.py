@@ -274,7 +274,7 @@ class Rectangle(
             A dash-dot (1-dot chain) setting to set.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
-            If a specified value is None, this interface uses
+            If the specified value is None, this interface uses
             a stage instance.
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.

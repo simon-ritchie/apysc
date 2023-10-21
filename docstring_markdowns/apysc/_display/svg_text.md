@@ -77,7 +77,7 @@ The class for an SVG text.<hr>
 - `italic`: Union[bool, Boolean], optional
   - A boolean, whether a text is an italic style or not (normal).
 - `parent`: ChildMixIn or None, optional
-  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
+  - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
@@ -191,7 +191,7 @@ Create an `SVGText` instance with specified text spans.<hr>
 - `italic`: Union[bool, Boolean], optional
   - A boolean, whether a text is an italic style or not (normal).
 - `parent`: Optional[ChildMixIn], optional
-  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
+  - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 

@@ -368,7 +368,7 @@ def _get_init_line_color(*, line_color: Optional[Color]) -> Color:
     Returns
     -------
     line_color_ : Color
-        If a specified value is None, this interface returns the COLORLESS
+        If the specified value is None, this interface returns the COLORLESS
         constant.
     """
     if line_color is None:
@@ -390,7 +390,7 @@ def _get_init_fill_alpha_num(
     Returns
     -------
     fill_alpha_ : Union[float, Number]
-        If a specified value is None, this interface returns a 1.0 number.
+        If the specified value is None, this interface returns a 1.0 number.
     """
     if fill_alpha is None:
         return 1.0
@@ -409,7 +409,7 @@ def _get_init_fill_color(*, fill_color: Optional[Color]) -> Color:
     Returns
     -------
     fill_color_ : Color
-        If a specified value is None, this interface returns the COLORLESS
+        If the specified value is None, this interface returns the COLORLESS
         constant.
     """
     if fill_color is None:
@@ -432,7 +432,7 @@ def _get_init_line_alpha_num(
     Returns
     -------
     line_alpha_ : Union[float, Number]
-        If a specified value is None, this interface returns a 1.0 number.
+        If the specified value is None, this interface returns a 1.0 number.
     """
     if line_alpha is None:
         return 1.0
@@ -454,7 +454,7 @@ def _get_init_line_thickness_num(
     Returns
     -------
     line_thickness_ : Union[int, Int]
-        If a specified value is None, this interface returns 1 number.
+        If the specified value is None, this interface returns 1 number.
     """
     if line_thickness is None:
         return 1

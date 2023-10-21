@@ -270,7 +270,7 @@ class SVGText(
             A boolean, whether a text is an italic style or not (normal).
         parent : ChildMixIn or None, optional
             A parent instance to add this instance.
-            If a specified value is None, this interface uses
+            If the specified value is None, this interface uses
             a stage instance.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
@@ -483,7 +483,7 @@ class SVGText(
             A boolean, whether a text is an italic style or not (normal).
         parent : Optional[ChildMixIn], optional
             A parent instance to add this instance.
-            If a specified value is None, this interface uses
+            If the specified value is None, this interface uses
             a stage instance.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.

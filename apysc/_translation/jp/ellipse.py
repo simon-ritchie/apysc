@@ -253,7 +253,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `parent`: ChildMixIn or None, default None": "- `parent`: ChildMixIn or None, default None",  # noqa
     ##################################################
-    "  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.": "  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。",  # noqa
+    "  - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.": "  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。",  # noqa
     ##################################################
     '- `variable_name_suffix`: str, default ""': '- `variable_name_suffix`: str, default ""',  # noqa
     ##################################################

@@ -82,7 +82,7 @@ Create a rectangle vector graphic.<hr>
 - `line_dash_dot_setting`: LineDashDotSetting or None, default None
   - A dash-dot (1-dot chain) setting to set.
 - `parent`: ChildMixIn or None, default None
-  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.
+  - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 

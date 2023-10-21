@@ -1991,7 +1991,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - 設定する一点鎖線のスタイル設定。",
         ),
         Mapping(
-            key="  - A parent instance to add this instance. If a specified value is None, this interface uses a stage instance.",
+            key="  - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.",
             val="  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。",
         ),
         Mapping(key="## Circle class constructor API", val="## Circle クラスのコンストラクタのAPI"),

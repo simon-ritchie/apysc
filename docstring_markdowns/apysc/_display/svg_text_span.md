@@ -18,7 +18,7 @@ Get an initial fill-alpha number.<hr>
 **[Returns]**
 
 - `fill_alpha_`: Union[float, Number]
-  - If a specified value is None, this interface returns a 1.0 number.
+  - If the specified value is None, this interface returns a 1.0 number.
 
 ## `_get_init_fill_color` function docstring
 
@@ -34,7 +34,7 @@ Get an initial fill-color.<hr>
 **[Returns]**
 
 - `fill_color_`: Color
-  - If a specified value is None, this interface returns the COLORLESS constant.
+  - If the specified value is None, this interface returns the COLORLESS constant.
 
 ## `_get_init_line_alpha_num` function docstring
 
@@ -50,7 +50,7 @@ Get an initial line-alpha number.<hr>
 **[Returns]**
 
 - `line_alpha_`: Union[float, Number]
-  - If a specified value is None, this interface returns a 1.0 number.
+  - If the specified value is None, this interface returns a 1.0 number.
 
 ## `_get_init_line_color` function docstring
 
@@ -66,7 +66,7 @@ Get an initial line-color.<hr>
 **[Returns]**
 
 - `line_color_`: Color
-  - If a specified value is None, this interface returns the COLORLESS constant.
+  - If the specified value is None, this interface returns the COLORLESS constant.
 
 ## `_get_init_line_thickness_num` function docstring
 
@@ -82,7 +82,7 @@ Get an initial line-thickness (line-width) number.<hr>
 **[Returns]**
 
 - `line_thickness_`: Union[int, Int]
-  - If a specified value is None, this interface returns 1 number.
+  - If the specified value is None, this interface returns 1 number.
 
 ## `SVGTextSpan` class docstring
 

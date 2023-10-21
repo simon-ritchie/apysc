@@ -22,7 +22,7 @@ Add this instance to a specified parent instance.<hr>
 **[Parameters]**
 
 - `parent`: Optional[ChildMixIn]
-  - A parent instance. If a specified value is None, this interface uses a stage instance.
+  - A parent instance. If the specified value is None, this interface uses a stage instance.
 
 ### `_set_initial_basic_values` method docstring
 

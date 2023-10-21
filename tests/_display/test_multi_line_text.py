@@ -10,7 +10,6 @@ class TestMultiLineText:
 
     @apply_test_settings(retrying_max_attempts_num=0)
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         text: ap.MultiLineText = ap.MultiLineText(
             text="test text",

@@ -4,7 +4,7 @@ import apysc as ap
 
 
 class TestSVGForeignObjectTextMixIn:
-    @apply_test_settings()
+    @apply_test_settings(retrying_max_attempts_num=0)
     def test__initialize_text(self) -> None:
         text: MultiLineText = MultiLineText(
             text="test text",
@@ -12,6 +12,6 @@ class TestSVGForeignObjectTextMixIn:
             variable_name_suffix="test_suffix",
         )
         assert isinstance(text._text, ap.String)
-        assert text._text.value == "test text"
+        assert text._text._value == "<span>test text</span>"
         assert "test_suffix" in text._text.variable_name
         assert "text" in text._text.variable_name

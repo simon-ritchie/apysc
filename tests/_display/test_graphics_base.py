@@ -201,15 +201,3 @@ class TestGraphicsBase:
         assert graphics.line_dash_dot_setting == ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=5
         )
-
-    @apply_test_settings()
-    def test__add_to_parent(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        graphics: _TestGraphic = _TestGraphic(variable_name="test_graphics_1")
-        graphics._add_to_parent(parent=None)
-        assert graphics.parent == stage
-
-        sprite: ap.Sprite = ap.Sprite()
-        graphics = _TestGraphic(variable_name="test_graphics_1")
-        graphics._add_to_parent(parent=sprite)
-        assert graphics.parent == sprite

@@ -84,6 +84,7 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.add_to_parent_mixin import AddToParentMixIn
 
 
 class Polyline(
@@ -126,6 +127,7 @@ class Polyline(
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
+    AddToParentMixIn,
 ):
     """
     The polyline vector graphics class.

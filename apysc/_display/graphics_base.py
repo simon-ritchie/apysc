@@ -7,7 +7,6 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._color.color import Color
-from apysc._display.child_mixin import ChildMixIn
 from apysc._display.display_object import DisplayObject
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
@@ -15,7 +14,6 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc._display.stage import get_stage
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -41,22 +39,6 @@ class GraphicsBase(
             js expression.
         """
         super(GraphicsBase, self).__init__(variable_name=variable_name)
-
-    @final
-    @add_debug_info_setting(module_name=__name__)
-    def _add_to_parent(self, *, parent: Optional[ChildMixIn]) -> None:
-        """
-        Add this instance to a specified parent instance.
-
-        Parameters
-        ----------
-        parent : Optional[ChildMixIn]
-            A parent instance. If a specified value is None,
-            this interface uses a stage instance.
-        """
-        if parent is None:
-            parent = get_stage()
-        parent.add_child(child=self)
 
     @final
     @add_debug_info_setting(module_name=__name__)

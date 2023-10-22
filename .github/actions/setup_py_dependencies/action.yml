@@ -3,7 +3,7 @@ description: This composite run steps require the dependencies cache before runn
 inputs:
   python-version:
     description: Python version to use.
-    default: 3.11.1
+    required: true
 runs:
   using: composite
   steps:

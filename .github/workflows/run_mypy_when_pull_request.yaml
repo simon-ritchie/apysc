@@ -17,10 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set the Python version
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}
       - name: CreateCache
         uses: ./.github/actions/create_env_cache
         with:

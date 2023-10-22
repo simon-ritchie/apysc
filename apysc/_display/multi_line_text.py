@@ -92,9 +92,9 @@ class MultiLineText(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
+        from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._converter import to_apysc_val_from_builtin
 
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(

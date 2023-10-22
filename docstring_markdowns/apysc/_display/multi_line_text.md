@@ -14,7 +14,11 @@ The class implementation for a multiline text element.<hr>
 
 - `text`: Union[str, String]
   - Text to display. An HTML tag is available.
-- `width`: Union[int, Int]
+- `x`: Union[float, Number], default 0
+  - X-coordinate.
+- `y`: Union[float, Number], default 0
+  - Y-coordinate.
+- `width`: Union[int, Int], default 200
   - Width of the text to wrap.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.

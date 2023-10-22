@@ -1,4 +1,4 @@
-name: Run the mypy command when a pull request is created or updated
+name: Run the Pyright command when a pull request is created or updated
 on:
   pull_request:
     types: [opened, synchronize]
@@ -10,7 +10,7 @@ jobs:
       PYTHON_VERSION: 3.11.1
     steps:
       - run: echo 'Setting constans.'
-  RunMypy:
+  RunPyright:
     needs: SetGlobalConstants
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -25,8 +25,7 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_VERSION }}
-      - name: Set the mypy alias
-        run: alias mypy=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_VERSION }}/x64/bin/mypy
-        shell: bash
-      - name: Run the mypy command
-        run: python ./scripts/run_mypy.py
+      - name: Set the Pyright alias
+        run: alias pyright=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_VERSION }}/x64/bin/pyright
+      - name: Run the Pyright command
+        run: python ./scripts/run_pyright.py

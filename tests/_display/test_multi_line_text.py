@@ -13,11 +13,15 @@ class TestMultiLineText:
         sprite: ap.Sprite = ap.Sprite()
         text: ap.MultiLineText = ap.MultiLineText(
             text="test text",
+            x=100,
+            y=200,
             width=100,
             parent=sprite,
             variable_name_suffix="test_suffix",
         )
         assert isinstance(text._text, ap.String)
         assert text._text._value == "<span>test text</span>"
+        assert text.x._value == 100
+        assert text.y._value == 200
         assert "test_suffix" in text._text.variable_name
         assert text.parent == sprite

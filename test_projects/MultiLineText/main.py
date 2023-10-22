@@ -32,6 +32,13 @@ def main() -> None:
     )
     ap.MultiLineText(text="<font color='red'>Hello World!</>", width=100)
 
+    ap.MultiLineText(
+        text="<font color='red'>Hello World!</>",
+        width=100,
+        x=100,
+        y=50,
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

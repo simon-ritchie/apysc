@@ -1,0 +1,38 @@
+name: Cache each environment setting
+description: This composite run steps cache each environment setting.
+inputs:
+  python-version:
+    description: Python version to use.
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Set the Python version
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: Set the site package path to the environment variables
+      run: python -c "import site; print(f'site-packages-path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+      shell: bash
+    - name: Set the Python package cache
+      uses: actions/cache@v3
+      id: pip_cache
+      with:
+        path: ${{ env.site-packages-path }}
+        key: ${{ runner.os }}-pip-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
+    - name: Set the build-essential if there is no site-packages cache
+      if: steps.pip_cache.outputs.cache-hit != 'true'
+      run: sudo apt install build-essential
+      shell: bash
+    - name: Install each Python library if there is no site-packages cache
+      if: steps.pip_cache.outputs.cache-hit != 'true'
+      run: pip install -r requirements.txt
+      shell: bash
+    - name: Set the bin cache if there is no site-packages cache
+      if: steps.pip_cache.outputs.cache-hit != 'true'
+      uses: actions/cache@v3
+      with:
+        path: /opt/hostedtoolcache/Python/${{ inputs.python-version }}/x64/bin/
+        key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}

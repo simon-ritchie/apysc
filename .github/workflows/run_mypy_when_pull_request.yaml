@@ -1,0 +1,32 @@
+name: Run a mypy command when a pull request is created or updated
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  SetGlobalConstants:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      PYTHON_311_VERSION: 3.11.1
+    steps:
+      - run: echo 'Setting constans.'
+  RunMypy:
+    needs: SetGlobalConstants
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: CreateCache
+        uses: ./.github/actions/create_env_cache
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}
+      - name: Set the mypy alias
+        run: alias mypy=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_311_VERSION }}/x64/bin/mypy
+        shell: bash
+      - name: Run the mypy command
+        run: python ./scripts/run_mypy.py

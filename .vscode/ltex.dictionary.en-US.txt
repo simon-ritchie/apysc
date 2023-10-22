@@ -3,3 +3,4 @@ str
 foreignObject
 MultiLineText
 docstrings
+numdoclint

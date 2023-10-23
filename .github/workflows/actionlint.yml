@@ -5,6 +5,8 @@ on:
     paths:
       - '**.yaml'
       - '**.yml'
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   run_actionlint_with_reviewdog:

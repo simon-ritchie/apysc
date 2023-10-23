@@ -16,7 +16,7 @@ notebook==7.0.6
 pyright==1.1.332
 playwright==1.39.0
 myst-parser==2.0.0
-black==23.9.1
+black==23.10.0
 blackdoc==0.3.8
 tqdm==4.66.1
 pytest-xdist==3.3.1

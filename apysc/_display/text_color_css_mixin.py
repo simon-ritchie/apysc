@@ -27,3 +27,25 @@ class TextColorCSSMixIn:
         """
         self._initialize_color()
         return self._color
+
+    @color.setter
+    def color(self, value: Color) -> None:
+        """
+        Set a text color.
+
+        Parameters
+        ----------
+        value : Color
+            A text color.
+        """
+        from apysc._display.css_interface import CssInterface
+
+        if not isinstance(self, CssInterface):
+            raise TypeError(
+                "This method can only be called on an instance of CssInterface class."
+            )
+        self._color = value
+        self.set_css(
+            name="color",
+            value=self._color._value,
+        )

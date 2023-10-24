@@ -36,8 +36,25 @@ def main() -> None:
         text="<font color='red'>Hello World!</>",
         width=100,
         x=100,
-        y=50,
+        y=30,
     )
+
+    ap.MultiLineText(
+        text="Hello World!",
+        width=100,
+        x=50,
+        y=60,
+        fill_color=ap.Color("#0af"),
+    )
+
+    text: ap.MultiLineText = ap.MultiLineText(
+        text="Hello World!",
+        width=100,
+        x=50,
+        y=90,
+        fill_color=ap.Color("#0af"),
+    )
+    text.fill_color = ap.Color("#f0a")
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

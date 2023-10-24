@@ -31,6 +31,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.text_fill_color_css_mixin import TextFillColorCSSMixIn
+from apysc._color.color import Color
+from apysc._color.colors import Colors
 
 
 class MultiLineText(
@@ -48,6 +51,7 @@ class MultiLineText(
     SVGForeignObjectTextMixIn,
     SVGForeignObjectChildMixIn,
     AddToParentMixIn,
+    TextFillColorCSSMixIn,
 ):
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -57,9 +61,11 @@ class MultiLineText(
     @arg_validation_decos.is_num(arg_position_index=3, optional=False)
     # width
     @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
+    # fill_color
+    @arg_validation_decos.is_color(arg_position_index=5, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=5, optional=True
+        arg_position_index=6, optional=True
     )
     def __init__(
         self,
@@ -68,6 +74,7 @@ class MultiLineText(
         x: Union[float, Number] = 0,
         y: Union[float, Number] = 0,
         width: Union[int, Int] = 200,
+        fill_color: Color = Colors.GRAY_666666,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -84,6 +91,8 @@ class MultiLineText(
             Y-coordinate.
         width : Union[int, Int], default 200
             Width of the text to wrap.
+        fill_color : Color, default Colors.GRAY_666666
+            Text color.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -115,6 +124,7 @@ class MultiLineText(
         self.y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=y
         )
+        self.fill_color = fill_color._copy()
 
     @classmethod
     def _initialize_with_base_value(cls) -> "MultiLineText":

@@ -16,6 +16,7 @@ class TestMultiLineText:
             x=100,
             y=200,
             width=100,
+            fill_color=ap.Color("#333333"),
             parent=sprite,
             variable_name_suffix="test_suffix",
         )
@@ -23,5 +24,7 @@ class TestMultiLineText:
         assert text._text._value == "<span>test text</span>"
         assert text.x._value == 100
         assert text.y._value == 200
+        assert text._width._value == 100
+        assert text._fill_color == ap.Color("#333333")
         assert "test_suffix" in text._text.variable_name
         assert text.parent == sprite

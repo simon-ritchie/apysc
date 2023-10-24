@@ -20,6 +20,8 @@ The class implementation for a multiline text element.<hr>
   - Y-coordinate.
 - `width`: Union[int, Int], default 200
   - Width of the text to wrap.
+- `fill_color`: Color, default Colors.GRAY_666666
+  - Text color.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""

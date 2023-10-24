@@ -4,6 +4,8 @@
 from typing import Optional
 from typing import Union
 
+from apysc._color.color import Color
+from apysc._color.colors import Colors
 from apysc._display.add_foreign_object_child_mixin import AddForeignObjectChildMixIn
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_foreign_object_constructor_expression_mixin import (
@@ -20,6 +22,7 @@ from apysc._display.svg_foreign_object_initialize_width_mixin import (
     SVGForeignObjectInitializeWidthMixIn,
 )
 from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
+from apysc._display.text_fill_color_css_mixin import TextFillColorCSSMixIn
 from apysc._display.width_mixin import WidthMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
@@ -31,9 +34,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.text_fill_color_css_mixin import TextFillColorCSSMixIn
-from apysc._color.color import Color
-from apysc._color.colors import Colors
 
 
 class MultiLineText(

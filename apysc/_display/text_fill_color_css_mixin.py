@@ -4,34 +4,34 @@
 from apysc._color.color import Color
 
 
-class TextColorCSSMixIn:
-    _color: Color
+class TextFillColorCSSMixIn:
+    _fill_color: Color
 
-    def _initialize_color(self) -> None:
+    def _initialize_fill_color(self) -> None:
         """
-        Initialize text color attribute.
+        Initialize a `_fill_color` attribute.
         """
-        if hasattr(self, "_color"):
+        if hasattr(self, "_fill_color"):
             return
-        self._color = Color("")
+        self._fill_color = Color("")
 
     @property
-    def color(self) -> Color:
+    def fill_color(self) -> Color:
         """
-        Get a text color.
+        Get a text's fill color.
 
         Returns
         -------
         color : Color
             A text color.
         """
-        self._initialize_color()
-        return self._color
+        self._initialize_fill_color()
+        return self._fill_color
 
-    @color.setter
-    def color(self, value: Color) -> None:
+    @fill_color.setter
+    def fill_color(self, value: Color) -> None:
         """
-        Set a text color.
+        Set a text's fill color.
 
         Parameters
         ----------
@@ -44,8 +44,8 @@ class TextColorCSSMixIn:
             raise TypeError(
                 "This method can only be called on an instance of CssInterface class."
             )
-        self._color = value
+        self._fill_color = value
         self.set_css(
             name="color",
-            value=self._color._value,
+            value=self._fill_color._value,
         )

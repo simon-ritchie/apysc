@@ -2,9 +2,12 @@
 """
 
 from apysc._color.color import Color
+from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 
 
-class TextFillColorCSSMixIn:
+class TextFillColorCSSMixIn(
+    AttrLinkingMixIn,
+):
     _fill_color: Color
 
     def _initialize_fill_color(self) -> None:
@@ -26,7 +29,7 @@ class TextFillColorCSSMixIn:
             A text color.
         """
         self._initialize_fill_color()
-        return self._fill_color
+        return self._fill_color._copy()
 
     @fill_color.setter
     def fill_color(self, value: Color) -> None:
@@ -48,4 +51,11 @@ class TextFillColorCSSMixIn:
         self.set_css(
             name="color",
             value=self._fill_color._value,
+        )
+
+        self._append_applying_new_attr_val_exp(
+            new_attr=self._fill_color, attr_name="fill_color"
+        )
+        self._append_attr_to_linking_stack(
+            attr=self._fill_color, attr_name="fill_color"
         )

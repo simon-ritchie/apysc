@@ -1,13 +1,11 @@
 """The mix-in class implementation for the CSS fill-alpha (`opacity`) property.
 """
 
-from apysc._type.number import Number
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
+from apysc._type.number import Number
 
 
-class OpacityCssMixIn(
-    AttrLinkingMixIn
-):
+class OpacityCssMixIn(AttrLinkingMixIn):
     _fill_alpha: Number
 
     def _initialize_fill_alpha(self) -> None:

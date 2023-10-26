@@ -14,6 +14,7 @@ from apysc._display.append_foreign_object_constructor_expression_mixin import (
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
+from apysc._display.opacity_css_mixin import OpacityCssMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
@@ -34,7 +35,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.opacity_css_mixin import OpacityCssMixIn
 
 
 class MultiLineText(

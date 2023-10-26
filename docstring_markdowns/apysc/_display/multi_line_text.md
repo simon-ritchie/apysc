@@ -22,6 +22,8 @@ The class implementation for a multiline text element.<hr>
   - Width of the text to wrap.
 - `fill_color`: Color, default Colors.GRAY_666666
   - Text color.
+- `fill_alpha`: Union[float, Number], default 1.0
+  - Text alpha (opacity). The minimum value is 0.0 (transparent), and the maximum value is 1.0 (solid).
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""

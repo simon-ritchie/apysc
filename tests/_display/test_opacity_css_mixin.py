@@ -1,10 +1,10 @@
+import apysc as ap
+from apysc._display.css_interface import CssInterface
+from apysc._display.css_mixin import CssMixIn
 from apysc._display.opacity_css_mixin import OpacityCssMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._display.css_interface import CssInterface
-from apysc._display.css_mixin import CssMixIn
 
 
 class _ValidObject(

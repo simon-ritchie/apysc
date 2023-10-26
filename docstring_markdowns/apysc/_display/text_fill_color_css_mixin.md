@@ -8,4 +8,4 @@ The mix-in class implementation for the CSS color setting.
 
 ### `_initialize_fill_color` method docstring
 
-Initialize a `_fill_color` attribute.
+Initialize the `_fill_color` attribute.

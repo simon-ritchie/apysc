@@ -56,13 +56,23 @@ def main() -> None:
     )
     text.fill_color = ap.Color("#f0a")
 
-    text: ap.MultiLineText = ap.MultiLineText(
+    ap.MultiLineText(
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit",
         width=150,
         x=50,
         y=110,
         fill_color=ap.Color("#0af"),
     )
+
+    text: ap.MultiLineText = ap.MultiLineText(
+        text="Hello World!",
+        width=100,
+        x=50,
+        y=250,
+        fill_color=ap.Color("#0af"),
+        fill_alpha=0.3,
+    )
+    text.fill_color = ap.Color("#f0a")
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

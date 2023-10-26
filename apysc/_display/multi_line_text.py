@@ -34,6 +34,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.opacity_css_mixin import OpacityCssMixIn
 
 
 class MultiLineText(
@@ -52,6 +53,7 @@ class MultiLineText(
     SVGForeignObjectChildMixIn,
     AddToParentMixIn,
     TextFillColorCSSMixIn,
+    OpacityCssMixIn,
 ):
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -63,9 +65,11 @@ class MultiLineText(
     @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
     # fill_color
     @arg_validation_decos.is_color(arg_position_index=5, optional=False)
+    # fill_alpha
+    @arg_validation_decos.is_num(arg_position_index=6, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=6, optional=True
+        arg_position_index=7, optional=True
     )
     def __init__(
         self,
@@ -75,6 +79,7 @@ class MultiLineText(
         y: Union[float, Number] = 0,
         width: Union[int, Int] = 200,
         fill_color: Color = Colors.GRAY_666666,
+        fill_alpha: Union[float, Number] = 1.0,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -93,6 +98,9 @@ class MultiLineText(
             Width of the text to wrap.
         fill_color : Color, default Colors.GRAY_666666
             Text color.
+        fill_alpha : Union[float, Number], default 1.0
+            Text alpha (opacity). The minimum value is 0.0 (transparent),
+            and the maximum value is 1.0 (solid).
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -125,6 +133,10 @@ class MultiLineText(
             float_or_num=y
         )
         self.fill_color = fill_color._copy()
+        self.fill_alpha = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=fill_alpha,
+            variable_name_suffix=variable_name_suffix,
+        )
 
     @classmethod
     def _initialize_with_base_value(cls) -> "MultiLineText":

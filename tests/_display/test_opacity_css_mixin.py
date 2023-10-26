@@ -1,4 +1,4 @@
-from apysc._display.opacity_css_mixin import FillAlphaCSSMixIn
+from apysc._display.opacity_css_mixin import OpacityCssMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 import apysc as ap
@@ -10,7 +10,7 @@ from apysc._display.css_mixin import CssMixIn
 class _ValidObject(
     CssMixIn,
     CssInterface,
-    FillAlphaCSSMixIn,
+    OpacityCssMixIn,
     VariableNameMixIn,
 ):
     def __init__(self) -> None:
@@ -23,7 +23,7 @@ class _ValidObject(
 class TestFillAlphaCSSMixIn:
     @apply_test_settings()
     def test__initialize_fill_alpha(self) -> None:
-        mixin: FillAlphaCSSMixIn = FillAlphaCSSMixIn()
+        mixin: OpacityCssMixIn = OpacityCssMixIn()
         mixin._initialize_fill_alpha()
         assert mixin._fill_alpha == 1.0
 

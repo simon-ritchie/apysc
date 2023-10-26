@@ -5,7 +5,7 @@ from apysc._type.number import Number
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 
 
-class FillAlphaCSSMixIn(
+class OpacityCssMixIn(
     AttrLinkingMixIn
 ):
     _fill_alpha: Number

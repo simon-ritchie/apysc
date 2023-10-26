@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the CSS color setting.
 
-## `TextFillColorCSSMixIn` class docstring
+## `TextFillColorCssMixIn` class docstring
 
 ### `_initialize_fill_color` method docstring
 

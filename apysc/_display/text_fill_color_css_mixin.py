@@ -5,7 +5,7 @@ from apysc._color.color import Color
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 
 
-class TextFillColorCSSMixIn(
+class TextFillColorCssMixIn(
     AttrLinkingMixIn,
 ):
     _fill_color: Color

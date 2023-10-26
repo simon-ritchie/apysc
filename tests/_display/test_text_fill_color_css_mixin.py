@@ -3,29 +3,29 @@ import pytest
 import apysc as ap
 from apysc._display.css_interface import CssInterface
 from apysc._display.css_mixin import CssMixIn
-from apysc._display.text_fill_color_css_mixin import TextFillColorCSSMixIn
+from apysc._display.text_fill_color_css_mixin import TextFillColorCssMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class _ValidObject(
-    TextFillColorCSSMixIn,
+    TextFillColorCssMixIn,
     CssMixIn,
     CssInterface,
     VariableNameMixIn,
 ):
     def __init__(self) -> None:
         """
-        The class for testing of the `TextFillColorCSSMixIn` class.
+        The class for testing of the `TextFillColorCssMixIn` class.
         """
         self.variable_name = "test_object"
 
 
-class TestTextFillColorCSSMixIn:
+class TestTextFillColorCssMixIn:
     @apply_test_settings()
     def test__initialize_color(self) -> None:
-        mixin: TextFillColorCSSMixIn = TextFillColorCSSMixIn()
+        mixin: TextFillColorCssMixIn = TextFillColorCssMixIn()
         mixin._initialize_fill_color()
         assert mixin._fill_color == ap.Color("")
 
@@ -44,6 +44,6 @@ class TestTextFillColorCSSMixIn:
         expected: str = f"{valid_object.variable_name}.css("
         assert expected in expression
 
-        mixin: TextFillColorCSSMixIn = TextFillColorCSSMixIn()
+        mixin: TextFillColorCssMixIn = TextFillColorCssMixIn()
         with pytest.raises(TypeError):  # type: ignore
             mixin.fill_color = color

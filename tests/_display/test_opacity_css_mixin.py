@@ -15,12 +15,12 @@ class _ValidObject(
 ):
     def __init__(self) -> None:
         """
-        The class for testing of the `FillAlphaCSSMixIn` class.
+        The class for testing of the `FillAlphaCssMixIn` class.
         """
         self.variable_name = "test_object"
 
 
-class TestFillAlphaCSSMixIn:
+class TestFillAlphaCssMixIn:
     @apply_test_settings()
     def test__initialize_fill_alpha(self) -> None:
         mixin: OpacityCssMixIn = OpacityCssMixIn()

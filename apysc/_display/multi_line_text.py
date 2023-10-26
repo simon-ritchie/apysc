@@ -23,7 +23,7 @@ from apysc._display.svg_foreign_object_initialize_width_mixin import (
     SVGForeignObjectInitializeWidthMixIn,
 )
 from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
-from apysc._display.text_fill_color_css_mixin import TextFillColorCSSMixIn
+from apysc._display.text_fill_color_css_mixin import TextFillColorCssMixIn
 from apysc._display.width_mixin import WidthMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
@@ -52,7 +52,7 @@ class MultiLineText(
     SVGForeignObjectTextMixIn,
     SVGForeignObjectChildMixIn,
     AddToParentMixIn,
-    TextFillColorCSSMixIn,
+    TextFillColorCssMixIn,
     OpacityCssMixIn,
 ):
     # text

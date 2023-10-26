@@ -64,7 +64,7 @@ def main() -> None:
         fill_color=ap.Color("#0af"),
     )
 
-    text: ap.MultiLineText = ap.MultiLineText(
+    text = ap.MultiLineText(
         text="Hello World!",
         width=100,
         x=50,

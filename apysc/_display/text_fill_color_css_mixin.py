@@ -12,7 +12,7 @@ class TextFillColorCSSMixIn(
 
     def _initialize_fill_color(self) -> None:
         """
-        Initialize a `_fill_color` attribute.
+        Initialize the `_fill_color` attribute.
         """
         if hasattr(self, "_fill_color"):
             return
@@ -45,7 +45,7 @@ class TextFillColorCSSMixIn(
 
         if not isinstance(self, CssInterface):
             raise TypeError(
-                "This method can only be called on an instance of CssInterface class."
+                "This method can only be called on an instance of `CssInterface` class."
             )
         self._fill_color = value
         self.set_css(

@@ -214,3 +214,4 @@ def test_validate_css_interface() -> None:
     interface: CssInterface = display_validation.validate_css_interface(
         instance=rectangle
     )
+    assert isinstance(interface, ap.Rectangle)

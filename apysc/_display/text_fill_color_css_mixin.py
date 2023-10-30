@@ -42,13 +42,13 @@ class TextFillColorCssMixIn(
             A text color.
         """
         from apysc._display.css_interface import CssInterface
+        from apysc._validation import display_validation
 
-        if not isinstance(self, CssInterface):
-            raise TypeError(
-                "This method can only be called on an instance of `CssInterface` class."
-            )
+        interface: CssInterface = display_validation.validate_css_interface(
+            instance=self
+        )
         self._fill_color = value
-        self.set_css(
+        interface.set_css(
             name="color",
             value=self._fill_color._value,
         )

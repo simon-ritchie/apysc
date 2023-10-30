@@ -21,11 +21,15 @@ Mainly following interfaces are defined:
 - validate_multiple_line_settings_are_not_set
     Validate that there are no multiple line settings
     (dotted, dashed, and so on).
+- validate_css_interface
+    Validate whether the specified instance is the `CssInterface`.
 """
 
 
 from typing import Any
 from typing import List
+
+from apysc._display.css_interface import CssInterface
 
 
 def validate_stage(*, stage: Any) -> None:
@@ -308,3 +312,25 @@ def validate_multiple_line_settings_are_not_set(
         err_msg=err_msg, additional_err_msg=additional_err_msg
     )
     raise ValueError(err_msg)
+
+
+def validate_css_interface(*, instance: Any) -> CssInterface:
+    """
+    Validate whether the specified instance is the `CssInterface`.
+
+    Parameters
+    ----------
+    instance : Any
+        An instance to check.
+
+    Returns
+    -------
+    instance : CssInterface
+        A validated instance.
+    """
+    if not isinstance(instance, CssInterface):
+        raise TypeError(
+            "The specified instance is not the `CssInterface` type: "
+            f"{type(instance).__name__}."
+        )
+    return instance

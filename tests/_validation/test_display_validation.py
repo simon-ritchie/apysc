@@ -4,6 +4,7 @@ from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import display_validation
+from apysc._display.css_interface import CssInterface
 
 
 @apply_test_settings()
@@ -199,4 +200,17 @@ def test_validate_display_object_container() -> None:
         match="\nTest error!",
         container_object=rectangle,
         additional_err_msg="Test error!",
+    )
+
+
+@apply_test_settings()
+def test_validate_css_interface() -> None:
+    rectangle: ap.Rectangle = ap.Rectangle(
+        x=50,
+        y=50,
+        width=50,
+        height=50,
+    )
+    interface: CssInterface = display_validation.validate_css_interface(
+        instance=rectangle
     )

@@ -15,3 +15,28 @@ class TextBoldCssMixIn(AttrLinkingMixIn):
         if hasattr(self, "_bold"):
             return
         self._bold = Boolean(False)
+
+    @property
+    def bold(self) -> Boolean:
+        """
+        Get a bold (font-weight) value.
+
+        Returns
+        -------
+        bold : Boolean
+            A bold (font-weight) value.
+        """
+        self._initialize_bold()
+        return self._bold._copy()
+
+    @bold.setter
+    def bold(self, value: Boolean) -> None:
+        """
+        Set a bold (font-weight) value.
+
+        Parameters
+        ----------
+        value : Boolean
+            A bold (font-weight) value.
+        """
+        pass

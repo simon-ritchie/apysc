@@ -74,6 +74,24 @@ def main() -> None:
     )
     text.fill_color = ap.Color("#f0a")
 
+    text = ap.MultiLineText(
+        text="Bold test 1",
+        width=100,
+        x=50,
+        y=280,
+        fill_color=ap.Color("#0af"),
+        bold=True,
+    )
+
+    text = ap.MultiLineText(
+        text="Bold test 2",
+        width=100,
+        x=50,
+        y=310,
+        fill_color=ap.Color("#0af"),
+    )
+    text.bold = ap.True_
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

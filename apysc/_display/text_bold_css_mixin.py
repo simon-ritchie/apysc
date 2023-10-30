@@ -41,10 +41,10 @@ class TextBoldCssMixIn(
         value : Boolean
             A bold (font-weight) value.
         """
+        from apysc._branch._else import Else
+        from apysc._branch._if import If
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation
-        from apysc._branch._if import If
-        from apysc._branch._else import Else
 
         interface: CssInterface = display_validation.validate_css_interface(
             instance=self
@@ -62,9 +62,5 @@ class TextBoldCssMixIn(
                 value="normal",
             )
 
-        self._append_applying_new_attr_val_exp(
-            new_attr=self._bold, attr_name="bold"
-        )
-        self._append_attr_to_linking_stack(
-            attr=self._bold, attr_name="bold"
-        )
+        self._append_applying_new_attr_val_exp(new_attr=self._bold, attr_name="bold")
+        self._append_attr_to_linking_stack(attr=self._bold, attr_name="bold")

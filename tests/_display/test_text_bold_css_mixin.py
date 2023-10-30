@@ -1,7 +1,7 @@
 import apysc as ap
+from apysc._display.text_bold_css_mixin import TextBoldCssMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.text_bold_css_mixin import TextBoldCssMixIn
 
 
 class TestTextBoldCssMixIn:

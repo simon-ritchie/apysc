@@ -39,8 +39,8 @@ class OpacityCssMixIn(AttrLinkingMixIn):
         value : Number
             A fill-alpha (opacity) value.
         """
-        from apysc._validation import display_validation
         from apysc._display.css_interface import CssInterface
+        from apysc._validation import display_validation
 
         interface: CssInterface = display_validation.validate_css_interface(
             instance=self

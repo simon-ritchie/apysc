@@ -2,7 +2,23 @@
 
 ## Module summary
 
-Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., `Sprite`). <br>・validate_display_object_container Validate whether a specified instance is a container type of a `DisplayObject` instance (e.g., `Sprite`, `Stage`). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_are_not_set Validate that there are no multiple line settings (dotted, dashed, and so on).
+Each display's validation implementations. Mainly following interfaces are defined: <br>・validate_stage Validate whether the specified instance is Stage type or not. <br>・validate_display_object Validate whether a specified instance is the `DisplayObject` type or its subclass type (e.g., `Sprite`). <br>・validate_display_object_container Validate whether a specified instance is a container type of a `DisplayObject` instance (e.g., `Sprite`, `Stage`). <br>・validate_sprite Validate specified instance is Sprite type. <br>・validate_graphics Validate specified instance is Graphics type. <br>・validate_line_cap Validate specified line cap style setting. <br>・validate_line_joints Validate specified line joints style setting. <br>・validate_multiple_line_settings_are_not_set Validate that there are no multiple line settings (dotted, dashed, and so on). <br>・validate_css_interface Validate whether the specified instance is the `CssInterface`.
+
+## `validate_css_interface` function docstring
+
+Validate whether the specified instance is the `CssInterface`.<hr>
+
+**[Parameters]**
+
+- `instance`: Any
+  - An instance to check.
+
+<hr>
+
+**[Returns]**
+
+- `instance`: CssInterface
+  - A validated instance.
 
 ## `validate_display_object` function docstring
 

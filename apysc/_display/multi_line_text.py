@@ -23,6 +23,7 @@ from apysc._display.svg_foreign_object_initialize_width_mixin import (
     SVGForeignObjectInitializeWidthMixIn,
 )
 from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
+from apysc._display.text_bold_css_mixin import TextBoldCssMixIn
 from apysc._display.text_fill_color_css_mixin import TextFillColorCssMixIn
 from apysc._display.width_mixin import WidthMixIn
 from apysc._display.x_mixin import XMixIn
@@ -30,13 +31,12 @@ from apysc._display.y_mixin import YMixIn
 from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
+from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.text_bold_css_mixin import TextBoldCssMixIn
-from apysc._type.boolean import Boolean
 
 
 class MultiLineText(

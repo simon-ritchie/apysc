@@ -1,0 +1,35 @@
+name: Run the pytest command when a pull request is created or updated
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  SetGlobalConstants:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      PYTHON_VERSION: 3.11.1
+    steps:
+      - run: echo 'Setting constans.'
+  RunPytest:
+    needs: SetGlobalConstants
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: CreateCache
+        uses: ./.github/actions/create_env_cache
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_VERSION }}
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_VERSION }}
+      - name: Install playwright and Chromium
+        run: playwright install chromium
+      - name: Run the test runner command
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 300
+          max_attempts: 3
+          command: python ./scripts/run_tests.py

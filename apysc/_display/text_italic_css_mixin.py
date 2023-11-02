@@ -15,7 +15,7 @@ class TextItalicCssMixIn(
         """
         Initialize the `_italic` attribute.
         """
-        if hasattr(self, '_italic'):
+        if hasattr(self, "_italic"):
             return
         self._italic = Boolean(False)
 
@@ -68,6 +68,4 @@ class TextItalicCssMixIn(
         self._append_applying_new_attr_val_exp(
             new_attr=self._italic, attr_name="italic"
         )
-        self._append_attr_to_linking_stack(
-            attr=self._italic, attr_name="italic"
-        )
+        self._append_attr_to_linking_stack(attr=self._italic, attr_name="italic")

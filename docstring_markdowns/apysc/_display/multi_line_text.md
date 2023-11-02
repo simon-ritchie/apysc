@@ -26,6 +26,8 @@ The class implementation for a multiline text element.<hr>
   - Text alpha (opacity). The minimum value is 0.0 (transparent), and the maximum value is 1.0 (solid).
 - `bold`: Union[bool, Boolean], default False
   - Whether to display the text in bold.
+- `italic`: Union[bool, Boolean], default False
+  - Whether to display the text in italic.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""

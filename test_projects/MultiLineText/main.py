@@ -92,6 +92,24 @@ def main() -> None:
     )
     text.bold = ap.True_
 
+    text = ap.MultiLineText(
+        text="Italic test 1",
+        width=100,
+        x=50,
+        y=340,
+        fill_color=ap.Color("#0af"),
+        italic=True,
+    )
+
+    text = ap.MultiLineText(
+        text="Italic test 2",
+        width=100,
+        x=50,
+        y=370,
+        fill_color=ap.Color("#0af"),
+    )
+    text.italic = ap.True_
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

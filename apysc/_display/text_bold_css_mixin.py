@@ -3,6 +3,7 @@
 
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.boolean import Boolean
+from apysc._validation import arg_validation_decos
 
 
 class TextBoldCssMixIn(
@@ -32,6 +33,7 @@ class TextBoldCssMixIn(
         return self._bold._copy()
 
     @bold.setter
+    @arg_validation_decos.is_apysc_boolean(arg_position_index=1)
     def bold(self, value: Boolean) -> None:
         """
         Set a bold (font-weight) value.

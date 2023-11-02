@@ -37,6 +37,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.text_italic_css_mixin import TextItalicCssMixIn
 
 
 class MultiLineText(
@@ -57,6 +58,7 @@ class MultiLineText(
     TextFillColorCssMixIn,
     OpacityCssMixIn,
     TextBoldCssMixIn,
+    TextItalicCssMixIn,
 ):
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -72,9 +74,11 @@ class MultiLineText(
     @arg_validation_decos.is_num(arg_position_index=6, optional=False)
     # bold
     @arg_validation_decos.is_boolean(arg_position_index=7, optional=False)
+    # italic
+    @arg_validation_decos.is_boolean(arg_position_index=8, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=8, optional=True
+        arg_position_index=9, optional=True
     )
     def __init__(
         self,
@@ -86,6 +90,7 @@ class MultiLineText(
         fill_color: Color = Colors.GRAY_666666,
         fill_alpha: Union[float, Number] = 1.0,
         bold: Union[bool, Boolean] = False,
+        italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -109,6 +114,8 @@ class MultiLineText(
             and the maximum value is 1.0 (solid).
         bold : Union[bool, Boolean], default False
             Whether to display the text in bold.
+        italic : Union[bool, Boolean], default False
+            Whether to display the text in italic.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -147,6 +154,10 @@ class MultiLineText(
         )
         self.bold = to_apysc_val_from_builtin.get_copied_boolean_from_builtin_val(
             bool_val=bold,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self.italic = to_apysc_val_from_builtin.get_copied_boolean_from_builtin_val(
+            bool_val=italic,
             variable_name_suffix=variable_name_suffix,
         )
 

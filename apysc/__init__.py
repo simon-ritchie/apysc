@@ -47,6 +47,7 @@ from apysc._display.svg_text import SVGText
 from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_span import SVGTextSpan
 from apysc._display.multi_line_text import MultiLineText
+from apysc._display.css_text_align import CssTextAlign
 from apysc._geom.point2d import Point2D
 from apysc._geom.path_label import PathLabel
 from apysc._geom.path_data_base import PathDataBase

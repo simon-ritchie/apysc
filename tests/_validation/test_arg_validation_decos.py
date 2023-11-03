@@ -1688,3 +1688,19 @@ def test_is_svg_foreign_object_child() -> None:
         callable_=_test_func,
         child=100,
     )
+
+
+@apply_test_settings()
+def test_is_css_text_align() -> None:
+    @arg_validation_decos.is_css_text_align(arg_position_index=0)
+    def _test_func(*, align: ap.CssTextAlign) -> int:
+        return 380
+
+    result: int = _test_func(align=ap.CssTextAlign.CENTER)
+    assert result == 380
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        align=100,
+    )

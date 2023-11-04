@@ -1,7 +1,6 @@
 """The mix-in class implementation for the CSS text-align property.
 """
 
-from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._display.css_text_align import CssTextAlign
 from apysc._validation import arg_validation_decos
 

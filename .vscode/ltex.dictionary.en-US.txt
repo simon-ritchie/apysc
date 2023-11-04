@@ -4,3 +4,4 @@ foreignObject
 MultiLineText
 docstrings
 numdoclint
+enum

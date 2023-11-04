@@ -8,6 +8,7 @@ class CssTextAlign(Enum):
     """
     The enum definitions for the text-align CSS property.
     """
+
     LEFT = "left"
     CENTER = "center"
     RIGHT = "right"

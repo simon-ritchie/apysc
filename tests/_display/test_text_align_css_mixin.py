@@ -1,5 +1,4 @@
 import apysc as ap
-from apysc._display.text_align_css_mixin import TextAlignCssMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 

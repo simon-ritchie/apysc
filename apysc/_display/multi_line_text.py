@@ -13,6 +13,7 @@ from apysc._display.append_foreign_object_constructor_expression_mixin import (
 )
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.css_mixin import CssMixIn
+from apysc._display.css_text_align import CssTextAlign
 from apysc._display.display_object import DisplayObject
 from apysc._display.opacity_css_mixin import OpacityCssMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
@@ -23,6 +24,7 @@ from apysc._display.svg_foreign_object_initialize_width_mixin import (
     SVGForeignObjectInitializeWidthMixIn,
 )
 from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
+from apysc._display.text_align_css_mixin import TextAlignCssMixIn
 from apysc._display.text_bold_css_mixin import TextBoldCssMixIn
 from apysc._display.text_fill_color_css_mixin import TextFillColorCssMixIn
 from apysc._display.text_italic_css_mixin import TextItalicCssMixIn
@@ -38,8 +40,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.css_text_align import CssTextAlign
-from apysc._display.text_align_css_mixin import TextAlignCssMixIn
 
 
 class MultiLineText(

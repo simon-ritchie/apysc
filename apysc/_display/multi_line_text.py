@@ -38,6 +38,8 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.css_text_align import CssTextAlign
+from apysc._display.text_align_css_mixin import TextAlignCssMixIn
 
 
 class MultiLineText(
@@ -59,6 +61,7 @@ class MultiLineText(
     OpacityCssMixIn,
     TextBoldCssMixIn,
     TextItalicCssMixIn,
+    TextAlignCssMixIn,
 ):
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -76,9 +79,11 @@ class MultiLineText(
     @arg_validation_decos.is_boolean(arg_position_index=7, optional=False)
     # italic
     @arg_validation_decos.is_boolean(arg_position_index=8, optional=False)
+    # text_align
+    @arg_validation_decos.is_css_text_align(arg_position_index=9)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=9, optional=True
+        arg_position_index=10, optional=True
     )
     def __init__(
         self,
@@ -91,6 +96,7 @@ class MultiLineText(
         fill_alpha: Union[float, Number] = 1.0,
         bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
+        text_align: CssTextAlign = CssTextAlign.LEFT,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -116,6 +122,8 @@ class MultiLineText(
             Whether to display the text in bold.
         italic : Union[bool, Boolean], default False
             Whether to display the text in italic.
+        text_align : CssTextAlign, default `CssTextAlign.LEFT`
+            Text align setting.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -160,6 +168,7 @@ class MultiLineText(
             bool_val=italic,
             variable_name_suffix=variable_name_suffix,
         )
+        self.text_align = text_align
 
     @classmethod
     def _initialize_with_base_value(cls) -> "MultiLineText":

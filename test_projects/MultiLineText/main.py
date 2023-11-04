@@ -110,6 +110,50 @@ def main() -> None:
     )
     text.italic = ap.True_
 
+    text = ap.MultiLineText(
+        text="text-align center test 1. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=200,
+        x=50,
+        y=400,
+        fill_color=ap.Color("#0af"),
+        text_align=ap.CssTextAlign.CENTER,
+    )
+
+    text = ap.MultiLineText(
+        text="text-align right test. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=200,
+        x=50,
+        y=610,
+        fill_color=ap.Color("#0af"),
+        text_align=ap.CssTextAlign.RIGHT,
+    )
+
+    text = ap.MultiLineText(
+        text="text-align justify test. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=200,
+        x=300,
+        y=30,
+        fill_color=ap.Color("#0af"),
+        text_align=ap.CssTextAlign.JUSTIFY,
+    )
+
+    text = ap.MultiLineText(
+        text="text-align center test 2. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=200,
+        x=300,
+        y=240,
+        fill_color=ap.Color("#0af"),
+    )
+    text.text_align = ap.CssTextAlign.CENTER
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

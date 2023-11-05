@@ -30,6 +30,8 @@ The class implementation for a multiline text element.<hr>
   - Whether to display the text in italic.
 - `text_align`: CssTextAlign, default `CssTextAlign.LEFT`
   - Text align setting.
+- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.LEFT`
+  - Last line's text-align setting.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""

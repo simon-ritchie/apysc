@@ -1,4 +1,4 @@
-"""The enum definitions for the last line's text align CSS
+"""The enum definitions for the last line's text-align CSS
 property (`text-align-last`).
 """
 
@@ -7,7 +7,7 @@ from enum import Enum
 
 class CssTextAlignLast(Enum):
     """
-    The enum definitions for the last line's text align CSS
+    The enum definitions for the last line's text-align CSS
     property (`text-align-last`).
     """
 

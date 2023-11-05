@@ -21,6 +21,7 @@ class TestMultiLineText:
             bold=True,
             italic=True,
             text_align=ap.CssTextAlign.CENTER,
+            text_align_last=ap.CssTextAlignLast.RIGHT,
             parent=sprite,
             variable_name_suffix="test_suffix",
         )

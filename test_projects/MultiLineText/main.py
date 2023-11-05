@@ -154,6 +154,30 @@ def main() -> None:
     )
     text.text_align = ap.CssTextAlign.CENTER
 
+    text = ap.MultiLineText(
+        text="text-align right test 1. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=200,
+        x=300,
+        y=470,
+        fill_color=ap.Color("#0af"),
+        text_align=ap.CssTextAlign.JUSTIFY,
+        text_align_last=ap.CssTextAlignLast.RIGHT,
+    )
+
+    text = ap.MultiLineText(
+        text="text-align right test 2. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=200,
+        x=300,
+        y=700,
+        fill_color=ap.Color("#0af"),
+        text_align=ap.CssTextAlign.JUSTIFY,
+        text_align_last=ap.CssTextAlignLast.CENTER,
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

@@ -40,6 +40,8 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.text_align_last_css_mixin import TextAlignLastCssMixIn
+from apysc._display.css_text_align_last import CssTextAlignLast
 
 
 class MultiLineText(
@@ -62,6 +64,7 @@ class MultiLineText(
     TextBoldCssMixIn,
     TextItalicCssMixIn,
     TextAlignCssMixIn,
+    TextAlignLastCssMixIn,
 ):
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -81,9 +84,11 @@ class MultiLineText(
     @arg_validation_decos.is_boolean(arg_position_index=8, optional=False)
     # text_align
     @arg_validation_decos.is_css_text_align(arg_position_index=9)
+    # text_align_last
+    @arg_validation_decos.is_css_text_align_last(arg_position_index=10)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=10, optional=True
+        arg_position_index=11, optional=True
     )
     def __init__(
         self,
@@ -97,6 +102,7 @@ class MultiLineText(
         bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
         text_align: CssTextAlign = CssTextAlign.LEFT,
+        text_align_last: CssTextAlignLast = CssTextAlignLast.LEFT,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -124,6 +130,8 @@ class MultiLineText(
             Whether to display the text in italic.
         text_align : CssTextAlign, default `CssTextAlign.LEFT`
             Text align setting.
+        text_align_last : CssTextAlignLast, default `CssTextAlignLast.LEFT`
+            Last line's text align setting.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -169,6 +177,7 @@ class MultiLineText(
             variable_name_suffix=variable_name_suffix,
         )
         self.text_align = text_align
+        self.text_align_last = text_align_last
 
     @classmethod
     def _initialize_with_base_value(cls) -> "MultiLineText":

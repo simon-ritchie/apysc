@@ -1704,3 +1704,19 @@ def test_is_css_text_align() -> None:
         callable_=_test_func,
         align=100,
     )
+
+
+@apply_test_settings()
+def test_is_css_text_align_last() -> None:
+    @arg_validation_decos.is_css_text_align_last(arg_position_index=0)
+    def _test_func(*, align: ap.CssTextAlignLast) -> int:
+        return 390
+
+    result: int = _test_func(align=ap.CssTextAlignLast.CENTER)
+    assert result == 390
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        align=100,
+    )

@@ -205,6 +205,9 @@ Mainly the following decorators exist.
 - is_css_text_align
     - Set a validation to check the specified argument's type
         is the `CssTextAlign` enum.
+- is_css_text_align_last
+    - Set a validation to check the specified argument's type
+        is the `CssTextAlignLast`.
 """
 
 import functools
@@ -3517,7 +3520,7 @@ def is_svg_foreign_object_child(*, arg_position_index: int) -> _Callable:
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    f"The specified argument is not an `SVGForeignObjectChild` "
+                    "The specified argument is not an `SVGForeignObjectChild` "
                     f"instance: {type(child)}"
                     f"\n{callable_and_arg_names_msg}"
                 )
@@ -3562,6 +3565,48 @@ def is_css_text_align(*, arg_position_index: int) -> _Callable:
                 raise TypeError(
                     "The specified argument is not a `CssTextAlign` value: "
                     f"{text_align}\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_css_text_align_last(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check the specified argument's type
+    is the `CssTextAlignLast`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._display.css_text_align_last import CssTextAlignLast
+
+            text_align_last: CssTextAlignLast = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(text_align_last, CssTextAlignLast):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "The specified argument is not a `CssTextAlignLast` value: "
+                    f"{text_align_last}\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
 

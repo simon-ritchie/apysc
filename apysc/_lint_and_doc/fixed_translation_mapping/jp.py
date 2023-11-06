@@ -3551,8 +3551,8 @@ MAPPINGS: Mappings = Mappings(
             val="`italic`属性ではインスタンスの斜体の設定の更新もしくは取得を行えます。",
         ),
         Mapping(
-            key="## SVGText constructor API",
-            val="## SVGText クラスのコンストラクタのAPI",
+            key="## SvgText constructor API",
+            val="## SvgText クラスのコンストラクタのAPI",
         ),
         Mapping(
             key="The class for an SVG text.<hr>",
@@ -3656,8 +3656,8 @@ MAPPINGS: Mappings = Mappings(
             val="## SVGTextSpan クラスのコンストラクタのAPI",
         ),
         Mapping(
-            key="The class for an SVG text-span (the child class of `SVGText`).<hr>",
-            val="`SVGText`の子となるSVGのtext-span要素のためのクラスです。<hr>",
+            key="The class for an SVG text-span (the child class of `SvgText`).<hr>",
+            val="`SvgText`の子となるSVGのtext-span要素のためのクラスです。<hr>",
         ),
         Mapping(
             key="  - A coordinate delta-x setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`'s instance.",
@@ -3672,12 +3672,12 @@ MAPPINGS: Mappings = Mappings(
             val=" ・もしも各設定に`None`が指定された場合、それらのスタイル設定は親のスタイル設定を引き継ぎます。",
         ),
         Mapping(
-            key="## SVGText create_with_svg_text_spans class method API",
-            val="## SVGText クラスの create_with_svg_text_spans クラスメソッドのAPI",
+            key="## SvgText create_with_svg_text_spans class method API",
+            val="## SvgText クラスの create_with_svg_text_spans クラスメソッドのAPI",
         ),
         Mapping(
-            key="Create an `SVGText` instance with specified text spans.<hr>",
-            val="指定された各text spanのインスタンスを使用して`SVGText`のインスタンスを生成します。<hr>",
+            key="Create an `SvgText` instance with specified text spans.<hr>",
+            val="指定された各text spanのインスタンスを使用して`SvgText`のインスタンスを生成します。<hr>",
         ),
         Mapping(
             key="  - Text spans.",
@@ -3720,8 +3720,8 @@ MAPPINGS: Mappings = Mappings(
             val="  - テキスト全体に設定する行揃え設定。",
         ),
         Mapping(
-            key="  - A created `SVGText` instance.",
-            val="  - 生成された`SVGText`のインスタンス。",
+            key="  - A created `SvgText` instance.",
+            val="  - 生成された`SvgText`のインスタンス。",
         ),
         Mapping(
             key="The `delta_y` property updates or gets the instance's delta-y (y-coordinate adjustment).",
@@ -3732,8 +3732,8 @@ MAPPINGS: Mappings = Mappings(
             val=" ・もしも各種スタイル設定に`None`が指定された場合、そのスタイルは親のスタイル設定を引き継ぎます。<hr>",
         ),
         Mapping(
-            key="SVGText class",
-            val="SVGText クラス",
+            key="SvgText class",
+            val="SvgText クラス",
         ),
         Mapping(
             key="SVGTextSpan class",

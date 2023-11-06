@@ -12,7 +12,7 @@ Apply x-coordinate to y-axis ticks texts.<hr>
 
 - `horizontal_padding`: Int
   - A chart horizontal padding.
-- `y_axis_ticks_texts`: Array[SVGText]
+- `y_axis_ticks_texts`: Array[SvgText]
   - Y-axis ticks' texts.
 - `x_coordinate_container`: Sprite
   - A ticks container.
@@ -224,7 +224,7 @@ Create a y-axis ticks texts.<hr>
 
 **[Returns]**
 
-- `y_axis_ticks_texts`: Array[SVGText]
+- `y_axis_ticks_texts`: Array[SvgText]
   - Created y-axis ticks texts.
 - `texts_container`: Sprite
   - A container that contains created texts.

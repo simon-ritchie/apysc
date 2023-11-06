@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SVGText クラス &#8212; apysc  documentation</title>
+    <title>SvgText クラス &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
     <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
@@ -36,7 +36,7 @@
           <a href="jp_graphics_clear.html" title="Graphics クラスの clear インターフェイス"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">SVGText クラス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">SvgText クラス</a></li> 
       </ul>
     </div>  
 
@@ -47,15 +47,15 @@
             
   <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_text.html">英語の原文</a>の確認をお願いします。</span></p>
 <section id="svgtext">
-<h1>SVGText クラス<a class="headerlink" href="#svgtext" title="Permalink to this heading">¶</a></h1>
-<p>このページでは<code class="docutils literal notranslate"><span class="pre">SVGText</span></code>クラスについて説明します。</p>
+<h1>SvgText クラス<a class="headerlink" href="#svgtext" title="Permalink to this heading">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">SvgText</span></code>クラスについて説明します。</p>
 <section id="id1">
 <h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">SVGText</span></code>クラスはSVGテキストのオブジェクトを生成します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">SvgText</span></code>クラスはSVGテキストのオブジェクトを生成します。</p>
 </section>
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">SVGText</span></code>クラスのコンストラクタは<code class="docutils literal notranslate"><span class="pre">text</span></code>引数の指定を必要とします。</p>
+<p><code class="docutils literal notranslate"><span class="pre">SvgText</span></code>クラスのコンストラクタは<code class="docutils literal notranslate"><span class="pre">text</span></code>引数の指定を必要とします。</p>
 <p>コンストラクタでは<code class="docutils literal notranslate"><span class="pre">font_size</span></code>や<code class="docutils literal notranslate"><span class="pre">font_family</span></code>、<code class="docutils literal notranslate"><span class="pre">fill_color</span></code>、<code class="docutils literal notranslate"><span class="pre">bold</span></code>などのフォントやスタイルなどの引数を指定することもできます。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -66,7 +66,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -90,7 +90,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -113,7 +113,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -137,7 +137,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
@@ -162,7 +162,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -186,7 +186,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
     <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
@@ -209,7 +209,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -233,7 +233,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -256,7 +256,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -280,7 +280,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
@@ -307,7 +307,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
@@ -335,7 +335,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
@@ -362,7 +362,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet,</span>
 <span class="n">consectetur</span> <span class="n">adipiscing</span> <span class="n">elit</span><span class="p">,</span>
 <span class="s2">&quot;</span>
@@ -391,7 +391,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet,</span>
 <span class="n">consectetur</span> <span class="n">adipiscing</span> <span class="n">elit</span><span class="p">,</span>
 <span class="s2">&quot;</span>
@@ -431,7 +431,7 @@
     <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#666&quot;</span><span class="p">),</span>
     <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">x0_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">x0_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Text&#39;s x=0 position&quot;</span><span class="p">,</span>
     <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#666&quot;</span><span class="p">),</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
@@ -439,7 +439,7 @@
     <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">left_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">left_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Left align sample (default)&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">52</span><span class="p">,</span>
@@ -447,7 +447,7 @@
     <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">center_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">center_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Center align sample&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span>
@@ -456,7 +456,7 @@
 <span class="p">)</span>
 <span class="n">center_align_sample_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
 
-<span class="n">right_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">right_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Right align sample&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">92</span><span class="p">,</span>
@@ -482,7 +482,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Bold style sample&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -506,7 +506,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Italic style sample&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -530,7 +530,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -574,7 +574,7 @@
 <span class="p">)</span>
 <span class="n">X</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">Y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span>
@@ -630,7 +630,7 @@
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -679,7 +679,7 @@
 <span class="p">)</span>
 <span class="n">X</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -725,7 +725,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -765,7 +765,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -794,7 +794,7 @@
 <iframe src="static/svg_txt_flip_y/index.html" width="200" height="50"></iframe>
 </section>
 <section id="svgtext-api">
-<h2>SVGText クラスのコンストラクタのAPI<a class="headerlink" href="#svgtext-api" title="Permalink to this heading">¶</a></h2>
+<h2>SvgText クラスのコンストラクタのAPI<a class="headerlink" href="#svgtext-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;#666666&quot;),</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;&quot;),</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
@@ -893,7 +893,7 @@
 <span class="gp">... </span>    <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">),</span>
@@ -924,7 +924,7 @@
   <div>
     <h3><a href="jp_index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">SVGText クラス</a><ul>
+<li><a class="reference internal" href="#">SvgText クラス</a><ul>
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
 <li><a class="reference internal" href="#y">テキストのY座標の基準点に対する特記事項</a></li>
@@ -949,7 +949,7 @@
 <li><a class="reference internal" href="#set-scale-x-from-pointget-scale-x-from-point">set_scale_x_from_pointとget_scale_x_from_pointメソッドのインターフェイス例</a></li>
 <li><a class="reference internal" href="#flip-x">flip_x属性のインターフェイス例</a></li>
 <li><a class="reference internal" href="#flip-y">flip_y属性のインターフェイス例</a></li>
-<li><a class="reference internal" href="#svgtext-api">SVGText クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#svgtext-api">SvgText クラスのコンストラクタのAPI</a></li>
 </ul>
 </li>
 </ul>
@@ -992,7 +992,7 @@
           <a href="jp_graphics_clear.html" title="Graphics クラスの clear インターフェイス"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">SVGText クラス</a></li> 
+        <li class="nav-item nav-item-this"><a href="">SvgText クラス</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -1,7 +1,7 @@
 from typing import List
 
 import apysc as ap
-from apysc._display.svg_text import SVGText
+from apysc._display.svg_text import SvgText
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
@@ -21,7 +21,7 @@ class TestSVGText:
     @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
-        svg_text: SVGText = SVGText(
+        svg_text: SvgText = SvgText(
             text="test text",
             x=50,
             y=100,
@@ -65,17 +65,17 @@ class TestSVGText:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        svg_text: SVGText = SVGText(
+        svg_text: SvgText = SvgText(
             text="test text 1",
         )
         repr_str: str = repr(svg_text)
-        expected: str = f'SVGText("{svg_text.variable_name}")'
+        expected: str = f'SvgText("{svg_text.variable_name}")'
         assert repr_str == expected
 
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
-        svg_text: SVGText = SVGText(
+        svg_text: SvgText = SvgText(
             text="test text 1",
         )
         expression: str = expression_data_util.get_current_expression()
@@ -86,7 +86,7 @@ class TestSVGText:
 
     @apply_test_settings()
     def test__convert_text_spans_list_to_array(self) -> None:
-        svg_text: SVGText = SVGText(
+        svg_text: SvgText = SvgText(
             text="test text 1",
         )
         text_spans_: ap.Array[
@@ -114,7 +114,7 @@ class TestSVGText:
             ap.SVGTextSpan(text="b"),
             ap.SVGTextSpan(text="c"),
         ]
-        svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+        svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
             text_spans=text_spans,
             font_size=14,
             font_family=["Arial", "Helvetica"],
@@ -156,6 +156,6 @@ class TestSVGText:
 
     @apply_test_settings()
     def test__initialize_with_base_value(self) -> None:
-        svg_text: ap.SVGText = ap.SVGText._initialize_with_base_value()
+        svg_text: ap.SvgText = ap.SvgText._initialize_with_base_value()
         assert svg_text.text == ap.String("")
         assert svg_text.visible == ap.Boolean(False)

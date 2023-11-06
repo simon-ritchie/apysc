@@ -1,16 +1,16 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/svg_text.html)の確認をお願いします。</span>
 
-# SVGText クラス
+# SvgText クラス
 
-このページでは`SVGText`クラスについて説明します。
+このページでは`SvgText`クラスについて説明します。
 
 ## クラス概要
 
-`SVGText`クラスはSVGテキストのオブジェクトを生成します。
+`SvgText`クラスはSVGテキストのオブジェクトを生成します。
 
 ## 基本的な使い方
 
-`SVGText`クラスのコンストラクタは`text`引数の指定を必要とします。
+`SvgText`クラスのコンストラクタは`text`引数の指定を必要とします。
 
 コンストラクタでは`font_size`や`font_family`、`fill_color`、`bold`などのフォントやスタイルなどの引数を指定することもできます。
 
@@ -24,7 +24,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -51,7 +51,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=0,
@@ -76,7 +76,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -102,7 +102,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=34,
@@ -130,7 +130,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -156,7 +156,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     y=32,
     fill_color=ap.Color("#aaa"),
@@ -181,7 +181,7 @@ ap.Stage(
     stage_height=70,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -207,7 +207,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -232,7 +232,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -258,7 +258,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=34,
@@ -287,7 +287,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=34,
@@ -317,7 +317,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=34,
@@ -346,7 +346,7 @@ ap.Stage(
     stage_height=120,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 "
@@ -378,7 +378,7 @@ ap.Stage(
     stage_height=100,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 "
@@ -420,7 +420,7 @@ vertical_x0_line: ap.Line = ap.Line(
     line_color=ap.Color("#666"),
     parent=container_sprite,
 )
-x0_text: ap.SVGText = ap.SVGText(
+x0_text: ap.SvgText = ap.SvgText(
     text="Text's x=0 position",
     fill_color=ap.Color("#666"),
     x=5,
@@ -428,7 +428,7 @@ x0_text: ap.SVGText = ap.SVGText(
     parent=container_sprite,
 )
 
-left_align_sample_text: ap.SVGText = ap.SVGText(
+left_align_sample_text: ap.SvgText = ap.SvgText(
     text="Left align sample (default)",
     x=0,
     y=52,
@@ -436,7 +436,7 @@ left_align_sample_text: ap.SVGText = ap.SVGText(
     parent=container_sprite,
 )
 
-center_align_sample_text: ap.SVGText = ap.SVGText(
+center_align_sample_text: ap.SvgText = ap.SvgText(
     text="Center align sample",
     x=0,
     y=72,
@@ -445,7 +445,7 @@ center_align_sample_text: ap.SVGText = ap.SVGText(
 )
 center_align_sample_text.align = ap.SVGTextAlign.CENTER
 
-right_align_sample_text: ap.SVGText = ap.SVGText(
+right_align_sample_text: ap.SvgText = ap.SvgText(
     text="Right align sample",
     x=0,
     y=92,
@@ -473,7 +473,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Bold style sample",
     x=20,
     y=32,
@@ -499,7 +499,7 @@ ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Italic style sample",
     x=20,
     y=32,
@@ -525,7 +525,7 @@ stage: ap.Stage = ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=100,
     y=32,
@@ -572,7 +572,7 @@ stage: ap.Stage = ap.Stage(
 )
 X: ap.Number = ap.Number(20)
 Y: ap.Number = ap.Number(32)
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=X,
     y=Y,
@@ -630,7 +630,7 @@ stage: ap.Stage = ap.Stage(
     stage_elem_id="stage",
 )
 direction: ap.Int = ap.Int(-1)
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -682,7 +682,7 @@ stage: ap.Stage = ap.Stage(
 )
 X: ap.Number = ap.Number(20)
 direction: ap.Int = ap.Int(-1)
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=X,
     y=32,
@@ -730,7 +730,7 @@ stage: ap.Stage = ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -772,7 +772,7 @@ stage: ap.Stage = ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText(
+svg_text: ap.SvgText = ap.SvgText(
     text="Hello, world!",
     x=20,
     y=32,
@@ -800,7 +800,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_flip_y/")
 
 <iframe src="static/svg_txt_flip_y/index.html" width="200" height="50"></iframe>
 
-## SVGText クラスのコンストラクタのAPI
+## SvgText クラスのコンストラクタのAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
@@ -876,7 +876,7 @@ SVGテキストのためのクラスです。<hr>
 ...     stage_height=50,
 ...     stage_elem_id="stage",
 ... )
->>> svg_text: ap.SVGText = ap.SVGText(
+>>> svg_text: ap.SvgText = ap.SvgText(
 ...     text="Hello, world!",
 ...     font_size=20,
 ...     fill_color=ap.Color("#0af"),

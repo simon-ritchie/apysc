@@ -1,7 +1,7 @@
-"""The test project for the `SVGText` class.
+"""The test project for the `SvgText` class.
 
 Command examples:
-$ python test_projects/SVGText/main.py
+$ python test_projects/SvgText/main.py
 """
 
 import sys
@@ -32,81 +32,81 @@ def main() -> None:
         stage_elem_id="stage",
     )
 
-    ap.SVGText(
+    ap.SvgText(
         text="Hello, world!",
     )
-    ap.SVGText(
+    ap.SvgText(
         text="x and y coordinates test",
         x=50,
         y=20,
     )
-    ap.SVGText(
+    ap.SvgText(
         text="fill_color test",
         y=40,
         fill_color=ap.Color("#999"),
     )
-    ap.SVGText(
+    ap.SvgText(
         text="fill_alpha test",
         y=60,
         fill_color=ap.Color("#999"),
         fill_alpha=0.3,
     )
-    ap.SVGText(
+    ap.SvgText(
         text="line_color test",
         y=80,
         line_color=ap.Color("#999"),
     )
-    ap.SVGText(
+    ap.SvgText(
         text="line_alpha test",
         y=100,
         line_color=ap.Color("#999"),
         line_alpha=0.3,
     )
-    ap.SVGText(
+    ap.SvgText(
         text="line_thickness test",
         y=120,
         line_color=ap.Color("#999"),
         line_thickness=2,
     )
     sprite: ap.Sprite = ap.Sprite()
-    ap.SVGText(
+    ap.SvgText(
         text="parent test",
         y=140,
         parent=sprite,
     )
     sprite.x = ap.Number(50)
 
-    svg_text: ap.SVGText = ap.SVGText(
+    svg_text: ap.SvgText = ap.SvgText(
         text="x attribute test",
         y=160,
     )
     svg_text.x = ap.Number(50)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="y attribute test",
         y=180,
     )
     svg_text.y = ap.Number(180)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="scale_x_from_center test",
         y=200,
     )
     svg_text.scale_x_from_center = ap.Number(0.5)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="scale_x_from_point test",
         y=220,
     )
     svg_text.set_scale_x_from_point(scale_x=ap.Number(0.5), x=ap.Number(0))
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="rotation_around_center test",
         y=240,
     )
     svg_text.rotation_around_center = ap.Int(15)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="set_rotation_around_point test",
         y=280,
     )
@@ -114,25 +114,25 @@ def main() -> None:
         rotation=ap.Int(15), x=ap.Number(0), y=ap.Number(340)
     )
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="flip_x test",
         y=320,
     )
     svg_text.flip_x = ap.Boolean(True)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="flip_y test",
         y=340,
     )
     svg_text.flip_y = ap.Boolean(True)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="animation_x test",
         y=360,
     )
     svg_text.animation_x(x=100, duration=2000, easing=ap.Easing.EASE_OUT_QUINT).start()
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="font_family test 1",
         y=380,
     )
@@ -142,82 +142,82 @@ def main() -> None:
         ["Impact", "Georgia"],
     )
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="font_family test 2",
         y=400,
         font_family=["Times New Roman", "Arial"],
     )
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="remove test",
         y=420,
     )
     svg_text.remove_from_parent()
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="font_size test 1",
         y=440,
         font_size=20,
     )
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="font_size test 2",
         y=460,
     )
     svg_text.font_size = ap.Int(12)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="leading test 1\nleading test 1\nleading test 1",
         y=480,
         leading=1.0,
     )
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="leading test 2\nleading test 2\nleading test 2",
         y=500,
     )
     svg_text.leading = ap.Number(2.0)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Left align test\nLeft align test left align test",
         x=600,
         y=20,
         align=ap.SVGTextAlign.LEFT,
     )
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Center align test\nCenter align test center align test",
         x=600,
         y=80,
         align=ap.SVGTextAlign.CENTER,
     )
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Right align test\nRight align test right align test",
         x=600,
         y=140,
         align=ap.SVGTextAlign.RIGHT,
     )
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Center align test 2\nCenter align test 2 center align test 2",
         x=600,
         y=200,
     )
     svg_text.align = ap.SVGTextAlign.CENTER
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Italic test 1",
         x=600,
         y=240,
         italic=True,
     )
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Italic test 2",
         x=600,
         y=260,
     )
     svg_text.italic = ap.Boolean(True)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Italic test 3",
         x=600,
         y=280,
@@ -225,21 +225,21 @@ def main() -> None:
     )
     svg_text.italic = ap.Boolean(False)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Bold test 1",
         x=600,
         y=300,
         bold=True,
     )
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Bold test 2",
         x=600,
         y=320,
     )
     svg_text.bold = ap.Boolean(True)
 
-    svg_text = ap.SVGText(
+    svg_text = ap.SvgText(
         text="Bold test 3",
         x=600,
         y=340,

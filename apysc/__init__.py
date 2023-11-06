@@ -43,7 +43,7 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.path import Path
-from apysc._display.svg_text import SVGText
+from apysc._display.svg_text import SvgText
 from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_span import SVGTextSpan
 from apysc._display.multi_line_text import MultiLineText

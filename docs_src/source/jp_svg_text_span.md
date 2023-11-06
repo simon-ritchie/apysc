@@ -6,9 +6,9 @@
 
 ## インターフェイス概要
 
-`SVGTextSpan`は`SVGText`の子となるテキスト要素を作成するためのクラスです。
+`SVGTextSpan`は`SvgText`の子となるテキスト要素を作成するためのクラスです。
 
-複数の`SVGTextSpan`クラスのインスタンスを使ってそれぞれに異なるテキストのスタイルを設定した状態の`SVGText`のインスタンスを作成することができます。
+複数の`SVGTextSpan`クラスのインスタンスを使ってそれぞれに異なるテキストのスタイルを設定した状態の`SvgText`のインスタンスを作成することができます。
 
 ## 基本的な使い方
 
@@ -18,7 +18,7 @@
 
 もしもそれらのスタイル設定の引数指定を省略した場合、親のSVGTextのインスタンスのスタイルが反映されます。
 
-また、複数の`SVGTextSpan`のインスタンスを使って`SVGText`のインスタンスの作成するには`create_with_svg_text_spans`のクラスメソッドを使うことで対応ができます。
+また、複数の`SVGTextSpan`のインスタンスを使って`SvgText`のインスタンスの作成するには`create_with_svg_text_spans`のクラスメソッドを使うことで対応ができます。
 
 ```py
 # runnable
@@ -30,7 +30,7 @@ stage: ap.Stage = ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[
         ap.SVGTextSpan(text="Lorem "),
         ap.SVGTextSpan(text="ipsum ", font_size=20, fill_color=ap.Color("#0af")),
@@ -64,7 +64,7 @@ stage: ap.Stage = ap.Stage(
     stage_height=50,
     stage_elem_id="stage",
 )
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[
         ap.SVGTextSpan(text="Lorem 
 "),
@@ -82,7 +82,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_notes_of_the_line_break/")
 
 <iframe src="static/svg_txt_span_notes_of_the_line_break/index.html" width="200" height="50"></iframe>
 
-もしも改行を加えたい場合には`SVGTextSpan`クラスではなく`SVGText`クラスを使用するか、もしくは複数のインスタンスを作成して対応をお願いします。
+もしも改行を加えたい場合には`SVGTextSpan`クラスではなく`SvgText`クラスを使用するか、もしくは複数のインスタンスを作成して対応をお願いします。
 
 ## text 属性のインターフェイス例
 
@@ -102,7 +102,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.text = ap.String("dolor")
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -133,7 +133,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.font_size = ap.Int(25)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -166,7 +166,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.font_family = ap.Array([ap.String("Impact"), ap.String("Arial")])
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -197,7 +197,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.fill_color = ap.Color("#0af")
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -228,7 +228,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.fill_alpha = ap.Number(0.3)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -264,7 +264,7 @@ text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(
 )
 text_span_2.line_color = ap.Color("#0af")
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -307,7 +307,7 @@ text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(
 )
 text_span_2.line_alpha = ap.Number(0.3)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -349,7 +349,7 @@ text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(
 text_span_1.line_thickness = ap.Int(3)
 text_span_2.line_thickness = ap.Int(3)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -380,7 +380,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.bold = ap.Boolean(True)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -411,7 +411,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.italic = ap.Boolean(True)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -442,7 +442,7 @@ text_span_1: ap.SVGTextSpan = ap.SVGTextSpan(text="Lorem ")
 text_span_2: ap.SVGTextSpan = ap.SVGTextSpan(text="ipsum")
 text_span_2.delta_x = ap.Number(-20)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -478,7 +478,7 @@ text_span_3: ap.SVGTextSpan = ap.SVGTextSpan(text="dolar")
 text_span_2.delta_y = ap.Number(10)
 text_span_3.delta_y = ap.Number(10)
 
-svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
     text_spans=[text_span_1, text_span_2],
     font_size=16,
     x=20,
@@ -499,7 +499,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 **[インターフェイス概要]**
 
-`SVGText`の子となるSVGのtext-span要素のためのクラスです。<hr>
+`SvgText`の子となるSVGのtext-span要素のためのクラスです。<hr>
 
 **[引数]**
 
@@ -555,7 +555,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 >>> stage: ap.Stage = ap.Stage(
 ...     background_color=ap.Color("#333"), stage_width=200, stage_height=50
 ... )
->>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+>>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
 ...     text_spans=[
 ...         ap.SVGTextSpan(text="Hello, "),
 ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
@@ -569,17 +569,17 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 **[関連資料]**
 
-- [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)
+- [SvgText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)
 
-## SVGText クラスの create_with_svg_text_spans クラスメソッドのAPI
+## SvgText クラスの create_with_svg_text_spans クラスメソッドのAPI
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SVGTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SVGText'`<hr>
+**[インターフェイスの構造]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SVGTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SvgText'`<hr>
 
 **[インターフェイス概要]**
 
-指定された各text spanのインスタンスを使用して`SVGText`のインスタンスを生成します。<hr>
+指定された各text spanのインスタンスを使用して`SvgText`のインスタンスを生成します。<hr>
 
 **[引数]**
 
@@ -635,8 +635,8 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 **[返却値]**
 
-- `svg_text`: SVGText
-  - 生成された`SVGText`のインスタンス。
+- `svg_text`: SvgText
+  - 生成された`SvgText`のインスタンス。
 
 <hr>
 
@@ -653,7 +653,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 ...     stage_width=200,
 ...     stage_height=50,
 ... )
->>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+>>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
 ...     text_spans=[
 ...         ap.SVGTextSpan(text="Hello, "),
 ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
@@ -667,4 +667,4 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 **[関連資料]**
 
-- [SVGText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)
+- [SvgText クラス](https://simon-ritchie.github.io/apysc/jp/jp_svg_text.html)

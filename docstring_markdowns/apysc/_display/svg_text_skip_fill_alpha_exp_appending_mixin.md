@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The mix-in class implementation for the `SVGText`'s `_skip_fill_alpha_expression_appending` attribute.
+The mix-in class implementation for the `SvgText`'s `_skip_fill_alpha_expression_appending` attribute.
 
 ## `SVGTextSkipFillAlphaExpAppendingMixIn` class docstring
 

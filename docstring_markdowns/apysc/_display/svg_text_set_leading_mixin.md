@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The mix-in class implementation for the `SVGText`'s `_set_leading` method.
+The mix-in class implementation for the `SvgText`'s `_set_leading` method.
 
 ## `SVGTextSetLeadingMixIn` class docstring
 

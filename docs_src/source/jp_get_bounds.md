@@ -49,7 +49,7 @@ left_x_and_top_y_circle: ap.Circle = ap.Circle(
     radius=10,
     fill_color=fill_color,
 )
-left_x_and_top_y_text: ap.SVGText = ap.SVGText(
+left_x_and_top_y_text: ap.SvgText = ap.SvgText(
     text="left_x and top_y",
     x=bounding_box.left_x,
     y=bounding_box.top_y - 15,

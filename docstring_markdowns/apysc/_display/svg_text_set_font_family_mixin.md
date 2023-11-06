@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The mix-in class implementation for the `SVGText`'s `_set_font_family` method.
+The mix-in class implementation for the `SvgText`'s `_set_font_family` method.
 
 ## `SVGTextSetFontFamilyMixIn` class docstring
 

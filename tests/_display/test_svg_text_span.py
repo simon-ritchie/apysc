@@ -16,7 +16,7 @@ class TestSVGTextSpan:
             text="test_text_span",
             fill_color=ap.Color("#0af"),
         )
-        svg_text: ap.SVGText = SVGTextSingletonForTextSpan.get_instance()
+        svg_text: ap.SvgText = SVGTextSingletonForTextSpan.get_instance()
         expression: str = expression_data_util.get_current_expression()
         assert (
             f"var {svg_text_span.variable_name} = {svg_text.variable_name}\n  .tspan()"

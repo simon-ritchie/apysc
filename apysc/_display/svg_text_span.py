@@ -119,7 +119,7 @@ class SVGTextSpan(
     InitializeWithBaseValueInterface,
 ):
     """
-    The class for an SVG text-span (the child class of `SVGText`).
+    The class for an SVG text-span (the child class of `SvgText`).
 
     Notes
     -----
@@ -128,7 +128,7 @@ class SVGTextSpan(
 
     References
     ----------
-    - SVGText class
+    - SvgText class
         - https://simon-ritchie.github.io/apysc/en/svg_text.html
     - SVGTextSpan class
         - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
@@ -182,7 +182,7 @@ class SVGTextSpan(
         variable_name_suffix: str = "",
     ) -> None:
         """
-        The class for an SVG text-span (the child class of `SVGText`).
+        The class for an SVG text-span (the child class of `SvgText`).
 
         Notes
         -----
@@ -191,7 +191,7 @@ class SVGTextSpan(
 
         References
         ----------
-        - SVGText class
+        - SvgText class
             - https://simon-ritchie.github.io/apysc/en/svg_text.html
         - SVGTextSpan class
             - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
@@ -237,7 +237,7 @@ class SVGTextSpan(
         >>> stage: ap.Stage = ap.Stage(
         ...     background_color=ap.Color("#333"), stage_width=200, stage_height=50
         ... )
-        >>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+        >>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
         ...     text_spans=[
         ...         ap.SVGTextSpan(text="Hello, "),
         ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
@@ -286,14 +286,14 @@ class SVGTextSpan(
         """
         Append a constructor expression string.
         """
-        from apysc._display.svg_text import SVGText
+        from apysc._display.svg_text import SvgText
         from apysc._display.svg_text_singleton_for_text_span import (
             SVGTextSingletonForTextSpan,
         )
         from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
-        parent: SVGText = SVGTextSingletonForTextSpan.get_instance()
+        parent: SvgText = SVGTextSingletonForTextSpan.get_instance()
         variable_name: str = self.variable_name
         expression: str = (
             f"var {variable_name} = {parent.variable_name}" "\n  .tspan()\n  .attr({"

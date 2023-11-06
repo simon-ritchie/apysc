@@ -85,7 +85,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
-class SVGText(
+class SvgText(
     ReprInterface,
     XMixIn,
     AppendXAttrExpressionMixIn,
@@ -137,12 +137,12 @@ class SVGText(
 
     Notes
     -----
-    - SVGText's y-coordinate zero-position starts at the bottom of a text.
+    - SvgText's y-coordinate zero-position starts at the bottom of a text.
         So if you set y=0, a text becomes almost invisible.
 
     References
     ----------
-    - SVGText class
+    - SvgText class
         - https://simon-ritchie.github.io/apysc/en/svg_text.html
 
     Examples
@@ -153,7 +153,7 @@ class SVGText(
     ...     stage_width=200,
     ...     stage_height=50,
     ... )
-    >>> svg_text: ap.SVGText = ap.SVGText(
+    >>> svg_text: ap.SvgText = ap.SvgText(
     ...     text="Hello, world!",
     ...     font_size=20,
     ...     fill_color=ap.Color("#0af"),
@@ -229,12 +229,12 @@ class SVGText(
 
         Notes
         -----
-        - SVGText's y-coordinate zero-position starts at the bottom of a text.
+        - SvgText's y-coordinate zero-position starts at the bottom of a text.
             So if you set y=0, a text becomes almost invisible.
 
         References
         ----------
-        - SVGText class
+        - SvgText class
             - https://simon-ritchie.github.io/apysc/en/svg_text.html
 
         Parameters
@@ -285,7 +285,7 @@ class SVGText(
         ...     stage_height=50,
         ...     stage_elem_id="stage",
         ... )
-        >>> svg_text: ap.SVGText = ap.SVGText(
+        >>> svg_text: ap.SvgText = ap.SvgText(
         ...     text="Hello, world!",
         ...     font_size=20,
         ...     fill_color=ap.Color("#0af"),
@@ -322,7 +322,7 @@ class SVGText(
             line_joints=None,
         )
 
-        super(SVGText, self).__init__(
+        super(SvgText, self).__init__(
             variable_name=variable_name,
         )
 
@@ -434,18 +434,18 @@ class SVGText(
         italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
-    ) -> "SVGText":
+    ) -> "SvgText":
         """
-        Create an `SVGText` instance with specified text spans.
+        Create an `SvgText` instance with specified text spans.
 
         Notes
         -----
-        - SVGText's y-coordinate zero-position starts at the bottom of a text.
+        - SvgText's y-coordinate zero-position starts at the bottom of a text.
             So if you set y=0, a text becomes almost invisible.
 
         References
         ----------
-        - SVGText class
+        - SvgText class
             - https://simon-ritchie.github.io/apysc/en/svg_text.html
         - SVGTextSpan class
             - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
@@ -491,8 +491,8 @@ class SVGText(
 
         Returns
         -------
-        svg_text : SVGText
-            A created `SVGText` instance.
+        svg_text : SvgText
+            A created `SvgText` instance.
 
         Examples
         --------
@@ -502,7 +502,7 @@ class SVGText(
         ...     stage_width=200,
         ...     stage_height=50,
         ... )
-        >>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+        >>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
         ...     text_spans=[
         ...         ap.SVGTextSpan(text="Hello, "),
         ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
@@ -514,7 +514,7 @@ class SVGText(
         from apysc._expression import expression_data_util
         from apysc._loop.for_array_indices import ForArrayIndices
 
-        svg_text: SVGText = SVGText(
+        svg_text: SvgText = SvgText(
             text="",
             font_size=font_size,
             font_family=font_family,
@@ -590,23 +590,23 @@ class SVGText(
         -------
         repr_str : str
             This interface returns a type name and variable name
-            (e.g., `SVGText("<variable_name>")`).
+            (e.g., `SvgText("<variable_name>")`).
         """
 
-        repr_str: str = f'{SVGText.__name__}("{self.variable_name}")'
+        repr_str: str = f'{SvgText.__name__}("{self.variable_name}")'
         return repr_str
 
     @classmethod
     @final
-    def _initialize_with_base_value(cls) -> "SVGText":
+    def _initialize_with_base_value(cls) -> "SvgText":
         """
         Initialize this class with a base value(s).
 
         Returns
         -------
-        svg_text : SVGText
+        svg_text : SvgText
             An initialized svg text instance.
         """
-        svg_text: SVGText = SVGText(text="")
+        svg_text: SvgText = SvgText(text="")
         svg_text.visible = Boolean(False)
         return svg_text

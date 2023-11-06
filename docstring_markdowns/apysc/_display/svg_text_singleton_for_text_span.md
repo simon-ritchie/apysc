@@ -12,5 +12,5 @@ Get a text instance.<hr>
 
 **[Returns]**
 
-- `svg_text`: SVGText
+- `svg_text`: SvgText
   - A target text instance.

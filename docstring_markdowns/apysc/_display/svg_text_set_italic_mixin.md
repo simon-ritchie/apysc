@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The mix-in class implementation for the `SVGText`'s `_set_italic` method.
+The mix-in class implementation for the `SvgText`'s `_set_italic` method.
 
 ## `SVGTextSetItalicMixIn` class docstring
 

@@ -1,4 +1,4 @@
-"""The mix-in class implementation for the `SVGText`'s `_set_delta_x` method.
+"""The mix-in class implementation for the `SvgText`'s `_set_delta_x` method.
 """
 
 from typing import Union

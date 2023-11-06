@@ -32,7 +32,7 @@ rectangle: ap.Rectangle = ap.Rectangle(
     fill_color=ap.Color("#0af"),
 )
 bounding_box: ap.RectangleGeom = rectangle.get_bounds()
-text_1: ap.SVGText = ap.SVGText(
+text_1: ap.SvgText = ap.SvgText(
     text=(
         ap.String("Left x: ")
         + bounding_box.left_x.to_string()
@@ -87,7 +87,7 @@ left_x_and_top_y_circle: ap.Circle = ap.Circle(
     radius=POINT_RADIUS,
     fill_color=fill_color,
 )
-left_x_and_top_y_text: ap.SVGText = ap.SVGText(
+left_x_and_top_y_text: ap.SvgText = ap.SvgText(
     text="left_x and top_y",
     x=bounding_box.left_x,
     y=bounding_box.top_y - 15,
@@ -101,7 +101,7 @@ right_x_and_top_y_circle: ap.Circle = ap.Circle(
     radius=POINT_RADIUS,
     fill_color=fill_color,
 )
-right_x_and_top_y_text: ap.SVGText = ap.SVGText(
+right_x_and_top_y_text: ap.SvgText = ap.SvgText(
     text="right_x and top_y",
     x=bounding_box.right_x,
     y=bounding_box.top_y - 15,
@@ -115,7 +115,7 @@ left_x_and_bottom_y_circle: ap.Circle = ap.Circle(
     radius=POINT_RADIUS,
     fill_color=fill_color,
 )
-left_x_and_bottom_y_text: ap.SVGText = ap.SVGText(
+left_x_and_bottom_y_text: ap.SvgText = ap.SvgText(
     text="left_x and bottom_y",
     x=bounding_box.left_x,
     y=bounding_box.bottom_y + 31,
@@ -129,7 +129,7 @@ right_x_and_bottom_y_circle: ap.Circle = ap.Circle(
     radius=POINT_RADIUS,
     fill_color=fill_color,
 )
-right_x_and_bottom_y_text: ap.SVGText = ap.SVGText(
+right_x_and_bottom_y_text: ap.SvgText = ap.SvgText(
     text="right_x and bottom_y",
     x=bounding_box.right_x,
     y=bounding_box.bottom_y + 31,
@@ -143,7 +143,7 @@ center_x_and_center_y_circle: ap.Circle = ap.Circle(
     radius=POINT_RADIUS,
     fill_color=fill_color,
 )
-center_x_and_center_y_text: ap.SVGText = ap.SVGText(
+center_x_and_center_y_text: ap.SvgText = ap.SvgText(
     text="center_x and center_y",
     x=bounding_box.center_x + 25,
     y=bounding_box.center_y + 5,

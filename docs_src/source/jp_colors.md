@@ -94,7 +94,7 @@ with ap.ForArrayIndices(constant_names_arr) as i:
         line_thickness=1,
         line_alpha=0.5,
     )
-    ap.SVGText(
+    ap.SvgText(
         text=constant_name,
         x=x + RECT_SIZE + 10,
         y=y + RECT_SIZE / 2 + FONT_SIZE / 2 - 2,

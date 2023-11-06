@@ -60,7 +60,7 @@ stage: ap.Stage = ap.Stage(
     stage_elem_id="stage",
 )
 width: ap.Int = ap.Int(50)
-text: ap.SVGText = ap.SVGText(
+text: ap.SvgText = ap.SvgText(
     text=ap.String("width is: ") + width.to_string(),
     fill_color=ap.Color("#aaa"),
     x=20,

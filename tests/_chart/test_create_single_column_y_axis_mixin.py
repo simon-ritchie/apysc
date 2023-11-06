@@ -240,7 +240,7 @@ def test__create_y_axis_ticks_texts() -> None:
     )
     tick_text_bold: ap.Boolean = ap.Boolean(False)
     tick_text_italic: ap.Boolean = ap.Boolean(False)
-    y_axis_ticks_texts: ap.Array[ap.SVGText]
+    y_axis_ticks_texts: ap.Array[ap.SvgText]
     texts_container: ap.Sprite
     (
         y_axis_ticks_texts,

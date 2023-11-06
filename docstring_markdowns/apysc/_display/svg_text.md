@@ -4,13 +4,13 @@
 
 Class implementation for an SVG text.
 
-## `SVGText` class docstring
+## `SvgText` class docstring
 
 The class for an SVG text.<hr>
 
 **[Notes]**
 
- ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+ ・SvgText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
 
 **[Examples]**
 
@@ -21,7 +21,7 @@ The class for an SVG text.<hr>
 ...     stage_width=200,
 ...     stage_height=50,
 ... )
->>> svg_text: ap.SVGText = ap.SVGText(
+>>> svg_text: ap.SvgText = ap.SvgText(
 ...     text="Hello, world!",
 ...     font_size=20,
 ...     fill_color=ap.Color("#0af"),
@@ -40,7 +40,7 @@ Color("#00aaff")
 
 **[References]**
 
-- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SvgText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 
 ### `__init__` method docstring
 
@@ -85,7 +85,7 @@ The class for an SVG text.<hr>
 
 **[Notes]**
 
- ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+ ・SvgText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
 
 **[Examples]**
 
@@ -97,7 +97,7 @@ The class for an SVG text.<hr>
 ...     stage_height=50,
 ...     stage_elem_id="stage",
 ... )
->>> svg_text: ap.SVGText = ap.SVGText(
+>>> svg_text: ap.SvgText = ap.SvgText(
 ...     text="Hello, world!",
 ...     font_size=20,
 ...     fill_color=ap.Color("#0af"),
@@ -116,7 +116,7 @@ Color("#00aaff")
 
 **[References]**
 
-- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SvgText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 
 ### `__repr__` method docstring
 
@@ -125,7 +125,7 @@ Get a string representation of this instance (for the sake of debugging).<hr>
 **[Returns]**
 
 - `repr_str`: str
-  - This interface returns a type name and variable name (e.g., `SVGText("<variable_name>")`).
+  - This interface returns a type name and variable name (e.g., `SvgText("<variable_name>")`).
 
 ### `_append_constructor_expression` method docstring
 
@@ -153,12 +153,12 @@ Initialize this class with a base value(s).<hr>
 
 **[Returns]**
 
-- `svg_text`: SVGText
+- `svg_text`: SvgText
   - An initialized svg text instance.
 
 ### `create_with_svg_text_spans` method docstring
 
-Create an `SVGText` instance with specified text spans.<hr>
+Create an `SvgText` instance with specified text spans.<hr>
 
 **[Parameters]**
 
@@ -199,14 +199,14 @@ Create an `SVGText` instance with specified text spans.<hr>
 
 **[Returns]**
 
-- `svg_text`: SVGText
-  - A created `SVGText` instance.
+- `svg_text`: SvgText
+  - A created `SvgText` instance.
 
 <hr>
 
 **[Notes]**
 
- ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
+ ・SvgText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>
 
 **[Examples]**
 
@@ -217,7 +217,7 @@ Create an `SVGText` instance with specified text spans.<hr>
 ...     stage_width=200,
 ...     stage_height=50,
 ... )
->>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+>>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
 ...     text_spans=[
 ...         ap.SVGTextSpan(text="Hello, "),
 ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
@@ -231,5 +231,5 @@ Create an `SVGText` instance with specified text spans.<hr>
 
 **[References]**
 
-- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SvgText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 - [SVGTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)

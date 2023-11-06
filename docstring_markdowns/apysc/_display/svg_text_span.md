@@ -86,7 +86,7 @@ Get an initial line-thickness (line-width) number.<hr>
 
 ## `SVGTextSpan` class docstring
 
-The class for an SVG text-span (the child class of `SVGText`).<hr>
+The class for an SVG text-span (the child class of `SvgText`).<hr>
 
 **[Notes]**
 
@@ -94,12 +94,12 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 
 **[References]**
 
-- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SvgText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 - [SVGTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)
 
 ### `__init__` method docstring
 
-The class for an SVG text-span (the child class of `SVGText`).<hr>
+The class for an SVG text-span (the child class of `SvgText`).<hr>
 
 **[Parameters]**
 
@@ -143,7 +143,7 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 >>> stage: ap.Stage = ap.Stage(
 ...     background_color=ap.Color("#333"), stage_width=200, stage_height=50
 ... )
->>> svg_text: ap.SVGText = ap.SVGText.create_with_svg_text_spans(
+>>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
 ...     text_spans=[
 ...         ap.SVGTextSpan(text="Hello, "),
 ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
@@ -157,7 +157,7 @@ The class for an SVG text-span (the child class of `SVGText`).<hr>
 
 **[References]**
 
-- [SVGText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
+- [SvgText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
 - [SVGTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)
 
 ### `__repr__` method docstring

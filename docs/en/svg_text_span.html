@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Point2D class" href="point2d.html" />
-    <link rel="prev" title="SVGText class" href="svg_text.html" /> 
+    <link rel="prev" title="SvgText class" href="svg_text.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -34,7 +34,7 @@
           <a href="point2d.html" title="Point2D class"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="svg_text.html" title="SVGText class"
+          <a href="svg_text.html" title="SvgText class"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SVGTextSpan class</a></li> 
@@ -51,15 +51,15 @@
 <p>This page explains the <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> is the class for an SVG text-span (the child class of <code class="docutils literal notranslate"><span class="pre">SVGText</span></code>).</p>
-<p>You can create an <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> instance with multiple <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class instances and set different text styles.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> is the class for an SVG text-span (the child class of <code class="docutils literal notranslate"><span class="pre">SvgText</span></code>).</p>
+<p>You can create an <code class="docutils literal notranslate"><span class="pre">SvgText</span></code> instance with multiple <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class instances and set different text styles.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">text</span></code> argument.</p>
 <p>The constructor also accepts each font’s and style’s argument, such as the <code class="docutils literal notranslate"><span class="pre">font_size</span></code>, <code class="docutils literal notranslate"><span class="pre">font_family</span></code>, <code class="docutils literal notranslate"><span class="pre">fill_color</span></code>, and <code class="docutils literal notranslate"><span class="pre">bold</span></code>.</p>
-<p>If you skip the style settings’ arguments, these settings become the parent SVGText’s styles.</p>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> instances to create an <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> instance with the <code class="docutils literal notranslate"><span class="pre">create_with_svg_text_spans</span></code> class method.</p>
+<p>If you skip the style settings’ arguments, these settings become the parent SvgText’s styles.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code> instances to create an <code class="docutils literal notranslate"><span class="pre">SvgText</span></code> instance with the <code class="docutils literal notranslate"><span class="pre">create_with_svg_text_spans</span></code> class method.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -69,7 +69,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem &quot;</span><span class="p">),</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum &quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">)),</span>
@@ -99,7 +99,7 @@
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span>
@@ -114,7 +114,7 @@
 </pre></div>
 </div>
 <iframe src="static/svg_txt_span_notes_of_the_line_break/index.html" width="200" height="50"></iframe>
-<p>If you want to add a line break, please use the <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> class (not the <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>) or create multiple <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> instances.</p>
+<p>If you want to add a line break, please use the <code class="docutils literal notranslate"><span class="pre">SvgText</span></code> class (not the <code class="docutils literal notranslate"><span class="pre">SVGTextSpan</span></code>) or create multiple <code class="docutils literal notranslate"><span class="pre">SvgText</span></code> instances.</p>
 </section>
 <section id="text-property-interface-example">
 <h2>text property interface example<a class="headerlink" href="#text-property-interface-example" title="Permalink to this heading">¶</a></h2>
@@ -132,7 +132,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;dolor&quot;</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -161,7 +161,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">font_size</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -191,7 +191,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">font_family</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Impact&quot;</span><span class="p">),</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">)])</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -220,7 +220,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -249,7 +249,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -283,7 +283,7 @@
 <span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -324,7 +324,7 @@
 <span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">line_alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -364,7 +364,7 @@
 <span class="n">text_span_1</span><span class="o">.</span><span class="n">line_thickness</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">line_thickness</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -393,7 +393,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -422,7 +422,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -451,7 +451,7 @@
 <span class="n">text_span_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">delta_x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -484,7 +484,7 @@
 <span class="n">text_span_2</span><span class="o">.</span><span class="n">delta_y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">text_span_3</span><span class="o">.</span><span class="n">delta_y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
     <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span><span class="n">text_span_1</span><span class="p">,</span> <span class="n">text_span_2</span><span class="p">],</span>
     <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -503,7 +503,7 @@
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fill_color:</span> <span class="pre">Union[apysc._color.color.Color,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_color:</span> <span class="pre">Union[apysc._color.color.Color,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">delta_x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">delta_y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
-<p>The class for an SVG text-span (the child class of <code class="docutils literal notranslate"><span class="pre">SVGText</span></code>).<hr></p>
+<p>The class for an SVG text-span (the child class of <code class="docutils literal notranslate"><span class="pre">SvgText</span></code>).<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">text</span></code>: Union[str, String]</p>
@@ -580,7 +580,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span> <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
 <span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">),</span>
 <span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">),</span>
@@ -593,16 +593,16 @@
 <hr>
 <p><strong>[References]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_text.html">SVGText class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_text.html">SvgText class</a></p></li>
 </ul>
 </section>
 <section id="svgtext-create-with-svg-text-spans-class-method-api">
-<h2>SVGText create_with_svg_text_spans class method API<a class="headerlink" href="#svgtext-create-with-svg-text-spans-class-method-api" title="Permalink to this heading">¶</a></h2>
-<!-- Docstring: apysc._display.svg_text.SVGText.create_with_svg_text_spans -->
+<h2>SvgText create_with_svg_text_spans class method API<a class="headerlink" href="#svgtext-create-with-svg-text-spans-class-method-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._display.svg_text.SvgText.create_with_svg_text_spans -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">create_with_svg_text_spans(*,</span> <span class="pre">text_spans:</span> <span class="pre">Union[List[apysc._display.svg_text_span.SVGTextSpan],</span> <span class="pre">apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;#666666&quot;),</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;&quot;),</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'SVGText'</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">create_with_svg_text_spans(*,</span> <span class="pre">text_spans:</span> <span class="pre">Union[List[apysc._display.svg_text_span.SVGTextSpan],</span> <span class="pre">apysc._type.array.Array[apysc._display.svg_text_span.SVGTextSpan]],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;#666666&quot;),</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;&quot;),</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">'SvgText'</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
-<p>Create an <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> instance with specified text spans.<hr></p>
+<p>Create an <code class="docutils literal notranslate"><span class="pre">SvgText</span></code> instance with specified text spans.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">text_spans</span></code>: Union[List[SVGTextSpan], Array[SVGTextSpan]]</p>
@@ -689,15 +689,15 @@
 <hr>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">svg_text</span></code>: SVGText</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">svg_text</span></code>: SvgText</p>
 <ul>
-<li><p>A created <code class="docutils literal notranslate"><span class="pre">SVGText</span></code> instance.</p></li>
+<li><p>A created <code class="docutils literal notranslate"><span class="pre">SvgText</span></code> instance.</p></li>
 </ul>
 </li>
 </ul>
 <hr>
 <p><strong>[Notes]</strong></p>
-<p>・SVGText’s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr></p>
+<p>・SvgText’s y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -705,7 +705,7 @@
 <span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">svg_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="o">.</span><span class="n">create_with_svg_text_spans</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">text_spans</span><span class="o">=</span><span class="p">[</span>
 <span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">),</span>
 <span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextSpan</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, &quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">),</span>
@@ -718,7 +718,7 @@
 <hr>
 <p><strong>[References]</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_text.html">SVGText class</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_text.html">SvgText class</a></p></li>
 </ul>
 </section>
 </section>
@@ -753,7 +753,7 @@
 <li><a class="reference internal" href="#delta-x-property-interface-example">delta_x property interface example</a></li>
 <li><a class="reference internal" href="#delta-y-property-interface-example">delta_y property interface example</a></li>
 <li><a class="reference internal" href="#svgtextspan-constructor-api">SVGTextSpan constructor API</a></li>
-<li><a class="reference internal" href="#svgtext-create-with-svg-text-spans-class-method-api">SVGText create_with_svg_text_spans class method API</a></li>
+<li><a class="reference internal" href="#svgtext-create-with-svg-text-spans-class-method-api">SvgText create_with_svg_text_spans class method API</a></li>
 </ul>
 </li>
 </ul>
@@ -762,7 +762,7 @@
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="svg_text.html"
-                          title="previous chapter">SVGText class</a></p>
+                          title="previous chapter">SvgText class</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -793,7 +793,7 @@
           <a href="point2d.html" title="Point2D class"
              >next</a> |</li>
         <li class="right" >
-          <a href="svg_text.html" title="SVGText class"
+          <a href="svg_text.html" title="SvgText class"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SVGTextSpan class</a></li> 

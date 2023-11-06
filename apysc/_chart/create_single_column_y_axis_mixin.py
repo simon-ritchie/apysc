@@ -15,7 +15,7 @@ from apysc._chart.y_axis_single_column_settings import YAxisSingleColumnSettings
 from apysc._color.color import Color
 from apysc._display.line import Line
 from apysc._display.sprite import Sprite
-from apysc._display.svg_text import SVGText
+from apysc._display.svg_text import SvgText
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.boolean import Boolean
@@ -35,7 +35,7 @@ class CreateSingleColumnYAxisMixIn:
     _y_axis_text_container: Sprite
     _y_axis_ticks_y_coordinates: Array[Number]
     _y_axis_texts_values: Array[String]
-    _y_axis_ticks_texts: Array[SVGText]
+    _y_axis_ticks_texts: Array[SvgText]
     _y_axis_texts_container: Sprite
     _y_axis_border: Line
 
@@ -222,7 +222,7 @@ def _create_y_axis_ticks_texts(
     tick_text_bold: Boolean,
     tick_text_italic: Boolean,
     variable_name_suffix: str,
-) -> Tuple[Array[SVGText], Sprite]:
+) -> Tuple[Array[SvgText], Sprite]:
     """
     Create a y-axis ticks texts.
 
@@ -254,7 +254,7 @@ def _create_y_axis_ticks_texts(
 
     Returns
     -------
-    y_axis_ticks_texts : Array[SVGText]
+    y_axis_ticks_texts : Array[SvgText]
         Created y-axis ticks texts.
     texts_container : Sprite
         A container that contains created texts.
@@ -262,11 +262,11 @@ def _create_y_axis_ticks_texts(
     from apysc._display.svg_text_align_mixin import SVGTextAlign
     from apysc._loop.for_array_indices import ForArrayIndices
 
-    y_axis_ticks_texts: Array[SVGText] = Array([])
+    y_axis_ticks_texts: Array[SvgText] = Array([])
     texts_container: Sprite = Sprite()
     y_axis_container.add_child(texts_container)
     with ForArrayIndices(arr=y_axis_ticks_y_coordinates) as i:
-        txt: SVGText = SVGText(
+        txt: SvgText = SvgText(
             text=y_axis_text_values[i],
             font_size=tick_text_font_size,
             font_family=tick_text_font_family,
@@ -393,7 +393,7 @@ def _calculate_y_axis_max(
 def _apply_x_coordinate_to_y_axis_ticks_texts(
     *,
     horizontal_padding: Int,
-    y_axis_ticks_texts: Array[SVGText],
+    y_axis_ticks_texts: Array[SvgText],
     x_coordinate_container: Sprite,
     variable_name_suffix: str,
 ) -> None:
@@ -404,7 +404,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     ----------
     horizontal_padding : Int
         A chart horizontal padding.
-    y_axis_ticks_texts : Array[SVGText]
+    y_axis_ticks_texts : Array[SvgText]
         Y-axis ticks' texts.
     x_coordinate_container : Sprite
         A ticks container.
@@ -412,7 +412,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
         A JavaScript variable name suffix string.
         This setting is sometimes useful for JavaScript debugging.
     """
-    from apysc._display.svg_text import SVGText
+    from apysc._display.svg_text import SvgText
     from apysc._geom.rectangle_geom import RectangleGeom
     from apysc._loop.for_array_indices import ForArrayIndices
     from apysc._math.math import Math
@@ -424,7 +424,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
         variable_name_suffix=variable_name_suffix,
     )
     with ForArrayIndices(arr=y_axis_ticks_texts) as i:
-        txt: SVGText = y_axis_ticks_texts[i]
+        txt: SvgText = y_axis_ticks_texts[i]
         bounding_box: RectangleGeom = txt.get_bounds()
         max_arr.append(bounding_box.width + horizontal_padding)
     x = Math.max(max_arr)

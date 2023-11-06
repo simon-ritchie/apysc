@@ -26,7 +26,7 @@ ap.Stage(
     background_color=ap.Color("#333"),
     stage_elem_id="stage",
 )
-text: ap.SVGText = ap.SVGText(
+text: ap.SvgText = ap.SvgText(
     text="Hello!",
     x=10,
     y=31,

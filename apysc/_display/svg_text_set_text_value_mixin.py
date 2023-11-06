@@ -9,7 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
 
 
-class SVGTextSetTextValueMixIn:
+class SvgTextSetTextValueMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_text_value(self, *, text: Union[str, String]) -> None:

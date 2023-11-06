@@ -66,7 +66,7 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
 )
 from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
 from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
-from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
+from apysc._display.svg_text_set_text_value_mixin import SvgTextSetTextValueMixIn
 from apysc._display.svg_text_span import SVGTextSpan
 from apysc._display.svg_text_text_mixin import SvgTextTextMixIn
 from apysc._display.x_mixin import XMixIn
@@ -113,7 +113,7 @@ class SvgText(
     AppendLineThicknessAttrExpressionMixIn,
     LineThicknessMixIn,
     SvgTextTextMixIn,
-    SVGTextSetTextValueMixIn,
+    SvgTextSetTextValueMixIn,
     SVGTextFontFamilyMixIn,
     SVGTextSetFontFamilyMixIn,
     SVGTextFontSizeMixIn,

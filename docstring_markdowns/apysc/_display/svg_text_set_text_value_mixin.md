@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_set_text_value` method.
 
-## `SVGTextSetTextValueMixIn` class docstring
+## `SvgTextSetTextValueMixIn` class docstring
 
 ### `_set_text_value` method docstring
 

@@ -21,15 +21,15 @@ class SVGTextSetTextValueMixIn:
         text : Union[str, String]
             A target text.
         """
-        from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+        from apysc._display.svg_text_text_mixin import SvgTextTextMixIn
         from apysc._string import string_util
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
 
-        if not isinstance(self, SVGTextTextMixIn):
+        if not isinstance(self, SvgTextTextMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextTextMixIn.__name__} "
+                f"This method is only supported an {SvgTextTextMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

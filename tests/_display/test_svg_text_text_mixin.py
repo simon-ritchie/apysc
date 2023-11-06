@@ -1,5 +1,5 @@
 import apysc as ap
-from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_text_mixin import SvgTextTextMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
@@ -11,7 +11,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
-    SVGTextTextMixIn,
+    SvgTextTextMixIn,
 ):
     pass
 
@@ -19,7 +19,7 @@ class _TestMixIn(
 class TestSVGTextTextMixIn:
     @apply_test_settings()
     def test__append_text_getter_expression(self) -> None:
-        mixin: SVGTextTextMixIn = SVGTextTextMixIn()
+        mixin: SvgTextTextMixIn = SvgTextTextMixIn()
         mixin.variable_name = "test_mixin"
         text: ap.String = ap.String("Lorem ipsum")
         mixin._append_text_getter_expression(text=text)
@@ -29,7 +29,7 @@ class TestSVGTextTextMixIn:
 
     @apply_test_settings()
     def test_text(self) -> None:
-        mixin_1: SVGTextTextMixIn = SVGTextTextMixIn()
+        mixin_1: SvgTextTextMixIn = SvgTextTextMixIn()
         mixin_1.variable_name = "test_mixin"
         mixin_1._text = "Lorem ipsum"
         text: ap.String = mixin_1.text
@@ -51,7 +51,7 @@ class TestSVGTextTextMixIn:
 
     @apply_test_settings()
     def test__append_text_setter_expression(self) -> None:
-        mixin: SVGTextTextMixIn = SVGTextTextMixIn()
+        mixin: SvgTextTextMixIn = SvgTextTextMixIn()
         mixin.variable_name = "test_mixin"
         text: ap.String = ap.String("Lorem ipsum")
         mixin._append_text_setter_expression(text=text)
@@ -61,7 +61,7 @@ class TestSVGTextTextMixIn:
 
     @apply_test_settings()
     def test__make_snapshot_and_revert(self) -> None:
-        mixin: SVGTextTextMixIn = SVGTextTextMixIn()
+        mixin: SvgTextTextMixIn = SvgTextTextMixIn()
         mixin._text = "Lorem"
         snapshot_name: str = mixin._get_next_snapshot_name()
         mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

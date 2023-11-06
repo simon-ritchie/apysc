@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._display.svg_text_set_text_value_mixin import SVGTextSetTextValueMixIn
-from apysc._display.svg_text_text_mixin import SVGTextTextMixIn
+from apysc._display.svg_text_text_mixin import SvgTextTextMixIn
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
@@ -12,7 +12,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
-    SVGTextTextMixIn,
+    SvgTextTextMixIn,
     SVGTextSetTextValueMixIn,
 ):
     pass

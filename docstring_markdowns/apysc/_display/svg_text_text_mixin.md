@@ -4,7 +4,7 @@
 
 Class implementation for the SVG text's text mix-in.
 
-## `SVGTextTextMixIn` class docstring
+## `SvgTextTextMixIn` class docstring
 
 ### `_append_text_getter_expression` method docstring
 

@@ -4,7 +4,7 @@
 
 Class implementation for the SVG text's font-family mix-in.
 
-## `SVGTextFontFamilyMixIn` class docstring
+## `SvgTextFontFamilyMixIn` class docstring
 
 ### `_append_font_family_string_getter_expression` method docstring
 

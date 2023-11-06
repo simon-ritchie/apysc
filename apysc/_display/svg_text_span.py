@@ -38,7 +38,7 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
 from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
 from apysc._display.svg_text_delta_y_mixin import SVGTextDeltaYMixIn
-from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
+from apysc._display.svg_text_font_family_mixin import SvgTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
@@ -102,7 +102,7 @@ class SVGTextSpan(
     SVGTextSkipLineThicknessExpAppendingMixIn,
     SvgTextTextMixIn,
     SvgTextSetTextValueMixIn,
-    SVGTextFontFamilyMixIn,
+    SvgTextFontFamilyMixIn,
     SVGTextSetFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextSetFontSizeValueMixIn,

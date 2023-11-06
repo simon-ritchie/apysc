@@ -54,7 +54,7 @@ from apysc._display.skew_y_mixin import SkewYMixIn
 from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
 from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
-from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
+from apysc._display.svg_text_font_family_mixin import SvgTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
@@ -114,7 +114,7 @@ class SvgText(
     LineThicknessMixIn,
     SvgTextTextMixIn,
     SvgTextSetTextValueMixIn,
-    SVGTextFontFamilyMixIn,
+    SvgTextFontFamilyMixIn,
     SVGTextSetFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextSetFontSizeValueMixIn,

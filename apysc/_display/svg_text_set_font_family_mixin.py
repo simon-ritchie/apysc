@@ -28,14 +28,14 @@ class SVGTextSetFontFamilyMixIn:
         font_family : Optional[Array[String]]
             A font-family setting.
         """
-        from apysc._display.svg_text_font_family_mixin import SVGTextFontFamilyMixIn
+        from apysc._display.svg_text_font_family_mixin import SvgTextFontFamilyMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
 
-        if not isinstance(self, SVGTextFontFamilyMixIn):
+        if not isinstance(self, SvgTextFontFamilyMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextFontFamilyMixIn.__name__} "
+                f"This method is only supported an {SvgTextFontFamilyMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

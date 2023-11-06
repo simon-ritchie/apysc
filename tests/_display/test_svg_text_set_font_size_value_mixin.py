@@ -1,7 +1,7 @@
 import apysc as ap
-from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
+from apysc._display.svg_text_font_size_mixin import SvgTextFontSizeMixIn
 from apysc._display.svg_text_set_font_size_value_mixin import (
-    SVGTextSetFontSizeValueMixIn,
+    SvgTextSetFontSizeValueMixIn,
 )
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -14,8 +14,8 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
-    SVGTextFontSizeMixIn,
-    SVGTextSetFontSizeValueMixIn,
+    SvgTextFontSizeMixIn,
+    SvgTextSetFontSizeValueMixIn,
 ):
     pass
 
@@ -37,7 +37,7 @@ class TestSVGTextSetFontSizeValueMixIn:
         mixin_1._set_font_size_value(font_size=None)
         assert mixin_1.font_size == ap.Int(25)
 
-        mixin_2: SVGTextSetFontSizeValueMixIn = SVGTextSetFontSizeValueMixIn()
+        mixin_2: SvgTextSetFontSizeValueMixIn = SvgTextSetFontSizeValueMixIn()
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_2._set_font_size_value,

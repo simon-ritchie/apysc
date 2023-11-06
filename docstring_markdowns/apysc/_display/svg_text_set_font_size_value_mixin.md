@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_set_font_size_value` method.
 
-## `SVGTextSetFontSizeValueMixIn` class docstring
+## `SvgTextSetFontSizeValueMixIn` class docstring
 
 ### `_set_font_size_value` method docstring
 

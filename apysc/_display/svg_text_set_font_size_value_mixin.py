@@ -10,7 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 
 
-class SVGTextSetFontSizeValueMixIn:
+class SvgTextSetFontSizeValueMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_font_size_value(self, *, font_size: Optional[Union[int, Int]]) -> None:
@@ -23,16 +23,16 @@ class SVGTextSetFontSizeValueMixIn:
             A target font-size value. If this value is None,
             this method does not set a font-size value.
         """
-        from apysc._display.svg_text_font_size_mixin import SVGTextFontSizeMixIn
+        from apysc._display.svg_text_font_size_mixin import SvgTextFontSizeMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
 
         if font_size is None:
             return
-        if not isinstance(self, SVGTextFontSizeMixIn):
+        if not isinstance(self, SvgTextFontSizeMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextFontSizeMixIn.__name__} "
+                f"This method is only supported an {SvgTextFontSizeMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

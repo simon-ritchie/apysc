@@ -13,7 +13,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 
-class SVGTextFontSizeMixIn(
+class SvgTextFontSizeMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):

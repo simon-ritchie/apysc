@@ -8,7 +8,7 @@ Class implementation for the SVG text's align mix-in.
 
 SVG text's align enum class.
 
-## `SVGTextAlignMixIn` class docstring
+## `SvgTextAlignMixIn` class docstring
 
 ### `_make_snapshot` method docstring
 

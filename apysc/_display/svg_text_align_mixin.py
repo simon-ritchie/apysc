@@ -30,7 +30,7 @@ class SVGTextAlign(Enum):
     RIGHT = "end"
 
 
-class SVGTextAlignMixIn(
+class SvgTextAlignMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):

@@ -20,11 +20,11 @@ class SVGTextSetAlignMixIn:
         align : SVGTextAlign
             A text-align setting.
         """
-        from apysc._display.svg_text_align_mixin import SVGTextAlignMixIn
+        from apysc._display.svg_text_align_mixin import SvgTextAlignMixIn
 
-        if not isinstance(self, SVGTextAlignMixIn):
+        if not isinstance(self, SvgTextAlignMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextAlignMixIn.__name__} "
+                f"This method is only supported an {SvgTextAlignMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

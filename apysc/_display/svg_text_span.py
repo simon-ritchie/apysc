@@ -44,7 +44,7 @@ from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
 from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
 from apysc._display.svg_text_set_delta_x_mixin import SVGTextSetDeltaXMixIn
 from apysc._display.svg_text_set_delta_y_mixin import SVGTextSetDeltaYMixIn
-from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
+from apysc._display.svg_text_set_font_family_mixin import SvgTextSetFontFamilyMixIn
 from apysc._display.svg_text_set_font_size_value_mixin import (
     SVGTextSetFontSizeValueMixIn,
 )
@@ -103,7 +103,7 @@ class SVGTextSpan(
     SvgTextTextMixIn,
     SvgTextSetTextValueMixIn,
     SvgTextFontFamilyMixIn,
-    SVGTextSetFontFamilyMixIn,
+    SvgTextSetFontFamilyMixIn,
     SVGTextFontSizeMixIn,
     SVGTextSetFontSizeValueMixIn,
     SVGTextItalicMixIn,

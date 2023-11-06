@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._display.svg_text_font_family_mixin import SvgTextFontFamilyMixIn
-from apysc._display.svg_text_set_font_family_mixin import SVGTextSetFontFamilyMixIn
+from apysc._display.svg_text_set_font_family_mixin import SvgTextSetFontFamilyMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -14,7 +14,7 @@ class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
     SvgTextFontFamilyMixIn,
-    SVGTextSetFontFamilyMixIn,
+    SvgTextSetFontFamilyMixIn,
 ):
     pass
 
@@ -22,7 +22,7 @@ class _TestMixIn(
 class TestSVGTextSetFontFamilyMixIn:
     @apply_test_settings()
     def test__set_font_family(self) -> None:
-        mixin_1: SVGTextSetFontFamilyMixIn = SVGTextSetFontFamilyMixIn()
+        mixin_1: SvgTextSetFontFamilyMixIn = SvgTextSetFontFamilyMixIn()
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_font_family,

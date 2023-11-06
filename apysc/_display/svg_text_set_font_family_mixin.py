@@ -12,7 +12,7 @@ from apysc._type.array import Array
 from apysc._type.string import String
 
 
-class SVGTextSetFontFamilyMixIn:
+class SvgTextSetFontFamilyMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_font_family(

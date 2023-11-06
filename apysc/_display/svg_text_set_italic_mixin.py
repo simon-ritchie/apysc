@@ -27,7 +27,7 @@ class SVGTextSetItalicMixIn:
             A boolean whether a text is in an italic style or not (normal).
             If a specified value is `None`, this interface ignores the setting.
         """
-        from apysc._display.svg_text_italic_mixin import SVGTextItalicMixIn
+        from apysc._display.svg_text_italic_mixin import SvgTextItalicMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -35,9 +35,9 @@ class SVGTextSetItalicMixIn:
         if italic is None:
             return
 
-        if not isinstance(self, SVGTextItalicMixIn):
+        if not isinstance(self, SvgTextItalicMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextItalicMixIn.__name__} "
+                f"This method is only supported an {SvgTextItalicMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

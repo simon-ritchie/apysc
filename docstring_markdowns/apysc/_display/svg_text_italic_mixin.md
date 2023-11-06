@@ -4,7 +4,7 @@
 
 Class implementation for the SVG text's italic mix-in.
 
-## `SVGTextItalicMixIn` class docstring
+## `SvgTextItalicMixIn` class docstring
 
 ### `_make_snapshot` method docstring
 

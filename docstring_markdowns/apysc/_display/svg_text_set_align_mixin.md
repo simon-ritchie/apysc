@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_set_align` method.
 
-## `SVGTextSetAlignMixIn` class docstring
+## `SvgTextSetAlignMixIn` class docstring
 
 ### `_set_align` method docstring
 

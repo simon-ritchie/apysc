@@ -8,7 +8,7 @@ from apysc._display.svg_text_align_mixin import SVGTextAlign
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-class SVGTextSetAlignMixIn:
+class SvgTextSetAlignMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_align(self, *, align: SVGTextAlign) -> None:

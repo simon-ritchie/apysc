@@ -1,5 +1,5 @@
 import apysc as ap
-from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
+from apysc._display.svg_text_leading_mixin import SvgTextLeadingMixIn
 from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
@@ -13,7 +13,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
-    SVGTextLeadingMixIn,
+    SvgTextLeadingMixIn,
     SVGTextSetLeadingMixIn,
 ):
     pass

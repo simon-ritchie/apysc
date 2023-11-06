@@ -22,14 +22,14 @@ class SVGTextSetLeadingMixIn:
         leading : Union[float, Number]
             A text-leading value.
         """
-        from apysc._display.svg_text_leading_mixin import SVGTextLeadingMixIn
+        from apysc._display.svg_text_leading_mixin import SvgTextLeadingMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
 
-        if not isinstance(self, SVGTextLeadingMixIn):
+        if not isinstance(self, SvgTextLeadingMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextLeadingMixIn.__name__} "
+                f"This method is only supported an {SvgTextLeadingMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

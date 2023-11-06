@@ -4,7 +4,7 @@
 
 Class implementation for the SVG text's leading mix-in.
 
-## `SVGTextLeadingMixIn` class docstring
+## `SvgTextLeadingMixIn` class docstring
 
 ### `_make_snapshot` method docstring
 

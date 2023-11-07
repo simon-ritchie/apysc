@@ -4,7 +4,7 @@
 
 The class implementation for the SVG text's singleton instance to make a text span instance.
 
-## `SVGTextSingletonForTextSpan` class docstring
+## `SvgTextSingletonForTextSpan` class docstring
 
 ### `get_instance` method docstring
 

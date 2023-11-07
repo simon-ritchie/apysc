@@ -2,7 +2,7 @@ from typing import Union
 
 import apysc as ap
 from apysc._display import svg_text_span
-from apysc._display.svg_text_singleton_for_text_span import SVGTextSingletonForTextSpan
+from apysc._display.svg_text_singleton_for_text_span import SvgTextSingletonForTextSpan
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
@@ -16,7 +16,7 @@ class TestSvgTextSpan:
             text="test_text_span",
             fill_color=ap.Color("#0af"),
         )
-        svg_text: ap.SvgText = SVGTextSingletonForTextSpan.get_instance()
+        svg_text: ap.SvgText = SvgTextSingletonForTextSpan.get_instance()
         expression: str = expression_data_util.get_current_expression()
         assert (
             f"var {svg_text_span.variable_name} = {svg_text.variable_name}\n  .tspan()"

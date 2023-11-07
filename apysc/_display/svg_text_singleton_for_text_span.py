@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from apysc._display.svg_text import SvgText
 
 
-class SVGTextSingletonForTextSpan:
+class SvgTextSingletonForTextSpan:
     _stage_id_key_svg_texts: Dict[int, "SvgText"] = {}
 
     @classmethod

@@ -288,12 +288,12 @@ class SvgTextSpan(
         """
         from apysc._display.svg_text import SvgText
         from apysc._display.svg_text_singleton_for_text_span import (
-            SVGTextSingletonForTextSpan,
+            SvgTextSingletonForTextSpan,
         )
         from apysc._expression import expression_data_util
 
         INDENT_NUM: int = 2
-        parent: SvgText = SVGTextSingletonForTextSpan.get_instance()
+        parent: SvgText = SvgTextSingletonForTextSpan.get_instance()
         variable_name: str = self.variable_name
         expression: str = (
             f"var {variable_name} = {parent.variable_name}" "\n  .tspan()\n  .attr({"

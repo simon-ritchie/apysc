@@ -137,14 +137,14 @@ Convert text spans' list to an array.<hr>
 
 **[Parameters]**
 
-- `text_spans`: Union[List[SVGTextSpan], Array[SVGTextSpan]]
+- `text_spans`: Union[List[SvgTextSpan], Array[SvgTextSpan]]
   - Text spans.
 
 <hr>
 
 **[Returns]**
 
-- `text_spans_`: Array[SVGTextSpan]
+- `text_spans_`: Array[SvgTextSpan]
   - A converted array.
 
 ### `_initialize_with_base_value` method docstring
@@ -162,7 +162,7 @@ Create an `SvgText` instance with specified text spans.<hr>
 
 **[Parameters]**
 
-- `text_spans`: Union[List[SVGTextSpan], Array[SVGTextSpan]]
+- `text_spans`: Union[List[SvgTextSpan], Array[SvgTextSpan]]
   - Text spans.
 - `font_size`: Union[int, Int], optional
   - A font-size setting for an overall text.
@@ -219,8 +219,8 @@ Create an `SvgText` instance with specified text spans.<hr>
 ... )
 >>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
 ...     text_spans=[
-...         ap.SVGTextSpan(text="Hello, "),
-...         ap.SVGTextSpan(text="Hello, ", font_size=14),
+...         ap.SvgTextSpan(text="Hello, "),
+...         ap.SvgTextSpan(text="Hello, ", font_size=14),
 ...     ],
 ...     font_size=20,
 ...     fill_color=ap.Color("#0af"),
@@ -232,4 +232,4 @@ Create an `SvgText` instance with specified text spans.<hr>
 **[References]**
 
 - [SvgText class](https://simon-ritchie.github.io/apysc/en/svg_text.html)
-- [SVGTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)
+- [SvgTextSpan class](https://simon-ritchie.github.io/apysc/en/svg_text_span.html)

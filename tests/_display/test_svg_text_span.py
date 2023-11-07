@@ -9,10 +9,10 @@ from apysc._testing.testing_helper import apply_test_settings
 from tests._display.test_graphics_expression import assert_fill_attr_expression_exists
 
 
-class TestSVGTextSpan:
+class TestSvgTextSpan:
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(
+        svg_text_span: ap.SvgTextSpan = ap.SvgTextSpan(
             text="test_text_span",
             fill_color=ap.Color("#0af"),
         )
@@ -28,13 +28,13 @@ class TestSVGTextSpan:
 
     @apply_test_settings()
     def test___repr__(self) -> None:
-        svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(text="test_text_span")
+        svg_text_span: ap.SvgTextSpan = ap.SvgTextSpan(text="test_text_span")
         repr_str: str = repr(svg_text_span)
-        assert repr_str == f'SVGTextSpan("{svg_text_span.variable_name}")'
+        assert repr_str == f'SvgTextSpan("{svg_text_span.variable_name}")'
 
     @apply_test_settings()
     def test___init__(self) -> None:
-        svg_text_span: ap.SVGTextSpan = ap.SVGTextSpan(
+        svg_text_span: ap.SvgTextSpan = ap.SvgTextSpan(
             text="test_text_span",
             variable_name_suffix="test_span",
         )
@@ -49,43 +49,43 @@ class TestSVGTextSpan:
         assert var_names.SVG_TEXT_SPAN in svg_text_span.variable_name
         assert "test_span" in svg_text_span.variable_name
 
-        svg_text_span = ap.SVGTextSpan(
+        svg_text_span = ap.SvgTextSpan(
             text="test_text_span",
             fill_color=ap.Color("#0af"),
         )
         assert not svg_text_span._skip_fill_color_expression_appending
 
-        svg_text_span = ap.SVGTextSpan(
+        svg_text_span = ap.SvgTextSpan(
             text="test_text_span",
             fill_alpha=0.5,
         )
         assert not svg_text_span._skip_fill_alpha_expression_appending
 
-        svg_text_span = ap.SVGTextSpan(
+        svg_text_span = ap.SvgTextSpan(
             text="test_text_span",
             line_color=ap.Color("#0af"),
         )
         assert not svg_text_span._skip_line_color_expression_appending
 
-        svg_text_span = ap.SVGTextSpan(
+        svg_text_span = ap.SvgTextSpan(
             text="test_text_span",
             line_alpha=0.3,
         )
         assert not svg_text_span._skip_line_alpha_expression_appending
 
-        svg_text_span = ap.SVGTextSpan(
+        svg_text_span = ap.SvgTextSpan(
             text="test_text_span",
             line_thickness=3,
         )
         assert not svg_text_span._skip_line_thickness_expression_appending
 
-        svg_text_span = ap.SVGTextSpan(
+        svg_text_span = ap.SvgTextSpan(
             text="test_text_span",
             delta_x=50.5,
         )
         assert svg_text_span.delta_x == ap.Number(50.5)
 
-        svg_text_span = ap.SVGTextSpan(
+        svg_text_span = ap.SvgTextSpan(
             text="test_text_span",
             delta_y=60.5,
         )
@@ -93,7 +93,7 @@ class TestSVGTextSpan:
 
     @apply_test_settings()
     def test__initialize_with_base_value(self) -> None:
-        svg_text_span_: ap.SVGTextSpan = ap.SVGTextSpan._initialize_with_base_value()
+        svg_text_span_: ap.SvgTextSpan = ap.SvgTextSpan._initialize_with_base_value()
         assert svg_text_span_.text == ap.String("")
         assert svg_text_span_.visible == ap.Boolean(False)
 

@@ -1,7 +1,7 @@
-"""The test project for the `SVGTextSpan` class.
+"""The test project for the `SvgTextSpan` class.
 
 Command examples:
-$ python test_projects/SVGTextSpan/main.py
+$ python test_projects/SvgTextSpan/main.py
 """
 
 import sys
@@ -34,14 +34,14 @@ def main() -> None:
 
     _: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="SVGTextSpan test 1 "),
-            ap.SVGTextSpan(
-                text="SVGTextSpan test 2 ",
+            ap.SvgTextSpan(text="SvgTextSpan test 1 "),
+            ap.SvgTextSpan(
+                text="SvgTextSpan test 2 ",
                 font_size=16,
                 fill_color=ap.Color("#aaa"),
                 font_family=["Arial"],
             ),
-            ap.SVGTextSpan(text="SVGTextSpan test 3"),
+            ap.SvgTextSpan(text="SvgTextSpan test 3"),
         ],
         font_size=12,
         font_family=["Impact"],
@@ -52,12 +52,12 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="fill_alpha test 1 "),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="fill_alpha test 1 "),
+            ap.SvgTextSpan(
                 text="fill_alpha test 2 ",
                 fill_alpha=1.0,
             ),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(
                 text="fill_alpha test 3",
                 fill_alpha=0.2,
             ),
@@ -70,12 +70,12 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="line_color test 1 "),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="line_color test 1 "),
+            ap.SvgTextSpan(
                 text="line_color test 2 ",
                 line_color=ap.Color("#666"),
             ),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(
                 text="line_color test 3",
             ),
         ],
@@ -87,12 +87,12 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="line_alpha test 1 "),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="line_alpha test 1 "),
+            ap.SvgTextSpan(
                 text="line_alpha test 2 ",
                 line_alpha=0.2,
             ),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(
                 text="line_alpha test 3",
             ),
         ],
@@ -105,12 +105,12 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="line_thickness test 1 "),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="line_thickness test 1 "),
+            ap.SvgTextSpan(
                 text="line_thickness test 2 ",
                 line_thickness=1,
             ),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(
                 text="line_thickness test 3",
             ),
         ],
@@ -123,12 +123,12 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="bold test 1 "),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="bold test 1 "),
+            ap.SvgTextSpan(
                 text="bold test 2 ",
                 bold=False,
             ),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(
                 text="bold test 3",
             ),
         ],
@@ -140,12 +140,12 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="italic test 1 "),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="italic test 1 "),
+            ap.SvgTextSpan(
                 text="italic test 2 ",
                 italic=False,
             ),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(
                 text="italic test 3",
             ),
         ],
@@ -157,13 +157,13 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="delta-x test 1"),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="delta-x test 1"),
+            ap.SvgTextSpan(
                 text="delta-x test 2",
                 delta_x=-20,
             ),
-            ap.SVGTextSpan(text="delta-x test 3"),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="delta-x test 3"),
+            ap.SvgTextSpan(
                 text="delta-x test 4",
                 delta_x=20,
             ),
@@ -175,13 +175,13 @@ def main() -> None:
 
     _ = ap.SvgText.create_with_svg_text_spans(
         text_spans=[
-            ap.SVGTextSpan(text="delta-y test 1"),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="delta-y test 1"),
+            ap.SvgTextSpan(
                 text="delta-y test 2",
                 delta_y=-10,
             ),
-            ap.SVGTextSpan(text="delta-y test 3"),
-            ap.SVGTextSpan(
+            ap.SvgTextSpan(text="delta-y test 3"),
+            ap.SvgTextSpan(
                 text="delta-y test 4",
                 delta_y=10,
             ),

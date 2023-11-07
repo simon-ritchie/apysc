@@ -3652,20 +3652,20 @@ MAPPINGS: Mappings = Mappings(
             val="`delta_y`属性ではインスタンスのY座標の調整値の更新もしくは取得を行えます。",
         ),
         Mapping(
-            key="## SVGTextSpan constructor API",
-            val="## SVGTextSpan クラスのコンストラクタのAPI",
+            key="## SvgTextSpan constructor API",
+            val="## SvgTextSpan クラスのコンストラクタのAPI",
         ),
         Mapping(
             key="The class for an SVG text-span (the child class of `SvgText`).<hr>",
             val="`SvgText`の子となるSVGのtext-span要素のためのクラスです。<hr>",
         ),
         Mapping(
-            key="  - A coordinate delta-x setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`'s instance.",
-            val="  - X座標の調整値の設定。特記事項 : この設定は後に続く`SVGTextSpan`のインスタンスの座標も変更します。",
+            key="  - A coordinate delta-x setting. Notes: This setting also changes a coordinate of subsequent `SvgTextSpan`'s instance.",
+            val="  - X座標の調整値の設定。特記事項 : この設定は後に続く`SvgTextSpan`のインスタンスの座標も変更します。",
         ),
         Mapping(
-            key="  - A coordinate delta-y setting. Notes: This setting also changes a coordinate of subsequent `SVGTextSpan`'s instance.",
-            val="  - Y座標の調整値の設定。特記事項 : この設定は後に続く`SVGTextSpan`のインスタンスの座標も更新します。",
+            key="  - A coordinate delta-y setting. Notes: This setting also changes a coordinate of subsequent `SvgTextSpan`'s instance.",
+            val="  - Y座標の調整値の設定。特記事項 : この設定は後に続く`SvgTextSpan`のインスタンスの座標も更新します。",
         ),
         Mapping(
             key=" ・If style settings are `None`, its styles inherit parent style settings.",
@@ -3736,8 +3736,8 @@ MAPPINGS: Mappings = Mappings(
             val="SvgText クラス",
         ),
         Mapping(
-            key="SVGTextSpan class",
-            val="SVGTextSpan クラス",
+            key="SvgTextSpan class",
+            val="SvgTextSpan クラス",
         ),
         Mapping(
             key=" ・SVGText's y-coordinate zero-position starts at the bottom of a text. So if you set y=0, a text becomes almost invisible.<hr>",

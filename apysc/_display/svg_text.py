@@ -67,7 +67,7 @@ from apysc._display.svg_text_set_font_size_value_mixin import (
 from apysc._display.svg_text_set_italic_mixin import SvgTextSetItalicMixIn
 from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
 from apysc._display.svg_text_set_text_value_mixin import SvgTextSetTextValueMixIn
-from apysc._display.svg_text_span import SVGTextSpan
+from apysc._display.svg_text_span import SvgTextSpan
 from apysc._display.svg_text_text_mixin import SvgTextTextMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
@@ -418,7 +418,7 @@ class SvgText(
     def create_with_svg_text_spans(
         cls,
         *,
-        text_spans: Union[List[SVGTextSpan], Array[SVGTextSpan]],
+        text_spans: Union[List[SvgTextSpan], Array[SvgTextSpan]],
         font_size: Union[int, Int] = 16,
         font_family: Optional[Union[Array[String], List[str]]] = None,
         x: Union[float, Number] = 0.0,
@@ -447,12 +447,12 @@ class SvgText(
         ----------
         - SvgText class
             - https://simon-ritchie.github.io/apysc/en/svg_text.html
-        - SVGTextSpan class
+        - SvgTextSpan class
             - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
 
         Parameters
         ----------
-        text_spans : Union[List[SVGTextSpan], Array[SVGTextSpan]]
+        text_spans : Union[List[SvgTextSpan], Array[SvgTextSpan]]
             Text spans.
         font_size : Union[int, Int], optional
             A font-size setting for an overall text.
@@ -504,8 +504,8 @@ class SvgText(
         ... )
         >>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
         ...     text_spans=[
-        ...         ap.SVGTextSpan(text="Hello, "),
-        ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
+        ...         ap.SvgTextSpan(text="Hello, "),
+        ...         ap.SvgTextSpan(text="Hello, ", font_size=14),
         ...     ],
         ...     font_size=20,
         ...     fill_color=ap.Color("#0af"),
@@ -532,7 +532,7 @@ class SvgText(
             parent=parent,
             variable_name_suffix=variable_name_suffix,
         )
-        text_spans_: Array[SVGTextSpan] = svg_text._convert_text_spans_list_to_array(
+        text_spans_: Array[SvgTextSpan] = svg_text._convert_text_spans_list_to_array(
             text_spans=text_spans
         )
         i: Int
@@ -541,7 +541,7 @@ class SvgText(
             locals_=locals(),
             globals_=globals(),
         ) as i:
-            text_span: SVGTextSpan = text_spans_[i]
+            text_span: SvgTextSpan = text_spans_[i]
             expression: str = (
                 f"{svg_text.variable_name}.add({text_span.variable_name});"
             )
@@ -553,19 +553,19 @@ class SvgText(
     def _convert_text_spans_list_to_array(
         self,
         *,
-        text_spans: Union[List[SVGTextSpan], Array[SVGTextSpan]],
-    ) -> Array[SVGTextSpan]:
+        text_spans: Union[List[SvgTextSpan], Array[SvgTextSpan]],
+    ) -> Array[SvgTextSpan]:
         """
         Convert text spans' list to an array.
 
         Parameters
         ----------
-        text_spans : Union[List[SVGTextSpan], Array[SVGTextSpan]]
+        text_spans : Union[List[SvgTextSpan], Array[SvgTextSpan]]
             Text spans.
 
         Returns
         -------
-        text_spans_ : Array[SVGTextSpan]
+        text_spans_ : Array[SvgTextSpan]
             A converted array.
         """
         from apysc._type.variable_name_suffix_utils import (
@@ -578,7 +578,7 @@ class SvgText(
             instance=self,
             value_identifier="text_spans",
         )
-        text_spans_: Array[SVGTextSpan] = Array(text_spans, variable_name_suffix=suffix)
+        text_spans_: Array[SvgTextSpan] = Array(text_spans, variable_name_suffix=suffix)
         return text_spans_
 
     def __repr__(self) -> str:

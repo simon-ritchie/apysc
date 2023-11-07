@@ -80,7 +80,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
-class SVGTextSpan(
+class SvgTextSpan(
     ReprInterface,
     SetOverflowVisibleSettingMixIn,
     CssMixIn,
@@ -130,7 +130,7 @@ class SVGTextSpan(
     ----------
     - SvgText class
         - https://simon-ritchie.github.io/apysc/en/svg_text.html
-    - SVGTextSpan class
+    - SvgTextSpan class
         - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
     """
 
@@ -193,7 +193,7 @@ class SVGTextSpan(
         ----------
         - SvgText class
             - https://simon-ritchie.github.io/apysc/en/svg_text.html
-        - SVGTextSpan class
+        - SvgTextSpan class
             - https://simon-ritchie.github.io/apysc/en/svg_text_span.html
 
         Parameters
@@ -222,11 +222,11 @@ class SVGTextSpan(
         delta_x : Union[float, Number], optional
             A coordinate delta-x setting.
             Notes: This setting also changes a coordinate of subsequent
-            `SVGTextSpan`'s instance.
+            `SvgTextSpan`'s instance.
         delta_y : Union[float, Number], optional
             A coordinate delta-y setting.
             Notes: This setting also changes a coordinate of subsequent
-            `SVGTextSpan`'s instance.
+            `SvgTextSpan`'s instance.
         variable_name_suffix : str, optional
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -239,8 +239,8 @@ class SVGTextSpan(
         ... )
         >>> svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
         ...     text_spans=[
-        ...         ap.SVGTextSpan(text="Hello, "),
-        ...         ap.SVGTextSpan(text="Hello, ", font_size=14),
+        ...         ap.SvgTextSpan(text="Hello, "),
+        ...         ap.SvgTextSpan(text="Hello, ", font_size=14),
         ...     ],
         ...     font_size=20,
         ...     fill_color=ap.Color("#0af"),
@@ -277,7 +277,7 @@ class SVGTextSpan(
         self._set_delta_x(delta_x=delta_x)
         self._set_delta_y(delta_y=delta_y)
 
-        super(SVGTextSpan, self).__init__(variable_name=variable_name)
+        super(SvgTextSpan, self).__init__(variable_name=variable_name)
         self._set_overflow_visible_setting()
 
     @final
@@ -335,23 +335,23 @@ class SVGTextSpan(
         -------
         repr_str : str
             This interface returns a type name and variable name
-            (e.g., `SVGTextSpan("<variable_name>")`).
+            (e.g., `SvgTextSpan("<variable_name>")`).
         """
-        repr_str: str = f'{SVGTextSpan.__name__}("{self.variable_name}")'
+        repr_str: str = f'{SvgTextSpan.__name__}("{self.variable_name}")'
         return repr_str
 
     @classmethod
     @final
-    def _initialize_with_base_value(cls) -> "SVGTextSpan":
+    def _initialize_with_base_value(cls) -> "SvgTextSpan":
         """
         Initialize this class with a base value(s).
 
         Returns
         -------
-        svg_text_span : SVGTextSpan
+        svg_text_span : SvgTextSpan
             An initialized text span instance.
         """
-        svg_text_span: SVGTextSpan = SVGTextSpan(text="")
+        svg_text_span: SvgTextSpan = SvgTextSpan(text="")
         svg_text_span.visible = Boolean(False)
         return svg_text_span
 

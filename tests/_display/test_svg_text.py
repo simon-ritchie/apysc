@@ -90,11 +90,11 @@ class TestSVGText:
             text="test text 1",
         )
         text_spans_: ap.Array[
-            ap.SVGTextSpan
+            ap.SvgTextSpan
         ] = svg_text._convert_text_spans_list_to_array(
             text_spans=[
-                ap.SVGTextSpan(text="test text 2"),
-                ap.SVGTextSpan(text="test text 3"),
+                ap.SvgTextSpan(text="test text 2"),
+                ap.SvgTextSpan(text="test text 3"),
             ],
         )
         assert len(text_spans_._value) == 2
@@ -102,17 +102,17 @@ class TestSVGText:
         assert text_spans_._value[1].text == "test text 3"
 
         text_spans__: ap.Array[
-            ap.SVGTextSpan
+            ap.SvgTextSpan
         ] = svg_text._convert_text_spans_list_to_array(text_spans=text_spans_)
         assert text_spans_ == text_spans__
 
     @apply_test_settings()
     def test_create_with_svg_text_spans(self) -> None:
         stage: ap.Stage = ap.Stage()
-        text_spans: List[ap.SVGTextSpan] = [
-            ap.SVGTextSpan(text="a"),
-            ap.SVGTextSpan(text="b"),
-            ap.SVGTextSpan(text="c"),
+        text_spans: List[ap.SvgTextSpan] = [
+            ap.SvgTextSpan(text="a"),
+            ap.SvgTextSpan(text="b"),
+            ap.SvgTextSpan(text="c"),
         ]
         svg_text: ap.SvgText = ap.SvgText.create_with_svg_text_spans(
             text_spans=text_spans,

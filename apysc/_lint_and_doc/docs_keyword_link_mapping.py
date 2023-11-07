@@ -192,7 +192,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "delete_line_dash_dot_setting": "graphics_base_line_dash_dot_setting",
     "draw_triangle": "graphics_draw_triangle",
     "SvgText": "svg_text",
-    "SVGTextSpan": "svg_text_span",
+    "SvgTextSpan": "svg_text_span",
     "create_with_svg_text_spans": "svg_text_span",
     "get_bounds": "get_bounds",
     "RectangleGeom": "rectangle_geom",

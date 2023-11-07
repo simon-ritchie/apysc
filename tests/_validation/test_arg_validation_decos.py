@@ -1323,7 +1323,7 @@ def test_are_text_spans() -> None:
     @arg_validation_decos.are_text_spans(arg_position_index=0)
     def _test_func(
         *,
-        text_spans: Union[List[ap.SVGTextSpan], ap.Array[ap.SVGTextSpan]],
+        text_spans: Union[List[ap.SvgTextSpan], ap.Array[ap.SvgTextSpan]],
     ) -> int:
         return 210
 
@@ -1337,22 +1337,22 @@ def test_are_text_spans() -> None:
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        text_spans=[ap.SVGTextSpan(text="Lorem ipsum"), 20],
-        match="There is a non-`SVGTextSpan` instance in a list: ",
+        text_spans=[ap.SvgTextSpan(text="Lorem ipsum"), 20],
+        match="There is a non-`SvgTextSpan` instance in a list: ",
     )
     assert_raises(
         expected_error_class=TypeError,
         callable_=_test_func,
-        text_spans=ap.Array([ap.SVGTextSpan(text="Lorem ipsum"), 30]),
-        match="There is a non-`SVGTextSpan` instance in an array: ",
+        text_spans=ap.Array([ap.SvgTextSpan(text="Lorem ipsum"), 30]),
+        match="There is a non-`SvgTextSpan` instance in an array: ",
     )
     result: int = _test_func(
-        text_spans=[ap.SVGTextSpan(text="Lorem"), ap.SVGTextSpan(text=" ipsum")],
+        text_spans=[ap.SvgTextSpan(text="Lorem"), ap.SvgTextSpan(text=" ipsum")],
     )
     assert result == 210
     result = _test_func(
         text_spans=ap.Array(
-            [ap.SVGTextSpan(text="Lorem"), ap.SVGTextSpan(text=" ipsum")]
+            [ap.SvgTextSpan(text="Lorem"), ap.SvgTextSpan(text=" ipsum")]
         ),
     )
     assert result == 210

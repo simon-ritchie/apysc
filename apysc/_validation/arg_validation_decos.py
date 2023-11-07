@@ -186,7 +186,7 @@ Mainly the following decorators exist.
         is the `SVGTextAlign`.
 - are_text_spans
     - Set a validation to check the specified argument's type
-        is the list or `ap.Array` of `ap.SVGTextSpan`.
+        is the list or `ap.Array` of `ap.SvgTextSpan`.
 - is_x_axis_label_position
     - Set a validation to check the specified argument's type
         is the `XAxisLabelPosition`.
@@ -3234,7 +3234,7 @@ def is_svg_text_align(*, arg_position_index: int) -> _Callable:
 def are_text_spans(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check the specified argument's type
-    is the list or `ap.Array` of `ap.SVGTextSpan`.
+    is the list or `ap.Array` of `ap.SvgTextSpan`.
 
     Parameters
     ----------
@@ -3250,7 +3250,7 @@ def are_text_spans(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._display.svg_text_span import SVGTextSpan
+            from apysc._display.svg_text_span import SvgTextSpan
             from apysc._type.array import Array
 
             text_spans: Any = _extract_arg_value(
@@ -3270,19 +3270,19 @@ def are_text_spans(*, arg_position_index: int) -> _Callable:
                 )
             if isinstance(text_spans, list):
                 for i, text_span in enumerate(text_spans):
-                    if isinstance(text_span, SVGTextSpan):
+                    if isinstance(text_span, SvgTextSpan):
                         continue
                     raise TypeError(
-                        "There is a non-`SVGTextSpan` instance in a list: "
+                        "There is a non-`SvgTextSpan` instance in a list: "
                         f"{type(text_span)}\nIndex: {i}"
                         f"\n{callable_and_arg_names_msg}"
                     )
             if isinstance(text_spans, Array):
                 for i, text_span in enumerate(text_spans._value):
-                    if isinstance(text_span, SVGTextSpan):
+                    if isinstance(text_span, SvgTextSpan):
                         continue
                     raise TypeError(
-                        "There is a non-`SVGTextSpan` instance in an array: "
+                        "There is a non-`SvgTextSpan` instance in an array: "
                         f"{type(text_span)}\nIndex: {i}"
                         f"\n{callable_and_arg_names_msg}"
                     )

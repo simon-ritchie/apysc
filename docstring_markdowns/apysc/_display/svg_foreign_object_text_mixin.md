@@ -4,7 +4,7 @@
 
 The mix-in implementation for the `foreignObject`'s text property.
 
-## `SVGForeignObjectTextMixIn` class docstring
+## `SvgForeignObjectTextMixIn` class docstring
 
 ### `_initialize_text` method docstring
 

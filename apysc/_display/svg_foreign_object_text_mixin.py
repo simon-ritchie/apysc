@@ -10,7 +10,7 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 
 
-class SVGForeignObjectTextMixIn:
+class SvgForeignObjectTextMixIn:
     _text: String
 
     @final

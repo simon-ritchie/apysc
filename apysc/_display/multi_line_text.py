@@ -24,7 +24,7 @@ from apysc._display.svg_foreign_object_child_mixin import SvgForeignObjectChildM
 from apysc._display.svg_foreign_object_initialize_width_mixin import (
     SvgForeignObjectInitializeWidthMixIn,
 )
-from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
+from apysc._display.svg_foreign_object_text_mixin import SvgForeignObjectTextMixIn
 from apysc._display.text_align_css_mixin import TextAlignCssMixIn
 from apysc._display.text_align_last_css_mixin import TextAlignLastCssMixIn
 from apysc._display.text_bold_css_mixin import TextBoldCssMixIn
@@ -56,7 +56,7 @@ class MultiLineText(
     AddForeignObjectChildMixIn,
     AppendForeignObjectConstructorExpressionMixIn,
     SvgForeignObjectInitializeWidthMixIn,
-    SVGForeignObjectTextMixIn,
+    SvgForeignObjectTextMixIn,
     SvgForeignObjectChildMixIn,
     AddToParentMixIn,
     TextFillColorCssMixIn,

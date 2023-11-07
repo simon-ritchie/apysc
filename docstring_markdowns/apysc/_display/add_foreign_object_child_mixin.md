@@ -12,5 +12,5 @@ Add a foreignObject's child object.<hr>
 
 **[Parameters]**
 
-- `child`: SVGForeignObjectChild
+- `child`: SvgForeignObjectChild
   - A foreignObject's child object.

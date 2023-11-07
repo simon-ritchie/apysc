@@ -2,7 +2,7 @@
 
 ## Module summary
 
-The mix-in class implementation for `SVGForeignObjectChild`-related interfaces.
+The mix-in class implementation for `SvgForeignObjectChild`-related interfaces.
 
 ## `SVGForeignObjectChildMixIn` class docstring
 

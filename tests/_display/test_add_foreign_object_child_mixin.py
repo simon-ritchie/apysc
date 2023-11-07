@@ -1,5 +1,5 @@
 from apysc._display.add_foreign_object_child_mixin import AddForeignObjectChildMixIn
-from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
+from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_mixin import VariableNameMixIn
@@ -17,7 +17,7 @@ class TestAddForeignObjectChildMixIn:
     @apply_test_settings()
     def test__add_foreign_object_child(self) -> None:
         foreign_object: _TestObject = _TestObject()
-        foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(
+        foreign_object_child: SvgForeignObjectChild = SvgForeignObjectChild(
             html_str="<div></div>",
         )
         foreign_object._add_foreign_object_child(child=foreign_object_child)

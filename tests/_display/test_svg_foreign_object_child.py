@@ -2,7 +2,7 @@ import re
 from typing import Match
 from typing import Optional
 
-from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
+from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
@@ -11,7 +11,7 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestSVGForeignObjectChild:
     @apply_test_settings()
     def test__append_constructor_expression(self) -> None:
-        foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(
+        foreign_object_child: SvgForeignObjectChild = SvgForeignObjectChild(
             html_str="<div></div>",
         )
         expression: str = expression_data_util.get_current_expression()
@@ -25,14 +25,14 @@ class TestSVGForeignObjectChild:
 
     @apply_test_settings()
     def test__initialize_with_base_value(self) -> None:
-        foreign_object_child: SVGForeignObjectChild = (
-            SVGForeignObjectChild._initialize_with_base_value()
+        foreign_object_child: SvgForeignObjectChild = (
+            SvgForeignObjectChild._initialize_with_base_value()
         )
         assert foreign_object_child._html_str == ""
 
     @apply_test_settings()
     def test__make_snapshot__revert(self) -> None:
-        foreign_object_child = SVGForeignObjectChild(html_str="<div></div>")
+        foreign_object_child = SvgForeignObjectChild(html_str="<div></div>")
         snapshot_name: str = foreign_object_child._get_next_snapshot_name()
         foreign_object_child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         foreign_object_child._html_str._value = "<span></span>"

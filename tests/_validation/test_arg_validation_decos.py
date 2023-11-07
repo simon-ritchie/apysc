@@ -9,7 +9,7 @@ from typing import Union
 import pytest
 
 import apysc as ap
-from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
+from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
@@ -1677,10 +1677,10 @@ def test_is_uint8_range() -> None:
 @apply_test_settings()
 def test_is_svg_foreign_object_child() -> None:
     @arg_validation_decos.is_svg_foreign_object_child(arg_position_index=0)
-    def _test_func(*, child: SVGForeignObjectChild) -> int:
+    def _test_func(*, child: SvgForeignObjectChild) -> int:
         return 370
 
-    result: int = _test_func(child=SVGForeignObjectChild(html_str="<span></span>"))
+    result: int = _test_func(child=SvgForeignObjectChild(html_str="<span></span>"))
     assert result == 370
 
     assert_raises(

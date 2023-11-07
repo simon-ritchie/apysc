@@ -3,7 +3,7 @@
 
 from typing_extensions import final
 
-from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
+from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 
@@ -12,13 +12,13 @@ class AddForeignObjectChildMixIn:
     @final
     @arg_validation_decos.is_svg_foreign_object_child(arg_position_index=1)
     @add_debug_info_setting(module_name=__name__)
-    def _add_foreign_object_child(self, *, child: SVGForeignObjectChild) -> None:
+    def _add_foreign_object_child(self, *, child: SvgForeignObjectChild) -> None:
         """
         Add a foreignObject's child object.
 
         Parameters
         ----------
-        child : SVGForeignObjectChild
+        child : SvgForeignObjectChild
             A foreignObject's child object.
         """
         from apysc._expression import expression_data_util

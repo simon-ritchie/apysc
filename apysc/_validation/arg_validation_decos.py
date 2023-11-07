@@ -201,7 +201,7 @@ Mainly the following decorators exist.
         the `InitializeWithBaseValueInterface`'s subclas.
 - is_svg_foreign_object_child
     - Set a validation to check the specified argument's type
-        is the `SVGForeignObjectChild` class.
+        is the `SvgForeignObjectChild` class.
 - is_css_text_align
     - Set a validation to check the specified argument's type
         is the `CssTextAlign` enum.
@@ -3491,7 +3491,7 @@ def is_initialize_with_base_value_interface_subclass(
 def is_svg_foreign_object_child(*, arg_position_index: int) -> _Callable:
     """
     Set a validation to check the specified argument's type
-    is the `SVGForeignObjectChild` class.
+    is the `SvgForeignObjectChild` class.
 
     Parameters
     ----------
@@ -3507,7 +3507,7 @@ def is_svg_foreign_object_child(*, arg_position_index: int) -> _Callable:
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
-            from apysc._display.svg_foreign_object_child import SVGForeignObjectChild
+            from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 
             child: Any = _extract_arg_value(
                 args=args,
@@ -3515,12 +3515,12 @@ def is_svg_foreign_object_child(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
-            if not isinstance(child, SVGForeignObjectChild):
+            if not isinstance(child, SvgForeignObjectChild):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index
                 )
                 raise TypeError(
-                    "The specified argument is not an `SVGForeignObjectChild` "
+                    "The specified argument is not an `SvgForeignObjectChild` "
                     f"instance: {type(child)}"
                     f"\n{callable_and_arg_names_msg}"
                 )

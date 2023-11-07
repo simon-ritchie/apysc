@@ -1,4 +1,4 @@
-"""The module for the `SVGForeignObjectChild` class.
+"""The module for the `SvgForeignObjectChild` class.
 """
 
 
@@ -14,7 +14,7 @@ from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
-class SVGForeignObjectChild(
+class SvgForeignObjectChild(
     CssMixIn,
     DisplayObject,
     VariableNameSuffixMixIn,
@@ -48,7 +48,7 @@ class SVGForeignObjectChild(
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.SVG_FOREIGN_OBJECT_CHILD,
         )
-        super(SVGForeignObjectChild, self).__init__(variable_name=variable_name)
+        super(SvgForeignObjectChild, self).__init__(variable_name=variable_name)
 
         suffix: str = self._get_attr_or_variable_name_suffix(
             value_identifier="html_str"
@@ -71,16 +71,16 @@ class SVGForeignObjectChild(
         expression_data_util.append_js_expression(expression=expression)
 
     @classmethod
-    def _initialize_with_base_value(cls) -> "SVGForeignObjectChild":
+    def _initialize_with_base_value(cls) -> "SvgForeignObjectChild":
         """
         Initialize this class with a base value(s).
 
         Returns
         -------
-        instance : SVGForeignObjectChild
+        instance : SvgForeignObjectChild
             An initialized instance.
         """
-        foreign_object_child: SVGForeignObjectChild = SVGForeignObjectChild(html_str="")
+        foreign_object_child: SvgForeignObjectChild = SvgForeignObjectChild(html_str="")
         return foreign_object_child
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

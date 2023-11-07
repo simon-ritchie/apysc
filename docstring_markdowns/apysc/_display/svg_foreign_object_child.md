@@ -2,9 +2,9 @@
 
 ## Module summary
 
-The module for the `SVGForeignObjectChild` class.
+The module for the `SvgForeignObjectChild` class.
 
-## `SVGForeignObjectChild` class docstring
+## `SvgForeignObjectChild` class docstring
 
 ### `__init__` method docstring
 
@@ -27,7 +27,7 @@ Initialize this class with a base value(s).<hr>
 
 **[Returns]**
 
-- `instance`: SVGForeignObjectChild
+- `instance`: SvgForeignObjectChild
   - An initialized instance.
 
 ### `_make_snapshot` method docstring

@@ -4,7 +4,7 @@
 
 The mix-in class implementation for `SvgForeignObjectChild`-related interfaces.
 
-## `SVGForeignObjectChildMixIn` class docstring
+## `SvgForeignObjectChildMixIn` class docstring
 
 ### `_initialize_svg_foreign_object_child` method docstring
 

@@ -1,5 +1,5 @@
 from apysc._display.add_foreign_object_child_mixin import AddForeignObjectChildMixIn
-from apysc._display.svg_foreign_object_child_mixin import SVGForeignObjectChildMixIn
+from apysc._display.svg_foreign_object_child_mixin import SvgForeignObjectChildMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -7,7 +7,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
 class _TestValidObject(
-    SVGForeignObjectChildMixIn,
+    SvgForeignObjectChildMixIn,
     AddForeignObjectChildMixIn,
     VariableNameMixIn,
 ):
@@ -19,7 +19,7 @@ class _TestValidObject(
 
 
 class _TestInvalidObject(
-    SVGForeignObjectChildMixIn,
+    SvgForeignObjectChildMixIn,
     VariableNameMixIn,
 ):
     def __init__(self) -> None:
@@ -29,7 +29,7 @@ class _TestInvalidObject(
         self.variable_name = "test_invalid_object"
 
 
-class TestSVGForeignObjectChildMixIn:
+class TestSvgForeignObjectChildMixIn:
     @apply_test_settings()
     def test__initialize_svg_foreign_object_child(self) -> None:
         valid_object: _TestValidObject = _TestValidObject()

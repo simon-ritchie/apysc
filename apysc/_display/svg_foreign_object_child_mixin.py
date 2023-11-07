@@ -8,7 +8,7 @@ from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 from apysc._type.string import String
 
 
-class SVGForeignObjectChildMixIn:
+class SvgForeignObjectChildMixIn:
     _svg_foreign_object_child: SvgForeignObjectChild
 
     def _initialize_svg_foreign_object_child(

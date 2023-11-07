@@ -9,7 +9,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 
 
-class SVGTextSetDeltaYMixIn:
+class SvgTextSetDeltaYMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_delta_y(self, *, delta_y: Union[float, Number]) -> None:

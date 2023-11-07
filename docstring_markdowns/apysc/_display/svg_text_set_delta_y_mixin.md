@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_set_delta_y` method.
 
-## `SVGTextSetDeltaYMixIn` class docstring
+## `SvgTextSetDeltaYMixIn` class docstring
 
 ### `_set_delta_y` method docstring
 

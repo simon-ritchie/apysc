@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_set_leading` method.
 
-## `SVGTextSetLeadingMixIn` class docstring
+## `SvgTextSetLeadingMixIn` class docstring
 
 ### `_set_leading` method docstring
 

@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._display.svg_text_leading_mixin import SvgTextLeadingMixIn
-from apysc._display.svg_text_set_leading_mixin import SVGTextSetLeadingMixIn
+from apysc._display.svg_text_set_leading_mixin import SvgTextSetLeadingMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -14,7 +14,7 @@ class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
     SvgTextLeadingMixIn,
-    SVGTextSetLeadingMixIn,
+    SvgTextSetLeadingMixIn,
 ):
     pass
 
@@ -22,7 +22,7 @@ class _TestMixIn(
 class TestSVGTextSetLeadingMixIn:
     @apply_test_settings()
     def test__set_leading(self) -> None:
-        mixin_1: SVGTextSetLeadingMixIn = SVGTextSetLeadingMixIn()
+        mixin_1: SvgTextSetLeadingMixIn = SvgTextSetLeadingMixIn()
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_leading,

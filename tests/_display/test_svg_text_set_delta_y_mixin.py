@@ -1,5 +1,5 @@
 import apysc as ap
-from apysc._display.svg_text_delta_y_mixin import SVGTextDeltaYMixIn
+from apysc._display.svg_text_delta_y_mixin import SvgTextDeltaYMixIn
 from apysc._display.svg_text_set_delta_y_mixin import SVGTextSetDeltaYMixIn
 from apysc._testing.testing_helper import assert_raises
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
@@ -11,7 +11,7 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
-    SVGTextDeltaYMixIn,
+    SvgTextDeltaYMixIn,
     SVGTextSetDeltaYMixIn,
 ):
     pass

@@ -4,7 +4,7 @@
 
 Class implementation for the SVG text's delta-y mix-in.
 
-## `SVGTextDeltaYMixIn` class docstring
+## `SvgTextDeltaYMixIn` class docstring
 
 ### `_make_snapshot` method docstring
 

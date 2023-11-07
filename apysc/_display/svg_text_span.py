@@ -37,7 +37,7 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 )
 from apysc._display.svg_text_bold_mixin import SvgTextBoldMixIn
 from apysc._display.svg_text_delta_x_mixin import SvgTextDeltaXMixIn
-from apysc._display.svg_text_delta_y_mixin import SVGTextDeltaYMixIn
+from apysc._display.svg_text_delta_y_mixin import SvgTextDeltaYMixIn
 from apysc._display.svg_text_font_family_mixin import SvgTextFontFamilyMixIn
 from apysc._display.svg_text_font_size_mixin import SvgTextFontSizeMixIn
 from apysc._display.svg_text_italic_mixin import SvgTextItalicMixIn
@@ -112,7 +112,7 @@ class SvgTextSpan(
     SvgTextSetBoldMixIn,
     SvgTextDeltaXMixIn,
     SVGTextSetDeltaXMixIn,
-    SVGTextDeltaYMixIn,
+    SvgTextDeltaYMixIn,
     SVGTextSetDeltaYMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,

@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_set_italic` method.
 
-## `SVGTextSetItalicMixIn` class docstring
+## `SvgTextSetItalicMixIn` class docstring
 
 ### `_set_italic` method docstring
 

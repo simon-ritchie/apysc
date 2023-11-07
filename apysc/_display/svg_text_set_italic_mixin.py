@@ -10,7 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 
 
-class SVGTextSetItalicMixIn:
+class SvgTextSetItalicMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
     def _set_italic(

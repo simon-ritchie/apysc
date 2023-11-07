@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._display.svg_text_italic_mixin import SvgTextItalicMixIn
-from apysc._display.svg_text_set_italic_mixin import SVGTextSetItalicMixIn
+from apysc._display.svg_text_set_italic_mixin import SvgTextSetItalicMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -14,7 +14,7 @@ class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
     SvgTextItalicMixIn,
-    SVGTextSetItalicMixIn,
+    SvgTextSetItalicMixIn,
 ):
     pass
 
@@ -22,7 +22,7 @@ class _TestMixIn(
 class TestSVGTextSetItalicMixIn:
     @apply_test_settings()
     def test__set_italic(self) -> None:
-        mixin_1: SVGTextSetItalicMixIn = SVGTextSetItalicMixIn()
+        mixin_1: SvgTextSetItalicMixIn = SvgTextSetItalicMixIn()
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_italic,

@@ -22,7 +22,7 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 )
 from apysc._display.svg_foreign_object_child_mixin import SvgForeignObjectChildMixIn
 from apysc._display.svg_foreign_object_initialize_width_mixin import (
-    SVGForeignObjectInitializeWidthMixIn,
+    SvgForeignObjectInitializeWidthMixIn,
 )
 from apysc._display.svg_foreign_object_text_mixin import SVGForeignObjectTextMixIn
 from apysc._display.text_align_css_mixin import TextAlignCssMixIn
@@ -55,7 +55,7 @@ class MultiLineText(
     InitializeWithBaseValueInterface,
     AddForeignObjectChildMixIn,
     AppendForeignObjectConstructorExpressionMixIn,
-    SVGForeignObjectInitializeWidthMixIn,
+    SvgForeignObjectInitializeWidthMixIn,
     SVGForeignObjectTextMixIn,
     SvgForeignObjectChildMixIn,
     AddToParentMixIn,

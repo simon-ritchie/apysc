@@ -10,7 +10,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 
 
-class SVGForeignObjectInitializeWidthMixIn:
+class SvgForeignObjectInitializeWidthMixIn:
     _width: Int
 
     @final

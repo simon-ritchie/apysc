@@ -4,7 +4,7 @@
 
 The mix-in class for the `foreignObject`'s width initialization method.
 
-## `SVGForeignObjectInitializeWidthMixIn` class docstring
+## `SvgForeignObjectInitializeWidthMixIn` class docstring
 
 ### `_initialize_width` method docstring
 

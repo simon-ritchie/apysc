@@ -379,7 +379,7 @@
 <section id="align-property-interface-example">
 <h2>align property interface example<a class="headerlink" href="#align-property-interface-example" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">align</span></code> property updates or gets the instance’s horizontal text alignment (left, center, or right).</p>
-<p>This property requires the <code class="docutils literal notranslate"><span class="pre">SVGTextAlign</span></code> enum.</p>
+<p>This property requires the <code class="docutils literal notranslate"><span class="pre">SvgTextAlign</span></code> enum.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -396,7 +396,7 @@
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
     <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
 <span class="p">)</span>
-<span class="n">svg_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
+<span class="n">svg_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_align/&quot;</span><span class="p">)</span>
 </pre></div>
@@ -404,8 +404,8 @@
 <iframe src="static/svg_text_align/index.html" width="500" height="100"></iframe>
 <p>Note: This property setting changes x coordinate baseline (position of <code class="docutils literal notranslate"><span class="pre">x=0</span></code>), as follows:</p>
 <ul class="simple">
-<li><p>SVGTextAlign.CENTER: X coordinate baseline becomes the text’s center position.</p></li>
-<li><p>SVGTextAlign.RIGHT: X coordinate baseline becomes the text’s right position.</p></li>
+<li><p>SvgTextAlign.CENTER: X coordinate baseline becomes the text’s center position.</p></li>
+<li><p>SvgTextAlign.RIGHT: X coordinate baseline becomes the text’s right position.</p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -450,7 +450,7 @@
     <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
     <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">center_align_sample_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
+<span class="n">center_align_sample_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
 
 <span class="n">right_align_sample_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgText</span><span class="p">(</span>
     <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Right align sample&quot;</span><span class="p">,</span>
@@ -459,7 +459,7 @@
     <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
     <span class="n">parent</span><span class="o">=</span><span class="n">container_sprite</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">right_align_sample_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">RIGHT</span>
+<span class="n">right_align_sample_text</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgTextAlign</span><span class="o">.</span><span class="n">RIGHT</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_text_align_note/&quot;</span><span class="p">)</span>
 </pre></div>
@@ -531,7 +531,7 @@
     <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
     <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
-    <span class="n">align</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">SVGTextAlign</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span>
+    <span class="n">align</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">SvgTextAlign</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -793,7 +793,7 @@
 <h2>SvgText constructor API<a class="headerlink" href="#svgtext-constructor-api" title="Permalink to this heading">¶</a></h2>
 <!-- Docstring: apysc._display.svg_text.SvgText.__init__ -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
-<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;#666666&quot;),</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;&quot;),</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SVGTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SVGTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">text:</span> <span class="pre">Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">font_size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">16,</span> <span class="pre">font_family:</span> <span class="pre">Union[apysc._type.array.Array[apysc._type.string.String],</span> <span class="pre">List[str],</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">16.0,</span> <span class="pre">fill_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;#666666&quot;),</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;&quot;),</span> <span class="pre">line_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">line_thickness:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">leading:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.5,</span> <span class="pre">align:</span> <span class="pre">apysc._display.svg_text_align_mixin.SvgTextAlign</span> <span class="pre">=</span> <span class="pre">&lt;SvgTextAlign.LEFT:</span> <span class="pre">'start'&gt;,</span> <span class="pre">bold:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">italic:</span> <span class="pre">Union[bool,</span> <span class="pre">apysc._type.boolean.Boolean]</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
 <p><strong>[Interface summary]</strong></p>
 <p>The class for an SVG text.<hr></p>
 <p><strong>[Parameters]</strong></p>
@@ -853,7 +853,7 @@
 <li><p>A text-leading size.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">align</span></code>: SVGTextAlign, default SVGTextAlign.LEFT</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">align</span></code>: SvgTextAlign, default SvgTextAlign.LEFT</p>
 <ul>
 <li><p>A text-align setting.</p></li>
 </ul>

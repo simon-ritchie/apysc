@@ -11,7 +11,7 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._validation import arg_validation_decos
 
 
-class SVGTextAlign(Enum):
+class SvgTextAlign(Enum):
     """
     SVG text's align enum class.
 
@@ -34,17 +34,17 @@ class SvgTextAlignMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):
-    _align: SVGTextAlign = SVGTextAlign.LEFT
+    _align: SvgTextAlign = SvgTextAlign.LEFT
 
     @property
     @add_debug_info_setting(module_name=__name__)
-    def align(self) -> SVGTextAlign:
+    def align(self) -> SvgTextAlign:
         """
         Get a current text-align setting.
 
         Returns
         -------
-        align : SVGTextAlign
+        align : SvgTextAlign
             A current text-align setting.
         """
         return self._align
@@ -52,13 +52,13 @@ class SvgTextAlignMixIn(
     @align.setter
     @add_debug_info_setting(module_name=__name__)
     @arg_validation_decos.is_svg_text_align(arg_position_index=1)
-    def align(self, value: SVGTextAlign) -> None:
+    def align(self, value: SvgTextAlign) -> None:
         """
         Set a text-align setting.
 
         Parameters
         ----------
-        value : SVGTextAlign
+        value : SvgTextAlign
             A text-align setting.
         """
         from apysc._expression import expression_data_util
@@ -67,7 +67,7 @@ class SvgTextAlignMixIn(
         expression: str = f'{self.variable_name}.font("anchor", "{value.value}");'
         expression_data_util.append_js_expression(expression=expression)
 
-    _align_snapshots: Optional[Dict[str, SVGTextAlign]] = None
+    _align_snapshots: Optional[Dict[str, SvgTextAlign]] = None
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

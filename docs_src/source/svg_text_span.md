@@ -562,7 +562,7 @@ The class for an SVG text-span (the child class of `SvgText`).<hr>
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SvgTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SvgTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SvgText'`<hr>
+**[Interface signature]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SvgTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SvgTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SvgTextAlign = <SvgTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SvgText'`<hr>
 
 **[Interface summary]**
 
@@ -592,7 +592,7 @@ Create an `SvgText` instance with specified text spans.<hr>
   - A line-thickness (line-width) setting for an overall text.
 - `leading`: float or Number, optional
   - A text-leading size for an overall text.
-- `align`: SVGTextAlign, optional
+- `align`: SvgTextAlign, optional
   - A text-align setting for an overall text.
 - `bold`: Union[bool, Boolean], optional
   - A boolean, whether this text is a bold style or not.

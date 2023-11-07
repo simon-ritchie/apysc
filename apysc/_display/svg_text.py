@@ -51,7 +51,7 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 )
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
-from apysc._display.svg_text_align_mixin import SVGTextAlign
+from apysc._display.svg_text_align_mixin import SvgTextAlign
 from apysc._display.svg_text_align_mixin import SvgTextAlignMixIn
 from apysc._display.svg_text_bold_mixin import SvgTextBoldMixIn
 from apysc._display.svg_text_font_family_mixin import SvgTextFontFamilyMixIn
@@ -218,7 +218,7 @@ class SvgText(
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
-        align: SVGTextAlign = SVGTextAlign.LEFT,
+        align: SvgTextAlign = SvgTextAlign.LEFT,
         bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
@@ -262,7 +262,7 @@ class SvgText(
             A line-thickness (line-width) setting.
         leading : float or Number, optional
             A text-leading size.
-        align : SVGTextAlign, default SVGTextAlign.LEFT
+        align : SvgTextAlign, default SvgTextAlign.LEFT
             A text-align setting.
         bold : Union[bool, Boolean], optional
             A boolean, whether this text is a bold style or not.
@@ -429,7 +429,7 @@ class SvgText(
         line_alpha: Union[float, Number] = 1.0,
         line_thickness: Union[int, Int] = 1,
         leading: Union[float, Number] = 1.5,
-        align: SVGTextAlign = SVGTextAlign.LEFT,
+        align: SvgTextAlign = SvgTextAlign.LEFT,
         bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
@@ -475,7 +475,7 @@ class SvgText(
             A line-thickness (line-width) setting for an overall text.
         leading : float or Number, optional
             A text-leading size for an overall text.
-        align : SVGTextAlign, optional
+        align : SvgTextAlign, optional
             A text-align setting for an overall text.
         bold : Union[bool, Boolean], optional
             A boolean, whether this text is a bold style or not.

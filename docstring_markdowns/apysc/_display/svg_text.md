@@ -70,7 +70,7 @@ The class for an SVG text.<hr>
   - A line-thickness (line-width) setting.
 - `leading`: float or Number, optional
   - A text-leading size.
-- `align`: SVGTextAlign, default SVGTextAlign.LEFT
+- `align`: SvgTextAlign, default SvgTextAlign.LEFT
   - A text-align setting.
 - `bold`: Union[bool, Boolean], optional
   - A boolean, whether this text is a bold style or not.
@@ -184,7 +184,7 @@ Create an `SvgText` instance with specified text spans.<hr>
   - A line-thickness (line-width) setting for an overall text.
 - `leading`: float or Number, optional
   - A text-leading size for an overall text.
-- `align`: SVGTextAlign, optional
+- `align`: SvgTextAlign, optional
   - A text-align setting for an overall text.
 - `bold`: Union[bool, Boolean], optional
   - A boolean, whether this text is a bold style or not.

@@ -12,5 +12,5 @@ Set a text-align setting.<hr>
 
 **[Parameters]**
 
-- `align`: SVGTextAlign
+- `align`: SvgTextAlign
   - A text-align setting.

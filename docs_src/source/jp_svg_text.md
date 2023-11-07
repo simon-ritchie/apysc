@@ -366,7 +366,7 @@ ap.save_overall_html(dest_dir_path="svg_text_leading/")
 
 `align`属性ではインスタンスの水平方向の行揃えの設定（左端、中央、右端）の更新もしくは取得を行えます。
 
-この属性は`SVGTextAlign`のenumの値を必要とします。
+この属性は`SvgTextAlign`のenumの値を必要とします。
 
 ```py
 # runnable
@@ -387,7 +387,7 @@ consectetur adipiscing elit,
     y=32,
     fill_color=ap.Color("#aaa"),
 )
-svg_text.align = ap.SVGTextAlign.CENTER
+svg_text.align = ap.SvgTextAlign.CENTER
 
 ap.save_overall_html(dest_dir_path="svg_text_align/")
 ```
@@ -396,8 +396,8 @@ ap.save_overall_html(dest_dir_path="svg_text_align/")
 
 特記事項: この属性はX座標の基準位置（`x=0`の位置）を以下のように変更します:
 
-- SVGTextAlign.CENTER: X座標の基準位置はテキストの中央位置になります。
-- SVGTextAlign.RIGHT: X座標の基準位置はテキストの右端の位置になります。
+- SvgTextAlign.CENTER: X座標の基準位置はテキストの中央位置になります。
+- SvgTextAlign.RIGHT: X座標の基準位置はテキストの右端の位置になります。
 
 ```py
 # runnable
@@ -443,7 +443,7 @@ center_align_sample_text: ap.SvgText = ap.SvgText(
     fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
-center_align_sample_text.align = ap.SVGTextAlign.CENTER
+center_align_sample_text.align = ap.SvgTextAlign.CENTER
 
 right_align_sample_text: ap.SvgText = ap.SvgText(
     text="Right align sample",
@@ -452,7 +452,7 @@ right_align_sample_text: ap.SvgText = ap.SvgText(
     fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
-right_align_sample_text.align = ap.SVGTextAlign.RIGHT
+right_align_sample_text.align = ap.SvgTextAlign.RIGHT
 
 ap.save_overall_html(dest_dir_path="svg_text_align_note/")
 ```
@@ -530,7 +530,7 @@ svg_text: ap.SvgText = ap.SvgText(
     x=100,
     y=32,
     fill_color=ap.Color("#aaa"),
-    align=ap.SVGTextAlign.CENTER,
+    align=ap.SvgTextAlign.CENTER,
 )
 
 
@@ -804,7 +804,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_flip_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SvgTextAlign = <SvgTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -845,7 +845,7 @@ SVGテキストのためのクラスです。<hr>
 - `leading`: float or Number, optional
   - テキストの行間のサイズ。
 
-- `align`: SVGTextAlign, default SVGTextAlign.LEFT
+- `align`: SvgTextAlign, default SvgTextAlign.LEFT
   - テキストの行揃えの設定。
 
 - `bold`: Union[bool, Boolean], optional

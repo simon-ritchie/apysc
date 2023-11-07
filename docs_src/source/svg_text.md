@@ -362,7 +362,7 @@ ap.save_overall_html(dest_dir_path="svg_text_leading/")
 
 The `align` property updates or gets the instance's horizontal text alignment (left, center, or right).
 
-This property requires the `SVGTextAlign` enum.
+This property requires the `SvgTextAlign` enum.
 
 ```py
 # runnable
@@ -381,7 +381,7 @@ svg_text: ap.SvgText = ap.SvgText(
     y=32,
     fill_color=ap.Color("#aaa"),
 )
-svg_text.align = ap.SVGTextAlign.CENTER
+svg_text.align = ap.SvgTextAlign.CENTER
 
 ap.save_overall_html(dest_dir_path="svg_text_align/")
 ```
@@ -390,8 +390,8 @@ ap.save_overall_html(dest_dir_path="svg_text_align/")
 
 Note: This property setting changes x coordinate baseline (position of `x=0`), as follows:
 
-- SVGTextAlign.CENTER: X coordinate baseline becomes the text's center position.
-- SVGTextAlign.RIGHT: X coordinate baseline becomes the text's right position.
+- SvgTextAlign.CENTER: X coordinate baseline becomes the text's center position.
+- SvgTextAlign.RIGHT: X coordinate baseline becomes the text's right position.
 
 ```py
 # runnable
@@ -437,7 +437,7 @@ center_align_sample_text: ap.SvgText = ap.SvgText(
     fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
-center_align_sample_text.align = ap.SVGTextAlign.CENTER
+center_align_sample_text.align = ap.SvgTextAlign.CENTER
 
 right_align_sample_text: ap.SvgText = ap.SvgText(
     text="Right align sample",
@@ -446,7 +446,7 @@ right_align_sample_text: ap.SvgText = ap.SvgText(
     fill_color=ap.Color("#aaa"),
     parent=container_sprite,
 )
-right_align_sample_text.align = ap.SVGTextAlign.RIGHT
+right_align_sample_text.align = ap.SvgTextAlign.RIGHT
 
 ap.save_overall_html(dest_dir_path="svg_text_align_note/")
 ```
@@ -524,7 +524,7 @@ svg_text: ap.SvgText = ap.SvgText(
     x=100,
     y=32,
     fill_color=ap.Color("#aaa"),
-    align=ap.SVGTextAlign.CENTER,
+    align=ap.SvgTextAlign.CENTER,
 )
 
 
@@ -800,7 +800,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_flip_y/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, *, text: Union[str, apysc._type.string.String], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SvgTextAlign = <SvgTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -830,7 +830,7 @@ The class for an SVG text.<hr>
   - A line-thickness (line-width) setting.
 - `leading`: float or Number, optional
   - A text-leading size.
-- `align`: SVGTextAlign, default SVGTextAlign.LEFT
+- `align`: SvgTextAlign, default SvgTextAlign.LEFT
   - A text-align setting.
 - `bold`: Union[bool, Boolean], optional
   - A boolean, whether this text is a bold style or not.

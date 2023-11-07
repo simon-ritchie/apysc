@@ -262,7 +262,7 @@ def test__create_y_axis_ticks_texts() -> None:
     assert y_axis_ticks_texts._value[0].font_size == ap.Int(12)
     assert y_axis_ticks_texts._value[0].fill_color == ap.Color("#333333")
     assert y_axis_ticks_texts._value[0].fill_alpha == ap.Number(0.5)
-    assert y_axis_ticks_texts._value[0].align == ap.SVGTextAlign.RIGHT
+    assert y_axis_ticks_texts._value[0].align == ap.SvgTextAlign.RIGHT
     assert y_axis_ticks_texts._value[0].bold == ap.Boolean(False)
     assert y_axis_ticks_texts._value[0].italic == ap.Boolean(False)
     assert y_axis_ticks_texts._value[0].parent == texts_container

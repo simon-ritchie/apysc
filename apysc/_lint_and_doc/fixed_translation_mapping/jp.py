@@ -3523,16 +3523,16 @@ MAPPINGS: Mappings = Mappings(
             val="特記事項: この属性はX座標の基準位置（`x=0`の位置）を以下のように変更します:",
         ),
         Mapping(
-            key="- SVGTextAlign.CENTER: X coordinate baseline becomes the text's center position.",
-            val="- SVGTextAlign.CENTER: X座標の基準位置はテキストの中央位置になります。",
+            key="- SvgTextAlign.CENTER: X coordinate baseline becomes the text's center position.",
+            val="- SvgTextAlign.CENTER: X座標の基準位置はテキストの中央位置になります。",
         ),
         Mapping(
-            key="- SVGTextAlign.RIGHT: X coordinate baseline becomes the text's right position.",
-            val="- SVGTextAlign.RIGHT: X座標の基準位置はテキストの右端の位置になります。",
+            key="- SvgTextAlign.RIGHT: X coordinate baseline becomes the text's right position.",
+            val="- SvgTextAlign.RIGHT: X座標の基準位置はテキストの右端の位置になります。",
         ),
         Mapping(
-            key="This property requires the `SVGTextAlign` enum.",
-            val="この属性は`SVGTextAlign`のenumの値を必要とします。",
+            key="This property requires the `SvgTextAlign` enum.",
+            val="この属性は`SvgTextAlign`のenumの値を必要とします。",
         ),
         Mapping(
             key="## bold property interface example",

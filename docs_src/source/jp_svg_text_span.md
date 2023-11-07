@@ -575,7 +575,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SvgTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SvgTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SVGTextAlign = <SVGTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SvgText'`<hr>
+**[インターフェイスの構造]** `create_with_svg_text_spans(*, text_spans: Union[List[apysc._display.svg_text_span.SvgTextSpan], apysc._type.array.Array[apysc._display.svg_text_span.SvgTextSpan]], font_size: Union[int, apysc._type.int.Int] = 16, font_family: Union[apysc._type.array.Array[apysc._type.string.String], List[str], NoneType] = None, x: Union[float, apysc._type.number.Number] = 0.0, y: Union[float, apysc._type.number.Number] = 16.0, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, line_color: apysc._color.color.Color = Color(""), line_alpha: Union[float, apysc._type.number.Number] = 1.0, line_thickness: Union[int, apysc._type.int.Int] = 1, leading: Union[float, apysc._type.number.Number] = 1.5, align: apysc._display.svg_text_align_mixin.SvgTextAlign = <SvgTextAlign.LEFT: 'start'>, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> 'SvgText'`<hr>
 
 **[インターフェイス概要]**
 
@@ -616,7 +616,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 - `leading`: float or Number, optional
   - テキスト全体に設定する行間設定。
 
-- `align`: SVGTextAlign, optional
+- `align`: SvgTextAlign, optional
   - テキスト全体に設定する行揃え設定。
 
 - `bold`: Union[bool, Boolean], optional

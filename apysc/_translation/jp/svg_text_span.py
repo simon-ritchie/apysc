@@ -249,7 +249,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - A text-leading size for an overall text.": "  - テキスト全体に設定する行間設定。",
     ##################################################
-    "- `align`: SVGTextAlign, optional": "- `align`: SVGTextAlign, optional",
+    "- `align`: SvgTextAlign, optional": "- `align`: SvgTextAlign, optional",
     ##################################################
     "  - A text-align setting for an overall text.": "  - テキスト全体に設定する行揃え設定。",
     ##################################################

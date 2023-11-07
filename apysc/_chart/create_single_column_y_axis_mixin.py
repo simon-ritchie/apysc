@@ -259,7 +259,7 @@ def _create_y_axis_ticks_texts(
     texts_container : Sprite
         A container that contains created texts.
     """
-    from apysc._display.svg_text_align_mixin import SVGTextAlign
+    from apysc._display.svg_text_align_mixin import SvgTextAlign
     from apysc._loop.for_array_indices import ForArrayIndices
 
     y_axis_ticks_texts: Array[SvgText] = Array([])
@@ -274,7 +274,7 @@ def _create_y_axis_ticks_texts(
             y=y_axis_ticks_y_coordinates[i],
             fill_color=tick_text_fill_color,
             fill_alpha=tick_text_fill_alpha,
-            align=SVGTextAlign.RIGHT,
+            align=SvgTextAlign.RIGHT,
             bold=tick_text_bold,
             italic=tick_text_italic,
             parent=texts_container,

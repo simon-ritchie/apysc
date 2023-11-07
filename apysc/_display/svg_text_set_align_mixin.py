@@ -4,20 +4,20 @@
 
 from typing_extensions import final
 
-from apysc._display.svg_text_align_mixin import SVGTextAlign
+from apysc._display.svg_text_align_mixin import SvgTextAlign
 from apysc._html.debug_mode import add_debug_info_setting
 
 
 class SvgTextSetAlignMixIn:
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _set_align(self, *, align: SVGTextAlign) -> None:
+    def _set_align(self, *, align: SvgTextAlign) -> None:
         """
         Set a text-align setting.
 
         Parameters
         ----------
-        align : SVGTextAlign
+        align : SvgTextAlign
             A text-align setting.
         """
         from apysc._display.svg_text_align_mixin import SvgTextAlignMixIn

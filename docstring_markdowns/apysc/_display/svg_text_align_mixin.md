@@ -4,7 +4,7 @@
 
 Class implementation for the SVG text's align mix-in.
 
-## `SVGTextAlign` class docstring
+## `SvgTextAlign` class docstring
 
 SVG text's align enum class.
 

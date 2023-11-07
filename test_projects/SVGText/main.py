@@ -182,26 +182,26 @@ def main() -> None:
         text="Left align test\nLeft align test left align test",
         x=600,
         y=20,
-        align=ap.SVGTextAlign.LEFT,
+        align=ap.SvgTextAlign.LEFT,
     )
     svg_text = ap.SvgText(
         text="Center align test\nCenter align test center align test",
         x=600,
         y=80,
-        align=ap.SVGTextAlign.CENTER,
+        align=ap.SvgTextAlign.CENTER,
     )
     svg_text = ap.SvgText(
         text="Right align test\nRight align test right align test",
         x=600,
         y=140,
-        align=ap.SVGTextAlign.RIGHT,
+        align=ap.SvgTextAlign.RIGHT,
     )
     svg_text = ap.SvgText(
         text="Center align test 2\nCenter align test 2 center align test 2",
         x=600,
         y=200,
     )
-    svg_text.align = ap.SVGTextAlign.CENTER
+    svg_text.align = ap.SvgTextAlign.CENTER
 
     svg_text = ap.SvgText(
         text="Italic test 1",

@@ -1,5 +1,5 @@
 import apysc as ap
-from apysc._display.svg_text_align_mixin import SVGTextAlign
+from apysc._display.svg_text_align_mixin import SvgTextAlign
 from apysc._display.svg_text_align_mixin import SvgTextAlignMixIn
 from apysc._display.svg_text_set_align_mixin import SvgTextSetAlignMixIn
 from apysc._expression import expression_data_util
@@ -22,12 +22,12 @@ class TestSVGTextSetAlignMixIn:
             expected_error_class=TypeError,
             callable_=mixin_1._set_align,
             match="This method is only supported an ",
-            align=SVGTextAlign.CENTER,
+            align=SvgTextAlign.CENTER,
         )
 
         ap.Stage()
         mixin_2: _TestMixIn = _TestMixIn()
-        mixin_2._set_align(align=SVGTextAlign.CENTER)
-        assert mixin_2.align == SVGTextAlign.CENTER
+        mixin_2._set_align(align=SvgTextAlign.CENTER)
+        assert mixin_2.align == SvgTextAlign.CENTER
         expression: str = expression_data_util.get_current_expression()
         assert '.font("anchor", "middle")' in expression

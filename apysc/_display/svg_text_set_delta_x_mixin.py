@@ -21,14 +21,14 @@ class SVGTextSetDeltaXMixIn:
         delta_x : Union[float, Number]
             A delta-x value.
         """
-        from apysc._display.svg_text_delta_x_mixin import SVGTextDeltaXMixIn
+        from apysc._display.svg_text_delta_x_mixin import SvgTextDeltaXMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
 
-        if not isinstance(self, SVGTextDeltaXMixIn):
+        if not isinstance(self, SvgTextDeltaXMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextDeltaXMixIn.__name__} "
+                f"This method is only supported an {SvgTextDeltaXMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

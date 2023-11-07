@@ -10,7 +10,7 @@ from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 
 
-class SVGTextBoldMixIn(
+class SvgTextBoldMixIn(
     VariableNameMixIn,
     RevertMixIn,
 ):

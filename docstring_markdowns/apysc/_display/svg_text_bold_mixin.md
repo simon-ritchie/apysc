@@ -4,7 +4,7 @@
 
 Class implementation for the SVG text's bold mix-in.
 
-## `SVGTextBoldMixIn` class docstring
+## `SvgTextBoldMixIn` class docstring
 
 ### `_make_snapshot` method docstring
 

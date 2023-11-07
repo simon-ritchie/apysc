@@ -23,7 +23,7 @@ class SVGTextSetBoldMixIn:
             A boolean, whether a text is a bold style or not (normal).
             If a specified value is `None`, this interface ignores the setting.
         """
-        from apysc._display.svg_text_bold_mixin import SVGTextBoldMixIn
+        from apysc._display.svg_text_bold_mixin import SvgTextBoldMixIn
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -31,9 +31,9 @@ class SVGTextSetBoldMixIn:
         if bold is None:
             return
 
-        if not isinstance(self, SVGTextBoldMixIn):
+        if not isinstance(self, SvgTextBoldMixIn):
             raise TypeError(
-                f"This method is only supported an {SVGTextBoldMixIn.__name__} "
+                f"This method is only supported an {SvgTextBoldMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
 

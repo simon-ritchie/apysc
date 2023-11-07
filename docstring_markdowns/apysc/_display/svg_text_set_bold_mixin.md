@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_set_bold` method.
 
-## `SVGTextSetBoldMixIn` class docstring
+## `SvgTextSetBoldMixIn` class docstring
 
 ### `_set_bold` method docstring
 

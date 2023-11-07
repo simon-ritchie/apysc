@@ -1,6 +1,6 @@
 import apysc as ap
 from apysc._display.svg_text_bold_mixin import SvgTextBoldMixIn
-from apysc._display.svg_text_set_bold_mixin import SVGTextSetBoldMixIn
+from apysc._display.svg_text_set_bold_mixin import SvgTextSetBoldMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -14,7 +14,7 @@ class _TestMixIn(
     VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
     SvgTextBoldMixIn,
-    SVGTextSetBoldMixIn,
+    SvgTextSetBoldMixIn,
 ):
     pass
 
@@ -22,7 +22,7 @@ class _TestMixIn(
 class TestSVGTextSetBoldMixIn:
     @apply_test_settings()
     def test__set_bold(self) -> None:
-        mixin_1: SVGTextSetBoldMixIn = SVGTextSetBoldMixIn()
+        mixin_1: SvgTextSetBoldMixIn = SvgTextSetBoldMixIn()
         assert_raises(
             expected_error_class=TypeError,
             callable_=mixin_1._set_bold,

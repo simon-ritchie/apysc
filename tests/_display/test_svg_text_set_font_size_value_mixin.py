@@ -20,7 +20,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetFontSizeValueMixIn:
+class TestSvgTextSetFontSizeValueMixIn:
     @apply_test_settings()
     def test__set_font_size_value(self) -> None:
         mixin_1: _TestMixIn = _TestMixIn()

@@ -20,7 +20,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextFontFamilyMixIn:
+class TestSvgTextFontFamilyMixIn:
     @apply_test_settings()
     def test__append_font_family_string_getter_expression(self) -> None:
         mixin: _TestMixIn = _TestMixIn()

@@ -6,6 +6,7 @@ from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestMixIn(
@@ -17,8 +18,8 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetDeltaYMixIn:
-    # @apply_test_settings()
+class TestSvgTextSetDeltaYMixIn:
+    @apply_test_settings()
     def test__set_delta_y(self) -> None:
         mixin_1: SvgTextSetDeltaYMixIn = SvgTextSetDeltaYMixIn()
         assert_raises(

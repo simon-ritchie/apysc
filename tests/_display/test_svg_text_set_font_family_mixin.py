@@ -19,7 +19,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetFontFamilyMixIn:
+class TestSvgTextSetFontFamilyMixIn:
     @apply_test_settings()
     def test__set_font_family(self) -> None:
         mixin_1: SvgTextSetFontFamilyMixIn = SvgTextSetFontFamilyMixIn()

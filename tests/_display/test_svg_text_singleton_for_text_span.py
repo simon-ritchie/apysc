@@ -3,7 +3,7 @@ from apysc._display.svg_text_singleton_for_text_span import SvgTextSingletonForT
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestSVGTextSingletonForTextSpan:
+class TestSvgTextSingletonForTextSpan:
     @apply_test_settings()
     def test_get_instance(self) -> None:
         stage: ap.Stage = ap.Stage()

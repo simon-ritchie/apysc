@@ -16,7 +16,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextTextMixIn:
+class TestSvgTextTextMixIn:
     @apply_test_settings()
     def test__append_text_getter_expression(self) -> None:
         mixin: SvgTextTextMixIn = SvgTextTextMixIn()

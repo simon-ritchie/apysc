@@ -18,7 +18,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetDeltaXMixIn:
+class TestSvgTextSetDeltaXMixIn:
     @apply_test_settings()
     def test__set_delta_x(self) -> None:
         mixin_1: SvgTextSetDeltaXMixIn = SvgTextSetDeltaXMixIn()

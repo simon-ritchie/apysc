@@ -5,7 +5,7 @@ from apysc._display.svg_text_skip_fill_color_exp_appending_mixin import (
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestSVGTextSkipFillColorExpAppendingMixIn:
+class TestSvgTextSkipFillColorExpAppendingMixIn:
     @apply_test_settings()
     def test__set_fill_color_expression_skipping_attr(self) -> None:
         mixin: SvgTextSkipFillColorExpAppendingMixIn

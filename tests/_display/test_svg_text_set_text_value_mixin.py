@@ -18,7 +18,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetTextValueMixIn:
+class TestSvgTextSetTextValueMixIn:
     @apply_test_settings()
     def test__set_text_value(self) -> None:
         mixin_1: _TestMixIn = _TestMixIn()

@@ -16,7 +16,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextDeltaYMixIn:
+class TestSvgTextDeltaYMixIn:
     @apply_test_settings()
     def test_delta_y(self) -> None:
         mixin: _TestMixIn = _TestMixIn()

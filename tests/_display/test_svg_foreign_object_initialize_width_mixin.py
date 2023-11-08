@@ -19,7 +19,7 @@ class _TestObject(
         self._variable_name_suffix = "test_suffix"
 
 
-class TestSVGForeignObjectInitializeWidthMixIn:
+class TestSvgForeignObjectInitializeWidthMixIn:
     @apply_test_settings()
     def test__initialize_width(self) -> None:
         test_object: _TestObject = _TestObject()

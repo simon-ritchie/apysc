@@ -5,7 +5,7 @@ from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestSVGTextSkipLineColorExpAppendingMixIn:
+class TestSvgTextSkipLineColorExpAppendingMixIn:
     @apply_test_settings()
     def test__set_line_color_expression_skipping_attr(self) -> None:
         mixin: SvgTextSkipLineColorExpAppendingMixIn

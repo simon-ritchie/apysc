@@ -3,7 +3,7 @@ from apysc._display.multi_line_text import MultiLineText
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestSVGForeignObjectTextMixIn:
+class TestSvgForeignObjectTextMixIn:
     @apply_test_settings(retrying_max_attempts_num=0)
     def test__initialize_text(self) -> None:
         text: MultiLineText = MultiLineText(

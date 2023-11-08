@@ -14,7 +14,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetAlignMixIn:
+class TestSvgTextSetAlignMixIn:
     @apply_test_settings()
     def test__set_align(self) -> None:
         mixin_1: SvgTextSetAlignMixIn = SvgTextSetAlignMixIn()

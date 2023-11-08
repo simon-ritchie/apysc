@@ -7,14 +7,14 @@ from apysc._testing.testing_helper import apply_test_settings
 
 
 @apply_test_settings()
-def test_SVGTextAlign() -> None:
+def test_SvgTextAlign() -> None:
     for enum_ in SvgTextAlign:
         assert isinstance(enum_.value, str)
     values: List[str] = [enum.value for enum in SvgTextAlign]
     assert len(values) == len(set(values))
 
 
-class TestSVGTextAlignMixIn:
+class TestSvgTextAlignMixIn:
     @apply_test_settings()
     def test_align(self) -> None:
         mixin: SvgTextAlignMixIn = SvgTextAlignMixIn()

@@ -17,7 +17,7 @@ from tests._display.test_graphics_expression import (
 )
 
 
-class TestSVGText:
+class TestSvgText:
     @apply_test_settings()
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()

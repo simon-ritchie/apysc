@@ -19,7 +19,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetItalicMixIn:
+class TestSvgTextSetItalicMixIn:
     @apply_test_settings()
     def test__set_italic(self) -> None:
         mixin_1: SvgTextSetItalicMixIn = SvgTextSetItalicMixIn()

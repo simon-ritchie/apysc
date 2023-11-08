@@ -19,7 +19,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetBoldMixIn:
+class TestSvgTextSetBoldMixIn:
     @apply_test_settings()
     def test__set_bold(self) -> None:
         mixin_1: SvgTextSetBoldMixIn = SvgTextSetBoldMixIn()

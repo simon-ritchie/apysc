@@ -4,7 +4,7 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestSVGTextFontSizeMixIn:
+class TestSvgTextFontSizeMixIn:
     @apply_test_settings()
     def test__append_font_size_getter_expression(self) -> None:
         mixin: SvgTextFontSizeMixIn = SvgTextFontSizeMixIn()

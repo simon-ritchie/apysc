@@ -16,7 +16,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextLeadingMixIn:
+class TestSvgTextLeadingMixIn:
     @apply_test_settings()
     def test_leading(self) -> None:
         mixin: _TestMixIn = _TestMixIn()

@@ -19,7 +19,7 @@ class _TestMixIn(
     pass
 
 
-class TestSVGTextSetLeadingMixIn:
+class TestSvgTextSetLeadingMixIn:
     @apply_test_settings()
     def test__set_leading(self) -> None:
         mixin_1: SvgTextSetLeadingMixIn = SvgTextSetLeadingMixIn()

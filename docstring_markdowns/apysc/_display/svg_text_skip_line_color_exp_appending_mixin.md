@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_skip_line_color_expression_appending` attribute.
 
-## `SVGTextSkipLineColorExpAppendingMixIn` class docstring
+## `SvgTextSkipLineColorExpAppendingMixIn` class docstring
 
 ### `_set_line_color_expression_skipping_attr` method docstring
 

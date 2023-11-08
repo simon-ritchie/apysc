@@ -60,7 +60,7 @@ from apysc._display.svg_text_skip_line_alpha_exp_appending_mixin import (
     SVGTextSkipLineAlphaExpAppendingMixIn,
 )
 from apysc._display.svg_text_skip_line_color_exp_appending_mixin import (
-    SVGTextSkipLineColorExpAppendingMixIn,
+    SvgTextSkipLineColorExpAppendingMixIn,
 )
 from apysc._display.svg_text_skip_line_thickness_exp_appending_mixin import (
     SVGTextSkipLineThicknessExpAppendingMixIn,
@@ -93,7 +93,7 @@ class SvgTextSpan(
     SvgTextSkipFillAlphaExpAppendingMixIn,
     LineColorMixIn,
     AppendLineColorAttrExpressionMixIn,
-    SVGTextSkipLineColorExpAppendingMixIn,
+    SvgTextSkipLineColorExpAppendingMixIn,
     LineAlphaMixIn,
     AppendLineAlphaAttrExpressionMixIn,
     SVGTextSkipLineAlphaExpAppendingMixIn,

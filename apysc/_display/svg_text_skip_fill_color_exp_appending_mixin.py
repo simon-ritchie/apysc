@@ -10,7 +10,7 @@ from apysc._color.color import Color
 from apysc._html.debug_mode import add_debug_info_setting
 
 
-class SVGTextSkipFillColorExpAppendingMixIn:
+class SvgTextSkipFillColorExpAppendingMixIn:
     _skip_fill_color_expression_appending: bool = False
 
     @final

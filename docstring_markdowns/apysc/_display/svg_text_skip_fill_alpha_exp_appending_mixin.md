@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_skip_fill_alpha_expression_appending` attribute.
 
-## `SVGTextSkipFillAlphaExpAppendingMixIn` class docstring
+## `SvgTextSkipFillAlphaExpAppendingMixIn` class docstring
 
 ### `_set_fill_alpha_expression_skipping_attr` method docstring
 

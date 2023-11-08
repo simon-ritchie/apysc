@@ -11,7 +11,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
 
 
-class SVGTextSkipFillAlphaExpAppendingMixIn:
+class SvgTextSkipFillAlphaExpAppendingMixIn:
     _skip_fill_alpha_expression_appending: bool = False
 
     @final

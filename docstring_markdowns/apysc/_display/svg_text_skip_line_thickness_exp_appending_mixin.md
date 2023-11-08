@@ -4,7 +4,7 @@
 
 The mix-in class implementation for the `SvgText`'s `_skip_line_thickness_expression_appending` attribute.
 
-## `SVGTextSkipLineThicknessExpAppendingMixIn` class docstring
+## `SvgTextSkipLineThicknessExpAppendingMixIn` class docstring
 
 ### `_set_line_thickness_expression_skipping_attr` method docstring
 

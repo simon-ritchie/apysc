@@ -22,6 +22,7 @@ class TestMultiLineText:
             italic=True,
             text_align=ap.CssTextAlign.CENTER,
             text_align_last=ap.CssTextAlignLast.RIGHT,
+            underline=True,
             parent=sprite,
             variable_name_suffix="test_suffix",
         )
@@ -33,5 +34,6 @@ class TestMultiLineText:
         assert text._fill_color == ap.Color("#333333")
         assert text._fill_alpha._value == 0.5
         assert text._bold == ap.True_
+        assert text._underline == ap.True_
         assert text.parent == sprite
         assert "test_suffix" in text._text.variable_name

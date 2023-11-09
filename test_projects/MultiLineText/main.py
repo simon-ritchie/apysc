@@ -178,6 +178,24 @@ def main() -> None:
         text_align_last=ap.CssTextAlignLast.CENTER,
     )
 
+    ap.MultiLineText(
+        text="Under line test 1",
+        width=200,
+        x=550,
+        y=30,
+        fill_color=ap.Color("#0af"),
+        underline=True,
+    )
+
+    text = ap.MultiLineText(
+        text="Under line test 2",
+        width=200,
+        x=550,
+        y=60,
+        fill_color=ap.Color("#0af"),
+    )
+    text.underline = ap.True_
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

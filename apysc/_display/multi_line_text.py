@@ -42,6 +42,9 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.text_decoration_underline_css_mixin import (
+    TextDecorationUnderlineCssMixIn,
+)
 
 
 class MultiLineText(
@@ -65,6 +68,7 @@ class MultiLineText(
     TextItalicCssMixIn,
     TextAlignCssMixIn,
     TextAlignLastCssMixIn,
+    TextDecorationUnderlineCssMixIn,
 ):
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -86,9 +90,11 @@ class MultiLineText(
     @arg_validation_decos.is_css_text_align(arg_position_index=9)
     # text_align_last
     @arg_validation_decos.is_css_text_align_last(arg_position_index=10)
+    # underline
+    @arg_validation_decos.is_boolean(arg_position_index=11, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=11, optional=True
+        arg_position_index=12, optional=True
     )
     def __init__(
         self,
@@ -103,6 +109,7 @@ class MultiLineText(
         italic: Union[bool, Boolean] = False,
         text_align: CssTextAlign = CssTextAlign.LEFT,
         text_align_last: CssTextAlignLast = CssTextAlignLast.LEFT,
+        underline: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -132,6 +139,8 @@ class MultiLineText(
             Text align setting.
         text_align_last : CssTextAlignLast, default `CssTextAlignLast.LEFT`
             Last line's text-align setting.
+        underline : Union[bool, Boolean], default False
+            Whether to display the text's underline.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -178,6 +187,10 @@ class MultiLineText(
         )
         self.text_align = text_align
         self.text_align_last = text_align_last
+        self.underline = to_apysc_val_from_builtin.get_copied_boolean_from_builtin_val(
+            bool_val=underline,
+            variable_name_suffix=variable_name_suffix,
+        )
 
     @classmethod
     def _initialize_with_base_value(cls) -> "MultiLineText":

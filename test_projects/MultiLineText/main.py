@@ -196,6 +196,24 @@ def main() -> None:
     )
     text.underline = ap.True_
 
+    text = ap.MultiLineText(
+        text="Font size test 1",
+        width=300,
+        font_size=32,
+        x=550,
+        y=90,
+        fill_color=ap.Color("#0af"),
+    )
+
+    text = ap.MultiLineText(
+        text="Font size test 2",
+        width=300,
+        x=550,
+        y=130,
+        fill_color=ap.Color("#0af"),
+    )
+    text.font_size = ap.Int(32)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

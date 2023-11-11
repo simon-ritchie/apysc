@@ -219,6 +219,12 @@ graphics_draw_path
 graphics_clear
 ```
 
+## Text
+
+```
+multi_line_text
+```
+
 ## SVG text
 
 ```{toctree}

@@ -45,6 +45,7 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.text_font_size_css_mixin import TextFontSizeCssMixIn
 
 
 class MultiLineText(
@@ -69,6 +70,7 @@ class MultiLineText(
     TextAlignCssMixIn,
     TextAlignLastCssMixIn,
     TextDecorationUnderlineCssMixIn,
+    TextFontSizeCssMixIn,
 ):
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -78,23 +80,25 @@ class MultiLineText(
     @arg_validation_decos.is_num(arg_position_index=3, optional=False)
     # width
     @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
+    # font_size
+    @arg_validation_decos.is_integer(arg_position_index=5, optional=False)
     # fill_color
-    @arg_validation_decos.is_color(arg_position_index=5, optional=False)
+    @arg_validation_decos.is_color(arg_position_index=6, optional=False)
     # fill_alpha
-    @arg_validation_decos.is_num(arg_position_index=6, optional=False)
+    @arg_validation_decos.is_num(arg_position_index=7, optional=False)
     # bold
-    @arg_validation_decos.is_boolean(arg_position_index=7, optional=False)
-    # italic
     @arg_validation_decos.is_boolean(arg_position_index=8, optional=False)
+    # italic
+    @arg_validation_decos.is_boolean(arg_position_index=9, optional=False)
     # text_align
-    @arg_validation_decos.is_css_text_align(arg_position_index=9)
+    @arg_validation_decos.is_css_text_align(arg_position_index=10)
     # text_align_last
-    @arg_validation_decos.is_css_text_align_last(arg_position_index=10)
+    @arg_validation_decos.is_css_text_align_last(arg_position_index=11)
     # underline
-    @arg_validation_decos.is_boolean(arg_position_index=11, optional=False)
+    @arg_validation_decos.is_boolean(arg_position_index=12, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=12, optional=True
+        arg_position_index=13, optional=True
     )
     def __init__(
         self,
@@ -103,6 +107,7 @@ class MultiLineText(
         x: Union[float, Number] = 0,
         y: Union[float, Number] = 0,
         width: Union[int, Int] = 200,
+        font_size: Union[int, Int] = 16,
         fill_color: Color = Colors.GRAY_666666,
         fill_alpha: Union[float, Number] = 1.0,
         bold: Union[bool, Boolean] = False,
@@ -126,6 +131,8 @@ class MultiLineText(
             Y-coordinate.
         width : Union[int, Int], default 200
             Width of the text to wrap.
+        font_size : Union[int, Int], default 16
+            Font size.
         fill_color : Color, default Colors.GRAY_666666
             Text color.
         fill_alpha : Union[float, Number], default 1.0
@@ -165,6 +172,9 @@ class MultiLineText(
         self._initialize_text(text=text)
         self._initialize_svg_foreign_object_child(
             html_str=self._text, variable_name_suffix=variable_name_suffix
+        )
+        self.font_size = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=font_size
         )
         self.x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=x

@@ -221,7 +221,8 @@ graphics_clear
 
 ## Text
 
-```
+```{toctree}
+:maxdepth: 1
 multi_line_text
 ```
 

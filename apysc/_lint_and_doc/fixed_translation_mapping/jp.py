@@ -4444,11 +4444,11 @@ MAPPINGS: Mappings = Mappings(
             val="  - テキストの行揃えの設定。",
         ),
         Mapping(
-            key="  - Last line\'s text-align setting.",
+            key="  - Last line's text-align setting.",
             val="  - 最終行の行揃えの設定。",
         ),
         Mapping(
-            key="  - Whether to display the text\'s underline.",
+            key="  - Whether to display the text's underline.",
             val="  - テキストの下線を表示するか否か。",
         ),
         Mapping(

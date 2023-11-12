@@ -32,6 +32,7 @@ from apysc._display.text_decoration_underline_css_mixin import (
     TextDecorationUnderlineCssMixIn,
 )
 from apysc._display.text_fill_color_css_mixin import TextFillColorCssMixIn
+from apysc._display.text_font_size_css_mixin import TextFontSizeCssMixIn
 from apysc._display.text_italic_css_mixin import TextItalicCssMixIn
 from apysc._display.width_mixin import WidthMixIn
 from apysc._display.x_mixin import XMixIn
@@ -45,7 +46,6 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.text_font_size_css_mixin import TextFontSizeCssMixIn
 
 
 class MultiLineText(

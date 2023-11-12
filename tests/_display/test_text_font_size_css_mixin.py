@@ -1,7 +1,7 @@
+import apysc as ap
 from apysc._display.text_font_size_css_mixin import TextFontSizeCssMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 class TestTextFontSizeCssMixIn:

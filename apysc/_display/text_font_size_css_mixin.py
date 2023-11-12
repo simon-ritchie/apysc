@@ -1,8 +1,8 @@
 """The mix-in class implementation for the font-size setting.
 """
 
-from apysc._type.int import Int
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
+from apysc._type.int import Int
 from apysc._validation import arg_validation_decos
 
 
@@ -58,6 +58,4 @@ class TextFontSizeCssMixIn(
         self._append_applying_new_attr_val_exp(
             new_attr=self._font_size, attr_name="font_size"
         )
-        self._append_attr_to_linking_stack(
-            attr=self._font_size, attr_name="font_size"
-        )
+        self._append_attr_to_linking_stack(attr=self._font_size, attr_name="font_size")

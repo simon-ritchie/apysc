@@ -20,6 +20,8 @@ The class implementation for a multiline text element.<hr>
   - Y-coordinate.
 - `width`: Union[int, Int], default 200
   - Width of the text to wrap.
+- `font_size`: Union[int, Int], default 16
+  - Font size.
 - `fill_color`: Color, default Colors.GRAY_666666
   - Text color.
 - `fill_alpha`: Union[float, Number], default 1.0

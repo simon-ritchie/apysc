@@ -4403,5 +4403,57 @@ MAPPINGS: Mappings = Mappings(
             key="Get a sliced string based on the specified arguments range.<hr>",
             val="指定された引数の範囲に基づいてスライスされた文字列を取得します。<hr>",
         ),
+        Mapping(
+            key="## MultiLineText constructor API",
+            val="## MultiLineText クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="The class implementation for a multiline text element.<hr>",
+            val="複数行のテキスト要素のクラスの実装。<hr>",
+        ),
+        Mapping(
+            key="  - Text to display. An HTML tag is available.",
+            val="  - 表示対象のテキスト。HTMLタグが利用可能です。",
+        ),
+        Mapping(
+            key="  - Width of the text to wrap.",
+            val="  - 折り返し位置となるテキストの幅。",
+        ),
+        Mapping(
+            key="  - Font size.",
+            val="  - フォントサイズ。",
+        ),
+        Mapping(
+            key="  - Text color.",
+            val="  - テキストの色。",
+        ),
+        Mapping(
+            key="  - Text alpha (opacity). The minimum value is 0.0 (transparent), and the maximum value is 1.0 (solid).",
+            val="  - テキストの透明度。最小値は0.0（透明）、最大値は1.0（不透明）になります。",
+        ),
+        Mapping(
+            key="  - Whether to display the text in bold.",
+            val="  - テキストを太字で表示するか否か。",
+        ),
+        Mapping(
+            key="  - Whether to display the text in italic.",
+            val="  - テキストを斜体で表示するか否か。",
+        ),
+        Mapping(
+            key="  - Text align setting.",
+            val="  - テキストの行揃えの設定。",
+        ),
+        Mapping(
+            key="  - Last line\'s text-align setting.",
+            val="  - 最終行の行揃えの設定。",
+        ),
+        Mapping(
+            key="  - Whether to display the text\'s underline.",
+            val="  - テキストの下線を表示するか否か。",
+        ),
+        Mapping(
+            key="## Text",
+            val="## テキスト",
+        ),
     ]
 )

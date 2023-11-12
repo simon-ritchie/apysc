@@ -222,6 +222,13 @@ jp_graphics_draw_path
 jp_graphics_clear
 ```
 
+## テキスト
+
+```{toctree}
+:maxdepth: 1
+jp_multi_line_text
+```
+
 ## SVG テキスト
 
 ```{toctree}

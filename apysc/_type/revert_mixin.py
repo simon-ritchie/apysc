@@ -49,7 +49,7 @@ class RevertMixIn(RevertInterface):
 
     @final
     def _run_base_cls_make_snapshot_methods_recursively(
-        self, *, class_: Type, snapshot_name: str
+        self, *, class_: Type["RevertMixIn"], snapshot_name: str
     ) -> None:
         """
         Run base classes make_snapshot methods recursively.
@@ -91,7 +91,7 @@ class RevertMixIn(RevertInterface):
 
     @final
     def _run_base_cls_revert_methods_recursively(
-        self, *, class_: Type, snapshot_name: str
+        self, *, class_: Type["RevertMixIn"], snapshot_name: str
     ) -> None:
         """
         Run base classes revert methods recursively.

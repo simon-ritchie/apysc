@@ -36,4 +36,16 @@ MAPPING: Dict[str, str] = {
     "- `color`: Color": "- `color`: Color",
     ##################################################
     "  - A text color.": "  - テキストの色。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color = ap.Colors.CYAN_00AAFF\n>>> assert multi_line_text.fill_color == ap.Colors.CYAN_00AAFF\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color = ap.Colors.CYAN_00AAFF\n>>> assert multi_line_text.fill_color == ap.Colors.CYAN_00AAFF\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [MultiLineText class](https://simon-ritchie.github.io/apysc/en/multi_line_text.html)": "- [MultiLineText クラス](https://simon-ritchie.github.io/apysc/jp/jp_multi_line_text.html)",  # noqa
 }

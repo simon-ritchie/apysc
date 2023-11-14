@@ -51,3 +51,34 @@ Get a text's fill color.<hr>
 
 - `color`: Color
   - A text color.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_width=300,
+...     stage_height=100,
+...     stage_elem_id="stage",
+... )
+>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+...     "Ut enim ad minim veniam",
+...     width=300,
+...     font_size=16,
+...     x=20,
+...     y=20,
+... )
+>>> multi_line_text.fill_color = ap.Colors.CYAN_00AAFF
+>>> assert multi_line_text.fill_color == ap.Colors.CYAN_00AAFF
+```
+
+<hr>
+
+**[References]**
+
+- [MultiLineText class](https://simon-ritchie.github.io/apysc/en/multi_line_text.html)

@@ -4460,16 +4460,24 @@ MAPPINGS: Mappings = Mappings(
             val="getterのインターフェイスは`Color`型の値になります。setterのインターフェイスも`Color`型の値の指定が必要になります。",
         ),
         Mapping(
-            key="The `fill_color` property interface updates or gets the instance\'s fill color.",
+            key="The `fill_color` property interface updates or gets the instance's fill color.",
             val="`fill_color`属性のインターフェイスでは塗りの色の値を更新したり取得したりすることができます。",
         ),
         Mapping(
-            key="Get a text\'s fill color.<hr>",
+            key="Get a text's fill color.<hr>",
             val="テキストの塗りの色を取得します。<hr>",
         ),
         Mapping(
             key="  - A text color.",
             val="  - テキストの色。",
+        ),
+        Mapping(
+            key="MultiLineText class",
+            val="MultiLineText クラス",
+        ),
+        Mapping(
+            key="Text fill_color property",
+            val="テキストの fill_color 属性",
         ),
     ]
 )

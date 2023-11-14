@@ -28,6 +28,13 @@ class TextFillColorCssMixIn(
         -------
         color : Color
             A text color.
+
+        References
+        ----------
+        - MultiLineText class
+            - https://simon-ritchie.github.io/apysc/en/multi_line_text.html
+        - Text fill_color property
+            - https://simon-ritchie.github.io/apysc/en/text_fill_color.html
         """
         self._initialize_fill_color()
         return self._fill_color._copy()
@@ -42,6 +49,13 @@ class TextFillColorCssMixIn(
         ----------
         value : Color
             A text color.
+
+        References
+        ----------
+        - MultiLineText class
+            - https://simon-ritchie.github.io/apysc/en/multi_line_text.html
+        - Text fill_color property
+            - https://simon-ritchie.github.io/apysc/en/text_fill_color.html
         """
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation

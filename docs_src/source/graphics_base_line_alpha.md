@@ -4,7 +4,7 @@ This page explains the `GraphicsBase` class `line_alpha` property interface.
 
 ## What interface is this?
 
-The `line_alpha` property interface updates or get the instance's line alpha (opacity).
+The `line_alpha` property interface updates or gets the instance's line alpha (opacity).
 
 ## Basic usage
 

@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `line_color` property interface updates or get the instance\'s line color.": "`line_color`属性のインターフェイスではインスタンスの線の色の更新や取得を行うことができます。",  # noqa
+    "The `line_color` property interface updates or gets the instance\'s line color.": "`line_color`属性のインターフェイスではインスタンスの線の色の更新や取得を行うことができます。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

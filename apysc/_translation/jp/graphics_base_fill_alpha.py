@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `fill_alpha` property interface updates or get the instance\'s fill alpha (opacity).": "`fill_alpha`属性のインターフェイスではインスタンスの塗りの透明度更新や取得を行うことができます。",  # noqa
+    "The `fill_alpha` property interface updates or gets the instance\'s fill alpha (opacity).": "`fill_alpha`属性のインターフェイスではインスタンスの塗りの透明度更新や取得を行うことができます。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

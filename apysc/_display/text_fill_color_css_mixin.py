@@ -3,6 +3,7 @@
 
 from apysc._color.color import Color
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
+from apysc._validation import arg_validation_decos
 
 
 class TextFillColorCssMixIn(
@@ -32,6 +33,7 @@ class TextFillColorCssMixIn(
         return self._fill_color._copy()
 
     @fill_color.setter
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
     def fill_color(self, value: Color) -> None:
         """
         Set a text's fill color.

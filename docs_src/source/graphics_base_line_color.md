@@ -4,7 +4,7 @@ This page explains the `GraphicsBase` class `line_color` property interface.
 
 ## What interface is this?
 
-The `line_color` property interface updates or get the instance's line color.
+The `line_color` property interface updates or gets the instance's line color.
 
 ## Basic usage
 

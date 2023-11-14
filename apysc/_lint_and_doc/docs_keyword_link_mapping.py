@@ -31,8 +31,6 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "DisplayObject": "display_object",
     "get_css": "display_object_get_and_set_css",
     "set_css": "display_object_get_and_set_css",
-    "fill_color": "graphics_base_fill_color",
-    "fill_alpha": "graphics_base_fill_alpha",
     "line_color": "graphics_base_line_color",
     "line_alpha": "graphics_base_line_alpha",
     "line_thickness": "graphics_base_line_thickness",

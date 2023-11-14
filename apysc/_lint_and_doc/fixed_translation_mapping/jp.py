@@ -1825,8 +1825,8 @@ MAPPINGS: Mappings = Mappings(
             val="GraphicsBase クラスの fill_alpha インターフェイス",
         ),
         Mapping(
-            key="GraphicsBase fill_color interface",
-            val="GraphicsBase クラスの fill_color インターフェイス",
+            key="GraphicsBase fill_color property",
+            val="GraphicsBase クラスの fill_color 属性",
         ),
         Mapping(
             key="GraphicsBase line_alpha interface",
@@ -4454,6 +4454,22 @@ MAPPINGS: Mappings = Mappings(
         Mapping(
             key="## Text",
             val="## テキスト",
+        ),
+        Mapping(
+            key="The getter interface becomes a `Color` value, and the setter one also requires a `Color` value.",
+            val="getterのインターフェイスは`Color`型の値になります。setterのインターフェイスも`Color`型の値の指定が必要になります。",
+        ),
+        Mapping(
+            key="The `fill_color` property interface updates or gets the instance\'s fill color.",
+            val="`fill_color`属性のインターフェイスでは塗りの色の値を更新したり取得したりすることができます。",
+        ),
+        Mapping(
+            key="Get a text\'s fill color.<hr>",
+            val="テキストの塗りの色を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A text color.",
+            val="  - テキストの色。",
         ),
     ]
 )

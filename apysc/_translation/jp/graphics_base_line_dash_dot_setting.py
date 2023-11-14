@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `line_dash_dot_setting` property interface updates or get the instance\'s current line dash-dot setting.": "`line_dash_dot_setting`属性のインターフェイスでは現在の一点鎖線のスタイル設定の更新もしくは取得を行えます。",  # noqa
+    "The `line_dash_dot_setting` property interface updates or get the instance\'s current line dash-dot setting.": "",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

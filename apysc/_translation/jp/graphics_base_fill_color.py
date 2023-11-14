@@ -9,13 +9,13 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
     ##################################################
-    "# GraphicsBase fill_color interface": "# GraphicsBase クラスの fill_color インターフェイス",
+    "# GraphicsBase fill_color property": "# GraphicsBase クラスの fill_color 属性",
     ##################################################
     "This page explains the `GraphicsBase` class `fill_color` property interface.": "このページでは`GraphicsBase`クラスの`fill_color`属性のインターフェイスについて説明します。",  # noqa
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `fill_color` property interface updates or get the instance\'s fill color.": "`fill_color`属性のインターフェイスでは塗りの色の値を更新したり取得したりすることができます。",  # noqa
+    "The `fill_color` property interface updates or gets the instance\'s fill color.": "`fill_color`属性のインターフェイスでは塗りの色の値を更新したり取得したりすることができます。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

@@ -4,7 +4,7 @@ This page explains the `GraphicsBase` class `fill_alpha` property interface.
 
 ## What interface is this?
 
-The `fill_alpha` property interface updates or get the instance's fill alpha (opacity).
+The `fill_alpha` property interface updates or gets the instance's fill alpha (opacity).
 
 ## Basic usage
 

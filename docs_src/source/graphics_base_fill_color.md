@@ -1,10 +1,10 @@
-# GraphicsBase fill_color interface
+# GraphicsBase fill_color property
 
 This page explains the `GraphicsBase` class `fill_color` property interface.
 
 ## What interface is this?
 
-The `fill_color` property interface updates or get the instance's fill color.
+The `fill_color` property interface updates or gets the instance's fill color.
 
 ## Basic usage
 

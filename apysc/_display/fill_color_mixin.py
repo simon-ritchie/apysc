@@ -40,7 +40,7 @@ class FillColorMixIn(
 
         References
         ----------
-        - GraphicsBase fill_color interface
+        - GraphicsBase fill_color property
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
 
         Examples
@@ -86,7 +86,7 @@ class FillColorMixIn(
 
         References
         ----------
-        - GraphicsBase fill_color interface
+        - GraphicsBase fill_color property
             - https://simon-ritchie.github.io/apysc/en/graphics_base_fill_color.html  # noqa
 
         Examples

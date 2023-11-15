@@ -92,4 +92,16 @@ MAPPING: Dict[str, str] = {
     "- `variable_name_suffix`: str, default \"\"": "- `variable_name_suffix`: str, default \"\"",  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color\nColor(\"#00aaff\")\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color\nColor(\"#00aaff\")\n```",  # noqa
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[References]**": "**[関連資料]**",
+    ##################################################
+    "- [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)": "- [テキストの fill_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_fill_color.html)",  # noqa
 }

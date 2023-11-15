@@ -27,7 +27,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "```py\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\n\n# This will raise the error!\nint_1 = 20 + int_1\n```": "```py\nimport apysc as ap\n\nap.Stage()\nint_1: ap.Int = ap.Int(10)\n\n# This will raise the error!\nint_1 = 20 + int_1\n```",  # noqa
     ##################################################
-    "```\nTypeError: unsupported operand type(s) for +: \'int\' and \'Int\'\n```": "```\nTypeError: unsupported operand type(s) for +: \'int\' and \'Int\'\n```",  # noqa
+    "```\nTypeError: unsupported operand type(s) for +: 'int' and 'Int'\n```": "```\nTypeError: unsupported operand type(s) for +: 'int' and 'Int'\n```",  # noqa
     ##################################################
     "## Addition": "## 加算",
     ##################################################

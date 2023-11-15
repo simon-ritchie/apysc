@@ -95,3 +95,35 @@ ap.save_overall_html(dest_dir_path="multi_line_text_basic_usage/")
 
 - `variable_name_suffix`: str, default ""
   - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_width=300,
+...     stage_height=100,
+...     stage_elem_id="stage",
+... )
+>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+...     "Ut enim ad minim veniam",
+...     width=300,
+...     font_size=16,
+...     fill_color=ap.Color("#00aaff"),
+...     x=20,
+...     y=20,
+... )
+>>> multi_line_text.fill_color
+Color("#00aaff")
+```
+
+<hr>
+
+**[関連資料]**
+
+- [テキストの fill_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_fill_color.html)

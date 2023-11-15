@@ -6,6 +6,13 @@ The class implementation for the `MultiLineText` class.
 
 ## `MultiLineText` class docstring
 
+The class implementation for a multiline text element.<hr>
+
+**[References]**
+
+- [MultiLineText class](https://simon-ritchie.github.io/apysc/en/multi_line_text.html)
+- [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)
+
 ### `__init__` method docstring
 
 The class implementation for a multiline text element.<hr>
@@ -40,6 +47,39 @@ The class implementation for a multiline text element.<hr>
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_width=300,
+...     stage_height=100,
+...     stage_elem_id="stage",
+... )
+>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+...     "Ut enim ad minim veniam",
+...     width=300,
+...     font_size=16,
+...     fill_color=ap.Color("#00aaff"),
+...     x=20,
+...     y=20,
+... )
+>>> multi_line_text.fill_color
+Color("#00aaff")
+```
+
+<hr>
+
+**[References]**
+
+- [MultiLineText class](https://simon-ritchie.github.io/apysc/en/multi_line_text.html)
+- [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)
 
 ### `_initialize_with_base_value` method docstring
 

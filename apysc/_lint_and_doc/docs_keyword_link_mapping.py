@@ -234,4 +234,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "ap.Str": "string",
     "ap.Array": "array",
     "ap.Dictionary": "dictionary",
+    "ap.Dictionary": "dictionary",
+    "MultiLineText": "multi_line_text",
+    "ap.MultiLineText": "multi_line_text",
 }

@@ -72,6 +72,17 @@ class MultiLineText(
     TextDecorationUnderlineCssMixIn,
     TextFontSizeCssMixIn,
 ):
+    """
+    The class implementation for a multiline text element.
+
+    References
+    ----------
+    - MultiLineText class
+        - https://simon-ritchie.github.io/apysc/en/multi_line_text.html
+    - Text fill_color property
+        - https://simon-ritchie.github.io/apysc/en/text_fill_color.html
+    """
+
     # text
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
     # x
@@ -155,6 +166,13 @@ class MultiLineText(
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - MultiLineText class
+            - https://simon-ritchie.github.io/apysc/en/multi_line_text.html
+        - Text fill_color property
+            - https://simon-ritchie.github.io/apysc/en/text_fill_color.html
         """
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_variables_util

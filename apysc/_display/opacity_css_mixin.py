@@ -25,6 +25,11 @@ class OpacityCssMixIn(AttrLinkingMixIn):
         -------
         alpha : Number
             A fill-alpha (opacity) value.
+
+        References
+        ----------
+        - Text fill_alpha property
+            - https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html
         """
         self._initialize_fill_alpha()
         return self._fill_alpha._copy()
@@ -38,6 +43,11 @@ class OpacityCssMixIn(AttrLinkingMixIn):
         ----------
         value : Number
             A fill-alpha (opacity) value.
+
+        References
+        ----------
+        - Text fill_alpha property
+            - https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html
         """
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation

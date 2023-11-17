@@ -4479,5 +4479,17 @@ MAPPINGS: Mappings = Mappings(
             key="Text fill_color property",
             val="テキストの fill_color 属性",
         ),
+        Mapping(
+            key="The `fill_alpha` property interface updates or gets the instance\'s fill alpha (opacity).",
+            val="fill_alpha`属性のインターフェイスではインスタンスの塗りの透明度更新や取得を行うことができます。",
+        ),
+        Mapping(
+            key="Get a fill-alpha (opacity) value.<hr>",
+            val="塗りの透明度の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A fill-alpha (opacity) value.",
+            val="  - 塗りの透明度の値。",
+        ),
     ]
 )

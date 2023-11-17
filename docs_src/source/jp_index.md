@@ -228,6 +228,7 @@ jp_graphics_clear
 :maxdepth: 1
 jp_multi_line_text
 jp_text_fill_color
+jp_text_fill_alpha
 ```
 
 ## SVG テキスト

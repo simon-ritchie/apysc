@@ -225,6 +225,7 @@ graphics_clear
 :maxdepth: 1
 multi_line_text
 text_fill_color
+text_fill_alpha
 ```
 
 ## SVG text

@@ -36,4 +36,10 @@ MAPPING: Dict[str, str] = {
     "- `alpha`: Number": "- `alpha`: Number",
     ##################################################
     "  - A fill-alpha (opacity) value.": "  - 塗りの透明度の値。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=350,\n...     stage_height=170,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.fill_alpha = ap.Number(0.5)\n>>> multi_line_text.fill_alpha\nNumber(0.5)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=350,\n...     stage_height=170,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.fill_alpha = ap.Number(0.5)\n>>> multi_line_text.fill_alpha\nNumber(0.5)\n```",  # noqa
 }

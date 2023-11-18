@@ -226,6 +226,7 @@ graphics_clear
 multi_line_text
 text_fill_color
 text_fill_alpha
+text_bold
 ```
 
 ## SVG text

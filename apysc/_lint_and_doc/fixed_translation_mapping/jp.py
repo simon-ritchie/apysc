@@ -4491,5 +4491,17 @@ MAPPINGS: Mappings = Mappings(
             key="  - A fill-alpha (opacity) value.",
             val="  - 塗りの透明度の値。",
         ),
+        Mapping(
+            key="## bold property API",
+            val="## bold 属性のAPI",
+        ),
+        Mapping(
+            key="Get a bold (font-weight) value.<hr>",
+            val="太字設定（font-weight）の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A bold (font-weight) value.",
+            val="  - 太字（font-weight）設定の値。",
+        ),
     ]
 )

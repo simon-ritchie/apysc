@@ -229,6 +229,7 @@ jp_graphics_clear
 jp_multi_line_text
 jp_text_fill_color
 jp_text_fill_alpha
+jp_text_bold
 ```
 
 ## SVG テキスト

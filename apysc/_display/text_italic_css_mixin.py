@@ -28,6 +28,11 @@ class TextItalicCssMixIn(
         -------
         italic : Boolean
             An italic (font-style) value.
+
+        References
+        ----------
+        - Text italic property
+            - https://simon-ritchie.github.io/apysc/en/text_italic.html
         """
         self._initialize_italic()
         return self._italic._copy()
@@ -42,6 +47,11 @@ class TextItalicCssMixIn(
         ----------
         value : Boolean
             An italic (font-style) value.
+
+        References
+        ----------
+        - Text italic property
+            - https://simon-ritchie.github.io/apysc/en/text_italic.html
         """
         from apysc._branch._else import Else
         from apysc._branch._if import If

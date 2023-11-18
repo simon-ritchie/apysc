@@ -27,7 +27,7 @@ class TextItalicCssMixIn(
         Returns
         -------
         italic : Boolean
-            A italic (font-style) value.
+            An italic (font-style) value.
         """
         self._initialize_italic()
         return self._italic._copy()

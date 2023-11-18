@@ -91,7 +91,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Text": "## テキスト",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nmulti_line_text\ntext_fill_color\ntext_fill_alpha\ntext_bold\n```": "```{toctree}\n:maxdepth: 1\njp_multi_line_text\njp_text_fill_color\njp_text_fill_alpha\njp_text_bold\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nmulti_line_text\ntext_fill_color\ntext_fill_alpha\ntext_bold\ntext_italic\n```": "```{toctree}\n:maxdepth: 1\njp_multi_line_text\njp_text_fill_color\njp_text_fill_alpha\njp_text_bold\njp_text_italic\n```",  # noqa
     ##################################################
     "## SVG text": "## SVG テキスト",
     ##################################################

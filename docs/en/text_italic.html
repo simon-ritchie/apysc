@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Text bold property &#8212; apysc  documentation</title>
+    <title>Text italic property &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
     <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
@@ -21,8 +21,8 @@
     <script src="static/add_en_to_ja_link.js?v=0fffc53d"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Text italic property" href="text_italic.html" />
-    <link rel="prev" title="Text fill_alpha property" href="text_fill_alpha.html" /> 
+    <link rel="next" title="SvgText class" href="svg_text.html" />
+    <link rel="prev" title="Text bold property" href="text_bold.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="text_italic.html" title="Text italic property"
+          <a href="svg_text.html" title="SvgText class"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="text_fill_alpha.html" title="Text fill_alpha property"
+          <a href="text_bold.html" title="Text bold property"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Text bold property</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Text italic property</a></li> 
       </ul>
     </div>  
 
@@ -46,17 +46,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="text-bold-property">
-<h1>Text bold property<a class="headerlink" href="#text-bold-property" title="Permalink to this heading">¶</a></h1>
-<p>This page explains the text-related <code class="docutils literal notranslate"><span class="pre">bold</span></code> property.</p>
+  <section id="text-italic-property">
+<h1>Text italic property<a class="headerlink" href="#text-italic-property" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the text-related <code class="docutils literal notranslate"><span class="pre">italic</span></code> property.</p>
 <section id="what-property-is-this">
 <h2>What property is this?<a class="headerlink" href="#what-property-is-this" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">bold</span></code> property updates or gets the instance’s bold setting.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">italic</span></code> property updates or gets the instance’s italic style setting.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>The getter and setter interfaces accept an <code class="docutils literal notranslate"><span class="pre">ap.Boolean</span></code> value.</p>
-<p>If you specify the <code class="docutils literal notranslate"><span class="pre">ap.Boolean(True)</span></code> (or <code class="docutils literal notranslate"><span class="pre">ap.True_</span></code>) value, a text instance becomes bold style.</p>
+<p>If you specify the <code class="docutils literal notranslate"><span class="pre">ap.Boolean(True)</span></code> (or <code class="docutils literal notranslate"><span class="pre">ap.True_</span></code>) value, a text instance becomes italic style.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -76,51 +76,27 @@
     <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">multi_line_text</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">True_</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">True_</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./text_bold_basic_usage/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./text_italic_basic_usage/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/text_bold_basic_usage/index.html" width="350" height="170"></iframe>
+<iframe src="static/text_italic_basic_usage/index.html" width="350" height="170"></iframe>
 </section>
-<section id="bold-property-api">
-<h2>bold property API<a class="headerlink" href="#bold-property-api" title="Permalink to this heading">¶</a></h2>
-<!-- Docstring: apysc._display.text_bold_css_mixin.TextBoldCssMixIn.bold -->
+<section id="italic-property-api">
+<h2>italic property API<a class="headerlink" href="#italic-property-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._display.text_italic_css_mixin.TextItalicCssMixIn.italic -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
-<p>Get a bold (font-weight) value.<hr></p>
+<p>Get an italic (font-style) value.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code>: Boolean</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">italic</span></code>: Boolean</p>
 <ul>
-<li><p>A bold (font-weight) value.</p></li>
+<li><p>An italic (font-style) value.</p></li>
 </ul>
 </li>
 </ul>
-<hr>
-<p><strong>[Examples]</strong></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
-<span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
-<span class="gp">... </span>    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
-<span class="gp">... </span>    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
-<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">True_</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="o">.</span><span class="n">bold</span>
-<span class="go">Boolean(True)</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -137,10 +113,10 @@
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Text bold property</a><ul>
+<li><a class="reference internal" href="#">Text italic property</a><ul>
 <li><a class="reference internal" href="#what-property-is-this">What property is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#bold-property-api">bold property API</a></li>
+<li><a class="reference internal" href="#italic-property-api">italic property API</a></li>
 </ul>
 </li>
 </ul>
@@ -148,13 +124,13 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="text_fill_alpha.html"
-                          title="previous chapter">Text fill_alpha property</a></p>
+    <p class="topless"><a href="text_bold.html"
+                          title="previous chapter">Text bold property</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="text_italic.html"
-                          title="next chapter">Text italic property</a></p>
+    <p class="topless"><a href="svg_text.html"
+                          title="next chapter">SvgText class</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -177,13 +153,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="text_italic.html" title="Text italic property"
+          <a href="svg_text.html" title="SvgText class"
              >next</a> |</li>
         <li class="right" >
-          <a href="text_fill_alpha.html" title="Text fill_alpha property"
+          <a href="text_bold.html" title="Text bold property"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Text bold property</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Text italic property</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

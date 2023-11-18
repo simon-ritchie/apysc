@@ -4511,5 +4511,21 @@ MAPPINGS: Mappings = Mappings(
             key="Text bold property",
             val="テキストの bold 属性",
         ),
+        Mapping(
+            key="The getter and setter interfaces accept an `ap.Boolean` value.",
+            val="getterもしくはsetterの各インターフェイスでは`ap.Boolean`型の値を指定できます。",
+        ),
+        Mapping(
+            key="## italic property API",
+            val="## italic 属性のAPI",
+        ),
+        Mapping(
+            key="Get an italic (font-style) value.<hr>",
+            val="斜体のスタイル（font-style）設定を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - An italic (font-style) value.",
+            val="  - 斜体のスタイル（font-style）の設定値。",
+        ),
     ]
 )

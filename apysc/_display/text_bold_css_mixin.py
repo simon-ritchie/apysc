@@ -28,6 +28,11 @@ class TextBoldCssMixIn(
         -------
         bold : Boolean
             A bold (font-weight) value.
+
+        References
+        ----------
+        - Text bold property
+            - https://simon-ritchie.github.io/apysc/en/text_bold.html
         """
         self._initialize_bold()
         return self._bold._copy()
@@ -42,6 +47,11 @@ class TextBoldCssMixIn(
         ----------
         value : Boolean
             A bold (font-weight) value.
+
+        References
+        ----------
+        - Text bold property
+            - https://simon-ritchie.github.io/apysc/en/text_bold.html
         """
         from apysc._branch._else import Else
         from apysc._branch._if import If

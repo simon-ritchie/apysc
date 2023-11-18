@@ -33,6 +33,30 @@ class TextBoldCssMixIn(
         ----------
         - Text bold property
             - https://simon-ritchie.github.io/apysc/en/text_bold.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> stage: ap.Stage = ap.Stage(
+        ...     background_color=ap.Color("#333"),
+        ...     stage_width=350,
+        ...     stage_height=170,
+        ...     stage_elem_id="stage",
+        ... )
+        >>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+        ...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+        ...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        ...     "Ut enim ad minim veniam",
+        ...     width=300,
+        ...     font_size=16,
+        ...     fill_color=ap.Color("#00aaff"),
+        ...     x=25,
+        ...     y=25,
+        ... )
+        >>> multi_line_text.bold = ap.True_
+        >>> multi_line_text.bold
+        Boolean(True)
         """
         self._initialize_bold()
         return self._bold._copy()
@@ -52,6 +76,30 @@ class TextBoldCssMixIn(
         ----------
         - Text bold property
             - https://simon-ritchie.github.io/apysc/en/text_bold.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> stage: ap.Stage = ap.Stage(
+        ...     background_color=ap.Color("#333"),
+        ...     stage_width=350,
+        ...     stage_height=170,
+        ...     stage_elem_id="stage",
+        ... )
+        >>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+        ...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+        ...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        ...     "Ut enim ad minim veniam",
+        ...     width=300,
+        ...     font_size=16,
+        ...     fill_color=ap.Color("#00aaff"),
+        ...     x=25,
+        ...     y=25,
+        ... )
+        >>> multi_line_text.bold = ap.True_
+        >>> multi_line_text.bold
+        Boolean(True)
         """
         from apysc._branch._else import Else
         from apysc._branch._if import If

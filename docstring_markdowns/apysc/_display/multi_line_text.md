@@ -12,6 +12,8 @@ The class implementation for a multiline text element.<hr>
 
 - [MultiLineText class](https://simon-ritchie.github.io/apysc/en/multi_line_text.html)
 - [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)
+- [Text fill_alpha property](https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html)
+- [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
 
 ### `__init__` method docstring
 
@@ -80,6 +82,8 @@ Color("#00aaff")
 
 - [MultiLineText class](https://simon-ritchie.github.io/apysc/en/multi_line_text.html)
 - [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)
+- [Text fill_alpha property](https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html)
+- [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
 
 ### `_initialize_with_base_value` method docstring
 

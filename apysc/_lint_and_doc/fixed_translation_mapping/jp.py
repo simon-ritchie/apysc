@@ -4503,5 +4503,13 @@ MAPPINGS: Mappings = Mappings(
             key="  - A bold (font-weight) value.",
             val="  - 太字（font-weight）設定の値。",
         ),
+        Mapping(
+            key="Text fill_alpha property",
+            val="テキストの fill_alpha 属性",
+        ),
+        Mapping(
+            key="Text bold property",
+            val="テキストの bold 属性",
+        ),
     ]
 )

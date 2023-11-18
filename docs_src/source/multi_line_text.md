@@ -114,3 +114,5 @@ Color("#00aaff")
 **[References]**
 
 - [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)
+- [Text fill_alpha property](https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html)
+- [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)

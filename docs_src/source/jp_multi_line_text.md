@@ -127,3 +127,6 @@ Color("#00aaff")
 **[関連資料]**
 
 - [テキストの fill_color 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_fill_color.html)
+- [テキストの fill_alpha 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_fill_alpha.html)
+
+- [テキストの bold 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_bold.html)

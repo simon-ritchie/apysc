@@ -53,3 +53,30 @@ Get a bold (font-weight) value.<hr>
 
 - `bold`: Boolean
   - A bold (font-weight) value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_width=350,
+...     stage_height=170,
+...     stage_elem_id="stage",
+... )
+>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+...     "Ut enim ad minim veniam",
+...     width=300,
+...     font_size=16,
+...     fill_color=ap.Color("#00aaff"),
+...     x=25,
+...     y=25,
+... )
+>>> multi_line_text.bold = ap.True_
+>>> multi_line_text.bold
+Boolean(True)
+```

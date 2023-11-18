@@ -38,4 +38,10 @@ MAPPING: Dict[str, str] = {
     "- `bold`: Boolean": "- `bold`: Boolean",
     ##################################################
     "  - A bold (font-weight) value.": "  - 太字（font-weight）設定の値。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=350,\n...     stage_height=170,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.bold = ap.True_\n>>> multi_line_text.bold\nBoolean(True)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=350,\n...     stage_height=170,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.bold = ap.True_\n>>> multi_line_text.bold\nBoolean(True)\n```",  # noqa
 }

@@ -14,6 +14,7 @@ The class implementation for a multiline text element.<hr>
 - [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)
 - [Text fill_alpha property](https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html)
 - [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
+- [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)
 
 ### `__init__` method docstring
 
@@ -84,6 +85,7 @@ Color("#00aaff")
 - [Text fill_color property](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)
 - [Text fill_alpha property](https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html)
 - [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
+- [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)
 
 ### `_initialize_with_base_value` method docstring
 

@@ -4527,5 +4527,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - An italic (font-style) value.",
             val="  - 斜体のスタイル（font-style）の設定値。",
         ),
+        Mapping(
+            key="Text italic property",
+            val="テキストの italic 属性",
+        ),
     ]
 )

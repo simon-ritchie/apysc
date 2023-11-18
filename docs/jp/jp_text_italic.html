@@ -96,6 +96,30 @@
 </ul>
 </li>
 </ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
+<span class="gp">... </span>    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
+<span class="gp">... </span>    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">True_</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="o">.</span><span class="n">italic</span>
+<span class="go">Boolean(True)</span>
+</pre></div>
+</div>
 </section>
 </section>
 

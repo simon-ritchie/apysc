@@ -130,3 +130,4 @@ Color("#00aaff")
 - [テキストの fill_alpha 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_fill_alpha.html)
 
 - [テキストの bold 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_bold.html)
+- [テキストの italic 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_italic.html)

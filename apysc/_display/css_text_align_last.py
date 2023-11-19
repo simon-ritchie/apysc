@@ -11,6 +11,7 @@ class CssTextAlignLast(Enum):
     property (`text-align-last`).
     """
 
+    AUTO = "auto"
     LEFT = "left"
     CENTER = "center"
     RIGHT = "right"

@@ -130,7 +130,7 @@ class MultiLineText(
         bold: Union[bool, Boolean] = False,
         italic: Union[bool, Boolean] = False,
         text_align: CssTextAlign = CssTextAlign.LEFT,
-        text_align_last: CssTextAlignLast = CssTextAlignLast.LEFT,
+        text_align_last: CssTextAlignLast = CssTextAlignLast.AUTO,
         underline: Union[bool, Boolean] = False,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
@@ -161,7 +161,7 @@ class MultiLineText(
             Whether to display the text in italic.
         text_align : CssTextAlign, default `CssTextAlign.LEFT`
             Text align setting.
-        text_align_last : CssTextAlignLast, default `CssTextAlignLast.LEFT`
+        text_align_last : CssTextAlignLast, default `CssTextAlignLast.AUTO`
             Last line's text-align setting.
         underline : Union[bool, Boolean], default False
             Whether to display the text's underline.

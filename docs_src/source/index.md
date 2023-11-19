@@ -228,6 +228,7 @@ text_fill_color
 text_fill_alpha
 text_bold
 text_italic
+text_align
 ```
 
 ## SVG text

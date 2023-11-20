@@ -1,25 +1,28 @@
-# text_align property
+<span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/text_align.html)の確認をお願いします。</span>
 
-This page explains the text-related `text_align` property.
+# text_align 属性
 
-## What property is this?
+このページではテキスト関係の`text_align`属性について説明します。
 
-The `text_align` property updates or gets the instance's text alignment setting.
+## 属性の概要
 
-## Basic usage
+`text_align`属性ではインスタンスのテキストの行揃えの設定値の更新もしくは取得を行うことができます。
 
-The getter and setter interfaces accept a `CssTextAlign` enum value.
+## 基本的な使い方
 
-The acceptable enum values are as follows:
+getterとsetterの各インターフェイスは`CssTextAlign`のenumの値を受け付けます。
+
+設定できるenumの値は以下の通りです:
 
 - `CssTextAlign.LEFT`
 - `CssTextAlign.CENTER`
+
 - `CssTextAlign.RIGHT`
-- `CssTextAlign.JUSTIFY`
+- `CssTextAlign.JUSTIFY
 
-## Example of CssTextAlign.LEFT
+## CssTextAlign.LEFTの例
 
-Notes: This setting is a default setting.
+特記事項 : この設定はデフォルトの設定です。
 
 ```py
 # runnable
@@ -48,7 +51,7 @@ ap.save_overall_html(dest_dir_path="./css_text_align_left/")
 
 <iframe src="static/css_text_align_left/index.html" width="350" height="170"></iframe>
 
-## Example of CssTextAlign.CENTER
+## CssTextAlign.CENTERの例
 
 ```py
 # runnable
@@ -77,7 +80,7 @@ ap.save_overall_html(dest_dir_path="./css_text_align_center/")
 
 <iframe src="static/css_text_align_center/index.html" width="350" height="170"></iframe>
 
-## Example of CssTextAlign.RIGHT
+## CssTextAlign.RIGHTの例
 
 ```py
 # runnable
@@ -106,9 +109,9 @@ ap.save_overall_html(dest_dir_path="./css_text_align_right/")
 
 <iframe src="static/css_text_align_right/index.html" width="350" height="170"></iframe>
 
-## Example of CSSTextAlign.JUSTIFY
+## CssTextAlign.JUSTIFYの例
 
-Notes: This enum setting justifies a text evenly.
+特記じこを : このenumの設定はテキストを均等配置します。
 
 ```py
 # runnable
@@ -137,17 +140,15 @@ ap.save_overall_html(dest_dir_path="./css_text_align_justify/")
 
 <iframe src="static/css_text_align_justify/index.html" width="350" height="170"></iframe>
 
-## text_align property API
+## text_align 属性のAPI
 
-<!-- Docstring: apysc._display.text_align_css_mixin.TextAlignCssMixIn.text_align -->
+<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+**[インターフェイス概要]**
 
-**[Interface summary]**
+テキストの行揃え設定の値を取得します。<hr>
 
-Get a text-align value.<hr>
-
-**[Returns]**
+**[返却値]**
 
 - `text_align`: CssTextAlign
-  - A text-align value.
+  - 行揃え設定。

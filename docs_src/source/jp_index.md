@@ -231,6 +231,7 @@ jp_text_fill_color
 jp_text_fill_alpha
 jp_text_bold
 jp_text_italic
+jp_text_align
 ```
 
 ## SVG テキスト

@@ -77,7 +77,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Text align setting.": "  - テキストの行揃えの設定。",
     ##################################################
-    "- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.LEFT`": "- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.LEFT`",  # noqa
+    "- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.AUTO`": "- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.AUTO`",  # noqa
     ##################################################
     "  - Last line\'s text-align setting.": "  - 最終行の行揃えの設定。",
     ##################################################

@@ -4531,5 +4531,17 @@ MAPPINGS: Mappings = Mappings(
             key="Text italic property",
             val="テキストの italic 属性",
         ),
+        Mapping(
+            key="## text_align property API",
+            val="## text_align 属性のAPI",
+        ),
+        Mapping(
+            key="Get a text-align value.<hr>",
+            val="テキストの行揃え設定の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A text-align value.",
+            val="  - 行揃え設定。",
+        ),
     ]
 )

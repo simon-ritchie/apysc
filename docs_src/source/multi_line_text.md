@@ -46,7 +46,7 @@ ap.save_overall_html(dest_dir_path="multi_line_text_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, text: Union[str, apysc._type.string.String], x: Union[float, apysc._type.number.Number] = 0, y: Union[float, apysc._type.number.Number] = 0, width: Union[int, apysc._type.int.Int] = 200, font_size: Union[int, apysc._type.int.Int] = 16, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, text_align: apysc._display.css_text_align.CssTextAlign = <CssTextAlign.LEFT: 'left'>, text_align_last: apysc._display.css_text_align_last.CssTextAlignLast = <CssTextAlignLast.LEFT: 'left'>, underline: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[Interface signature]** `__init__(self, *, text: Union[str, apysc._type.string.String], x: Union[float, apysc._type.number.Number] = 0, y: Union[float, apysc._type.number.Number] = 0, width: Union[int, apysc._type.int.Int] = 200, font_size: Union[int, apysc._type.int.Int] = 16, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, text_align: apysc._display.css_text_align.CssTextAlign = <CssTextAlign.LEFT: 'left'>, text_align_last: apysc._display.css_text_align_last.CssTextAlignLast = <CssTextAlignLast.AUTO: 'auto'>, underline: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[Interface summary]**
 
@@ -74,7 +74,7 @@ The class implementation for a multiline text element.<hr>
   - Whether to display the text in italic.
 - `text_align`: CssTextAlign, default `CssTextAlign.LEFT`
   - Text align setting.
-- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.LEFT`
+- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.AUTO`
   - Last line's text-align setting.
 - `underline`: Union[bool, Boolean], default False
   - Whether to display the text's underline.

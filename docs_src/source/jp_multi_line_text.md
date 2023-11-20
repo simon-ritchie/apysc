@@ -46,7 +46,7 @@ ap.save_overall_html(dest_dir_path="multi_line_text_basic_usage/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], x: Union[float, apysc._type.number.Number] = 0, y: Union[float, apysc._type.number.Number] = 0, width: Union[int, apysc._type.int.Int] = 200, font_size: Union[int, apysc._type.int.Int] = 16, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, text_align: apysc._display.css_text_align.CssTextAlign = <CssTextAlign.LEFT: 'left'>, text_align_last: apysc._display.css_text_align_last.CssTextAlignLast = <CssTextAlignLast.LEFT: 'left'>, underline: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
+**[インターフェイスの構造]** `__init__(self, *, text: Union[str, apysc._type.string.String], x: Union[float, apysc._type.number.Number] = 0, y: Union[float, apysc._type.number.Number] = 0, width: Union[int, apysc._type.int.Int] = 200, font_size: Union[int, apysc._type.int.Int] = 16, fill_color: apysc._color.color.Color = Color("#666666"), fill_alpha: Union[float, apysc._type.number.Number] = 1.0, bold: Union[bool, apysc._type.boolean.Boolean] = False, italic: Union[bool, apysc._type.boolean.Boolean] = False, text_align: apysc._display.css_text_align.CssTextAlign = <CssTextAlign.LEFT: 'left'>, text_align_last: apysc._display.css_text_align_last.CssTextAlignLast = <CssTextAlignLast.AUTO: 'auto'>, underline: Union[bool, apysc._type.boolean.Boolean] = False, parent: Union[apysc._display.child_mixin.ChildMixIn, NoneType] = None, variable_name_suffix: str = '') -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -84,7 +84,7 @@ ap.save_overall_html(dest_dir_path="multi_line_text_basic_usage/")
 - `text_align`: CssTextAlign, default `CssTextAlign.LEFT`
   - テキストの行揃えの設定。
 
-- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.LEFT`
+- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.AUTO`
   - 最終行の行揃えの設定。
 
 - `underline`: Union[bool, Boolean], default False

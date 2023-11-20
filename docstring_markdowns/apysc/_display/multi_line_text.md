@@ -15,6 +15,7 @@ The class implementation for a multiline text element.<hr>
 - [Text fill_alpha property](https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html)
 - [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
 - [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)
+- [text_align property](https://simon-ritchie.github.io/apysc/en/text_align.html)
 
 ### `__init__` method docstring
 
@@ -42,7 +43,7 @@ The class implementation for a multiline text element.<hr>
   - Whether to display the text in italic.
 - `text_align`: CssTextAlign, default `CssTextAlign.LEFT`
   - Text align setting.
-- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.LEFT`
+- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.AUTO`
   - Last line's text-align setting.
 - `underline`: Union[bool, Boolean], default False
   - Whether to display the text's underline.
@@ -86,6 +87,7 @@ Color("#00aaff")
 - [Text fill_alpha property](https://simon-ritchie.github.io/apysc/en/text_fill_alpha.html)
 - [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
 - [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)
+- [text_align property](https://simon-ritchie.github.io/apysc/en/text_align.html)
 
 ### `_initialize_with_base_value` method docstring
 

@@ -4543,5 +4543,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A text-align value.",
             val="  - 行揃え設定。",
         ),
+        Mapping(
+            key="text_align property",
+            val="text_align 属性",
+        ),
     ]
 )

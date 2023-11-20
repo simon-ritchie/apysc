@@ -110,4 +110,6 @@ MAPPING: Dict[str, str] = {
     "- [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)": "- [テキストの bold 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_bold.html)",  # noqa
     ##################################################
     "- [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)": "- [テキストの italic 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_italic.html)",  # noqa
+    ##################################################
+    "- [text_align property](https://simon-ritchie.github.io/apysc/en/text_align.html)": "- [text_align 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_align.html)",  # noqa
 }

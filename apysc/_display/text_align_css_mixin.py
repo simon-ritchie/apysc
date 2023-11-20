@@ -17,6 +17,11 @@ class TextAlignCssMixIn:
         -------
         text_align : CssTextAlign
             A text-align value.
+
+        References
+        ----------
+        - text_align property
+            - https://simon-ritchie.github.io/apysc/en/text_align.html
         """
         return self._css_text_align
 
@@ -30,6 +35,11 @@ class TextAlignCssMixIn:
         ----------
         value : CssTextAlign
             A text-align value.
+
+        References
+        ----------
+        - text_align property
+            - https://simon-ritchie.github.io/apysc/en/text_align.html
         """
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation

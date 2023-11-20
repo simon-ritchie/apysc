@@ -87,6 +87,8 @@ class MultiLineText(
         - https://simon-ritchie.github.io/apysc/en/text_bold.html
     - Text italic property
         - https://simon-ritchie.github.io/apysc/en/text_italic.html
+    - text_align property
+        - https://simon-ritchie.github.io/apysc/en/text_align.html
     """
 
     # text
@@ -185,6 +187,8 @@ class MultiLineText(
             - https://simon-ritchie.github.io/apysc/en/text_bold.html
         - Text italic property
             - https://simon-ritchie.github.io/apysc/en/text_italic.html
+        - text_align property
+            - https://simon-ritchie.github.io/apysc/en/text_align.html
 
         Examples
         --------

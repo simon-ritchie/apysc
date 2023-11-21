@@ -229,6 +229,7 @@ text_fill_alpha
 text_bold
 text_italic
 text_align
+text_align_last
 ```
 
 ## SVG text

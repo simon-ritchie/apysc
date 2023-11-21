@@ -8,7 +8,7 @@ The `italic` property updates or gets the instance's italic style setting.
 
 ## Basic usage
 
-The getter and setter interfaces accept an `ap.Boolean` value.
+The getter and setter interfaces' type becomes an `ap.Boolean` value.
 
 If you specify the `ap.Boolean(True)` (or `ap.True_`) value, a text instance becomes italic style.
 

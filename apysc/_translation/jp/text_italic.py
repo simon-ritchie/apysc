@@ -19,7 +19,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The getter and setter interfaces accept an `ap.Boolean` value.": "getterもしくはsetterの各インターフェイスでは`ap.Boolean`型の値を指定できます。",  # noqa
+    "The getter and setter interfaces' type becomes an `ap.Boolean` value.": "getterもしくはsetterの各インターフェイスでは`ap.Boolean`型の値を指定できます。",  # noqa
     ##################################################
     "If you specify the `ap.Boolean(True)` (or `ap.True_`) value, a text instance becomes italic style.": "もし`ap.Boolean(True)`（もしくは`ap.True_`）の値を指定した場合、テキストインスタンスは斜体のスタイル設定になります。",  # noqa
     ##################################################

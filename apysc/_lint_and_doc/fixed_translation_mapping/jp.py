@@ -4512,8 +4512,8 @@ MAPPINGS: Mappings = Mappings(
             val="テキストの bold 属性",
         ),
         Mapping(
-            key="The getter and setter interfaces accept an `ap.Boolean` value.",
-            val="getterもしくはsetterの各インターフェイスでは`ap.Boolean`型の値を指定できます。",
+            key="The getter and setter interfaces' type becomes an `ap.Boolean` value.",
+            val="getterもしくはsetterの各インターフェイスの値は`ap.Boolean`の型となります。",
         ),
         Mapping(
             key="## italic property API",

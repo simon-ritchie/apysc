@@ -8,11 +8,11 @@ The `text_align` property updates or gets the instance's text alignment setting.
 
 ## Basic usage
 
-The getter and setter interfaces accept a `CssTextAlign` enum value.
+The getter and setter interfaces' type becomes a `CssTextAlign` enum value.
 
 The acceptable enum values are as follows:
 
-- `CssTextAlign.LEFT`
+- `CssTextAlign.LEFT` (default)
 - `CssTextAlign.CENTER`
 - `CssTextAlign.RIGHT`
 - `CssTextAlign.JUSTIFY`

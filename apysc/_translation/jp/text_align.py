@@ -23,8 +23,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The acceptable enum values are as follows:": "設定できるenumの値は以下の通りです:",
     ##################################################
-    "- `CssTextAlign.LEFT`": "- `CssTextAlign.LEFT`",
-    ##################################################
+    "- `CssTextAlign.LEFT` (default)": "- `CssTextAlign.LEFT`（デフォルト）",    ##################################################
     "- `CssTextAlign.CENTER`": "- `CssTextAlign.CENTER`",
     ##################################################
     "- `CssTextAlign.RIGHT`": "- `CssTextAlign.RIGHT`",

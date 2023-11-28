@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>text_align property &#8212; apysc  documentation</title>
+    <title>text_align_last property &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
     <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
@@ -21,8 +21,8 @@
     <script src="static/add_en_to_ja_link.js?v=0fffc53d"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="text_align_last property" href="text_align_last.html" />
-    <link rel="prev" title="Text italic property" href="text_italic.html" /> 
+    <link rel="next" title="SvgText class" href="svg_text.html" />
+    <link rel="prev" title="text_align property" href="text_align.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,13 +31,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="text_align_last.html" title="text_align_last property"
+          <a href="svg_text.html" title="SvgText class"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="text_italic.html" title="Text italic property"
+          <a href="text_align.html" title="text_align property"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">text_align property</a></li> 
+        <li class="nav-item nav-item-this"><a href="">text_align_last property</a></li> 
       </ul>
     </div>  
 
@@ -46,55 +46,30 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="text-align-property">
-<h1>text_align property<a class="headerlink" href="#text-align-property" title="Permalink to this heading">¶</a></h1>
-<p>This page explains the text-related <code class="docutils literal notranslate"><span class="pre">text_align</span></code> property.</p>
+  <section id="text-align-last-property">
+<h1>text_align_last property<a class="headerlink" href="#text-align-last-property" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the text-related <code class="docutils literal notranslate"><span class="pre">text_align_last</span></code> property.</p>
 <section id="what-property-is-this">
 <h2>What property is this?<a class="headerlink" href="#what-property-is-this" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">text_align</span></code> property updates or gets the instance’s text alignment setting.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">text_align_last</span></code> property updates or gets the text last line’s alignment setting.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
-<p>The getter and setter interfaces’ type becomes a <code class="docutils literal notranslate"><span class="pre">CssTextAlign</span></code> enum value.</p>
+<p>The getter and setter interfaces’ type becomes an <code class="docutils literal notranslate"><span class="pre">ap.CssTextAlignLast</span></code> enum value.</p>
 <p>The acceptable enum values are as follows:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlign.LEFT</span></code> (default)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlign.CENTER</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlign.RIGHT</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlign.JUSTIFY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlignLast.AUTO</span></code> (default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlignLast.LEFT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlignLast.CENTER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlignLast.RIGHT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CssTextAlignLast.JUSTIFY</span></code></p></li>
 </ul>
 </section>
-<section id="example-of-csstextalign-left">
-<h2>Example of CssTextAlign.LEFT<a class="headerlink" href="#example-of-csstextalign-left" title="Permalink to this heading">¶</a></h2>
+<section id="example-of-csstextalignlast-auto">
+<h2>Example of CssTextAlignLast.AUTO<a class="headerlink" href="#example-of-csstextalignlast-auto" title="Permalink to this heading">¶</a></h2>
 <p>Notes: This setting is a default setting.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-
-<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
-    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
-    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
-    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
-    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
-    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
-    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
-    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">LEFT</span>
-
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_left/&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<iframe src="static/css_text_align_left/index.html" width="350" height="170"></iframe>
-</section>
-<section id="example-of-csstextalign-center">
-<h2>Example of CssTextAlign.CENTER<a class="headerlink" href="#example-of-csstextalign-center" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CssTextAlignLast.AUTO</span></code> setting inherits the <code class="docutils literal notranslate"><span class="pre">text_align</span></code> setting.</p>
+<p>For example, if the <code class="docutils literal notranslate"><span class="pre">text_align</span></code> setting is the <code class="docutils literal notranslate"><span class="pre">CssTextAlign.CENTER</span></code>, the <code class="docutils literal notranslate"><span class="pre">text_align_last</span></code> property also behaves as the center align.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -115,43 +90,15 @@
     <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">CENTER</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align_last</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlignLast</span><span class="o">.</span><span class="n">AUTO</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_center/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_last_auto/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/css_text_align_center/index.html" width="350" height="170"></iframe>
+<iframe src="static/css_text_align_last_auto/index.html" width="350" height="170"></iframe>
 </section>
-<section id="example-of-csstextalign-right">
-<h2>Example of CssTextAlign.RIGHT<a class="headerlink" href="#example-of-csstextalign-right" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-
-<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
-    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
-    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
-    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
-    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
-    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
-    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
-    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">RIGHT</span>
-
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_right/&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<iframe src="static/css_text_align_right/index.html" width="350" height="170"></iframe>
-</section>
-<section id="example-of-csstextalign-justify">
-<h2>Example of CSSTextAlign.JUSTIFY<a class="headerlink" href="#example-of-csstextalign-justify" title="Permalink to this heading">¶</a></h2>
-<p>Notes: This enum setting justifies a text evenly.</p>
+<section id="example-of-csstextalignlast-left">
+<h2>Example of CssTextAlignLast.LEFT<a class="headerlink" href="#example-of-csstextalignlast-left" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -172,49 +119,115 @@
     <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">JUSTIFY</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align_last</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlignLast</span><span class="o">.</span><span class="n">LEFT</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_justify/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_last_left/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/css_text_align_justify/index.html" width="350" height="170"></iframe>
+<iframe src="static/css_text_align_last_left/index.html" width="350" height="170"></iframe>
 </section>
-<section id="text-align-property-api">
-<h2>text_align property API<a class="headerlink" href="#text-align-property-api" title="Permalink to this heading">¶</a></h2>
-<!-- Docstring: apysc._display.text_align_css_mixin.TextAlignCssMixIn.text_align -->
+<section id="example-of-csstextalignlast-center">
+<h2>Example of CssTextAlignLast.CENTER<a class="headerlink" href="#example-of-csstextalignlast-center" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
+    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
+    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">JUSTIFY</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align_last</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlignLast</span><span class="o">.</span><span class="n">CENTER</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_last_center/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/css_text_align_last_center/index.html" width="350" height="170"></iframe>
+</section>
+<section id="example-of-csstextalignlast-right">
+<h2>Example of CssTextAlignLast.RIGHT<a class="headerlink" href="#example-of-csstextalignlast-right" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
+    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
+    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">JUSTIFY</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align_last</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlignLast</span><span class="o">.</span><span class="n">RIGHT</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_last_right/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/css_text_align_last_right/index.html" width="350" height="170"></iframe>
+</section>
+<section id="example-of-csstextalignlast-justify">
+<h2>Example of CssTextAlignLast.JUSTIFY<a class="headerlink" href="#example-of-csstextalignlast-justify" title="Permalink to this heading">¶</a></h2>
+<p>Notes: This enum setting justifies the last line text evenly.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
+    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
+    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">JUSTIFY</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align_last</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlignLast</span><span class="o">.</span><span class="n">JUSTIFY</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./css_text_align_last_justify/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/css_text_align_last_justify/index.html" width="350" height="170"></iframe>
+</section>
+<section id="text-align-last-property-api">
+<h2>text_align_last property API<a class="headerlink" href="#text-align-last-property-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._display.text_align_last_css_mixin.TextAlignLastCssMixIn.text_align_last -->
 <p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface summary]</strong></p>
-<p>Get a text-align value.<hr></p>
+<p>Get a text-align-last value.<hr></p>
 <p><strong>[Returns]</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">text_align</span></code>: CssTextAlign</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">text_align_last</span></code>: CssTextAlignLast</p>
 <ul>
-<li><p>A text-align value.</p></li>
+<li><p>A text-align-last value.</p></li>
 </ul>
 </li>
 </ul>
-<hr>
-<p><strong>[Examples]</strong></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
-<span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">stage_height</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
-<span class="gp">... </span>    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
-<span class="gp">... </span>    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00aaff&quot;</span><span class="p">),</span>
-<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">RIGHT</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">multi_line_text</span><span class="o">.</span><span class="n">text_align</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">CssTextAlign</span><span class="o">.</span><span class="n">RIGHT</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -231,14 +244,15 @@
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">text_align property</a><ul>
+<li><a class="reference internal" href="#">text_align_last property</a><ul>
 <li><a class="reference internal" href="#what-property-is-this">What property is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#example-of-csstextalign-left">Example of CssTextAlign.LEFT</a></li>
-<li><a class="reference internal" href="#example-of-csstextalign-center">Example of CssTextAlign.CENTER</a></li>
-<li><a class="reference internal" href="#example-of-csstextalign-right">Example of CssTextAlign.RIGHT</a></li>
-<li><a class="reference internal" href="#example-of-csstextalign-justify">Example of CSSTextAlign.JUSTIFY</a></li>
-<li><a class="reference internal" href="#text-align-property-api">text_align property API</a></li>
+<li><a class="reference internal" href="#example-of-csstextalignlast-auto">Example of CssTextAlignLast.AUTO</a></li>
+<li><a class="reference internal" href="#example-of-csstextalignlast-left">Example of CssTextAlignLast.LEFT</a></li>
+<li><a class="reference internal" href="#example-of-csstextalignlast-center">Example of CssTextAlignLast.CENTER</a></li>
+<li><a class="reference internal" href="#example-of-csstextalignlast-right">Example of CssTextAlignLast.RIGHT</a></li>
+<li><a class="reference internal" href="#example-of-csstextalignlast-justify">Example of CssTextAlignLast.JUSTIFY</a></li>
+<li><a class="reference internal" href="#text-align-last-property-api">text_align_last property API</a></li>
 </ul>
 </li>
 </ul>
@@ -246,13 +260,13 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="text_italic.html"
-                          title="previous chapter">Text italic property</a></p>
+    <p class="topless"><a href="text_align.html"
+                          title="previous chapter">text_align property</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="text_align_last.html"
-                          title="next chapter">text_align_last property</a></p>
+    <p class="topless"><a href="svg_text.html"
+                          title="next chapter">SvgText class</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -275,13 +289,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="text_align_last.html" title="text_align_last property"
+          <a href="svg_text.html" title="SvgText class"
              >next</a> |</li>
         <li class="right" >
-          <a href="text_italic.html" title="Text italic property"
+          <a href="text_align.html" title="text_align property"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">text_align property</a></li> 
+        <li class="nav-item nav-item-this"><a href="">text_align_last property</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

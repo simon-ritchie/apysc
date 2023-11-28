@@ -10,11 +10,11 @@
 
 ## 基本的な使い方
 
-getterとsetterの各インターフェイスは`CssTextAlign`のenumの値を受け付けます。
+getterとsetterの各インターフェイスの値は`CssTextAlign`の型のenumの値となります。
 
 設定できるenumの値は以下の通りです:
 
-- `CssTextAlign.LEFT`
+- `CssTextAlign.LEFT`（デフォルト）
 - `CssTextAlign.CENTER`
 
 - `CssTextAlign.RIGHT`

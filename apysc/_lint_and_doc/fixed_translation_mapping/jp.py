@@ -4547,5 +4547,17 @@ MAPPINGS: Mappings = Mappings(
             key="text_align property",
             val="text_align 属性",
         ),
+        Mapping(
+            key="## text_align_last property API",
+            val="## text_align_last 属性のAPI",
+        ),
+        Mapping(
+            key="Get a text-align-last value.<hr>",
+            val="text-align-last属性の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A text-align-last value.",
+            val="  - text-align-last属性の値。",
+        ),
     ]
 )

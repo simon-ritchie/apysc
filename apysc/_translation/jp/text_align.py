@@ -19,11 +19,12 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
-    "The getter and setter interfaces' type becomes a `CssTextAlign` enum value.": "getterとsetterの各インターフェイスの値は`CssTextAlign`の型のenumの値となります。",  # noqa
+    "The getter and setter interfaces\' type becomes a `CssTextAlign` enum value.": "getterとsetterの各インターフェイスの値は`CssTextAlign`の型のenumの値となります。",  # noqa
     ##################################################
     "The acceptable enum values are as follows:": "設定できるenumの値は以下の通りです:",
     ##################################################
-    "- `CssTextAlign.LEFT` (default)": "- `CssTextAlign.LEFT`（デフォルト）",    ##################################################
+    "- `CssTextAlign.LEFT` (default)": "- `CssTextAlign.LEFT`（デフォルト）",
+    ##################################################
     "- `CssTextAlign.CENTER`": "- `CssTextAlign.CENTER`",
     ##################################################
     "- `CssTextAlign.RIGHT`": "- `CssTextAlign.RIGHT`",

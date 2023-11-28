@@ -10,7 +10,7 @@
 
 ## 基本的な使い方
 
-getterもしくはsetterの各インターフェイスでは`ap.Boolean`型の値を指定できます。
+getterもしくはsetterの各インターフェイスの値は`ap.Boolean`の型となります。
 
 もし`ap.Boolean(True)`（もしくは`ap.True_`）の値を指定した場合、テキストのインスタンスは太字のスタイルになります。
 

@@ -17,6 +17,11 @@ class TextAlignLastCssMixIn:
         -------
         text_align_last : CssTextAlignLast
             A text-align-last value.
+
+        References
+        ----------
+        - text_align_last property
+            - https://simon-ritchie.github.io/apysc/en/text_align_last.html
         """
         return self._css_text_align_last
 
@@ -30,6 +35,11 @@ class TextAlignLastCssMixIn:
         ----------
         value : CssTextAlignLast
             A text-align-last value.
+
+        References
+        ----------
+        - text_align_last property
+            - https://simon-ritchie.github.io/apysc/en/text_align_last.html
         """
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation

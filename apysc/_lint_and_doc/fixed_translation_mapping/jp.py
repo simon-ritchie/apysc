@@ -4559,5 +4559,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A text-align-last value.",
             val="  - text-align-last属性の値。",
         ),
+        Mapping(
+            key="text_align_last property",
+            val="text_align_last 属性",
+        ),
     ]
 )

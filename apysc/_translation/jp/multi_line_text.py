@@ -112,4 +112,6 @@ MAPPING: Dict[str, str] = {
     "- [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)": "- [テキストの italic 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_italic.html)",  # noqa
     ##################################################
     "- [text_align property](https://simon-ritchie.github.io/apysc/en/text_align.html)": "- [text_align 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_align.html)",  # noqa
+    ##################################################
+    "- [text_align_last property](https://simon-ritchie.github.io/apysc/en/text_align_last.html)": "- [text_align_last 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_align_last.html)",  # noqa
 }

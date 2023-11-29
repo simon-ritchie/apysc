@@ -133,3 +133,4 @@ Color("#00aaff")
 - [テキストの italic 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_italic.html)
 
 - [text_align 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_align.html)
+- [text_align_last 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_align_last.html)

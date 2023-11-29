@@ -16,6 +16,7 @@ The class implementation for a multiline text element.<hr>
 - [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
 - [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)
 - [text_align property](https://simon-ritchie.github.io/apysc/en/text_align.html)
+- [text_align_last property](https://simon-ritchie.github.io/apysc/en/text_align_last.html)
 
 ### `__init__` method docstring
 
@@ -88,6 +89,7 @@ Color("#00aaff")
 - [Text bold property](https://simon-ritchie.github.io/apysc/en/text_bold.html)
 - [Text italic property](https://simon-ritchie.github.io/apysc/en/text_italic.html)
 - [text_align property](https://simon-ritchie.github.io/apysc/en/text_align.html)
+- [text_align_last property](https://simon-ritchie.github.io/apysc/en/text_align_last.html)
 
 ### `_initialize_with_base_value` method docstring
 

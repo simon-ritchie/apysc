@@ -59,3 +59,28 @@ ap.save_overall_html(dest_dir_path="./text_font_size_basic_usage/")
 
 - `font_size`: Int
   - テキストのフォントサイズ。
+
+<hr>
+
+**[コードサンプル]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_width=350,
+...     stage_height=250,
+...     stage_elem_id="stage",
+... )
+>>> text: ap.MultiLineText = ap.MultiLineText(
+...     text="Example of font-size = 32. Lorem ipsum dolor sit amet, "
+...     "consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+...     width=300,
+...     fill_color=ap.Color("#00aaff"),
+...     x=25,
+...     y=25,
+... )
+>>> text.font_size = ap.Int(32)
+>>> text.font_size
+Int(32)
+```

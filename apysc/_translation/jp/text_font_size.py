@@ -36,4 +36,10 @@ MAPPING: Dict[str, str] = {
     "- `font_size`: Int": "- `font_size`: Int",
     ##################################################
     "  - A text font size.": "  - テキストのフォントサイズ。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=350,\n...     stage_height=250,\n...     stage_elem_id=\"stage\",\n... )\n>>> text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Example of font-size = 32. Lorem ipsum dolor sit amet, \"\n...     \"consectetur adipiscing elit, sed do eiusmod tempor incididunt.\",\n...     width=300,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=25,\n...     y=25,\n... )\n>>> text.font_size = ap.Int(32)\n>>> text.font_size\nInt(32)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=350,\n...     stage_height=250,\n...     stage_elem_id=\"stage\",\n... )\n>>> text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Example of font-size = 32. Lorem ipsum dolor sit amet, \"\n...     \"consectetur adipiscing elit, sed do eiusmod tempor incididunt.\",\n...     width=300,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=25,\n...     y=25,\n... )\n>>> text.font_size = ap.Int(32)\n>>> text.font_size\nInt(32)\n```",  # noqa
 }

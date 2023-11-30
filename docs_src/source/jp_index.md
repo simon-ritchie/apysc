@@ -227,6 +227,7 @@ jp_graphics_clear
 ```{toctree}
 :maxdepth: 1
 jp_multi_line_text
+jp_text_font_size
 jp_text_fill_color
 jp_text_fill_alpha
 jp_text_bold

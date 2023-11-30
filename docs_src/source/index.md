@@ -224,6 +224,7 @@ graphics_clear
 ```{toctree}
 :maxdepth: 1
 multi_line_text
+text_font_size
 text_fill_color
 text_fill_alpha
 text_bold

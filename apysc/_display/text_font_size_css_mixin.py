@@ -28,6 +28,11 @@ class TextFontSizeCssMixIn(
         -------
         font_size : Int
             A text font size.
+
+        References
+        ----------
+        - Text font_size property
+            - https://simon-ritchie.github.io/apysc/en/text_font_size.html
         """
         self._initialize_font_size()
         return self._font_size._copy()
@@ -42,6 +47,11 @@ class TextFontSizeCssMixIn(
         ----------
         value : Int
             A text font size.
+
+        References
+        ----------
+        - Text font_size property
+            - https://simon-ritchie.github.io/apysc/en/text_font_size.html
         """
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation

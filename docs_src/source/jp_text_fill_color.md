@@ -1,6 +1,6 @@
 <span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり[英語の原文](https://simon-ritchie.github.io/apysc/en/text_fill_color.html)の確認をお願いします。</span>
 
-# Text クラスの fill_color 属性
+# テキストの fill_color 属性
 
 このページではテキスト関係の`fill_color`属性について説明します。
 

@@ -4563,5 +4563,21 @@ MAPPINGS: Mappings = Mappings(
             key="text_align_last property",
             val="text_align_last 属性",
         ),
+        Mapping(
+            key="The getter and setter interfaces\' type becomes an `ap.Int` value.",
+            val="getterとsetterの各インターフェイスの値の型は`ap.Int`になります。",
+        ),
+        Mapping(
+            key="## font_size property API",
+            val="## font_size 属性のAPI",
+        ),
+        Mapping(
+            key="Get a text\'s font size.<hr>",
+            val="テキストのフォントサイズを取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A text font size.",
+            val="  - テキストのフォントサイズ。",
+        ),
     ]
 )

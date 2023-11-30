@@ -33,6 +33,28 @@ class TextFontSizeCssMixIn(
         ----------
         - Text font_size property
             - https://simon-ritchie.github.io/apysc/en/text_font_size.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> stage: ap.Stage = ap.Stage(
+        ...     background_color=ap.Color("#333"),
+        ...     stage_width=350,
+        ...     stage_height=250,
+        ...     stage_elem_id="stage",
+        ... )
+        >>> text: ap.MultiLineText = ap.MultiLineText(
+        ...     text="Example of font-size = 32. Lorem ipsum dolor sit amet, "
+        ...     "consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        ...     width=300,
+        ...     fill_color=ap.Color("#00aaff"),
+        ...     x=25,
+        ...     y=25,
+        ... )
+        >>> text.font_size = ap.Int(32)
+        >>> text.font_size
+        Int(32)
         """
         self._initialize_font_size()
         return self._font_size._copy()
@@ -52,6 +74,28 @@ class TextFontSizeCssMixIn(
         ----------
         - Text font_size property
             - https://simon-ritchie.github.io/apysc/en/text_font_size.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> stage: ap.Stage = ap.Stage(
+        ...     background_color=ap.Color("#333"),
+        ...     stage_width=350,
+        ...     stage_height=250,
+        ...     stage_elem_id="stage",
+        ... )
+        >>> text: ap.MultiLineText = ap.MultiLineText(
+        ...     text="Example of font-size = 32. Lorem ipsum dolor sit amet, "
+        ...     "consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        ...     width=300,
+        ...     fill_color=ap.Color("#00aaff"),
+        ...     x=25,
+        ...     y=25,
+        ... )
+        >>> text.font_size = ap.Int(32)
+        >>> text.font_size
+        Int(32)
         """
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation

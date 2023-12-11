@@ -79,7 +79,7 @@ class RevertableValue3(NotRevertableValue, RevertableValue1, RevertableValue2):
     _value3: int = 30
     _snapshots3: Optional[Dict[str, int]] = None
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -92,7 +92,7 @@ class RevertableValue3(NotRevertableValue, RevertableValue1, RevertableValue2):
             self._snapshots3 = {}
         self._snapshots3[snapshot_name] = self._value3
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if a snapshot exists.
 

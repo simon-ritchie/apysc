@@ -1,3 +1,5 @@
+# pyright: reportIncompatibleMethodOverride=false
+
 """The color class implementation.
 """
 

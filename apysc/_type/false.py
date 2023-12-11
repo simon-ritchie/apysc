@@ -1,7 +1,6 @@
 """The class implementation for the `False_` constant.
 """
 
-from typing_extensions import Final
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting

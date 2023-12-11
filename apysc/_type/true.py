@@ -13,7 +13,7 @@ class _True(
     BoolConstMixIn,
     Boolean,
 ):
-    _value: Final[bool] = True
+    _value: bool = True
 
     @final
     @add_debug_info_setting(module_name=__name__)

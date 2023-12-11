@@ -1,3 +1,5 @@
+# pyright: reportIncompatibleVariableOverride=false
+
 """Implementations for Graphics class.
 """
 

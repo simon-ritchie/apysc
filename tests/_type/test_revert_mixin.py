@@ -17,7 +17,7 @@ class RevertableValue1(RevertMixIn):
     _value1: int = 10
     _snapshots1: Optional[Dict[str, int]] = None
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -30,7 +30,7 @@ class RevertableValue1(RevertMixIn):
             self._snapshots1 = {}
         self._snapshots1[snapshot_name] = self._value1
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if a snapshot exists.
 
@@ -48,7 +48,7 @@ class RevertableValue2(RevertMixIn):
     _value2: int = 20
     _snapshots2: Optional[Dict[str, int]] = None
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -61,7 +61,7 @@ class RevertableValue2(RevertMixIn):
             self._snapshots2 = {}
         self._snapshots2[snapshot_name] = self._value2
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if a snapshot exists.
 

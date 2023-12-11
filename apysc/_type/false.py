@@ -13,7 +13,7 @@ class _False(
     BoolConstMixIn,
     Boolean,
 ):
-    _value: Final[bool] = False
+    _value: bool = False
 
     @final
     @add_debug_info_setting(module_name=__name__)

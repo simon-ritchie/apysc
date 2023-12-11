@@ -1,3 +1,5 @@
+# pyright: reportIncompatibleMethodOverride=false
+
 import os
 from typing import Any
 

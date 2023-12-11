@@ -113,7 +113,7 @@ class _MockError(Error):
             A stack trace string.
         """
         self._message = message
-        self._stack = stack
+        self._stack = stack  # type: ignore
 
     @property
     def message(self) -> str:

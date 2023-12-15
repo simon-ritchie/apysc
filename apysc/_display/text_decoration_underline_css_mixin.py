@@ -29,6 +29,11 @@ class TextDecorationUnderlineCssMixIn(
         underline : Boolean
             A text underline setting.
 
+        References
+        ----------
+        - Text underline property
+            - https://simon-ritchie.github.io/apysc/en/text_underline.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -66,6 +71,11 @@ class TextDecorationUnderlineCssMixIn(
         ----------
         value : Boolean
             A text underline setting.
+
+        References
+        ----------
+        - Text underline property
+            - https://simon-ritchie.github.io/apysc/en/text_underline.html
 
         Examples
         --------

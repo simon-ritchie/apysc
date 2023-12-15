@@ -234,6 +234,7 @@ jp_text_bold
 jp_text_italic
 jp_text_align
 jp_text_align_last
+jp_text_underline
 ```
 
 ## SVG テキスト

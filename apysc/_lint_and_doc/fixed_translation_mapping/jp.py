@@ -4583,5 +4583,17 @@ MAPPINGS: Mappings = Mappings(
             key="Text font_size property",
             val="テキストの font_size 属性",
         ),
+        Mapping(
+            key="## underline property API",
+            val="## underline 属性のAPI",
+        ),
+        Mapping(
+            key="Get a text underline (`text-decoration: underline`) setting.<hr>",
+            val="テキストの下線（`text-decoration: underline`）設定を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A text underline setting.",
+            val="  - テキストの下線の設定。",
+        ),
     ]
 )

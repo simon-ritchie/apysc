@@ -53,3 +53,29 @@ Get a text underline (`text-decoration: underline`) setting.<hr>
 
 - `underline`: Boolean
   - A text underline setting.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_width=300,
+...     stage_height=195,
+...     stage_elem_id="stage",
+... )
+>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+...     "Ut enim ad minim veniam",
+...     width=250,
+...     fill_color=ap.Colors.GRAY_AAAAAA,
+...     x=25,
+...     y=25,
+... )
+>>> multi_line_text.underline = ap.True_
+>>> multi_line_text.underline
+Boolean(True)
+```

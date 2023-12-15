@@ -38,4 +38,10 @@ MAPPING: Dict[str, str] = {
     "- `underline`: Boolean": "- `underline`: Boolean",
     ##################################################
     "  - A text underline setting.": "  - テキストの下線の設定。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=195,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=250,\n...     fill_color=ap.Colors.GRAY_AAAAAA,\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.underline = ap.True_\n>>> multi_line_text.underline\nBoolean(True)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=195,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=250,\n...     fill_color=ap.Colors.GRAY_AAAAAA,\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.underline = ap.True_\n>>> multi_line_text.underline\nBoolean(True)\n```",  # noqa
 }

@@ -176,12 +176,12 @@ class MultiLineText(
             Last line's text-align setting.
         underline : Union[bool, Boolean], default False
             Whether to display the text's underline.
+        line_height : Union[float, Number], default 1.5
+            A line-height (text-leading) setting.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
             a stage instance.
-        line_height : Union[float, Number], default 1.5
-            A line-height (text-leading) setting.
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.

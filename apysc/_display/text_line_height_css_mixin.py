@@ -2,21 +2,20 @@
 """
 
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
-from apysc._validation import arg_validation_decos
 from apysc._type.number import Number
+from apysc._validation import arg_validation_decos
 
 
 class TextLineHeightCssMixIn(
     AttrLinkingMixIn,
 ):
-
     _line_height: Number
 
     def _initialize_line_height(self) -> None:
         """
         Initialize the `_line_height` attribute.
         """
-        if hasattr(self, '_line_height'):
+        if hasattr(self, "_line_height"):
             return
         self._line_height = Number(1.5)
 

@@ -25,11 +25,11 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The constructor also accepts each style setting, such as the `width`, `fill_color`, `bold`, and `text_align`.": "コンストラクタでは`width`、`fill_color`、`bold`、`text_align`などのスタイル設定も同様に受け付けます。",  # noqa
     ##################################################
-    '```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=300,\n    stage_height=200,\n    stage_elem_id="stage",\n)\n\nmulti_line_text: ap.MultiLineText = ap.MultiLineText(\n    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "\n    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "\n    "Ut enim ad minim veniam",\n    width=250,\n    font_size=16,\n    fill_color=ap.Colors.CYAN_00AAFF,\n    x=25,\n    y=25,\n)\nap.save_overall_html(dest_dir_path="multi_line_text_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=300,\n    stage_height=200,\n    stage_elem_id="stage",\n)\n\nmulti_line_text: ap.MultiLineText = ap.MultiLineText(\n    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "\n    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "\n    "Ut enim ad minim veniam",\n    width=250,\n    font_size=16,\n    fill_color=ap.Colors.CYAN_00AAFF,\n    x=25,\n    y=25,\n)\nap.save_overall_html(dest_dir_path="multi_line_text_basic_usage/")\n```',  # noqa
+    "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color=ap.Color(\"#333\"),\n    stage_width=300,\n    stage_height=200,\n    stage_elem_id=\"stage\",\n)\n\nmulti_line_text: ap.MultiLineText = ap.MultiLineText(\n    text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n    \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n    \"Ut enim ad minim veniam\",\n    width=250,\n    font_size=16,\n    fill_color=ap.Colors.CYAN_00AAFF,\n    x=25,\n    y=25,\n)\nap.save_overall_html(dest_dir_path=\"multi_line_text_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nstage: ap.Stage = ap.Stage(\n    background_color=ap.Color(\"#333\"),\n    stage_width=300,\n    stage_height=200,\n    stage_elem_id=\"stage\",\n)\n\nmulti_line_text: ap.MultiLineText = ap.MultiLineText(\n    text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n    \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n    \"Ut enim ad minim veniam\",\n    width=250,\n    font_size=16,\n    fill_color=ap.Colors.CYAN_00AAFF,\n    x=25,\n    y=25,\n)\nap.save_overall_html(dest_dir_path=\"multi_line_text_basic_usage/\")\n```",  # noqa
     ##################################################
     "## MultiLineText constructor API": "## MultiLineText クラスのコンストラクタのAPI",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -79,17 +79,21 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.AUTO`": "- `text_align_last`: CssTextAlignLast, default `CssTextAlignLast.AUTO`",  # noqa
     ##################################################
-    "  - Last line's text-align setting.": "  - 最終行の行揃えの設定。",
+    "  - Last line\'s text-align setting.": "  - 最終行の行揃えの設定。",
     ##################################################
     "- `underline`: Union[bool, Boolean], default False": "- `underline`: Union[bool, Boolean], default False",  # noqa
     ##################################################
-    "  - Whether to display the text's underline.": "  - テキストの下線を表示するか否か。",
+    "  - Whether to display the text\'s underline.": "  - テキストの下線を表示するか否か。",
+    ##################################################
+    "- `line_height`: Union[float, Number], default 1.5": "- `line_height`: Union[float, Number], default 1.5",  # noqa
+    ##################################################
+    "  - A line-height (text-leading) setting.": "  - 行の高さ（テキストの行間）の設定。",
     ##################################################
     "- `parent`: ChildMixIn or None, default None": "- `parent`: ChildMixIn or None, default None",  # noqa
     ##################################################
     "  - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.": "  - このインスタンスを追加する親のインスタンス。もしもNoneが指定された場合、このインスタンスはステージのインスタンスへと追加されます。",  # noqa
     ##################################################
-    '- `variable_name_suffix`: str, default ""': '- `variable_name_suffix`: str, default ""',  # noqa
+    "- `variable_name_suffix`: str, default \"\"": "- `variable_name_suffix`: str, default \"\"",  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -97,7 +101,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Examples]**": "**[コードサンプル]**",
     ##################################################
-    '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color("#333"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id="stage",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "\n...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "\n...     "Ut enim ad minim veniam",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color("#00aaff"),\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color\nColor("#00aaff")\n```': '```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color("#333"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id="stage",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "\n...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "\n...     "Ut enim ad minim veniam",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color("#00aaff"),\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color\nColor("#00aaff")\n```',  # noqa
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color\nColor(\"#00aaff\")\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=100,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=300,\n...     font_size=16,\n...     fill_color=ap.Color(\"#00aaff\"),\n...     x=20,\n...     y=20,\n... )\n>>> multi_line_text.fill_color\nColor(\"#00aaff\")\n```",  # noqa
     ##################################################
     "<hr>": "<hr>",
     ##################################################

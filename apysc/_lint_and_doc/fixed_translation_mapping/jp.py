@@ -4595,5 +4595,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A text underline setting.",
             val="  - テキストの下線の設定。",
         ),
+        Mapping(
+            key="  - A line-height (text-leading) setting.",
+            val="  - 行の高さ（テキストの行間）の設定。",
+        ),
     ]
 )

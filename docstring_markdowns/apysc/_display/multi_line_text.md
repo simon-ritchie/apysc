@@ -49,6 +49,8 @@ The class implementation for a multiline text element.<hr>
   - Last line's text-align setting.
 - `underline`: Union[bool, Boolean], default False
   - Whether to display the text's underline.
+- `line_height`: Union[float, Number], default 1.5
+  - A line-height (text-leading) setting.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""

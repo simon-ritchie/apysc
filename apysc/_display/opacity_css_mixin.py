@@ -100,6 +100,7 @@ class OpacityCssMixIn(AttrLinkingMixIn):
         from apysc._display.css_interface import CssInterface
         from apysc._validation import display_validation
 
+        self._initialize_fill_alpha()
         interface: CssInterface = display_validation.validate_css_interface(
             instance=self
         )

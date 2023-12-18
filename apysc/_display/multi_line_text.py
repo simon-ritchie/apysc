@@ -34,6 +34,7 @@ from apysc._display.text_decoration_underline_css_mixin import (
 from apysc._display.text_fill_color_css_mixin import TextFillColorCssMixIn
 from apysc._display.text_font_size_css_mixin import TextFontSizeCssMixIn
 from apysc._display.text_italic_css_mixin import TextItalicCssMixIn
+from apysc._display.text_line_height_css_mixin import TextLineHeightCssMixIn
 from apysc._display.width_mixin import WidthMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
@@ -71,6 +72,7 @@ class MultiLineText(
     TextAlignLastCssMixIn,
     TextDecorationUnderlineCssMixIn,
     TextFontSizeCssMixIn,
+    TextLineHeightCssMixIn,
 ):
     """
     The class implementation for a multiline text element.
@@ -119,9 +121,11 @@ class MultiLineText(
     @arg_validation_decos.is_css_text_align_last(arg_position_index=11)
     # underline
     @arg_validation_decos.is_boolean(arg_position_index=12, optional=False)
+    # line_height
+    @arg_validation_decos.is_num(arg_position_index=13, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=13, optional=True
+        arg_position_index=14, optional=True
     )
     def __init__(
         self,
@@ -138,6 +142,7 @@ class MultiLineText(
         text_align: CssTextAlign = CssTextAlign.LEFT,
         text_align_last: CssTextAlignLast = CssTextAlignLast.AUTO,
         underline: Union[bool, Boolean] = False,
+        line_height: Union[float, Number] = 1.5,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -175,6 +180,8 @@ class MultiLineText(
             A parent instance to add this instance.
             If the specified value is None, this interface uses
             a stage instance.
+        line_height : Union[float, Number], default 1.5
+            A line-height (text-leading) setting.
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
@@ -263,6 +270,10 @@ class MultiLineText(
         self.text_align_last = text_align_last
         self.underline = to_apysc_val_from_builtin.get_copied_boolean_from_builtin_val(
             bool_val=underline,
+            variable_name_suffix=variable_name_suffix,
+        )
+        self.line_height = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=line_height,
             variable_name_suffix=variable_name_suffix,
         )
 

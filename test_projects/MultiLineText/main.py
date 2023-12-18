@@ -214,6 +214,28 @@ def main() -> None:
     )
     text.font_size = ap.Int(32)
 
+    ap.MultiLineText(
+        text="line-height test 1. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=300,
+        x=550,
+        y=170,
+        fill_color=ap.Color("#0af"),
+        line_height=2.0,
+    )
+
+    text = ap.MultiLineText(
+        text="line-height test 2. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit. Lorem ipsum dolor sit amet, "
+        "consectetur adipiscing elit",
+        width=300,
+        x=550,
+        y=300,
+        fill_color=ap.Color("#0af"),
+    )
+    text.line_height = ap.Number(2.0)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

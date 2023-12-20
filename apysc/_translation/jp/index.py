@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -91,7 +91,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Text": "## テキスト",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nmulti_line_text\ntext_font_size\ntext_fill_color\ntext_fill_alpha\ntext_bold\ntext_italic\ntext_align\ntext_align_last\ntext_underline\n```": "```{toctree}\n:maxdepth: 1\njp_multi_line_text\njp_text_font_size\njp_text_fill_color\njp_text_fill_alpha\njp_text_bold\njp_text_italic\njp_text_align\njp_text_align_last\njp_text_underline\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nmulti_line_text\ntext_font_size\ntext_fill_color\ntext_fill_alpha\ntext_bold\ntext_italic\ntext_align\ntext_align_last\ntext_underline\ntext_line_height\n```": "```{toctree}\n:maxdepth: 1\njp_multi_line_text\njp_text_font_size\njp_text_fill_color\njp_text_fill_alpha\njp_text_bold\njp_text_italic\njp_text_align\njp_text_align_last\njp_text_underline\njp_text_line_height\n```",  # noqa
     ##################################################
     "## SVG text": "## SVG テキスト",
     ##################################################

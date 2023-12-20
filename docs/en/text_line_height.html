@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Text line_height property &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
+    <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css?v=e01785d5" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css?v=5503e606" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js?v=16ad857a"></script>
+    <script src="static/doctools.js?v=888ff710"></script>
+    <script src="static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="static/jquery-3.6.3.min.js?v=25e7c09e"></script>
+    <script src="static/common_func.js?v=c962a8e2"></script>
+    <script src="static/add_navigation_to_footer.js?v=6871d0c2"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <script src="static/add_en_to_ja_link.js?v=0fffc53d"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SvgText class" href="svg_text.html" />
+    <link rel="prev" title="Text underline property" href="text_underline.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="svg_text.html" title="SvgText class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="text_underline.html" title="Text underline property"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Text line_height property</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="text-line-height-property">
+<h1>Text line_height property<a class="headerlink" href="#text-line-height-property" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the text-related <code class="docutils literal notranslate"><span class="pre">line_height</span></code> property.</p>
+<section id="what-property-is-this">
+<h2>What property is this?<a class="headerlink" href="#what-property-is-this" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_height</span></code> property updates or gets the instance’s line height (leading) setting.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<p>The getter and setter interfaces’ type becomes an <code class="docutils literal notranslate"><span class="pre">ap.Number</span></code> value.</p>
+<p>If you specify a value of 1.5 to this property, the line height becomes 1.5 times the font size.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">multi_line_text</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MultiLineText</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &quot;</span>
+    <span class="s2">&quot;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &quot;</span>
+    <span class="s2">&quot;Ut enim ad minim veniam&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">GRAY_AAAAAA</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">multi_line_text</span><span class="o">.</span><span class="n">line_height</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;./text_line_height_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/text_line_height_basic_usage/index.html" width="300" height="250"></iframe>
+</section>
+<section id="line-height-property-api">
+<h2>line_height property API<a class="headerlink" href="#line-height-property-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._display.text_line_height_css_mixin.TextLineHeightCssMixIn.line_height -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong></p>
+<p>Get a line-height value.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line_height</span></code>: Number</p>
+<ul>
+<li><p>A line-height value.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Text line_height property</a><ul>
+<li><a class="reference internal" href="#what-property-is-this">What property is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#line-height-property-api">line_height property API</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="text_underline.html"
+                          title="previous chapter">Text underline property</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="svg_text.html"
+                          title="next chapter">SvgText class</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="svg_text.html" title="SvgText class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="text_underline.html" title="Text underline property"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Text line_height property</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+  </body>
+</html>

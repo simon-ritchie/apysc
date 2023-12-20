@@ -232,6 +232,7 @@ text_italic
 text_align
 text_align_last
 text_underline
+text_line_height
 ```
 
 ## SVG text

@@ -4599,5 +4599,25 @@ MAPPINGS: Mappings = Mappings(
             key="  - A line-height (text-leading) setting.",
             val="  - 行の高さ（テキストの行間）の設定。",
         ),
+        Mapping(
+            key="The getter and setter interfaces\' type becomes an `ap.Number` value.",
+            val="getterとsetterの各インターフェイスの型は`ap.Number`の値になります。",
+        ),
+        Mapping(
+            key="  - A line-height (text-leading) setting.",
+            val="  - 行の高さ（テキストの行間）の設定。",
+        ),
+        Mapping(
+            key="## line_height property API",
+            val="## line_height 属性のAPI",
+        ),
+        Mapping(
+            key="Get a line-height value.<hr>",
+            val="行間の値を取得します。<hr>",
+        ),
+        Mapping(
+            key="  - A line-height value.",
+            val="  - 行間の値。",
+        ),
     ]
 )

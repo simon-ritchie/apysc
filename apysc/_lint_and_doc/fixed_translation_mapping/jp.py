@@ -4619,5 +4619,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A line-height value.",
             val="  - 行間の値。",
         ),
+        Mapping(
+            key="Text line_height property",
+            val="テキストの line_height 属性",
+        ),
     ]
 )

@@ -29,6 +29,11 @@ class TextLineHeightCssMixIn(
         line_height : Number
             A line-height value.
 
+        References
+        ----------
+        - Text line_height property
+            - https://simon-ritchie.github.io/apysc/en/text_line_height.html
+
         Examples
         --------
         >>> import apysc as ap

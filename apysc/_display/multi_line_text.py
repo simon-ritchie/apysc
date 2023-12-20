@@ -95,6 +95,8 @@ class MultiLineText(
         - https://simon-ritchie.github.io/apysc/en/text_align_last.html
     - Text font_size property
         - https://simon-ritchie.github.io/apysc/en/text_font_size.html
+    - Text line_height property
+        - https://simon-ritchie.github.io/apysc/en/text_line_height.html
     """
 
     # text
@@ -204,6 +206,8 @@ class MultiLineText(
             - https://simon-ritchie.github.io/apysc/en/text_align_last.html
         - Text font_size property
             - https://simon-ritchie.github.io/apysc/en/text_font_size.html
+        - Text line_height property
+            - https://simon-ritchie.github.io/apysc/en/text_line_height.html
 
         Examples
         --------

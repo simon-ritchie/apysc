@@ -53,3 +53,29 @@ Get a line-height value.<hr>
 
 - `line_height`: Number
   - A line-height value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     background_color=ap.Color("#333"),
+...     stage_width=300,
+...     stage_height=250,
+...     stage_elem_id="stage",
+... )
+>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(
+...     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+...     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+...     "Ut enim ad minim veniam",
+...     width=250,
+...     fill_color=ap.Colors.GRAY_AAAAAA,
+...     x=25,
+...     y=25,
+... )
+>>> multi_line_text.line_height = ap.Number(2.0)
+>>> multi_line_text.line_height
+Number(2.0)
+```

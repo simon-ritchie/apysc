@@ -38,4 +38,10 @@ MAPPING: Dict[str, str] = {
     "- `line_height`: Number": "- `line_height`: Number",
     ##################################################
     "  - A line-height value.": "  - 行間の値。",
+    ##################################################
+    "<hr>": "<hr>",
+    ##################################################
+    "**[Examples]**": "**[コードサンプル]**",
+    ##################################################
+    "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=250,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=250,\n...     fill_color=ap.Colors.GRAY_AAAAAA,\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.line_height = ap.Number(2.0)\n>>> multi_line_text.line_height\nNumber(2.0)\n```": "```py\n>>> import apysc as ap\n>>> stage: ap.Stage = ap.Stage(\n...     background_color=ap.Color(\"#333\"),\n...     stage_width=300,\n...     stage_height=250,\n...     stage_elem_id=\"stage\",\n... )\n>>> multi_line_text: ap.MultiLineText = ap.MultiLineText(\n...     text=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \"\n...     \"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \"\n...     \"Ut enim ad minim veniam\",\n...     width=250,\n...     fill_color=ap.Colors.GRAY_AAAAAA,\n...     x=25,\n...     y=25,\n... )\n>>> multi_line_text.line_height = ap.Number(2.0)\n>>> multi_line_text.line_height\nNumber(2.0)\n```",  # noqa
 }

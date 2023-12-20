@@ -4600,7 +4600,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - 行の高さ（テキストの行間）の設定。",
         ),
         Mapping(
-            key="The getter and setter interfaces\' type becomes an `ap.Number` value.",
+            key="The getter and setter interfaces' type becomes an `ap.Number` value.",
             val="getterとsetterの各インターフェイスの型は`ap.Number`の値になります。",
         ),
         Mapping(

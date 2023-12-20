@@ -139,3 +139,4 @@ Color("#00aaff")
 - [text_align_last 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_align_last.html)
 
 - [テキストの font_size 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_font_size.html)
+- [テキストの line_height 属性](https://simon-ritchie.github.io/apysc/jp/jp_text_line_height.html)

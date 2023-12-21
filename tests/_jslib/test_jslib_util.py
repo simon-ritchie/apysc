@@ -6,7 +6,7 @@ from apysc._jslib import jslib_util
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
 
-_EXPECTED_JQUERY_FILE_NAME: str = "jquery-3.6.3.min.js"
+_EXPECTED_JQUERY_FILE_NAME: str = "jquery-3.7.1.slim.min.js"
 _EXPECTED_SVG_FILE_NAME: str = "svg-3.1.2.min.js"
 _EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME: str = "jquery.mousewheel-3.1.13.min.js"
 

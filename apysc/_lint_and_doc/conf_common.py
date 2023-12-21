@@ -44,7 +44,7 @@ def setup(*, sphinx: Sphinx) -> None:
         message=r".*Container node skipped.*",
     )
 
-    sphinx.add_js_file(filename="jquery-3.6.3.min.js")
+    sphinx.add_js_file(filename="jquery-3.7.1.slim.min.js")
     sphinx.add_js_file(filename="common_func.js")
     sphinx.add_js_file(filename="add_navigation_to_footer.js")
     sphinx.add_js_file(filename="keyword_link_mapping.js")

@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `line_thickness` property interface updates or get the instance\'s line thickness (line width).": "",  # noqa
+    "The `line_thickness` property interface updates or get the instance\'s line thickness (line width).": "`line_thickness`属性はインスタンスの線幅の更新もしくは取得を行うことができます。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

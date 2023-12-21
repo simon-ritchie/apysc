@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `line_round_dot_setting` property interface updates or get the instance\'s current line-round dot setting.": "",  # noqa
+    "The `line_round_dot_setting` property interface updates or get the instance\'s current line-round dot setting.": "`line_round_dot_setting`属性ではインスタンスの丸ドットの線の設定の更新と取得を行うことができます。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

@@ -4604,10 +4604,6 @@ MAPPINGS: Mappings = Mappings(
             val="getterとsetterの各インターフェイスの型は`ap.Number`の値になります。",
         ),
         Mapping(
-            key="  - A line-height (text-leading) setting.",
-            val="  - 行の高さ（テキストの行間）の設定。",
-        ),
-        Mapping(
             key="## line_height property API",
             val="## line_height 属性のAPI",
         ),

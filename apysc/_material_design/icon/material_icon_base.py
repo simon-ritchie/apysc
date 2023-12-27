@@ -72,6 +72,7 @@ class MaterialIconBase(
     # InitializeWithBaseValueInterface,
     AddToParentMixIn,
 ):
+    _svg_path_value: String
 
     # svg_path_value
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -121,11 +122,20 @@ class MaterialIconBase(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
+        from apysc._converter import to_apysc_val_from_builtin
+
+        self._variable_name_suffix = variable_name_suffix
         self.variable_name = self._make_variable_name_if_empty(
             variable_name=variable_name
         )
+        self._svg_path_value = (
+            to_apysc_val_from_builtin.get_copied_string_from_builtin_val(
+                string=svg_path_value
+            )
+        )
         pass
 
+    @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
     def _make_variable_name_if_empty(self, *, variable_name: str) -> str:
         """
         Make a variable name if it is empty.
@@ -149,6 +159,14 @@ class MaterialIconBase(
             type_name=var_names.MATERIAL_ICON,
         )
         return variable_name
-    
+
     def __repr__(self) -> str:
-        pass
+        """
+        Get a representation string of this instance.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string of this instance.
+        """
+        return f'MaterialIconBase("{self._svg_path_value._value}")'

@@ -19,3 +19,13 @@ class TestMaterialIconBase:
             variable_name="test_icon",
         )
         assert icon.variable_name == "test_icon"
+
+    @apply_test_settings()
+    def test___repr__(self) -> None:
+        icon: ap.MaterialIconBase = ap.MaterialIconBase(
+            svg_path_value="abc",
+            fill_color=ap.Colors.WHITE_FFFFFF,
+            variable_name="test_icon",
+        )
+        repr_str: str = repr(icon)
+        assert repr_str == 'MaterialIconBase("abc")'

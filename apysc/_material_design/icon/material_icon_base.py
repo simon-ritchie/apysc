@@ -69,7 +69,7 @@ class MaterialIconBase(
     AppendFillAlphaAttrExpressionMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
-    # InitializeWithBaseValueInterface,
+    InitializeWithBaseValueInterface,
     AddToParentMixIn,
 ):
     _svg_path_value: String
@@ -170,3 +170,21 @@ class MaterialIconBase(
             Representation string of this instance.
         """
         return f'MaterialIconBase("{self._svg_path_value._value}")'
+
+    @classmethod
+    def _initialize_with_base_value(cls) -> "MaterialIconBase":
+        """
+        Initialize this class with a base value.
+
+        Returns
+        -------
+        icon : MaterialIconBase
+            An initialized icon instance.
+        """
+        from apysc._color.colors import Colors
+
+        icon: MaterialIconBase = cls(
+            svg_path_value="",
+            fill_color=Colors.GRAY_AAAAAA,
+        )
+        return icon

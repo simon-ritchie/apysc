@@ -29,3 +29,10 @@ class TestMaterialIconBase:
         )
         repr_str: str = repr(icon)
         assert repr_str == 'MaterialIconBase("abc")'
+
+    @apply_test_settings()
+    def test__initialize_with_base_value(self) -> None:
+        icon: ap.MaterialIconBase = (
+            ap.MaterialIconBase._initialize_with_base_value()
+        )
+        assert icon._svg_path_value == ""

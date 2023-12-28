@@ -1,5 +1,5 @@
 import apysc as ap
-from apysc._expression import var_names
+from apysc._expression import expression_data_util, var_names
 from apysc._testing.testing_helper import apply_test_settings
 
 
@@ -36,3 +36,18 @@ class TestMaterialIconBase:
             ap.MaterialIconBase._initialize_with_base_value()
         )
         assert icon._svg_path_value == ""
+
+    @apply_test_settings()
+    def test__append_constructor_expression(self) -> None:
+        stage: ap.Stage = ap.get_stage()
+        icon: ap.MaterialIconBase = ap.MaterialIconBase(
+            svg_path_value="abc",
+            fill_color=ap.Colors.WHITE_FFFFFF,
+            variable_name="test_icon",
+        )
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f"{icon.variable_name} = "
+            f"{stage.variable_name}.path({icon._svg_path_value.variable_name});"
+        )
+        assert expected in expression

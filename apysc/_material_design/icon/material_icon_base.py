@@ -133,7 +133,22 @@ class MaterialIconBase(
                 string=svg_path_value
             )
         )
+        self._append_constructor_expression()
         pass
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append a constructor expression string.
+        """
+        from apysc._expression import expression_data_util
+        from apysc._display.stage import Stage, get_stage
+
+        stage: Stage = get_stage()
+        expression: str = (
+            f"{self.variable_name} = "
+            f"{stage.variable_name}.path({self._svg_path_value.variable_name});"
+        )
+        expression_data_util.append_js_expression(expression=expression)
 
     @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
     def _make_variable_name_if_empty(self, *, variable_name: str) -> str:

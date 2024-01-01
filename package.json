@@ -4,6 +4,6 @@
   },
   "devDependencies": {
     "secretlint": "8.0.0",
-    "@secretlint/secretlint-rule-preset-recommend": "8.0.0"
+    "@secretlint/secretlint-rule-preset-recommend": "8.1.0"
   }
 }

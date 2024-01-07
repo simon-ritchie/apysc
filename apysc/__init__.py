@@ -144,4 +144,4 @@ from apysc._material_design.icon.material_icon_base import MaterialIconBase
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.0"
+__version__: str = "4.1.1"

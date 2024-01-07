@@ -1,5 +1,6 @@
 import apysc as ap
-from apysc._expression import expression_data_util, var_names
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 from apysc._testing.testing_helper import apply_test_settings
 
 
@@ -32,9 +33,7 @@ class TestMaterialIconBase:
 
     @apply_test_settings()
     def test__initialize_with_base_value(self) -> None:
-        icon: ap.MaterialIconBase = (
-            ap.MaterialIconBase._initialize_with_base_value()
-        )
+        icon: ap.MaterialIconBase = ap.MaterialIconBase._initialize_with_base_value()
         assert icon._svg_path_value == ""
 
     @apply_test_settings()

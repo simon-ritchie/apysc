@@ -2,49 +2,51 @@
 The class implementation for the material icon's base class.
 """
 
-from typing import Optional, Union
-from apysc._type.string import String
+from typing import Optional
+from typing import Union
+
 from apysc._color.color import Color
-from apysc._type.number import Number
-from apysc._type.int import Int
-from apysc._validation import arg_validation_decos
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._display.x_mixin import XMixIn
-from apysc._display.y_mixin import YMixIn
-from apysc._type.repr_interface import ReprInterface
+from apysc._display.add_to_parent_mixin import AddToParentMixIn
+from apysc._display.append_fill_alpha_attr_expression_mixin import (
+    AppendFillAlphaAttrExpressionMixIn,
+)
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn,
+)
 from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
 from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
-from apysc._display.set_overflow_visible_setting_mixin import (
-    SetOverflowVisibleSettingMixIn,
-)
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.css_mixin import CssMixIn
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
+from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.flip_x_mixin import FlipXMixIn
+from apysc._display.flip_y_mixin import FlipYMixIn
+from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._display.graphics_base import GraphicsBase
+from apysc._display.height_mixin import HeightMixIn
 from apysc._display.rotation_around_center_mixin import RotationAroundCenterMixIn
 from apysc._display.rotation_around_point_mixin import RotationAroundPointMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_x_from_point_mixin import ScaleXFromPointMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.scale_y_from_point_mixin import ScaleYFromPointMixIn
-from apysc._display.flip_x_mixin import FlipXMixIn
-from apysc._display.flip_y_mixin import FlipYMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
-from apysc._display.fill_color_mixin import FillColorMixIn
-from apysc._display.append_fill_color_expression_mixin import (
-    AppendFillColorAttrExpressionMixIn,
-)
-from apysc._display.fill_alpha_mixin import FillAlphaMixIn
-from apysc._display.append_fill_alpha_attr_expression_mixin import (
-    AppendFillAlphaAttrExpressionMixIn,
-)
-from apysc._display.get_bounds_mixin import GetBoundsMixIn
+from apysc._display.width_mixin import WidthMixIn
+from apysc._display.x_mixin import XMixIn
+from apysc._display.y_mixin import YMixIn
 from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
-from apysc._display.add_to_parent_mixin import AddToParentMixIn
-from apysc._display.child_mixin import ChildMixIn
-from apysc._display.width_mixin import WidthMixIn
-from apysc._display.height_mixin import HeightMixIn
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.repr_interface import ReprInterface
+from apysc._type.string import String
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._validation import arg_validation_decos
 
 
 class MaterialIconBase(
@@ -119,9 +121,9 @@ class MaterialIconBase(
             This value requires the `d` attribute of the SVG `path` tag.
             E.g., "M15.5 14h-.79l-.28-.27C15.41 12.59 ..."
         fill_color : Color
-            An icon fill color.
+            An icon fill-color.
         fill_alpha : Union[float, Number], optional
-            An icon fill alpha (opacity).
+            An icon fill-alpha (opacity).
         width : Union[int, Int], optional
             An icon width.
         height : Union[int, Int], optional
@@ -139,9 +141,7 @@ class MaterialIconBase(
         from apysc._converter import to_apysc_val_from_builtin
 
         self._variable_name_suffix = variable_name_suffix
-        variable_name = self._make_variable_name_if_empty(
-            variable_name=variable_name
-        )
+        variable_name = self._make_variable_name_if_empty(variable_name=variable_name)
         self.variable_name = variable_name
         self._svg_path_value = (
             to_apysc_val_from_builtin.get_copied_string_from_builtin_val(
@@ -167,8 +167,9 @@ class MaterialIconBase(
         """
         Append a constructor expression string.
         """
+        from apysc._display.stage import Stage
+        from apysc._display.stage import get_stage
         from apysc._expression import expression_data_util
-        from apysc._display.stage import Stage, get_stage
 
         stage: Stage = get_stage()
         expression: str = (

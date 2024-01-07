@@ -1,0 +1,1 @@
+# `apysc._material_design.icon.__init__` docstrings

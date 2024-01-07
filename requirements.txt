@@ -1,5 +1,5 @@
 typing-extensions==4.9.0
-pytest==7.4.3
+pytest==7.4.4
 twine==4.0.2
 pytest-cov==4.1.0
 autoflake==2.2.1

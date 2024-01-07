@@ -51,3 +51,25 @@ class TestMaterialIconBase:
             f"{stage.variable_name}.path({icon._svg_path_value.variable_name});"
         )
         assert expected in expression
+
+    @apply_test_settings()
+    def test___init__(self) -> None:
+        sprite: ap.Sprite = ap.Sprite()
+        icon: ap.MaterialIconBase = ap.MaterialIconBase(
+            svg_path_value="abc",
+            fill_color=ap.Colors.WHITE_FFFFFF,
+            fill_alpha=0.5,
+            width=100,
+            height=150,
+            parent=sprite,
+            variable_name="test_icon",
+            variable_name_suffix="test_suffix",
+        )
+        assert icon._svg_path_value._value == "abc"
+        assert icon._fill_color == ap.Colors.WHITE_FFFFFF
+        assert icon._fill_alpha._value == 0.5
+        assert icon._width._value == 100
+        assert icon._height._value == 150
+        assert icon.parent == sprite
+        assert "test_icon" in icon.variable_name
+        assert "test_suffix" in icon.variable_name

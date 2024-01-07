@@ -2,7 +2,7 @@
 The class implementation for the material icon's base class.
 """
 
-from typing import Union
+from typing import Optional, Union
 from apysc._type.string import String
 from apysc._color.color import Color
 from apysc._type.number import Number
@@ -42,6 +42,9 @@ from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
+from apysc._display.child_mixin import ChildMixIn
+from apysc._display.width_mixin import WidthMixIn
+from apysc._display.height_mixin import HeightMixIn
 
 
 class MaterialIconBase(
@@ -67,6 +70,8 @@ class MaterialIconBase(
     AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
     AppendFillAlphaAttrExpressionMixIn,
+    WidthMixIn,
+    HeightMixIn,
     GetBoundsMixIn,
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
@@ -84,10 +89,14 @@ class MaterialIconBase(
     @arg_validation_decos.num_is_gte_zero(arg_position_index=4, optional=False)
     # height
     @arg_validation_decos.num_is_gte_zero(arg_position_index=5, optional=False)
+    # parent
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=6, optional=True
+    )
     # variable_name
-    @arg_validation_decos.is_builtin_string(arg_position_index=6, optional=False)
-    # variable_name_suffix
     @arg_validation_decos.is_builtin_string(arg_position_index=7, optional=False)
+    # variable_name_suffix
+    @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     def __init__(
         self,
         *,
@@ -96,6 +105,7 @@ class MaterialIconBase(
         fill_alpha: Union[float, Number] = 1.0,
         width: Union[int, Int] = 24,
         height: Union[int, Int] = 24,
+        parent: Optional[ChildMixIn] = None,
         variable_name: str = "",
         variable_name_suffix: str = "",
     ) -> None:
@@ -116,6 +126,10 @@ class MaterialIconBase(
             An icon width.
         height : Union[int, Int], optional
             An icon height.
+        parent : ChildMixIn or None, default None
+            A parent instance to add this instance.
+            If the specified value is None, this interface uses
+            a stage instance.
         variable_name : str, optional
             A Variable name of JavaScript.
         variable_name_suffix : str, optional
@@ -125,16 +139,29 @@ class MaterialIconBase(
         from apysc._converter import to_apysc_val_from_builtin
 
         self._variable_name_suffix = variable_name_suffix
-        self.variable_name = self._make_variable_name_if_empty(
+        variable_name = self._make_variable_name_if_empty(
             variable_name=variable_name
         )
+        self.variable_name = variable_name
         self._svg_path_value = (
             to_apysc_val_from_builtin.get_copied_string_from_builtin_val(
                 string=svg_path_value
             )
         )
         self._append_constructor_expression()
-        pass
+        self.fill_color = fill_color
+        self.fill_alpha = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=fill_alpha
+        )
+        self.width = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=width
+        )
+        self.height = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
+            integer=height
+        )
+        super(MaterialIconBase, self).__init__(variable_name=variable_name)
+        self._set_overflow_visible_setting()
+        self._add_to_parent(parent=parent)
 
     def _append_constructor_expression(self) -> None:
         """

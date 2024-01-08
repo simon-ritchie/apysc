@@ -604,6 +604,7 @@ def _append_autoflake_lint_command_if_module_updated(
             {
                 "command": "autoflake --in-place --remove-unused-variables "
                 "--remove-all-unused-imports "
+                "--exclude apysc/_material_design/icon/material_icons.py "
                 f"{autoflake_module_paths_str}",
                 "lint_name": "autoflake",
             }

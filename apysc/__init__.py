@@ -140,7 +140,7 @@ from apysc._color.colors import Colors
 from apysc._color.colors import MaterialDesignColors
 from apysc._color.colorless import COLORLESS
 from apysc._material_design.icon.material_icon_base import MaterialIconBase
-from apysc._material_design.icon.material_icons import MaterialIcons
+from apysc._material_design.icon import material_icons
 
 True_: __True = __True()
 False_: __False = __False()

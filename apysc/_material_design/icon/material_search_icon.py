@@ -1,13 +1,14 @@
 """Material icons' search icon class implementation.
 """
 
-from apysc._material_design.icon.material_icon_base import MaterialIconBase
 from typing import Optional
 from typing import Union
+
 from apysc._color.color import Color
+from apysc._display.child_mixin import ChildMixIn
+from apysc._material_design.icon.material_icon_base import MaterialIconBase
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._display.child_mixin import ChildMixIn
 from apysc._validation import arg_validation_decos
 
 

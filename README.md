@@ -182,3 +182,4 @@ Also, the apysc library depends on the following libraries:
 - [Underscore.js, MIT License](https://github.com/jashkenas/underscore/blob/master/LICENSE)
 - [Static Typing for Python (Python official backport package)](https://github.com/python/typing)
 - [html-minifier, MIT License](https://github.com/Kaumer/html-minifier/blob/master/LICENSE)
+- [Material Icons](https://fonts.google.com/icons?selected=Material+Icons:search:), [APACHE LICENSE, VERSION 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)

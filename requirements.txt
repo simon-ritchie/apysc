@@ -9,7 +9,7 @@ numdoclint==0.1.9
 mypy==1.7.1
 html-minifier==0.0.4
 wheel==0.42.0
-importlib-metadata==7.0.0
+importlib-metadata==7.0.1
 Sphinx==7.1.2
 groundwork-sphinx-theme==1.1.1
 notebook==7.0.6

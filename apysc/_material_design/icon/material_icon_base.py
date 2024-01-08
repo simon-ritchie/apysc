@@ -130,14 +130,14 @@ class MaterialIconBase(
             An icon fill-color.
         fill_alpha : Union[float, Number], optional
             An icon fill-alpha (opacity).
-        width : Union[int, Int], optional
-            An icon width.
-        height : Union[int, Int], optional
-            An icon height.
         x : Union[float, Number], optional
             An icon x-coordinate.
         y : Union[float, Number], optional
             An icon y-coordinate.
+        width : Union[int, Int], optional
+            An icon width.
+        height : Union[int, Int], optional
+            An icon height.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses

@@ -87,24 +87,30 @@ class MaterialIconBase(
     @arg_validation_decos.is_color(arg_position_index=2, optional=False)
     # fill_alpha
     @arg_validation_decos.is_num(arg_position_index=3, optional=False)
+    # x
+    @arg_validation_decos.is_num(arg_position_index=4, optional=False)
+    # y
+    @arg_validation_decos.is_num(arg_position_index=5, optional=False)
     # width
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=4, optional=False)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=6, optional=False)
     # height
-    @arg_validation_decos.num_is_gte_zero(arg_position_index=5, optional=False)
+    @arg_validation_decos.num_is_gte_zero(arg_position_index=7, optional=False)
     # parent
     @arg_validation_decos.is_display_object_container(
-        arg_position_index=6, optional=True
+        arg_position_index=8, optional=True
     )
     # variable_name
-    @arg_validation_decos.is_builtin_string(arg_position_index=7, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=9, optional=False)
     # variable_name_suffix
-    @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
+    @arg_validation_decos.is_builtin_string(arg_position_index=10, optional=False)
     def __init__(
         self,
         *,
         svg_path_value: Union[str, String],
         fill_color: Color,
         fill_alpha: Union[float, Number] = 1.0,
+        x: Union[float, Number] = 0,
+        y: Union[float, Number] = 0,
         width: Union[int, Int] = 24,
         height: Union[int, Int] = 24,
         parent: Optional[ChildMixIn] = None,
@@ -128,6 +134,10 @@ class MaterialIconBase(
             An icon width.
         height : Union[int, Int], optional
             An icon height.
+        x : Union[float, Number], optional
+            An icon x-coordinate.
+        y : Union[float, Number], optional
+            An icon y-coordinate.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -158,6 +168,12 @@ class MaterialIconBase(
         )
         self.height = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
             integer=height
+        )
+        self.x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=x
+        )
+        self.y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=y
         )
         super(MaterialIconBase, self).__init__(variable_name=variable_name)
         self._set_overflow_visible_setting()

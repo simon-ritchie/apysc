@@ -60,6 +60,8 @@ class TestMaterialIconBase:
             fill_alpha=0.5,
             width=100,
             height=150,
+            x=200,
+            y=300,
             parent=sprite,
             variable_name="test_icon",
             variable_name_suffix="test_suffix",
@@ -69,6 +71,8 @@ class TestMaterialIconBase:
         assert icon._fill_alpha._value == 0.5
         assert icon._width._value == 100
         assert icon._height._value == 150
+        assert icon._x._value == 200
+        assert icon._y._value == 300
         assert icon.parent == sprite
         assert "test_icon" in icon.variable_name
         assert "test_suffix" in icon.variable_name

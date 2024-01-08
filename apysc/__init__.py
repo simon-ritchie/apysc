@@ -146,4 +146,4 @@ from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.4"
+__version__: str = "4.1.5"

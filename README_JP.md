@@ -177,7 +177,7 @@ apyscライブラリはMITライセンスにて公開されています。
 - [Pauline Font - by Marcos Boric (2020)](https://www.behance.net/gallery/94972757/Pauline-Font)
 - [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.en)
 
-また、apyscは以下のライブラリにも依存しています。
+また、apyscは以下のライブラリやアセットなどにも依存しています。
 
 - [jQuery, MIT License](https://github.com/jquery/jquery/blob/main/LICENSE.txt)
 - [jQuery Mousewheel](https://github.com/jquery/jquery-mousewheel/blob/main/LICENSE.txt)
@@ -185,3 +185,4 @@ apyscライブラリはMITライセンスにて公開されています。
 - [Underscore.js, MIT License](https://github.com/jashkenas/underscore/blob/master/LICENSE)
 - [Static Typing for Python (Python official backport package)](https://github.com/python/typing)
 - [html-minifier, MIT License](https://github.com/Kaumer/html-minifier/blob/master/LICENSE)
+- [Material Icons](https://fonts.google.com/icons?selected=Material+Icons:search:), [APACHE LICENSE, VERSION 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)

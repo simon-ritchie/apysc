@@ -174,7 +174,7 @@ The logo image uses the following Creative Commons license font:
 - [Pauline Font - by Marcos Boric (2020)](https://www.behance.net/gallery/94972757/Pauline-Font)
 - [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.en)
 
-Also, the apysc library depends on the following libraries:
+Also, the apysc library depends on the following libraries and assets:
 
 - [jQuery, MIT License](https://github.com/jquery/jquery/blob/main/LICENSE.txt)
 - [jQuery Mousewheel](https://github.com/jquery/jquery-mousewheel/blob/main/LICENSE.txt)

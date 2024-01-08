@@ -6,8 +6,8 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestMaterialSearchIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: ap.material_icons.MaterialSearchIcon = (
-            ap.material_icons.MaterialSearchIcon(
+        icon: ap.MaterialSearchIcon = (
+            ap.MaterialSearchIcon(
                 fill_color=ap.Colors.WHITE_FFFFFF,
                 fill_alpha=0.5,
                 x=100,

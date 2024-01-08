@@ -62,6 +62,98 @@ def main() -> None:
         y=100,
     )
 
+    icon: ap.MaterialIconBase = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=140,
+    )
+    icon.set_css(name="opacity", value=ap.String("0.2"))
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=180,
+    )
+    icon.scale_x_from_center = ap.Number(1.5)
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=220,
+    )
+    icon.scale_y_from_center = ap.Number(1.5)
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=260,
+    )
+    icon.set_scale_x_from_point(scale_x=ap.Number(2.0), x=ap.Number(20))
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=300,
+    )
+    icon.set_scale_y_from_point(scale_y=ap.Number(2.0), y=ap.Number(300))
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=340,
+    )
+    icon.rotation_around_center = ap.Int(45)
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=380,
+    )
+    icon.set_rotation_around_point(
+        rotation=ap.Int(45), x=ap.Number(20), y=ap.Number(380)
+    )
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=420,
+    )
+    icon.flip_x = ap.True_
+
+    icon = ap.MaterialIconBase(
+        svg_path_value=svg_path_value,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        width=24,
+        height=24,
+        x=20,
+        y=460,
+    )
+    icon.flip_y = ap.True_
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

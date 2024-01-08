@@ -3,6 +3,7 @@ The common constants and utilities for the material icons' testing.
 """
 
 from typing import Type
+
 import apysc as ap
 
 

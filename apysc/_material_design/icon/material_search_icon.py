@@ -44,6 +44,7 @@ class MaterialSearchIcon(MaterialIconBase):
     @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     def __init__(
         self,
+        *,
         fill_color: Color,
         fill_alpha: Union[float, Number] = 1.0,
         x: Union[float, Number] = 0,

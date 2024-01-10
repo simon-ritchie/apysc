@@ -149,4 +149,4 @@ from apysc._material_design.icon.material_done_icon import MaterialDoneIcon
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.5"
+__version__: str = "4.1.6"

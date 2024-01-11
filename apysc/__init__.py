@@ -145,6 +145,7 @@ from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 from apysc._material_design.icon.material_account_circle_icon import MaterialAccountCircleIcon
 from apysc._material_design.icon.material_settings_icon import MaterialSettingsIcon
 from apysc._material_design.icon.material_done_icon import MaterialDoneIcon
+from apysc._material_design.icon.material_info_icon import MaterialInfoIcon
 
 True_: __True = __True()
 False_: __False = __False()

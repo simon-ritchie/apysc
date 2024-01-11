@@ -2,7 +2,7 @@
 """
 
 from apysc._material_design.icon.path_and_var_name_setting_base import (
-    PathAndVarNameSettingBase
+    PathAndVarNameSettingBase,
 )
 
 
@@ -20,23 +20,23 @@ class MaterialDoneIcon(PathAndVarNameSettingBase):
 
     def _get_svg_path_value(self) -> str:
         """
-        Get this icon's svg path value.
+        Get this icon's SVG path value.
 
         Returns
         -------
         svg_path_value : str
-            This icon's svg path value.
+            This icon's SVG path value.
         """
         return "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
 
     def _get_icon_variable_name(self) -> str:
         """
-        Get this icon's variable name constant value.
+        Get this icon variable name's constant value.
 
         Returns
         -------
         icon_variable_name : str
-            This icon's variable name constant value.
+            This icon variable name's constant value.
         """
         from apysc._expression import var_names
 

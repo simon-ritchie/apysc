@@ -1,12 +1,12 @@
-# `apysc._material_design.icon.material_account_circle_icon` docstrings
+# `apysc._material_design.icon.material_check_circle_icon` docstrings
 
 ## Module summary
 
-Material icons' account circle icon class implementation.
+Material icons' check circle icon class implementation.
 
-## `MaterialAccountCircleIcon` class docstring
+## `MaterialCheckCircleIcon` class docstring
 
-Material icons' account circle icon class implementation.<hr>
+Material icons' check circle icon class implementation.<hr>
 
 **[References]**
 

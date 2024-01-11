@@ -1,12 +1,12 @@
-# `apysc._material_design.icon.material_account_circle_icon` docstrings
+# `apysc._material_design.icon.material_shopping_cart_icon` docstrings
 
 ## Module summary
 
-Material icons' account circle icon class implementation.
+Material icons' shopping cart icon class implementation.
 
-## `MaterialAccountCircleIcon` class docstring
+## `MaterialShoppingCartIcon` class docstring
 
-Material icons' account circle icon class implementation.<hr>
+Material icons' shopping cart icon class implementation.<hr>
 
 **[References]**
 

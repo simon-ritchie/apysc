@@ -2,29 +2,29 @@
 This class handles the icon's path value and variable name settings.
 """
 
-from apysc._material_design.icon.material_icon_base import MaterialIconBase
 from abc import abstractmethod
-from apysc._validation import arg_validation_decos
+from typing import Optional
+from typing import Union
+
 from apysc._color.color import Color
 from apysc._display.child_mixin import ChildMixIn
 from apysc._material_design.icon.material_icon_base import MaterialIconBase
 from apysc._type.int import Int
 from apysc._type.number import Number
-from typing import Optional
-from typing import Union
+from apysc._validation import arg_validation_decos
 
 
 class PathAndVarNameSettingBase(MaterialIconBase):
     @abstractmethod
     def _get_svg_path_value(self) -> str:
         """
-        Get this icon's svg path value.
+        Get this icon's SVG path value.
         """
 
     @abstractmethod
     def _get_icon_variable_name(self) -> str:
         """
-        Get this icon's variable name constant value.
+        Get this icon variable name's constant value.
         """
 
     # fill_color

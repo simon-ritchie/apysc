@@ -147,6 +147,7 @@ from apysc._material_design.icon.material_settings_icon import MaterialSettingsI
 from apysc._material_design.icon.material_done_icon import MaterialDoneIcon
 from apysc._material_design.icon.material_info_icon import MaterialInfoIcon
 from apysc._material_design.icon.material_check_circle_icon import MaterialCheckCircleIcon
+from apysc._material_design.icon.material_shopping_cart_icon import MaterialShoppingCartIcon
 
 True_: __True = __True()
 False_: __False = __False()

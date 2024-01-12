@@ -433,3 +433,10 @@ assert_arrays_equal_and_arrays_not_equal
 assert_dicts_equal_and_dicts_not_equal
 assert_defined_and_undefined
 ```
+
+## Material design
+
+```{toctree}
+:maxdepth: 1
+material_icons
+```

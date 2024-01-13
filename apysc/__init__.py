@@ -154,6 +154,7 @@ from apysc._material_design.icon.material_logout_icon import MaterialLogoutIcon
 from apysc._material_design.icon.material_favorite_border_icon import MaterialFavoriteBorderIcon
 from apysc._material_design.icon.material_lock_icon import MaterialLockIcon
 from apysc._material_design.icon.material_schedule_icon import MaterialScheduleIcon
+from apysc._material_design.icon.material_face_icon import MaterialFaceIcon
 
 True_: __True = __True()
 False_: __False = __False()

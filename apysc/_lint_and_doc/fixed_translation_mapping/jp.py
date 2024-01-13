@@ -4619,5 +4619,53 @@ MAPPINGS: Mappings = Mappings(
             key="Text line_height property",
             val="テキストの line_height 属性",
         ),
+        Mapping(
+            key="## Implementation overview",
+            val="## 実装の概要",
+        ),
+        Mapping(
+            key="## Each material icon constructor API",
+            val="## 各マテリアルアイコンのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="Create a material icon.<hr>",
+            val="マテリアルデザインのアイコンを作成します。<hr>",
+        ),
+        Mapping(
+            key="  - An icon fill-color.",
+            val="  - アイコンの塗りの色。",
+        ),
+        Mapping(
+            key="  - An icon fill-alpha (opacity).",
+            val="  - アイコンの塗りの透明度。",
+        ),
+        Mapping(
+            key="  - An icon x-coordinate.",
+            val="  - アイコンのX座標。",
+        ),
+        Mapping(
+            key="  - An icon y-coordinate.",
+            val="  - アイコンのY座標。",
+        ),
+        Mapping(
+            key="  - An icon width.",
+            val="  - アイコンの幅。",
+        ),
+        Mapping(
+            key="  - An icon height.",
+            val="  - アイコンの高さ。",
+        ),
+        Mapping(
+            key="- [Material icons](https://fonts.google.com/icons?selected=Material+Icons:search:)",
+            val="- [Material icons](https://fonts.google.com/icons?selected=Material+Icons:search:)",
+        ),
+        Mapping(
+            key="APACHE LICENSE, VERSION 2.0",
+            val="APACHE LICENSE, VERSION 2.0",
+        ),
+        Mapping(
+            key="## Material design",
+            val="## マテリアルデザイン",
+        ),
     ]
 )

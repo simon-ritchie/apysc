@@ -9,7 +9,7 @@ from typing import Dict
 
 MAPPING: Dict[str, str] = {
     ##################################################
-    "# Each branch instruction class's scope variable reverting setting": "# 各分岐制御のクラスのスコープ内の変数値の復元設定",  # noqa
+    "# Each branch instruction class\'s scope variable reverting setting": "# 各分岐制御のクラスのスコープ内の変数値の復元設定",  # noqa
     ##################################################
     "This page explains each branch instruction class (like the `If`\\, `Elif`\\, and `Else`) scope variables reverting setting.": "このページでは`If`や`Elif`、`Else`などの分岐制御の各クラスのスコープ内の変数の復元設定について説明します。",  # noqa
     ##################################################
@@ -27,7 +27,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `If`, `Elif`, and `Else` classes have the arguments of the `locals_` and `globals_` (basically set the `locals()` and `globals()` built-in functions return value). If these arguments are specified, the scope variables are reverted when ended each scope (e.g., `If` scope).": "`If`や`Elif`、`Else`などのクラスは`locals_`と`globals_`の引数の省略可能なオプションを持っています（基本的に設定する場合にはビルトインの`locals()`関数と`globals()`関数の値を設定します）。これらの引数へ値が設定された場合にはスコープ内の各変数が`If`クラスなどのそれぞれのスコープが終了した時点でスコープ前の段階に復元されます。",  # noqa
     ##################################################
-    "This interface is occasionally helpful when you don't want to update the variables in each branch instruction scope.": "このインターフェイスのオプションは各分岐の箇所でPythonの変数を更新したく無い場合などに役に立つケースがあります。",  # noqa
+    "This interface is occasionally helpful when you don\'t want to update the variables in each branch instruction scope.": "このインターフェイスのオプションは各分岐の箇所でPythonの変数を更新したく無い場合などに役に立つケースがあります。",  # noqa
     ##################################################
     "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ncondition: ap.Boolean = ap.Boolean(False)\nint_1: ap.Int = ap.Int(10)\n\nwith ap.If(condition, locals_=locals(), globals_=globals()):\n    int_1 += 10\nassert int_1 == 10\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage()\ncondition: ap.Boolean = ap.Boolean(False)\nint_1: ap.Int = ap.Int(10)\n\nwith ap.If(condition, locals_=locals(), globals_=globals()):\n    int_1 += 10\nassert int_1 == 10\n```",  # noqa
     ##################################################

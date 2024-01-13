@@ -151,6 +151,7 @@ from apysc._material_design.icon.material_shopping_cart_icon import MaterialShop
 from apysc._material_design.icon.material_favorite_icon import MaterialFavoriteIcon
 from apysc._material_design.icon.material_description_icon import MaterialDescriptionIcon
 from apysc._material_design.icon.material_logout_icon import MaterialLogoutIcon
+from apysc._material_design.icon.material_favorite_border_icon import MaterialFavoriteBorderIcon
 
 True_: __True = __True()
 False_: __False = __False()

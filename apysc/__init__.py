@@ -158,4 +158,4 @@ from apysc._material_design.icon.material_schedule_icon import MaterialScheduleI
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.7"
+__version__: str = "4.1.8"

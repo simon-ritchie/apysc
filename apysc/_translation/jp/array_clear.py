@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `clear` method clears an Array\'s value. This interface makes an Array\'s value empty.": "`clear`メソッドは配列の値を空にします。",  # noqa
+    "The `clear` method clears an Array's value. This interface makes an Array's value empty.": "`clear`メソッドは配列の値を空にします。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################

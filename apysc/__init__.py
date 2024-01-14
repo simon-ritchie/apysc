@@ -157,6 +157,7 @@ from apysc._material_design.icon.material_schedule_icon import MaterialScheduleI
 from apysc._material_design.icon.material_face_icon import MaterialFaceIcon
 from apysc._material_design.icon.material_manage_accounts_icon import MaterialManageAccountsIcon
 from apysc._material_design.icon.material_verified_icon import MaterialVerifiedIcon
+from apysc._material_design.icon.material_filter_alt_icon import MaterialFilterAltIcon
 
 True_: __True = __True()
 False_: __False = __False()

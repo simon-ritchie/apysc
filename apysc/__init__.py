@@ -159,6 +159,7 @@ from apysc._material_design.icon.material_manage_accounts_icon import MaterialMa
 from apysc._material_design.icon.material_verified_icon import MaterialVerifiedIcon
 from apysc._material_design.icon.material_filter_alt_icon import MaterialFilterAltIcon
 from apysc._material_design.icon.material_thumb_up_icon import MaterialThumbUpIcon
+from apysc._material_design.icon.material_event_icon import MaterialEventIcon
 
 True_: __True = __True()
 False_: __False = __False()

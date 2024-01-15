@@ -163,6 +163,7 @@ from apysc._material_design.icon.material_event_icon import MaterialEventIcon
 from apysc._material_design.icon.material_fingerprint_icon import MaterialFingerprintIcon
 from apysc._material_design.icon.material_dashboard_icon import MaterialDashboardIcon
 from apysc._material_design.icon.material_list_icon import MaterialListIcon
+from apysc._material_design.icon.material_login_icon import MaterialLoginIcon
 
 True_: __True = __True()
 False_: __False = __False()

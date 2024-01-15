@@ -170,4 +170,4 @@ from apysc._material_design.icon.material_highlight_off_icon import MaterialHigh
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.8"
+__version__: str = "4.1.9"

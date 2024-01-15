@@ -161,6 +161,7 @@ from apysc._material_design.icon.material_filter_alt_icon import MaterialFilterA
 from apysc._material_design.icon.material_thumb_up_icon import MaterialThumbUpIcon
 from apysc._material_design.icon.material_event_icon import MaterialEventIcon
 from apysc._material_design.icon.material_fingerprint_icon import MaterialFingerprintIcon
+from apysc._material_design.icon.material_dashboard_icon import MaterialDashboardIcon
 
 True_: __True = __True()
 False_: __False = __False()

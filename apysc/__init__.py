@@ -160,6 +160,7 @@ from apysc._material_design.icon.material_verified_icon import MaterialVerifiedI
 from apysc._material_design.icon.material_filter_alt_icon import MaterialFilterAltIcon
 from apysc._material_design.icon.material_thumb_up_icon import MaterialThumbUpIcon
 from apysc._material_design.icon.material_event_icon import MaterialEventIcon
+from apysc._material_design.icon.material_fingerprint_icon import MaterialFingerprintIcon
 
 True_: __True = __True()
 False_: __False = __False()

@@ -166,6 +166,7 @@ from apysc._material_design.icon.material_list_icon import MaterialListIcon
 from apysc._material_design.icon.material_login_icon import MaterialLoginIcon
 from apysc._material_design.icon.material_calendar_today_icon import MaterialCalendarTodayIcon
 from apysc._material_design.icon.material_highlight_off_icon import MaterialHighlightOffIcon
+from apysc._material_design.icon.material_help_icon import MaterialHelpIcon
 
 True_: __True = __True()
 False_: __False = __False()

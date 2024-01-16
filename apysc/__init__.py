@@ -169,6 +169,7 @@ from apysc._material_design.icon.material_highlight_off_icon import MaterialHigh
 from apysc._material_design.icon.material_help_icon import MaterialHelpIcon
 from apysc._material_design.icon.material_paid_icon import MaterialPaidIcon
 from apysc._material_design.icon.material_task_alt_icon import MaterialTaskAltIcon
+from apysc._material_design.icon.material_question_answer_icon import MaterialQuestionAnswerIcon
 
 True_: __True = __True()
 False_: __False = __False()

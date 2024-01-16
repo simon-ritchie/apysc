@@ -168,6 +168,7 @@ from apysc._material_design.icon.material_calendar_today_icon import MaterialCal
 from apysc._material_design.icon.material_highlight_off_icon import MaterialHighlightOffIcon
 from apysc._material_design.icon.material_help_icon import MaterialHelpIcon
 from apysc._material_design.icon.material_paid_icon import MaterialPaidIcon
+from apysc._material_design.icon.material_task_alt_icon import MaterialTaskAltIcon
 
 True_: __True = __True()
 False_: __False = __False()

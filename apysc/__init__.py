@@ -170,6 +170,7 @@ from apysc._material_design.icon.material_help_icon import MaterialHelpIcon
 from apysc._material_design.icon.material_paid_icon import MaterialPaidIcon
 from apysc._material_design.icon.material_task_alt_icon import MaterialTaskAltIcon
 from apysc._material_design.icon.material_question_answer_icon import MaterialQuestionAnswerIcon
+from apysc._material_design.icon.material_date_range_icon import MaterialDateRangeIcon
 
 True_: __True = __True()
 False_: __False = __False()

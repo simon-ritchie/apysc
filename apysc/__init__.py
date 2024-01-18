@@ -176,6 +176,7 @@ from apysc._material_design.icon.material_light_bulb_icon import MaterialLightBu
 from apysc._material_design.icon.material_credit_card_icon import MaterialCreditCardIcon
 from apysc._material_design.icon.material_perm_identity_icon import MaterialPermIdentityIcon
 from apysc._material_design.icon.material_history_icon import MaterialHistoryIcon
+from apysc._material_design.icon.material_trending_up_icon import MaterialTrendingUpIcon
 
 
 True_: __True = __True()

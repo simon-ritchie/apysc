@@ -174,6 +174,8 @@ from apysc._material_design.icon.material_date_range_icon import MaterialDateRan
 from apysc._material_design.icon.material_article_icon import MaterialArticleIcon
 from apysc._material_design.icon.material_light_bulb_icon import MaterialLightBulbIcon
 from apysc._material_design.icon.material_credit_card_icon import MaterialCreditCardIcon
+from apysc._material_design.icon.material_perm_identity_icon import MaterialPermIdentityIcon
+
 
 True_: __True = __True()
 False_: __False = __False()

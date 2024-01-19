@@ -186,4 +186,4 @@ from apysc._material_design.icon.material_arrow_right_alt_icon import MaterialAr
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.9"
+__version__: str = "4.1.10"

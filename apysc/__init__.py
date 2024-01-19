@@ -180,6 +180,7 @@ from apysc._material_design.icon.material_trending_up_icon import MaterialTrendi
 from apysc._material_design.icon.material_delete_outline_icon import MaterialDeleteOutlineIcon
 from apysc._material_design.icon.material_fact_check_icon import MaterialFactCheckIcon
 from apysc._material_design.icon.material_assignment_icon import MaterialAssignmentIcon
+from apysc._material_design.icon.material_arrow_right_alt_icon import MaterialArrowRightAltIcon
 
 
 True_: __True = __True()

@@ -178,6 +178,7 @@ from apysc._material_design.icon.material_perm_identity_icon import MaterialPerm
 from apysc._material_design.icon.material_history_icon import MaterialHistoryIcon
 from apysc._material_design.icon.material_trending_up_icon import MaterialTrendingUpIcon
 from apysc._material_design.icon.material_delete_outline_icon import MaterialDeleteOutlineIcon
+from apysc._material_design.icon.material_fact_check_icon import MaterialFactCheckIcon
 
 
 True_: __True = __True()

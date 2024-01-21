@@ -181,6 +181,7 @@ from apysc._material_design.icon.material_delete_outline_icon import MaterialDel
 from apysc._material_design.icon.material_fact_check_icon import MaterialFactCheckIcon
 from apysc._material_design.icon.material_assignment_icon import MaterialAssignmentIcon
 from apysc._material_design.icon.material_arrow_right_alt_icon import MaterialArrowRightAltIcon
+from apysc._material_design.icon.material_view_list_icon import MaterialViewListIcon
 
 
 True_: __True = __True()

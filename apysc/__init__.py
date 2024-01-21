@@ -183,6 +183,7 @@ from apysc._material_design.icon.material_assignment_icon import MaterialAssignm
 from apysc._material_design.icon.material_arrow_right_alt_icon import MaterialArrowRightAltIcon
 from apysc._material_design.icon.material_view_list_icon import MaterialViewListIcon
 from apysc._material_design.icon.material_build_icon import MaterialBuildIcon
+from apysc._material_design.icon.material_store_icon import MaterialStoreIcon
 
 
 True_: __True = __True()

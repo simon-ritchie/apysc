@@ -193,4 +193,4 @@ from apysc._material_design.icon.material_calendar_month_icon import MaterialCal
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.10"
+__version__: str = "4.1.11"

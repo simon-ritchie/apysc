@@ -186,6 +186,7 @@ from apysc._material_design.icon.material_build_icon import MaterialBuildIcon
 from apysc._material_design.icon.material_store_icon import MaterialStoreIcon
 from apysc._material_design.icon.material_work_icon import MaterialWorkIcon
 from apysc._material_design.icon.material_print_icon import MaterialPrintIcon
+from apysc._material_design.icon.material_analytics_icon import MaterialAnalyticsIcon
 
 
 True_: __True = __True()

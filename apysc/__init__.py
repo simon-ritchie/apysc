@@ -190,6 +190,7 @@ from apysc._material_design.icon.material_analytics_icon import MaterialAnalytic
 from apysc._material_design.icon.material_calendar_month_icon import MaterialCalendarMonthIcon
 from apysc._material_design.icon.material_delete_forever_icon import MaterialDeleteForeverIcon
 from apysc._material_design.icon.material_today_icon import MaterialTodayIcon
+from apysc._material_design.icon.material_grade_icon import MaterialGradeIcon
 
 
 True_: __True = __True()

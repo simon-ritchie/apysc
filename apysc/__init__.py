@@ -193,6 +193,7 @@ from apysc._material_design.icon.material_today_icon import MaterialTodayIcon
 from apysc._material_design.icon.material_grade_icon import MaterialGradeIcon
 from apysc._material_design.icon.material_update_icon import MaterialUpdateIcon
 from apysc._material_design.icon.material_savings_icon import MaterialSavingsIcon
+from apysc._material_design.icon.material_room_icon import MaterialRoomIcon
 
 True_: __True = __True()
 False_: __False = __False()

@@ -197,6 +197,7 @@ from apysc._material_design.icon.material_room_icon import MaterialRoomIcon
 from apysc._material_design.icon.material_code_icon import MaterialCodeIcon
 from apysc._material_design.icon.material_add_shopping_cart_icon import MaterialAddShoppingCartIcon
 from apysc._material_design.icon.material_contract_support_icon import MaterialContractSupportIcon
+from apysc._material_design.icon.material_receipt_icon import MaterialReceiptIcon
 
 True_: __True = __True()
 False_: __False = __False()

@@ -201,6 +201,7 @@ from apysc._material_design.icon.material_receipt_icon import MaterialReceiptIco
 from apysc._material_design.icon.material_pets_icon import MaterialPetsIcon
 from apysc._material_design.icon.material_explore_icon import MaterialExploreIcon
 from apysc._material_design.icon.material_bookmark_icon import MaterialBookmarkIcon
+from apysc._material_design.icon.material_account_box_icon import MaterialAccountBoxIcon
 
 True_: __True = __True()
 False_: __False = __False()

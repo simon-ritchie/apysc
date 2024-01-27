@@ -203,6 +203,7 @@ from apysc._material_design.icon.material_explore_icon import MaterialExploreIco
 from apysc._material_design.icon.material_bookmark_icon import MaterialBookmarkIcon
 from apysc._material_design.icon.material_account_box_icon import MaterialAccountBoxIcon
 from apysc._material_design.icon.material_note_add_icon import MaterialNoteAddIcon
+from apysc._material_design.icon.material_reorder_icon import MaterialReorderIcon
 
 True_: __True = __True()
 False_: __False = __False()

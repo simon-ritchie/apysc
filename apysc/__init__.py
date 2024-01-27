@@ -209,6 +209,7 @@ from apysc._material_design.icon.material_pending_actions_icon import MaterialPe
 from apysc._material_design.icon.material_shopping_basket_icon import MaterialShoppingBasketIcon
 from apysc._material_design.icon.material_drag_indicator_icon import MaterialDragIndicatorIcon
 from apysc._material_design.icon.material_touch_app_icon import MaterialTouchAppIcon
+from apysc._material_design.icon.material_supervisor_account_icon import MaterialSupervisorAccountIcon
 
 True_: __True = __True()
 False_: __False = __False()

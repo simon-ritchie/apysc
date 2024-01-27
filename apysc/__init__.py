@@ -206,6 +206,7 @@ from apysc._material_design.icon.material_note_add_icon import MaterialNoteAddIc
 from apysc._material_design.icon.material_reorder_icon import MaterialReorderIcon
 from apysc._material_design.icon.material_bookmark_border_icon import MaterialBookmarkBorderIcon
 from apysc._material_design.icon.material_pending_actions_icon import MaterialPendingActionsIcon
+from apysc._material_design.icon.material_shopping_basket_icon import MaterialShoppingBasketIcon
 
 True_: __True = __True()
 False_: __False = __False()

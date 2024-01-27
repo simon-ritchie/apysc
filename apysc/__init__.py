@@ -212,6 +212,7 @@ from apysc._material_design.icon.material_touch_app_icon import MaterialTouchApp
 from apysc._material_design.icon.material_supervisor_account_icon import MaterialSupervisorAccountIcon
 from apysc._material_design.icon.material_pending_actions_icon import MaterialPendingActionsIcon
 from apysc._material_design.icon.material_pending_icon import MaterialPendingIcon
+from apysc._material_design.icon.material_zoom_in_icon import MaterialZoomInIcon
 
 True_: __True = __True()
 False_: __False = __False()

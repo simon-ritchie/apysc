@@ -215,6 +215,7 @@ from apysc._material_design.icon.material_pending_icon import MaterialPendingIco
 from apysc._material_design.icon.material_zoom_in_icon import MaterialZoomInIcon
 from apysc._material_design.icon.material_assessment_icon import MaterialAssessmentIcon
 from apysc._material_design.icon.material_leader_board_icon import MaterialLeaderBoardIcon
+from apysc._material_design.icon.material_thumb_up_off_alt_icon import MaterialThumbUpOffAltIcon
 
 True_: __True = __True()
 False_: __False = __False()

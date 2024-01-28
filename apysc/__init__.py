@@ -213,6 +213,7 @@ from apysc._material_design.icon.material_supervisor_account_icon import Materia
 from apysc._material_design.icon.material_pending_actions_icon import MaterialPendingActionsIcon
 from apysc._material_design.icon.material_pending_icon import MaterialPendingIcon
 from apysc._material_design.icon.material_zoom_in_icon import MaterialZoomInIcon
+from apysc._material_design.icon.material_assessment_icon import MaterialAssessmentIcon
 
 True_: __True = __True()
 False_: __False = __False()

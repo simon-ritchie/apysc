@@ -220,6 +220,7 @@ from apysc._material_design.icon.material_exit_to_app_icon import MaterialExitTo
 from apysc._material_design.icon.material_assignment_ind_icon import MaterialAssignmentIndIcon
 from apysc._material_design.icon.material_published_with_changes_icon import MaterialPublishedWithChangesIcon
 from apysc._material_design.icon.material_card_giftcard_icon import MaterialCardGiftcardIcon
+from apysc._material_design.icon.material_view_in_ar_icon import MaterialViewInArIcon
 
 True_: __True = __True()
 False_: __False = __False()

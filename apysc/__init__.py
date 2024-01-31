@@ -231,4 +231,4 @@ from apysc._material_design.icon.material_tips_and_updates_icon import MaterialT
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.12"
+__version__: str = "4.1.13"

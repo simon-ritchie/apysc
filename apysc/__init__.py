@@ -227,6 +227,7 @@ from apysc._material_design.icon.material_timeline_icon import MaterialTimelineI
 from apysc._material_design.icon.material_swap_horiz_icon import MaterialSwapHorizIcon
 from apysc._material_design.icon.material_assignment_turned_in_icon import MaterialAssignmentTurnedInIcon
 from apysc._material_design.icon.material_tips_and_updates_icon import MaterialTipsAndUpdatesIcon
+from apysc._material_design.icon.material_dns_icon import MaterialDnsIcon
 
 True_: __True = __True()
 False_: __False = __False()

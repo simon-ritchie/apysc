@@ -225,6 +225,7 @@ from apysc._material_design.icon.material_feedback_icon import MaterialFeedbackI
 from apysc._material_design.icon.material_work_outline_icon import MaterialWorkOutlineIcon
 from apysc._material_design.icon.material_timeline_icon import MaterialTimelineIcon
 from apysc._material_design.icon.material_swap_horiz_icon import MaterialSwapHorizIcon
+from apysc._material_design.icon.material_assignment_turned_in_icon import MaterialAssignmentTurnedInIcon
 
 True_: __True = __True()
 False_: __False = __False()

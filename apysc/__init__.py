@@ -229,6 +229,7 @@ from apysc._material_design.icon.material_assignment_turned_in_icon import Mater
 from apysc._material_design.icon.material_tips_and_updates_icon import MaterialTipsAndUpdatesIcon
 from apysc._material_design.icon.material_dns_icon import MaterialDnsIcon
 from apysc._material_design.icon.material_flight_takeoff_icon import MaterialFlightTakeoffIcon
+from apysc._material_design.icon.material_space_dashboard_icon import MaterialSpaceDashboardIcon
 
 True_: __True = __True()
 False_: __False = __False()

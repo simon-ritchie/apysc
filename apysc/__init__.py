@@ -236,6 +236,7 @@ from apysc._material_design.icon.material_alarm_icon import MaterialAlarmIcon
 from apysc._material_design.icon.material_translate_icon import MaterialTranslateIcon
 from apysc._material_design.icon.material_pan_tool_icon import MaterialPanToolIcon
 from apysc._material_design.icon.material_edit_calendar_icon import MaterialEditCalendarIcon
+from apysc._material_design.icon.material_supervised_user_circle_icon import MaterialSupervisedUserCircleIcon
 
 True_: __True = __True()
 False_: __False = __False()

@@ -232,6 +232,7 @@ from apysc._material_design.icon.material_flight_takeoff_icon import MaterialFli
 from apysc._material_design.icon.material_space_dashboard_icon import MaterialSpaceDashboardIcon
 from apysc._material_design.icon.material_book_icon import MaterialBookIcon
 from apysc._material_design.icon.material_contact_page_icon import MaterialContactPageIcon
+from apysc._material_design.icon.material_alarm_icon import MaterialAlarmIcon
 
 True_: __True = __True()
 False_: __False = __False()

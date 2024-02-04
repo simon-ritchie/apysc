@@ -233,6 +233,7 @@ from apysc._material_design.icon.material_space_dashboard_icon import MaterialSp
 from apysc._material_design.icon.material_book_icon import MaterialBookIcon
 from apysc._material_design.icon.material_contact_page_icon import MaterialContactPageIcon
 from apysc._material_design.icon.material_alarm_icon import MaterialAlarmIcon
+from apysc._material_design.icon.material_translate_icon import MaterialTranslateIcon
 
 True_: __True = __True()
 False_: __False = __False()

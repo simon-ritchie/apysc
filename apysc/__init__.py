@@ -238,6 +238,7 @@ from apysc._material_design.icon.material_pan_tool_icon import MaterialPanToolIc
 from apysc._material_design.icon.material_edit_calendar_icon import MaterialEditCalendarIcon
 from apysc._material_design.icon.material_supervised_user_circle_icon import MaterialSupervisedUserCircleIcon
 from apysc._material_design.icon.material_minimize_icon import MaterialMinimizeIcon
+from apysc._material_design.icon.material_extension_icon import MaterialExtensionIcon
 
 True_: __True = __True()
 False_: __False = __False()

@@ -239,6 +239,7 @@ from apysc._material_design.icon.material_edit_calendar_icon import MaterialEdit
 from apysc._material_design.icon.material_supervised_user_circle_icon import MaterialSupervisedUserCircleIcon
 from apysc._material_design.icon.material_minimize_icon import MaterialMinimizeIcon
 from apysc._material_design.icon.material_extension_icon import MaterialExtensionIcon
+from apysc._material_design.icon.material_rocket_launch_icon import MaterialRocketLaunchIcon
 
 True_: __True = __True()
 False_: __False = __False()

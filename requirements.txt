@@ -13,10 +13,10 @@ importlib-metadata==7.0.1
 Sphinx==7.1.2
 groundwork-sphinx-theme==1.1.1
 notebook==7.0.7
-pyright==1.1.348
+pyright==1.1.349
 playwright==1.41.0
 myst-parser==2.0.0
-black==23.12.1
+black==24.1.1
 blackdoc==0.3.9
 tqdm==4.66.1
 pytest-xdist==3.5.0

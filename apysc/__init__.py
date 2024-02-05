@@ -227,8 +227,21 @@ from apysc._material_design.icon.material_timeline_icon import MaterialTimelineI
 from apysc._material_design.icon.material_swap_horiz_icon import MaterialSwapHorizIcon
 from apysc._material_design.icon.material_assignment_turned_in_icon import MaterialAssignmentTurnedInIcon
 from apysc._material_design.icon.material_tips_and_updates_icon import MaterialTipsAndUpdatesIcon
+from apysc._material_design.icon.material_dns_icon import MaterialDnsIcon
+from apysc._material_design.icon.material_flight_takeoff_icon import MaterialFlightTakeoffIcon
+from apysc._material_design.icon.material_space_dashboard_icon import MaterialSpaceDashboardIcon
+from apysc._material_design.icon.material_book_icon import MaterialBookIcon
+from apysc._material_design.icon.material_contact_page_icon import MaterialContactPageIcon
+from apysc._material_design.icon.material_alarm_icon import MaterialAlarmIcon
+from apysc._material_design.icon.material_translate_icon import MaterialTranslateIcon
+from apysc._material_design.icon.material_pan_tool_icon import MaterialPanToolIcon
+from apysc._material_design.icon.material_edit_calendar_icon import MaterialEditCalendarIcon
+from apysc._material_design.icon.material_supervised_user_circle_icon import MaterialSupervisedUserCircleIcon
+from apysc._material_design.icon.material_minimize_icon import MaterialMinimizeIcon
+from apysc._material_design.icon.material_extension_icon import MaterialExtensionIcon
+from apysc._material_design.icon.material_rocket_launch_icon import MaterialRocketLaunchIcon
 
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.13"
+__version__: str = "4.1.14"

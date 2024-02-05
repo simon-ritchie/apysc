@@ -165,7 +165,7 @@ jobs:
       - name: Install playwright and Chromium
         run: playwright install chromium
       - name: Run the test runner command
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_seconds: 480
           max_attempts: 3
@@ -204,7 +204,7 @@ jobs:
       - name: Install playwright and Chromium
         run: playwright install chromium
       - name: Run the test runner command
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_seconds: 300
           max_attempts: 3

@@ -244,4 +244,4 @@ from apysc._material_design.icon.material_rocket_launch_icon import MaterialRock
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.13"
+__version__: str = "4.1.14"

@@ -243,6 +243,7 @@ from apysc._material_design.icon.material_rocket_launch_icon import MaterialRock
 from apysc._material_design.icon.material_question_mark_icon import MaterialQuestionMarkIcon
 from apysc._material_design.icon.material_get_app_icon import MaterialGetAppIcon
 from apysc._material_design.icon.material_add_task_icon import MaterialAddTaskIcon
+from apysc._material_design.icon.material_help_center_icon import MaterialHelpCenterIcon
 
 True_: __True = __True()
 False_: __False = __False()

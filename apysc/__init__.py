@@ -241,6 +241,7 @@ from apysc._material_design.icon.material_minimize_icon import MaterialMinimizeI
 from apysc._material_design.icon.material_extension_icon import MaterialExtensionIcon
 from apysc._material_design.icon.material_rocket_launch_icon import MaterialRocketLaunchIcon
 from apysc._material_design.icon.material_question_mark_icon import MaterialQuestionMarkIcon
+from apysc._material_design.icon.material_get_app_icon import MaterialGetAppIcon
 
 True_: __True = __True()
 False_: __False = __False()

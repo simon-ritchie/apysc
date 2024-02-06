@@ -250,6 +250,7 @@ from apysc._material_design.icon.material_accessibility_new_icon import Material
 from apysc._material_design.icon.material_rule_icon import MaterialRuleIcon
 from apysc._material_design.icon.material_thumb_down_icon import MaterialThumbDownIcon
 from apysc._material_design.icon.material_ads_click_icon import MaterialAdsClickIcon
+from apysc._material_design.icon.material_source_icon import MaterialSourceIcon
 
 True_: __True = __True()
 False_: __False = __False()

@@ -247,6 +247,7 @@ from apysc._material_design.icon.material_help_center_icon import MaterialHelpCe
 from apysc._material_design.icon.material_hourglass_empty_icon import MaterialHourglassEmptyIcon
 from apysc._material_design.icon.material_trending_flat_icon import MaterialTrendingFlatIcon
 from apysc._material_design.icon.material_accessibility_new_icon import MaterialAccessibilityNewIcon
+from apysc._material_design.icon.material_rule_icon import MaterialRuleIcon
 
 True_: __True = __True()
 False_: __False = __False()

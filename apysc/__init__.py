@@ -256,6 +256,7 @@ from apysc._material_design.icon.material_dashboard_customize_icon import Materi
 from apysc._material_design.icon.material_support_icon import MaterialSupportIcon
 from apysc._material_design.icon.material_flutter_dash_icon import MaterialFlutterDashIcon
 from apysc._material_design.icon.material_redeem_icon import MaterialRedeemIcon
+from apysc._material_design.icon.material_close_full_screen_icon import MaterialCloseFullScreenIcon
 
 True_: __True = __True()
 False_: __False = __False()

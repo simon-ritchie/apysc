@@ -211,9 +211,9 @@ def _remove_runnable_inline_comment_from_code_blocks(dir_path: str = "./docs/") 
     """
     from apysc._string import string_util
 
-    RUNNABLE_COMMENT_CODE: Final[
-        str
-    ] = r'<span></span><span class="c1"># runnable</span>'
+    RUNNABLE_COMMENT_CODE: Final[str] = (
+        r'<span></span><span class="c1"># runnable</span>'
+    )
     file_or_dir_names: List[str] = os.listdir(dir_path)
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
@@ -260,9 +260,9 @@ def _exec_document_lint_and_script(limit_count: Op[int] = None) -> List[str]:
     """
     from apysc._file import file_util
 
-    excluding_file_names_prefix_list: List[
-        str
-    ] = _get_excluding_file_names_prefix_list()
+    excluding_file_names_prefix_list: List[str] = (
+        _get_excluding_file_names_prefix_list()
+    )
     md_file_paths: List[str] = file_util.get_specified_ext_file_paths_recursively(
         extension=".md",
         dir_path="./docs_src/",
@@ -279,10 +279,10 @@ def _exec_document_lint_and_script(limit_count: Op[int] = None) -> List[str]:
             func=_remove_document_hash_files_if_docstring_src_modified,
             iterable=md_file_paths,
         )
-        docstring_module_paths_: List[
-            str
-        ] = _flatten_2dim_module_paths_and_make_it_unique(
-            docstring_module_paths=docstring_module_paths
+        docstring_module_paths_: List[str] = (
+            _flatten_2dim_module_paths_and_make_it_unique(
+                docstring_module_paths=docstring_module_paths
+            )
         )
 
         logger.info(msg="Slicing not updated markdown files...")

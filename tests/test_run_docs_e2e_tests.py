@@ -40,10 +40,10 @@ def test__get_file_names() -> None:
 
 @apply_test_settings()
 def test__get_expected_assertion_failed_msgs() -> None:
-    expected_assertion_failed_msgs: Optional[
-        List[str]
-    ] = run_docs_e2e_tests._get_expected_assertion_failed_msgs(
-        file_name="jp_assert_equal_and_not_equal"
+    expected_assertion_failed_msgs: Optional[List[str]] = (
+        run_docs_e2e_tests._get_expected_assertion_failed_msgs(
+            file_name="jp_assert_equal_and_not_equal"
+        )
     )
     assert expected_assertion_failed_msgs == [
         "Values are equal!",
@@ -58,11 +58,11 @@ def test__get_expected_assertion_failed_msgs() -> None:
 
 @apply_test_settings()
 def test__create_local_file_data_2dim_list() -> None:
-    local_file_data_2dim_list: List[
-        List[LocalFileData]
-    ] = run_docs_e2e_tests._create_local_file_data_2dim_list(
-        file_names=["index", "jp_index", "assert_equal_and_not_equal"],
-        single_list_max_len=2,
+    local_file_data_2dim_list: List[List[LocalFileData]] = (
+        run_docs_e2e_tests._create_local_file_data_2dim_list(
+            file_names=["index", "jp_index", "assert_equal_and_not_equal"],
+            single_list_max_len=2,
+        )
     )
     assert len(local_file_data_2dim_list), 2
     assert len(local_file_data_2dim_list[0]), 2

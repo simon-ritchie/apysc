@@ -127,10 +127,10 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
     )
     lint_commands: List[LintCommand] = []
     module_paths: List[str] = ["./apysc/_display/sprite.py"]
-    autoflake_updated_module_paths: List[
-        str
-    ] = apply_lints_and_build_docs._append_autoflake_lint_command_if_module_updated(
-        lint_commands=lint_commands, module_paths=module_paths
+    autoflake_updated_module_paths: List[str] = (
+        apply_lints_and_build_docs._append_autoflake_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths
+        )
     )
     assert lint_commands == []
     assert autoflake_updated_module_paths == []
@@ -173,10 +173,10 @@ def test__append_isort_lint_command_if_module_updated() -> None:
     )
     lint_commands: List[LintCommand] = []
     module_paths: List[str] = ["./apysc/_display/sprite.py"]
-    isort_updated_module_paths: List[
-        str
-    ] = apply_lints_and_build_docs._append_isort_lint_command_if_module_updated(
-        lint_commands=lint_commands, module_paths=module_paths
+    isort_updated_module_paths: List[str] = (
+        apply_lints_and_build_docs._append_isort_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths
+        )
     )
     assert lint_commands == []
     assert isort_updated_module_paths == []
@@ -295,9 +295,9 @@ def test__check_mypy_process() -> None:
 
 @apply_test_settings()
 def test__start_numdoclint_processes() -> None:
-    numdoclint_processes: List[
-        sp.Popen
-    ] = apply_lints_and_build_docs._start_numdoclint_processes()
+    numdoclint_processes: List[sp.Popen] = (
+        apply_lints_and_build_docs._start_numdoclint_processes()
+    )
     assert len(numdoclint_processes) >= 3
     joined_commands: List[str] = [str(process.args) for process in numdoclint_processes]
     assert len(set(joined_commands)) == len(joined_commands)

@@ -50,11 +50,11 @@ class SetInitialMatrixDataMixIn:
             This setting is sometimes useful for JavaScript debugging.
         """
         if not isinstance(data, Array):
-            data_: Array[
-                Dictionary[String, Union[Int, Number, String]]
-            ] = _convert_list_to_array(
-                data=cast(List[Dict[str, Union[int, float, str]]], data),
-                variable_name_suffix=variable_name_suffix,
+            data_: Array[Dictionary[String, Union[Int, Number, String]]] = (
+                _convert_list_to_array(
+                    data=cast(List[Dict[str, Union[int, float, str]]], data),
+                    variable_name_suffix=variable_name_suffix,
+                )
             )
         else:
             data_ = data

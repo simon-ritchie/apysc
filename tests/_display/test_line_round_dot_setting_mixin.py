@@ -25,9 +25,9 @@ class TestLineRoundDotSettingMixIn:
     @apply_test_settings()
     def test_line_round_dot_setting(self) -> None:
         mixin: LineRoundDotSettingMixIn = LineRoundDotSettingMixIn()
-        line_round_dot_setting: Optional[
-            ap.LineRoundDotSetting
-        ] = mixin.line_round_dot_setting
+        line_round_dot_setting: Optional[ap.LineRoundDotSetting] = (
+            mixin.line_round_dot_setting
+        )
         assert line_round_dot_setting is None
 
         mixin._line_round_dot_setting = ap.LineRoundDotSetting(

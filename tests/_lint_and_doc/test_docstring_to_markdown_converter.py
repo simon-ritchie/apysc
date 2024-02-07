@@ -218,9 +218,9 @@ def test__append_module_docstring_to_markdown() -> None:
 @apply_test_settings()
 def test__get_module_toplevel_functions() -> None:
     module: ModuleType = _read_test_module()
-    toplevel_functions: List[
-        Callable
-    ] = docstring_to_markdown_converter._get_module_toplevel_functions(module=module)
+    toplevel_functions: List[Callable] = (
+        docstring_to_markdown_converter._get_module_toplevel_functions(module=module)
+    )
     assert len(toplevel_functions) == 1
     assert toplevel_functions[0].__name__ == "sample_func_1"
 
@@ -236,9 +236,9 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
     assert markdown == ""
 
     module: ModuleType = _read_test_module()
-    toplevel_functions: List[
-        Callable
-    ] = docstring_to_markdown_converter._get_module_toplevel_functions(module=module)
+    toplevel_functions: List[Callable] = (
+        docstring_to_markdown_converter._get_module_toplevel_functions(module=module)
+    )
     markdown = (
         docstring_to_markdown_converter._append_toplevel_function_docstring_to_markdown(
             markdown="# Test docstring\n\nLorem ipsum dolor.",
@@ -257,9 +257,9 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
 @apply_test_settings()
 def test__append_each_section_to_markdown() -> None:
     module: ModuleType = _read_test_module()
-    toplevel_functions: List[
-        Callable
-    ] = docstring_to_markdown_converter._get_module_toplevel_functions(module=module)
+    toplevel_functions: List[Callable] = (
+        docstring_to_markdown_converter._get_module_toplevel_functions(module=module)
+    )
     docstring: str = toplevel_functions[0].__doc__ or ""
     markdown = docstring_to_markdown_converter._append_each_section_to_markdown(
         markdown="## Test docstring\n\nLorem ipsum dolor.", docstring=docstring
@@ -280,9 +280,9 @@ def test__append_each_section_to_markdown() -> None:
 @apply_test_settings()
 def test__get_toplevel_classes() -> None:
     module: ModuleType = _read_test_module()
-    toplevel_classes: List[
-        Type
-    ] = docstring_to_markdown_converter._get_toplevel_classes(module=module)
+    toplevel_classes: List[Type] = (
+        docstring_to_markdown_converter._get_toplevel_classes(module=module)
+    )
     assert len(toplevel_classes) == 2
     names: List[str] = [toplevel_class.__name__ for toplevel_class in toplevel_classes]
     assert sorted(names) == sorted(["Process", "_SampleClass"])
@@ -291,9 +291,9 @@ def test__get_toplevel_classes() -> None:
 @apply_test_settings()
 def test__get_methods_from_class() -> None:
     module: ModuleType = _read_test_module()
-    toplevel_classes: List[
-        Type
-    ] = docstring_to_markdown_converter._get_toplevel_classes(module=module)
+    toplevel_classes: List[Type] = (
+        docstring_to_markdown_converter._get_toplevel_classes(module=module)
+    )
     target_class: Optional[Type] = None
     for toplevel_class in toplevel_classes:
         if toplevel_class.__name__ == "_SampleClass":
@@ -315,9 +315,9 @@ def test__get_methods_from_class() -> None:
 @apply_test_settings()
 def test__append_toplevel_class_docstring_to_markdown() -> None:
     module: ModuleType = _read_test_module()
-    toplevel_classes: List[
-        Type
-    ] = docstring_to_markdown_converter._get_toplevel_classes(module=module)
+    toplevel_classes: List[Type] = (
+        docstring_to_markdown_converter._get_toplevel_classes(module=module)
+    )
     target_class: Optional[Type] = None
     for toplevel_class in toplevel_classes:
         if toplevel_class.__name__ == "_SampleClass":
@@ -420,10 +420,10 @@ def test_convert_recursively() -> None:
     file_util.save_plain_txt(txt="test", file_path=txt_path)
     init_path: str = os.path.join(_test_module_dir_path, "__init__.py")
 
-    saved_markdown_file_paths: List[
-        str
-    ] = docstring_to_markdown_converter.convert_recursively(
-        dir_path="./not/existing/dir/"
+    saved_markdown_file_paths: List[str] = (
+        docstring_to_markdown_converter.convert_recursively(
+            dir_path="./not/existing/dir/"
+        )
     )
     assert saved_markdown_file_paths == []
 
@@ -458,9 +458,9 @@ def test_convert_recursively() -> None:
 
 @apply_test_settings()
 def test__get_excluding_target_builtin_methods() -> None:
-    excluding_target_builtin_methods_dict: Dict[
-        str, str
-    ] = docstring_to_markdown_converter._get_excluding_target_builtin_methods()
+    excluding_target_builtin_methods_dict: Dict[str, str] = (
+        docstring_to_markdown_converter._get_excluding_target_builtin_methods()
+    )
     assert excluding_target_builtin_methods_dict["__hash__"] == ("Return hash(self).")
 
 

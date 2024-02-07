@@ -2,7 +2,6 @@
 method.
 """
 
-
 from typing_extensions import final
 
 from apysc._color.color import Color

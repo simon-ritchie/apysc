@@ -37,15 +37,15 @@ def test_validate_options_type() -> None:
 
 
 def _test_handler_1(*, e: ap.Event) -> None:
-    ...
+    pass
 
 
 def _test_handler_2(*, e: ap.Event, options: dict) -> None:
-    ...
+    pass
 
 
 def _test_handler_3(self: Any, *, e: ap.Event, options: dict) -> None:
-    ...
+    pass
 
 
 @apply_test_settings()

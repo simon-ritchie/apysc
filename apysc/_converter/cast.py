@@ -10,7 +10,6 @@ Mainly following interfaces are defined.
     Convert int value to bool.
 """
 
-
 from typing import Any
 from typing import Union
 

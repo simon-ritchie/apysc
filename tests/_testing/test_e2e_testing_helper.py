@@ -70,9 +70,9 @@ def test__get_local_file_console_event_handler() -> None:
     file_path: str = e2e_testing_helper.get_docs_local_file_path(
         lang=Lang.EN, file_name="index"
     )
-    handler: Callable[
-        [ConsoleMessage], None
-    ] = e2e_testing_helper._get_local_file_console_event_handler(file_path=file_path)
+    handler: Callable[[ConsoleMessage], None] = (
+        e2e_testing_helper._get_local_file_console_event_handler(file_path=file_path)
+    )
     message: ConsoleMessage = _MockConsoleMessage(type="log", text="Test message 1.")
     handler(message)
 
@@ -143,9 +143,9 @@ class _MockError(Error):
 @apply_test_settings()
 def test__get_local_file_page_err_handler() -> None:
     file_path: str = "file://test/path.html"
-    handler: Callable[
-        [Error], None
-    ] = e2e_testing_helper._get_local_file_page_err_handler(file_path=file_path)
+    handler: Callable[[Error], None] = (
+        e2e_testing_helper._get_local_file_page_err_handler(file_path=file_path)
+    )
     err: Error = _MockError(
         message="Test error!", stack="Uncaught Error: Test error!\nat <anonymous>:1:7"
     )

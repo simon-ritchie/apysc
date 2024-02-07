@@ -64,9 +64,9 @@ def apply_translation_to_doc(*, md_file_path: str, lang: Lang) -> str:
     from apysc._lint_and_doc.document_text_split_util import split_markdown_document
 
     markdown: str = file_util.read_txt(file_path=md_file_path)
-    splitted_values: List[
-        Union[Heading, BodyText, CodeBlock]
-    ] = split_markdown_document(markdown_txt=markdown)
+    splitted_values: List[Union[Heading, BodyText, CodeBlock]] = (
+        split_markdown_document(markdown_txt=markdown)
+    )
     mapping_data: Dict[str, str] = translation_mapping_utils.read_mapping_data(
         src_doc_file_path=md_file_path, lang=lang
     )

@@ -9,10 +9,10 @@ from scripts import run_test_projects_e2e_testing
 
 @apply_test_settings()
 def test__get_target_test_project_main_module_paths() -> None:
-    main_module_paths: List[
-        str
-    ] = run_test_projects_e2e_testing._get_target_test_project_main_module_paths(
-        alphabets_group=["a", "b"]
+    main_module_paths: List[str] = (
+        run_test_projects_e2e_testing._get_target_test_project_main_module_paths(
+            alphabets_group=["a", "b"]
+        )
     )
     expected_paths: List[str] = [
         "./test_projects/AnimationXMixIn/main.py",

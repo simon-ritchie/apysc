@@ -1,7 +1,6 @@
 """The mix-in class implementation for the `y_axis_column_name` value.
 """
 
-
 from typing import Union
 
 from typing_extensions import final

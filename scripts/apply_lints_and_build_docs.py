@@ -44,9 +44,9 @@ class LintCommand(TypedDict):
 _PY_FILE_DIRS_STR: str = "./apysc/ ./tests/ ./test_projects/ ./scripts/"
 _MAX_LINE_LENGTH: int = 88
 
-FLAKE8_NO_PATH_COMMAND: Final[
-    str
-] = f"flake8 --max-line-length {_MAX_LINE_LENGTH} --ignore E402,W503,E203"
+FLAKE8_NO_PATH_COMMAND: Final[str] = (
+    f"flake8 --max-line-length {_MAX_LINE_LENGTH} --ignore E402,W503,E203"
+)
 
 FLAKE8_COMMAND: Final[str] = f"{FLAKE8_NO_PATH_COMMAND} {_PY_FILE_DIRS_STR}"
 
@@ -68,13 +68,13 @@ MYPY_COMMAND: Final[str] = f"{MYPY_NO_PATH_COMMAND} {_PY_FILE_DIRS_STR}"
 
 PYRIGHT_COMMAND: Final[str] = f"pyright {_PY_FILE_DIRS_STR}"
 
-CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[
-    str
-] = "python ./scripts/check_apysc_top_level_import.py"
+CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[str] = (
+    "python ./scripts/check_apysc_top_level_import.py"
+)
 
-BLACK_COMMAND: Final[
-    str
-] = f'black --extend-exclude "(apysc/__init__.py)" {_PY_FILE_DIRS_STR}'
+BLACK_COMMAND: Final[str] = (
+    f'black --extend-exclude "(apysc/__init__.py)" {_PY_FILE_DIRS_STR}'
+)
 
 BLACKDOC_COMMAND: Final[str] = "blackdoc ./apysc/"
 
@@ -509,16 +509,16 @@ def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
         }
     )
 
-    autoflake_updated_module_paths: List[
-        str
-    ] = _append_autoflake_lint_command_if_module_updated(
-        lint_commands=lint_commands, module_paths=module_paths
+    autoflake_updated_module_paths: List[str] = (
+        _append_autoflake_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths
+        )
     )
 
-    isort_updated_module_paths: List[
-        str
-    ] = _append_isort_lint_command_if_module_updated(
-        lint_commands=lint_commands, module_paths=module_paths
+    isort_updated_module_paths: List[str] = (
+        _append_isort_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths
+        )
     )
 
     updated_module_paths: List[str] = [
@@ -550,10 +550,10 @@ def _append_isort_lint_command_if_module_updated(
         Updated module paths.
     """
     logger.info(msg="Creating the isort command...")
-    isort_updated_module_paths: List[
-        str
-    ] = lint_and_doc_hash_util.remove_not_updated_file_paths(
-        file_paths=module_paths, hash_type=lint_and_doc_hash_util.HashType.ISORT
+    isort_updated_module_paths: List[str] = (
+        lint_and_doc_hash_util.remove_not_updated_file_paths(
+            file_paths=module_paths, hash_type=lint_and_doc_hash_util.HashType.ISORT
+        )
     )
     if isort_updated_module_paths:
         isort_module_paths_str: str = _get_joined_paths_str(
@@ -591,10 +591,10 @@ def _append_autoflake_lint_command_if_module_updated(
         Updated module paths.
     """
     logger.info(msg="Creating the autoflake command...")
-    autoflake_updated_module_paths: List[
-        str
-    ] = lint_and_doc_hash_util.remove_not_updated_file_paths(
-        file_paths=module_paths, hash_type=lint_and_doc_hash_util.HashType.AUTOFLAKE
+    autoflake_updated_module_paths: List[str] = (
+        lint_and_doc_hash_util.remove_not_updated_file_paths(
+            file_paths=module_paths, hash_type=lint_and_doc_hash_util.HashType.AUTOFLAKE
+        )
     )
     if autoflake_updated_module_paths:
         autoflake_module_paths_str: str = _get_joined_paths_str(

@@ -1,7 +1,6 @@
 """The module for the `SvgForeignObjectChild` class.
 """
 
-
 from typing import Union
 
 from apysc._display.css_mixin import CssMixIn

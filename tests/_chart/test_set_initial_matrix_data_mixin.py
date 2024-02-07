@@ -23,11 +23,11 @@ def test__convert_list_to_array() -> None:
             "c": "1970-01-02",
         },
     ]
-    data_: ap.Array[
-        ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
-    ] = set_initial_matrix_data_mixin._convert_list_to_array(
-        data=data,
-        variable_name_suffix="test_suffix",
+    data_: ap.Array[ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]] = (
+        set_initial_matrix_data_mixin._convert_list_to_array(
+            data=data,
+            variable_name_suffix="test_suffix",
+        )
     )
     assert data_._variable_name_suffix == "test_suffix"
     assert data_._value[0]._variable_name_suffix == "test_suffix"

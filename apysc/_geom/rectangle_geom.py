@@ -1,7 +1,6 @@
 """The rectangle's geometry class implementation.
 """
 
-
 from typing_extensions import final
 
 from apysc._geom.rectangle_geom_bottom_y_mixin import RectangleGeomBottomYMixIn

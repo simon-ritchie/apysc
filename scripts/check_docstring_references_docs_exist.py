@@ -85,10 +85,10 @@ def _extract_file_names(*, dir_path: str = "./apysc/") -> List[str]:
             module=module
         )
         for docstring in docstrings:
-            references: List[
-                Reference
-            ] = docstring_util.extract_reference_values_from_docstring(
-                docstring=docstring
+            references: List[Reference] = (
+                docstring_util.extract_reference_values_from_docstring(
+                    docstring=docstring
+                )
             )
             for reference in references:
                 if not reference.url.startswith(_DOC_DOMAIN):

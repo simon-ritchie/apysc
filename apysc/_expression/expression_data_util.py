@@ -547,7 +547,7 @@ def _get_current_expression(*, table_name: TableName) -> str:
 
 
 class _LimitClauseCantUseError(Exception):
-    ...
+    pass
 
 
 def _validate_limit_clause(*, sql: str) -> None:

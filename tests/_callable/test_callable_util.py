@@ -7,7 +7,7 @@ from apysc._callable import callable_util
 
 def test_get_func_default_vals() -> None:
     def _test_func(a: int, b: int = 100, c: str = "Hello!") -> None:
-        ...
+        pass
 
     default_vals: Dict[str, Any] = callable_util.get_func_default_vals(func=_test_func)
     expected: Dict[str, Any] = {
@@ -20,7 +20,7 @@ def test_get_func_default_vals() -> None:
 
 def test_get_arg_name_at() -> None:
     def _test_func(a: int, b: int) -> None:
-        ...
+        pass
 
     arg_name: str = callable_util.get_arg_name_at(func=_test_func, index=0)
     assert arg_name == "a"
@@ -31,12 +31,12 @@ def test_get_arg_name_at() -> None:
 
 def test_get_name_and_arg_value_dict_from_args() -> None:
     def _test_func(a: int, b: str, c: int) -> None:
-        ...
+        pass
 
-    name_and_arg_value_dict: Dict[
-        str, Any
-    ] = callable_util.get_name_and_arg_value_dict_from_args(
-        func=_test_func, args=[100, "Hello!"], kwargs={"c": 200}
+    name_and_arg_value_dict: Dict[str, Any] = (
+        callable_util.get_name_and_arg_value_dict_from_args(
+            func=_test_func, args=[100, "Hello!"], kwargs={"c": 200}
+        )
     )
     expected: Dict[str, Any] = {
         "a": 100,

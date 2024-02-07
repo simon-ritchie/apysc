@@ -383,10 +383,10 @@ _TEST_DOCSTRING: str = (
 
 @apply_test_settings()
 def test_extract_param_or_rtn_values_from_docstring() -> None:
-    param_values: List[
-        Parameter
-    ] = docstring_util.extract_param_or_rtn_values_from_docstring(
-        target_type=Parameter, docstring=_TEST_DOCSTRING
+    param_values: List[Parameter] = (
+        docstring_util.extract_param_or_rtn_values_from_docstring(
+            target_type=Parameter, docstring=_TEST_DOCSTRING
+        )
     )
     assert len(param_values) == 2
     for parameter_ in param_values:
@@ -412,10 +412,10 @@ def test_extract_param_or_rtn_values_from_docstring() -> None:
     )
     assert param_values[1] == parameter
 
-    return_values: List[
-        Return
-    ] = docstring_util.extract_param_or_rtn_values_from_docstring(
-        target_type=Return, docstring=_TEST_DOCSTRING
+    return_values: List[Return] = (
+        docstring_util.extract_param_or_rtn_values_from_docstring(
+            target_type=Return, docstring=_TEST_DOCSTRING
+        )
     )
     assert len(return_values) == 2
     for return__ in return_values:
@@ -816,10 +816,10 @@ def test__make_reference_and_append_to_list() -> None:
 
 @apply_test_settings()
 def test_extract_reference_values_from_docstring() -> None:
-    reference_values: List[
-        Reference
-    ] = docstring_util.extract_reference_values_from_docstring(
-        docstring=_TEST_DOCSTRING
+    reference_values: List[Reference] = (
+        docstring_util.extract_reference_values_from_docstring(
+            docstring=_TEST_DOCSTRING
+        )
     )
     assert len(reference_values) == 2
     expected_reference: Reference = Reference(
@@ -1279,9 +1279,9 @@ def test__make_example_and_append_to_list() -> None:
 
 @apply_test_settings()
 def test_extract_example_values_from_docstring() -> None:
-    example_values: List[
-        Example
-    ] = docstring_util.extract_example_values_from_docstring(docstring=_TEST_DOCSTRING)
+    example_values: List[Example] = (
+        docstring_util.extract_example_values_from_docstring(docstring=_TEST_DOCSTRING)
+    )
     assert len(example_values) == 3
     assert example_values[0] == Example(
         input_code_block=(">>> test_value_1: int = 10" "\n>>> test_value_1"),
@@ -1350,10 +1350,10 @@ def test__slice_references_by_md_file_path() -> None:
             url="https://simon-ritchie.github.io/apysc/display_object.html",
         ),
     ]
-    sliced_references: List[
-        Reference
-    ] = docstring_util._slice_references_by_md_file_path(
-        references=references, md_file_path="./docs_src/source/sprite.md"
+    sliced_references: List[Reference] = (
+        docstring_util._slice_references_by_md_file_path(
+            references=references, md_file_path="./docs_src/source/sprite.md"
+        )
     )
     assert sliced_references == [
         Reference(

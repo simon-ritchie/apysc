@@ -1,7 +1,6 @@
 """The mix-in class implementation for the `axis_label_fill_color`.
 """
 
-
 from typing_extensions import final
 
 from apysc._color.color import Color

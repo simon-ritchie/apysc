@@ -7,7 +7,6 @@ Mainly following interfaces are defined:
 - append_spaces_to_expression: Append spaces to a expression string.
 """
 
-
 from typing import List
 
 from apysc._validation import arg_validation_decos

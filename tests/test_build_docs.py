@@ -497,10 +497,10 @@ def test__replace_docstring_specification() -> None:
 def test__remove_document_hash_files_if_docstring_src_modified() -> None:
     _checkout_files()
 
-    module_paths: List[
-        str
-    ] = build_docs._remove_document_hash_files_if_docstring_src_modified(
-        md_file_path="./docs_src/source/index.md"
+    module_paths: List[str] = (
+        build_docs._remove_document_hash_files_if_docstring_src_modified(
+            md_file_path="./docs_src/source/index.md"
+        )
     )
     assert module_paths == []
 
@@ -535,18 +535,18 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
 
 @apply_test_settings()
 def test__flatten_2dim_module_paths_and_make_it_unique() -> None:
-    flattened_module_paths: List[
-        str
-    ] = build_docs._flatten_2dim_module_paths_and_make_it_unique(
-        docstring_module_paths=[
-            [
-                "./apysc/_display/sprite.py",
-                "./apysc/_display/display_object.py",
-            ],
-            [
-                "./apysc/_display/sprite.py",
-            ],
-        ]
+    flattened_module_paths: List[str] = (
+        build_docs._flatten_2dim_module_paths_and_make_it_unique(
+            docstring_module_paths=[
+                [
+                    "./apysc/_display/sprite.py",
+                    "./apysc/_display/display_object.py",
+                ],
+                [
+                    "./apysc/_display/sprite.py",
+                ],
+            ]
+        )
     )
     assert sorted(flattened_module_paths) == sorted(
         ["./apysc/_display/sprite.py", "./apysc/_display/display_object.py"]
@@ -621,9 +621,9 @@ def test__sync_js_libs() -> None:
 
 @apply_test_settings()
 def test__get_excluding_file_names_prefix_list() -> None:
-    excluding_file_names_prefix_list: List[
-        str
-    ] = build_docs._get_excluding_file_names_prefix_list()
+    excluding_file_names_prefix_list: List[str] = (
+        build_docs._get_excluding_file_names_prefix_list()
+    )
     assert "jp_" in excluding_file_names_prefix_list
     assert "en_" not in excluding_file_names_prefix_list
 

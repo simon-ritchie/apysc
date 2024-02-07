@@ -89,21 +89,21 @@ class TestSvgText:
         svg_text: SvgText = SvgText(
             text="test text 1",
         )
-        text_spans_: ap.Array[
-            ap.SvgTextSpan
-        ] = svg_text._convert_text_spans_list_to_array(
-            text_spans=[
-                ap.SvgTextSpan(text="test text 2"),
-                ap.SvgTextSpan(text="test text 3"),
-            ],
+        text_spans_: ap.Array[ap.SvgTextSpan] = (
+            svg_text._convert_text_spans_list_to_array(
+                text_spans=[
+                    ap.SvgTextSpan(text="test text 2"),
+                    ap.SvgTextSpan(text="test text 3"),
+                ],
+            )
         )
         assert len(text_spans_._value) == 2
         assert text_spans_._value[0].text == "test text 2"
         assert text_spans_._value[1].text == "test text 3"
 
-        text_spans__: ap.Array[
-            ap.SvgTextSpan
-        ] = svg_text._convert_text_spans_list_to_array(text_spans=text_spans_)
+        text_spans__: ap.Array[ap.SvgTextSpan] = (
+            svg_text._convert_text_spans_list_to_array(text_spans=text_spans_)
+        )
         assert text_spans_ == text_spans__
 
     @apply_test_settings()

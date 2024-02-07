@@ -25,7 +25,6 @@ Mainly following interfaces are defined:
     Validate whether the specified instance is the `CssInterface`.
 """
 
-
 from typing import Any
 from typing import List
 

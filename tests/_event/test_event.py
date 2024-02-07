@@ -27,7 +27,7 @@ class TestEvent:
     @apply_test_settings()
     def test__validate_type_name_and_self_type(self) -> None:
         class AnyEvent(ap.Event):
-            ...
+            pass
 
         int_1: ap.Int = ap.Int(10)
         testing_helper.assert_raises(

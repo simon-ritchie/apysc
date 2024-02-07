@@ -56,14 +56,14 @@ def test_read_jslib_str() -> None:
 
 @apply_test_settings()
 def test__sort_js_file_names_with_priority_setting() -> None:
-    sorted_jslib_file_names: List[
-        str
-    ] = jslib_util._sort_js_file_names_with_priority_setting(
-        jslib_file_names=[
-            _EXPECTED_SVG_FILE_NAME,
-            _EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME,
-            _EXPECTED_JQUERY_FILE_NAME,
-        ]
+    sorted_jslib_file_names: List[str] = (
+        jslib_util._sort_js_file_names_with_priority_setting(
+            jslib_file_names=[
+                _EXPECTED_SVG_FILE_NAME,
+                _EXPECTED_JQUERY_MOUSEWHEEL_FILE_NAME,
+                _EXPECTED_JQUERY_FILE_NAME,
+            ]
+        )
     )
     assert sorted_jslib_file_names == [
         _EXPECTED_JQUERY_FILE_NAME,

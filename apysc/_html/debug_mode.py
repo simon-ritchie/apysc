@@ -417,8 +417,7 @@ def add_debug_info_setting(*, module_name: str) -> _Callable:
     --------
     >>> import apysc as ap
     >>> @ap.add_debug_info_setting(module_name=__name__)  # type: ignore[misc]
-    ... def sample_method(a: int) -> None:
-    ...     ...
+    ... def sample_method(a: int) -> None: ...
     """
 
     def wrapped(func: _Callable) -> _Callable:

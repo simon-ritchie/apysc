@@ -1,7 +1,6 @@
 """The mix-in class for the `foreignObject`'s width initialization method.
 """
 
-
 from typing import Union
 
 from typing_extensions import final

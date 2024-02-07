@@ -9,10 +9,10 @@ from scripts import sync_docs_keyword_link_mapping
 
 @apply_test_settings()
 def test__create_keyword_link_mappings() -> None:
-    keyword_link_mappings: Dict[
-        str, str
-    ] = sync_docs_keyword_link_mapping._create_keyword_link_mappings(
-        lang=Lang.EN,
+    keyword_link_mappings: Dict[str, str] = (
+        sync_docs_keyword_link_mapping._create_keyword_link_mappings(
+            lang=Lang.EN,
+        )
     )
     assert keyword_link_mappings["Stage"] == (
         "https://simon-ritchie.github.io/apysc/en/stage.html"

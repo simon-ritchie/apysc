@@ -45,30 +45,30 @@ def test__get_y_min() -> None:
 @apply_test_settings()
 def test__extract_column_values_from_data() -> None:
     ap.Stage()
-    data: ap.Array[
-        ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
-    ] = ap.Array(
-        [
-            ap.Dictionary(
-                {
-                    ap.String("a"): ap.Int(10, variable_name_suffix="test_suffix"),
-                    ap.String("b"): ap.Number(20.5),
-                },
-            ),
-            ap.Dictionary(
-                {
-                    ap.String("a"): ap.Int(30, variable_name_suffix="test_suffix"),
-                    ap.String("b"): ap.Number(40.5),
-                },
-            ),
-        ]
+    data: ap.Array[ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]] = (
+        ap.Array(
+            [
+                ap.Dictionary(
+                    {
+                        ap.String("a"): ap.Int(10, variable_name_suffix="test_suffix"),
+                        ap.String("b"): ap.Number(20.5),
+                    },
+                ),
+                ap.Dictionary(
+                    {
+                        ap.String("a"): ap.Int(30, variable_name_suffix="test_suffix"),
+                        ap.String("b"): ap.Number(40.5),
+                    },
+                ),
+            ]
+        )
     )
-    values: ap.Array[
-        Union[ap.Int, ap.Number]
-    ] = create_single_column_y_axis_mixin._extract_column_values_from_data(
-        data=data,
-        column_name=ap.String("a"),
-        variable_name_suffix="test_suffix",
+    values: ap.Array[Union[ap.Int, ap.Number]] = (
+        create_single_column_y_axis_mixin._extract_column_values_from_data(
+            data=data,
+            column_name=ap.String("a"),
+            variable_name_suffix="test_suffix",
+        )
     )
     assert values._value[0] == ap.Int(10)
     assert values._variable_name_suffix == "test_suffix"
@@ -79,23 +79,23 @@ def test__extract_column_values_from_data() -> None:
 @apply_test_settings()
 def test__calculate_y_max_from_data() -> None:
     ap.Stage()
-    data: ap.Array[
-        ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]
-    ] = ap.Array(
-        [
-            ap.Dictionary(
-                {
-                    ap.String("a"): ap.Int(10, variable_name_suffix="test_suffix"),
-                    ap.String("b"): ap.Number(20.5),
-                },
-            ),
-            ap.Dictionary(
-                {
-                    ap.String("a"): ap.Int(30, variable_name_suffix="test_suffix"),
-                    ap.String("b"): ap.Number(40.5),
-                },
-            ),
-        ]
+    data: ap.Array[ap.Dictionary[ap.String, Union[ap.Int, ap.Number, ap.String]]] = (
+        ap.Array(
+            [
+                ap.Dictionary(
+                    {
+                        ap.String("a"): ap.Int(10, variable_name_suffix="test_suffix"),
+                        ap.String("b"): ap.Number(20.5),
+                    },
+                ),
+                ap.Dictionary(
+                    {
+                        ap.String("a"): ap.Int(30, variable_name_suffix="test_suffix"),
+                        ap.String("b"): ap.Number(40.5),
+                    },
+                ),
+            ]
+        )
     )
     y_max: ap.Number = create_single_column_y_axis_mixin._calculate_y_max_from_data(
         data=data,
@@ -148,14 +148,14 @@ def test__calculate_y_axis_ticks_num() -> None:
 
 @apply_test_settings()
 def test__calculate_y_axis_ticks_y_coordinates() -> None:
-    y_axis_ticks_y_coordinates: ap.Array[
-        ap.Number
-    ] = create_single_column_y_axis_mixin._calculate_y_axis_ticks_y_coordinates(
-        vertical_padding=ap.Int(20),
-        y_axis_height=ap.Int(600),
-        y_axis_ticks_num=ap.Int(5),
-        font_size=ap.Int(12),
-        variable_name_suffix="test_suffix",
+    y_axis_ticks_y_coordinates: ap.Array[ap.Number] = (
+        create_single_column_y_axis_mixin._calculate_y_axis_ticks_y_coordinates(
+            vertical_padding=ap.Int(20),
+            y_axis_height=ap.Int(600),
+            y_axis_ticks_num=ap.Int(5),
+            font_size=ap.Int(12),
+            variable_name_suffix="test_suffix",
+        )
     )
     assert isinstance(y_axis_ticks_y_coordinates[0], ap.Number)
     assert y_axis_ticks_y_coordinates._variable_name_suffix == "test_suffix"
@@ -163,11 +163,11 @@ def test__calculate_y_axis_ticks_y_coordinates() -> None:
 
 @apply_test_settings()
 def test__calculate_y_axis_max() -> None:
-    y_axis_max: Union[
-        ap.Int, ap.Number
-    ] = create_single_column_y_axis_mixin._calculate_y_axis_max(
-        y_max=ap.Number(100),
-        in_value_y_max=ap.Number(80.5),
+    y_axis_max: Union[ap.Int, ap.Number] = (
+        create_single_column_y_axis_mixin._calculate_y_axis_max(
+            y_max=ap.Number(100),
+            in_value_y_max=ap.Number(80.5),
+        )
     )
     assert y_axis_max == ap.Number(100)
 
@@ -196,14 +196,14 @@ def test__apply_x_coordinate_to_y_axis_ticks_texts() -> None:
 @apply_test_settings()
 def test__create_y_axis_texts_values() -> None:
     ap.Stage()
-    y_axis_text_values: ap.Array[
-        ap.String
-    ] = create_single_column_y_axis_mixin._create_y_axis_texts_values(
-        y_axis_min=ap.Number(0),
-        y_axis_max=ap.Number(100),
-        ticks_num=ap.Int(5),
-        max_num_of_decimal_places=ap.Int(2),
-        variable_name_suffix="test_suffix",
+    y_axis_text_values: ap.Array[ap.String] = (
+        create_single_column_y_axis_mixin._create_y_axis_texts_values(
+            y_axis_min=ap.Number(0),
+            y_axis_max=ap.Number(100),
+            ticks_num=ap.Int(5),
+            max_num_of_decimal_places=ap.Int(2),
+            variable_name_suffix="test_suffix",
+        )
     )
     assert isinstance(y_axis_text_values[0], ap.String)
     expression: str = expression_data_util.get_current_expression()

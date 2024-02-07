@@ -1,7 +1,6 @@
 """The mix-in class implementation for the `SvgText`'s `_set_align` method.
 """
 
-
 from typing_extensions import final
 
 from apysc._display.svg_text_align_mixin import SvgTextAlign

@@ -18,23 +18,23 @@ from apysc._validation import arg_validation_decos
 class _TestClass1:
     @arg_validation_decos.not_empty_string(arg_position_index=1)
     def _test_method_1(self, *, a: str) -> None:
-        ...
+        pass
 
     @arg_validation_decos.not_empty_string(arg_position_index=1)
     def _test_method_2(self, a: str) -> None:
-        ...
+        pass
 
 
 @arg_validation_decos.handler_args_num(arg_position_index=0)
 def _test_func_2(*, handler: Callable) -> None:
-    ...
+    pass
 
 
 @apply_test_settings()
 def test_not_empty_string() -> None:
     @arg_validation_decos.not_empty_string(arg_position_index=0)
     def _test_func(a: str) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -69,7 +69,7 @@ def test_not_empty_string() -> None:
 @apply_test_settings()
 def test__extract_arg_value() -> None:
     def _test_func_1(*, a: int) -> None:
-        ...
+        pass
 
     value: Any = arg_validation_decos._extract_arg_value(
         args=[],
@@ -90,7 +90,7 @@ def test__extract_arg_value() -> None:
     assert value is None
 
     def _test_func_2(*, a: str = "Hello!") -> None:
-        ...
+        pass
 
     value = arg_validation_decos._extract_arg_value(
         args=[], kwargs={}, arg_position_index=0, callable_=_test_func_2
@@ -101,7 +101,7 @@ def test__extract_arg_value() -> None:
 @apply_test_settings()
 def test_handler_args_num() -> None:
     def _test_handler_1(e: ap.Event) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -111,7 +111,7 @@ def test_handler_args_num() -> None:
     )
 
     def _test_handler_2(e: ap.Event, options: dict) -> None:
-        ...
+        pass
 
     _test_func_2(handler=_test_handler_2)
 
@@ -120,7 +120,7 @@ def test_handler_args_num() -> None:
 def test_handler_options_type() -> None:
     @arg_validation_decos.handler_options_type(arg_position_index=0)
     def _test_func(*, options: dict) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, options=10)
 
@@ -130,7 +130,7 @@ def test_handler_options_type() -> None:
 @apply_test_settings()
 def test__get_arg_name_by_index() -> None:
     def _test_func(*, a: int, b: str) -> None:
-        ...
+        pass
 
     arg_name: str = arg_validation_decos._get_arg_name_by_index(
         callable_=_test_func, arg_position_index=0
@@ -142,7 +142,7 @@ def test__get_arg_name_by_index() -> None:
     assert arg_name == "b"
 
     def _test_func_2(a: int, b: str) -> None:
-        ...
+        pass
 
     arg_name = arg_validation_decos._get_arg_name_by_index(
         callable_=_test_func_2, arg_position_index=0
@@ -153,7 +153,7 @@ def test__get_arg_name_by_index() -> None:
 @apply_test_settings()
 def test__get_callable_and_arg_names_msg() -> None:
     def _test_func(a: int) -> None:
-        ...
+        pass
 
     callable_and_arg_names_msg: str = (
         arg_validation_decos._get_callable_and_arg_names_msg(
@@ -169,7 +169,7 @@ def test__get_callable_and_arg_names_msg() -> None:
 def test_is_integer() -> None:
     @arg_validation_decos.is_integer(arg_position_index=1, optional=False)
     def _test_func_1(*, a: str, b: Union[int, ap.Int]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError, callable_=_test_func_1, a="Hello!", b="World!"
@@ -183,7 +183,7 @@ def test_is_integer() -> None:
 
     @arg_validation_decos.is_integer(arg_position_index=1, optional=True)
     def _test_func_2(*, a: str, b: Optional[Union[int, ap.Int]]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError, callable_=_test_func_2, a="Hello!", b="World!"
@@ -197,7 +197,7 @@ def test_is_integer() -> None:
 def test_num_is_gt_zero() -> None:
     @arg_validation_decos.num_is_gt_zero(arg_position_index=0, optional=False)
     def _test_func_1(*, a: Union[int, ap.Int]) -> None:
-        ...
+        pass
 
     _test_func_1(a=1)
     _test_func_1(a=ap.Int(1))
@@ -206,7 +206,7 @@ def test_num_is_gt_zero() -> None:
 
     @arg_validation_decos.num_is_gt_zero(arg_position_index=0, optional=True)
     def _test_func_2(*, a: Optional[Union[int, ap.Int]]) -> None:
-        ...
+        pass
 
     _test_func_2(a=1)
     _test_func_2(a=ap.Int(1))
@@ -218,7 +218,7 @@ def test_num_is_gt_zero() -> None:
 def test_is_easing() -> None:
     @arg_validation_decos.is_easing(arg_position_index=0)
     def _test_func(*, easing: ap.Easing) -> None:
-        ...
+        pass
 
     _test_func(easing=ap.Easing.EASE_IN_SINE)
     _test_func(easing=ap.Easing.EASE_OUT_QUAD)
@@ -233,7 +233,7 @@ def test_is_easing() -> None:
 @apply_test_settings()
 def test__get_default_val_by_arg_name() -> None:
     def _test_func(*, a: int, b: str = "Hello!") -> None:
-        ...
+        pass
 
     default_val: Any = arg_validation_decos._get_default_val_by_arg_name(
         callable_=_test_func, arg_name="a"
@@ -250,7 +250,7 @@ def test__get_default_val_by_arg_name() -> None:
 def test_is_num() -> None:
     @arg_validation_decos.is_num(arg_position_index=0, optional=False)
     def _test_func_1(*, a: Union[int, float, ap.Int, ap.Number]) -> None:
-        ...
+        pass
 
     _test_func_1(a=1.5)
     _test_func_1(a=1)
@@ -261,7 +261,7 @@ def test_is_num() -> None:
 
     @arg_validation_decos.is_num(arg_position_index=0, optional=True)
     def _test_func_2(*, a: Optional[Union[int, float, ap.Int, ap.Number]]) -> None:
-        ...
+        pass
 
     _test_func_2(a=1.5)
     _test_func_2(a=1)
@@ -275,7 +275,7 @@ def test_is_num() -> None:
 def test_is_hex_color_code_format() -> None:
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=0, optional=False)
     def _test_func_1(*, a: str) -> None:
-        ...
+        pass
 
     _test_func_1(a="#a")
     _test_func_1(a="0af")
@@ -286,7 +286,7 @@ def test_is_hex_color_code_format() -> None:
 
     @arg_validation_decos.is_hex_color_code_format(arg_position_index=0, optional=True)
     def _test_func_2(*, a: Optional[str]) -> None:
-        ...
+        pass
 
     _test_func_2(a="#a")
     _test_func_2(a="0af")
@@ -300,7 +300,7 @@ def test_is_hex_color_code_format() -> None:
 def test_num_is_gte_zero() -> None:
     @arg_validation_decos.num_is_gte_zero(arg_position_index=0, optional=False)
     def _test_func_1(*, a: int) -> None:
-        ...
+        pass
 
     _test_func_1(a=0)
     _test_func_1(a=1)
@@ -309,7 +309,7 @@ def test_num_is_gte_zero() -> None:
 
     @arg_validation_decos.num_is_gte_zero(arg_position_index=0, optional=True)
     def _test_func_2(*, a: Optional[int]) -> None:
-        ...
+        pass
 
     _test_func_2(a=0)
     _test_func_2(a=1)
@@ -321,7 +321,7 @@ def test_num_is_gte_zero() -> None:
 def test_num_is_0_to_1_range() -> None:
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=0, optional=False)
     def _test_func_1(*, a: float) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=-0.1)
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=1.1)
@@ -331,7 +331,7 @@ def test_num_is_0_to_1_range() -> None:
 
     @arg_validation_decos.num_is_0_to_1_range(arg_position_index=0, optional=True)
     def _test_func_2(*, a: Optional[float]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=-0.1)
     assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=1.1)
@@ -344,7 +344,7 @@ def test_num_is_0_to_1_range() -> None:
 def test_are_animations() -> None:
     @arg_validation_decos.are_animations(arg_position_index=0)
     def _test_func(*, a: List[ap.AnimationBase]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=TypeError,
@@ -373,7 +373,7 @@ def test_are_animations() -> None:
 def test_is_apysc_boolean() -> None:
     @arg_validation_decos.is_apysc_boolean(arg_position_index=0)
     def _test_func(*, a: ap.Boolean) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=TypeError,
@@ -389,7 +389,7 @@ def test_is_apysc_boolean() -> None:
 def test_is_vars_dict() -> None:
     @arg_validation_decos.is_vars_dict(arg_position_index=0)
     def _test_func_1(*, a: Optional[Dict[str, Any]]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=TypeError,
@@ -409,7 +409,7 @@ def test_is_vars_dict() -> None:
 
     @arg_validation_decos.is_vars_dict(arg_position_index=0, optional=False)
     def _test_func_2(*, a: Dict[str, Any]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=TypeError,
@@ -430,7 +430,7 @@ def test_is_vars_dict() -> None:
 def test_is_display_object() -> None:
     @arg_validation_decos.is_display_object(arg_position_index=0)
     def _test_func(*, a: ap.DisplayObject) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func, a=100)
 
@@ -445,7 +445,7 @@ def test_is_display_object_container() -> None:
         arg_position_index=0, optional=False
     )
     def _test_func_1(*, a: Union[ap.Sprite, ap.Stage]) -> None:
-        ...
+        pass
 
     stage: ap.Stage = ap.Stage()
     _test_func_1(a=stage)
@@ -458,7 +458,7 @@ def test_is_display_object_container() -> None:
         arg_position_index=0, optional=True
     )
     def _test_func_2(*, a: Optional[ap.Sprite]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=100)
     _test_func_2(a=sprite)
@@ -505,7 +505,7 @@ def test_is_string() -> None:
 def test_is_apysc_num() -> None:
     @arg_validation_decos.is_apysc_num(arg_position_index=0)
     def _test_func(*, a: Union[ap.Int, ap.Number]) -> None:
-        ...
+        pass
 
     _test_func(a=ap.Int(10))
     _test_func(a=ap.Number(10))
@@ -523,7 +523,7 @@ def test_are_point_2ds() -> None:
 
     @arg_validation_decos.are_point_2ds(arg_position_index=0)
     def _test_func(*, a: Union[List[ap.Point2D], ap.Array[ap.Point2D]]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=TypeError,
@@ -549,7 +549,7 @@ def test_are_point_2ds() -> None:
 def test_is_valid_path_data_list() -> None:
     @arg_validation_decos.is_valid_path_data_list(arg_position_index=0)
     def _test_func(*, a: List[ap.PathDataBase]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=TypeError,
@@ -569,7 +569,7 @@ def test_is_valid_path_data_list() -> None:
 def test_is_line_cap() -> None:
     @arg_validation_decos.is_line_cap(arg_position_index=0, optional=True)
     def _test_func_1(*, a: Optional[Union[ap.String, ap.LineCaps]]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=100)
     assert_raises(
@@ -581,7 +581,7 @@ def test_is_line_cap() -> None:
 
     @arg_validation_decos.is_line_cap(arg_position_index=0, optional=False)
     def _test_func_2(*, a: Optional[Union[ap.String, ap.LineCaps]]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=None)
     _test_func_2(a=ap.LineCaps.ROUND)
@@ -614,7 +614,7 @@ def test_multiple_line_settings_are_not_set() -> None:
 def test_is_line_dash_dot_setting() -> None:
     @arg_validation_decos.is_line_dash_dot_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineDashDotSetting]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, a=100)
     _test_func(a=None)
@@ -625,7 +625,7 @@ def test_is_line_dash_dot_setting() -> None:
 def test_is_line_dash_setting() -> None:
     @arg_validation_decos.is_line_dash_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineDashSetting]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, a=100)
     _test_func(a=None)
@@ -636,7 +636,7 @@ def test_is_line_dash_setting() -> None:
 def test_is_line_dot_setting() -> None:
     @arg_validation_decos.is_line_dot_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineDotSetting]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, a=100)
     _test_func(a=None)
@@ -647,7 +647,7 @@ def test_is_line_dot_setting() -> None:
 def test_are_line_joints() -> None:
     @arg_validation_decos.are_line_joints(arg_position_index=0, optional=True)
     def _test_func_1(*, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=100)
     _test_func_1(a=ap.LineJoints.BEVEL)
@@ -656,7 +656,7 @@ def test_are_line_joints() -> None:
 
     @arg_validation_decos.are_line_joints(arg_position_index=0, optional=False)
     def _test_func_2(*, a: Optional[Union[ap.LineJoints, ap.String]]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=None)
     _test_func_2(a=ap.LineJoints.BEVEL)
@@ -666,7 +666,7 @@ def test_are_line_joints() -> None:
 def test_is_line_round_dot_setting() -> None:
     @arg_validation_decos.is_line_round_dot_setting(arg_position_index=0)
     def _test_func(*, a: Optional[ap.LineRoundDotSetting]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, a=100)
     _test_func(a=None)
@@ -677,7 +677,7 @@ def test_is_line_round_dot_setting() -> None:
 def test_is_apysc_integer() -> None:
     @arg_validation_decos.is_apysc_integer(arg_position_index=0)
     def _test_func(*, a: ap.Int) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, a=100)
     _test_func(a=ap.Int(100))
@@ -687,7 +687,7 @@ def test_is_apysc_integer() -> None:
 def test_is_point_2d() -> None:
     @arg_validation_decos.is_point_2d(arg_position_index=0)
     def _test_func(*, a: ap.Point2D) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -701,7 +701,7 @@ def test_is_point_2d() -> None:
 def test_is_builtin_string() -> None:
     @arg_validation_decos.is_builtin_string(arg_position_index=0, optional=False)
     def _test_func_1(*, a: str) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -717,7 +717,7 @@ def test_is_builtin_string() -> None:
 
     @arg_validation_decos.is_builtin_string(arg_position_index=0, optional=True)
     def _test_func_2(*, a: Optional[str]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -732,7 +732,7 @@ def test_is_builtin_string() -> None:
 def test_is_builtin_integer() -> None:
     @arg_validation_decos.is_builtin_integer(arg_position_index=0)
     def _test_func(*, a: int) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -746,7 +746,7 @@ def test_is_builtin_integer() -> None:
 def test_is_variable_name_interface_type() -> None:
     @arg_validation_decos.is_variable_name_interface_type(arg_position_index=0)
     def _test_func(*, a: ap.Int) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, a=100)
     _test_func(a=ap.Int(100))
@@ -756,7 +756,7 @@ def test_is_variable_name_interface_type() -> None:
 def test_is_event() -> None:
     @arg_validation_decos.is_event(arg_position_index=0)
     def _test_func(*, a: ap.Event) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -772,7 +772,7 @@ def test_is_event() -> None:
 def test_is_boolean() -> None:
     @arg_validation_decos.is_boolean(arg_position_index=0, optional=False)
     def _test_func_1(*, a: Union[bool, ap.Boolean]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=100)
     assert_raises(expected_error_class=ValueError, callable_=_test_func_1, a=None)
@@ -781,7 +781,7 @@ def test_is_boolean() -> None:
 
     @arg_validation_decos.is_boolean(arg_position_index=0, optional=True)
     def _test_func_2(*, a: Optional[Union[bool, ap.Boolean]]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=ValueError, callable_=_test_func_2, a=100)
     _test_func_2(a=True)
@@ -794,7 +794,7 @@ def test_is_boolean() -> None:
 def test_is_builtin_boolean() -> None:
     @arg_validation_decos.is_builtin_boolean(arg_position_index=0)
     def _test_func(*, a: bool) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,
@@ -810,7 +810,7 @@ def test_is_acceptable_array_value() -> None:
 
     @arg_validation_decos.is_acceptable_array_value(arg_position_index=0)
     def _test_func(*, a: Union[list, tuple, range, ap.Array]) -> None:
-        ...
+        pass
 
     assert_raises(expected_error_class=TypeError, callable_=_test_func, a="Hello")
     _test_func(a=[10, 20])
@@ -823,7 +823,7 @@ def test_is_acceptable_array_value() -> None:
 def test_is_acceptable_dictionary_value() -> None:
     @arg_validation_decos.is_acceptable_dictionary_value(arg_position_index=0)
     def _test_func(*, a: Union[dict, ap.Dictionary]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=TypeError,
@@ -838,7 +838,7 @@ def test_is_acceptable_dictionary_value() -> None:
 def test_is_acceptable_boolean_value() -> None:
     @arg_validation_decos.is_acceptable_boolean_value(arg_position_index=0)
     def _test_func(*, a: Union[bool, int, ap.Int, ap.Boolean]) -> None:
-        ...
+        pass
 
     assert_raises(
         expected_error_class=ValueError,

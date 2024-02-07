@@ -192,7 +192,9 @@ def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
     )
 
     mod._validate_markdown_list_hyphen_symbols_are_same(
-        translated_str="  - テストテキスト", key="  - Lorem ipsum", md_file_path="test/path.md"
+        translated_str="  - テストテキスト",
+        key="  - Lorem ipsum",
+        md_file_path="test/path.md",
     )
 
     assert_raises(
@@ -208,7 +210,9 @@ def test__validate_markdown_list_hyphen_symbols_are_same() -> None:
 @apply_test_settings()
 def test__validate_tail_hr_tag() -> None:
     mod._validate_tail_hr_tag(
-        translated_str="テストテキスト。", key="Lorem ipsum.", md_file_path="test/path.md"
+        translated_str="テストテキスト。",
+        key="Lorem ipsum.",
+        md_file_path="test/path.md",
     )
 
     mod._validate_tail_hr_tag(
@@ -274,7 +278,9 @@ def test__validate_first_full_width_list_symbols_are_same() -> None:
     )
 
     mod._validate_first_full_width_list_symbols_are_same(
-        translated_str=" ・テストテキスト", key=" ・Lorem ipsum", md_file_path="test/path.md"
+        translated_str=" ・テストテキスト",
+        key=" ・Lorem ipsum",
+        md_file_path="test/path.md",
     )
 
     assert_raises(

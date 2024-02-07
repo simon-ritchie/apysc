@@ -148,14 +148,14 @@ def test__is_file_updated_func_for_multiprocessing() -> None:
 
 @apply_test_settings()
 def test__create_args_list_for_multiprocessing() -> None:
-    args_list: List[
-        _IsFileUpdatedArgs
-    ] = lint_and_doc_hash_util._create_args_list_for_multiprocessing(
-        file_paths=[
-            "test/path_1.py",
-            "test/path_2.py",
-        ],
-        hash_type=HashType.ISORT,
+    args_list: List[_IsFileUpdatedArgs] = (
+        lint_and_doc_hash_util._create_args_list_for_multiprocessing(
+            file_paths=[
+                "test/path_1.py",
+                "test/path_2.py",
+            ],
+            hash_type=HashType.ISORT,
+        )
     )
     assert args_list == [
         {
@@ -179,10 +179,10 @@ def test_remove_not_updated_file_paths() -> None:
     file_util.remove_file_if_exists(file_path=hash_path)
 
     file_util.save_plain_txt(txt="abc", file_path=module_path)
-    sliced_module_paths: List[
-        str
-    ] = lint_and_doc_hash_util.remove_not_updated_file_paths(
-        file_paths=[module_path], hash_type=HashType.ISORT
+    sliced_module_paths: List[str] = (
+        lint_and_doc_hash_util.remove_not_updated_file_paths(
+            file_paths=[module_path], hash_type=HashType.ISORT
+        )
     )
     assert sliced_module_paths == [module_path]
 

@@ -7,10 +7,10 @@ from apysc._testing.testing_helper import apply_test_settings
 
 @apply_test_settings()
 def test__extract_toctree_file_names_from_file() -> None:
-    toctree_file_names: List[
-        str
-    ] = docs_toctree_util._extract_toctree_file_names_from_file(
-        toctree_defined_en_file_name="index",
+    toctree_file_names: List[str] = (
+        docs_toctree_util._extract_toctree_file_names_from_file(
+            toctree_defined_en_file_name="index",
+        )
     )
     assert "what_apysc_can_do.md" in toctree_file_names
     assert "recommended_type_checker_settings.md" in toctree_file_names

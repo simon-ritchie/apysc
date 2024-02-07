@@ -215,9 +215,9 @@ def _get_methods_from_class(*, class_: Type) -> List[Callable]:
     """
     members: List[Tuple[str, Callable]] = inspect.getmembers(class_, predicate=callable)
     methods: List[Callable] = []
-    excluding_target_builtin_methods_dict: Dict[
-        str, str
-    ] = _get_excluding_target_builtin_methods()
+    excluding_target_builtin_methods_dict: Dict[str, str] = (
+        _get_excluding_target_builtin_methods()
+    )
     for _, method in members:
         if method.__doc__ is None:
             continue
@@ -332,10 +332,10 @@ def _append_each_section_to_markdown(markdown: str, docstring: str) -> str:
     from apysc._lint_and_doc.docstring_util import Return
 
     summary: str = docstring_util.extract_summary_from_docstring(docstring=docstring)
-    parameters: List[
-        Parameter
-    ] = docstring_util.extract_param_or_rtn_values_from_docstring(
-        target_type=Parameter, docstring=docstring
+    parameters: List[Parameter] = (
+        docstring_util.extract_param_or_rtn_values_from_docstring(
+            target_type=Parameter, docstring=docstring
+        )
     )
     returns: List[Return] = docstring_util.extract_param_or_rtn_values_from_docstring(
         target_type=Return, docstring=docstring
@@ -347,9 +347,9 @@ def _append_each_section_to_markdown(markdown: str, docstring: str) -> str:
     examples: List[Example] = docstring_util.extract_example_values_from_docstring(
         docstring=docstring
     )
-    references: List[
-        Reference
-    ] = docstring_util.extract_reference_values_from_docstring(docstring=docstring)
+    references: List[Reference] = (
+        docstring_util.extract_reference_values_from_docstring(docstring=docstring)
+    )
 
     markdown = docstring_util.append_summary_to_markdown(
         markdown=markdown, summary=summary, heading_label=""
@@ -421,9 +421,9 @@ def _append_module_docstring_to_markdown(
         return markdown
     summary: str = docstring_util.extract_summary_from_docstring(docstring=docstring)
     notes: str = docstring_util.extract_notes_from_docstring(docstring=docstring)
-    references: List[
-        Reference
-    ] = docstring_util.extract_reference_values_from_docstring(docstring=docstring)
+    references: List[Reference] = (
+        docstring_util.extract_reference_values_from_docstring(docstring=docstring)
+    )
 
     if markdown != "":
         markdown += "\n\n"

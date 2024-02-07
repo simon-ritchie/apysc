@@ -172,9 +172,9 @@ class EnterFrameMixIn(
 
         with If(self._is_stopped_settings[handler_name]):
             self._is_stopped_settings[handler_name].value = False
-            self._fps_millisecond_intervals_settings[
-                handler_name
-            ].value = _get_millisecond_interval_from_fps(fps=fps)
+            self._fps_millisecond_intervals_settings[handler_name].value = (
+                _get_millisecond_interval_from_fps(fps=fps)
+            )
             prev_time: DateTime = self._prev_time_settings[handler_name]
             now: DateTime = DateTime.now()
             prev_time.year = now.year

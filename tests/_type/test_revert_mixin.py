@@ -10,7 +10,7 @@ from apysc._type.revert_mixin import RevertMixIn
 
 
 class NotRevertableValue:
-    ...
+    pass
 
 
 class RevertableValue1(RevertMixIn):

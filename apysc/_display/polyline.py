@@ -1,7 +1,6 @@
 """Implementations of Polyline class.
 """
 
-
 from typing import List
 from typing import Optional
 from typing import Union

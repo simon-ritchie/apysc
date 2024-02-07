@@ -22,10 +22,10 @@ def test__target_file_is_translated_document() -> None:
 
 @apply_test_settings()
 def test__get_target_document_file_paths() -> None:
-    document_file_paths: List[
-        str
-    ] = check_docs_code_block_error._get_target_document_file_paths(
-        alphabets_group=["i", "j"]
+    document_file_paths: List[str] = (
+        check_docs_code_block_error._get_target_document_file_paths(
+            alphabets_group=["i", "j"]
+        )
     )
     assert "./docs_src/source/import_conventions.md" in document_file_paths
     assert "./docs_src/source/jp_sprite.md" not in document_file_paths

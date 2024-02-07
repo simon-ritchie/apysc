@@ -2,7 +2,6 @@
 interfaces and definitions.
 """
 
-
 from argparse import ArgumentParser
 from string import ascii_lowercase
 from typing import List

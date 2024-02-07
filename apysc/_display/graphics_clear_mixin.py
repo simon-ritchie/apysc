@@ -1,7 +1,6 @@
 """Class implementation for the graphics clear method-related mix-in.
 """
 
-
 from typing import Optional
 
 from typing_extensions import final

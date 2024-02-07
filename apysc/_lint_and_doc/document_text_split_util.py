@@ -1,7 +1,6 @@
 """This module is for the document splitting utility.
 """
 
-
 from typing import List
 from typing import Union
 

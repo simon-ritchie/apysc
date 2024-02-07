@@ -1,7 +1,6 @@
 """Class implementation for begin_fill method-related mix-in.
 """
 
-
 from typing import Dict
 from typing import Optional
 from typing import Union

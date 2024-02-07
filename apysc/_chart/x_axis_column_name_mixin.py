@@ -1,7 +1,6 @@
 """The mix-in class implementation for the `x_axis_column_name` value.
 """
 
-
 from typing_extensions import final
 
 from apysc._html.debug_mode import add_debug_info_setting

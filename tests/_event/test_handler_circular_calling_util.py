@@ -18,9 +18,9 @@ def test__read_handler_names() -> None:
     instance.variable_name = "test_instance"
     with HandlerScope(handler_name="test_handler_a_1", instance=instance):
         with HandlerScope(handler_name="test_handler_b_1", instance=instance):
-            handler_names: List[
-                str
-            ] = handler_circular_calling_util._read_handler_names()
+            handler_names: List[str] = (
+                handler_circular_calling_util._read_handler_names()
+            )
             assert handler_names == ["test_handler_a", "test_handler_b"]
 
         handler_names = handler_circular_calling_util._read_handler_names()
@@ -81,10 +81,10 @@ def test_is_handler_circular_calling() -> None:
 
 @apply_test_settings()
 def test__append_handler_name_to_last_of_list() -> None:
-    handler_names: List[
-        str
-    ] = handler_circular_calling_util._append_handler_name_to_last_of_list(
-        handler_name="test_handler_a", handler_names=[]
+    handler_names: List[str] = (
+        handler_circular_calling_util._append_handler_name_to_last_of_list(
+            handler_name="test_handler_a", handler_names=[]
+        )
     )
     assert handler_names == ["test_handler_a"]
 

@@ -180,10 +180,10 @@ def test__create_body_text_and_append_to_list_if_values_exist() -> None:
 
 @apply_test_settings()
 def test_split_markdown_document() -> None:
-    splitted: List[
-        Union[Heading, BodyText, CodeBlock]
-    ] = document_text_split_util.split_markdown_document(
-        markdown_txt=_TEST_MARKDOWN_TEXT
+    splitted: List[Union[Heading, BodyText, CodeBlock]] = (
+        document_text_split_util.split_markdown_document(
+            markdown_txt=_TEST_MARKDOWN_TEXT
+        )
     )
     assert len(splitted) == 8
 

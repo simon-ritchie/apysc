@@ -48,9 +48,9 @@ def _main() -> None:
     command_options: _CommandOptions = _get_command_options()
 
     file_names: List[str] = _get_file_names(lang=command_options["lang"])
-    local_file_data_2dim_list: List[
-        List[LocalFileData]
-    ] = _create_local_file_data_2dim_list(file_names=file_names)
+    local_file_data_2dim_list: List[List[LocalFileData]] = (
+        _create_local_file_data_2dim_list(file_names=file_names)
+    )
 
     future_list: List[Future] = []
     with ThreadPoolExecutor(max_workers=cpu_count()) as executor:
@@ -123,9 +123,9 @@ def _create_local_file_data_2dim_list(
         file_path: str = e2e_testing_helper.get_docs_local_file_path(
             lang=lang, file_name=file_name
         )
-        expected_assertion_failed_msgs: Optional[
-            List[str]
-        ] = _get_expected_assertion_failed_msgs(file_name=file_name)
+        expected_assertion_failed_msgs: Optional[List[str]] = (
+            _get_expected_assertion_failed_msgs(file_name=file_name)
+        )
         local_file_data_2dim_list[-1].append(
             {
                 "file_path": file_path,
@@ -157,9 +157,9 @@ def _get_expected_assertion_failed_msgs(*, file_name: str) -> Optional[List[str]
         if file_name.startswith(f"{lang.value}_"):
             file_name = file_name.replace(f"{lang.value}_", "", 1)
             break
-    expected_assertion_failed_msgs: Optional[
-        List[str]
-    ] = _EXPECTED_ASSERTION_FAILED_MSGS.get(file_name)
+    expected_assertion_failed_msgs: Optional[List[str]] = (
+        _EXPECTED_ASSERTION_FAILED_MSGS.get(file_name)
+    )
     return expected_assertion_failed_msgs
 
 

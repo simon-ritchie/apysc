@@ -322,9 +322,9 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_dot_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
-        line_dot_setting: Optional[
-            ap.LineDotSetting
-        ] = line_style_mixin.line_dot_setting
+        line_dot_setting: Optional[ap.LineDotSetting] = (
+            line_style_mixin.line_dot_setting
+        )
         assert line_dot_setting is None
 
         line_style_mixin.line_style(
@@ -338,9 +338,9 @@ class TestLineStyleMixIn:
     def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
         line_style_mixin._initialize_line_dot_setting_if_not_initialized()
-        line_dot_setting: Optional[
-            ap.LineDotSetting
-        ] = line_style_mixin.line_dot_setting
+        line_dot_setting: Optional[ap.LineDotSetting] = (
+            line_style_mixin.line_dot_setting
+        )
         assert line_dot_setting is None
 
         line_style_mixin.line_style(
@@ -365,9 +365,9 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_dash_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
-        line_dash_setting: Optional[
-            ap.LineDashSetting
-        ] = line_style_mixin.line_dash_setting
+        line_dash_setting: Optional[ap.LineDashSetting] = (
+            line_style_mixin.line_dash_setting
+        )
         assert line_dash_setting is None
 
         line_style_mixin.line_style(
@@ -394,9 +394,9 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_round_dot_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
-        line_round_dot_setting: Optional[
-            ap.LineRoundDotSetting
-        ] = line_style_mixin.line_round_dot_setting
+        line_round_dot_setting: Optional[ap.LineRoundDotSetting] = (
+            line_style_mixin.line_round_dot_setting
+        )
         assert line_round_dot_setting is None
 
         line_style_mixin.line_style(
@@ -423,9 +423,9 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_dash_dot_setting(self) -> None:
         line_style_mixin: LineStyleMixIn = LineStyleMixIn()
-        line_dash_dot_setting: Optional[
-            ap.LineDashDotSetting
-        ] = line_style_mixin.line_dash_dot_setting
+        line_dash_dot_setting: Optional[ap.LineDashDotSetting] = (
+            line_style_mixin.line_dash_dot_setting
+        )
         assert line_dash_dot_setting is None
 
         line_style_mixin._line_dash_dot_setting = ap.LineDashDotSetting(

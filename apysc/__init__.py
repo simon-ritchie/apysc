@@ -255,6 +255,7 @@ from apysc._material_design.icon.material_find_in_page_icon import MaterialFindI
 from apysc._material_design.icon.material_dashboard_customize_icon import MaterialDashboardCustomizeIcon
 from apysc._material_design.icon.material_support_icon import MaterialSupportIcon
 from apysc._material_design.icon.material_flutter_dash_icon import MaterialFlutterDashIcon
+from apysc._material_design.icon.material_redeem_icon import MaterialRedeemIcon
 
 True_: __True = __True()
 False_: __False = __False()

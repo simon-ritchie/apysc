@@ -259,4 +259,4 @@ from apysc._material_design.icon.material_flutter_dash_icon import MaterialFlutt
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.14"
+__version__: str = "4.1.15"

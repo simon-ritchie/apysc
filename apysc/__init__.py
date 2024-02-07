@@ -253,6 +253,7 @@ from apysc._material_design.icon.material_ads_click_icon import MaterialAdsClick
 from apysc._material_design.icon.material_source_icon import MaterialSourceIcon
 from apysc._material_design.icon.material_find_in_page_icon import MaterialFindInPageIcon
 from apysc._material_design.icon.material_dashboard_customize_icon import MaterialDashboardCustomizeIcon
+from apysc._material_design.icon.material_support_icon import MaterialSupportIcon
 
 True_: __True = __True()
 False_: __False = __False()

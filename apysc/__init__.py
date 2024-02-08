@@ -259,6 +259,7 @@ from apysc._material_design.icon.material_redeem_icon import MaterialRedeemIcon
 from apysc._material_design.icon.material_close_full_screen_icon import MaterialCloseFullScreenIcon
 from apysc._material_design.icon.material_swap_vert_icon import MaterialSwapVertIcon
 from apysc._material_design.icon.material_arrow_circle_right_icon import MaterialArrowCircleRightIcon
+from apysc._material_design.icon.material_view_headline_icon import MaterialViewHeadlineIcon
 
 True_: __True = __True()
 False_: __False = __False()

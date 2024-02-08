@@ -261,6 +261,7 @@ from apysc._material_design.icon.material_swap_vert_icon import MaterialSwapVert
 from apysc._material_design.icon.material_arrow_circle_right_icon import MaterialArrowCircleRightIcon
 from apysc._material_design.icon.material_view_headline_icon import MaterialViewHeadlineIcon
 from apysc._material_design.icon.material_restore_icon import MaterialRestoreIcon
+from apysc._material_design.icon.material_dangerous_icon import MaterialDangerousIcon
 
 True_: __True = __True()
 False_: __False = __False()

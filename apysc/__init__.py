@@ -258,6 +258,7 @@ from apysc._material_design.icon.material_flutter_dash_icon import MaterialFlutt
 from apysc._material_design.icon.material_redeem_icon import MaterialRedeemIcon
 from apysc._material_design.icon.material_close_full_screen_icon import MaterialCloseFullScreenIcon
 from apysc._material_design.icon.material_swap_vert_icon import MaterialSwapVertIcon
+from apysc._material_design.icon.material_arrow_circle_right_icon import MaterialArrowCircleRightIcon
 
 True_: __True = __True()
 False_: __False = __False()

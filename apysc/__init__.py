@@ -268,6 +268,7 @@ from apysc._material_design.icon.material_sensors_icon import MaterialSensorsIco
 from apysc._material_design.icon.material_compare_arrows_icon import MaterialCompareArrowsIcon
 from apysc._material_design.icon.material_table_view_icon import MaterialTableViewIcon
 from apysc._material_design.icon.material_privacy_tip_icon import MaterialPrivacyTipIcon
+from apysc._material_design.icon.material_nightlight_round_icon import MaterialNightlightRoundIcon
 
 True_: __True = __True()
 False_: __False = __False()

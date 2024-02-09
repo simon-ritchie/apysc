@@ -267,6 +267,7 @@ from apysc._material_design.icon.material_group_work_icon import MaterialGroupWo
 from apysc._material_design.icon.material_sensors_icon import MaterialSensorsIcon
 from apysc._material_design.icon.material_compare_arrows_icon import MaterialCompareArrowsIcon
 from apysc._material_design.icon.material_table_view_icon import MaterialTableViewIcon
+from apysc._material_design.icon.material_privacy_tip_icon import MaterialPrivacyTipIcon
 
 True_: __True = __True()
 False_: __False = __False()

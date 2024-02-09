@@ -262,6 +262,7 @@ from apysc._material_design.icon.material_arrow_circle_right_icon import Materia
 from apysc._material_design.icon.material_view_headline_icon import MaterialViewHeadlineIcon
 from apysc._material_design.icon.material_restore_icon import MaterialRestoreIcon
 from apysc._material_design.icon.material_dangerous_icon import MaterialDangerousIcon
+from apysc._material_design.icon.material_euro_symbol_icon import MaterialEuroSymbolIcon
 
 True_: __True = __True()
 False_: __False = __False()

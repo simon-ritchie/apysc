@@ -264,6 +264,7 @@ from apysc._material_design.icon.material_restore_icon import MaterialRestoreIco
 from apysc._material_design.icon.material_dangerous_icon import MaterialDangerousIcon
 from apysc._material_design.icon.material_euro_symbol_icon import MaterialEuroSymbolIcon
 from apysc._material_design.icon.material_group_work_icon import MaterialGroupWorkIcon
+from apysc._material_design.icon.material_sensors_icon import MaterialSensorsIcon
 
 True_: __True = __True()
 False_: __False = __False()

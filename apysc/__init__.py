@@ -266,6 +266,7 @@ from apysc._material_design.icon.material_euro_symbol_icon import MaterialEuroSy
 from apysc._material_design.icon.material_group_work_icon import MaterialGroupWorkIcon
 from apysc._material_design.icon.material_sensors_icon import MaterialSensorsIcon
 from apysc._material_design.icon.material_compare_arrows_icon import MaterialCompareArrowsIcon
+from apysc._material_design.icon.material_table_view_icon import MaterialTableViewIcon
 
 True_: __True = __True()
 False_: __False = __False()

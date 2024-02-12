@@ -269,6 +269,7 @@ from apysc._material_design.icon.material_compare_arrows_icon import MaterialCom
 from apysc._material_design.icon.material_table_view_icon import MaterialTableViewIcon
 from apysc._material_design.icon.material_privacy_tip_icon import MaterialPrivacyTipIcon
 from apysc._material_design.icon.material_nightlight_round_icon import MaterialNightlightRoundIcon
+from apysc._material_design.icon.material_currency_exchange_icon import MaterialCurrencyExchangeIcon
 
 True_: __True = __True()
 False_: __False = __False()

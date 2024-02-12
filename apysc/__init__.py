@@ -275,6 +275,7 @@ from apysc._material_design.icon.material_toc_icon import MaterialTocIcon
 from apysc._material_design.icon.material_bookmarks_icon import MaterialBookmarksIcon
 from apysc._material_design.icon.material_circle_up_icon import MaterialCircleUpIcon
 from apysc._material_design.icon.material_track_changes_icon import MaterialTrackChangesIcon
+from apysc._material_design.icon.material_copyright_icon import MaterialCopyrightIcon
 
 True_: __True = __True()
 False_: __False = __False()

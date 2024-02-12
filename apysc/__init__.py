@@ -273,6 +273,7 @@ from apysc._material_design.icon.material_currency_exchange_icon import Material
 from apysc._material_design.icon.material_https_icon import MaterialHttpsIcon
 from apysc._material_design.icon.material_toc_icon import MaterialTocIcon
 from apysc._material_design.icon.material_bookmarks_icon import MaterialBookmarksIcon
+from apysc._material_design.icon.material_circle_up_icon import MaterialCircleUpIcon
 
 True_: __True = __True()
 False_: __False = __False()

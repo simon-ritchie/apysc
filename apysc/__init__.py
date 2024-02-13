@@ -278,6 +278,7 @@ from apysc._material_design.icon.material_track_changes_icon import MaterialTrac
 from apysc._material_design.icon.material_copyright_icon import MaterialCopyrightIcon
 from apysc._material_design.icon.material_view_module_icon import MaterialViewModuleIcon
 from apysc._material_design.icon.material_grading_icon import MaterialGradingIcon
+from apysc._material_design.icon.material_perm_media_icon import MaterialPermMediaIcon
 
 True_: __True = __True()
 False_: __False = __False()

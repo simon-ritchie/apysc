@@ -280,6 +280,7 @@ from apysc._material_design.icon.material_view_module_icon import MaterialViewMo
 from apysc._material_design.icon.material_grading_icon import MaterialGradingIcon
 from apysc._material_design.icon.material_perm_media_icon import MaterialPermMediaIcon
 from apysc._material_design.icon.material_query_builder_icon import MaterialQueryBuilderIcon
+from apysc._material_design.icon.material_build_circle_icon import MaterialBuildCircleIcon
 
 True_: __True = __True()
 False_: __False = __False()

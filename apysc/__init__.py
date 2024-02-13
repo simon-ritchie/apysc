@@ -285,4 +285,4 @@ from apysc._material_design.icon.material_build_circle_icon import MaterialBuild
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.15"
+__version__: str = "4.1.16"

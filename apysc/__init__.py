@@ -282,6 +282,7 @@ from apysc._material_design.icon.material_perm_media_icon import MaterialPermMed
 from apysc._material_design.icon.material_query_builder_icon import MaterialQueryBuilderIcon
 from apysc._material_design.icon.material_build_circle_icon import MaterialBuildCircleIcon
 from apysc._material_design.icon.material_perm_contract_calendar_icon import MaterialPermContractCalendarIcon
+from apysc._material_design.icon.material_zoom_out_icon import MaterialZoomOutIcon
 
 True_: __True = __True()
 False_: __False = __False()

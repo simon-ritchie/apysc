@@ -287,4 +287,4 @@ from apysc._material_design.icon.material_zoom_out_icon import MaterialZoomOutIc
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.16"
+__version__: str = "4.1.17"

@@ -279,6 +279,7 @@ from apysc._material_design.icon.material_copyright_icon import MaterialCopyrigh
 from apysc._material_design.icon.material_view_module_icon import MaterialViewModuleIcon
 from apysc._material_design.icon.material_grading_icon import MaterialGradingIcon
 from apysc._material_design.icon.material_perm_media_icon import MaterialPermMediaIcon
+from apysc._material_design.icon.material_query_builder_icon import MaterialQueryBuilderIcon
 
 True_: __True = __True()
 False_: __False = __False()

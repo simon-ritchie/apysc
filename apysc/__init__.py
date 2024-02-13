@@ -255,8 +255,34 @@ from apysc._material_design.icon.material_find_in_page_icon import MaterialFindI
 from apysc._material_design.icon.material_dashboard_customize_icon import MaterialDashboardCustomizeIcon
 from apysc._material_design.icon.material_support_icon import MaterialSupportIcon
 from apysc._material_design.icon.material_flutter_dash_icon import MaterialFlutterDashIcon
+from apysc._material_design.icon.material_redeem_icon import MaterialRedeemIcon
+from apysc._material_design.icon.material_close_full_screen_icon import MaterialCloseFullScreenIcon
+from apysc._material_design.icon.material_swap_vert_icon import MaterialSwapVertIcon
+from apysc._material_design.icon.material_arrow_circle_right_icon import MaterialArrowCircleRightIcon
+from apysc._material_design.icon.material_view_headline_icon import MaterialViewHeadlineIcon
+from apysc._material_design.icon.material_restore_icon import MaterialRestoreIcon
+from apysc._material_design.icon.material_dangerous_icon import MaterialDangerousIcon
+from apysc._material_design.icon.material_euro_symbol_icon import MaterialEuroSymbolIcon
+from apysc._material_design.icon.material_group_work_icon import MaterialGroupWorkIcon
+from apysc._material_design.icon.material_sensors_icon import MaterialSensorsIcon
+from apysc._material_design.icon.material_compare_arrows_icon import MaterialCompareArrowsIcon
+from apysc._material_design.icon.material_table_view_icon import MaterialTableViewIcon
+from apysc._material_design.icon.material_privacy_tip_icon import MaterialPrivacyTipIcon
+from apysc._material_design.icon.material_nightlight_round_icon import MaterialNightlightRoundIcon
+from apysc._material_design.icon.material_currency_exchange_icon import MaterialCurrencyExchangeIcon
+from apysc._material_design.icon.material_https_icon import MaterialHttpsIcon
+from apysc._material_design.icon.material_toc_icon import MaterialTocIcon
+from apysc._material_design.icon.material_bookmarks_icon import MaterialBookmarksIcon
+from apysc._material_design.icon.material_circle_up_icon import MaterialCircleUpIcon
+from apysc._material_design.icon.material_track_changes_icon import MaterialTrackChangesIcon
+from apysc._material_design.icon.material_copyright_icon import MaterialCopyrightIcon
+from apysc._material_design.icon.material_view_module_icon import MaterialViewModuleIcon
+from apysc._material_design.icon.material_grading_icon import MaterialGradingIcon
+from apysc._material_design.icon.material_perm_media_icon import MaterialPermMediaIcon
+from apysc._material_design.icon.material_query_builder_icon import MaterialQueryBuilderIcon
+from apysc._material_design.icon.material_build_circle_icon import MaterialBuildCircleIcon
 
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.1.15"
+__version__: str = "4.1.16"

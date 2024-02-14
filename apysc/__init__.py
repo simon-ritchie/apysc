@@ -286,6 +286,7 @@ from apysc._material_design.icon.material_zoom_out_icon import MaterialZoomOutIc
 from apysc._material_design.icon.material_setting_phone_icon import MaterialSettingPhoneIcon
 from apysc._material_design.icon.material_backup_icon import MaterialBackupIcon
 from apysc._material_design.icon.material_perm_phone_msg_icon import MaterialPermPhoneMsgIcon
+from apysc._material_design.icon.material_speaker_notes_icon import MaterialSpeakerNotesIcon
 
 True_: __True = __True()
 False_: __False = __False()

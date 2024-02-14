@@ -289,6 +289,7 @@ from apysc._material_design.icon.material_perm_phone_msg_icon import MaterialPer
 from apysc._material_design.icon.material_speaker_notes_icon import MaterialSpeakerNotesIcon
 from apysc._material_design.icon.material_book_online_icon import MaterialBookOnlineIcon
 from apysc._material_design.icon.material_card_membership_icon import MaterialCardMembershipIcon
+from apysc._material_design.icon.material_label_important_icon import MaterialLabelImportantIcon
 
 True_: __True = __True()
 False_: __False = __False()

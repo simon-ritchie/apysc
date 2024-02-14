@@ -292,6 +292,7 @@ from apysc._material_design.icon.material_card_membership_icon import MaterialCa
 from apysc._material_design.icon.material_label_important_icon import MaterialLabelImportantIcon
 from apysc._material_design.icon.material_wysiwyg_icon import MaterialWysiwygIcon
 from apysc._material_design.icon.material_file_present_icon import MaterialFilePresentIcon
+from apysc._material_design.icon.material_arrow_circle_down_icon import MaterialArrowCircleDownIcon
 
 True_: __True = __True()
 False_: __False = __False()

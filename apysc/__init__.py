@@ -294,6 +294,7 @@ from apysc._material_design.icon.material_wysiwyg_icon import MaterialWysiwygIco
 from apysc._material_design.icon.material_file_present_icon import MaterialFilePresentIcon
 from apysc._material_design.icon.material_arrow_circle_down_icon import MaterialArrowCircleDownIcon
 from apysc._material_design.icon.material_page_view_icon import MaterialPageViewIcon
+from apysc._material_design.icon.material_integration_instruction_icon import MaterialIntegrationInstructionIcon
 
 True_: __True = __True()
 False_: __False = __False()

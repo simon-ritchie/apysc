@@ -296,6 +296,7 @@ from apysc._material_design.icon.material_arrow_circle_down_icon import Material
 from apysc._material_design.icon.material_page_view_icon import MaterialPageViewIcon
 from apysc._material_design.icon.material_integration_instruction_icon import MaterialIntegrationInstructionIcon
 from apysc._material_design.icon.material_change_history_icon import MaterialChangeHistoryIcon
+from apysc._material_design.icon.material_trending_down_icon import MaterialTrendingDownIcon
 
 True_: __True = __True()
 False_: __False = __False()

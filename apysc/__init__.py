@@ -293,6 +293,7 @@ from apysc._material_design.icon.material_label_important_icon import MaterialLa
 from apysc._material_design.icon.material_wysiwyg_icon import MaterialWysiwygIcon
 from apysc._material_design.icon.material_file_present_icon import MaterialFilePresentIcon
 from apysc._material_design.icon.material_arrow_circle_down_icon import MaterialArrowCircleDownIcon
+from apysc._material_design.icon.material_page_view_icon import MaterialPageViewIcon
 
 True_: __True = __True()
 False_: __False = __False()

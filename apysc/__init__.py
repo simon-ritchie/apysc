@@ -298,6 +298,7 @@ from apysc._material_design.icon.material_integration_instruction_icon import Ma
 from apysc._material_design.icon.material_change_history_icon import MaterialChangeHistoryIcon
 from apysc._material_design.icon.material_trending_down_icon import MaterialTrendingDownIcon
 from apysc._material_design.icon.material_percent_icon import MaterialPercentIcon
+from apysc._material_design.icon.material_swipe_icon import MaterialSwipeIcon
 
 True_: __True = __True()
 False_: __False = __False()

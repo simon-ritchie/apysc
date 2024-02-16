@@ -297,6 +297,7 @@ from apysc._material_design.icon.material_page_view_icon import MaterialPageView
 from apysc._material_design.icon.material_integration_instruction_icon import MaterialIntegrationInstructionIcon
 from apysc._material_design.icon.material_change_history_icon import MaterialChangeHistoryIcon
 from apysc._material_design.icon.material_trending_down_icon import MaterialTrendingDownIcon
+from apysc._material_design.icon.material_percent_icon import MaterialPercentIcon
 
 True_: __True = __True()
 False_: __False = __False()

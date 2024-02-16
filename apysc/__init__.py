@@ -302,6 +302,7 @@ from apysc._material_design.icon.material_swipe_icon import MaterialSwipeIcon
 from apysc._material_design.icon.material_class_icon import MaterialClassIcon
 from apysc._material_design.icon.material_accessible_icon import MaterialAccessibleIcon
 from apysc._material_design.icon.material_info_outline_icon import MaterialInfoOutlineIcon
+from apysc._material_design.icon.material_g_translate_icon import MaterialGTranslateIcon
 
 True_: __True = __True()
 False_: __False = __False()

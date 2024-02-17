@@ -304,6 +304,7 @@ from apysc._material_design.icon.material_accessible_icon import MaterialAccessi
 from apysc._material_design.icon.material_info_outline_icon import MaterialInfoOutlineIcon
 from apysc._material_design.icon.material_g_translate_icon import MaterialGTranslateIcon
 from apysc._material_design.icon.material_offline_bolt_icon import MaterialOfflineBoltIcon
+from apysc._material_design.icon.material_settings_backup_restore_icon import MaterialSettingsBackupRestoreIcon
 
 True_: __True = __True()
 False_: __False = __False()

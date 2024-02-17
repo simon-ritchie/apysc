@@ -305,6 +305,7 @@ from apysc._material_design.icon.material_info_outline_icon import MaterialInfoO
 from apysc._material_design.icon.material_g_translate_icon import MaterialGTranslateIcon
 from apysc._material_design.icon.material_offline_bolt_icon import MaterialOfflineBoltIcon
 from apysc._material_design.icon.material_settings_backup_restore_icon import MaterialSettingsBackupRestoreIcon
+from apysc._material_design.icon.material_production_quantity_limits_icon import MaterialProductionQuantityLimitsIcon
 
 True_: __True = __True()
 False_: __False = __False()

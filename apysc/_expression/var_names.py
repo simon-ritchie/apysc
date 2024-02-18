@@ -235,3 +235,4 @@ MATERIAL_PRODUCTION_QUANTITY_LIMITS_ICON: Final[str] = "mproductionquantitylimit
 MATERIAL_ARROW_CIRCLE_LEFT_ICON: Final[str] = "marrowcirclerightlefti"
 MATERIAL_ASPECT_RATIO_ICON: Final[str] = "maspectratioi"
 MATERIAL_TRAINING_ICON: Final[str] = "mtrainingi"
+MATERIAL_DONUT_LARGE_ICON: Final[str] = "mdonutlargei"

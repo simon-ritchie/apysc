@@ -309,6 +309,7 @@ from apysc._material_design.icon.material_production_quantity_limits_icon import
 from apysc._material_design.icon.material_arrow_circle_left_icon import MaterialArrowCircleLeftIcon
 from apysc._material_design.icon.material_aspect_ratio_icon import MaterialAspectRatioIcon
 from apysc._material_design.icon.material_training_icon import MaterialTrainingIcon
+from apysc._material_design.icon.material_donut_large_icon import MaterialDonutLargeIcon
 
 True_: __True = __True()
 False_: __False = __False()

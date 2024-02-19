@@ -311,6 +311,7 @@ from apysc._material_design.icon.material_aspect_ratio_icon import MaterialAspec
 from apysc._material_design.icon.material_training_icon import MaterialTrainingIcon
 from apysc._material_design.icon.material_donut_large_icon import MaterialDonutLargeIcon
 from apysc._material_design.icon.material_view_column_icon import MaterialViewColumnIcon
+from apysc._material_design.icon.material_segment_icon import MaterialSegmentIcon
 
 True_: __True = __True()
 False_: __False = __False()

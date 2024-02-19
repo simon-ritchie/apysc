@@ -312,6 +312,7 @@ from apysc._material_design.icon.material_training_icon import MaterialTrainingI
 from apysc._material_design.icon.material_donut_large_icon import MaterialDonutLargeIcon
 from apysc._material_design.icon.material_view_column_icon import MaterialViewColumnIcon
 from apysc._material_design.icon.material_segment_icon import MaterialSegmentIcon
+from apysc._material_design.icon.material_schedule_send_icon import MaterialScheduleSendIcon
 
 True_: __True = __True()
 False_: __False = __False()

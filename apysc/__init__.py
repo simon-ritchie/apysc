@@ -317,6 +317,7 @@ from apysc._material_design.icon.material_maximize_icon import MaterialMaximizeI
 from apysc._material_design.icon.material_bookmark_add_icon import MaterialBookmarkAddIcon
 from apysc._material_design.icon.material_thumbs_up_down_icon import MaterialThumbsUpDownIcon
 from apysc._material_design.icon.material_settings_ethernet_icon import MaterialSettingsEthernetIcon
+from apysc._material_design.icon.material_theaters_icon import MaterialTheatersIcon
 
 True_: __True = __True()
 False_: __False = __False()

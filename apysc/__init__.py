@@ -315,6 +315,7 @@ from apysc._material_design.icon.material_segment_icon import MaterialSegmentIco
 from apysc._material_design.icon.material_schedule_send_icon import MaterialScheduleSendIcon
 from apysc._material_design.icon.material_maximize_icon import MaterialMaximizeIcon
 from apysc._material_design.icon.material_bookmark_add_icon import MaterialBookmarkAddIcon
+from apysc._material_design.icon.material_thumbs_up_down_icon import MaterialThumbsUpDownIcon
 
 True_: __True = __True()
 False_: __False = __False()

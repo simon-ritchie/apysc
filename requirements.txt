@@ -2,7 +2,7 @@ typing-extensions==4.9.0
 pytest==8.0.0
 twine==5.0.0
 pytest-cov==4.1.0
-autoflake==2.2.1
+autoflake==2.3.0
 isort==5.13.2
 flake8==7.0.0
 numdoclint==0.1.9

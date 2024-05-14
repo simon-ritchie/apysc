@@ -1,5 +1,5 @@
 typing-extensions==4.9.0
-pytest==8.0.1
+pytest==8.2.0
 twine==5.0.0
 pytest-cov==4.1.0
 autoflake==2.3.0
@@ -9,11 +9,11 @@ numdoclint==0.1.9
 mypy==1.8.0
 html-minifier==0.0.4
 wheel==0.42.0
-importlib-metadata==7.0.1
+importlib-metadata==7.1.0
 Sphinx==7.1.2
 groundwork-sphinx-theme==1.1.1
-notebook==7.1.0
-pyright==1.1.350
+notebook==7.1.3
+pyright==1.1.362
 playwright==1.41.2
 myst-parser==2.0.0
 black==24.2.0

@@ -3,7 +3,7 @@
     "secretlint": "secretlint '**/*'"
   },
   "devDependencies": {
-    "secretlint": "8.1.1",
-    "@secretlint/secretlint-rule-preset-recommend": "8.1.1"
+    "secretlint": "8.2.4",
+    "@secretlint/secretlint-rule-preset-recommend": "8.2.4"
   }
 }

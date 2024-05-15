@@ -1,7 +1,7 @@
 """The SVG icon class implementation.
 """
 
-from typing import Optional
+from typing import Optional, Union
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import AppendFillAlphaAttrExpressionMixIn
 from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
@@ -16,6 +16,7 @@ from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.set_overflow_visible_setting_mixin import SetOverflowVisibleSettingMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
+from apysc._type.number import Number
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
@@ -42,6 +43,8 @@ class SvgIcon(
         self,
         *,
         svg_icon_html: str,
+        x: Union[float, Number] = 0.0,
+        y: Union[float, Number] = 0.0,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -53,6 +56,10 @@ class SvgIcon(
         svg_icon_html : str
             An SVG icon html string.
             For example, "<svg xmlns="http://www.w3.org/2000/svg" ...>...</svg>"
+        x : float or Number, optional
+            X-coordinate of the icon.
+        y : float or Number, optional
+            Y-coordinate of the icon.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -63,6 +70,7 @@ class SvgIcon(
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        from apysc._converter.to_apysc_val_from_builtin import get_copied_number_from_builtin_val
 
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
@@ -72,6 +80,8 @@ class SvgIcon(
         self._svg_icon_html = svg_icon_html
         self._append_constructor_expression()
         super(SvgIcon, self).__init__(variable_name=variable_name)
+        self.x = get_copied_number_from_builtin_val(float_or_num=x)
+        self.y = get_copied_number_from_builtin_val(float_or_num=y)
         self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
 

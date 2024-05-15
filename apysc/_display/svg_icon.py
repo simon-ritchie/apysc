@@ -1,9 +1,13 @@
 """The SVG icon class implementation.
 """
 
-from typing import Optional, Union
+from typing import Optional
+from typing import Union
+
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
-from apysc._display.append_fill_alpha_attr_expression_mixin import AppendFillAlphaAttrExpressionMixIn
+from apysc._display.append_fill_alpha_attr_expression_mixin import (
+    AppendFillAlphaAttrExpressionMixIn,
+)
 from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
 from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.child_mixin import ChildMixIn
@@ -13,12 +17,13 @@ from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
 from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
-from apysc._display.set_overflow_visible_setting_mixin import SetOverflowVisibleSettingMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._type.number import Number
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._validation import arg_validation_decos
 
 
 class SvgIcon(
@@ -68,9 +73,11 @@ class SvgIcon(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
+        from apysc._converter.to_apysc_val_from_builtin import (
+            get_copied_number_from_builtin_val,
+        )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._converter.to_apysc_val_from_builtin import get_copied_number_from_builtin_val
 
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
@@ -92,7 +99,6 @@ class SvgIcon(
         from apysc._expression import expression_data_util
 
         expression: str = (
-            f"var {self.variable_name} = "
-            f"SVG('{self._svg_icon_html}');"
+            f"var {self.variable_name} = " f"SVG('{self._svg_icon_html}');"
         )
         expression_data_util.append_js_expression(expression=expression)

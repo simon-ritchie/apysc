@@ -70,6 +70,19 @@ class SvgIcon(
         )
         self.variable_name = variable_name
         self._svg_icon_html = svg_icon_html
+        self._append_constructor_expression()
         super(SvgIcon, self).__init__(variable_name=variable_name)
         self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append a constructor expression.
+        """
+        from apysc._expression import expression_data_util
+
+        expression: str = (
+            f"var {self.variable_name} = "
+            f"SVG('{self._svg_icon_html}');"
+        )
+        expression_data_util.append_js_expression(expression=expression)

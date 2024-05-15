@@ -144,7 +144,7 @@ class XAxisSettings(
         tick_text_font_family : Optional[Union[Array[String], List[str]]], optional
             A tick text font family setting.
             Each string in an array needs to be a font name (e.g., `Times New Roman`).
-        tick_text_fill_color : str or String, optional
+        tick_text_fill_color : Color, optional
             A tick text fill-color setting.
         tick_text_fill_alpha : Union[float, Number], optional
             A tick text fill-alpha setting.
@@ -152,7 +152,7 @@ class XAxisSettings(
             A boolean, whether a tick text is a bold style or not.
         tick_text_italic : Union[bool, Boolean], optional
             A boolean, whether a tick text is an italic style or not (normal).
-        line_color : str or String, optional
+        line_color : Color, optional
             An axis line color setting.
         line_thickness : Union[int, Int], optional
             An axis line thickness (line width) setting.
@@ -166,7 +166,7 @@ class XAxisSettings(
             An axis label font size setting.
         axis_label_font_family : Optional[Union[Array[String], List[str]]], optional
             An axis label font family setting.
-        axis_label_fill_color : str or String, optional
+        axis_label_fill_color : Color, optional
             An axis label fill-color setting.
         axis_label_fill_alpha : Union[float, Number], optional
             An axis label fill-alpha setting.

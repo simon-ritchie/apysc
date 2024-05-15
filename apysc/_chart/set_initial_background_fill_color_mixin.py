@@ -25,7 +25,7 @@ class SetInitialBackgroundFillColorMixIn:
 
         Parameters
         ----------
-        background_fill_color : str or String
+        background_fill_color : Color
             A chart's initial background fill-color.
         """
         self._background_fill_color = background_fill_color

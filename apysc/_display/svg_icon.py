@@ -3,6 +3,8 @@
 
 from typing import Optional
 from typing import Union
+from apysc._color.color import Color
+from apysc._color.colors import Colors
 
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
@@ -50,6 +52,7 @@ class SvgIcon(
         svg_icon_html: str,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 0.0,
+        fill_color: Color = Colors.GRAY_666666,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -65,6 +68,8 @@ class SvgIcon(
             X-coordinate of the icon.
         y : float or Number, optional
             Y-coordinate of the icon.
+        fill_color : Color, default Colors.GRAY_666666
+            Fill-color of the icon.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -89,6 +94,7 @@ class SvgIcon(
         super(SvgIcon, self).__init__(variable_name=variable_name)
         self.x = get_copied_number_from_builtin_val(float_or_num=x)
         self.y = get_copied_number_from_builtin_val(float_or_num=y)
+        self.fill_color = fill_color
         self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
 

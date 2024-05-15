@@ -55,6 +55,20 @@ def main() -> None:
     svg_icon.x = ap.Number(50)
     svg_icon.y = ap.Number(75)
 
+    ap.SvgIcon(
+        svg_icon_html=SVG_ICON_HTML,
+        x=25,
+        y=100,
+        fill_color=ap.Colors.CYAN_00AAFF,
+    )
+
+    svg_icon = ap.SvgIcon(
+        svg_icon_html=SVG_ICON_HTML,
+        x=25,
+        y=125,
+    )
+    svg_icon.fill_color = ap.Colors.MAGENTA_FF00FF
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

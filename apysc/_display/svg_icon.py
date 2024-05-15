@@ -3,19 +3,37 @@
 
 from typing import Optional
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
+from apysc._display.append_fill_alpha_attr_expression_mixin import AppendFillAlphaAttrExpressionMixIn
+from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
+from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
+from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.get_bounds_mixin import GetBoundsMixIn
+from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
+from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
 from apysc._display.set_overflow_visible_setting_mixin import SetOverflowVisibleSettingMixIn
+from apysc._display.x_mixin import XMixIn
+from apysc._display.y_mixin import YMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
 class SvgIcon(
+    XMixIn,
+    AppendXAttrExpressionMixIn,
+    YMixIn,
+    AppendYAttrExpressionMixIn,
+    ScaleXFromCenterMixIn,
+    ScaleYFromCenterMixIn,
+    FillColorMixIn,
+    AppendFillAlphaAttrExpressionMixIn,
     CssMixIn,
     DisplayObject,
     AddToParentMixIn,
     SetOverflowVisibleSettingMixIn,
+    GetBoundsMixIn,
     VariableNameSuffixMixIn,
 ):
     _svg_icon_html: str

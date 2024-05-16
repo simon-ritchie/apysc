@@ -25,4 +25,4 @@ class AxisLineColorMixIn:
         line_color : Color
             An axis line color setting.
         """
-        self._line_color = line_color
+        self._line_color = line_color._copy()

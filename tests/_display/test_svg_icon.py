@@ -13,6 +13,7 @@ class TestSvgIcon:
             x=50,
             y=100,
             fill_color=ap.Colors.GRAY_777777,
+            fill_alpha=0.5,
             parent=sprite,
             variable_name_suffix="test_suffix",
         )
@@ -20,6 +21,7 @@ class TestSvgIcon:
         assert svg_icon.x == ap.Number(50)
         assert svg_icon.y == ap.Number(100)
         assert svg_icon.fill_color == ap.Colors.GRAY_777777
+        assert svg_icon.fill_alpha == ap.Number(0.5)
         assert svg_icon._variable_name_suffix == "test_suffix"
         assert svg_icon.parent == sprite
         assert var_names.SVG_ICON in svg_icon.variable_name

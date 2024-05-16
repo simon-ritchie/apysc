@@ -69,6 +69,22 @@ def main() -> None:
     )
     svg_icon.fill_color = ap.Colors.MAGENTA_FF00FF
 
+    ap.SvgIcon(
+        svg_icon_html=SVG_ICON_HTML,
+        x=25,
+        y=150,
+        fill_color=ap.Colors.CYAN_00AAFF,
+        fill_alpha=0.5,
+    )
+
+    svg_icon = ap.SvgIcon(
+        svg_icon_html=SVG_ICON_HTML,
+        x=25,
+        y=175,
+    )
+    svg_icon.fill_alpha = ap.Number(0.5)
+    ap.trace(svg_icon.fill_color)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

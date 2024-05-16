@@ -112,6 +112,7 @@ class FillColorMixIn(
         >>> circle.fill_color
         Color("#ff00aa")
         """
+        value = value._copy()
         self._update_fill_color_and_skip_appending_exp(value=value)
         self._append_fill_color_update_expression()
 

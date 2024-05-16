@@ -10,11 +10,13 @@ from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
     AppendFillAlphaAttrExpressionMixIn,
 )
+from apysc._display.append_fill_color_expression_mixin import AppendFillColorAttrExpressionMixIn
 from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
 from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.display_object import DisplayObject
+from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
@@ -36,6 +38,8 @@ class SvgIcon(
     ScaleXFromCenterMixIn,
     ScaleYFromCenterMixIn,
     FillColorMixIn,
+    AppendFillColorAttrExpressionMixIn,
+    FillAlphaMixIn,
     AppendFillAlphaAttrExpressionMixIn,
     CssMixIn,
     DisplayObject,
@@ -53,6 +57,7 @@ class SvgIcon(
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 0.0,
         fill_color: Color = Colors.GRAY_666666,
+        fill_alpha: Union[float, Number] = 1.0,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",
     ) -> None:
@@ -70,6 +75,8 @@ class SvgIcon(
             Y-coordinate of the icon.
         fill_color : Color, default Colors.GRAY_666666
             Fill-color of the icon.
+        fill_alpha : float or Number, default 1.0
+            Fill-alpha of the icon.
         parent : ChildMixIn or None, default None
             A parent instance to add this instance.
             If the specified value is None, this interface uses
@@ -95,6 +102,7 @@ class SvgIcon(
         self.x = get_copied_number_from_builtin_val(float_or_num=x)
         self.y = get_copied_number_from_builtin_val(float_or_num=y)
         self.fill_color = fill_color
+        self.fill_alpha = get_copied_number_from_builtin_val(float_or_num=fill_alpha)
         self._set_overflow_visible_setting()
         self._add_to_parent(parent=parent)
 

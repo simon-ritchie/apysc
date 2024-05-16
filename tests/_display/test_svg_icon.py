@@ -12,6 +12,7 @@ class TestSvgIcon:
             svg_icon_html="<svg>...</svg>",
             x=50,
             y=100,
+            width=48,
             fill_color=ap.Colors.GRAY_777777,
             fill_alpha=0.5,
             parent=sprite,

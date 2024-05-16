@@ -6,6 +6,7 @@ from typing import Union
 
 from apysc._color.color import Color
 from apysc._color.colors import Colors
+from apysc._converter.to_apysc_val_from_builtin import get_copied_int_from_builtin_val
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
     AppendFillAlphaAttrExpressionMixIn,
@@ -21,13 +22,14 @@ from apysc._display.display_object import DisplayObject
 from apysc._display.fill_alpha_mixin import FillAlphaMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.get_bounds_mixin import GetBoundsMixIn
-from apysc._display.scale_x_from_center_mixin import ScaleXFromCenterMixIn
-from apysc._display.scale_y_from_center_mixin import ScaleYFromCenterMixIn
+from apysc._display.height_mixin import HeightMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
+from apysc._display.width_mixin import WidthMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
+from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
@@ -37,12 +39,12 @@ class SvgIcon(
     AppendXAttrExpressionMixIn,
     YMixIn,
     AppendYAttrExpressionMixIn,
-    ScaleXFromCenterMixIn,
-    ScaleYFromCenterMixIn,
     FillColorMixIn,
     AppendFillColorAttrExpressionMixIn,
     FillAlphaMixIn,
     AppendFillAlphaAttrExpressionMixIn,
+    WidthMixIn,
+    HeightMixIn,
     CssMixIn,
     DisplayObject,
     AddToParentMixIn,
@@ -58,6 +60,7 @@ class SvgIcon(
         svg_icon_html: str,
         x: Union[float, Number] = 0.0,
         y: Union[float, Number] = 0.0,
+        size: Union[int, Int] = 24,
         fill_color: Color = Colors.GRAY_666666,
         fill_alpha: Union[float, Number] = 1.0,
         parent: Optional[ChildMixIn] = None,
@@ -75,6 +78,8 @@ class SvgIcon(
             X-coordinate of the icon.
         y : float or Number, optional
             Y-coordinate of the icon.
+        size : int or Int, default 24
+            Size of the icon.
         fill_color : Color, default Colors.GRAY_666666
             Fill-color of the icon.
         fill_alpha : float or Number, default 1.0
@@ -103,6 +108,9 @@ class SvgIcon(
         super(SvgIcon, self).__init__(variable_name=variable_name)
         self.x = get_copied_number_from_builtin_val(float_or_num=x)
         self.y = get_copied_number_from_builtin_val(float_or_num=y)
+        size_: Int = get_copied_int_from_builtin_val(integer=size)
+        self.width = size_
+        self.height = size_
         self.fill_color = fill_color
         self.fill_alpha = get_copied_number_from_builtin_val(float_or_num=fill_alpha)
         self._set_overflow_visible_setting()

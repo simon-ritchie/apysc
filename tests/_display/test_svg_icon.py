@@ -12,7 +12,7 @@ class TestSvgIcon:
             svg_icon_html="<svg>...</svg>",
             x=50,
             y=100,
-            width=48,
+            size=48,
             fill_color=ap.Colors.GRAY_777777,
             fill_alpha=0.5,
             parent=sprite,
@@ -21,6 +21,8 @@ class TestSvgIcon:
         assert svg_icon._svg_icon_html == "<svg>...</svg>"
         assert svg_icon.x == ap.Number(50)
         assert svg_icon.y == ap.Number(100)
+        assert svg_icon.width == ap.Int(48)
+        assert svg_icon.height == ap.Int(48)
         assert svg_icon.fill_color == ap.Colors.GRAY_777777
         assert svg_icon.fill_alpha == ap.Number(0.5)
         assert svg_icon._variable_name_suffix == "test_suffix"

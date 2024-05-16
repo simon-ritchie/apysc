@@ -92,6 +92,14 @@ def main() -> None:
         fill_color=ap.Colors.CYAN_00AAFF,
     )
 
+    sprite: ap.Sprite = ap.Sprite()
+    sprite.x = ap.Number(25)
+    sprite.y = ap.Number(250)
+    ap.SvgIcon(
+        svg_icon_html=SVG_ICON_HTML,
+        parent=sprite,
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

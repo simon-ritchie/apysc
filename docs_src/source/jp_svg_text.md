@@ -827,13 +827,13 @@ SVGテキストのためのクラスです。<hr>
 - `y`: float or Number, optional
   - 描画を開始するY座標（`特記事項`の節も確認をお願いします）。
 
-- `fill_color`: str or String, optional
+- `fill_color`: Color
   - 塗りの色の設定。
 
 - `fill_alpha`: float or Number, optional
   - 塗りの透明度の設定。
 
-- `line_color`: str or String, optional
+- `line_color`: Color, optional
   - 線の色の設定。
 
 - `line_alpha`: float or Number, optional

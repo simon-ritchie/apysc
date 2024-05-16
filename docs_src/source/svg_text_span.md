@@ -584,7 +584,7 @@ Create an `SvgText` instance with specified text spans.<hr>
   - A fill-color setting for an overall text.
 - `fill_alpha`: float or Number, optional
   - A fill-alpha setting for an overall text.
-- `line_color`: str or String, optional
+- `line_color`: Color, optional
   - A line-color setting for an overall text.
 - `line_alpha`: float or Number, optional
   - A line-alpha setting for an overall text.

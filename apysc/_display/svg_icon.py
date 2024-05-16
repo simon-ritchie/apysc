@@ -3,14 +3,16 @@
 
 from typing import Optional
 from typing import Union
+
 from apysc._color.color import Color
 from apysc._color.colors import Colors
-
 from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.append_fill_alpha_attr_expression_mixin import (
     AppendFillAlphaAttrExpressionMixIn,
 )
-from apysc._display.append_fill_color_expression_mixin import AppendFillColorAttrExpressionMixIn
+from apysc._display.append_fill_color_expression_mixin import (
+    AppendFillColorAttrExpressionMixIn,
+)
 from apysc._display.append_x_attr_expression_mixin import AppendXAttrExpressionMixIn
 from apysc._display.append_y_attr_expression_mixin import AppendYAttrExpressionMixIn
 from apysc._display.child_mixin import ChildMixIn

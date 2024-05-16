@@ -58,11 +58,11 @@ The class for an SVG text.<hr>
   - X-coordinate to start drawing.
 - `y`: float or Number, optional
   - Y-coordinate to start drawing (please see also the `Notes` section).
-- `fill_color`: str or String, optional
+- `fill_color`: Color
   - A fill-color setting.
 - `fill_alpha`: float or Number, optional
   - A fill-alpha setting.
-- `line_color`: str or String, optional
+- `line_color`: Color, optional
   - A line-color setting.
 - `line_alpha`: float or Number, optional
   - A line-alpha setting.
@@ -176,7 +176,7 @@ Create an `SvgText` instance with specified text spans.<hr>
   - A fill-color setting for an overall text.
 - `fill_alpha`: float or Number, optional
   - A fill-alpha setting for an overall text.
-- `line_color`: str or String, optional
+- `line_color`: Color, optional
   - A line-color setting for an overall text.
 - `line_alpha`: float or Number, optional
   - A line-alpha setting for an overall text.

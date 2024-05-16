@@ -604,7 +604,7 @@ ap.save_overall_html(dest_dir_path="svg_txt_span_delta_y/")
 - `fill_alpha`: float or Number, optional
   - テキスト全体に設定する塗りの透明度。
 
-- `line_color`: str or String, optional
+- `line_color`: Color, optional
   - テキスト全体に設定する線の色。
 
 - `line_alpha`: float or Number, optional

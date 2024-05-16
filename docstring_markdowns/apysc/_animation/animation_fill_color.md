@@ -46,7 +46,7 @@ The animation class for the fill-color<hr>
 
 - `target`: VariableNameMixIn
   - A target instance of the animation target (e.g., `Rectangle` instance).
-- `fill_color`: str or String
+- `fill_color`: Color
   - The final color (hex color code) of the animation.
 - `duration`: int or Int, default 3000
   - Milliseconds before an animation ends.

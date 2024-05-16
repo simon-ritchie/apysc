@@ -18,6 +18,10 @@ The SVG icon class implementation.<hr>
   - X-coordinate of the icon.
 - `y`: float or Number, optional
   - Y-coordinate of the icon.
+- `fill_color`: Color, default Colors.GRAY_666666
+  - Fill-color of the icon.
+- `fill_alpha`: float or Number, default 1.0
+  - Fill-alpha of the icon.
 - `parent`: ChildMixIn or None, default None
   - A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.
 - `variable_name_suffix`: str, default ""

@@ -100,6 +100,13 @@ def main() -> None:
         parent=sprite,
     )
 
+    ap.SvgIcon(
+        svg_icon_html=SVG_ICON_HTML.replace('"', "'"),
+        x=25,
+        y=275,
+        fill_color=ap.Colors.CYAN_00AAFF,
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

@@ -1,13 +1,15 @@
 """The class implementation for the fixed HTML SVG icon's base class.
 """
 
-from typing import Optional, Union
+from abc import abstractmethod
+from typing import Optional
+from typing import Union
+
 from apysc._color.color import Color
+from apysc._color.colors import Colors
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.svg_icon import SvgIcon
-from abc import abstractmethod
 from apysc._type.int import Int
-from apysc._color.colors import Colors
 from apysc._type.number import Number
 
 
@@ -65,5 +67,5 @@ class FixedHtmlSvgIconBase(SvgIcon):
             fill_color=fill_color,
             fill_alpha=fill_alpha,
             parent=parent,
-            variable_name_suffix=variable_name_suffix
+            variable_name_suffix=variable_name_suffix,
         )

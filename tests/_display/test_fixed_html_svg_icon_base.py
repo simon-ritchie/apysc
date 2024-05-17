@@ -1,6 +1,6 @@
-from apysc._testing.testing_helper import apply_test_settings
-from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 import apysc as ap
+from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class _TestIcon(FixedHtmlSvgIconBase):
@@ -14,7 +14,7 @@ class _TestIcon(FixedHtmlSvgIconBase):
         fixed_svg_icon_html : str
             Fixed SVG icon HTML string.
         """
-        return '<svg></svg>'
+        return "<svg></svg>"
 
 
 class TestFixedHtmlSvgIconBase:
@@ -26,9 +26,9 @@ class TestFixedHtmlSvgIconBase:
             size=48,
             fill_color=ap.Colors.GRAY_777777,
             fill_alpha=0.5,
-            variable_name_suffix='test_suffix',
+            variable_name_suffix="test_suffix",
         )
-        assert icon._svg_icon_html == '<svg></svg>'
+        assert icon._svg_icon_html == "<svg></svg>"
         assert icon.x == ap.Number(50)
         assert icon.y == ap.Number(100)
         assert icon.width == ap.Int(48)

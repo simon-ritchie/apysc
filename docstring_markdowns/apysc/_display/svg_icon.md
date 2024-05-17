@@ -18,6 +18,8 @@ The SVG icon class implementation.<hr>
   - X-coordinate of the icon.
 - `y`: float or Number, optional
   - Y-coordinate of the icon.
+- `size`: int or Int, default 24
+  - Size of the icon.
 - `fill_color`: Color, default Colors.GRAY_666666
   - Fill-color of the icon.
 - `fill_alpha`: float or Number, default 1.0

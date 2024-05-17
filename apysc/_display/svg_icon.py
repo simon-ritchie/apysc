@@ -32,6 +32,7 @@ from apysc._display.y_mixin import YMixIn
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._validation import arg_validation_decos
 
 
 class SvgIcon(
@@ -54,6 +55,24 @@ class SvgIcon(
 ):
     _svg_icon_html: str
 
+    # svg_icon_html
+    @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
+    # x
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
+    # y
+    @arg_validation_decos.is_num(arg_position_index=3, optional=False)
+    # size
+    @arg_validation_decos.is_integer(arg_position_index=4, optional=False)
+    # fill_color
+    @arg_validation_decos.is_color(arg_position_index=5, optional=False)
+    # fill_alpha
+    @arg_validation_decos.num_is_0_to_1_range(arg_position_index=6, optional=False)
+    # parent
+    @arg_validation_decos.is_display_object_container(
+        arg_position_index=7, optional=True
+    )
+    # variable_name_suffix
+    @arg_validation_decos.is_builtin_string(arg_position_index=8, optional=False)
     def __init__(
         self,
         *,
@@ -103,7 +122,7 @@ class SvgIcon(
             type_name=var_names.SVG_ICON
         )
         self.variable_name = variable_name
-        self._svg_icon_html = svg_icon_html
+        self._svg_icon_html = svg_icon_html.replace("'", '"')
         self._append_constructor_expression()
         super(SvgIcon, self).__init__(variable_name=variable_name)
         self.x = get_copied_number_from_builtin_val(float_or_num=x)

@@ -5,7 +5,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 class _TestIcon(FixedHtmlSvgIconBase):
 
-    def get_fixed_svg_icon_html(self) -> str:
+    def _get_fixed_svg_icon_html(self) -> str:
         """
         Get a fixed SVG icon HTML string.
 

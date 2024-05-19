@@ -27,7 +27,7 @@ The class implementation for the fixed HTML SVG icon's base class.<hr>
 - `variable_name_suffix`: str, optional
   - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.
 
-### `get_fixed_svg_icon_html` method docstring
+### `_get_fixed_svg_icon_html` method docstring
 
 Get a fixed SVG icon HTML string.<hr>
 

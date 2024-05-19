@@ -15,7 +15,7 @@ from apysc._type.number import Number
 
 class FixedHtmlSvgIconBase(SvgIcon):
     @abstractmethod
-    def get_fixed_svg_icon_html(self) -> str:
+    def _get_fixed_svg_icon_html(self) -> str:
         """
         Get a fixed SVG icon HTML string.
 
@@ -60,7 +60,7 @@ class FixedHtmlSvgIconBase(SvgIcon):
             This setting is sometimes useful for JavaScript debugging.
         """
         super(FixedHtmlSvgIconBase, self).__init__(
-            svg_icon_html=self.get_fixed_svg_icon_html(),
+            svg_icon_html=self._get_fixed_svg_icon_html(),
             x=x,
             y=y,
             size=size,

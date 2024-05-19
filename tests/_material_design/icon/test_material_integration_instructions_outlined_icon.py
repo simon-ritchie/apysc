@@ -1,4 +1,4 @@
-from apysc._material_design.icon.material_integration_instructions_outlined_icon import (
+from apysc._material_design.icon.material_integration_instructions_outlined_icon import (  # noqa
     MaterialintegrationInstructionsOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings

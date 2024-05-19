@@ -1,4 +1,4 @@
-from apysc._material_design.icon.material_settings_input_composite_outlined_icon import (
+from apysc._material_design.icon.material_settings_input_composite_outlined_icon import (  # noqa
     MaterialsettingsInputCompositeOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings

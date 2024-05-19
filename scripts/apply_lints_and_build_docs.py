@@ -557,7 +557,7 @@ def _append_isort_lint_command_if_module_updated(
     )
     if isort_updated_module_paths:
         isort_module_paths_str: str = _get_joined_paths_str(
-            module_paths=isort_updated_module_paths
+            module_paths=isort_updated_module_paths[:300]
         )
         lint_commands.append(
             {
@@ -598,7 +598,7 @@ def _append_autoflake_lint_command_if_module_updated(
     )
     if autoflake_updated_module_paths:
         autoflake_module_paths_str: str = _get_joined_paths_str(
-            module_paths=autoflake_updated_module_paths
+            module_paths=autoflake_updated_module_paths[:300]
         )
         lint_commands.append(
             {

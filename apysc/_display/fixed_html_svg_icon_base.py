@@ -37,7 +37,7 @@ class FixedHtmlSvgIconBase(SvgIcon):
         variable_name_suffix: str = "",
     ) -> None:
         """
-        The class implementation for the fixed HTML SVG icon's base class.
+        The class implementation for the SVG icon's class.
 
         Parameters
         ----------

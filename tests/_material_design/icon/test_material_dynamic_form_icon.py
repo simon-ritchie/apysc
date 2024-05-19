@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_dynamic_form_icon import MaterialdynamicFormIcon
+from apysc._material_design.icon.material_dynamic_form_icon import (
+    MaterialdynamicFormIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

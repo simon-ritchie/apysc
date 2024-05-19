@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_surround_sound_icon import MaterialsurroundSoundIcon
+from apysc._material_design.icon.material_surround_sound_icon import (
+    MaterialsurroundSoundIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

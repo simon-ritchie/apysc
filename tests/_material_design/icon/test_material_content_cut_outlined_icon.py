@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_content_cut_outlined_icon import MaterialcontentCutOutlinedIcon
+from apysc._material_design.icon.material_content_cut_outlined_icon import (
+    MaterialcontentCutOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

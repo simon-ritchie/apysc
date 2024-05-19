@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_call_missed_outlined_icon import MaterialcallMissedOutlinedIcon
+from apysc._material_design.icon.material_call_missed_outlined_icon import (
+    MaterialcallMissedOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

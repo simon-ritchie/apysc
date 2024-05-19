@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_sort_by_alpha_outlined_icon import MaterialsortByAlphaOutlinedIcon
+from apysc._material_design.icon.material_sort_by_alpha_outlined_icon import (
+    MaterialsortByAlphaOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

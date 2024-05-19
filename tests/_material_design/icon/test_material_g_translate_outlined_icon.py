@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_g_translate_outlined_icon import MaterialgTranslateOutlinedIcon
+from apysc._material_design.icon.material_g_translate_outlined_icon import (
+    MaterialgTranslateOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

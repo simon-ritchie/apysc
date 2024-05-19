@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_repeat_one_on_icon import MaterialrepeatOneOnIcon
+from apysc._material_design.icon.material_repeat_one_on_icon import (
+    MaterialrepeatOneOnIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

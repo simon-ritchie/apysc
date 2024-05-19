@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_stay_current_portrait_icon import MaterialstayCurrentPortraitIcon
+from apysc._material_design.icon.material_stay_current_portrait_icon import (
+    MaterialstayCurrentPortraitIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

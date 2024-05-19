@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_cancel_schedule_send_icon import MaterialcancelScheduleSendIcon
+from apysc._material_design.icon.material_cancel_schedule_send_icon import (
+    MaterialcancelScheduleSendIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

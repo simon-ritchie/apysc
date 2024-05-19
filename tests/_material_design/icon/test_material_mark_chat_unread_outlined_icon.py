@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_mark_chat_unread_outlined_icon import MaterialmarkChatUnreadOutlinedIcon
+from apysc._material_design.icon.material_mark_chat_unread_outlined_icon import (
+    MaterialmarkChatUnreadOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

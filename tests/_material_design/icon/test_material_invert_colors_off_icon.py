@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_invert_colors_off_icon import MaterialinvertColorsOffIcon
+from apysc._material_design.icon.material_invert_colors_off_icon import (
+    MaterialinvertColorsOffIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

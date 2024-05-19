@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_play_for_work_outlined_icon import MaterialplayForWorkOutlinedIcon
+from apysc._material_design.icon.material_play_for_work_outlined_icon import (
+    MaterialplayForWorkOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

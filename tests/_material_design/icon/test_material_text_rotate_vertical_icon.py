@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_text_rotate_vertical_icon import MaterialtextRotateVerticalIcon
+from apysc._material_design.icon.material_text_rotate_vertical_icon import (
+    MaterialtextRotateVerticalIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

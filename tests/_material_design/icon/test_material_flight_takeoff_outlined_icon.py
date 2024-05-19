@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_flight_takeoff_outlined_icon import MaterialflightTakeoffOutlinedIcon
+from apysc._material_design.icon.material_flight_takeoff_outlined_icon import (
+    MaterialflightTakeoffOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

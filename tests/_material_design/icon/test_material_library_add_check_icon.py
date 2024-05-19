@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_library_add_check_icon import MateriallibraryAddCheckIcon
+from apysc._material_design.icon.material_library_add_check_icon import (
+    MateriallibraryAddCheckIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

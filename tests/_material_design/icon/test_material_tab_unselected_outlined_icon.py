@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_tab_unselected_outlined_icon import MaterialtabUnselectedOutlinedIcon
+from apysc._material_design.icon.material_tab_unselected_outlined_icon import (
+    MaterialtabUnselectedOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_picture_in_picture_alt_icon import MaterialpictureInPictureAltIcon
+from apysc._material_design.icon.material_picture_in_picture_alt_icon import (
+    MaterialpictureInPictureAltIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_loop_outlined_icon import MaterialloopOutlinedIcon
+from apysc._material_design.icon.material_loop_outlined_icon import (
+    MaterialloopOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

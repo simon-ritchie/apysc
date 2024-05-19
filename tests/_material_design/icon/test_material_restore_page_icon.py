@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_restore_page_icon import MaterialrestorePageIcon
+from apysc._material_design.icon.material_restore_page_icon import (
+    MaterialrestorePageIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

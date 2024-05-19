@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_done_all_outlined_icon import MaterialdoneAllOutlinedIcon
+from apysc._material_design.icon.material_done_all_outlined_icon import (
+    MaterialdoneAllOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

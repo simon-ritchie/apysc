@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_fiber_smart_record_icon import MaterialfiberSmartRecordIcon
+from apysc._material_design.icon.material_fiber_smart_record_icon import (
+    MaterialfiberSmartRecordIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

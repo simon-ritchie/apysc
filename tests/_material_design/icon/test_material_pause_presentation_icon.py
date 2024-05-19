@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_pause_presentation_icon import MaterialpausePresentationIcon
+from apysc._material_design.icon.material_pause_presentation_icon import (
+    MaterialpausePresentationIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

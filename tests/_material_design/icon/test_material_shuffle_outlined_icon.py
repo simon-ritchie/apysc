@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_shuffle_outlined_icon import MaterialshuffleOutlinedIcon
+from apysc._material_design.icon.material_shuffle_outlined_icon import (
+    MaterialshuffleOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

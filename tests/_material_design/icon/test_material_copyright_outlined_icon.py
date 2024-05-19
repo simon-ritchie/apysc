@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_copyright_outlined_icon import MaterialcopyrightOutlinedIcon
+from apysc._material_design.icon.material_copyright_outlined_icon import (
+    MaterialcopyrightOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

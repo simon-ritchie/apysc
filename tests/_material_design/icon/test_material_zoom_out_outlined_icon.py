@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_zoom_out_outlined_icon import MaterialzoomOutOutlinedIcon
+from apysc._material_design.icon.material_zoom_out_outlined_icon import (
+    MaterialzoomOutOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

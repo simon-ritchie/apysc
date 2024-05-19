@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_play_circle_filled_icon import MaterialplayCircleFilledIcon
+from apysc._material_design.icon.material_play_circle_filled_icon import (
+    MaterialplayCircleFilledIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

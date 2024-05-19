@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_call_split_outlined_icon import MaterialcallSplitOutlinedIcon
+from apysc._material_design.icon.material_call_split_outlined_icon import (
+    MaterialcallSplitOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

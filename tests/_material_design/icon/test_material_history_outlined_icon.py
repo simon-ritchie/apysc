@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_history_outlined_icon import MaterialhistoryOutlinedIcon
+from apysc._material_design.icon.material_history_outlined_icon import (
+    MaterialhistoryOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

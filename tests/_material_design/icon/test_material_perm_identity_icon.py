@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_identity_icon import MaterialpermIdentityIcon
+from apysc._material_design.icon.material_perm_identity_icon import (
+    MaterialpermIdentityIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

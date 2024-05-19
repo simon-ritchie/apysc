@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_markunread_mailbox_icon import MaterialmarkunreadMailboxIcon
+from apysc._material_design.icon.material_markunread_mailbox_icon import (
+    MaterialmarkunreadMailboxIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

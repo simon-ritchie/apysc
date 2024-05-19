@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_qr_code_scanner_icon import MaterialqrCodeScannerIcon
+from apysc._material_design.icon.material_qr_code_scanner_icon import (
+    MaterialqrCodeScannerIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

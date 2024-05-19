@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_3d_rotation_outlined_icon import Material3DRotationOutlinedIcon
+from apysc._material_design.icon.material_3d_rotation_outlined_icon import (
+    Material3DRotationOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

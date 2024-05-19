@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_filter_alt_outlined_icon import MaterialfilterAltOutlinedIcon
+from apysc._material_design.icon.material_filter_alt_outlined_icon import (
+    MaterialfilterAltOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

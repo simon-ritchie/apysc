@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_close_fullscreen_icon import MaterialcloseFullscreenIcon
+from apysc._material_design.icon.material_close_fullscreen_icon import (
+    MaterialcloseFullscreenIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

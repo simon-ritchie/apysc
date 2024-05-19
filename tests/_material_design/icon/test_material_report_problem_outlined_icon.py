@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_report_problem_outlined_icon import MaterialreportProblemOutlinedIcon
+from apysc._material_design.icon.material_report_problem_outlined_icon import (
+    MaterialreportProblemOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

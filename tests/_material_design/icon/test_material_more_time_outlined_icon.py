@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_more_time_outlined_icon import MaterialmoreTimeOutlinedIcon
+from apysc._material_design.icon.material_more_time_outlined_icon import (
+    MaterialmoreTimeOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

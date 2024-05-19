@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_forward_30_outlined_icon import Materialforward30OutlinedIcon
+from apysc._material_design.icon.material_forward_30_outlined_icon import (
+    Materialforward30OutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

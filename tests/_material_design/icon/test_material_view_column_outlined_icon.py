@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_view_column_outlined_icon import MaterialviewColumnOutlinedIcon
+from apysc._material_design.icon.material_view_column_outlined_icon import (
+    MaterialviewColumnOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

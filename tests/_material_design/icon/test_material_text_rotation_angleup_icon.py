@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_text_rotation_angleup_icon import MaterialtextRotationAngleupIcon
+from apysc._material_design.icon.material_text_rotation_angleup_icon import (
+    MaterialtextRotationAngleupIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

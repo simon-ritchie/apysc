@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_bookmark_border_icon import MaterialbookmarkBorderIcon
+from apysc._material_design.icon.material_bookmark_border_icon import (
+    MaterialbookmarkBorderIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

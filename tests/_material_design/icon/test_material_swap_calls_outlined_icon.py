@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_swap_calls_outlined_icon import MaterialswapCallsOutlinedIcon
+from apysc._material_design.icon.material_swap_calls_outlined_icon import (
+    MaterialswapCallsOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

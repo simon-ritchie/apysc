@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_stop_circle_outlined_icon import MaterialstopCircleOutlinedIcon
+from apysc._material_design.icon.material_stop_circle_outlined_icon import (
+    MaterialstopCircleOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

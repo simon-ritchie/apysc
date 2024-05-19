@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_privacy_tip_outlined_icon import MaterialprivacyTipOutlinedIcon
+from apysc._material_design.icon.material_privacy_tip_outlined_icon import (
+    MaterialprivacyTipOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_stay_primary_landscape_icon import MaterialstayPrimaryLandscapeIcon
+from apysc._material_design.icon.material_stay_primary_landscape_icon import (
+    MaterialstayPrimaryLandscapeIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

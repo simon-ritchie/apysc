@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_contacts_outlined_icon import MaterialcontactsOutlinedIcon
+from apysc._material_design.icon.material_contacts_outlined_icon import (
+    MaterialcontactsOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

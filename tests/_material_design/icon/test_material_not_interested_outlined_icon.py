@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_not_interested_outlined_icon import MaterialnotInterestedOutlinedIcon
+from apysc._material_design.icon.material_not_interested_outlined_icon import (
+    MaterialnotInterestedOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

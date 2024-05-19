@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_query_builder_icon import MaterialqueryBuilderIcon
+from apysc._material_design.icon.material_query_builder_icon import (
+    MaterialqueryBuilderIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

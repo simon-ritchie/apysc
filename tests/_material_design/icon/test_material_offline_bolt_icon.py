@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_offline_bolt_icon import MaterialofflineBoltIcon
+from apysc._material_design.icon.material_offline_bolt_icon import (
+    MaterialofflineBoltIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

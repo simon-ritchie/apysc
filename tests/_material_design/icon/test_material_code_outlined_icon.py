@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_code_outlined_icon import MaterialcodeOutlinedIcon
+from apysc._material_design.icon.material_code_outlined_icon import (
+    MaterialcodeOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

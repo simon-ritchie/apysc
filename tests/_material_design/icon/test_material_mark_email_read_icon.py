@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_mark_email_read_icon import MaterialmarkEmailReadIcon
+from apysc._material_design.icon.material_mark_email_read_icon import (
+    MaterialmarkEmailReadIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

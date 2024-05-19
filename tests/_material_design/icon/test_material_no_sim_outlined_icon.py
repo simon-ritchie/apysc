@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_no_sim_outlined_icon import MaterialnoSimOutlinedIcon
+from apysc._material_design.icon.material_no_sim_outlined_icon import (
+    MaterialnoSimOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

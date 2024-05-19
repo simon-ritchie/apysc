@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_mediation_outlined_icon import MaterialmediationOutlinedIcon
+from apysc._material_design.icon.material_mediation_outlined_icon import (
+    MaterialmediationOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

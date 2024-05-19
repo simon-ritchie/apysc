@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_important_devices_icon import MaterialimportantDevicesIcon
+from apysc._material_design.icon.material_important_devices_icon import (
+    MaterialimportantDevicesIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

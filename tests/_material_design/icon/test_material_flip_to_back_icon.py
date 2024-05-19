@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_flip_to_back_icon import MaterialflipToBackIcon
+from apysc._material_design.icon.material_flip_to_back_icon import (
+    MaterialflipToBackIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

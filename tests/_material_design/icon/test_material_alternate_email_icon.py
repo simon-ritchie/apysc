@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_alternate_email_icon import MaterialalternateEmailIcon
+from apysc._material_design.icon.material_alternate_email_icon import (
+    MaterialalternateEmailIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

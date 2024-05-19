@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_text_rotate_up_icon import MaterialtextRotateUpIcon
+from apysc._material_design.icon.material_text_rotate_up_icon import (
+    MaterialtextRotateUpIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

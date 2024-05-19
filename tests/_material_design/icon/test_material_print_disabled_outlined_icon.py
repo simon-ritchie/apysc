@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_print_disabled_outlined_icon import MaterialprintDisabledOutlinedIcon
+from apysc._material_design.icon.material_print_disabled_outlined_icon import (
+    MaterialprintDisabledOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

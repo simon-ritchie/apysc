@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_high_quality_icon import MaterialhighQualityIcon
+from apysc._material_design.icon.material_high_quality_icon import (
+    MaterialhighQualityIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

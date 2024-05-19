@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_label_important_outlined_icon import MateriallabelImportantOutlinedIcon
+from apysc._material_design.icon.material_label_important_outlined_icon import (
+    MateriallabelImportantOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

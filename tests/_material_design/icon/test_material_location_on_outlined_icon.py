@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_location_on_outlined_icon import MateriallocationOnOutlinedIcon
+from apysc._material_design.icon.material_location_on_outlined_icon import (
+    MateriallocationOnOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

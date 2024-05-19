@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_supervisor_account_icon import MaterialsupervisorAccountIcon
+from apysc._material_design.icon.material_supervisor_account_icon import (
+    MaterialsupervisorAccountIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

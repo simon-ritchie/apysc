@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_loyalty_outlined_icon import MaterialloyaltyOutlinedIcon
+from apysc._material_design.icon.material_loyalty_outlined_icon import (
+    MaterialloyaltyOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

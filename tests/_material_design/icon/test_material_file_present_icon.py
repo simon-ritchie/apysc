@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_file_present_icon import MaterialfilePresentIcon
+from apysc._material_design.icon.material_file_present_icon import (
+    MaterialfilePresentIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

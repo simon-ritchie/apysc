@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_trending_down_icon import MaterialtrendingDownIcon
+from apysc._material_design.icon.material_trending_down_icon import (
+    MaterialtrendingDownIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

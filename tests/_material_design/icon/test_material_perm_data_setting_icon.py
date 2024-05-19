@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_data_setting_icon import MaterialpermDataSettingIcon
+from apysc._material_design.icon.material_perm_data_setting_icon import (
+    MaterialpermDataSettingIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

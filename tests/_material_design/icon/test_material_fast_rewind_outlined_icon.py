@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_fast_rewind_outlined_icon import MaterialfastRewindOutlinedIcon
+from apysc._material_design.icon.material_fast_rewind_outlined_icon import (
+    MaterialfastRewindOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

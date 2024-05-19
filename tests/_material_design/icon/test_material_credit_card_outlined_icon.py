@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_credit_card_outlined_icon import MaterialcreditCardOutlinedIcon
+from apysc._material_design.icon.material_credit_card_outlined_icon import (
+    MaterialcreditCardOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

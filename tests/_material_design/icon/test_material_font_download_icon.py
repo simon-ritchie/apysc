@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_font_download_icon import MaterialfontDownloadIcon
+from apysc._material_design.icon.material_font_download_icon import (
+    MaterialfontDownloadIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

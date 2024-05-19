@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_chat_bubble_outlined_icon import MaterialchatBubbleOutlinedIcon
+from apysc._material_design.icon.material_chat_bubble_outlined_icon import (
+    MaterialchatBubbleOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

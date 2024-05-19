@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_dynamic_form_outlined_icon import MaterialdynamicFormOutlinedIcon
+from apysc._material_design.icon.material_dynamic_form_outlined_icon import (
+    MaterialdynamicFormOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

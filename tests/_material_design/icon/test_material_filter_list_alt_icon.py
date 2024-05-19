@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_filter_list_alt_icon import MaterialfilterListAltIcon
+from apysc._material_design.icon.material_filter_list_alt_icon import (
+    MaterialfilterListAltIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

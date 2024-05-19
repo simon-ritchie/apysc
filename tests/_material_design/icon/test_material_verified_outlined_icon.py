@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_verified_outlined_icon import MaterialverifiedOutlinedIcon
+from apysc._material_design.icon.material_verified_outlined_icon import (
+    MaterialverifiedOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

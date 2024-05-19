@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_add_to_queue_icon import MaterialaddToQueueIcon
+from apysc._material_design.icon.material_add_to_queue_icon import (
+    MaterialaddToQueueIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_phone_disabled_outlined_icon import MaterialphoneDisabledOutlinedIcon
+from apysc._material_design.icon.material_phone_disabled_outlined_icon import (
+    MaterialphoneDisabledOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

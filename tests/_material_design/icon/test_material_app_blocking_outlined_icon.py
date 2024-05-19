@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_app_blocking_outlined_icon import MaterialappBlockingOutlinedIcon
+from apysc._material_design.icon.material_app_blocking_outlined_icon import (
+    MaterialappBlockingOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

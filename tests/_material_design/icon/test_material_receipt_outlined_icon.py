@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_receipt_outlined_icon import MaterialreceiptOutlinedIcon
+from apysc._material_design.icon.material_receipt_outlined_icon import (
+    MaterialreceiptOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

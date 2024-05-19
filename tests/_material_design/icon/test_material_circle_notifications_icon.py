@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_circle_notifications_icon import MaterialcircleNotificationsIcon
+from apysc._material_design.icon.material_circle_notifications_icon import (
+    MaterialcircleNotificationsIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

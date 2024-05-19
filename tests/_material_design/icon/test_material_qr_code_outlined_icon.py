@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_qr_code_outlined_icon import MaterialqrCodeOutlinedIcon
+from apysc._material_design.icon.material_qr_code_outlined_icon import (
+    MaterialqrCodeOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

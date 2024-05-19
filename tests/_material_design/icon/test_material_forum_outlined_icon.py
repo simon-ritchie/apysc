@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_forum_outlined_icon import MaterialforumOutlinedIcon
+from apysc._material_design.icon.material_forum_outlined_icon import (
+    MaterialforumOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

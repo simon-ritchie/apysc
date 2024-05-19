@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_branding_watermark_icon import MaterialbrandingWatermarkIcon
+from apysc._material_design.icon.material_branding_watermark_icon import (
+    MaterialbrandingWatermarkIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

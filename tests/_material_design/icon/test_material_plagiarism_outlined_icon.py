@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_plagiarism_outlined_icon import MaterialplagiarismOutlinedIcon
+from apysc._material_design.icon.material_plagiarism_outlined_icon import (
+    MaterialplagiarismOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_message_outlined_icon import MaterialmessageOutlinedIcon
+from apysc._material_design.icon.material_message_outlined_icon import (
+    MaterialmessageOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

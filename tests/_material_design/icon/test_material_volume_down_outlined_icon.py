@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_volume_down_outlined_icon import MaterialvolumeDownOutlinedIcon
+from apysc._material_design.icon.material_volume_down_outlined_icon import (
+    MaterialvolumeDownOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

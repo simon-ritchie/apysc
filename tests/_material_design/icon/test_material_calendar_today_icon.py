@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_calendar_today_icon import MaterialcalendarTodayIcon
+from apysc._material_design.icon.material_calendar_today_icon import (
+    MaterialcalendarTodayIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

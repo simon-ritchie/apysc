@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_find_in_page_icon import MaterialfindInPageIcon
+from apysc._material_design.icon.material_find_in_page_icon import (
+    MaterialfindInPageIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

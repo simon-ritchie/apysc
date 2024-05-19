@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_missed_video_call_icon import MaterialmissedVideoCallIcon
+from apysc._material_design.icon.material_missed_video_call_icon import (
+    MaterialmissedVideoCallIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_leaderboard_icon import MaterialleaderboardIcon
+from apysc._material_design.icon.material_leaderboard_icon import (
+    MaterialleaderboardIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

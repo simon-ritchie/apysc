@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_notification_important_icon import MaterialnotificationImportantIcon
+from apysc._material_design.icon.material_notification_important_icon import (
+    MaterialnotificationImportantIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

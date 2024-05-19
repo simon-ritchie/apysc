@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_amp_stories_outlined_icon import MaterialampStoriesOutlinedIcon
+from apysc._material_design.icon.material_amp_stories_outlined_icon import (
+    MaterialampStoriesOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

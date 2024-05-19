@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_exit_to_app_outlined_icon import MaterialexitToAppOutlinedIcon
+from apysc._material_design.icon.material_exit_to_app_outlined_icon import (
+    MaterialexitToAppOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

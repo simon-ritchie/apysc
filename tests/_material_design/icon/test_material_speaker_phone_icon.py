@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_speaker_phone_icon import MaterialspeakerPhoneIcon
+from apysc._material_design.icon.material_speaker_phone_icon import (
+    MaterialspeakerPhoneIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_contact_calendar_icon import MaterialpermContactCalendarIcon
+from apysc._material_design.icon.material_perm_contact_calendar_icon import (
+    MaterialpermContactCalendarIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

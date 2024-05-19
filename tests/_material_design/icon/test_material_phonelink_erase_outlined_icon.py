@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_phonelink_erase_outlined_icon import MaterialphonelinkEraseOutlinedIcon
+from apysc._material_design.icon.material_phonelink_erase_outlined_icon import (
+    MaterialphonelinkEraseOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

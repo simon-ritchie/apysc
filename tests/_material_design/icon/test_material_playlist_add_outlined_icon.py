@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_playlist_add_outlined_icon import MaterialplaylistAddOutlinedIcon
+from apysc._material_design.icon.material_playlist_add_outlined_icon import (
+    MaterialplaylistAddOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_euro_symbol_outlined_icon import MaterialeuroSymbolOutlinedIcon
+from apysc._material_design.icon.material_euro_symbol_outlined_icon import (
+    MaterialeuroSymbolOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

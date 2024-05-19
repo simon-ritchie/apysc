@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_mobile_screen_share_icon import MaterialmobileScreenShareIcon
+from apysc._material_design.icon.material_mobile_screen_share_icon import (
+    MaterialmobileScreenShareIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_move_to_inbox_icon import MaterialmoveToInboxIcon
+from apysc._material_design.icon.material_move_to_inbox_icon import (
+    MaterialmoveToInboxIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

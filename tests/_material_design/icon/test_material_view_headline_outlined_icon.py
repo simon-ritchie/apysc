@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_view_headline_outlined_icon import MaterialviewHeadlineOutlinedIcon
+from apysc._material_design.icon.material_view_headline_outlined_icon import (
+    MaterialviewHeadlineOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

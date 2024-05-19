@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_wifi_calling_outlined_icon import MaterialwifiCallingOutlinedIcon
+from apysc._material_design.icon.material_wifi_calling_outlined_icon import (
+    MaterialwifiCallingOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

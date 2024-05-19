@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_thumbs_up_down_outlined_icon import MaterialthumbsUpDownOutlinedIcon
+from apysc._material_design.icon.material_thumbs_up_down_outlined_icon import (
+    MaterialthumbsUpDownOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

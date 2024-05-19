@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_block_flipped_icon import MaterialblockFlippedIcon
+from apysc._material_design.icon.material_block_flipped_icon import (
+    MaterialblockFlippedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

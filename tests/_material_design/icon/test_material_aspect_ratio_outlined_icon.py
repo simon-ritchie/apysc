@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_aspect_ratio_outlined_icon import MaterialaspectRatioOutlinedIcon
+from apysc._material_design.icon.material_aspect_ratio_outlined_icon import (
+    MaterialaspectRatioOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

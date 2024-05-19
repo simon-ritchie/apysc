@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_shopping_cart_outlined_icon import MaterialshoppingCartOutlinedIcon
+from apysc._material_design.icon.material_shopping_cart_outlined_icon import (
+    MaterialshoppingCartOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

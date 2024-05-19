@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_thumb_down_off_alt_icon import MaterialthumbDownOffAltIcon
+from apysc._material_design.icon.material_thumb_down_off_alt_icon import (
+    MaterialthumbDownOffAltIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

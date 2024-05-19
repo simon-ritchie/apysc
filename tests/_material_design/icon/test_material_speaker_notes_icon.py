@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_speaker_notes_icon import MaterialspeakerNotesIcon
+from apysc._material_design.icon.material_speaker_notes_icon import (
+    MaterialspeakerNotesIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

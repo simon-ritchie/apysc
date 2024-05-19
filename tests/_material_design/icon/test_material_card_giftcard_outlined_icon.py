@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_card_giftcard_outlined_icon import MaterialcardGiftcardOutlinedIcon
+from apysc._material_design.icon.material_card_giftcard_outlined_icon import (
+    MaterialcardGiftcardOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

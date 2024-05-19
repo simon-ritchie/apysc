@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_tour_outlined_icon import MaterialtourOutlinedIcon
+from apysc._material_design.icon.material_tour_outlined_icon import (
+    MaterialtourOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

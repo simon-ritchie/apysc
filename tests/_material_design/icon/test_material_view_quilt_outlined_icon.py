@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_view_quilt_outlined_icon import MaterialviewQuiltOutlinedIcon
+from apysc._material_design.icon.material_view_quilt_outlined_icon import (
+    MaterialviewQuiltOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

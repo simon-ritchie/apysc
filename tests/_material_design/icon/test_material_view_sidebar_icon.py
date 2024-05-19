@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_view_sidebar_icon import MaterialviewSidebarIcon
+from apysc._material_design.icon.material_view_sidebar_icon import (
+    MaterialviewSidebarIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

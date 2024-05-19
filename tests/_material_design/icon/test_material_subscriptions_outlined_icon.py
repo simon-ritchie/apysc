@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_subscriptions_outlined_icon import MaterialsubscriptionsOutlinedIcon
+from apysc._material_design.icon.material_subscriptions_outlined_icon import (
+    MaterialsubscriptionsOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_remove_from_queue_icon import MaterialremoveFromQueueIcon
+from apysc._material_design.icon.material_remove_from_queue_icon import (
+    MaterialremoveFromQueueIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

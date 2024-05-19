@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_label_off_outlined_icon import MateriallabelOffOutlinedIcon
+from apysc._material_design.icon.material_label_off_outlined_icon import (
+    MateriallabelOffOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

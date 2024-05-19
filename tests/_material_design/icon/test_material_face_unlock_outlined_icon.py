@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_face_unlock_outlined_icon import MaterialfaceUnlockOutlinedIcon
+from apysc._material_design.icon.material_face_unlock_outlined_icon import (
+    MaterialfaceUnlockOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_build_circle_icon import MaterialbuildCircleIcon
+from apysc._material_design.icon.material_build_circle_icon import (
+    MaterialbuildCircleIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

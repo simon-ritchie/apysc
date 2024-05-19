@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_camera_mic_icon import MaterialpermCameraMicIcon
+from apysc._material_design.icon.material_perm_camera_mic_icon import (
+    MaterialpermCameraMicIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

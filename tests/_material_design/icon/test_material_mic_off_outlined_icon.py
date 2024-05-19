@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_mic_off_outlined_icon import MaterialmicOffOutlinedIcon
+from apysc._material_design.icon.material_mic_off_outlined_icon import (
+    MaterialmicOffOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_fast_forward_icon import MaterialfastForwardIcon
+from apysc._material_design.icon.material_fast_forward_icon import (
+    MaterialfastForwardIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

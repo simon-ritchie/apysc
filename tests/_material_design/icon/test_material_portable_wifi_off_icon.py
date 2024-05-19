@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_portable_wifi_off_icon import MaterialportableWifiOffIcon
+from apysc._material_design.icon.material_portable_wifi_off_icon import (
+    MaterialportableWifiOffIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

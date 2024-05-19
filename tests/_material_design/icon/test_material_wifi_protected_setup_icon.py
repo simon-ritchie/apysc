@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_wifi_protected_setup_icon import MaterialwifiProtectedSetupIcon
+from apysc._material_design.icon.material_wifi_protected_setup_icon import (
+    MaterialwifiProtectedSetupIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

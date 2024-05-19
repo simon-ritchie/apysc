@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_control_camera_outlined_icon import MaterialcontrolCameraOutlinedIcon
+from apysc._material_design.icon.material_control_camera_outlined_icon import (
+    MaterialcontrolCameraOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

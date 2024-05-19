@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_track_changes_icon import MaterialtrackChangesIcon
+from apysc._material_design.icon.material_track_changes_icon import (
+    MaterialtrackChangesIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

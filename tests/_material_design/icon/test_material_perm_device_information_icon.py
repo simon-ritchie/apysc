@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_device_information_icon import MaterialpermDeviceInformationIcon
+from apysc._material_design.icon.material_perm_device_information_icon import (
+    MaterialpermDeviceInformationIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

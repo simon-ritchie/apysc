@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_phone_msg_outlined_icon import MaterialpermPhoneMsgOutlinedIcon
+from apysc._material_design.icon.material_perm_phone_msg_outlined_icon import (
+    MaterialpermPhoneMsgOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

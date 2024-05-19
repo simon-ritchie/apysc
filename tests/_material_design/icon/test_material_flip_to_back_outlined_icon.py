@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_flip_to_back_outlined_icon import MaterialflipToBackOutlinedIcon
+from apysc._material_design.icon.material_flip_to_back_outlined_icon import (
+    MaterialflipToBackOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

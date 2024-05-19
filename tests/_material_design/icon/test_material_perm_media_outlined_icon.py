@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_media_outlined_icon import MaterialpermMediaOutlinedIcon
+from apysc._material_design.icon.material_perm_media_outlined_icon import (
+    MaterialpermMediaOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

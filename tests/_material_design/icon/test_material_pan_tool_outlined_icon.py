@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_pan_tool_outlined_icon import MaterialpanToolOutlinedIcon
+from apysc._material_design.icon.material_pan_tool_outlined_icon import (
+    MaterialpanToolOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

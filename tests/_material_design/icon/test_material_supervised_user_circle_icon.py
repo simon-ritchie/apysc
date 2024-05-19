@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_supervised_user_circle_icon import MaterialsupervisedUserCircleIcon
+from apysc._material_design.icon.material_supervised_user_circle_icon import (
+    MaterialsupervisedUserCircleIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

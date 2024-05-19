@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_person_add_disabled_icon import MaterialpersonAddDisabledIcon
+from apysc._material_design.icon.material_person_add_disabled_icon import (
+    MaterialpersonAddDisabledIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

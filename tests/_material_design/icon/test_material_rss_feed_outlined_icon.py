@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_rss_feed_outlined_icon import MaterialrssFeedOutlinedIcon
+from apysc._material_design.icon.material_rss_feed_outlined_icon import (
+    MaterialrssFeedOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

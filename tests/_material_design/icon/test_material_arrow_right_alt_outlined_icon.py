@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_arrow_right_alt_outlined_icon import MaterialarrowRightAltOutlinedIcon
+from apysc._material_design.icon.material_arrow_right_alt_outlined_icon import (
+    MaterialarrowRightAltOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

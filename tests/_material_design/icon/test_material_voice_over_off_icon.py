@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_voice_over_off_icon import MaterialvoiceOverOffIcon
+from apysc._material_design.icon.material_voice_over_off_icon import (
+    MaterialvoiceOverOffIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_remove_circle_outline_icon import MaterialremoveCircleOutlineIcon
+from apysc._material_design.icon.material_remove_circle_outline_icon import (
+    MaterialremoveCircleOutlineIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

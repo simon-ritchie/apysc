@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_queue_music_outlined_icon import MaterialqueueMusicOutlinedIcon
+from apysc._material_design.icon.material_queue_music_outlined_icon import (
+    MaterialqueueMusicOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

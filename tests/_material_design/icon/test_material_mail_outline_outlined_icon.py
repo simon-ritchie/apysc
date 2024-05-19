@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_mail_outline_outlined_icon import MaterialmailOutlineOutlinedIcon
+from apysc._material_design.icon.material_mail_outline_outlined_icon import (
+    MaterialmailOutlineOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

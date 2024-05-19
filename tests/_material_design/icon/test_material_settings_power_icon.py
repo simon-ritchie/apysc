@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_settings_power_icon import MaterialsettingsPowerIcon
+from apysc._material_design.icon.material_settings_power_icon import (
+    MaterialsettingsPowerIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_turned_in_not_icon import MaterialturnedInNotIcon
+from apysc._material_design.icon.material_turned_in_not_icon import (
+    MaterialturnedInNotIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_closed_caption_outlined_icon import MaterialclosedCaptionOutlinedIcon
+from apysc._material_design.icon.material_closed_caption_outlined_icon import (
+    MaterialclosedCaptionOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

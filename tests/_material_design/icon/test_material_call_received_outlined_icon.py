@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_call_received_outlined_icon import MaterialcallReceivedOutlinedIcon
+from apysc._material_design.icon.material_call_received_outlined_icon import (
+    MaterialcallReceivedOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

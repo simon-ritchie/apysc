@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_get_app_outlined_icon import MaterialgetAppOutlinedIcon
+from apysc._material_design.icon.material_get_app_outlined_icon import (
+    MaterialgetAppOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

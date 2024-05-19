@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_aspect_ratio_icon import MaterialaspectRatioIcon
+from apysc._material_design.icon.material_aspect_ratio_icon import (
+    MaterialaspectRatioIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

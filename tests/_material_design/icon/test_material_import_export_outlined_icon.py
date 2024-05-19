@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_import_export_outlined_icon import MaterialimportExportOutlinedIcon
+from apysc._material_design.icon.material_import_export_outlined_icon import (
+    MaterialimportExportOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

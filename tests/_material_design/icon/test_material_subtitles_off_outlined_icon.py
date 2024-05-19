@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_subtitles_off_outlined_icon import MaterialsubtitlesOffOutlinedIcon
+from apysc._material_design.icon.material_subtitles_off_outlined_icon import (
+    MaterialsubtitlesOffOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

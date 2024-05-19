@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_arrow_circle_up_outlined_icon import MaterialarrowCircleUpOutlinedIcon
+from apysc._material_design.icon.material_arrow_circle_up_outlined_icon import (
+    MaterialarrowCircleUpOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

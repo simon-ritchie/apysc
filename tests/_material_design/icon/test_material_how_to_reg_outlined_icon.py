@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_how_to_reg_outlined_icon import MaterialhowToRegOutlinedIcon
+from apysc._material_design.icon.material_how_to_reg_outlined_icon import (
+    MaterialhowToRegOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

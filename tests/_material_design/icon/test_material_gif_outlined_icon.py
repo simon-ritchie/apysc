@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_gif_outlined_icon import MaterialgifOutlinedIcon
+from apysc._material_design.icon.material_gif_outlined_icon import (
+    MaterialgifOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

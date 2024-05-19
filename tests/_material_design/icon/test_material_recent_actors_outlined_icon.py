@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_recent_actors_outlined_icon import MaterialrecentActorsOutlinedIcon
+from apysc._material_design.icon.material_recent_actors_outlined_icon import (
+    MaterialrecentActorsOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

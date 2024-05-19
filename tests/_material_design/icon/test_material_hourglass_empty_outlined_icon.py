@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_hourglass_empty_outlined_icon import MaterialhourglassEmptyOutlinedIcon
+from apysc._material_design.icon.material_hourglass_empty_outlined_icon import (
+    MaterialhourglassEmptyOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

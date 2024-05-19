@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_nat_outlined_icon import MaterialnatOutlinedIcon
+from apysc._material_design.icon.material_nat_outlined_icon import (
+    MaterialnatOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_contactless_icon import MaterialcontactlessIcon
+from apysc._material_design.icon.material_contactless_icon import (
+    MaterialcontactlessIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

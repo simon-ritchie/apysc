@@ -1,0 +1,18 @@
+# `apysc._material_design.icon.material_missed_video_call_outlined_icon` docstrings
+
+## Module summary
+
+The class implementation for the outlined `missed_video_call` material icon.
+
+## `MaterialmissedVideoCallOutlinedIcon` class docstring
+
+The class implementation for the outlined `missed_video_call` material icon.
+
+### `_get_fixed_svg_icon_html` method docstring
+
+Get a fixed SVG icon HTML string.<hr>
+
+**[Returns]**
+
+- `fixed_svg_icon_html`: str
+  - Fixed SVG icon HTML string.

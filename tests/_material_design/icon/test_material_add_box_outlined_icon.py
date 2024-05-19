@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_add_box_outlined_icon import MaterialaddBoxOutlinedIcon
+from apysc._material_design.icon.material_add_box_outlined_icon import (
+    MaterialaddBoxOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

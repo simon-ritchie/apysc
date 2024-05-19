@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_drag_indicator_outlined_icon import MaterialdragIndicatorOutlinedIcon
+from apysc._material_design.icon.material_drag_indicator_outlined_icon import (
+    MaterialdragIndicatorOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

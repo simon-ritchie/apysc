@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_replay_10_outlined_icon import Materialreplay10OutlinedIcon
+from apysc._material_design.icon.material_replay_10_outlined_icon import (
+    Materialreplay10OutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

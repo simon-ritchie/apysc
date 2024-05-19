@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_perm_scan_wifi_outlined_icon import MaterialpermScanWifiOutlinedIcon
+from apysc._material_design.icon.material_perm_scan_wifi_outlined_icon import (
+    MaterialpermScanWifiOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

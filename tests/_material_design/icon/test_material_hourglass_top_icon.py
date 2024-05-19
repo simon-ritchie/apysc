@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_hourglass_top_icon import MaterialhourglassTopIcon
+from apysc._material_design.icon.material_hourglass_top_icon import (
+    MaterialhourglassTopIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

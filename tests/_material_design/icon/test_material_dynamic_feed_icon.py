@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_dynamic_feed_icon import MaterialdynamicFeedIcon
+from apysc._material_design.icon.material_dynamic_feed_icon import (
+    MaterialdynamicFeedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

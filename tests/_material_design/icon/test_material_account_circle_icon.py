@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_account_circle_icon import MaterialaccountCircleIcon
+from apysc._material_design.icon.material_account_circle_icon import (
+    MaterialaccountCircleIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,0 +1,18 @@
+# `apysc._material_design.icon.material_power_settings_new_outlined_icon` docstrings
+
+## Module summary
+
+The class implementation for the outlined `power_settings_new` material icon.
+
+## `MaterialpowerSettingsNewOutlinedIcon` class docstring
+
+The class implementation for the outlined `power_settings_new` material icon.
+
+### `_get_fixed_svg_icon_html` method docstring
+
+Get a fixed SVG icon HTML string.<hr>
+
+**[Returns]**
+
+- `fixed_svg_icon_html`: str
+  - Fixed SVG icon HTML string.

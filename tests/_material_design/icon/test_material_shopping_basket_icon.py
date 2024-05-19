@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_shopping_basket_icon import MaterialshoppingBasketIcon
+from apysc._material_design.icon.material_shopping_basket_icon import (
+    MaterialshoppingBasketIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

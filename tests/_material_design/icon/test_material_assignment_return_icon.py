@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_assignment_return_icon import MaterialassignmentReturnIcon
+from apysc._material_design.icon.material_assignment_return_icon import (
+    MaterialassignmentReturnIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

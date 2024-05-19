@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_video_label_outlined_icon import MaterialvideoLabelOutlinedIcon
+from apysc._material_design.icon.material_video_label_outlined_icon import (
+    MaterialvideoLabelOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

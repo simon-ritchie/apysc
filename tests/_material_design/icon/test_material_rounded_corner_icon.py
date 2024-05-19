@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_rounded_corner_icon import MaterialroundedCornerIcon
+from apysc._material_design.icon.material_rounded_corner_icon import (
+    MaterialroundedCornerIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_skip_previous_icon import MaterialskipPreviousIcon
+from apysc._material_design.icon.material_skip_previous_icon import (
+    MaterialskipPreviousIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

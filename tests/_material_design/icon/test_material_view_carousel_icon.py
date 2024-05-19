@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_view_carousel_icon import MaterialviewCarouselIcon
+from apysc._material_design.icon.material_view_carousel_icon import (
+    MaterialviewCarouselIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

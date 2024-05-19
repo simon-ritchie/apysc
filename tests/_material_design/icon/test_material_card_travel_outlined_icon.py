@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_card_travel_outlined_icon import MaterialcardTravelOutlinedIcon
+from apysc._material_design.icon.material_card_travel_outlined_icon import (
+    MaterialcardTravelOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

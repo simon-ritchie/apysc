@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_push_pin_outlined_icon import MaterialpushPinOutlinedIcon
+from apysc._material_design.icon.material_push_pin_outlined_icon import (
+    MaterialpushPinOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

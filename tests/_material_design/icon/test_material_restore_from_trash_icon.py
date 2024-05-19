@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_restore_from_trash_icon import MaterialrestoreFromTrashIcon
+from apysc._material_design.icon.material_restore_from_trash_icon import (
+    MaterialrestoreFromTrashIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

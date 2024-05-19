@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_video_call_outlined_icon import MaterialvideoCallOutlinedIcon
+from apysc._material_design.icon.material_video_call_outlined_icon import (
+    MaterialvideoCallOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_arrow_right_alt_icon import MaterialarrowRightAltIcon
+from apysc._material_design.icon.material_arrow_right_alt_icon import (
+    MaterialarrowRightAltIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

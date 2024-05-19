@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_flaky_outlined_icon import MaterialflakyOutlinedIcon
+from apysc._material_design.icon.material_flaky_outlined_icon import (
+    MaterialflakyOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

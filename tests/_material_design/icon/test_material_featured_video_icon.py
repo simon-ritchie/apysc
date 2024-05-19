@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_featured_video_icon import MaterialfeaturedVideoIcon
+from apysc._material_design.icon.material_featured_video_icon import (
+    MaterialfeaturedVideoIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

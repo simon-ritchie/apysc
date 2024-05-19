@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_queue_play_next_icon import MaterialqueuePlayNextIcon
+from apysc._material_design.icon.material_queue_play_next_icon import (
+    MaterialqueuePlayNextIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

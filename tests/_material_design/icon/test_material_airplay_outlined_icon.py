@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_airplay_outlined_icon import MaterialairplayOutlinedIcon
+from apysc._material_design.icon.material_airplay_outlined_icon import (
+    MaterialairplayOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_call_merge_outlined_icon import MaterialcallMergeOutlinedIcon
+from apysc._material_design.icon.material_call_merge_outlined_icon import (
+    MaterialcallMergeOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

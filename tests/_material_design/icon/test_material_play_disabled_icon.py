@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_play_disabled_icon import MaterialplayDisabledIcon
+from apysc._material_design.icon.material_play_disabled_icon import (
+    MaterialplayDisabledIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

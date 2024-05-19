@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_toll_outlined_icon import MaterialtollOutlinedIcon
+from apysc._material_design.icon.material_toll_outlined_icon import (
+    MaterialtollOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

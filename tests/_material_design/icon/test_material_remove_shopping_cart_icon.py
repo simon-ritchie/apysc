@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_remove_shopping_cart_icon import MaterialremoveShoppingCartIcon
+from apysc._material_design.icon.material_remove_shopping_cart_icon import (
+    MaterialremoveShoppingCartIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_horizontal_split_icon import MaterialhorizontalSplitIcon
+from apysc._material_design.icon.material_horizontal_split_icon import (
+    MaterialhorizontalSplitIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

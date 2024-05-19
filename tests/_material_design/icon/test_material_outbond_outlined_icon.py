@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_outbond_outlined_icon import MaterialoutbondOutlinedIcon
+from apysc._material_design.icon.material_outbond_outlined_icon import (
+    MaterialoutbondOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

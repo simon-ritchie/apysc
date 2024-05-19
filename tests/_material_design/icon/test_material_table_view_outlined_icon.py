@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_table_view_outlined_icon import MaterialtableViewOutlinedIcon
+from apysc._material_design.icon.material_table_view_outlined_icon import (
+    MaterialtableViewOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

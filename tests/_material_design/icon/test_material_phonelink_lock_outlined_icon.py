@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_phonelink_lock_outlined_icon import MaterialphonelinkLockOutlinedIcon
+from apysc._material_design.icon.material_phonelink_lock_outlined_icon import (
+    MaterialphonelinkLockOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

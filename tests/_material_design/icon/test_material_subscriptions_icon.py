@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_subscriptions_icon import MaterialsubscriptionsIcon
+from apysc._material_design.icon.material_subscriptions_icon import (
+    MaterialsubscriptionsIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_delete_outlined_icon import MaterialdeleteOutlinedIcon
+from apysc._material_design.icon.material_delete_outlined_icon import (
+    MaterialdeleteOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

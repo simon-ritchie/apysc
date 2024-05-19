@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_pending_actions_outlined_icon import MaterialpendingActionsOutlinedIcon
+from apysc._material_design.icon.material_pending_actions_outlined_icon import (
+    MaterialpendingActionsOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_visibility_off_outlined_icon import MaterialvisibilityOffOutlinedIcon
+from apysc._material_design.icon.material_visibility_off_outlined_icon import (
+    MaterialvisibilityOffOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

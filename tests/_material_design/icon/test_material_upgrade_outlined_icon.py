@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_upgrade_outlined_icon import MaterialupgradeOutlinedIcon
+from apysc._material_design.icon.material_upgrade_outlined_icon import (
+    MaterialupgradeOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

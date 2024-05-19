@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_new_releases_outlined_icon import MaterialnewReleasesOutlinedIcon
+from apysc._material_design.icon.material_new_releases_outlined_icon import (
+    MaterialnewReleasesOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

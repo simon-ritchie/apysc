@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_shop_two_outlined_icon import MaterialshopTwoOutlinedIcon
+from apysc._material_design.icon.material_shop_two_outlined_icon import (
+    MaterialshopTwoOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

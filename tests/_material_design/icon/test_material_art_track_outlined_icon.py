@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_art_track_outlined_icon import MaterialartTrackOutlinedIcon
+from apysc._material_design.icon.material_art_track_outlined_icon import (
+    MaterialartTrackOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

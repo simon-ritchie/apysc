@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_low_priority_outlined_icon import MateriallowPriorityOutlinedIcon
+from apysc._material_design.icon.material_low_priority_outlined_icon import (
+    MateriallowPriorityOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

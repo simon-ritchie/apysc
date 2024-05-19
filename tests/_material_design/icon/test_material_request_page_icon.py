@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_request_page_icon import MaterialrequestPageIcon
+from apysc._material_design.icon.material_request_page_icon import (
+    MaterialrequestPageIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_text_rotation_none_icon import MaterialtextRotationNoneIcon
+from apysc._material_design.icon.material_text_rotation_none_icon import (
+    MaterialtextRotationNoneIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

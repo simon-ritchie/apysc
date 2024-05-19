@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_read_more_outlined_icon import MaterialreadMoreOutlinedIcon
+from apysc._material_design.icon.material_read_more_outlined_icon import (
+    MaterialreadMoreOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

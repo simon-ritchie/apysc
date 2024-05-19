@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_highlight_alt_icon import MaterialhighlightAltIcon
+from apysc._material_design.icon.material_highlight_alt_icon import (
+    MaterialhighlightAltIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

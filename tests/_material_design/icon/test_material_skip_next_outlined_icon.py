@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_skip_next_outlined_icon import MaterialskipNextOutlinedIcon
+from apysc._material_design.icon.material_skip_next_outlined_icon import (
+    MaterialskipNextOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

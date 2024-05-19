@@ -1,0 +1,18 @@
+# `apysc._material_design.icon.material_qr_code_icon` docstrings
+
+## Module summary
+
+The class implementation for the `qr_code` material icon.
+
+## `MaterialqrCodeIcon` class docstring
+
+The class implementation for the `qr_code` material icon.
+
+### `_get_fixed_svg_icon_html` method docstring
+
+Get a fixed SVG icon HTML string.<hr>
+
+**[Returns]**
+
+- `fixed_svg_icon_html`: str
+  - Fixed SVG icon HTML string.

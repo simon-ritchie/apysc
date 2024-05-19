@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_not_accessible_outlined_icon import MaterialnotAccessibleOutlinedIcon
+from apysc._material_design.icon.material_not_accessible_outlined_icon import (
+    MaterialnotAccessibleOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

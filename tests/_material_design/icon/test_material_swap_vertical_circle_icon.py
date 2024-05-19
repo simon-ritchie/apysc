@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_swap_vertical_circle_icon import MaterialswapVerticalCircleIcon
+from apysc._material_design.icon.material_swap_vertical_circle_icon import (
+    MaterialswapVerticalCircleIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

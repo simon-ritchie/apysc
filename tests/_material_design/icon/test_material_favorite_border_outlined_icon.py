@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_favorite_border_outlined_icon import MaterialfavoriteBorderOutlinedIcon
+from apysc._material_design.icon.material_favorite_border_outlined_icon import (
+    MaterialfavoriteBorderOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

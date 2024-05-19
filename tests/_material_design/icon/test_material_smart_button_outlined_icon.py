@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_smart_button_outlined_icon import MaterialsmartButtonOutlinedIcon
+from apysc._material_design.icon.material_smart_button_outlined_icon import (
+    MaterialsmartButtonOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

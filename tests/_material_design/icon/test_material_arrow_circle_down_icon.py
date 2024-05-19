@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_arrow_circle_down_icon import MaterialarrowCircleDownIcon
+from apysc._material_design.icon.material_arrow_circle_down_icon import (
+    MaterialarrowCircleDownIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

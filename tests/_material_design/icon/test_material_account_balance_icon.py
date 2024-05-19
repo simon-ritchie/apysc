@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_account_balance_icon import MaterialaccountBalanceIcon
+from apysc._material_design.icon.material_account_balance_icon import (
+    MaterialaccountBalanceIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

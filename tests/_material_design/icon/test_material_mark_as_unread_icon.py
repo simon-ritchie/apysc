@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_mark_as_unread_icon import MaterialmarkAsUnreadIcon
+from apysc._material_design.icon.material_mark_as_unread_icon import (
+    MaterialmarkAsUnreadIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

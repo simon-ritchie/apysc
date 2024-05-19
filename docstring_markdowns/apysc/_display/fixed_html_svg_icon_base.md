@@ -8,7 +8,7 @@ The class implementation for the fixed HTML SVG icon's base class.
 
 ### `__init__` method docstring
 
-The class implementation for the fixed HTML SVG icon's base class.<hr>
+The class implementation for the SVG icon's class.<hr>
 
 **[Parameters]**
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_unpublished_icon import MaterialunpublishedIcon
+from apysc._material_design.icon.material_unpublished_icon import (
+    MaterialunpublishedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_backup_table_outlined_icon import MaterialbackupTableOutlinedIcon
+from apysc._material_design.icon.material_backup_table_outlined_icon import (
+    MaterialbackupTableOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

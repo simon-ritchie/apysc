@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_app_blocking_icon import MaterialappBlockingIcon
+from apysc._material_design.icon.material_app_blocking_icon import (
+    MaterialappBlockingIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

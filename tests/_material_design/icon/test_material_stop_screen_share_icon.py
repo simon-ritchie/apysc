@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_stop_screen_share_icon import MaterialstopScreenShareIcon
+from apysc._material_design.icon.material_stop_screen_share_icon import (
+    MaterialstopScreenShareIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

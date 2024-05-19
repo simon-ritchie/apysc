@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_record_voice_over_icon import MaterialrecordVoiceOverIcon
+from apysc._material_design.icon.material_record_voice_over_icon import (
+    MaterialrecordVoiceOverIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_not_started_outlined_icon import MaterialnotStartedOutlinedIcon
+from apysc._material_design.icon.material_not_started_outlined_icon import (
+    MaterialnotStartedOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

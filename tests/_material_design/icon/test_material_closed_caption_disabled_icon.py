@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_closed_caption_disabled_icon import MaterialclosedCaptionDisabledIcon
+from apysc._material_design.icon.material_closed_caption_disabled_icon import (
+    MaterialclosedCaptionDisabledIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

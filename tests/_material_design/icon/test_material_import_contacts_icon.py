@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_import_contacts_icon import MaterialimportContactsIcon
+from apysc._material_design.icon.material_import_contacts_icon import (
+    MaterialimportContactsIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

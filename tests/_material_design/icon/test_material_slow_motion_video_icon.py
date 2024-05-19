@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_slow_motion_video_icon import MaterialslowMotionVideoIcon
+from apysc._material_design.icon.material_slow_motion_video_icon import (
+    MaterialslowMotionVideoIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

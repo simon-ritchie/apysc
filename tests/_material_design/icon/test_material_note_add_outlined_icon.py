@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_note_add_outlined_icon import MaterialnoteAddOutlinedIcon
+from apysc._material_design.icon.material_note_add_outlined_icon import (
+    MaterialnoteAddOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

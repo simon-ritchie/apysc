@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_vpn_key_outlined_icon import MaterialvpnKeyOutlinedIcon
+from apysc._material_design.icon.material_vpn_key_outlined_icon import (
+    MaterialvpnKeyOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

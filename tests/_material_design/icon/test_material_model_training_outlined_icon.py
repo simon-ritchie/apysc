@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_model_training_outlined_icon import MaterialmodelTrainingOutlinedIcon
+from apysc._material_design.icon.material_model_training_outlined_icon import (
+    MaterialmodelTrainingOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

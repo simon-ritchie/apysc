@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_vertical_split_icon import MaterialverticalSplitIcon
+from apysc._material_design.icon.material_vertical_split_icon import (
+    MaterialverticalSplitIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_dashboard_customize_icon import MaterialdashboardCustomizeIcon
+from apysc._material_design.icon.material_dashboard_customize_icon import (
+    MaterialdashboardCustomizeIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

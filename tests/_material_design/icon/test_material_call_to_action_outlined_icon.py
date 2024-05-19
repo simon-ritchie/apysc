@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_call_to_action_outlined_icon import MaterialcallToActionOutlinedIcon
+from apysc._material_design.icon.material_call_to_action_outlined_icon import (
+    MaterialcallToActionOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_select_all_outlined_icon import MaterialselectAllOutlinedIcon
+from apysc._material_design.icon.material_select_all_outlined_icon import (
+    MaterialselectAllOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

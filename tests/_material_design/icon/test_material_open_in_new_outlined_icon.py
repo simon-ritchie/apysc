@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_open_in_new_outlined_icon import MaterialopenInNewOutlinedIcon
+from apysc._material_design.icon.material_open_in_new_outlined_icon import (
+    MaterialopenInNewOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

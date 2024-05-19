@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_phonelink_lock_icon import MaterialphonelinkLockIcon
+from apysc._material_design.icon.material_phonelink_lock_icon import (
+    MaterialphonelinkLockIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

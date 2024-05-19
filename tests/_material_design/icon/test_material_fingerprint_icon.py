@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_fingerprint_icon import MaterialfingerprintIcon
+from apysc._material_design.icon.material_fingerprint_icon import (
+    MaterialfingerprintIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

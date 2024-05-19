@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_all_inbox_outlined_icon import MaterialallInboxOutlinedIcon
+from apysc._material_design.icon.material_all_inbox_outlined_icon import (
+    MaterialallInboxOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

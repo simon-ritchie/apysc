@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_grading_outlined_icon import MaterialgradingOutlinedIcon
+from apysc._material_design.icon.material_grading_outlined_icon import (
+    MaterialgradingOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

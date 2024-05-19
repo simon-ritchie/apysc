@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_accessible_forward_icon import MaterialaccessibleForwardIcon
+from apysc._material_design.icon.material_accessible_forward_icon import (
+    MaterialaccessibleForwardIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

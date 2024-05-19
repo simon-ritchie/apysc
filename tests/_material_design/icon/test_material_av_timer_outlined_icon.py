@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_av_timer_outlined_icon import MaterialavTimerOutlinedIcon
+from apysc._material_design.icon.material_av_timer_outlined_icon import (
+    MaterialavTimerOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

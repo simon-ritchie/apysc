@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_view_week_outlined_icon import MaterialviewWeekOutlinedIcon
+from apysc._material_design.icon.material_view_week_outlined_icon import (
+    MaterialviewWeekOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

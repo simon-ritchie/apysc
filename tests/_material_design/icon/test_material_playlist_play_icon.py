@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_playlist_play_icon import MaterialplaylistPlayIcon
+from apysc._material_design.icon.material_playlist_play_icon import (
+    MaterialplaylistPlayIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

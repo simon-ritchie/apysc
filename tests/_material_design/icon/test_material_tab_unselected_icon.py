@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_tab_unselected_icon import MaterialtabUnselectedIcon
+from apysc._material_design.icon.material_tab_unselected_icon import (
+    MaterialtabUnselectedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

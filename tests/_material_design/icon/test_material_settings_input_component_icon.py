@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_settings_input_component_icon import MaterialsettingsInputComponentIcon
+from apysc._material_design.icon.material_settings_input_component_icon import (
+    MaterialsettingsInputComponentIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

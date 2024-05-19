@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_published_with_changes_icon import MaterialpublishedWithChangesIcon
+from apysc._material_design.icon.material_published_with_changes_icon import (
+    MaterialpublishedWithChangesIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

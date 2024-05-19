@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_leaderboard_outlined_icon import MaterialleaderboardOutlinedIcon
+from apysc._material_design.icon.material_leaderboard_outlined_icon import (
+    MaterialleaderboardOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

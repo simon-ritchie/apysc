@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_delete_forever_icon import MaterialdeleteForeverIcon
+from apysc._material_design.icon.material_delete_forever_icon import (
+    MaterialdeleteForeverIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

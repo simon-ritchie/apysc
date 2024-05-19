@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_line_weight_outlined_icon import MateriallineWeightOutlinedIcon
+from apysc._material_design.icon.material_line_weight_outlined_icon import (
+    MateriallineWeightOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_pause_circle_filled_icon import MaterialpauseCircleFilledIcon
+from apysc._material_design.icon.material_pause_circle_filled_icon import (
+    MaterialpauseCircleFilledIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

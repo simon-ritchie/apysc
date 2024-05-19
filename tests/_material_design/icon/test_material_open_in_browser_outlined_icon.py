@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_open_in_browser_outlined_icon import MaterialopenInBrowserOutlinedIcon
+from apysc._material_design.icon.material_open_in_browser_outlined_icon import (
+    MaterialopenInBrowserOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_online_prediction_icon import MaterialonlinePredictionIcon
+from apysc._material_design.icon.material_online_prediction_icon import (
+    MaterialonlinePredictionIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

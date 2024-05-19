@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_person_search_icon import MaterialpersonSearchIcon
+from apysc._material_design.icon.material_person_search_icon import (
+    MaterialpersonSearchIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

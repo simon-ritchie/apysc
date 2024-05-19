@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_sticky_note_2_icon import MaterialstickyNote2Icon
+from apysc._material_design.icon.material_sticky_note_2_icon import (
+    MaterialstickyNote2Icon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

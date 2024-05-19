@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_card_membership_icon import MaterialcardMembershipIcon
+from apysc._material_design.icon.material_card_membership_icon import (
+    MaterialcardMembershipIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

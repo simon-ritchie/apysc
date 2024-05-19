@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_library_music_icon import MateriallibraryMusicIcon
+from apysc._material_design.icon.material_library_music_icon import (
+    MateriallibraryMusicIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

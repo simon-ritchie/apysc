@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_find_replace_outlined_icon import MaterialfindReplaceOutlinedIcon
+from apysc._material_design.icon.material_find_replace_outlined_icon import (
+    MaterialfindReplaceOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

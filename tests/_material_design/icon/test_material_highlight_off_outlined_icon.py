@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_highlight_off_outlined_icon import MaterialhighlightOffOutlinedIcon
+from apysc._material_design.icon.material_highlight_off_outlined_icon import (
+    MaterialhighlightOffOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

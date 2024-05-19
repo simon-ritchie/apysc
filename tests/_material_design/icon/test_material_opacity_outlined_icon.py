@@ -1,4 +1,6 @@
-from apysc._material_design.icon.material_opacity_outlined_icon import MaterialopacityOutlinedIcon
+from apysc._material_design.icon.material_opacity_outlined_icon import (
+    MaterialopacityOutlinedIcon,
+)
 from apysc._testing.testing_helper import apply_test_settings
 
 

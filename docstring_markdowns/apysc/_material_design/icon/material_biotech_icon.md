@@ -16,3 +16,10 @@ Get a fixed SVG icon HTML string.<hr>
 
 - `fixed_svg_icon_html`: str
   - Fixed SVG icon HTML string.
+
+<hr>
+
+**[References]**
+
+- [Material Symbols & Icons, APACHE LICENSE, VERSION 2.0](https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed)
+- [Material Symbols & Icons, APACHE LICENSE, VERSION 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)

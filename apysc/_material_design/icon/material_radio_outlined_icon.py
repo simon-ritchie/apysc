@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialradioOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRadioOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `radio` material icon.
     """

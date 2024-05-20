@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialimportContactsIcon(FixedHtmlSvgIconBase):
+class MaterialImportContactsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `import_contacts` material icon.
     """

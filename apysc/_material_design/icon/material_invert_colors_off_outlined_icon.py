@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialinvertColorsOffOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialInvertColorsOffOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `invert_colors_off` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdialerSipOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDialerSipOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `dialer_sip` material icon.
     """

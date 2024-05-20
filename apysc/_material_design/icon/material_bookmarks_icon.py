@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialbookmarksIcon(FixedHtmlSvgIconBase):
+class MaterialBookmarksIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `bookmarks` material icon.
     """

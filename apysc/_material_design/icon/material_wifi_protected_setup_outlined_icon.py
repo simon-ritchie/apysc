@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialwifiProtectedSetupOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialWifiProtectedSetupOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `wifi_protected_setup` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialreceiptOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialReceiptOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `receipt` material icon.
     """

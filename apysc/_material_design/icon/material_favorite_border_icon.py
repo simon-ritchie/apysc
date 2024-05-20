@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfavoriteBorderIcon(FixedHtmlSvgIconBase):
+class MaterialFavoriteBorderIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `favorite_border` material icon.
     """

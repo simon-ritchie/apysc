@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialinsightsOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialInsightsOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `insights` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsettingsEthernetIcon(FixedHtmlSvgIconBase):
+class MaterialSettingsEthernetIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `settings_ethernet` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtextRotateVerticalOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTextRotateVerticalOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `text_rotate_vertical` material icon.
     """

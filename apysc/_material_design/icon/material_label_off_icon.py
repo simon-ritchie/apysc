@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallabelOffIcon(FixedHtmlSvgIconBase):
+class MaterialLabelOffIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `label_off` material icon.
     """

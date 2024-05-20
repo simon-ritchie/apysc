@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialwarningIcon(FixedHtmlSvgIconBase):
+class MaterialWarningIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `warning` material icon.
     """

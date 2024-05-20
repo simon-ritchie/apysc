@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialalarmOnOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAlarmOnOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `alarm_on` material icon.
     """

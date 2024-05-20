@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialredoIcon(FixedHtmlSvgIconBase):
+class MaterialRedoIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `redo` material icon.
     """

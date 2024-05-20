@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialringVolumeIcon(FixedHtmlSvgIconBase):
+class MaterialRingVolumeIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `ring_volume` material icon.
     """

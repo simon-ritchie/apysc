@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialredeemIcon(FixedHtmlSvgIconBase):
+class MaterialRedeemIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `redeem` material icon.
     """

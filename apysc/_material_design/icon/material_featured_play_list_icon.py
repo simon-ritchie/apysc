@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfeaturedPlayListIcon(FixedHtmlSvgIconBase):
+class MaterialFeaturedPlayListIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `featured_play_list` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaddIcCallIcon(FixedHtmlSvgIconBase):
+class MaterialAddIcCallIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `add_ic_call` material icon.
     """

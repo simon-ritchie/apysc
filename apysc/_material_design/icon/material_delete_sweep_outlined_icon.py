@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdeleteSweepOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDeleteSweepOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `delete_sweep` material icon.
     """

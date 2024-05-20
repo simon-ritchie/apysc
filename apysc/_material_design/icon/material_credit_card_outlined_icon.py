@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcreditCardOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialCreditCardOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `credit_card` material icon.
     """

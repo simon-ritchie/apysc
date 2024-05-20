@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvolumeMuteOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialVolumeMuteOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `volume_mute` material icon.
     """

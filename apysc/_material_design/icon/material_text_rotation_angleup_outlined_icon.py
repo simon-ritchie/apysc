@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtextRotationAngleupOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTextRotationAngleupOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `text_rotation_angleup` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialchatOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialChatOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `chat` material icon.
     """

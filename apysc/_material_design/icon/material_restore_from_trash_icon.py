@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialrestoreFromTrashIcon(FixedHtmlSvgIconBase):
+class MaterialRestoreFromTrashIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `restore_from_trash` material icon.
     """

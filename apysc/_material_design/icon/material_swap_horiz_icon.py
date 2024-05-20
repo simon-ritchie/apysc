@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialswapHorizIcon(FixedHtmlSvgIconBase):
+class MaterialSwapHorizIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `swap_horiz` material icon.
     """

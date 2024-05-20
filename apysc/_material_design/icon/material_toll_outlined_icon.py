@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtollOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTollOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `toll` material icon.
     """

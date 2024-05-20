@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialrepeatOneOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRepeatOneOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `repeat_one` material icon.
     """

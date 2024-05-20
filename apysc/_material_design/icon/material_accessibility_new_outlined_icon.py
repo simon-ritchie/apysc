@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaccessibilityNewOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAccessibilityNewOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `accessibility_new` material icon.
     """

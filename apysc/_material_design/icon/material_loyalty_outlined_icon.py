@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialloyaltyOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialLoyaltyOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `loyalty` material icon.
     """

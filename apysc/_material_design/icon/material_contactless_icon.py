@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcontactlessIcon(FixedHtmlSvgIconBase):
+class MaterialContactlessIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `contactless` material icon.
     """

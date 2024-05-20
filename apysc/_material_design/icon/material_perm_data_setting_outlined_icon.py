@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpermDataSettingOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPermDataSettingOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `perm_data_setting` material icon.
     """

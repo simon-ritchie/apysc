@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvideoCallOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialVideoCallOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `video_call` material icon.
     """

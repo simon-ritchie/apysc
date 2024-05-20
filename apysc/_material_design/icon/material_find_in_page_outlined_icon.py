@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfindInPageOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFindInPageOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `find_in_page` material icon.
     """

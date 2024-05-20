@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvideoLabelOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialVideoLabelOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `video_label` material icon.
     """

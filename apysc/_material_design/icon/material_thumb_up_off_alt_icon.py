@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialthumbUpOffAltIcon(FixedHtmlSvgIconBase):
+class MaterialThumbUpOffAltIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `thumb_up_off_alt` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaspectRatioIcon(FixedHtmlSvgIconBase):
+class MaterialAspectRatioIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `aspect_ratio` material icon.
     """

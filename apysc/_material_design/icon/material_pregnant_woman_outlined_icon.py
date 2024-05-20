@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpregnantWomanOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPregnantWomanOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `pregnant_woman` material icon.
     """

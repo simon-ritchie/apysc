@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialballotIcon(FixedHtmlSvgIconBase):
+class MaterialBallotIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `ballot` material icon.
     """

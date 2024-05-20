@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialforumIcon(FixedHtmlSvgIconBase):
+class MaterialForumIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `forum` material icon.
     """

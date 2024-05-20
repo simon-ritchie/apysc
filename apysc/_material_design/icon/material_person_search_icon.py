@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpersonSearchIcon(FixedHtmlSvgIconBase):
+class MaterialPersonSearchIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `person_search` material icon.
     """

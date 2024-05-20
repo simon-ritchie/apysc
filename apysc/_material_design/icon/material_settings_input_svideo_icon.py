@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsettingsInputSvideoIcon(FixedHtmlSvgIconBase):
+class MaterialSettingsInputSvideoIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `settings_input_svideo` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialexitToAppOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialExitToAppOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `exit_to_app` material icon.
     """

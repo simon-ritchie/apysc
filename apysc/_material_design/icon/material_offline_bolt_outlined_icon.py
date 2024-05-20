@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialofflineBoltOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialOfflineBoltOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `offline_bolt` material icon.
     """

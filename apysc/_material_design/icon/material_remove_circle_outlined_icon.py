@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialremoveCircleOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRemoveCircleOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `remove_circle` material icon.
     """

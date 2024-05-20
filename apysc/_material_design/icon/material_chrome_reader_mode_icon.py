@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialchromeReaderModeIcon(FixedHtmlSvgIconBase):
+class MaterialChromeReaderModeIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `chrome_reader_mode` material icon.
     """

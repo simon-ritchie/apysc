@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtrendingDownOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTrendingDownOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `trending_down` material icon.
     """

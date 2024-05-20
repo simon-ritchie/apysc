@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialrowingIcon(FixedHtmlSvgIconBase):
+class MaterialRowingIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `rowing` material icon.
     """

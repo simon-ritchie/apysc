@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsendAndArchiveIcon(FixedHtmlSvgIconBase):
+class MaterialSendAndArchiveIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `send_and_archive` material icon.
     """

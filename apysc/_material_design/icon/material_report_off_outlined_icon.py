@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialreportOffOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialReportOffOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `report_off` material icon.
     """

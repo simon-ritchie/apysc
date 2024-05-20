@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialarrowRightAltIcon(FixedHtmlSvgIconBase):
+class MaterialArrowRightAltIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `arrow_right_alt` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialequalizerIcon(FixedHtmlSvgIconBase):
+class MaterialEqualizerIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `equalizer` material icon.
     """

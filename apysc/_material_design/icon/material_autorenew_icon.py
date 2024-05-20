@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialautorenewIcon(FixedHtmlSvgIconBase):
+class MaterialAutorenewIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `autorenew` material icon.
     """

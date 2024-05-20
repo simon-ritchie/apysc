@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialbookmarkOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialBookmarkOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `bookmark` material icon.
     """

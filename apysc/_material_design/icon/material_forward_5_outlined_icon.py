@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class Materialforward5OutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialForward5OutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `forward_5` material icon.
     """

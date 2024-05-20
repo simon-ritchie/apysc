@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialstopOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialStopOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `stop` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialflakyOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFlakyOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `flaky` material icon.
     """

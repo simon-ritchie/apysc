@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialstayPrimaryLandscapeOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialStayPrimaryLandscapeOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `stay_primary_landscape` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialruleOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRuleOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `rule` material icon.
     """

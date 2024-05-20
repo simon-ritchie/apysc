@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpaymentIcon(FixedHtmlSvgIconBase):
+class MaterialPaymentIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `payment` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialeditOffIcon(FixedHtmlSvgIconBase):
+class MaterialEditOffIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `edit_off` material icon.
     """

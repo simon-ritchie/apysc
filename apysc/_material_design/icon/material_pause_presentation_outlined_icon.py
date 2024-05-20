@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpausePresentationOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPausePresentationOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `pause_presentation` material icon.
     """

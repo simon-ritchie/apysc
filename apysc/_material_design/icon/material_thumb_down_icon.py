@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialthumbDownIcon(FixedHtmlSvgIconBase):
+class MaterialThumbDownIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `thumb_down` material icon.
     """

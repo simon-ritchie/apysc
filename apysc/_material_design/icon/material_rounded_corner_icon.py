@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialroundedCornerIcon(FixedHtmlSvgIconBase):
+class MaterialRoundedCornerIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `rounded_corner` material icon.
     """

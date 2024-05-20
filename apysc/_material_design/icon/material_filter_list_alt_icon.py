@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfilterListAltIcon(FixedHtmlSvgIconBase):
+class MaterialFilterListAltIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `filter_list_alt` material icon.
     """

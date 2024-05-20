@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtourIcon(FixedHtmlSvgIconBase):
+class MaterialTourIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `tour` material icon.
     """

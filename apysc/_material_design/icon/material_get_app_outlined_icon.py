@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialgetAppOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialGetAppOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `get_app` material icon.
     """

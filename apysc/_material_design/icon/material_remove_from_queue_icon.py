@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialremoveFromQueueIcon(FixedHtmlSvgIconBase):
+class MaterialRemoveFromQueueIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `remove_from_queue` material icon.
     """

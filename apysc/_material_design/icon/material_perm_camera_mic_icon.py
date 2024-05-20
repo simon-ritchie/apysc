@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpermCameraMicIcon(FixedHtmlSvgIconBase):
+class MaterialPermCameraMicIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `perm_camera_mic` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvoicemailIcon(FixedHtmlSvgIconBase):
+class MaterialVoicemailIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `voicemail` material icon.
     """

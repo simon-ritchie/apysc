@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialforwardToInboxOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialForwardToInboxOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `forward_to_inbox` material icon.
     """

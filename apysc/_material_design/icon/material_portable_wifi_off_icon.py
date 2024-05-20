@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialportableWifiOffIcon(FixedHtmlSvgIconBase):
+class MaterialPortableWifiOffIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `portable_wifi_off` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdomainDisabledOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDomainDisabledOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `domain_disabled` material icon.
     """

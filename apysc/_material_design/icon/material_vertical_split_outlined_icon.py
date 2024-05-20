@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialverticalSplitOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialVerticalSplitOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `vertical_split` material icon.
     """

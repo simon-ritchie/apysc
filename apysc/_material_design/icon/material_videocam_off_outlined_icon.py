@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvideocamOffOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialVideocamOffOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `videocam_off` material icon.
     """

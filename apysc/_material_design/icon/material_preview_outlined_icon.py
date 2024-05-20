@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpreviewOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPreviewOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `preview` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsettingsInputHdmiOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSettingsInputHdmiOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `settings_input_hdmi` material icon.
     """

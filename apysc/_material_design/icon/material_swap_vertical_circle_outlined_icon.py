@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialswapVerticalCircleOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSwapVerticalCircleOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `swap_vertical_circle` material icon.
     """

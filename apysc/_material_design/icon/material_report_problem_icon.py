@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialreportProblemIcon(FixedHtmlSvgIconBase):
+class MaterialReportProblemIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `report_problem` material icon.
     """

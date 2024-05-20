@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdesktopAccessDisabledOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDesktopAccessDisabledOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `desktop_access_disabled` material icon.
     """

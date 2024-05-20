@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialshoppingBagOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialShoppingBagOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `shopping_bag` material icon.
     """

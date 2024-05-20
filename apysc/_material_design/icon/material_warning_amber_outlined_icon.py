@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialwarningAmberOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialWarningAmberOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `warning_amber` material icon.
     """

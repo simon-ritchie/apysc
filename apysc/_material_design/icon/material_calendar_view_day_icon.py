@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcalendarViewDayIcon(FixedHtmlSvgIconBase):
+class MaterialCalendarViewDayIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `calendar_view_day` material icon.
     """

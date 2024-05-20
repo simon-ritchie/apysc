@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialflipToFrontOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFlipToFrontOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `flip_to_front` material icon.
     """

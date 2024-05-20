@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallowPriorityIcon(FixedHtmlSvgIconBase):
+class MaterialLowPriorityIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `low_priority` material icon.
     """

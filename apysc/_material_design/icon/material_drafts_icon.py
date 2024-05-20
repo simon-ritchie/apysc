@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdraftsIcon(FixedHtmlSvgIconBase):
+class MaterialDraftsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `drafts` material icon.
     """

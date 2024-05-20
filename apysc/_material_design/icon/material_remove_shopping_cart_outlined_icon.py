@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialremoveShoppingCartOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRemoveShoppingCartOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `remove_shopping_cart` material icon.
     """

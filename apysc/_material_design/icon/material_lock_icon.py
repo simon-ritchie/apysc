@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallockIcon(FixedHtmlSvgIconBase):
+class MaterialLockIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `lock` material icon.
     """

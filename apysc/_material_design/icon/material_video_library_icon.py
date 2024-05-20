@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvideoLibraryIcon(FixedHtmlSvgIconBase):
+class MaterialVideoLibraryIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `video_library` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtableViewOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTableViewOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `table_view` material icon.
     """

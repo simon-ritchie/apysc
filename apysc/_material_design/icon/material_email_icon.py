@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialemailIcon(FixedHtmlSvgIconBase):
+class MaterialEmailIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `email` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialrecentActorsOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRecentActorsOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `recent_actors` material icon.
     """

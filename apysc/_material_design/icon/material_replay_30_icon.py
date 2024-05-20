@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class Materialreplay30Icon(FixedHtmlSvgIconBase):
+class MaterialReplay30Icon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `replay_30` material icon.
     """

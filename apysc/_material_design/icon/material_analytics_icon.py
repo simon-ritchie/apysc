@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialanalyticsIcon(FixedHtmlSvgIconBase):
+class MaterialAnalyticsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `analytics` material icon.
     """

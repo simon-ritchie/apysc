@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallabelImportantOutlineIcon(FixedHtmlSvgIconBase):
+class MaterialLabelImportantOutlineIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `label_important_outline` material icon.
     """

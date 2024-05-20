@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialeventIcon(FixedHtmlSvgIconBase):
+class MaterialEventIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `event` material icon.
     """

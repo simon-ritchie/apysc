@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdomainVerificationIcon(FixedHtmlSvgIconBase):
+class MaterialDomainVerificationIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `domain_verification` material icon.
     """

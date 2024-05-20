@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialhighlightOffIcon(FixedHtmlSvgIconBase):
+class MaterialHighlightOffIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `highlight_off` material icon.
     """

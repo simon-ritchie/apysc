@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialerrorOutlineOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialErrorOutlineOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `error_outline` material icon.
     """

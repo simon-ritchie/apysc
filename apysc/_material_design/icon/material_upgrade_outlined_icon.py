@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialupgradeOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialUpgradeOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `upgrade` material icon.
     """

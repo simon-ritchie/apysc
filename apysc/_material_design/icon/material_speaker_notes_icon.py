@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialspeakerNotesIcon(FixedHtmlSvgIconBase):
+class MaterialSpeakerNotesIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `speaker_notes` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialautoDeleteOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAutoDeleteOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `auto_delete` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialliveHelpOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialLiveHelpOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `live_help` material icon.
     """

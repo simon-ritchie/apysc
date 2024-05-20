@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtableViewIcon(FixedHtmlSvgIconBase):
+class MaterialTableViewIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `table_view` material icon.
     """

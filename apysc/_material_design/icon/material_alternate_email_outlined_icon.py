@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialalternateEmailOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAlternateEmailOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `alternate_email` material icon.
     """

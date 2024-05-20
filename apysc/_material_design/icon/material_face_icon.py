@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfaceIcon(FixedHtmlSvgIconBase):
+class MaterialFaceIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `face` material icon.
     """

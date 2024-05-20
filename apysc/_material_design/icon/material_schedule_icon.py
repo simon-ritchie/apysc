@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialscheduleIcon(FixedHtmlSvgIconBase):
+class MaterialScheduleIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `schedule` material icon.
     """

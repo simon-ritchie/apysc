@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialgestureIcon(FixedHtmlSvgIconBase):
+class MaterialGestureIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `gesture` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfileCopyOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFileCopyOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `file_copy` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpublishedWithChangesIcon(FixedHtmlSvgIconBase):
+class MaterialPublishedWithChangesIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `published_with_changes` material icon.
     """

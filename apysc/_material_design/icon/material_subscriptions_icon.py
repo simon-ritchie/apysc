@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsubscriptionsIcon(FixedHtmlSvgIconBase):
+class MaterialSubscriptionsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `subscriptions` material icon.
     """

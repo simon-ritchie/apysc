@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtranslateOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTranslateOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `translate` material icon.
     """

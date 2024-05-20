@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfastForwardOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFastForwardOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `fast_forward` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpermPhoneMsgIcon(FixedHtmlSvgIconBase):
+class MaterialPermPhoneMsgIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `perm_phone_msg` material icon.
     """

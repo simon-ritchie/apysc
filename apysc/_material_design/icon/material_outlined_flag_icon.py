@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialoutlinedFlagIcon(FixedHtmlSvgIconBase):
+class MaterialOutlinedFlagIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `outlined_flag` material icon.
     """

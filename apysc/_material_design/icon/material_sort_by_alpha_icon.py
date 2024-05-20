@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsortByAlphaIcon(FixedHtmlSvgIconBase):
+class MaterialSortByAlphaIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `sort_by_alpha` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcommuteIcon(FixedHtmlSvgIconBase):
+class MaterialCommuteIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `commute` material icon.
     """

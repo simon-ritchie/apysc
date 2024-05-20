@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcontentCutIcon(FixedHtmlSvgIconBase):
+class MaterialContentCutIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `content_cut` material icon.
     """

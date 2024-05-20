@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallanguageIcon(FixedHtmlSvgIconBase):
+class MaterialLanguageIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `language` material icon.
     """

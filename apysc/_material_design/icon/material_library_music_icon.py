@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallibraryMusicIcon(FixedHtmlSvgIconBase):
+class MaterialLibraryMusicIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `library_music` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialchatIcon(FixedHtmlSvgIconBase):
+class MaterialChatIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `chat` material icon.
     """

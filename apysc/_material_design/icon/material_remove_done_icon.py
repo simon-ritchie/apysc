@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialremoveDoneIcon(FixedHtmlSvgIconBase):
+class MaterialRemoveDoneIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `remove_done` material icon.
     """

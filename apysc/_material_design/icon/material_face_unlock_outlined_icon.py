@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfaceUnlockOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFaceUnlockOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `face_unlock` material icon.
     """

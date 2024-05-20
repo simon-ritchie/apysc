@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpresentToAllOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPresentToAllOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `present_to_all` material icon.
     """

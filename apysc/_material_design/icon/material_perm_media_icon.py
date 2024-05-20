@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpermMediaIcon(FixedHtmlSvgIconBase):
+class MaterialPermMediaIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `perm_media` material icon.
     """

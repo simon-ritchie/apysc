@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcheckCircleIcon(FixedHtmlSvgIconBase):
+class MaterialCheckCircleIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `check_circle` material icon.
     """

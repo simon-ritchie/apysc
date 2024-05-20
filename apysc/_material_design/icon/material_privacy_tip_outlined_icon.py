@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialprivacyTipOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPrivacyTipOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `privacy_tip` material icon.
     """

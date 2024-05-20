@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallibraryAddCheckOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialLibraryAddCheckOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `library_add_check` material icon.
     """

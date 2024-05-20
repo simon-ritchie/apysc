@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialnoteAddOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialNoteAddOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `note_add` material icon.
     """

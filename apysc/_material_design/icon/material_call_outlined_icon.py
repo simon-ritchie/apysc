@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcallOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialCallOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `call` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialreplyOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialReplyOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `reply` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialphoneDisabledIcon(FixedHtmlSvgIconBase):
+class MaterialPhoneDisabledIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `phone_disabled` material icon.
     """

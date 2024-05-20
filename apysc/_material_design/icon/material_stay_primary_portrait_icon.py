@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialstayPrimaryPortraitIcon(FixedHtmlSvgIconBase):
+class MaterialStayPrimaryPortraitIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `stay_primary_portrait` material icon.
     """

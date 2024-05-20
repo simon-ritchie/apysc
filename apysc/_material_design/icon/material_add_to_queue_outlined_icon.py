@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaddToQueueOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAddToQueueOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `add_to_queue` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialprintDisabledOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPrintDisabledOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `print_disabled` material icon.
     """

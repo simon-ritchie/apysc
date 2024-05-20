@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvoiceOverOffIcon(FixedHtmlSvgIconBase):
+class MaterialVoiceOverOffIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `voice_over_off` material icon.
     """

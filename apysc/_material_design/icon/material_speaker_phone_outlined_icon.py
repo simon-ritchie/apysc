@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialspeakerPhoneOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSpeakerPhoneOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `speaker_phone` material icon.
     """

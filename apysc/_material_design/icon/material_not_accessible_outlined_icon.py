@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialnotAccessibleOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialNotAccessibleOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `not_accessible` material icon.
     """

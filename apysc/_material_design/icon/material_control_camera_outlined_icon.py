@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcontrolCameraOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialControlCameraOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `control_camera` material icon.
     """

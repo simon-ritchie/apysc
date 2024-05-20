@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialrequestPageIcon(FixedHtmlSvgIconBase):
+class MaterialRequestPageIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `request_page` material icon.
     """

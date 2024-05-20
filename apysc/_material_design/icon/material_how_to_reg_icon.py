@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialhowToRegIcon(FixedHtmlSvgIconBase):
+class MaterialHowToRegIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `how_to_reg` material icon.
     """

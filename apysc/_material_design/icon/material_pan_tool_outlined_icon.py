@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpanToolOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPanToolOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `pan_tool` material icon.
     """

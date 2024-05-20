@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialandroidOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAndroidOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `android` material icon.
     """

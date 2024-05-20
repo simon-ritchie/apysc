@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaddBoxOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAddBoxOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `add_box` material icon.
     """

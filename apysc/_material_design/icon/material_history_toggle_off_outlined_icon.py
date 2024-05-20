@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialhistoryToggleOffOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialHistoryToggleOffOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `history_toggle_off` material icon.
     """

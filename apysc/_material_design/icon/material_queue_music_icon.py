@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialqueueMusicIcon(FixedHtmlSvgIconBase):
+class MaterialQueueMusicIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `queue_music` material icon.
     """

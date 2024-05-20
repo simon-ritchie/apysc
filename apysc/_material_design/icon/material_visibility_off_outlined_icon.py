@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvisibilityOffOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialVisibilityOffOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `visibility_off` material icon.
     """

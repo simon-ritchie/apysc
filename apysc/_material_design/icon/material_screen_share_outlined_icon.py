@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialscreenShareOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialScreenShareOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `screen_share` material icon.
     """

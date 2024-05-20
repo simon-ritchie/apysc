@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialzoomInIcon(FixedHtmlSvgIconBase):
+class MaterialZoomInIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `zoom_in` material icon.
     """

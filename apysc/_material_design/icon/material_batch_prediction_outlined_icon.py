@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialbatchPredictionOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialBatchPredictionOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `batch_prediction` material icon.
     """

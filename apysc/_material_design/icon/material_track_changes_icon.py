@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtrackChangesIcon(FixedHtmlSvgIconBase):
+class MaterialTrackChangesIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `track_changes` material icon.
     """

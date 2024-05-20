@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtrendingFlatOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTrendingFlatOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `trending_flat` material icon.
     """

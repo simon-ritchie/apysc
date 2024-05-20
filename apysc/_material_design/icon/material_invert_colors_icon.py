@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialinvertColorsIcon(FixedHtmlSvgIconBase):
+class MaterialInvertColorsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `invert_colors` material icon.
     """

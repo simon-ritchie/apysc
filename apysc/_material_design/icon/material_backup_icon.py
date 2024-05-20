@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialbackupIcon(FixedHtmlSvgIconBase):
+class MaterialBackupIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `backup` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsegmentIcon(FixedHtmlSvgIconBase):
+class MaterialSegmentIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `segment` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class Materialforward30Icon(FixedHtmlSvgIconBase):
+class MaterialForward30Icon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `forward_30` material icon.
     """

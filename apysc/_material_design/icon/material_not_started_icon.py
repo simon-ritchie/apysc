@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialnotStartedIcon(FixedHtmlSvgIconBase):
+class MaterialNotStartedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `not_started` material icon.
     """

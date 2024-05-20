@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialviewQuiltIcon(FixedHtmlSvgIconBase):
+class MaterialViewQuiltIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `view_quilt` material icon.
     """

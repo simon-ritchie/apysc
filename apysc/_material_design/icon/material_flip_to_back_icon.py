@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialflipToBackIcon(FixedHtmlSvgIconBase):
+class MaterialFlipToBackIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `flip_to_back` material icon.
     """

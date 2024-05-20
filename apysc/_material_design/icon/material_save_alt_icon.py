@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsaveAltIcon(FixedHtmlSvgIconBase):
+class MaterialSaveAltIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `save_alt` material icon.
     """

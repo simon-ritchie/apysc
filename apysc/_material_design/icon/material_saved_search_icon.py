@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsavedSearchIcon(FixedHtmlSvgIconBase):
+class MaterialSavedSearchIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `saved_search` material icon.
     """

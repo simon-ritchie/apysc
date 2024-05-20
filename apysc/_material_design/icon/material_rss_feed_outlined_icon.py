@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialrssFeedOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRssFeedOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `rss_feed` material icon.
     """

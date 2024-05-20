@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialmoreTimeIcon(FixedHtmlSvgIconBase):
+class MaterialMoreTimeIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `more_time` material icon.
     """

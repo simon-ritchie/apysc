@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialavTimerOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAvTimerOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `av_timer` material icon.
     """

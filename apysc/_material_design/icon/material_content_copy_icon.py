@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcontentCopyIcon(FixedHtmlSvgIconBase):
+class MaterialContentCopyIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `content_copy` material icon.
     """

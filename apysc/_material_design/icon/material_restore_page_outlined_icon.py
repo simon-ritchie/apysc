@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialrestorePageOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRestorePageOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `restore_page` material icon.
     """

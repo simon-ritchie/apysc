@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtabOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTabOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `tab` material icon.
     """

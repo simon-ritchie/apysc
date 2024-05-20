@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialphoneDisabledOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPhoneDisabledOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `phone_disabled` material icon.
     """

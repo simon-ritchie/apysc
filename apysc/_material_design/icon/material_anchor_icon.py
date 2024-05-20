@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialanchorIcon(FixedHtmlSvgIconBase):
+class MaterialAnchorIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `anchor` material icon.
     """

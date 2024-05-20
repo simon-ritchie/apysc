@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialviewColumnIcon(FixedHtmlSvgIconBase):
+class MaterialViewColumnIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `view_column` material icon.
     """

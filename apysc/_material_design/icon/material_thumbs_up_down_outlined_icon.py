@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialthumbsUpDownOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialThumbsUpDownOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `thumbs_up_down` material icon.
     """

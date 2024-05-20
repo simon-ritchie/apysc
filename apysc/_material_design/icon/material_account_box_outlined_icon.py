@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaccountBoxOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAccountBoxOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `account_box` material icon.
     """

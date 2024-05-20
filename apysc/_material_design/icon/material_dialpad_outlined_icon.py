@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdialpadOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDialpadOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `dialpad` material icon.
     """

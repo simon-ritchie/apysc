@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialreplayCircleFilledIcon(FixedHtmlSvgIconBase):
+class MaterialReplayCircleFilledIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `replay_circle_filled` material icon.
     """

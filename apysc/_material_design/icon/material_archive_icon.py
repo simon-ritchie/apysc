@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialarchiveIcon(FixedHtmlSvgIconBase):
+class MaterialArchiveIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `archive` material icon.
     """

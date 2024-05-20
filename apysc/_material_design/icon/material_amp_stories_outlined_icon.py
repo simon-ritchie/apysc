@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialampStoriesOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAmpStoriesOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `amp_stories` material icon.
     """

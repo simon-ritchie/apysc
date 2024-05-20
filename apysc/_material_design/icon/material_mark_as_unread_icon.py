@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialmarkAsUnreadIcon(FixedHtmlSvgIconBase):
+class MaterialMarkAsUnreadIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `mark_as_unread` material icon.
     """

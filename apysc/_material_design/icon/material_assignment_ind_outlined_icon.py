@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialassignmentIndOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAssignmentIndOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `assignment_ind` material icon.
     """

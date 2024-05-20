@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialbookOnlineOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialBookOnlineOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `book_online` material icon.
     """

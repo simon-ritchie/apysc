@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallinkOffOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialLinkOffOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `link_off` material icon.
     """

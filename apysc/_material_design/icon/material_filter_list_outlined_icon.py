@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfilterListOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFilterListOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `filter_list` material icon.
     """

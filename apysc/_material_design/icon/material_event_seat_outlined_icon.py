@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialeventSeatOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialEventSeatOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `event_seat` material icon.
     """

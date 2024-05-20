@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdisabledByDefaultIcon(FixedHtmlSvgIconBase):
+class MaterialDisabledByDefaultIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `disabled_by_default` material icon.
     """

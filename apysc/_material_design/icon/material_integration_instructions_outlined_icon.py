@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialintegrationInstructionsOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialIntegrationInstructionsOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `integration_instructions` material icon.
     """

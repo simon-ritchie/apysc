@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialredoOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialRedoOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `redo` material icon.
     """

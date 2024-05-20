@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdashboardIcon(FixedHtmlSvgIconBase):
+class MaterialDashboardIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `dashboard` material icon.
     """

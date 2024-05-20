@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialinventoryIcon(FixedHtmlSvgIconBase):
+class MaterialInventoryIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `inventory` material icon.
     """

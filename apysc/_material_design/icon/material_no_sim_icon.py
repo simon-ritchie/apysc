@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialnoSimIcon(FixedHtmlSvgIconBase):
+class MaterialNoSimIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `no_sim` material icon.
     """

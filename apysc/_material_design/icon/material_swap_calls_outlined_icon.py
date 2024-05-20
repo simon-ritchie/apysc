@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialswapCallsOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSwapCallsOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `swap_calls` material icon.
     """

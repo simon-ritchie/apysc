@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtextRotationNoneIcon(FixedHtmlSvgIconBase):
+class MaterialTextRotationNoneIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `text_rotation_none` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaddShoppingCartIcon(FixedHtmlSvgIconBase):
+class MaterialAddShoppingCartIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `add_shopping_cart` material icon.
     """

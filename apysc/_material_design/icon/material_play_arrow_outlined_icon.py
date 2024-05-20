@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialplayArrowOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPlayArrowOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `play_arrow` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtabUnselectedIcon(FixedHtmlSvgIconBase):
+class MaterialTabUnselectedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `tab_unselected` material icon.
     """

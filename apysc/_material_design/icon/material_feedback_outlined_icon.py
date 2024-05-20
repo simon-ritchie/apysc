@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfeedbackOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFeedbackOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `feedback` material icon.
     """

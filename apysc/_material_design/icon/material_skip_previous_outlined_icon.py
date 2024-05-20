@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialskipPreviousOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSkipPreviousOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `skip_previous` material icon.
     """

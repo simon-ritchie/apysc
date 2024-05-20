@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialphonelinkLockIcon(FixedHtmlSvgIconBase):
+class MaterialPhonelinkLockIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `phonelink_lock` material icon.
     """

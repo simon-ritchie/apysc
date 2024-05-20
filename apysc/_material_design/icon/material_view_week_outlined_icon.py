@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialviewWeekOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialViewWeekOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `view_week` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialassignmentIcon(FixedHtmlSvgIconBase):
+class MaterialAssignmentIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `assignment` material icon.
     """

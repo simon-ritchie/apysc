@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdynamicFeedOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDynamicFeedOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `dynamic_feed` material icon.
     """

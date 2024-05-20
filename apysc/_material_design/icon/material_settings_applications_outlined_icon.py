@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsettingsApplicationsOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSettingsApplicationsOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `settings_applications` material icon.
     """

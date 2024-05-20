@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialspellcheckIcon(FixedHtmlSvgIconBase):
+class MaterialSpellcheckIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `spellcheck` material icon.
     """

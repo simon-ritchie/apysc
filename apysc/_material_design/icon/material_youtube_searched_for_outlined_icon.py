@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialyoutubeSearchedForOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialYoutubeSearchedForOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `youtube_searched_for` material icon.
     """

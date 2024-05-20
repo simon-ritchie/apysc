@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallocationOnIcon(FixedHtmlSvgIconBase):
+class MaterialLocationOnIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `location_on` material icon.
     """

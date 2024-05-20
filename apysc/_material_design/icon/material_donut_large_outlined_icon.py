@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdonutLargeOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDonutLargeOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `donut_large` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpendingActionsIcon(FixedHtmlSvgIconBase):
+class MaterialPendingActionsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `pending_actions` material icon.
     """

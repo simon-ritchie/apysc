@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallocationOnOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialLocationOnOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `location_on` material icon.
     """

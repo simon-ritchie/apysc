@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialbrandingWatermarkIcon(FixedHtmlSvgIconBase):
+class MaterialBrandingWatermarkIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `branding_watermark` material icon.
     """

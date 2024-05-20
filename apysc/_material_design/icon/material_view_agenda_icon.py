@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialviewAgendaIcon(FixedHtmlSvgIconBase):
+class MaterialViewAgendaIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `view_agenda` material icon.
     """

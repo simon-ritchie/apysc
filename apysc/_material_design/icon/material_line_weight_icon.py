@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallineWeightIcon(FixedHtmlSvgIconBase):
+class MaterialLineWeightIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `line_weight` material icon.
     """

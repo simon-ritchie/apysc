@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsupportIcon(FixedHtmlSvgIconBase):
+class MaterialSupportIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `support` material icon.
     """

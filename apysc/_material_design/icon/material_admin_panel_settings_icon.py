@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialadminPanelSettingsIcon(FixedHtmlSvgIconBase):
+class MaterialAdminPanelSettingsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `admin_panel_settings` material icon.
     """

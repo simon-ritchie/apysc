@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialhighQualityOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialHighQualityOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `high_quality` material icon.
     """

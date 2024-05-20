@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfiberSmartRecordOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialFiberSmartRecordOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `fiber_smart_record` material icon.
     """

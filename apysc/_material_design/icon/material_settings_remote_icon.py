@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsettingsRemoteIcon(FixedHtmlSvgIconBase):
+class MaterialSettingsRemoteIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `settings_remote` material icon.
     """

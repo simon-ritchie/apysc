@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsentimentSatisfiedAltOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSentimentSatisfiedAltOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `sentiment_satisfied_alt` material icon.
     """

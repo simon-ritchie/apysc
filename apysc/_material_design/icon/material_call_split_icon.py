@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcallSplitIcon(FixedHtmlSvgIconBase):
+class MaterialCallSplitIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `call_split` material icon.
     """

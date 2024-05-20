@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallockOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialLockOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `lock` material icon.
     """

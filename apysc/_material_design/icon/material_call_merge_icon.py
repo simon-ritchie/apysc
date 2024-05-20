@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcallMergeIcon(FixedHtmlSvgIconBase):
+class MaterialCallMergeIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `call_merge` material icon.
     """

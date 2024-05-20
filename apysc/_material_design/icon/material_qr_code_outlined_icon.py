@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialqrCodeOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialQrCodeOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `qr_code` material icon.
     """

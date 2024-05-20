@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialnextPlanOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialNextPlanOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `next_plan` material icon.
     """

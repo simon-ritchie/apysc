@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtrendingFlatIcon(FixedHtmlSvgIconBase):
+class MaterialTrendingFlatIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `trending_flat` material icon.
     """

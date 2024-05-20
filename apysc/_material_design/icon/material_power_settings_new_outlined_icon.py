@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpowerSettingsNewOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPowerSettingsNewOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `power_settings_new` material icon.
     """

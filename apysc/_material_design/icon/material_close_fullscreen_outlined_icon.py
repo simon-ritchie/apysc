@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcloseFullscreenOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialCloseFullscreenOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `close_fullscreen` material icon.
     """

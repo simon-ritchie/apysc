@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialplayDisabledIcon(FixedHtmlSvgIconBase):
+class MaterialPlayDisabledIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `play_disabled` material icon.
     """

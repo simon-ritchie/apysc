@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdynamicFormIcon(FixedHtmlSvgIconBase):
+class MaterialDynamicFormIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `dynamic_form` material icon.
     """

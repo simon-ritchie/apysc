@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcancelScheduleSendIcon(FixedHtmlSvgIconBase):
+class MaterialCancelScheduleSendIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `cancel_schedule_send` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialwatchLaterIcon(FixedHtmlSvgIconBase):
+class MaterialWatchLaterIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `watch_later` material icon.
     """

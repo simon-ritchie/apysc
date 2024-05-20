@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialallInboxOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAllInboxOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `all_inbox` material icon.
     """

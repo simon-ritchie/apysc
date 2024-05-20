@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialmoveToInboxIcon(FixedHtmlSvgIconBase):
+class MaterialMoveToInboxIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `move_to_inbox` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpictureInPictureOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPictureInPictureOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `picture_in_picture` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallaunchIcon(FixedHtmlSvgIconBase):
+class MaterialLaunchIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `launch` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialmaximizeIcon(FixedHtmlSvgIconBase):
+class MaterialMaximizeIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `maximize` material icon.
     """

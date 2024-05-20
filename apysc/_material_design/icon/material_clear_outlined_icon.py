@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialclearOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialClearOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `clear` material icon.
     """

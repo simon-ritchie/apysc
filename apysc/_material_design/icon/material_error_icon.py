@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialerrorIcon(FixedHtmlSvgIconBase):
+class MaterialErrorIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `error` material icon.
     """

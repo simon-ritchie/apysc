@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdialpadIcon(FixedHtmlSvgIconBase):
+class MaterialDialpadIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `dialpad` material icon.
     """

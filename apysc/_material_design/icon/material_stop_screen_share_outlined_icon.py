@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialstopScreenShareOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialStopScreenShareOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `stop_screen_share` material icon.
     """

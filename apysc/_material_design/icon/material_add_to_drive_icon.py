@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaddToDriveIcon(FixedHtmlSvgIconBase):
+class MaterialAddToDriveIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `add_to_drive` material icon.
     """

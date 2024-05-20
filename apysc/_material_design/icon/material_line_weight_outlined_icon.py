@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallineWeightOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialLineWeightOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `line_weight` material icon.
     """

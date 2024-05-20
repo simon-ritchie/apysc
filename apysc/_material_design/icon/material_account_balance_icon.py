@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialaccountBalanceIcon(FixedHtmlSvgIconBase):
+class MaterialAccountBalanceIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `account_balance` material icon.
     """

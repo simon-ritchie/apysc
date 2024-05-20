@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialspeakerNotesOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSpeakerNotesOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `speaker_notes` material icon.
     """

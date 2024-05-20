@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdragIndicatorOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDragIndicatorOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `drag_indicator` material icon.
     """

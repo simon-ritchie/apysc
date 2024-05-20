@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcommentBankIcon(FixedHtmlSvgIconBase):
+class MaterialCommentBankIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `comment_bank` material icon.
     """

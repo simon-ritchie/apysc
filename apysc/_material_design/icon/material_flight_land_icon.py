@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialflightLandIcon(FixedHtmlSvgIconBase):
+class MaterialFlightLandIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `flight_land` material icon.
     """

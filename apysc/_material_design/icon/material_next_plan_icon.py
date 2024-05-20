@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialnextPlanIcon(FixedHtmlSvgIconBase):
+class MaterialNextPlanIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `next_plan` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialgestureOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialGestureOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `gesture` material icon.
     """

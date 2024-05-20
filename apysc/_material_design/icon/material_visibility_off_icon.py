@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialvisibilityOffIcon(FixedHtmlSvgIconBase):
+class MaterialVisibilityOffIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `visibility_off` material icon.
     """

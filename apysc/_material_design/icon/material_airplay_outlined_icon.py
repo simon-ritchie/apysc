@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialairplayOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialAirplayOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `airplay` material icon.
     """

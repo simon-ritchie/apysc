@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MateriallightbulbIcon(FixedHtmlSvgIconBase):
+class MaterialLightbulbIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `lightbulb` material icon.
     """

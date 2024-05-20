@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialgroupWorkIcon(FixedHtmlSvgIconBase):
+class MaterialGroupWorkIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `group_work` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpushPinIcon(FixedHtmlSvgIconBase):
+class MaterialPushPinIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `push_pin` material icon.
     """

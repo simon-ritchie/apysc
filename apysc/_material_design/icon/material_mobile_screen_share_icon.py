@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialmobileScreenShareIcon(FixedHtmlSvgIconBase):
+class MaterialMobileScreenShareIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `mobile_screen_share` material icon.
     """

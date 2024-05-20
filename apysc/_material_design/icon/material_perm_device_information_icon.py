@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpermDeviceInformationIcon(FixedHtmlSvgIconBase):
+class MaterialPermDeviceInformationIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `perm_device_information` material icon.
     """

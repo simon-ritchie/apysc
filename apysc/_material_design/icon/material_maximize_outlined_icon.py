@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialmaximizeOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialMaximizeOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `maximize` material icon.
     """

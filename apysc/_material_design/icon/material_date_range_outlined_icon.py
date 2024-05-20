@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdateRangeOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialDateRangeOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `date_range` material icon.
     """

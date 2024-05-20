@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialcancelPresentationOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialCancelPresentationOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `cancel_presentation` material icon.
     """

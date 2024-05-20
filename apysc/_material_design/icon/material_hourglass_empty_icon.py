@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialhourglassEmptyIcon(FixedHtmlSvgIconBase):
+class MaterialHourglassEmptyIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `hourglass_empty` material icon.
     """

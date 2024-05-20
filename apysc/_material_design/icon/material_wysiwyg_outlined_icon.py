@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialwysiwygOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialWysiwygOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `wysiwyg` material icon.
     """

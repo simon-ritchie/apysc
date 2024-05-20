@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfindReplaceIcon(FixedHtmlSvgIconBase):
+class MaterialFindReplaceIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `find_replace` material icon.
     """

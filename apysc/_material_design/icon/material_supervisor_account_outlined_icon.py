@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsupervisorAccountOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSupervisorAccountOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `supervisor_account` material icon.
     """

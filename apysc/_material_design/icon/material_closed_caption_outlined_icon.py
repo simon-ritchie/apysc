@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialclosedCaptionOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialClosedCaptionOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `closed_caption` material icon.
     """

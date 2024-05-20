@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialfastRewindIcon(FixedHtmlSvgIconBase):
+class MaterialFastRewindIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `fast_rewind` material icon.
     """

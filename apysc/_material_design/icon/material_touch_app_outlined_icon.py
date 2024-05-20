@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialtouchAppOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialTouchAppOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `touch_app` material icon.
     """

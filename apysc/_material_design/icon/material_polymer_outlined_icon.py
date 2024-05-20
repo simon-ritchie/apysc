@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialpolymerOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialPolymerOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `polymer` material icon.
     """

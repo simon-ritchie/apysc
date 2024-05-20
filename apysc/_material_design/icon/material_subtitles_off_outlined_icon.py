@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialsubtitlesOffOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialSubtitlesOffOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `subtitles_off` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialexpandIcon(FixedHtmlSvgIconBase):
+class MaterialExpandIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `expand` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialdnsIcon(FixedHtmlSvgIconBase):
+class MaterialDnsIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `dns` material icon.
     """

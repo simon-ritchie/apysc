@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialavTimerIcon(FixedHtmlSvgIconBase):
+class MaterialAvTimerIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `av_timer` material icon.
     """

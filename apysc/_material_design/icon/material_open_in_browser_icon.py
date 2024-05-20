@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialopenInBrowserIcon(FixedHtmlSvgIconBase):
+class MaterialOpenInBrowserIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `open_in_browser` material icon.
     """

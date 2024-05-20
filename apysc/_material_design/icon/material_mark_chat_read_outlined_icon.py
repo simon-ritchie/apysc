@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialmarkChatReadOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialMarkChatReadOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `mark_chat_read` material icon.
     """

@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialopenInNewIcon(FixedHtmlSvgIconBase):
+class MaterialOpenInNewIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `open_in_new` material icon.
     """

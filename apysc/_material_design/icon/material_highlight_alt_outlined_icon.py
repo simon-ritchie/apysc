@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialhighlightAltOutlinedIcon(FixedHtmlSvgIconBase):
+class MaterialHighlightAltOutlinedIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the outlined `highlight_alt` material icon.
     """

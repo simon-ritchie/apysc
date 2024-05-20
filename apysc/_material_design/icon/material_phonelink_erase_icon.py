@@ -4,7 +4,7 @@
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 
-class MaterialphonelinkEraseIcon(FixedHtmlSvgIconBase):
+class MaterialPhonelinkEraseIcon(FixedHtmlSvgIconBase):
     """
     The class implementation for the `phonelink_erase` material icon.
     """

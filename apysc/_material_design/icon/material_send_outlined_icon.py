@@ -17,5 +17,11 @@ class MaterialsendOutlinedIcon(FixedHtmlSvgIconBase):
         -------
         fixed_svg_icon_html : str
             Fixed SVG icon HTML string.
+
+        References
+        ----------
+        - Material Symbols & Icons, APACHE LICENSE, VERSION 2.0
+            - https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed
+            - https://www.apache.org/licenses/LICENSE-2.0.html
         """
         return '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z"/></svg>'  # noqa

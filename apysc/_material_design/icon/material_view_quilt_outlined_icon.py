@@ -17,5 +17,11 @@ class MaterialviewQuiltOutlinedIcon(FixedHtmlSvgIconBase):
         -------
         fixed_svg_icon_html : str
             Fixed SVG icon HTML string.
+
+        References
+        ----------
+        - Material Symbols & Icons, APACHE LICENSE, VERSION 2.0
+            - https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed
+            - https://www.apache.org/licenses/LICENSE-2.0.html
         """
         return '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 5v13h17V5H4zm2 11V7h3v9H6zm5 0v-3.5h3V16h-3zm8 0h-3v-3.5h3V16zm-8-5.5V7h8v3.5h-8z"/></svg>'  # noqa

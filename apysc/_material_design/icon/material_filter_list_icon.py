@@ -17,5 +17,11 @@ class MaterialfilterListIcon(FixedHtmlSvgIconBase):
         -------
         fixed_svg_icon_html : str
             Fixed SVG icon HTML string.
+
+        References
+        ----------
+        - Material Symbols & Icons, APACHE LICENSE, VERSION 2.0
+            - https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed
+            - https://www.apache.org/licenses/LICENSE-2.0.html
         """
         return '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>'  # noqa

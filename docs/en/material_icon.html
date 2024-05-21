@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Material icon &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
+    <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css?v=e01785d5" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css?v=5503e606" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js?v=16ad857a"></script>
+    <script src="static/doctools.js?v=888ff710"></script>
+    <script src="static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="static/jquery-3.7.1.slim.min.js?v=be2c26a5"></script>
+    <script src="static/common_func.js?v=c962a8e2"></script>
+    <script src="static/add_navigation_to_footer.js?v=6871d0c2"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <script src="static/add_en_to_ja_link.js?v=0fffc53d"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="assert_defined and assert_undefined interfaces" href="assert_defined_and_undefined.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="assert_defined_and_undefined.html" title="assert_defined and assert_undefined interfaces"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Material icon</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="material-icon">
+<h1>Material icon<a class="headerlink" href="#material-icon" title="Permalink to this heading">¶</a></h1>
+<p>This page explains the material icon’s apysc implementations.</p>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
+<p>Each material icon exists in the root package (e.g., <code class="docutils literal notranslate"><span class="pre">ap.MaterialTimelineIcon</span></code>).</p>
+<p>Also, each material icon name has the prefix of <code class="docutils literal notranslate"><span class="pre">Material</span></code> and suffix of <code class="docutils literal notranslate"><span class="pre">Icon</span></code>.</p>
+<p>All material icons’ constructor has the coordinates and style settings arguments, such as the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, <code class="docutils literal notranslate"><span class="pre">fill_color</span></code>, and <code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">168</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">SIZE</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">MaterialHomeIcon</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">MaterialBuildIcon</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">MaterialCheckCircleIcon</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;material_icon_basic_usage_1/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/material_icon_basic_usage_1/index.html" width="168" height="72"></iframe>
+<p>You can also set coordinates or styles with an instance’s attributes as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">168</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">SIZE</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="n">home_icon</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MaterialHomeIcon</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MaterialHomeIcon</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">)</span>
+<span class="n">home_icon</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">home_icon</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">home_icon</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+
+<span class="n">build_icon</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MaterialBuildIcon</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MaterialBuildIcon</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">)</span>
+<span class="n">build_icon</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">build_icon</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">build_icon</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+
+<span class="n">check_circle_icon</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MaterialCheckCircleIcon</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">MaterialCheckCircleIcon</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">check_circle_icon</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">check_circle_icon</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">check_circle_icon</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;material_icon_basic_usage_2/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/material_icon_basic_usage_2/index.html" width="168" height="72"></iframe>
+</section>
+<section id="material-icon-s-license">
+<h2>Material icon’s license<a class="headerlink" href="#material-icon-s-license" title="Permalink to this heading">¶</a></h2>
+<p>The apysc library uses material icons licensed under the APACHE LICENSE, VERSION 2.0.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fonts.google.com/icons?icon.size=24&amp;amp;icon.color=%23e8eaed">Material Symbols &amp; Icons</a></p></li>
+<li><p><a class="reference external" href="https://github.com/google/material-design-icons">material-design-icons (GitHub)</a></p></li>
+<li><p><a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0.html">APACHE LICENSE, VERSION 2.0</a></p></li>
+</ul>
+</section>
+<section id="each-material-icon-constructor-api">
+<h2>Each material icon constructor API<a class="headerlink" href="#each-material-icon-constructor-api" title="Permalink to this heading">¶</a></h2>
+<!-- Docstring: apysc._display.fixed_html_svg_icon_base.FixedHtmlSvgIconBase.__init__ -->
+<p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">x:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">y:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">size:</span> <span class="pre">Union[int,</span> <span class="pre">apysc._type.int.Int]</span> <span class="pre">=</span> <span class="pre">24,</span> <span class="pre">fill_color:</span> <span class="pre">apysc._color.color.Color</span> <span class="pre">=</span> <span class="pre">Color(&quot;#666666&quot;),</span> <span class="pre">fill_alpha:</span> <span class="pre">Union[float,</span> <span class="pre">apysc._type.number.Number]</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">parent:</span> <span class="pre">Union[apysc._display.child_mixin.ChildMixIn,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong></p>
+<p>The class implementation for the SVG icon’s class.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Union[float, Number], optional</p>
+<ul>
+<li><p>X-coordinate of the icon.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Union[float, Number], optional</p>
+<ul>
+<li><p>Y-coordinate of the icon.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code>: Union[int, Int], optional</p>
+<ul>
+<li><p>Size of the icon.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_color</span></code>: Color, optional</p>
+<ul>
+<li><p>Fill-color of the icon.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_alpha</span></code>: Union[float, Number], optional</p>
+<ul>
+<li><p>Fill-alpha of the icon.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent</span></code>: Optional[ChildMixIn], optional</p>
+<ul>
+<li><p>A parent instance to add this instance. If the specified value is None, this interface uses a stage instance.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, optional</p>
+<ul>
+<li><p>A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Material icon</a><ul>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#material-icon-s-license">Material icon’s license</a></li>
+<li><a class="reference internal" href="#each-material-icon-constructor-api">Each material icon constructor API</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="assert_defined_and_undefined.html"
+                          title="previous chapter">assert_defined and assert_undefined interfaces</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="assert_defined_and_undefined.html" title="assert_defined and assert_undefined interfaces"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Material icon</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+  </body>
+</html>

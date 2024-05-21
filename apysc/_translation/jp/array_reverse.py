@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## What interface is this?": "## インターフェイス概要",
     ##################################################
-    "The `reverse` method interface reverses an array's values order in place.": "`reverse`メソッドは配列の値を直接更新する形で値の順番を逆順にします。",  # noqa
+    "The `reverse` method interface reverses an array\'s values order in place.": "`reverse`メソッドは配列の値を直接更新する形で値の順番を逆順にします。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
@@ -29,7 +29,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## reverse API": "## reverse API",
     ##################################################
-    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
+    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

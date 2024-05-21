@@ -4920,5 +4920,49 @@ MAPPINGS: Mappings = Mappings(
             key="## Material design",
             val="## マテリアルデザイン",
         ),
+        Mapping(
+            key="## Material icon\'s license",
+            val="## マテリアルアイコンのライセンス",
+        ),
+        Mapping(
+            key="The apysc library uses material icons licensed under the APACHE LICENSE, VERSION 2.0.",
+            val="apyscライブラリはAPACHE LICENSE, VERSION 2.0のライセンスのマテリアルアイコンを使用しています。",
+        ),
+        Mapping(
+            key="- [Material Symbols & Icons](https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed)",
+            val="- [Material Symbols & Icons](https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed)",
+        ),
+        Mapping(
+            key="- [material-design-icons (GitHub)](https://github.com/google/material-design-icons)",
+            val="- [material-design-icons (GitHub)](https://github.com/google/material-design-icons)",
+        ),
+        Mapping(
+            key="- [APACHE LICENSE, VERSION 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)",
+            val="- [APACHE LICENSE, VERSION 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)",
+        ),
+        Mapping(
+            key="  - X-coordinate of the icon.",
+            val="  - アイコンのX座標。",
+        ),
+        Mapping(
+            key="  - Y-coordinate of the icon.",
+            val="  - アイコンのY座標。",
+        ),
+        Mapping(
+            key="  - Size of the icon.",
+            val="  - アイコンのY座標。",
+        ),
+        Mapping(
+            key="  - Fill-color of the icon.",
+            val="  - アイコンの塗りの色。",
+        ),
+        Mapping(
+            key="  - Fill-alpha of the icon.",
+            val="  - アイコンの塗りの透明度。",
+        ),
+        Mapping(
+            key="The class implementation for the SVG icon\'s class.<hr>",
+            val="SVGアイコンのためのクラスの実装。<hr>",
+        ),
     ]
 )

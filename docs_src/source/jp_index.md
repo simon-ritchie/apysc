@@ -436,3 +436,10 @@ jp_assert_arrays_equal_and_arrays_not_equal
 jp_assert_dicts_equal_and_dicts_not_equal
 jp_assert_defined_and_undefined
 ```
+
+## マテリアルデザイン
+
+```{toctree}
+:maxdepth: 1
+jp_material_icon
+```

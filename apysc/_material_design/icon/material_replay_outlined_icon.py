@@ -20,6 +20,8 @@ class MaterialReplayOutlinedIcon(FixedHtmlSvgIconBase):
 
         References
         ----------
+        - Material icon document
+            - https://simon-ritchie.github.io/apysc/en/material_icon.html
         - Material Symbols & Icons, APACHE LICENSE, VERSION 2.0
             - https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed
             - https://www.apache.org/licenses/LICENSE-2.0.html

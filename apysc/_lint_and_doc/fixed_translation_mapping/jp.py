@@ -4921,7 +4921,7 @@ MAPPINGS: Mappings = Mappings(
             val="## マテリアルデザイン",
         ),
         Mapping(
-            key="## Material icon\'s license",
+            key="## Material icon's license",
             val="## マテリアルアイコンのライセンス",
         ),
         Mapping(
@@ -4961,7 +4961,7 @@ MAPPINGS: Mappings = Mappings(
             val="  - アイコンの塗りの透明度。",
         ),
         Mapping(
-            key="The class implementation for the SVG icon\'s class.<hr>",
+            key="The class implementation for the SVG icon's class.<hr>",
             val="SVGアイコンのためのクラスの実装。<hr>",
         ),
     ]

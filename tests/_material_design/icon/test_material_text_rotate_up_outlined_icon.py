@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_text_rotate_up_outlined_icon import (
-    MaterialtextRotateUpOutlinedIcon,
+    MaterialTextRotateUpOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialtextRotateUpOutlinedIcon:
+class TestMaterialTextRotateUpOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialtextRotateUpOutlinedIcon = MaterialtextRotateUpOutlinedIcon()
+        icon: MaterialTextRotateUpOutlinedIcon = MaterialTextRotateUpOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

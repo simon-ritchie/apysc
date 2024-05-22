@@ -1,9 +1,9 @@
-from apysc._material_design.icon.material_pageview_icon import MaterialpageviewIcon
+from apysc._material_design.icon.material_pageview_icon import MaterialPageviewIcon
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialpageviewIcon:
+class TestMaterialPageviewIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialpageviewIcon = MaterialpageviewIcon()
+        icon: MaterialPageviewIcon = MaterialPageviewIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_account_balance_outlined_icon import (
-    MaterialaccountBalanceOutlinedIcon,
+    MaterialAccountBalanceOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialaccountBalanceOutlinedIcon:
+class TestMaterialAccountBalanceOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialaccountBalanceOutlinedIcon = MaterialaccountBalanceOutlinedIcon()
+        icon: MaterialAccountBalanceOutlinedIcon = MaterialAccountBalanceOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

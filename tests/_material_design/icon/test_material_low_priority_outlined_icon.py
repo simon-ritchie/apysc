@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_low_priority_outlined_icon import (
-    MateriallowPriorityOutlinedIcon,
+    MaterialLowPriorityOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMateriallowPriorityOutlinedIcon:
+class TestMaterialLowPriorityOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MateriallowPriorityOutlinedIcon = MateriallowPriorityOutlinedIcon()
+        icon: MaterialLowPriorityOutlinedIcon = MaterialLowPriorityOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

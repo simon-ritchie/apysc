@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_youtube_searched_for_icon import (
-    MaterialyoutubeSearchedForIcon,
+    MaterialYoutubeSearchedForIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialyoutubeSearchedForIcon:
+class TestMaterialYoutubeSearchedForIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialyoutubeSearchedForIcon = MaterialyoutubeSearchedForIcon()
+        icon: MaterialYoutubeSearchedForIcon = MaterialYoutubeSearchedForIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_high_quality_icon import (
-    MaterialhighQualityIcon,
+    MaterialHighQualityIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialhighQualityIcon:
+class TestMaterialHighQualityIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialhighQualityIcon = MaterialhighQualityIcon()
+        icon: MaterialHighQualityIcon = MaterialHighQualityIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

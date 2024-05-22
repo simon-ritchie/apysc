@@ -1,9 +1,9 @@
-from apysc._material_design.icon.material_quickreply_icon import MaterialquickreplyIcon
+from apysc._material_design.icon.material_quickreply_icon import MaterialQuickreplyIcon
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialquickreplyIcon:
+class TestMaterialQuickreplyIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialquickreplyIcon = MaterialquickreplyIcon()
+        icon: MaterialQuickreplyIcon = MaterialQuickreplyIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

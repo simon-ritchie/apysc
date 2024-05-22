@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_settings_cell_outlined_icon import (
-    MaterialsettingsCellOutlinedIcon,
+    MaterialSettingsCellOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialsettingsCellOutlinedIcon:
+class TestMaterialSettingsCellOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialsettingsCellOutlinedIcon = MaterialsettingsCellOutlinedIcon()
+        icon: MaterialSettingsCellOutlinedIcon = MaterialSettingsCellOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

@@ -1,13 +1,13 @@
 from apysc._material_design.icon.material_remove_circle_outline_outlined_icon import (
-    MaterialremoveCircleOutlineOutlinedIcon,
+    MaterialRemoveCircleOutlineOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialremoveCircleOutlineOutlinedIcon:
+class TestMaterialRemoveCircleOutlineOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialremoveCircleOutlineOutlinedIcon = (
-            MaterialremoveCircleOutlineOutlinedIcon()
+        icon: MaterialRemoveCircleOutlineOutlinedIcon = (
+            MaterialRemoveCircleOutlineOutlinedIcon()
         )
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_backspace_outlined_icon import (
-    MaterialbackspaceOutlinedIcon,
+    MaterialBackspaceOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialbackspaceOutlinedIcon:
+class TestMaterialBackspaceOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialbackspaceOutlinedIcon = MaterialbackspaceOutlinedIcon()
+        icon: MaterialBackspaceOutlinedIcon = MaterialBackspaceOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

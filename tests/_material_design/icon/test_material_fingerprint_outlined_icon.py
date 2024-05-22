@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_fingerprint_outlined_icon import (
-    MaterialfingerprintOutlinedIcon,
+    MaterialFingerprintOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialfingerprintOutlinedIcon:
+class TestMaterialFingerprintOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialfingerprintOutlinedIcon = MaterialfingerprintOutlinedIcon()
+        icon: MaterialFingerprintOutlinedIcon = MaterialFingerprintOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

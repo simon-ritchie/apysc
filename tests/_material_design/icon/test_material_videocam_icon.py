@@ -1,9 +1,9 @@
-from apysc._material_design.icon.material_videocam_icon import MaterialvideocamIcon
+from apysc._material_design.icon.material_videocam_icon import MaterialVideocamIcon
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialvideocamIcon:
+class TestMaterialVideocamIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialvideocamIcon = MaterialvideocamIcon()
+        icon: MaterialVideocamIcon = MaterialVideocamIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

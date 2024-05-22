@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_phonelink_lock_outlined_icon import (
-    MaterialphonelinkLockOutlinedIcon,
+    MaterialPhonelinkLockOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialphonelinkLockOutlinedIcon:
+class TestMaterialPhonelinkLockOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialphonelinkLockOutlinedIcon = MaterialphonelinkLockOutlinedIcon()
+        icon: MaterialPhonelinkLockOutlinedIcon = MaterialPhonelinkLockOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

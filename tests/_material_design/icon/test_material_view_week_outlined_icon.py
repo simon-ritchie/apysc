@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_view_week_outlined_icon import (
-    MaterialviewWeekOutlinedIcon,
+    MaterialViewWeekOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialviewWeekOutlinedIcon:
+class TestMaterialViewWeekOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialviewWeekOutlinedIcon = MaterialviewWeekOutlinedIcon()
+        icon: MaterialViewWeekOutlinedIcon = MaterialViewWeekOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

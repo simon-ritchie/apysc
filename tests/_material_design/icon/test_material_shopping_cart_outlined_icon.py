@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_shopping_cart_outlined_icon import (
-    MaterialshoppingCartOutlinedIcon,
+    MaterialShoppingCartOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialshoppingCartOutlinedIcon:
+class TestMaterialShoppingCartOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialshoppingCartOutlinedIcon = MaterialshoppingCartOutlinedIcon()
+        icon: MaterialShoppingCartOutlinedIcon = MaterialShoppingCartOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

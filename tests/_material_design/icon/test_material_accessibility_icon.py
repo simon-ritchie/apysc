@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_accessibility_icon import (
-    MaterialaccessibilityIcon,
+    MaterialAccessibilityIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialaccessibilityIcon:
+class TestMaterialAccessibilityIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialaccessibilityIcon = MaterialaccessibilityIcon()
+        icon: MaterialAccessibilityIcon = MaterialAccessibilityIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

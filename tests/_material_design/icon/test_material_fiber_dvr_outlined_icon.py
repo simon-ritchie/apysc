@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_fiber_dvr_outlined_icon import (
-    MaterialfiberDvrOutlinedIcon,
+    MaterialFiberDvrOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialfiberDvrOutlinedIcon:
+class TestMaterialFiberDvrOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialfiberDvrOutlinedIcon = MaterialfiberDvrOutlinedIcon()
+        icon: MaterialFiberDvrOutlinedIcon = MaterialFiberDvrOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

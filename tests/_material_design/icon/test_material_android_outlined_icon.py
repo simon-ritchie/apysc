@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_android_outlined_icon import (
-    MaterialandroidOutlinedIcon,
+    MaterialAndroidOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialandroidOutlinedIcon:
+class TestMaterialAndroidOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialandroidOutlinedIcon = MaterialandroidOutlinedIcon()
+        icon: MaterialAndroidOutlinedIcon = MaterialAndroidOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

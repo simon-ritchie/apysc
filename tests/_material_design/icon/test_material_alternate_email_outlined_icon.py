@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_alternate_email_outlined_icon import (
-    MaterialalternateEmailOutlinedIcon,
+    MaterialAlternateEmailOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialalternateEmailOutlinedIcon:
+class TestMaterialAlternateEmailOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialalternateEmailOutlinedIcon = MaterialalternateEmailOutlinedIcon()
+        icon: MaterialAlternateEmailOutlinedIcon = MaterialAlternateEmailOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

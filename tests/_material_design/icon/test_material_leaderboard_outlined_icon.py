@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_leaderboard_outlined_icon import (
-    MaterialleaderboardOutlinedIcon,
+    MaterialLeaderboardOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialleaderboardOutlinedIcon:
+class TestMaterialLeaderboardOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialleaderboardOutlinedIcon = MaterialleaderboardOutlinedIcon()
+        icon: MaterialLeaderboardOutlinedIcon = MaterialLeaderboardOutlinedIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

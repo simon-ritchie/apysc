@@ -1,11 +1,11 @@
 from apysc._material_design.icon.material_screen_share_icon import (
-    MaterialscreenShareIcon,
+    MaterialScreenShareIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialscreenShareIcon:
+class TestMaterialScreenShareIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialscreenShareIcon = MaterialscreenShareIcon()
+        icon: MaterialScreenShareIcon = MaterialScreenShareIcon()
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

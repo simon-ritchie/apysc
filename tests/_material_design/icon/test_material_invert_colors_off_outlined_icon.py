@@ -1,13 +1,13 @@
 from apysc._material_design.icon.material_invert_colors_off_outlined_icon import (
-    MaterialinvertColorsOffOutlinedIcon,
+    MaterialInvertColorsOffOutlinedIcon,
 )
 from apysc._testing.testing_helper import apply_test_settings
 
 
-class TestMaterialinvertColorsOffOutlinedIcon:
+class TestMaterialInvertColorsOffOutlinedIcon:
     @apply_test_settings()
     def test___init__(self) -> None:
-        icon: MaterialinvertColorsOffOutlinedIcon = (
-            MaterialinvertColorsOffOutlinedIcon()
+        icon: MaterialInvertColorsOffOutlinedIcon = (
+            MaterialInvertColorsOffOutlinedIcon()
         )
         assert icon._svg_icon_html == icon._get_fixed_svg_icon_html()

@@ -12,11 +12,23 @@ updates:
     ignore:
       - dependency-name: "python"
         versions: ["<=3.7", ">=3.9"]
+    goups:
+      dependencies:
+        patterns:
+          - '*'
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'weekly'
+    goups:
+      dependencies:
+        patterns:
+          - '*'
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'weekly'
+    goups:
+      dependencies:
+        patterns:
+          - '*'

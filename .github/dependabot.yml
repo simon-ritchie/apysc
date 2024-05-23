@@ -12,7 +12,7 @@ updates:
     ignore:
       - dependency-name: "python"
         versions: ["<=3.7", ">=3.9"]
-    goups:
+    groups:
       dependencies:
         patterns:
           - '*'
@@ -20,7 +20,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-    goups:
+    groups:
       dependencies:
         patterns:
           - '*'
@@ -28,7 +28,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-    goups:
+    groups:
       dependencies:
         patterns:
           - '*'

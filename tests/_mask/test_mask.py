@@ -1,5 +1,5 @@
 import apysc as ap
-from apysc._expression import expression_data_util
+from apysc._expression import expression_data_util, var_names
 from apysc._testing.testing_helper import apply_test_settings
 
 
@@ -14,3 +14,9 @@ class TestMask:
             ".mask();"
         )
         assert expected in expression
+
+    @apply_test_settings()
+    def test___init__(self) -> None:
+        mask: ap.Mask = ap.Mask(variable_name_suffix='test_suffix')
+        assert var_names.MASK in mask.variable_name
+        assert mask._variable_name_suffix == 'test_suffix'

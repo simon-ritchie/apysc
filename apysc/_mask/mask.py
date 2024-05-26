@@ -1,8 +1,16 @@
 """Implementation for the mask class.
 """
 
+from apysc._display.css_mixin import CssMixIn
+from apysc._display.set_overflow_visible_setting_mixin import (
+    SetOverflowVisibleSettingMixIn,
+)
 
-class Mask:
+
+class Mask(
+    CssMixIn,
+    SetOverflowVisibleSettingMixIn,
+):
     """
     The class for the object masking.
     """
@@ -30,7 +38,7 @@ class Mask:
         )
         self.variable_name = variable_name
         self._append_constructor_expression()
-        pass
+        self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> None:
         """

@@ -1,4 +1,4 @@
-"""Implementations for DisplayObject class.
+"""Implementation for DisplayObject class.
 """
 
 from apysc._animation.animation_parallel_mixin import AnimationParallelMixIn

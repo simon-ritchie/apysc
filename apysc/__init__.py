@@ -2,6 +2,10 @@
 
 # flake8: noqa
 
+from apysc._console.loggers import get_info_logger as _get_info_logger
+_logger = _get_info_logger()
+_logger.info("apysc packages importing has been started.")
+
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.number import Number as Float
@@ -93,6 +97,9 @@ from apysc._event.document_mouse_wheel_func import unbind_wheel_event_all_from_d
 from apysc._event.document_mouse_wheel_func import unbind_wheel_event_from_document
 from apysc._html.exporter import save_overall_html
 from apysc._expression.expression_data_util import append_js_expression
+
+_logger.info("Roughly 100 packages have been imported...")
+
 from apysc._jupyter.jupyter_util import display_on_jupyter
 from apysc._jupyter.jupyter_util import display_on_colaboratory
 from apysc._time.fps import FPS
@@ -191,6 +198,9 @@ from apysc._material_design.icon.material_add_circle_icon import MaterialAddCirc
 from apysc._material_design.icon.material_add_circle_outlined_icon import MaterialAddCircleOutlinedIcon
 from apysc._material_design.icon.material_add_circle_outline_icon import MaterialAddCircleOutlineIcon
 from apysc._material_design.icon.material_add_circle_outline_outlined_icon import MaterialAddCircleOutlineOutlinedIcon
+
+_logger.info("Roughly 200 packages have been imported...")
+
 from apysc._material_design.icon.material_add_icon import MaterialAddIcon
 from apysc._material_design.icon.material_add_ic_call_icon import MaterialAddIcCallIcon
 from apysc._material_design.icon.material_add_ic_call_outlined_icon import MaterialAddIcCallOutlinedIcon
@@ -288,6 +298,9 @@ from apysc._material_design.icon.material_biotech_outlined_icon import MaterialB
 from apysc._material_design.icon.material_block_flipped_icon import MaterialBlockFlippedIcon
 from apysc._material_design.icon.material_block_icon import MaterialBlockIcon
 from apysc._material_design.icon.material_block_outlined_icon import MaterialBlockOutlinedIcon
+
+_logger.info("Roughly 300 packages have been imported...")
+
 from apysc._material_design.icon.material_bolt_icon import MaterialBoltIcon
 from apysc._material_design.icon.material_bookmarks_icon import MaterialBookmarksIcon
 from apysc._material_design.icon.material_bookmarks_outlined_icon import MaterialBookmarksOutlinedIcon
@@ -385,6 +398,9 @@ from apysc._material_design.icon.material_comment_outlined_icon import MaterialC
 from apysc._material_design.icon.material_commute_icon import MaterialCommuteIcon
 from apysc._material_design.icon.material_commute_outlined_icon import MaterialCommuteOutlinedIcon
 from apysc._material_design.icon.material_compare_arrows_icon import MaterialCompareArrowsIcon
+
+_logger.info("Roughly 400 packages have been imported...")
+
 from apysc._material_design.icon.material_compare_arrows_outlined_icon import MaterialCompareArrowsOutlinedIcon
 from apysc._material_design.icon.material_compress_icon import MaterialCompressIcon
 from apysc._material_design.icon.material_contactless_icon import MaterialContactlessIcon
@@ -482,6 +498,9 @@ from apysc._material_design.icon.material_event_icon import MaterialEventIcon
 from apysc._material_design.icon.material_event_outlined_icon import MaterialEventOutlinedIcon
 from apysc._material_design.icon.material_event_seat_icon import MaterialEventSeatIcon
 from apysc._material_design.icon.material_event_seat_outlined_icon import MaterialEventSeatOutlinedIcon
+
+_logger.info("Roughly 500 packages have been imported...")
+
 from apysc._material_design.icon.material_exit_to_app_icon import MaterialExitToAppIcon
 from apysc._material_design.icon.material_exit_to_app_outlined_icon import MaterialExitToAppOutlinedIcon
 from apysc._material_design.icon.material_expand_icon import MaterialExpandIcon
@@ -579,6 +598,9 @@ from apysc._material_design.icon.material_grading_icon import MaterialGradingIco
 from apysc._material_design.icon.material_grading_outlined_icon import MaterialGradingOutlinedIcon
 from apysc._material_design.icon.material_group_work_icon import MaterialGroupWorkIcon
 from apysc._material_design.icon.material_group_work_outlined_icon import MaterialGroupWorkOutlinedIcon
+
+_logger.info("Roughly 600 packages have been imported...")
+
 from apysc._material_design.icon.material_g_translate_icon import MaterialGTranslateIcon
 from apysc._material_design.icon.material_g_translate_outlined_icon import MaterialGTranslateOutlinedIcon
 from apysc._material_design.icon.material_hd_icon import MaterialHdIcon
@@ -676,6 +698,9 @@ from apysc._material_design.icon.material_lightbulb_outline_icon import Material
 from apysc._material_design.icon.material_line_style_icon import MaterialLineStyleIcon
 from apysc._material_design.icon.material_line_style_outlined_icon import MaterialLineStyleOutlinedIcon
 from apysc._material_design.icon.material_line_weight_icon import MaterialLineWeightIcon
+
+_logger.info("Roughly 700 packages have been imported...")
+
 from apysc._material_design.icon.material_line_weight_outlined_icon import MaterialLineWeightOutlinedIcon
 from apysc._material_design.icon.material_link_icon import MaterialLinkIcon
 from apysc._material_design.icon.material_link_off_icon import MaterialLinkOffIcon
@@ -773,6 +798,9 @@ from apysc._material_design.icon.material_not_interested_outlined_icon import Ma
 from apysc._material_design.icon.material_not_started_icon import MaterialNotStartedIcon
 from apysc._material_design.icon.material_not_started_outlined_icon import MaterialNotStartedOutlinedIcon
 from apysc._material_design.icon.material_no_sim_icon import MaterialNoSimIcon
+
+_logger.info("Roughly 800 packages have been imported...")
+
 from apysc._material_design.icon.material_no_sim_outlined_icon import MaterialNoSimOutlinedIcon
 from apysc._material_design.icon.material_offline_bolt_icon import MaterialOfflineBoltIcon
 from apysc._material_design.icon.material_offline_bolt_outlined_icon import MaterialOfflineBoltOutlinedIcon
@@ -870,6 +898,9 @@ from apysc._material_design.icon.material_play_circle_filled_icon import Materia
 from apysc._material_design.icon.material_play_circle_filled_outlined_icon import MaterialPlayCircleFilledOutlinedIcon
 from apysc._material_design.icon.material_play_circle_outline_icon import MaterialPlayCircleOutlineIcon
 from apysc._material_design.icon.material_play_circle_outline_outlined_icon import MaterialPlayCircleOutlineOutlinedIcon
+
+_logger.info("Roughly 900 packages have been imported...")
+
 from apysc._material_design.icon.material_play_disabled_icon import MaterialPlayDisabledIcon
 from apysc._material_design.icon.material_play_for_work_icon import MaterialPlayForWorkIcon
 from apysc._material_design.icon.material_play_for_work_outlined_icon import MaterialPlayForWorkOutlinedIcon
@@ -967,6 +998,9 @@ from apysc._material_design.icon.material_report_outlined_icon import MaterialRe
 from apysc._material_design.icon.material_report_problem_icon import MaterialReportProblemIcon
 from apysc._material_design.icon.material_report_problem_outlined_icon import MaterialReportProblemOutlinedIcon
 from apysc._material_design.icon.material_request_page_icon import MaterialRequestPageIcon
+
+_logger.info("Roughly 1000 packages have been imported...")
+
 from apysc._material_design.icon.material_request_page_outlined_icon import MaterialRequestPageOutlinedIcon
 from apysc._material_design.icon.material_restore_from_trash_icon import MaterialRestoreFromTrashIcon
 from apysc._material_design.icon.material_restore_from_trash_outlined_icon import MaterialRestoreFromTrashOutlinedIcon
@@ -1064,6 +1098,9 @@ from apysc._material_design.icon.material_skip_previous_outlined_icon import Mat
 from apysc._material_design.icon.material_slow_motion_video_icon import MaterialSlowMotionVideoIcon
 from apysc._material_design.icon.material_slow_motion_video_outlined_icon import MaterialSlowMotionVideoOutlinedIcon
 from apysc._material_design.icon.material_smart_button_icon import MaterialSmartButtonIcon
+
+_logger.info("Roughly 1100 packages have been imported...")
+
 from apysc._material_design.icon.material_smart_button_outlined_icon import MaterialSmartButtonOutlinedIcon
 from apysc._material_design.icon.material_snooze_icon import MaterialSnoozeIcon
 from apysc._material_design.icon.material_snooze_outlined_icon import MaterialSnoozeOutlinedIcon
@@ -1161,6 +1198,9 @@ from apysc._material_design.icon.material_thumbs_up_down_outlined_icon import Ma
 from apysc._material_design.icon.material_thumb_down_icon import MaterialThumbDownIcon
 from apysc._material_design.icon.material_thumb_down_off_alt_icon import MaterialThumbDownOffAltIcon
 from apysc._material_design.icon.material_thumb_down_outlined_icon import MaterialThumbDownOutlinedIcon
+
+_logger.info("Roughly 1200 packages have been imported...")
+
 from apysc._material_design.icon.material_thumb_up_icon import MaterialThumbUpIcon
 from apysc._material_design.icon.material_thumb_up_off_alt_icon import MaterialThumbUpOffAltIcon
 from apysc._material_design.icon.material_thumb_up_outlined_icon import MaterialThumbUpOutlinedIcon
@@ -1268,6 +1308,9 @@ from apysc._material_design.icon.material_web_asset_icon import MaterialWebAsset
 from apysc._material_design.icon.material_web_asset_outlined_icon import MaterialWebAssetOutlinedIcon
 from apysc._material_design.icon.material_web_icon import MaterialWebIcon
 from apysc._material_design.icon.material_web_outlined_icon import MaterialWebOutlinedIcon
+
+_logger.info("Roughly 1300 packages have been imported...")
+
 from apysc._material_design.icon.material_wifi_calling_icon import MaterialWifiCallingIcon
 from apysc._material_design.icon.material_wifi_calling_outlined_icon import MaterialWifiCallingOutlinedIcon
 from apysc._material_design.icon.material_wifi_protected_setup_icon import MaterialWifiProtectedSetupIcon
@@ -1291,3 +1334,5 @@ True_: __True = __True()
 False_: __False = __False()
 
 __version__: str = "4.4.2"
+
+_logger.info("apysc packages imported successfully!")

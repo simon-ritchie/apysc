@@ -1,10 +1,9 @@
 """Class implementation for the clamp-related mix-in.
 """
 
-from typing import Any, cast
-from typing import List
+from typing import TypeVar
 from typing import Union
-from typing import Generic, TypeVar
+from typing import cast
 
 from typing_extensions import final
 
@@ -13,7 +12,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
-_ValueType = TypeVar('_ValueType', Int, Number)
+_ValueType = TypeVar("_ValueType", Int, Number)
 
 
 class ClampMixIn:
@@ -24,10 +23,11 @@ class ClampMixIn:
     @arg_validation_decos.is_apysc_int_or_number(arg_position_index=3)
     @add_debug_info_setting(module_name=__name__)
     def clamp(
-        cls, *, value: _ValueType, min_: _ValueType, max_: _ValueType) -> _ValueType:
+        cls, *, value: _ValueType, min_: _ValueType, max_: _ValueType
+    ) -> _ValueType:
         """
         Sets the value within a specified minimum and maximum range.
-        If the value is less than the minumum, this method returns the minimum value.
+        If the value is less than the minimum, this method returns the minimum value.
         If the value is greater than the maximum, this method returns the
         maximum value.
 

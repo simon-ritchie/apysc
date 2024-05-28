@@ -2,7 +2,7 @@
 
 ## Module summary
 
-Implementations for DisplayObject class.
+Implementation for DisplayObject class.
 
 ## `DisplayObject` class docstring
 

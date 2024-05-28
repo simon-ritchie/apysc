@@ -4969,7 +4969,7 @@ MAPPINGS: Mappings = Mappings(
             val="## clamp メソッドのAPI",
         ),
         Mapping(
-            key="Sets the value within a specified minimum and maximum range. If the value is less than the minumum, this method returns the minimum value. If the value is greater than the maximum, this method returns the maximum value.<hr>",
+            key="Sets the value within a specified minimum and maximum range. If the value is less than the minimum, this method returns the minimum value. If the value is greater than the maximum, this method returns the maximum value.<hr>",
             val="指定された最小値と最大値の範囲内で値を設定します。もし値が最小値未満であればこのメソッドは最小値を返却します。もし値が最大値よりも大きければこのメソッドは最大値を返却します。<hr>",
         ),
         Mapping(

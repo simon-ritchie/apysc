@@ -1,13 +1,10 @@
 """Implementation for the mask class.
 """
 
-from typing import Union
 from apysc._display.css_mixin import CssMixIn
-from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
-from apysc._type.number import Number
 
 
 class Mask(
@@ -52,7 +49,5 @@ class Mask(
         from apysc._expression import expression_data_util
 
         stage: Stage = get_stage()
-        expression: str = (
-            f"var {self.variable_name} = {stage.variable_name}.mask();"
-        )
+        expression: str = f"var {self.variable_name} = {stage.variable_name}.mask();"
         expression_data_util.append_js_expression(expression=expression)

@@ -13,7 +13,6 @@ from types import ModuleType
 
 import apysc as ap
 from apysc._file import file_util
-import importlib
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -47,19 +46,13 @@ def main() -> None:
     )
     ap.assert_equal(result_1, ap.Number(20.5))
 
-    result_2: ap.Int = ap.Math.clamp(
-        value=ap.Int(5), min_=ap.Int(10), max_=ap.Int(20)
-    )
+    result_2: ap.Int = ap.Math.clamp(value=ap.Int(5), min_=ap.Int(10), max_=ap.Int(20))
     ap.assert_equal(result_2, ap.Int(10))
 
-    result_2 = ap.Math.clamp(
-        value=ap.Int(15), min_=ap.Int(10), max_=ap.Int(20)
-    )
+    result_2 = ap.Math.clamp(value=ap.Int(15), min_=ap.Int(10), max_=ap.Int(20))
     ap.assert_equal(result_2, ap.Int(15))
 
-    result_2 = ap.Math.clamp(
-        value=ap.Int(21), min_=ap.Int(10), max_=ap.Int(20)
-    )
+    result_2 = ap.Math.clamp(value=ap.Int(21), min_=ap.Int(10), max_=ap.Int(20))
     ap.assert_equal(result_2, ap.Int(20))
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)

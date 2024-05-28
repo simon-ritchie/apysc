@@ -53,7 +53,7 @@ ap.save_overall_html(dest_dir_path="math_clamp_basic_usage/")
 
 **[Interface summary]**
 
-Sets the value within a specified minimum and maximum range. If the value is less than the minumum, this method returns the minimum value. If the value is greater than the maximum, this method returns the maximum value.<hr>
+Sets the value within a specified minimum and maximum range. If the value is less than the minimum, this method returns the minimum value. If the value is greater than the maximum, this method returns the maximum value.<hr>
 
 **[Parameters]**
 

@@ -1,10 +1,13 @@
 """Implementation for the mask class.
 """
 
+from typing import Union
 from apysc._display.css_mixin import CssMixIn
+from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
+from apysc._type.number import Number
 
 
 class Mask(

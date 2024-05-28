@@ -52,14 +52,18 @@ class ClampMixIn:
 
         >>> value: ap.Int = ap.Int(5)
         >>> value = ap.Math.clamp(value=value, min_=ap.Int(10), max_=ap.Int(20))
-        >>> ap.assert_equal(value, ap.Int(10))
+        >>> value
+        Int(10)
 
         >>> value = ap.Int(25)
         >>> value = ap.Math.clamp(value=value, min_=ap.Int(10), max_=ap.Int(20))
-        >>> ap.assert_equal(value, ap.Int(20))
+        >>> value
+        Int(20)
         """
         from apysc._math.math import Math
         from apysc._type.array import Array
+
+        is_int_value: bool = isinstance(value, Int)
 
         py_value: Union[int, float] = value._value
         py_value = min(py_value, max_._value)
@@ -67,5 +71,9 @@ class ClampMixIn:
 
         result: _ValueType = cast(_ValueType, Math.min(values=Array([value, max_])))
         result = cast(_ValueType, Math.max(values=Array([result, min_])))
+
+        if is_int_value:
+            result = cast(_ValueType, Math.trunc(value=result))
+
         result._value = py_value  # type: ignore
         return result

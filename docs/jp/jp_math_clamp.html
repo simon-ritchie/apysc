@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Math クラスの clamp インターフェイス &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
+    <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css?v=e01785d5" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css?v=5503e606" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js?v=16ad857a"></script>
+    <script src="static/doctools.js?v=888ff710"></script>
+    <script src="static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="static/jquery-3.7.1.slim.min.js?v=be2c26a5"></script>
+    <script src="static/common_func.js?v=c962a8e2"></script>
+    <script src="static/add_navigation_to_footer.js?v=6871d0c2"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="delete インターフェイス" href="jp_delete.html" />
+    <link rel="prev" title="Math クラスの trunc インターフェイス" href="jp_math_trunc.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_delete.html" title="delete インターフェイス"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_math_trunc.html" title="Math クラスの trunc インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Math クラスの clamp インターフェイス</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/math_clamp.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="math-clamp">
+<h1>Math クラスの clamp インターフェイス<a class="headerlink" href="#math-clamp" title="Permalink to this heading">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">Math</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">clamp</span></code>メソッドについて説明します。</p>
+<section id="id1">
+<h2>インターフェイス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">clamp</span></code>メソッドは指定された最小値と最大値の範囲内で値を設定します。</p>
+<p>例えば、もし値が<code class="docutils literal notranslate"><span class="pre">20</span></code>で最小値が<code class="docutils literal notranslate"><span class="pre">25</span></code>の場合、結果の値は<code class="docutils literal notranslate"><span class="pre">25</span></code>になります。</p>
+<p>同様に、もし値が<code class="docutils literal notranslate"><span class="pre">20</span></code>で最大値が<code class="docutils literal notranslate"><span class="pre">15</span></code>であれば、結果の値は<code class="docutils literal notranslate"><span class="pre">15</span></code>になります。</p>
+<p>もし値が<code class="docutils literal notranslate"><span class="pre">20</span></code>で最小値と最大値が<code class="docutils literal notranslate"><span class="pre">15</span></code>と<code class="docutils literal notranslate"><span class="pre">25</span></code>であれば、このメソッドはそのまま<code class="docutils literal notranslate"><span class="pre">20</span></code>の値を返却します。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">clamp</span></code>メソッドは<code class="docutils literal notranslate"><span class="pre">value</span></code>、<code class="docutils literal notranslate"><span class="pre">min_</span></code>、<code class="docutils literal notranslate"><span class="pre">max_</span></code>の引数を必要とします。</p>
+<p>各引数と返却値は<code class="docutils literal notranslate"><span class="pre">ap.Int</span></code>もしくは<code class="docutils literal notranslate"><span class="pre">ap.Number</span></code>型となります。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">min_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="n">max_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">min_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">max_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">min_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="n">max_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;math_clamp_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/math_clamp_basic_usage/index.html" width="1" height="1"></iframe>
+</section>
+<section id="clamp-api">
+<h2>clamp メソッドのAPI<a class="headerlink" href="#clamp-api" title="Permalink to this heading">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">clamp(*,</span> <span class="pre">value:</span> <span class="pre">~_ValueType,</span> <span class="pre">min_:</span> <span class="pre">~_ValueType,</span> <span class="pre">max_:</span> <span class="pre">~_ValueType)</span> <span class="pre">-&gt;</span> <span class="pre">~_ValueType</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>指定された最小値と最大値の範囲内で値を設定します。もし値が最小値未満であればこのメソッドは最小値を返却します。もし値が最大値よりも大きければこのメソッドは最大値を返却します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: _ValueType</p>
+<ul>
+<li><p>対象の<code class="docutils literal notranslate"><span class="pre">Int</span></code>もしくは<code class="docutils literal notranslate"><span class="pre">Number</span></code>型の値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_</span></code>: _ValueType</p>
+<ul>
+<li><p>最小値。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_</span></code>: _ValueType</p>
+<ul>
+<li><p>最大値。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: _ValueType</p>
+<ul>
+<li><p>最小値と最大値範囲の反映後の値。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">min_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">max_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span>
+<span class="go">Int(10)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Math</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">min_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">max_</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value</span>
+<span class="go">Int(20)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Math クラスの clamp インターフェイス</a><ul>
+<li><a class="reference internal" href="#id1">インターフェイス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#clamp-api">clamp メソッドのAPI</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_math_trunc.html"
+                          title="previous chapter">Math クラスの trunc インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_delete.html"
+                          title="next chapter">delete インターフェイス</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_delete.html" title="delete インターフェイス"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_math_trunc.html" title="Math クラスの trunc インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Math クラスの clamp インターフェイス</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+  </body>
+</html>

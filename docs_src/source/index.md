@@ -400,6 +400,7 @@ animation_scale_x_and_y_from_point
 math_min
 math_max
 math_trunc
+math_clamp
 ```
 
 ## Other manipulation interfaces

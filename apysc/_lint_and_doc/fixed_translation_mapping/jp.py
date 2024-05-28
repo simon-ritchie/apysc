@@ -4964,5 +4964,29 @@ MAPPINGS: Mappings = Mappings(
             key="The class implementation for the SVG icon's class.<hr>",
             val="SVGアイコンのためのクラスの実装。<hr>",
         ),
+        Mapping(
+            key="## clamp method API",
+            val="## clamp メソッドのAPI",
+        ),
+        Mapping(
+            key="Sets the value within a specified minimum and maximum range. If the value is less than the minumum, this method returns the minimum value. If the value is greater than the maximum, this method returns the maximum value.<hr>",
+            val="指定された最小値と最大値の範囲内で値を設定します。もし値が最小値未満であればこのメソッドは最小値を返却します。もし値が最大値よりも大きければこのメソッドは最大値を返却します。<hr>",
+        ),
+        Mapping(
+            key="  - Target `Int` or `Number` value.",
+            val="  - 対象の`Int`もしくは`Number`型の値。",
+        ),
+        Mapping(
+            key="  - Minimum value.",
+            val="  - 最小値。",
+        ),
+        Mapping(
+            key="  - Maximum value.",
+            val="  - 最大値。",
+        ),
+        Mapping(
+            key="  - Clamped value.",
+            val="  - 最小値と最大値範囲の反映後の値。",
+        ),
     ]
 )

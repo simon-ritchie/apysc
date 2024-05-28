@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "- [GitHub](https://github.com/simon-ritchie/apysc)": "- [GitHub](https://github.com/simon-ritchie/apysc)",  # noqa
     ##################################################
-    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library's future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
+    "  - Please leave a ⭐️star⭐️ if you favor the apysc library or have high hopes for the library\'s future!": "  - もしもapyscライブラリを気にいったり、もしくはライブラリの将来に期待が出来そうと感じられたらリポジトリにスターを付けていただけますと幸いです。",  # noqa
     ##################################################
     "- [PyPI](https://pypi.org/project/apysc/)": "- [PyPI](https://pypi.org/project/apysc/)",  # noqa
     ##################################################
@@ -135,7 +135,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Mathematics": "## 数学",
     ##################################################
-    "```{toctree}\n:maxdepth: 1\nmath_min\nmath_max\nmath_trunc\n```": "```{toctree}\n:maxdepth: 1\njp_math_min\njp_math_max\njp_math_trunc\n```",  # noqa
+    "```{toctree}\n:maxdepth: 1\nmath_min\nmath_max\nmath_trunc\nmath_clamp\n```": "```{toctree}\n:maxdepth: 1\njp_math_min\njp_math_max\njp_math_trunc\njp_math_clamp\n```",  # noqa
     ##################################################
     "## Other manipulation interfaces": "## その他の操作関係の各インターフェイス",
     ##################################################

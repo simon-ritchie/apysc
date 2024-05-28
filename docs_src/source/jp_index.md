@@ -403,6 +403,7 @@ jp_animation_scale_x_and_y_from_point
 jp_math_min
 jp_math_max
 jp_math_trunc
+jp_math_clamp
 ```
 
 ## その他の操作関係の各インターフェイス

@@ -10,7 +10,7 @@ mypy==1.10.0
 html-minifier==0.0.4
 wheel==0.43.0
 importlib-metadata==7.1.0
-Sphinx==7.3.7
+Sphinx==7.1.2
 groundwork-sphinx-theme==1.1.1
 notebook==7.2.0
 pyright==1.1.364

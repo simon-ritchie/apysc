@@ -237,4 +237,7 @@ MAPPINGS: Dict[_Keyword, _DocFileName] = {
     "ap.Dictionary": "dictionary",
     "MultiLineText": "multi_line_text",
     "ap.MultiLineText": "multi_line_text",
+    "clamp": "math_clamp",
+    "Math.clamp": "math_clamp",
+    "ap.Math.clamp": "math_clamp",
 }

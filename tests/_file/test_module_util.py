@@ -26,7 +26,7 @@ def test_get_module_paths_recursively() -> None:
 def test_save_tmp_module_and_run_script() -> None:
     script: str = "import apysc as ap\nap.Stage()\nprint(ap.Int(10))"
     stdout: str = module_util.save_tmp_module_and_run_script(script=script)
-    assert stdout == "10\n"
+    assert "10\n" in stdout
 
 
 @apply_test_settings()

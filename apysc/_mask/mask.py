@@ -8,6 +8,8 @@ from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
 from apysc._type.number import Number
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class Mask(
@@ -18,6 +20,8 @@ class Mask(
     The class for the object masking.
     """
 
+    @add_debug_info_setting(module_name=__name__)
+    @arg_validation_decos.is_builtin_string(arg_position_index=1, optional=False)
     def __init__(
         self,
         *,

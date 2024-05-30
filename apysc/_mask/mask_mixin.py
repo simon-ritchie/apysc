@@ -2,7 +2,6 @@
 """
 
 from typing import Optional
-from apysc._html.debug_mode import add_debug_info_setting
 from apysc._mask.mask import Mask
 
 

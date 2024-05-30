@@ -81,6 +81,7 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._mask.mask_mixin import MaskMixIn
 
 
 class Rectangle(
@@ -126,6 +127,7 @@ class Rectangle(
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
     AddToParentMixIn,
+    MaskMixIn,
 ):
     """
     The rectangle vector graphics class.

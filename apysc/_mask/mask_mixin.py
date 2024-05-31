@@ -2,37 +2,37 @@
 """
 
 from typing import Optional
-from apysc._mask.svg_mask import Mask
+from apysc._mask.svg_mask import SvgMask
 
 
 class MaskMixIn:
     """
-    The mask property-related mix-in class.
+    The SVG mask property-related mix-in class.
     """
 
-    _mask: Optional[Mask] = None
+    _mask: Optional[SvgMask] = None
 
     @property
-    def mask(self) -> Optional[Mask]:
+    def mask(self) -> Optional[SvgMask]:
         """
-        Get a mask setting. If the mask is not set, this property becomes `None`.
+        Get an SVG mask setting. If the mask is not set, this property becomes `None`.
 
         Returns
         -------
-        mask : Optional[Mask]
+        mask : Optional[SvgMask]
             A mask setting.
         """
         return self._mask
 
     @mask.setter
-    def mask(self, value: Optional[Mask]) -> None:
+    def mask(self, value: Optional[SvgMask]) -> None:
         """
-        Set a mask setting.
+        Set an SVG mask setting.
 
         Parameters
         ----------
-        value : Optional[Mask]
-            Mask setting to set.
+        value : Optional[SvgMask]
+            SVG mask setting to set.
         """
         from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
         from apysc._expression import expression_data_util

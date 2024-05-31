@@ -1,7 +1,7 @@
-"""The test project for the `Mask` class.
+"""The test project for the `SvgMask` class.
 
 Command examples:
-$ python test_projects/Mask/main.py
+$ python test_projects/SvgMask/main.py
 """
 
 import sys
@@ -27,7 +27,7 @@ def main() -> None:
     """
     ap.Stage(background_color=ap.Color("#333"), stage_width=1000, stage_height=760)
 
-    mask_1: ap.Mask = ap.Mask()
+    mask_1: ap.SvgMask = ap.SvgMask()
     circle_1: ap.Circle = ap.Circle(x=150, y=100, radius=50)
     mask_1.add_masking_object(masking_object=circle_1)
     rectangle_1: ap.Rectangle = ap.Rectangle(
@@ -35,7 +35,7 @@ def main() -> None:
     )
     rectangle_1.mask = mask_1
 
-    mask_2: ap.Mask = ap.Mask()
+    mask_2: ap.SvgMask = ap.SvgMask()
     circle_2: ap.Circle = ap.Circle(x=300, y=100, radius=50)
     mask_2.add_masking_object(masking_object=circle_2, alpha=0.5)
     rectangle_2: ap.Rectangle = ap.Rectangle(

@@ -33,7 +33,7 @@ def main() -> None:
     rectangle_1: ap.Rectangle = ap.Rectangle(
         x=50, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
     )
-    rectangle_1.mask = mask_1
+    rectangle_1.svg_mask = mask_1
 
     mask_2: ap.SvgMask = ap.SvgMask()
     circle_2: ap.Circle = ap.Circle(x=300, y=100, radius=50)
@@ -41,7 +41,7 @@ def main() -> None:
     rectangle_2: ap.Rectangle = ap.Rectangle(
         x=200, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
     )
-    rectangle_2.mask = mask_2
+    rectangle_2.svg_mask = mask_2
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

@@ -1,11 +1,11 @@
-"""The mask property-related mix-in class implementation.
+"""The SVG mask property-related mix-in class implementation.
 """
 
 from typing import Optional
 from apysc._mask.svg_mask import SvgMask
 
 
-class MaskMixIn:
+class SvgMaskMixIn:
     """
     The SVG mask property-related mix-in class.
     """
@@ -13,7 +13,7 @@ class MaskMixIn:
     _mask: Optional[SvgMask] = None
 
     @property
-    def mask(self) -> Optional[SvgMask]:
+    def svg_mask(self) -> Optional[SvgMask]:
         """
         Get an SVG mask setting. If the mask is not set, this property becomes `None`.
 
@@ -24,8 +24,8 @@ class MaskMixIn:
         """
         return self._mask
 
-    @mask.setter
-    def mask(self, value: Optional[SvgMask]) -> None:
+    @svg_mask.setter
+    def svg_mask(self, value: Optional[SvgMask]) -> None:
         """
         Set an SVG mask setting.
 

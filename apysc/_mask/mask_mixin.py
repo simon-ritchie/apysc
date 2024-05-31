@@ -2,7 +2,7 @@
 """
 
 from typing import Optional
-from apysc._mask.mask import Mask
+from apysc._mask.svg_mask import Mask
 
 
 class MaskMixIn:

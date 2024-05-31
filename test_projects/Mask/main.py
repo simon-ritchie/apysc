@@ -29,7 +29,7 @@ def main() -> None:
 
     mask_1: ap.SvgMask = ap.SvgMask()
     circle_1: ap.Circle = ap.Circle(x=150, y=100, radius=50)
-    mask_1.add_masking_object(masking_object=circle_1)
+    mask_1.add_svg_masking_object(masking_object=circle_1)
     rectangle_1: ap.Rectangle = ap.Rectangle(
         x=50, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
     )
@@ -37,7 +37,7 @@ def main() -> None:
 
     mask_2: ap.SvgMask = ap.SvgMask()
     circle_2: ap.Circle = ap.Circle(x=300, y=100, radius=50)
-    mask_2.add_masking_object(masking_object=circle_2, alpha=0.5)
+    mask_2.add_svg_masking_object(masking_object=circle_2, alpha=0.5)
     rectangle_2: ap.Rectangle = ap.Rectangle(
         x=200, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
     )

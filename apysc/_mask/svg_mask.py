@@ -59,7 +59,7 @@ class SvgMask(
         expression: str = f"var {self.variable_name} = {stage.variable_name}.mask();"
         expression_data_util.append_js_expression(expression=expression)
 
-    def add_masking_object(
+    def add_svg_masking_object(
         self,
         *,
         masking_object: FillColorMixIn,

@@ -1,4 +1,4 @@
-"""Implementation for the mask class.
+"""Implementation for the SVG mask class.
 """
 
 from typing import Union
@@ -28,7 +28,7 @@ class Mask(
         variable_name_suffix: str = "",
     ) -> None:
         """
-        The class for the object masking.
+        The class for the SVG masking.
 
         Parameters
         ----------
@@ -66,8 +66,8 @@ class Mask(
         alpha: Union[float, Number] = 1.0,
     ) -> None:
         """
-        Add a masking object to this mask. This instance uses its masking object
-        to mask other display objects.
+        Add an SVG masking object to this mask. This instance uses its masking object
+        to mask other SVG grasphics objects.
 
         It is possble to add multiple masking objects to a mask.
 

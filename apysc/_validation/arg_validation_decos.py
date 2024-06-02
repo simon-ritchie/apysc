@@ -208,6 +208,9 @@ Mainly the following decorators exist.
 - is_css_text_align_last
     - Set a validation to check the specified argument's type
         is the `CssTextAlignLast`.
+- is_fill_color_mixin
+    - Set a validation to check the specified argument's type
+        is the `FillColorMixIn` or its subclass type.
 """
 
 import functools
@@ -3607,6 +3610,48 @@ def is_css_text_align_last(*, arg_position_index: int) -> _Callable:
                 raise TypeError(
                     "The specified argument is not a `CssTextAlignLast` value: "
                     f"{text_align_last}\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_fill_color_mixin(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check the specified argument's type
+    is the `FillColorMixIn` or its subclass type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._display.fill_color_mixin import FillColorMixIn
+
+            fill_color_mixin: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+
+            if not isinstance(fill_color_mixin, FillColorMixIn):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "The specified argument is not a `FillColorMixIn` instance: "
+                    f"{type(fill_color_mixin)}\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
 

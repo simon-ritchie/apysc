@@ -9,6 +9,7 @@ from typing import Union
 import pytest
 
 import apysc as ap
+from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -1719,4 +1720,21 @@ def test_is_css_text_align_last() -> None:
         expected_error_class=TypeError,
         callable_=_test_func,
         align=100,
+    )
+
+
+@apply_test_settings()
+def test_is_fill_color_mixin() -> None:
+    @arg_validation_decos.is_fill_color_mixin(arg_position_index=0)
+    def _test_func(*, fill_color_mixin: FillColorMixIn) -> int:
+        return 400
+
+    rectangle: ap.Rectangle = ap.Rectangle(x=50, y=50, width=50, height=50)
+    result: int = _test_func(fill_color_mixin=rectangle)
+    assert result == 400
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        fill_color_mixin=100,
     )

@@ -3636,6 +3636,7 @@ def is_fill_color_mixin(*, arg_position_index: int) -> _Callable:
     wrapped : Callable
         Wrapped callable object.
     """
+
     def wrapped(callable_: _Callable) -> _Callable:
         @functools.wraps(callable_)
         def inner_wrapped(*args: Any, **kwargs: Any) -> Any:

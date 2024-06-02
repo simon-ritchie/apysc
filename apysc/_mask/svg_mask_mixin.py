@@ -30,7 +30,7 @@ class SvgMaskMixIn:
         --------
         >>> import apysc as ap
 
-        >>> ap.Stage()
+        >>> _ = ap.Stage()
         >>> mask: ap.SvgMask = ap.SvgMask()
         >>> circle: ap.Circle = ap.Circle(
         ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
@@ -60,7 +60,7 @@ class SvgMaskMixIn:
         --------
         >>> import apysc as ap
 
-        >>> ap.Stage()
+        >>> _ = ap.Stage()
         >>> mask: ap.SvgMask = ap.SvgMask()
         >>> circle: ap.Circle = ap.Circle(
         ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF

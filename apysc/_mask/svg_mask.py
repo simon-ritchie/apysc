@@ -19,6 +19,21 @@ class SvgMask(
 ):
     """
     The class for the object masking.
+
+    Examples
+    --------
+    >>> import apysc as ap
+
+    >>> ap.Stage()
+    >>> mask: ap.SvgMask = ap.SvgMask()
+    >>> circle: ap.Circle = ap.Circle(
+    ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
+    ... )
+    >>> mask.add_svg_masking_object(masking_object=circle)
+    >>> rectangle: ap.Rectangle = ap.Rectangle(
+    ...     x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
+    ... )
+    >>> rectangle.svg_mask = mask
     """
 
     @add_debug_info_setting(module_name=__name__)
@@ -36,6 +51,21 @@ class SvgMask(
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> ap.Stage()
+        >>> mask: ap.SvgMask = ap.SvgMask()
+        >>> circle: ap.Circle = ap.Circle(
+        ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> mask.add_svg_masking_object(masking_object=circle)
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> rectangle.svg_mask = mask
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -87,6 +117,21 @@ class SvgMask(
         alpha : float or Number, default 1.0
             The alpha value for masking.
             1.0 means fully visible, and 0.0 means fully invisible.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> ap.Stage()
+        >>> mask: ap.SvgMask = ap.SvgMask()
+        >>> circle: ap.Circle = ap.Circle(
+        ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> mask.add_svg_masking_object(masking_object=circle)
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> rectangle.svg_mask = mask
         """
         from apysc._color.color import Color
         from apysc._converter import to_apysc_val_from_builtin

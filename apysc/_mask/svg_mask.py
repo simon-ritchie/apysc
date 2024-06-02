@@ -62,6 +62,8 @@ class SvgMask(
         expression_data_util.append_js_expression(expression=expression)
 
     @add_debug_info_setting(module_name=__name__)
+    @arg_validation_decos.is_fill_color_mixin(arg_position_index=1)
+    @arg_validation_decos.is_num(arg_position_index=2, optional=False)
     def add_svg_masking_object(
         self,
         *,

@@ -5,6 +5,7 @@ from typing import Optional
 
 from apysc._mask.svg_mask import SvgMask
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class SvgMaskMixIn:
@@ -29,6 +30,7 @@ class SvgMaskMixIn:
 
     @svg_mask.setter
     @add_debug_info_setting(module_name=__name__)
+    @arg_validation_decos.is_svg_mask(arg_position_index=1, optional=True)
     def svg_mask(self, value: Optional[SvgMask]) -> None:
         """
         Set an SVG mask setting.

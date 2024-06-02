@@ -1738,3 +1738,20 @@ def test_is_fill_color_mixin() -> None:
         callable_=_test_func,
         fill_color_mixin=100,
     )
+
+
+@apply_test_settings()
+def test_is_svg_mask() -> None:
+    @arg_validation_decos.is_svg_mask(arg_position_index=0)
+    def _test_func(*, mask: ap.SvgMask) -> int:
+        return 410
+
+    mask: ap.SvgMask = ap.SvgMask()
+    result: int = _test_func(mask=mask)
+    assert result == 410
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        mask=100,
+    )

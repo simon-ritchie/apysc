@@ -211,6 +211,9 @@ Mainly the following decorators exist.
 - is_fill_color_mixin
     - Set a validation to check the specified argument's type
         is the `FillColorMixIn` or its subclass type.
+- is_svg_mask
+    - Set a validation to check the specified argument's type
+        is the `SvgMask`.
 """
 
 import functools
@@ -3652,6 +3655,48 @@ def is_fill_color_mixin(*, arg_position_index: int) -> _Callable:
                 raise TypeError(
                     "The specified argument is not a `FillColorMixIn` instance: "
                     f"{type(fill_color_mixin)}\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_svg_mask(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check the specified argument's type
+    is the `SvgMask`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._mask.svg_mask import SvgMask
+
+            mask: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(mask, SvgMask):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "The specified argument is not a `SvgMask` instance: "
+                    f"{type(mask)}\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
 

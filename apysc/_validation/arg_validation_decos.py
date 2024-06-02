@@ -3663,7 +3663,7 @@ def is_fill_color_mixin(*, arg_position_index: int) -> _Callable:
     return wrapped  # type: ignore
 
 
-def is_svg_mask(*, arg_position_index: int) -> _Callable:
+def is_svg_mask(*, arg_position_index: int, optional: bool) -> _Callable:
     """
     Set a validation to check the specified argument's type
     is the `SvgMask`.
@@ -3672,6 +3672,9 @@ def is_svg_mask(*, arg_position_index: int) -> _Callable:
     ----------
     arg_position_index : int
         A target argument position index.
+    optional : bool
+        A boolean, whether a target argument accepts
+        optional None value or not.
 
     Returns
     -------
@@ -3690,6 +3693,8 @@ def is_svg_mask(*, arg_position_index: int) -> _Callable:
                 arg_position_index=arg_position_index,
                 callable_=callable_,
             )
+            if optional and mask is None:
+                return callable_(*args, **kwargs)
             if not isinstance(mask, SvgMask):
                 callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
                     callable_=callable_, arg_position_index=arg_position_index

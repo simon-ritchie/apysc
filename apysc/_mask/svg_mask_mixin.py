@@ -2,6 +2,7 @@
 """
 
 from typing import Optional
+
 from apysc._mask.svg_mask import SvgMask
 
 
@@ -34,8 +35,10 @@ class SvgMaskMixIn:
         value : Optional[SvgMask]
             SVG mask setting to set.
         """
-        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type,
+        )
 
         self_variable_name: str = validate_variable_name_mixin_type(
             instance=self

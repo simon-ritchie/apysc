@@ -2,13 +2,14 @@
 """
 
 from typing import Union
+
 from apysc._display.css_mixin import CssMixIn
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
-from apysc._type.number import Number
 from apysc._html.debug_mode import add_debug_info_setting
+from apysc._type.number import Number
 from apysc._validation import arg_validation_decos
 
 
@@ -67,9 +68,9 @@ class SvgMask(
     ) -> None:
         """
         Add an SVG masking object to this mask. This instance uses its masking object
-        to mask other SVG grasphics objects.
+        to mask other SVG graphics objects.
 
-        It is possble to add multiple masking objects to a mask.
+        It is possible to add multiple masking objects to a mask.
 
         Notes
         -----
@@ -83,11 +84,11 @@ class SvgMask(
             The alpha value for masking.
             1.0 means fully visible, and 0.0 means fully invisible.
         """
-        from apysc._converter import to_apysc_val_from_builtin
-        from apysc._math.math import Math
         from apysc._color.color import Color
-        from apysc._type.int import Int
+        from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_data_util
+        from apysc._math.math import Math
+        from apysc._type.int import Int
 
         alpha_: Number = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=alpha

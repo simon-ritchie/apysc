@@ -42,4 +42,3 @@ class TestSvgMask:
         assert (
             rectangle_2._fill_color._value.lower() == ap.Color("#000000")._value.lower()
         )
-

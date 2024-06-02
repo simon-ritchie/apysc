@@ -75,13 +75,13 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
+from apysc._mask.svg_mask_mixin import SvgMaskMixIn
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._mask.svg_mask_mixin import SvgMaskMixIn
 
 
 class Rectangle(

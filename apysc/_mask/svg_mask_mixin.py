@@ -25,6 +25,22 @@ class SvgMaskMixIn:
         -------
         mask : Optional[SvgMask]
             A mask setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> ap.Stage()
+        >>> mask: ap.SvgMask = ap.SvgMask()
+        >>> circle: ap.Circle = ap.Circle(
+        ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> mask.add_svg_masking_object(masking_object=circle)
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> rectangle.svg_mask = mask
+        >>> assert rectangle.svg_mask == mask
         """
         return self._mask
 
@@ -39,6 +55,22 @@ class SvgMaskMixIn:
         ----------
         value : Optional[SvgMask]
             SVG mask setting to set.
+
+        Examples
+        --------
+        >>> import apysc as ap
+
+        >>> ap.Stage()
+        >>> mask: ap.SvgMask = ap.SvgMask()
+        >>> circle: ap.Circle = ap.Circle(
+        ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> mask.add_svg_masking_object(masking_object=circle)
+        >>> rectangle: ap.Rectangle = ap.Rectangle(
+        ...     x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
+        ... )
+        >>> rectangle.svg_mask = mask
+        >>> assert rectangle.svg_mask == mask
         """
         from apysc._expression import expression_data_util
         from apysc._validation.variable_name_validation import (

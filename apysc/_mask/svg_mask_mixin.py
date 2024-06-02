@@ -4,6 +4,7 @@
 from typing import Optional
 
 from apysc._mask.svg_mask import SvgMask
+from apysc._html.debug_mode import add_debug_info_setting
 
 
 class SvgMaskMixIn:
@@ -14,6 +15,7 @@ class SvgMaskMixIn:
     _mask: Optional[SvgMask] = None
 
     @property
+    @add_debug_info_setting(module_name=__name__)
     def svg_mask(self) -> Optional[SvgMask]:
         """
         Get an SVG mask setting. If the mask is not set, this property becomes `None`.
@@ -26,6 +28,7 @@ class SvgMaskMixIn:
         return self._mask
 
     @svg_mask.setter
+    @add_debug_info_setting(module_name=__name__)
     def svg_mask(self, value: Optional[SvgMask]) -> None:
         """
         Set an SVG mask setting.

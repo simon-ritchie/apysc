@@ -48,6 +48,7 @@ class SvgMask(
         self._append_constructor_expression()
         self._set_overflow_visible_setting()
 
+    @add_debug_info_setting(module_name=__name__)
     def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression.
@@ -60,6 +61,7 @@ class SvgMask(
         expression: str = f"var {self.variable_name} = {stage.variable_name}.mask();"
         expression_data_util.append_js_expression(expression=expression)
 
+    @add_debug_info_setting(module_name=__name__)
     def add_svg_masking_object(
         self,
         *,

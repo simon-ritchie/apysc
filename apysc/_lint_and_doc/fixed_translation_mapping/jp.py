@@ -4988,5 +4988,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - Clamped value.",
             val="  - 最小値と最大値範囲の反映後の値。",
         ),
+        Mapping(
+            key="## Mask",
+            val="## マスク",
+        ),
     ]
 )

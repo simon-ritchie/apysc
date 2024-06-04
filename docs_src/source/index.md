@@ -261,6 +261,13 @@ rectangle_geom
 get_bounds
 ```
 
+## Mask
+
+```{toctree}
+:maxdepth: 1
+svg_mask
+```
+
 ## Common event interfaces
 
 ```{toctree}

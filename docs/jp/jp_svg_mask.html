@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SvgMask クラスと関連インターフェース &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css?v=594d7a89" />
+    <link rel="stylesheet" type="text/css" href="static/base.css?v=9f7380ce" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css?v=e01785d5" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css?v=5503e606" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js?v=16ad857a"></script>
+    <script src="static/doctools.js?v=888ff710"></script>
+    <script src="static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="static/jquery-3.7.1.slim.min.js?v=be2c26a5"></script>
+    <script src="static/common_func.js?v=c962a8e2"></script>
+    <script src="static/add_navigation_to_footer.js?v=6871d0c2"></script>
+    <script src="static/keyword_link_mapping.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ハンドラのoptions引数の型について" href="jp_about_handler_options_type.html" />
+    <link rel="prev" title="get_bounds インターフェイス" href="jp_get_bounds.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jp_get_bounds.html" title="get_bounds インターフェイス"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SvgMask クラスと関連インターフェース</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><span class="inconspicuous-txt">※この翻訳ドキュメントはスクリプトによって出力・同期されています。内容が怪しそうな場合は<a href="https://github.com/simon-ritchie/apysc/issues" target="_blank">GitHubにissue</a>を追加したり<a class="reference external" href="https://simon-ritchie.github.io/apysc/en/svg_mask.html">英語の原文</a>の確認をお願いします。</span></p>
+<section id="svgmask">
+<h1>SvgMask クラスと関連インターフェース<a class="headerlink" href="#svgmask" title="Permalink to this heading">¶</a></h1>
+<p>このページでは<code class="docutils literal notranslate"><span class="pre">SvgMask</span></code>クラスとそれに関連した<code class="docutils literal notranslate"><span class="pre">add_svg_masking_object</span></code>メソッドや<code class="docutils literal notranslate"><span class="pre">svg_mask</span></code>属性などのインターフェイスについて説明します。</p>
+<section id="id1">
+<h2>クラス概要<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SvgMask</span></code>クラスはSVGグラフィックのマスク設定を扱います。</p>
+<p>重なりあった領域のみを表示する形でSVGの<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>（例 : <code class="docutils literal notranslate"><span class="pre">ap.Rectangle</span></code>）に別のSVGの<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を設定することができます。</p>
+</section>
+<section id="id2">
+<h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>以下のステップでマスク設定を適用することができます。</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SvgMask</span></code>インスタンスを作成します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_svg_masking_object</span></code>メソッドを使って作成した<code class="docutils literal notranslate"><span class="pre">SvgMask</span></code>のインスタンスに<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を追加します。</p></li>
+</ol>
+<p>マスクのインスタンスを対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の<code class="docutils literal notranslate"><span class="pre">svg_mask</span></code>属性に設定します。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="jp_index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="jp_index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SvgMask クラスと関連インターフェース</a><ul>
+<li><a class="reference internal" href="#id1">クラス概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="jp_get_bounds.html"
+                          title="previous chapter">get_bounds インターフェイス</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="jp_about_handler_options_type.html"
+                          title="next chapter">ハンドラのoptions引数の型について</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jp_about_handler_options_type.html" title="ハンドラのoptions引数の型について"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jp_get_bounds.html" title="get_bounds インターフェイス"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="jp_index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SvgMask クラスと関連インターフェース</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, apysc プロジェクト.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+  </body>
+</html>

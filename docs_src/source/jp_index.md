@@ -264,6 +264,13 @@ jp_rectangle_geom
 jp_get_bounds
 ```
 
+## マスク
+
+```{toctree}
+:maxdepth: 1
+jp_svg_mask
+```
+
 ## イベントの共通の各インターフェイス
 
 ```{toctree}

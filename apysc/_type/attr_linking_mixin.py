@@ -15,6 +15,7 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._html.debug_mode import add_debug_info_setting
 
 _AttrName = str
 _Attr = Union[Int, Number, String, Boolean, Color]
@@ -24,6 +25,7 @@ class AttrLinkingMixIn:
     _attr_linking_stack: Dict[_AttrName, List[_Attr]]
 
     @final
+    @add_debug_info_setting(module_name=__name__)
     def _initialize_attr_linking_stack(self, *, attr_name: str) -> None:
         """
         Initialize the _attr_linking_stack attribute if
@@ -41,6 +43,7 @@ class AttrLinkingMixIn:
         self._attr_linking_stack[attr_name] = []
 
     @final
+    @add_debug_info_setting(module_name=__name__)
     def _append_attr_to_linking_stack(self, *, attr: _Attr, attr_name: str) -> None:
         """
         Append an attribute to the linking attribute stack.
@@ -58,6 +61,7 @@ class AttrLinkingMixIn:
         self._attr_linking_stack[attr_name].append(attr)
 
     @final
+    @add_debug_info_setting(module_name=__name__)
     def _is_target_attr_already_linked(self, *, attr: _Attr, attr_name: str) -> bool:
         """
         Get a boolean value whether this instance already
@@ -90,6 +94,7 @@ class AttrLinkingMixIn:
         return False
 
     @final
+    @add_debug_info_setting(module_name=__name__)
     def _append_applying_new_attr_val_exp(
         self, *, new_attr: _Attr, attr_name: str
     ) -> None:

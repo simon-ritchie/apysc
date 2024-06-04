@@ -1333,6 +1333,6 @@ from apysc._material_design.icon.material_zoom_out_outlined_icon import Material
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.5.1"
+__version__: str = "4.6.0"
 
 _logger.info("apysc packages imported successfully!")

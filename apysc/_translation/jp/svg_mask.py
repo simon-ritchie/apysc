@@ -17,7 +17,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "The `SvgMask` handles SVG graphics mask settings.": "`SvgMask`クラスはSVGグラフィックのマスク設定を扱います。",  # noqa
     ##################################################
-    "You can set another SVG `DisplayObject` as a mask for an SVG `DisplayObject` (e.g., `ap.Rectangle`) to display only the overlapping area.": "重なりあった領域のみを表示する形でSVGの`DisplayObject`（例 : `ap.Rectangle`）に別のSVGの`DisplayObject`を設定することができます。",  # noqa
+    "You can set another SVG `DisplayObject` as a mask for an SVG `DisplayObject` (e.g., `Rectangle`) to display only the overlapping area.": "重なりあった領域のみを表示する形でSVGの`DisplayObject`（例 : `Rectangle`）に別のSVGの`DisplayObject`を設定することができます。",  # noqa
     ##################################################
     "## Basic usage": "## 基本的な使い方",
     ##################################################
@@ -27,5 +27,5 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "2. Add a `DisplayObject` to the created `SvgMask` instance with the `add_svg_masking_object` method.": "2. `add_svg_masking_object`メソッドを使って作成した`SvgMask`のインスタンスに`DisplayObject`を追加します。",  # noqa
     ##################################################
-    "3. Set a mask instance to the target `DisplayObject`\'s `svg_mask` property.": "マスクのインスタンスを対象の`DisplayObject`の`svg_mask`属性に設定します。",  # noqa
+    "3. Set a mask instance to the target `DisplayObject`'s `svg_mask` property.": "マスクのインスタンスを対象の`DisplayObject`の`svg_mask`属性に設定します。",  # noqa
 }

@@ -6,7 +6,7 @@ This page explains the `SvgMask` class and related interfaces, such as the `add_
 
 The `SvgMask` handles SVG graphics mask settings.
 
-You can set another SVG `DisplayObject` as a mask for an SVG `DisplayObject` (e.g., `ap.Rectangle`) to display only the overlapping area.
+You can set another SVG `DisplayObject` as a mask for an SVG `DisplayObject` (e.g., `Rectangle`) to display only the overlapping area.
 
 ## Basic usage
 

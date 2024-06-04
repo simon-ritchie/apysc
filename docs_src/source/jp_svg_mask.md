@@ -8,7 +8,7 @@
 
 `SvgMask`クラスはSVGグラフィックのマスク設定を扱います。
 
-重なりあった領域のみを表示する形でSVGの`DisplayObject`（例 : `ap.Rectangle`）に別のSVGの`DisplayObject`を設定することができます。
+重なりあった領域のみを表示する形でSVGの`DisplayObject`（例 : `Rectangle`）に別のSVGの`DisplayObject`を設定することができます。
 
 ## 基本的な使い方
 

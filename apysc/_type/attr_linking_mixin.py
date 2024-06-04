@@ -11,11 +11,11 @@ from typing import Union
 from typing_extensions import final
 
 from apysc._color.color import Color
+from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._html.debug_mode import add_debug_info_setting
 
 _AttrName = str
 _Attr = Union[Int, Number, String, Boolean, Color]

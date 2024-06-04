@@ -12,7 +12,7 @@ The class for the object masking.<hr>
 
 ```py
 >>> import apysc as ap
->>> ap.Stage()
+>>> _ = ap.Stage()
 >>> mask: ap.SvgMask = ap.SvgMask()
 >>> circle: ap.Circle = ap.Circle(
 ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
@@ -39,7 +39,7 @@ The class for the SVG masking.<hr>
 
 ```py
 >>> import apysc as ap
->>> ap.Stage()
+>>> _ = ap.Stage()
 >>> mask: ap.SvgMask = ap.SvgMask()
 >>> circle: ap.Circle = ap.Circle(
 ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF
@@ -76,7 +76,7 @@ This method updates the `masking_object` argument's fill color.<hr>
 
 ```py
 >>> import apysc as ap
->>> ap.Stage()
+>>> _ = ap.Stage()
 >>> mask: ap.SvgMask = ap.SvgMask()
 >>> circle: ap.Circle = ap.Circle(
 ...     x=50, y=50, radius=50, fill_color=ap.Colors.CYAN_00AAFF

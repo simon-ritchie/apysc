@@ -24,6 +24,12 @@ The class for the object masking.<hr>
 >>> rectangle.svg_mask = mask
 ```
 
+<hr>
+
+**[References]**
+
+- [SvgMask class and its related interfaces](https://simon-ritchie.github.io/apysc/en/svg_mask.html)
+
 ### `__init__` method docstring
 
 The class for the SVG masking.<hr>
@@ -51,6 +57,12 @@ The class for the SVG masking.<hr>
 >>> rectangle.svg_mask = mask
 ```
 
+<hr>
+
+**[References]**
+
+- [SvgMask class and its related interfaces](https://simon-ritchie.github.io/apysc/en/svg_mask.html)
+
 ### `_append_constructor_expression` method docstring
 
 Append a constructor expression.
@@ -63,14 +75,8 @@ Add an SVG masking object to this mask. This instance uses its masking object to
 
 - `masking_object`: FillColorMixIn
   - The masking object to add.
-- `alpha`: float or Number, default 1.0
-  - The alpha value for masking. 1.0 means fully visible, and 0.0 means fully invisible.
 
 <hr>
-
-**[Notes]**
-
-This method updates the `masking_object` argument's fill color.<hr>
 
 **[Examples]**
 
@@ -87,3 +93,9 @@ This method updates the `masking_object` argument's fill color.<hr>
 ... )
 >>> rectangle.svg_mask = mask
 ```
+
+<hr>
+
+**[References]**
+
+- [SvgMask class and its related interfaces](https://simon-ritchie.github.io/apysc/en/svg_mask.html)

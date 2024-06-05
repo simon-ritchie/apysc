@@ -9,6 +9,7 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
+from apysc._display.graphics_base import GraphicsBase
 
 
 class SvgMask(
@@ -104,7 +105,7 @@ class SvgMask(
     def add_svg_masking_object(
         self,
         *,
-        masking_object: FillColorMixIn,
+        masking_object: GraphicsBase,
     ) -> None:
         """
         Add an SVG masking object to this mask. This instance uses its masking object
@@ -114,7 +115,7 @@ class SvgMask(
 
         Parameters
         ----------
-        masking_object : FillColorMixIn
+        masking_object : GraphicsBase
             The masking object to add.
 
         References

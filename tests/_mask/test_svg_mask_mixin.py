@@ -11,12 +11,12 @@ def test_svg_mask() -> None:
 
     rectangle.svg_mask = None
     expression: str = expression_data_util.get_current_expression()
-    expected: str = f"{rectangle.variable_name}.unmask();"
+    expected: str = f"{rectangle.variable_name}.unclip();"
     assert expected in expression
     assert rectangle.svg_mask is None
 
     rectangle.svg_mask = mask
     expression = expression_data_util.get_current_expression()
-    expected = f"{rectangle.variable_name}.maskWith({mask.variable_name});"
+    expected = f"{rectangle.variable_name}.clipWith({mask.variable_name});"
     assert expected in expression
     assert rectangle.svg_mask == mask

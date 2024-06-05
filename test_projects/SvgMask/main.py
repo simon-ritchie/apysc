@@ -36,20 +36,12 @@ def main() -> None:
     rectangle_1.svg_mask = mask_1
 
     mask_2: ap.SvgMask = ap.SvgMask()
-    circle_2: ap.Circle = ap.Circle(x=300, y=100, radius=50)
-    mask_2.add_svg_masking_object(masking_object=circle_2, alpha=0.5)
-    rectangle_2: ap.Rectangle = ap.Rectangle(
-        x=200, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
-    )
-    rectangle_2.svg_mask = mask_2
-
-    mask_3: ap.SvgMask = ap.SvgMask()
     circle_3: ap.Circle = ap.Circle(x=450, y=100, radius=50)
-    mask_3.add_svg_masking_object(masking_object=circle_3)
+    mask_2.add_svg_masking_object(masking_object=circle_3)
     rectangle_3: ap.Rectangle = ap.Rectangle(
         x=350, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
     )
-    rectangle_3.svg_mask = mask_3
+    rectangle_3.svg_mask = mask_2
     sprite_1: ap.Sprite = ap.Sprite()
     sprite_1.add_child(child=rectangle_3)
     sprite_1.y = ap.Number(100)

@@ -82,9 +82,9 @@ class SvgMaskMixIn:
         ).variable_name
 
         if value is None:
-            expression: str = f"{self_variable_name}.unmask();"
+            expression: str = f"{self_variable_name}.unclip();"
         else:
-            expression = f"{self_variable_name}.maskWith({value.variable_name});"
+            expression = f"{self_variable_name}.clipWith({value.variable_name});"
 
         expression_data_util.append_js_expression(expression=expression)
         self._mask = value

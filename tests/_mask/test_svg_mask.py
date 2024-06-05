@@ -11,7 +11,7 @@ class TestSvgMask:
         mask: ap.SvgMask = ap.SvgMask()
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"var {mask.variable_name} = {ap.get_stage().variable_name}" ".mask();"
+            f"var {mask.variable_name} = {ap.get_stage().variable_name}.clip();"
         )
         assert expected in expression
 
@@ -31,14 +31,3 @@ class TestSvgMask:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{mask.variable_name}.add({rectangle_1.variable_name});"
         assert expected in expression
-        assert (
-            rectangle_1._fill_color._value.lower() == ap.Color("#FFFFFF")._value.lower()
-        )
-
-        rectangle_2: ap.Rectangle = ap.Rectangle(
-            x=150, y=50, width=50, height=50, fill_color=ap.Color("#f0a")
-        )
-        mask.add_svg_masking_object(masking_object=rectangle_2, alpha=0.0)
-        assert (
-            rectangle_2._fill_color._value.lower() == ap.Color("#000000")._value.lower()
-        )

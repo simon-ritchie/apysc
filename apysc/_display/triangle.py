@@ -88,6 +88,7 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._mask.svg_mask_mixin import SvgMaskMixIn
 
 
 class Triangle(
@@ -136,6 +137,7 @@ class Triangle(
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
     AddToParentMixIn,
+    SvgMaskMixIn,
 ):
     """
     The triangle vector graphics class.

@@ -62,6 +62,123 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">add_svg_masking_object</span></code>メソッドを使って作成した<code class="docutils literal notranslate"><span class="pre">SvgMask</span></code>のインスタンスに<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を追加します。</p></li>
 </ol>
 <p>マスクのインスタンスを対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の<code class="docutils literal notranslate"><span class="pre">svg_mask</span></code>属性に設定します。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># 1. Create an `SvgMask` instance.</span>
+<span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
+<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span><span class="p">)</span>
+
+<span class="c1"># 2. Add a `DisplayObject` to the created `SvgMask` instance.</span>
+<span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="p">)</span>
+
+<span class="c1"># 3. Set a mask instance to the target `DisplayObject`&#39;s `svg_mask` property.</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">svg_mask</span> <span class="o">=</span> <span class="n">mask</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_mask_basic_usage/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_mask_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
+<section id="svgmask-api">
+<h2>SvgMask クラスのコンストラクタのAPI<a class="headerlink" href="#svgmask-api" title="Permalink to this heading">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">*,</span> <span class="pre">variable_name_suffix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>SVGのマスク処理のためのクラスです。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">variable_name_suffix</span></code>: str, default “”</p>
+<ul>
+<li><p>JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">svg_mask</span> <span class="o">=</span> <span class="n">mask</span>
+</pre></div>
+</div>
+</section>
+<section id="svgmask-add-svg-masking-object-api">
+<h2>SvgMask クラスの add_svg_masking_object メソッドのAPI<a class="headerlink" href="#svgmask-add-svg-masking-object-api" title="Permalink to this heading">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">add_svg_masking_object(self,</span> <span class="pre">*,</span> <span class="pre">masking_object:</span> <span class="pre">apysc._display.graphics_base.GraphicsBase)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>このマスクにマスク処理用のSVGのオブジェクトを追加します。このインスタンスは他のSVGのグラフィックスオブジェクトをマスクするためにそのオブジェクトを使用します。マスクへ複数のマスク処理用のオブジェクトを追加することができます。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">masking_object</span></code>: GraphicsBase</p>
+<ul>
+<li><p>追加するマスク処理用のオブジェクト。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">svg_mask</span> <span class="o">=</span> <span class="n">mask</span>
+</pre></div>
+</div>
+</section>
+<section id="svg-mask-api">
+<h2>svg_mask 属性のAPI<a class="headerlink" href="#svg-mask-api" title="Permalink to this heading">¶</a></h2>
+<p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
+<p><strong>[インターフェイス概要]</strong></p>
+<p>SVGのマスク設定を取得します。もしマスク設定がされていなければ、この属性の値はNoneとなります。<hr></p>
+<p><strong>[返却値]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mask</span></code>: Optional[SvgMask]</p>
+<ul>
+<li><p>マスク設定。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[コードサンプル]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">svg_mask</span> <span class="o">=</span> <span class="n">mask</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">svg_mask</span> <span class="o">==</span> <span class="n">mask</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -81,6 +198,9 @@
 <li><a class="reference internal" href="#">SvgMask クラスと関連インターフェース</a><ul>
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#svgmask-api">SvgMask クラスのコンストラクタのAPI</a></li>
+<li><a class="reference internal" href="#svgmask-add-svg-masking-object-api">SvgMask クラスの add_svg_masking_object メソッドのAPI</a></li>
+<li><a class="reference internal" href="#svg-mask-api">svg_mask 属性のAPI</a></li>
 </ul>
 </li>
 </ul>

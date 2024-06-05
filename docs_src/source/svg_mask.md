@@ -88,7 +88,7 @@ The class for the SVG masking.<hr>
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `add_svg_masking_object(self, *, masking_object: apysc._display.fill_color_mixin.FillColorMixIn) -> None`<hr>
+**[Interface signature]** `add_svg_masking_object(self, *, masking_object: apysc._display.graphics_base.GraphicsBase) -> None`<hr>
 
 **[Interface summary]**
 
@@ -96,7 +96,7 @@ Add an SVG masking object to this mask. This instance uses its masking object to
 
 **[Parameters]**
 
-- `masking_object`: FillColorMixIn
+- `masking_object`: GraphicsBase
   - The masking object to add.
 
 <hr>

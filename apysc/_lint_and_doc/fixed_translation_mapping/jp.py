@@ -4992,5 +4992,41 @@ MAPPINGS: Mappings = Mappings(
             key="## Mask",
             val="## マスク",
         ),
+        Mapping(
+            key="## SvgMask constructor API",
+            val="## SvgMask クラスのコンストラクタのAPI",
+        ),
+        Mapping(
+            key="The class for the SVG masking.<hr>",
+            val="SVGのマスク処理のためのクラスです。<hr>",
+        ),
+        Mapping(
+            key="## SvgMask add_svg_masking_object method API",
+            val="## SvgMask クラスの add_svg_masking_object メソッドのAPI",
+        ),
+        Mapping(
+            key="## SvgMask add_svg_masking_object method API",
+            val="## SvgMask クラスの add_svg_masking_object メソッドのAPI",
+        ),
+        Mapping(
+            key="Add an SVG masking object to this mask. This instance uses its masking object to mask other SVG graphics objects. It is possible to add multiple masking objects to a mask.<hr>",
+            val="このマスクにマスク処理用のSVGのオブジェクトを追加します。このインスタンスは他のSVGのグラフィックスオブジェクトをマスクするためにそのオブジェクトを使用します。マスクへ複数のマスク処理用のオブジェクトを追加することができます。<hr>",
+        ),
+        Mapping(
+            key="  - The masking object to add.",
+            val="  - 追加するマスク処理用のオブジェクト。",
+        ),
+        Mapping(
+            key="## svg_mask property API",
+            val="## svg_mask 属性のAPI",
+        ),
+        Mapping(
+            key="Get an SVG mask setting. If the mask is not set, this property becomes `None`.<hr>",
+            val="SVGのマスク設定を取得します。もしマスク設定がされていなければ、この属性の値はNoneとなります。<hr>",
+        ),
+        Mapping(
+            key="  - A mask setting.",
+            val="  - マスク設定。",
+        ),
     ]
 )

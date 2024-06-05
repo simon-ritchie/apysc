@@ -26,6 +26,11 @@ class SvgMaskMixIn:
         mask : Optional[SvgMask]
             A mask setting.
 
+        References
+        ----------
+        - SvgMask class and its related interfaces
+            - https://simon-ritchie.github.io/apysc/en/svg_mask.html
+
         Examples
         --------
         >>> import apysc as ap
@@ -55,6 +60,11 @@ class SvgMaskMixIn:
         ----------
         value : Optional[SvgMask]
             SVG mask setting to set.
+
+        References
+        ----------
+        - SvgMask class and its related interfaces
+            - https://simon-ritchie.github.io/apysc/en/svg_mask.html
 
         Examples
         --------

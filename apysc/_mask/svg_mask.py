@@ -20,6 +20,11 @@ class SvgMask(
     """
     The class for the object masking.
 
+    References
+    ----------
+    - SvgMask class and its related interfaces
+        - https://simon-ritchie.github.io/apysc/en/svg_mask.html
+
     Examples
     --------
     >>> import apysc as ap
@@ -51,6 +56,11 @@ class SvgMask(
         variable_name_suffix : str, default ""
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
+
+        References
+        ----------
+        - SvgMask class and its related interfaces
+            - https://simon-ritchie.github.io/apysc/en/svg_mask.html
 
         Examples
         --------
@@ -108,6 +118,11 @@ class SvgMask(
         ----------
         masking_object : FillColorMixIn
             The masking object to add.
+
+        References
+        ----------
+        - SvgMask class and its related interfaces
+            - https://simon-ritchie.github.io/apysc/en/svg_mask.html
 
         Examples
         --------

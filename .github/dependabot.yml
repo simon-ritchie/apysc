@@ -13,9 +13,7 @@ updates:
       - dependency-name: "python"
         versions: ["<=3.7", ">=3.9"]
       - dependency-name: "Sphinx"
-        versions: ["<=7.1.2"]
-      - dependency-name: "sphinx"
-        versions: ["<=7.1.2"]
+        versions: [">=7.1.2"]
     groups:
       dependencies:
         patterns:

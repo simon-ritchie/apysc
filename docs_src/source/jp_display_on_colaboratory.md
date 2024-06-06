@@ -46,7 +46,7 @@ ap.display_on_colaboratory(html_file_name="jupyter_test_1.html")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `display_on_colaboratory(html_file_name: str, *, minify: bool = True) -> None`<hr>
+**[インターフェイスの構造]** `display_on_colaboratory(html_file_name: str) -> None`<hr>
 
 **[インターフェイス概要]**
 
@@ -56,6 +56,3 @@ HTML全体を保存し結果をGoogle Colaboratory上で表示します。<hr>
 
 - `html_file_name`: str, default 'index.html'
   - 出力されるHTMLのファイル名。
-
-- `minify`: bool, default True
-  - HTMLを最小化（minify）するかどうかの真偽値。Falseの設定はデバッグ時などに役に立つことがあります。

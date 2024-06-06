@@ -73,7 +73,7 @@ Add an SVG masking object to this mask. This instance uses its masking object to
 
 **[Parameters]**
 
-- `masking_object`: FillColorMixIn
+- `masking_object`: GraphicsBase
   - The masking object to add.
 
 <hr>

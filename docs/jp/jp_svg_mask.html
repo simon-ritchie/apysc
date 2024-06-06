@@ -60,8 +60,8 @@
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SvgMask</span></code>インスタンスを作成します。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">add_svg_masking_object</span></code>メソッドを使って作成した<code class="docutils literal notranslate"><span class="pre">SvgMask</span></code>のインスタンスに<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>を追加します。</p></li>
+<li><p>マスクのインスタンスを対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の<code class="docutils literal notranslate"><span class="pre">svg_mask</span></code>属性に設定します。</p></li>
 </ol>
-<p>マスクのインスタンスを対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の<code class="docutils literal notranslate"><span class="pre">svg_mask</span></code>属性に設定します。</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -74,7 +74,7 @@
 
 <span class="c1"># 1. Create an `SvgMask` instance.</span>
 <span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
-<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span><span class="p">)</span>
+<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># 2. Add a `DisplayObject` to the created `SvgMask` instance.</span>
 <span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
@@ -89,6 +89,40 @@
 </pre></div>
 </div>
 <iframe src="static/svg_mask_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
+<section id="displayobject">
+<h2>DisplayObjectとマスクの座標を同期させたい場合のケース<a class="headerlink" href="#displayobject" title="Permalink to this heading">¶</a></h2>
+<p>マスクを設定する対象の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>とマスク用の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>はそれぞれ分離された座標値を持っています。</p>
+<p>もし両方の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の座標を同じ量だけ変更したい場合には<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>のコンテナーを使用すると便利です。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sprite</span></code>のコンテナーの座標のみを変更することで、マスクの座標を維持したまま<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の座標を変更することができます。</p>
+<p>特記事項 : マスク処理用の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>は<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>のコンテナーへと追加する必要はありません。</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
+<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">svg_mask</span> <span class="o">=</span> <span class="n">mask</span>
+
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="c1"># Notes: You do not need to add the circle for masking.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_mask_sprite_container_example/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_mask_sprite_container_example/index.html" width="400" height="300"></iframe>
 </section>
 <section id="svgmask-api">
 <h2>SvgMask クラスのコンストラクタのAPI<a class="headerlink" href="#svgmask-api" title="Permalink to this heading">¶</a></h2>
@@ -198,6 +232,7 @@
 <li><a class="reference internal" href="#">SvgMask クラスと関連インターフェース</a><ul>
 <li><a class="reference internal" href="#id1">クラス概要</a></li>
 <li><a class="reference internal" href="#id2">基本的な使い方</a></li>
+<li><a class="reference internal" href="#displayobject">DisplayObjectとマスクの座標を同期させたい場合のケース</a></li>
 <li><a class="reference internal" href="#svgmask-api">SvgMask クラスのコンストラクタのAPI</a></li>
 <li><a class="reference internal" href="#svgmask-add-svg-masking-object-api">SvgMask クラスの add_svg_masking_object メソッドのAPI</a></li>
 <li><a class="reference internal" href="#svg-mask-api">svg_mask 属性のAPI</a></li>

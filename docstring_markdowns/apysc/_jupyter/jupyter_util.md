@@ -23,8 +23,6 @@ Save the overall HTML and display it on Google Colaboratory.<hr>
 
 - `html_file_name`: str, default 'index.html'
   - The output HTML file name.
-- `minify`: bool, default True
-  - Boolean value whether minify a HTML or not. False setting is useful when debugging.
 
 <hr>
 

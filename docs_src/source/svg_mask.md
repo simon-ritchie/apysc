@@ -31,7 +31,7 @@ ap.Stage(
 
 # 1. Create an `SvgMask` instance.
 mask: ap.SvgMask = ap.SvgMask()
-circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Colors.CYAN_00AAFF)
+circle: ap.Circle = ap.Circle(x=100, y=100, radius=50)
 
 # 2. Add a `DisplayObject` to the created `SvgMask` instance.
 mask.add_svg_masking_object(masking_object=circle)
@@ -46,6 +46,45 @@ ap.save_overall_html(dest_dir_path="svg_mask_basic_usage/")
 ```
 
 <iframe src="static/svg_mask_basic_usage/index.html" width="150" height="150"></iframe>
+
+## Case when you want to synchronize the coordinates of DisplayObject and mask
+
+Both the `DisplayObject` to set the mask and the `DisplayObject` for the mask have separate coordinates.
+
+If you want to change the coordinates of each `DisplayObject` by the same amount, it is convenient to use the `Sprite` container.
+
+By changing only the coordinates of a `Sprite` container, you can change the coordinates of a `DisplayObject` while maintaining the coordinates of the mask.
+
+Notes: You do not need to add `DisplayObject` to the `Sprite` container for the masking.
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=300,
+    stage_elem_id="stage",
+)
+mask: ap.SvgMask = ap.SvgMask()
+circle: ap.Circle = ap.Circle(x=150, y=100, radius=100)
+mask.add_svg_masking_object(masking_object=circle)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
+)
+rectangle.svg_mask = mask
+
+sprite: ap.Sprite = ap.Sprite()
+# Notes: You do not need to add the circle for masking.
+sprite.add_child(rectangle)
+sprite.x = ap.Number(100)
+sprite.y = ap.Number(50)
+
+ap.save_overall_html(dest_dir_path="svg_mask_sprite_container_example/")
+```
+
+<iframe src="static/svg_mask_sprite_container_example/index.html" width="400" height="300"></iframe>
 
 ## SvgMask constructor API
 

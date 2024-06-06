@@ -15,7 +15,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "Before reading on, maybe it is helpful to read the following page:": "事前に以下のページを確認しておくと読み進める上で役に立つかもしれません:",  # noqa
     ##################################################
-    "- [Why the apysc library doesn\'t use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)": "- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)",  # noqa
+    "- [Why the apysc library doesn't use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)": "- [なぜapyscではPythonのビルトインのデータの型を使用していないのか](jp_why_apysc_doesnt_use_python_builtin_data_type.md)",  # noqa
     ##################################################
     "## Int class": "## Int クラス",
     ##################################################
@@ -55,7 +55,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Int class constructor API": "## Int クラスのコンストラクタのAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -67,7 +67,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.": "  - 整数の初期値。もしも`float`や`Number`の値が指定された場合このクラスは値を整数へと変換します。",  # noqa
     ##################################################
-    "- `variable_name_suffix`: str, default \"\"": "- `variable_name_suffix`: str, default \"\"",  # noqa
+    '- `variable_name_suffix`: str, default ""': '- `variable_name_suffix`: str, default ""',  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -91,7 +91,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## Number class constructor API": "## Number クラスのコンストラクタのAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -103,7 +103,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "  - Initial floating point number value. This class casts it to float if you specify int or Int value.": "  - 浮動小数点数の初期値。もしもintやIntなどの型の値が指定された場合このクラスは値を浮動小数点数へ変換します。",  # noqa
     ##################################################
-    "- `variable_name_suffix`: str, default \"\"": "- `variable_name_suffix`: str, default \"\"",  # noqa
+    '- `variable_name_suffix`: str, default ""': '- `variable_name_suffix`: str, default ""',  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -131,7 +131,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## value property API": "## value 属性のAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

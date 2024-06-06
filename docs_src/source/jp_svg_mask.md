@@ -18,7 +18,7 @@
 
 2. `add_svg_masking_object`メソッドを使って作成した`SvgMask`のインスタンスに`DisplayObject`を追加します。
 
-マスクのインスタンスを対象の`DisplayObject`の`svg_mask`属性に設定します。
+3. マスクのインスタンスを対象の`DisplayObject`の`svg_mask`属性に設定します。
 
 ```py
 # runnable
@@ -33,7 +33,7 @@ ap.Stage(
 
 # 1. Create an `SvgMask` instance.
 mask: ap.SvgMask = ap.SvgMask()
-circle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Colors.CYAN_00AAFF)
+circle: ap.Circle = ap.Circle(x=100, y=100, radius=50)
 
 # 2. Add a `DisplayObject` to the created `SvgMask` instance.
 mask.add_svg_masking_object(masking_object=circle)
@@ -48,6 +48,45 @@ ap.save_overall_html(dest_dir_path="svg_mask_basic_usage/")
 ```
 
 <iframe src="static/svg_mask_basic_usage/index.html" width="150" height="150"></iframe>
+
+## DisplayObjectとマスクの座標を同期させたい場合のケース
+
+マスクを設定する対象の`DisplayObject`とマスク用の`DisplayObject`はそれぞれ分離された座標値を持っています。
+
+もし両方の`DisplayObject`の座標を同じ量だけ変更したい場合には`Sprite`のコンテナーを使用すると便利です。
+
+`Sprite`のコンテナーの座標のみを変更することで、マスクの座標を維持したまま`DisplayObject`の座標を変更することができます。
+
+特記事項 : マスク処理用の`DisplayObject`は`Sprite`のコンテナーへと追加する必要はありません。
+
+```py
+# runnable
+import apysc as ap
+
+ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_width=400,
+    stage_height=300,
+    stage_elem_id="stage",
+)
+mask: ap.SvgMask = ap.SvgMask()
+circle: ap.Circle = ap.Circle(x=150, y=100, radius=100)
+mask.add_svg_masking_object(masking_object=circle)
+rectangle: ap.Rectangle = ap.Rectangle(
+    x=50, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF
+)
+rectangle.svg_mask = mask
+
+sprite: ap.Sprite = ap.Sprite()
+# Notes: You do not need to add the circle for masking.
+sprite.add_child(rectangle)
+sprite.x = ap.Number(100)
+sprite.y = ap.Number(50)
+
+ap.save_overall_html(dest_dir_path="svg_mask_sprite_container_example/")
+```
+
+<iframe src="static/svg_mask_sprite_container_example/index.html" width="400" height="300"></iframe>
 
 ## SvgMask クラスのコンストラクタのAPI
 

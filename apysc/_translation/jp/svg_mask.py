@@ -27,13 +27,25 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "2. Add a `DisplayObject` to the created `SvgMask` instance with the `add_svg_masking_object` method.": "2. `add_svg_masking_object`メソッドを使って作成した`SvgMask`のインスタンスに`DisplayObject`を追加します。",  # noqa
     ##################################################
-    "3. Set a mask instance to the target `DisplayObject`\'s `svg_mask` property.": "マスクのインスタンスを対象の`DisplayObject`の`svg_mask`属性に設定します。",  # noqa
+    "3. Set a mask instance to the target `DisplayObject`'s `svg_mask` property.": "3. マスクのインスタンスを対象の`DisplayObject`の`svg_mask`属性に設定します。",  # noqa
     ##################################################
-    "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color(\"#333\"),\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\"stage\",\n)\n\n# 1. Create an `SvgMask` instance.\nmask: ap.SvgMask = ap.SvgMask()\ncircle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Colors.CYAN_00AAFF)\n\n# 2. Add a `DisplayObject` to the created `SvgMask` instance.\nmask.add_svg_masking_object(masking_object=circle)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF\n)\n\n# 3. Set a mask instance to the target `DisplayObject`\'s `svg_mask` property.\nrectangle.svg_mask = mask\n\nap.save_overall_html(dest_dir_path=\"svg_mask_basic_usage/\")\n```": "```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color(\"#333\"),\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id=\"stage\",\n)\n\n# 1. Create an `SvgMask` instance.\nmask: ap.SvgMask = ap.SvgMask()\ncircle: ap.Circle = ap.Circle(x=100, y=100, radius=50, fill_color=ap.Colors.CYAN_00AAFF)\n\n# 2. Add a `DisplayObject` to the created `SvgMask` instance.\nmask.add_svg_masking_object(masking_object=circle)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF\n)\n\n# 3. Set a mask instance to the target `DisplayObject`\'s `svg_mask` property.\nrectangle.svg_mask = mask\n\nap.save_overall_html(dest_dir_path=\"svg_mask_basic_usage/\")\n```",  # noqa
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id="stage",\n)\n\n# 1. Create an `SvgMask` instance.\nmask: ap.SvgMask = ap.SvgMask()\ncircle: ap.Circle = ap.Circle(x=100, y=100, radius=50)\n\n# 2. Add a `DisplayObject` to the created `SvgMask` instance.\nmask.add_svg_masking_object(masking_object=circle)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF\n)\n\n# 3. Set a mask instance to the target `DisplayObject`\'s `svg_mask` property.\nrectangle.svg_mask = mask\n\nap.save_overall_html(dest_dir_path="svg_mask_basic_usage/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=150,\n    stage_height=150,\n    stage_elem_id="stage",\n)\n\n# 1. Create an `SvgMask` instance.\nmask: ap.SvgMask = ap.SvgMask()\ncircle: ap.Circle = ap.Circle(x=100, y=100, radius=50)\n\n# 2. Add a `DisplayObject` to the created `SvgMask` instance.\nmask.add_svg_masking_object(masking_object=circle)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=0, y=0, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF\n)\n\n# 3. Set a mask instance to the target `DisplayObject`\'s `svg_mask` property.\nrectangle.svg_mask = mask\n\nap.save_overall_html(dest_dir_path="svg_mask_basic_usage/")\n```',  # noqa
+    ##################################################
+    "## Case when you want to synchronize the coordinates of DisplayObject and mask": "## DisplayObjectとマスクの座標を同期させたい場合のケース",  # noqa
+    ##################################################
+    "Both the `DisplayObject` to set the mask and the `DisplayObject` for the mask have separate coordinates.": "マスクを設定する対象の`DisplayObject`とマスク用の`DisplayObject`はそれぞれ分離された座標値を持っています。",  # noqa
+    ##################################################
+    "If you want to change the coordinates of each `DisplayObject` by the same amount, it is convenient to use the `Sprite` container.": "もし両方の`DisplayObject`の座標を同じ量だけ変更したい場合には`Sprite`のコンテナーを使用すると便利です。",  # noqa
+    ##################################################
+    "By changing only the coordinates of a `Sprite` container, you can change the coordinates of a `DisplayObject` while maintaining the coordinates of the mask.": "`Sprite`のコンテナーの座標のみを変更することで、マスクの座標を維持したまま`DisplayObject`の座標を変更することができます。",  # noqa
+    ##################################################
+    "Notes: You do not need to add `DisplayObject` to the `Sprite` container for the masking.": "特記事項 : マスク処理用の`DisplayObject`は`Sprite`のコンテナーへと追加する必要はありません。",  # noqa
+    ##################################################
+    '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=400,\n    stage_height=300,\n    stage_elem_id="stage",\n)\nmask: ap.SvgMask = ap.SvgMask()\ncircle: ap.Circle = ap.Circle(x=150, y=100, radius=100)\nmask.add_svg_masking_object(masking_object=circle)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF\n)\nrectangle.svg_mask = mask\n\nsprite: ap.Sprite = ap.Sprite()\n# Notes: You do not need to add the circle for masking.\nsprite.add_child(rectangle)\nsprite.x = ap.Number(100)\nsprite.y = ap.Number(50)\n\nap.save_overall_html(dest_dir_path="svg_mask_sprite_container_example/")\n```': '```py\n# runnable\nimport apysc as ap\n\nap.Stage(\n    background_color=ap.Color("#333"),\n    stage_width=400,\n    stage_height=300,\n    stage_elem_id="stage",\n)\nmask: ap.SvgMask = ap.SvgMask()\ncircle: ap.Circle = ap.Circle(x=150, y=100, radius=100)\nmask.add_svg_masking_object(masking_object=circle)\nrectangle: ap.Rectangle = ap.Rectangle(\n    x=50, y=50, width=100, height=100, fill_color=ap.Colors.CYAN_00AAFF\n)\nrectangle.svg_mask = mask\n\nsprite: ap.Sprite = ap.Sprite()\n# Notes: You do not need to add the circle for masking.\nsprite.add_child(rectangle)\nsprite.x = ap.Number(100)\nsprite.y = ap.Number(50)\n\nap.save_overall_html(dest_dir_path="svg_mask_sprite_container_example/")\n```',  # noqa
     ##################################################
     "## SvgMask constructor API": "## SvgMask クラスのコンストラクタのAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -41,7 +53,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "**[Parameters]**": "**[引数]**",
     ##################################################
-    "- `variable_name_suffix`: str, default \"\"": "- `variable_name_suffix`: str, default \"\"",  # noqa
+    '- `variable_name_suffix`: str, default ""': '- `variable_name_suffix`: str, default ""',  # noqa
     ##################################################
     "  - A JavaScript variable name suffix string. This setting is sometimes useful for JavaScript debugging.": "  - JavaScript上の変数のサフィックスの設定です。この設定はJavaScriptのデバッグ時に役立つことがあります。",  # noqa
     ##################################################
@@ -53,7 +65,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## SvgMask add_svg_masking_object method API": "## SvgMask クラスの add_svg_masking_object メソッドのAPI",  # noqa
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################
@@ -73,7 +85,7 @@ MAPPING: Dict[str, str] = {
     ##################################################
     "## svg_mask property API": "## svg_mask 属性のAPI",
     ##################################################
-    "<span class=\"inconspicuous-txt\">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>": "<span class=\"inconspicuous-txt\">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>",  # noqa
+    '<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>': '<span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>',  # noqa
     ##################################################
     "**[Interface summary]**": "**[インターフェイス概要]**",
     ##################################################

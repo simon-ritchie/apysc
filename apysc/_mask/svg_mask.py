@@ -1,15 +1,13 @@
 """Implementation for the SVG mask class.
 """
 
-
 from apysc._display.css_mixin import CssMixIn
-from apysc._display.fill_color_mixin import FillColorMixIn
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
-from apysc._display.graphics_base import GraphicsBase
 
 
 class SvgMask(

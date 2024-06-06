@@ -46,7 +46,7 @@ ap.display_on_colaboratory(html_file_name="jupyter_test_1.html")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `display_on_colaboratory(html_file_name: str, *, minify: bool = True) -> None`<hr>
+**[Interface signature]** `display_on_colaboratory(html_file_name: str) -> None`<hr>
 
 **[Interface summary]**
 
@@ -56,5 +56,3 @@ Save the overall HTML and display it on Google Colaboratory.<hr>
 
 - `html_file_name`: str, default 'index.html'
   - The output HTML file name.
-- `minify`: bool, default True
-  - Boolean value whether minify a HTML or not. False setting is useful when debugging.

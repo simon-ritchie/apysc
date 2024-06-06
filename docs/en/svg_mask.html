@@ -74,7 +74,7 @@
 
 <span class="c1"># 1. Create an `SvgMask` instance.</span>
 <span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
-<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span><span class="p">)</span>
+<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># 2. Add a `DisplayObject` to the created `SvgMask` instance.</span>
 <span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
@@ -89,6 +89,40 @@
 </pre></div>
 </div>
 <iframe src="static/svg_mask_basic_usage/index.html" width="150" height="150"></iframe>
+</section>
+<section id="case-when-you-want-to-synchronize-the-coordinates-of-displayobject-and-mask">
+<h2>Case when you want to synchronize the coordinates of DisplayObject and mask<a class="headerlink" href="#case-when-you-want-to-synchronize-the-coordinates-of-displayobject-and-mask" title="Permalink to this heading">¶</a></h2>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> to set the mask and the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> for the mask have separate coordinates.</p>
+<p>If you want to change the coordinates of each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> by the same amount, it is convenient to use the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container.</p>
+<p>By changing only the coordinates of a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container, you can change the coordinates of a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> while maintaining the coordinates of the mask.</p>
+<p>Notes: You do not need to add <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> to the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container for the masking.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">mask</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">SvgMask</span><span class="p">()</span>
+<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mask</span><span class="o">.</span><span class="n">add_svg_masking_object</span><span class="p">(</span><span class="n">masking_object</span><span class="o">=</span><span class="n">circle</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Colors</span><span class="o">.</span><span class="n">CYAN_00AAFF</span>
+<span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">svg_mask</span> <span class="o">=</span> <span class="n">mask</span>
+
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="c1"># Notes: You do not need to add the circle for masking.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;svg_mask_sprite_container_example/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/svg_mask_sprite_container_example/index.html" width="400" height="300"></iframe>
 </section>
 <section id="svgmask-constructor-api">
 <h2>SvgMask constructor API<a class="headerlink" href="#svgmask-constructor-api" title="Permalink to this heading">¶</a></h2>
@@ -201,6 +235,7 @@
 <li><a class="reference internal" href="#">SvgMask class and its related interfaces</a><ul>
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#case-when-you-want-to-synchronize-the-coordinates-of-displayobject-and-mask">Case when you want to synchronize the coordinates of DisplayObject and mask</a></li>
 <li><a class="reference internal" href="#svgmask-constructor-api">SvgMask constructor API</a></li>
 <li><a class="reference internal" href="#svgmask-add-svg-masking-object-method-api">SvgMask add_svg_masking_object method API</a></li>
 <li><a class="reference internal" href="#svg-mask-property-api">svg_mask property API</a></li>

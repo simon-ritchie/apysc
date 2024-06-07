@@ -94,7 +94,6 @@ def display_on_jupyter(html_file_name: str, *, minify: bool = True) -> None:
 
 
 @arg_validation_decos.is_builtin_string(arg_position_index=0, optional=False)
-@arg_validation_decos.is_builtin_boolean(arg_position_index=1)
 def display_on_colaboratory(html_file_name: str) -> None:
     """
     Save the overall HTML and display it on Google Colaboratory.

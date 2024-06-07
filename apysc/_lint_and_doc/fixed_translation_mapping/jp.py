@@ -5005,10 +5005,6 @@ MAPPINGS: Mappings = Mappings(
             val="## SvgMask クラスの add_svg_masking_object メソッドのAPI",
         ),
         Mapping(
-            key="## SvgMask add_svg_masking_object method API",
-            val="## SvgMask クラスの add_svg_masking_object メソッドのAPI",
-        ),
-        Mapping(
             key="Add an SVG masking object to this mask. This instance uses its masking object to mask other SVG graphics objects. It is possible to add multiple masking objects to a mask.<hr>",
             val="このマスクにマスク処理用のSVGのオブジェクトを追加します。このインスタンスは他のSVGのグラフィックスオブジェクトをマスクするためにそのオブジェクトを使用します。マスクへ複数のマスク処理用のオブジェクトを追加することができます。<hr>",
         ),

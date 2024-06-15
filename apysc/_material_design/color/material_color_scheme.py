@@ -4,6 +4,8 @@
 
 from apysc._color.color import Color
 from typing import Optional
+from apysc._html.debug_mode import add_debug_info_setting
+from apysc._validation import arg_validation_decos
 
 
 class MaterialColorScheme:
@@ -43,6 +45,47 @@ class MaterialColorScheme:
     _outline: Optional[Color] = None
     _outline_variant: Optional[Color] = None
 
+    # primary
+    @arg_validation_decos.is_color(arg_position_index=1, optional=False)
+    # on_primary
+    @arg_validation_decos.is_color(arg_position_index=2, optional=False)
+    # secondary
+    @arg_validation_decos.is_color(arg_position_index=3, optional=False)
+    # on_secondary
+    @arg_validation_decos.is_color(arg_position_index=4, optional=False)
+    # error
+    @arg_validation_decos.is_color(arg_position_index=5, optional=False)
+    # on_error
+    @arg_validation_decos.is_color(arg_position_index=6, optional=False)
+    # surface
+    @arg_validation_decos.is_color(arg_position_index=7, optional=False)
+    # on_surface
+    @arg_validation_decos.is_color(arg_position_index=8, optional=False)
+    # primary_container
+    @arg_validation_decos.is_color(arg_position_index=9, optional=True)
+    # on_primary_container
+    @arg_validation_decos.is_color(arg_position_index=10, optional=True)
+    # secondary_container
+    @arg_validation_decos.is_color(arg_position_index=11, optional=True)
+    # on_secondary_container
+    @arg_validation_decos.is_color(arg_position_index=12, optional=True)
+    # tertiary
+    @arg_validation_decos.is_color(arg_position_index=13, optional=True)
+    # on_tertiary
+    @arg_validation_decos.is_color(arg_position_index=14, optional=True)
+    # tertiary_container
+    @arg_validation_decos.is_color(arg_position_index=15, optional=True)
+    # on_tertiary_container
+    @arg_validation_decos.is_color(arg_position_index=16, optional=True)
+    # error_container
+    @arg_validation_decos.is_color(arg_position_index=17, optional=True)
+    # on_error_container
+    @arg_validation_decos.is_color(arg_position_index=18, optional=True)
+    # outline
+    @arg_validation_decos.is_color(arg_position_index=19, optional=True)
+    # outline_variant
+    @arg_validation_decos.is_color(arg_position_index=20, optional=True)
+    @add_debug_info_setting(module_name=__name__)
     def __init__(
         self,
         *,

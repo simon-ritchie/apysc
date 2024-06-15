@@ -1329,6 +1329,7 @@ from apysc._material_design.icon.material_zoom_in_icon import MaterialZoomInIcon
 from apysc._material_design.icon.material_zoom_in_outlined_icon import MaterialZoomInOutlinedIcon
 from apysc._material_design.icon.material_zoom_out_icon import MaterialZoomOutIcon
 from apysc._material_design.icon.material_zoom_out_outlined_icon import MaterialZoomOutOutlinedIcon
+from apysc._material_design.color.material_color_scheme import MaterialColorScheme
 
 True_: __True = __True()
 False_: __False = __False()

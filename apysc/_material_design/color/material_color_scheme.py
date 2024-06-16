@@ -244,3 +244,15 @@ class MaterialColorScheme:
             An accent color used for less prominent widgets than the primary color.
         """
         return self._secondary._copy()
+
+    @property
+    def on_secondary(self) -> Color:
+        """
+        Get the `on_secondary` color.
+
+        Returns
+        -------
+        on_secondary : Color
+            A color to use on a secondary color widget.
+        """
+        return self._on_secondary._copy()

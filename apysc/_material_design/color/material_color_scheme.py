@@ -212,7 +212,7 @@ class MaterialColorScheme:
     @property
     def primary(self) -> Color:
         """
-        Get the primary color.
+        Get the `primary` color.
 
         Returns
         -------
@@ -220,3 +220,15 @@ class MaterialColorScheme:
             The main color displayed most frequently.
         """
         return self._primary._copy()
+
+    @property
+    def on_primary(self) -> Color:
+        """
+        Get the `on_primary` color.
+
+        Returns
+        -------
+        on_primary : Color
+            A color to use on a primary color widget.
+        """
+        return self._on_primary._copy()

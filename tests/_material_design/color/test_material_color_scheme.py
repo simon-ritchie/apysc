@@ -87,3 +87,19 @@ class TestMaterialColorScheme:
         primary: ap.Color = color_scheme.primary
         assert primary == ap.Colors.ACID_GREEN_B0BF1A
         assert primary.variable_name != ap.Colors.ACID_GREEN_B0BF1A.variable_name
+
+    @apply_test_settings()
+    def test_on_primary(self) -> None:
+        color_scheme = ap.MaterialColorScheme(
+            primary=ap.Colors.ACID_GREEN_B0BF1A,
+            on_primary=ap.Colors.ALICE_BLUE_F0F8FF,
+            secondary=ap.Colors.ALGAE_GREEN_64E986,
+            on_secondary=ap.Colors.ALOE_VERA_GREEN_98F516,
+            error=ap.Colors.ANTIQUE_BRONZE_665D1E,
+            on_error=ap.Colors.ANTIQUE_WHITE_FAEBD7,
+            surface=ap.Colors.AQUAMARINE_7FFFD4,
+            on_surface=ap.Colors.AZURE_F0FFFF,
+        )
+        on_primary: ap.Color = color_scheme.on_primary
+        assert on_primary == ap.Colors.ALICE_BLUE_F0F8FF
+        assert on_primary.variable_name != ap.Colors.ALICE_BLUE_F0F8FF.variable_name

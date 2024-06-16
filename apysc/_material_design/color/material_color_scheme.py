@@ -208,3 +208,15 @@ class MaterialColorScheme:
             self._outline = outline._copy()
         if outline_variant is not None:
             self._outline_variant = outline_variant._copy()
+
+    @property
+    def primary(self) -> Color:
+        """
+        Get the primary color.
+
+        Returns
+        -------
+        primary : Color
+            The main color displayed most frequently.
+        """
+        return self._primary._copy()

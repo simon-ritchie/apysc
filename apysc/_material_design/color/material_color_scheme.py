@@ -280,3 +280,15 @@ class MaterialColorScheme:
             A color to use on an error color widget.
         """
         return self._on_error._copy()
+
+    @property
+    def surface(self) -> Color:
+        """
+        Get the `surface` color.
+
+        Returns
+        -------
+        surface : Color
+            The background color for widgets like the material design's card.
+        """
+        return self._surface._copy()

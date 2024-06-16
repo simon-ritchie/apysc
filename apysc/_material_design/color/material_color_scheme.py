@@ -268,3 +268,15 @@ class MaterialColorScheme:
             A color to use for input validation errors.
         """
         return self._error._copy()
+
+    @property
+    def on_error(self) -> Color:
+        """
+        Get the `on_error` color.
+
+        Returns
+        -------
+        on_error : Color
+            A color to use on an error color widget.
+        """
+        return self._on_error._copy()

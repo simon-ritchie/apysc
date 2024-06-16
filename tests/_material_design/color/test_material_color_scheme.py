@@ -151,3 +151,19 @@ class TestMaterialColorScheme:
         error: ap.Color = color_scheme.error
         assert error == ap.Colors.ANTIQUE_BRONZE_665D1E
         assert error.variable_name != ap.Colors.ANTIQUE_BRONZE_665D1E.variable_name
+
+    @apply_test_settings()
+    def test_on_error(self) -> None:
+        color_scheme = ap.MaterialColorScheme(
+            primary=ap.Colors.ACID_GREEN_B0BF1A,
+            on_primary=ap.Colors.ALICE_BLUE_F0F8FF,
+            secondary=ap.Colors.ALGAE_GREEN_64E986,
+            on_secondary=ap.Colors.ALOE_VERA_GREEN_98F516,
+            error=ap.Colors.ANTIQUE_BRONZE_665D1E,
+            on_error=ap.Colors.ANTIQUE_WHITE_FAEBD7,
+            surface=ap.Colors.AQUAMARINE_7FFFD4,
+            on_surface=ap.Colors.AZURE_F0FFFF,
+        )
+        on_error: ap.Color = color_scheme.on_error
+        assert on_error == ap.Colors.ANTIQUE_WHITE_FAEBD7
+        assert on_error.variable_name != ap.Colors.ANTIQUE_WHITE_FAEBD7.variable_name

@@ -256,3 +256,15 @@ class MaterialColorScheme:
             A color to use on a secondary color widget.
         """
         return self._on_secondary._copy()
+
+    @property
+    def error(self) -> Color:
+        """
+        Get the `error` color.
+
+        Returns
+        -------
+        error : Color
+            A color to use for input validation errors.
+        """
+        return self._error._copy()

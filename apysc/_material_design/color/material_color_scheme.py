@@ -292,3 +292,15 @@ class MaterialColorScheme:
             The background color for widgets like the material design's card.
         """
         return self._surface._copy()
+
+    @property
+    def on_surface(self) -> Color:
+        """
+        Get the `on_surface` color.
+
+        Returns
+        -------
+        on_surface : Color
+            A color to use on a surface color widget.
+        """
+        return self._on_surface._copy()

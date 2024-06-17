@@ -378,3 +378,17 @@ class MaterialColorScheme:
         if self._tertiary is None:
             return None
         return self._tertiary._copy()
+
+    @property
+    def on_tertiary(self) -> Optional[Color]:
+        """
+        Get the `on_tertiary` color.
+
+        Returns
+        -------
+        on_tertiary : Optional[Color]
+            A color to use on a tertiary color widget.
+        """
+        if self._on_tertiary is None:
+            return None
+        return self._on_tertiary._copy()

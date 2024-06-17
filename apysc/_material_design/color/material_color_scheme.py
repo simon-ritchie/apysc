@@ -350,3 +350,17 @@ class MaterialColorScheme:
         if self._secondary_container is None:
             return None
         return self._secondary_container._copy()
+
+    @property
+    def on_secondary_container(self) -> Optional[Color]:
+        """
+        Get the `on_secondary_container` color.
+
+        Returns
+        -------
+        on_secondary_container : Optional[Color]
+            A color to use on a secondary_container color widget.
+        """
+        if self._on_secondary_container is None:
+            return None
+        return self._on_secondary_container._copy()

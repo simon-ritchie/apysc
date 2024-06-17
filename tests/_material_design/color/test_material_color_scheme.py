@@ -247,3 +247,19 @@ class TestMaterialColorScheme:
         )
         secondary_container: Optional[ap.Color] = color_scheme.secondary_container
         assert secondary_container == ap.Colors.BALLOON_BLUE_2B60DE
+
+    @apply_test_settings()
+    def test_on_secondary_container(self) -> None:
+        color_scheme = ap.MaterialColorScheme(
+            primary=ap.Colors.ACID_GREEN_B0BF1A,
+            on_primary=ap.Colors.ALICE_BLUE_F0F8FF,
+            secondary=ap.Colors.ALGAE_GREEN_64E986,
+            on_secondary=ap.Colors.ALOE_VERA_GREEN_98F516,
+            error=ap.Colors.ANTIQUE_BRONZE_665D1E,
+            on_error=ap.Colors.ANTIQUE_WHITE_FAEBD7,
+            surface=ap.Colors.AQUAMARINE_7FFFD4,
+            on_surface=ap.Colors.AZURE_F0FFFF,
+            on_secondary_container=ap.Colors.BEE_YELLOW_E9AB17,
+        )
+        on_secondary_container: Optional[ap.Color] = color_scheme.on_secondary_container
+        assert on_secondary_container == ap.Colors.BEE_YELLOW_E9AB17

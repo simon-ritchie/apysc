@@ -135,7 +135,9 @@ class TestMaterialColorScheme:
         )
         on_secondary: ap.Color = color_scheme.on_secondary
         assert on_secondary == ap.Colors.ALOE_VERA_GREEN_98F516
-        assert on_secondary.variable_name != ap.Colors.ALOE_VERA_GREEN_98F516.variable_name
+        assert on_secondary.variable_name != (
+            ap.Colors.ALOE_VERA_GREEN_98F516.variable_name
+        )
 
     @apply_test_settings()
     def test_error(self) -> None:
@@ -199,6 +201,7 @@ class TestMaterialColorScheme:
         )
         on_surface: ap.Color = color_scheme.on_surface
         assert on_surface == ap.Colors.AZURE_F0FFFF
+        assert on_surface.variable_name != ap.Colors.AZURE_F0FFFF.variable_name
 
     @apply_test_settings()
     def test_primary_container(self) -> None:
@@ -214,7 +217,11 @@ class TestMaterialColorScheme:
             primary_container=ap.Colors.ARMY_BROWN_827B60,
         )
         primary_container: Optional[ap.Color] = color_scheme.primary_container
+        assert primary_container is not None
         assert primary_container == ap.Colors.ARMY_BROWN_827B60
+        assert primary_container.variable_name != (
+            ap.Colors.ARMY_BROWN_827B60.variable_name
+        )
 
     @apply_test_settings()
     def test_on_primary_container(self) -> None:
@@ -230,7 +237,11 @@ class TestMaterialColorScheme:
             on_primary_container=ap.Colors.AQUAMARINE_STONE_348781,
         )
         on_primary_container: Optional[ap.Color] = color_scheme.on_primary_container
+        assert on_primary_container is not None
         assert on_primary_container == ap.Colors.AQUAMARINE_STONE_348781
+        assert on_primary_container.variable_name != (
+            ap.Colors.AQUAMARINE_STONE_348781.variable_name
+        )
 
     @apply_test_settings()
     def test_secondary_container(self) -> None:
@@ -246,7 +257,11 @@ class TestMaterialColorScheme:
             secondary_container=ap.Colors.BALLOON_BLUE_2B60DE,
         )
         secondary_container: Optional[ap.Color] = color_scheme.secondary_container
+        assert secondary_container is not None
         assert secondary_container == ap.Colors.BALLOON_BLUE_2B60DE
+        assert secondary_container.variable_name != (
+            ap.Colors.BALLOON_BLUE_2B60DE.variable_name
+        )
 
     @apply_test_settings()
     def test_on_secondary_container(self) -> None:
@@ -262,4 +277,26 @@ class TestMaterialColorScheme:
             on_secondary_container=ap.Colors.BEE_YELLOW_E9AB17,
         )
         on_secondary_container: Optional[ap.Color] = color_scheme.on_secondary_container
+        assert on_secondary_container is not None
         assert on_secondary_container == ap.Colors.BEE_YELLOW_E9AB17
+        assert on_secondary_container.variable_name != (
+            ap.Colors.BEE_YELLOW_E9AB17.variable_name
+        )
+
+    @apply_test_settings()
+    def test_tertiary(self) -> None:
+        color_scheme = ap.MaterialColorScheme(
+            primary=ap.Colors.ACID_GREEN_B0BF1A,
+            on_primary=ap.Colors.ALICE_BLUE_F0F8FF,
+            secondary=ap.Colors.ALGAE_GREEN_64E986,
+            on_secondary=ap.Colors.ALOE_VERA_GREEN_98F516,
+            error=ap.Colors.ANTIQUE_BRONZE_665D1E,
+            on_error=ap.Colors.ANTIQUE_WHITE_FAEBD7,
+            surface=ap.Colors.AQUAMARINE_7FFFD4,
+            on_surface=ap.Colors.AZURE_F0FFFF,
+            tertiary=ap.Colors.BEIGE_F5F5DC,
+        )
+        tertiary: Optional[ap.Color] = color_scheme.tertiary
+        assert tertiary is not None
+        assert tertiary == ap.Colors.BEIGE_F5F5DC
+        assert tertiary.variable_name != ap.Colors.BEIGE_F5F5DC.variable_name

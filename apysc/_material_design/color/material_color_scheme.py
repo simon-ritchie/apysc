@@ -364,3 +364,17 @@ class MaterialColorScheme:
         if self._on_secondary_container is None:
             return None
         return self._on_secondary_container._copy()
+
+    @property
+    def tertiary(self) -> Optional[Color]:
+        """
+        Get the `tertiary` color.
+
+        Returns
+        -------
+        tertiary : Optional[Color]
+            An accent color following the primary and secondary colors.
+        """
+        if self._tertiary is None:
+            return None
+        return self._tertiary._copy()

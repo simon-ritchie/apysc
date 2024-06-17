@@ -1,3 +1,4 @@
+from typing import Optional
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 
@@ -198,3 +199,19 @@ class TestMaterialColorScheme:
         )
         on_surface: ap.Color = color_scheme.on_surface
         assert on_surface == ap.Colors.AZURE_F0FFFF
+
+    @apply_test_settings()
+    def test_primary_container(self) -> None:
+        color_scheme = ap.MaterialColorScheme(
+            primary=ap.Colors.ACID_GREEN_B0BF1A,
+            on_primary=ap.Colors.ALICE_BLUE_F0F8FF,
+            secondary=ap.Colors.ALGAE_GREEN_64E986,
+            on_secondary=ap.Colors.ALOE_VERA_GREEN_98F516,
+            error=ap.Colors.ANTIQUE_BRONZE_665D1E,
+            on_error=ap.Colors.ANTIQUE_WHITE_FAEBD7,
+            surface=ap.Colors.AQUAMARINE_7FFFD4,
+            on_surface=ap.Colors.AZURE_F0FFFF,
+            primary_container=ap.Colors.ARMY_BROWN_827B60,
+        )
+        primary_container: Optional[ap.Color] = color_scheme.primary_container
+        assert primary_container == ap.Colors.ARMY_BROWN_827B60

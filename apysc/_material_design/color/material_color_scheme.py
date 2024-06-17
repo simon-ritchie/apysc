@@ -304,3 +304,19 @@ class MaterialColorScheme:
             A color to use on a surface color widget.
         """
         return self._on_surface._copy()
+
+    @property
+    def primary_container(self) -> Optional[Color]:
+        """
+        Get the `primary_container` color.
+
+        Returns
+        -------
+        primary_container : Optional[Color]
+            A color to use on a primary color container widget or
+            when you want to use this in a less prominent way
+            than the primary color.
+        """
+        if self._primary_container is None:
+            return None
+        return self._primary_container._copy()

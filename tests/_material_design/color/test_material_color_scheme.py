@@ -378,3 +378,23 @@ class TestMaterialColorScheme:
         assert error_container.variable_name != (
             ap.Colors.BLOOD_NIGHT_551606.variable_name
         )
+
+    @apply_test_settings()
+    def test_on_error_container(self) -> None:
+        color_scheme = ap.MaterialColorScheme(
+            primary=ap.Colors.ACID_GREEN_B0BF1A,
+            on_primary=ap.Colors.ALICE_BLUE_F0F8FF,
+            secondary=ap.Colors.ALGAE_GREEN_64E986,
+            on_secondary=ap.Colors.ALOE_VERA_GREEN_98F516,
+            error=ap.Colors.ANTIQUE_BRONZE_665D1E,
+            on_error=ap.Colors.ANTIQUE_WHITE_FAEBD7,
+            surface=ap.Colors.AQUAMARINE_7FFFD4,
+            on_surface=ap.Colors.AZURE_F0FFFF,
+            on_error_container=ap.Colors.BLUE_VIOLET_8A2BE2,
+        )
+        on_error_container: Optional[ap.Color] = color_scheme.on_error_container
+        assert on_error_container is not None
+        assert on_error_container == ap.Colors.BLUE_VIOLET_8A2BE2
+        assert on_error_container.variable_name != (
+            ap.Colors.BLUE_VIOLET_8A2BE2.variable_name
+        )

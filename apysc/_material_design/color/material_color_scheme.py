@@ -438,3 +438,17 @@ class MaterialColorScheme:
         if self._error_container is None:
             return None
         return self._error_container._copy()
+
+    @property
+    def on_error_container(self) -> Optional[Color]:
+        """
+        Get the `on_error_container` color.
+
+        Returns
+        -------
+        on_error_container : Optional[Color]
+            A color to use on an error_container color widget.
+        """
+        if self._on_error_container is None:
+            return None
+        return self._on_error_container._copy()

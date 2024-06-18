@@ -466,3 +466,18 @@ class MaterialColorScheme:
         if self._outline is None:
             return None
         return self._outline._copy()
+
+    @property
+    def outline_variant(self) -> Optional[Color]:
+        """
+        Get the `outline_variant` color.
+
+        Returns
+        -------
+        outline_variant : Optional[Color]
+            A color for an widget's outline that is less prominent than
+            the outline color.
+        """
+        if self._outline_variant is None:
+            return None
+        return self._outline_variant._copy()

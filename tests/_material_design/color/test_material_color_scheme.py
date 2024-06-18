@@ -1,4 +1,5 @@
 from typing import Optional
+
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 
@@ -71,7 +72,6 @@ class TestMaterialColorScheme:
         assert color_scheme._on_error_container is None
         assert color_scheme._outline is None
         assert color_scheme._outline_variant is None
-
 
     @apply_test_settings()
     def test_primary(self) -> None:

@@ -1,0 +1,1 @@
+# `apysc._material_design.color.__init__` docstrings

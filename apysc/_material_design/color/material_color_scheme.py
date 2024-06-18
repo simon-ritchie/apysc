@@ -1,9 +1,9 @@
 """The `MaterialColorScheme` class implementation.
 """
 
+from typing import Optional
 
 from apysc._color.color import Color
-from typing import Optional
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._validation import arg_validation_decos
 

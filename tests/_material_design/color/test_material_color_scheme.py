@@ -398,3 +398,21 @@ class TestMaterialColorScheme:
         assert on_error_container.variable_name != (
             ap.Colors.BLUE_VIOLET_8A2BE2.variable_name
         )
+
+    @apply_test_settings()
+    def test_outline(self) -> None:
+        color_scheme = ap.MaterialColorScheme(
+            primary=ap.Colors.ACID_GREEN_B0BF1A,
+            on_primary=ap.Colors.ALICE_BLUE_F0F8FF,
+            secondary=ap.Colors.ALGAE_GREEN_64E986,
+            on_secondary=ap.Colors.ALOE_VERA_GREEN_98F516,
+            error=ap.Colors.ANTIQUE_BRONZE_665D1E,
+            on_error=ap.Colors.ANTIQUE_WHITE_FAEBD7,
+            surface=ap.Colors.AQUAMARINE_7FFFD4,
+            on_surface=ap.Colors.AZURE_F0FFFF,
+            outline=ap.Colors.BRIGHT_GRAPE_6F2DA8,
+        )
+        outline: Optional[ap.Color] = color_scheme.outline
+        assert outline is not None
+        assert outline == ap.Colors.BRIGHT_GRAPE_6F2DA8
+        assert outline.variable_name != ap.Colors.BRIGHT_GRAPE_6F2DA8.variable_name

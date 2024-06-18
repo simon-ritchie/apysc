@@ -452,3 +452,17 @@ class MaterialColorScheme:
         if self._on_error_container is None:
             return None
         return self._on_error_container._copy()
+
+    @property
+    def outline(self) -> Optional[Color]:
+        """
+        Get the `outline` color.
+
+        Returns
+        -------
+        outline : Optional[Color]
+            A widget outline color.
+        """
+        if self._outline is None:
+            return None
+        return self._outline._copy()

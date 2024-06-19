@@ -63,9 +63,9 @@ _: ap.Stage = ap.Stage(
 )
 
 color: ap.Color
-colors_members: List[
-    Tuple[str, ap.Color]
-] = ap.MaterialDesignColors.get_colors_members()
+colors_members: List[Tuple[str, ap.Color]] = (
+    ap.MaterialDesignColors.get_colors_members()
+)
 color_names: List[ap.String] = []
 colors: List[ap.Color] = []
 for color_name, color in colors_members:

@@ -1334,6 +1334,6 @@ from apysc._material_design.color.material_color_scheme import MaterialColorSche
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.9.1"
+__version__: str = "4.10.0"
 
 _logger.info("apysc packages imported successfully!")

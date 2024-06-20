@@ -7,23 +7,24 @@ from apysc._material_design.color.material_color_scheme import MaterialColorSche
 
 class MaterialSettings:
 
-    _color_scheme: Optional[MaterialColorScheme] = None
+    _light_color_scheme: Optional[MaterialColorScheme] = None
+    _dark_color_scheme: Optional[MaterialColorScheme] = None
 
     @classmethod
-    def get_color_scheme(cls) -> Optional[MaterialColorScheme]:
+    def get_light_color_scheme(cls) -> Optional[MaterialColorScheme]:
         """
-        Get a color scheme setting.
+        Get a light color scheme setting.
 
         Returns
         -------
         color_scheme : MaterialColorScheme or None
-            A color scheme setting. If the color scheme is not set,
+            A light color scheme setting. If the color scheme is not set,
             this property becomes None.
         """
-        return cls._color_scheme
+        return cls._light_color_scheme
 
     @classmethod
-    def set_color_scheme(cls, *, color_scheme: Optional[MaterialColorScheme]) -> None:
+    def set_light_color_scheme(cls, *, color_scheme: Optional[MaterialColorScheme]) -> None:
         """
         Set a color scheme setting.
 
@@ -33,4 +34,4 @@ class MaterialSettings:
             Color scheme to set. If None is specified, the color scheme
             will be removed.
         """
-        cls._color_scheme = color_scheme
+        cls._light_color_scheme = color_scheme

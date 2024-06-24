@@ -93,7 +93,7 @@ class TestMaterialSettings:
     def test__delete_current_brightness_string_attr(self) -> None:
         ap.MaterialSettings._initialize_current_brightness_string_if_not_initialized()
         ap.MaterialSettings._delete_current_brightness_string_attr()
-        assert not hasattr(ap.MaterialSettings, '_current_brightness_string')
+        assert not hasattr(ap.MaterialSettings, "_current_brightness_string")
 
     @apply_test_settings()
     def test_switch_to_light_color_scheme(self) -> None:

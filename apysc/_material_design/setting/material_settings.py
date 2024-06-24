@@ -2,9 +2,10 @@
 """
 
 from typing import Optional
+
+from apysc._material_design.color.material_brightness import MaterialBrightness
 from apysc._material_design.color.material_color_scheme import MaterialColorScheme
 from apysc._type.string import String
-from apysc._material_design.color.material_brightness import MaterialBrightness
 
 
 class MaterialSettings:
@@ -25,7 +26,9 @@ class MaterialSettings:
         return cls._light_color_scheme
 
     @classmethod
-    def set_light_color_scheme(cls, *, color_scheme: Optional[MaterialColorScheme]) -> None:
+    def set_light_color_scheme(
+        cls, *, color_scheme: Optional[MaterialColorScheme]
+    ) -> None:
         """
         Set a color scheme setting.
 
@@ -53,7 +56,9 @@ class MaterialSettings:
         return cls._dark_color_scheme
 
     @classmethod
-    def set_dark_color_scheme(cls, *, color_scheme: Optional[MaterialColorScheme]) -> None:
+    def set_dark_color_scheme(
+        cls, *, color_scheme: Optional[MaterialColorScheme]
+    ) -> None:
         """
         Set a dark color scheme setting.
 
@@ -71,9 +76,9 @@ class MaterialSettings:
     def _initialize_current_brightness_string_if_not_initialized(cls) -> None:
         """
         Initialize the `_current_brightness_string` attribute string
-        if it is not initialized yet.
+        if it has not been initialized yet.
         """
-        if hasattr(cls, '_current_brightness_string'):
+        if hasattr(cls, "_current_brightness_string"):
             return
         cls._current_brightness_string = String(value=MaterialBrightness.LIGHT.value)
 
@@ -82,7 +87,7 @@ class MaterialSettings:
         """
         Delete the `_current_brightness_string` attribute.
         """
-        if hasattr(cls, '_current_brightness_string'):
+        if hasattr(cls, "_current_brightness_string"):
             del cls._current_brightness_string
 
     @classmethod

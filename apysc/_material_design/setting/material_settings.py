@@ -84,3 +84,11 @@ class MaterialSettings:
         """
         if hasattr(cls, '_current_brightness_string'):
             del cls._current_brightness_string
+
+    @classmethod
+    def switch_to_light_color_scheme(cls) -> None:
+        """
+        Switch the current color scheme to the light color scheme.
+        """
+        cls._initialize_current_brightness_string_if_not_initialized()
+        cls._current_brightness_string.value = MaterialBrightness.LIGHT.value

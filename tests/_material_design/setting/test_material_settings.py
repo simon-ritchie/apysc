@@ -101,3 +101,10 @@ class TestMaterialSettings:
         assert ap.MaterialSettings._current_brightness_string == ap.String(
             ap.MaterialBrightness.LIGHT.value
         )
+
+    @apply_test_settings()
+    def test_switch_to_dark_color_scheme(self) -> None:
+        ap.MaterialSettings.switch_to_dark_color_scheme()
+        assert ap.MaterialSettings._current_brightness_string == ap.String(
+            ap.MaterialBrightness.DARK.value
+        )

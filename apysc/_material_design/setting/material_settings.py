@@ -92,3 +92,11 @@ class MaterialSettings:
         """
         cls._initialize_current_brightness_string_if_not_initialized()
         cls._current_brightness_string.value = MaterialBrightness.LIGHT.value
+
+    @classmethod
+    def switch_to_dark_color_scheme(cls) -> None:
+        """
+        Switch the current color scheme to the dark color scheme.
+        """
+        cls._initialize_current_brightness_string_if_not_initialized()
+        cls._current_brightness_string.value = MaterialBrightness.DARK.value

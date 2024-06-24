@@ -3,7 +3,8 @@
 
 from typing import Optional
 from apysc._material_design.color.material_color_scheme import MaterialColorScheme
-from apysc._type.boolean import Boolean
+from apysc._type.string import String
+from apysc._material_design.color.material_brightness import MaterialBrightness
 
 
 class MaterialSettings:
@@ -64,25 +65,22 @@ class MaterialSettings:
         """
         cls._dark_color_scheme = color_scheme
 
-    _is_initialized_color_scheme_selection: Boolean
+    _current_brightness_string: String
 
     @classmethod
-    def _initialize_color_scheme_selection_bool_if_not_initialized(cls) -> None:
+    def _initialize_current_brightness_string_if_not_initialized(cls) -> None:
         """
-        Initialize the color scheme selection boolean value
+        Initialize the `_current_brightness_string` attribute string
         if it is not initialized yet.
         """
-        if hasattr(cls, "_is_initialized_color_scheme_selection"):
+        if hasattr(cls, '_current_brightness_string'):
             return
-        cls._is_initialized_color_scheme_selection = Boolean(
-            False,
-            variable_name_suffix="_is_initialized_color_scheme_selection",
-        )
+        cls._current_brightness_string = String(value=MaterialBrightness.LIGHT.value)
 
     @classmethod
-    def _delete_initializing_bool_attrs(cls) -> None:
+    def _delete_current_brightness_string_attr(cls) -> None:
         """
-        Delete the initializing boolean attributes from this class.
+        Delete the `_current_brightness_string` attribute.
         """
-        if hasattr(cls, "_is_initialized_color_scheme_selection"):
-            del cls._is_initialized_color_scheme_selection
+        if hasattr(cls, '_current_brightness_string'):
+            del cls._current_brightness_string

@@ -7,6 +7,8 @@ class TestMaterialSettings:
         ap.MaterialSettings.set_light_color_scheme(color_scheme=None)
         ap.MaterialSettings.set_dark_color_scheme(color_scheme=None)
         ap.MaterialSettings._delete_current_brightness_string_attr()
+        if hasattr(ap.MaterialSettings, "_current_brightness_string"):
+            delattr(ap.MaterialSettings, "_current_brightness_string")
 
     @apply_test_settings()
     def test_get_light_color_scheme(self) -> None:
@@ -107,4 +109,20 @@ class TestMaterialSettings:
         ap.MaterialSettings.switch_to_dark_color_scheme()
         assert ap.MaterialSettings._current_brightness_string == ap.String(
             ap.MaterialBrightness.DARK.value
+        )
+
+    @apply_test_settings()
+    def test_current_color_scheme_is_light_color_scheme(self) -> None:
+        assert ap.MaterialSettings.current_color_scheme_is_light_color_scheme() == (
+            ap.True_
+        )
+
+        ap.MaterialSettings.switch_to_dark_color_scheme()
+        assert ap.MaterialSettings.current_color_scheme_is_light_color_scheme() == (
+            ap.False_
+        )
+
+        ap.MaterialSettings.switch_to_light_color_scheme()
+        assert ap.MaterialSettings.current_color_scheme_is_light_color_scheme() == (
+            ap.True_
         )

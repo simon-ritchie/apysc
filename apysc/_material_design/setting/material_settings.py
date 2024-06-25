@@ -105,3 +105,23 @@ class MaterialSettings:
         """
         cls._initialize_current_brightness_string_if_not_initialized()
         cls._current_brightness_string.value = MaterialBrightness.DARK.value
+
+    _brightness_color_scheme_str: String
+
+    @classmethod
+    def current_color_scheme_is_light_color_scheme(cls) -> bool:
+        """
+        Get whether the current color scheme is the light color scheme or not.
+
+        Returns
+        -------
+        result : bool
+            If the current color scheme is the light color scheme, then
+            this method returns True. If not, False will be returned.
+        """
+        cls._initialize_current_brightness_string_if_not_initialized()
+        if not hasattr(cls, "_brightness_color_scheme_str"):
+            cls._brightness_color_scheme_str = String(
+                value=MaterialBrightness.LIGHT.value
+            )
+        return cls._current_brightness_string == cls._brightness_color_scheme_str

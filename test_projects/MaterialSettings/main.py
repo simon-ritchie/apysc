@@ -63,7 +63,9 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def _on_light_scheme_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def _on_light_scheme_rectangle_click(
+    e: ap.MouseEvent[ap.Rectangle], options: dict
+) -> None:
     """
     The handler that called when the `light_color_scheme_rectangle` is clicked.
 
@@ -79,7 +81,9 @@ def _on_light_scheme_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: di
     ap.assert_false(ap.MaterialSettings.current_color_scheme_is_dark_color_scheme())
 
 
-def _on_dark_scheme_rectangle_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+def _on_dark_scheme_rectangle_click(
+    e: ap.MouseEvent[ap.Rectangle], options: dict
+) -> None:
     """
     The handler that called when the `dark_color_scheme_rectangle` is clicked.
 

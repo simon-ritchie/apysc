@@ -14,6 +14,28 @@ Delete the `_current_brightness_string` attribute.
 
 Initialize the `_current_brightness_string` attribute string if it has not been initialized yet.
 
+### `_reset_settings` method docstring
+
+Reset all settings of this class.
+
+### `current_color_scheme_is_dark_color_scheme` method docstring
+
+Get whether the current color scheme is the dark color scheme or not.<hr>
+
+**[Returns]**
+
+- `result`: Boolean
+  - If the current color scheme is the dark color scheme, then this method returns True.
+
+### `current_color_scheme_is_light_color_scheme` method docstring
+
+Get whether the current color scheme is the light color scheme or not.<hr>
+
+**[Returns]**
+
+- `result`: Boolean
+  - If the current color scheme is the light color scheme, then this method returns True.
+
 ### `get_dark_color_scheme` method docstring
 
 Get a dark color scheme setting.<hr>

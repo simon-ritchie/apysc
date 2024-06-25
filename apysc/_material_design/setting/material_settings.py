@@ -5,8 +5,8 @@ from typing import Optional
 
 from apysc._material_design.color.material_brightness import MaterialBrightness
 from apysc._material_design.color.material_color_scheme import MaterialColorScheme
-from apysc._type.string import String
 from apysc._type.boolean import Boolean
+from apysc._type.string import String
 
 
 class MaterialSettings:
@@ -135,9 +135,7 @@ class MaterialSettings:
         """
         cls._initialize_current_brightness_string_if_not_initialized()
         if not hasattr(cls, "_light_color_scheme_str"):
-            cls._light_color_scheme_str = String(
-                value=MaterialBrightness.LIGHT.value
-            )
+            cls._light_color_scheme_str = String(value=MaterialBrightness.LIGHT.value)
         return cls._current_brightness_string == cls._light_color_scheme_str
 
     _dark_color_scheme_str: String
@@ -155,7 +153,5 @@ class MaterialSettings:
         """
         cls._initialize_current_brightness_string_if_not_initialized()
         if not hasattr(cls, "_dark_color_scheme_str"):
-            cls._dark_color_scheme_str = String(
-                value=MaterialBrightness.DARK.value
-            )
+            cls._dark_color_scheme_str = String(value=MaterialBrightness.DARK.value)
         return cls._current_brightness_string == cls._dark_color_scheme_str

@@ -27,6 +27,7 @@ from apysc._event.enter_frame_mixin import EnterFrameMixIn
 from apysc._event.mouse_event_mixins import MouseEventMixIns
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._material_design.setting.material_settings import MaterialSettings
 
 # This is used only for avoiding gabage collection.
 _current_stage: "Stage"
@@ -125,6 +126,7 @@ class Stage(
         from apysc._validation import string_validation
 
         global _current_stage
+        MaterialSettings._reset_settings()
         expression_data_util.empty_expression()
         _save_stage_id_to_db(stage=self)
         expression_data_util.copy_expression_before_stage_instantiation()

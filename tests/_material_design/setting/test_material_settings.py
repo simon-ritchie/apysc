@@ -4,13 +4,7 @@ from apysc._testing.testing_helper import apply_test_settings
 
 class TestMaterialSettings:
     def teardown_method(self) -> None:
-        ap.MaterialSettings.set_light_color_scheme(color_scheme=None)
-        ap.MaterialSettings.set_dark_color_scheme(color_scheme=None)
-        ap.MaterialSettings._delete_current_brightness_string_attr()
-        if hasattr(ap.MaterialSettings, "_light_color_scheme_str"):
-            delattr(ap.MaterialSettings, "_light_color_scheme_str")
-        if hasattr(ap.MaterialSettings, "_dark_color_scheme_str"):
-            delattr(ap.MaterialSettings, "_dark_color_scheme_str")
+        ap.MaterialSettings._reset_settings()
 
     @apply_test_settings()
     def test_get_light_color_scheme(self) -> None:
@@ -144,3 +138,15 @@ class TestMaterialSettings:
         assert ap.MaterialSettings.current_color_scheme_is_dark_color_scheme() == (
             ap.False_
         )
+
+    @apply_test_settings()
+    def test__reset_settings(self) -> None:
+        ap.MaterialSettings.switch_to_dark_color_scheme()
+        ap.MaterialSettings.current_color_scheme_is_dark_color_scheme()
+        ap.MaterialSettings.current_color_scheme_is_dark_color_scheme()
+        ap.MaterialSettings._reset_settings()
+        assert not hasattr(ap.MaterialSettings, "_current_brightness_string")
+        assert ap.MaterialSettings._light_color_scheme is None
+        assert ap.MaterialSettings._dark_color_scheme is None
+        assert not hasattr(ap.MaterialSettings, "_light_color_scheme_str")
+        assert not hasattr(ap.MaterialSettings, "_dark_color_scheme_str")

@@ -11,6 +11,19 @@ from apysc._type.boolean import Boolean
 
 class MaterialSettings:
 
+    @classmethod
+    def _reset_settings(cls) -> None:
+        """
+        Reset all settings of this class.
+        """
+        cls._delete_current_brightness_string_attr()
+        cls._light_color_scheme = None
+        cls._dark_color_scheme = None
+        if hasattr(cls, "_light_color_scheme_str"):
+            del cls._light_color_scheme_str
+        if hasattr(cls, "_dark_color_scheme_str"):
+            del cls._dark_color_scheme_str
+
     _light_color_scheme: Optional[MaterialColorScheme] = None
 
     @classmethod

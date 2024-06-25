@@ -6,6 +6,7 @@ from typing import Optional
 from apysc._material_design.color.material_brightness import MaterialBrightness
 from apysc._material_design.color.material_color_scheme import MaterialColorScheme
 from apysc._type.string import String
+from apysc._type.boolean import Boolean
 
 
 class MaterialSettings:
@@ -109,15 +110,15 @@ class MaterialSettings:
     _light_color_scheme_str: String
 
     @classmethod
-    def current_color_scheme_is_light_color_scheme(cls) -> bool:
+    def current_color_scheme_is_light_color_scheme(cls) -> Boolean:
         """
         Get whether the current color scheme is the light color scheme or not.
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If the current color scheme is the light color scheme, then
-            this method returns True. If not, False will be returned.
+            this method returns True.
         """
         cls._initialize_current_brightness_string_if_not_initialized()
         if not hasattr(cls, "_light_color_scheme_str"):
@@ -125,3 +126,23 @@ class MaterialSettings:
                 value=MaterialBrightness.LIGHT.value
             )
         return cls._current_brightness_string == cls._light_color_scheme_str
+
+    _dark_color_scheme_str: String
+
+    @classmethod
+    def current_color_scheme_is_dark_color_scheme(cls) -> Boolean:
+        """
+        Get whether the current color scheme is the dark color scheme or not.
+
+        Returns
+        -------
+        result : Boolean
+            If the current color scheme is the dark color scheme, then
+            this method returns True.
+        """
+        cls._initialize_current_brightness_string_if_not_initialized()
+        if not hasattr(cls, "_dark_color_scheme_str"):
+            cls._dark_color_scheme_str = String(
+                value=MaterialBrightness.DARK.value
+            )
+        return cls._current_brightness_string == cls._dark_color_scheme_str

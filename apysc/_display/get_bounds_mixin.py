@@ -2,6 +2,7 @@
 """
 
 from typing import Optional
+
 from typing_extensions import final
 
 from apysc._display.display_object import DisplayObject
@@ -22,15 +23,18 @@ class GetBoundsMixIn(VariableNameMixIn):
         """
         Get an instance's bounding-box geometry data.
 
-        Returns
-        -------
-        bounding_box : RectangleGeom
-            An instance's bounding-box geometry data.
+        Parameters
+        ----------
         target_coordinate_space_object : DisplayObject or None, default None
             Target coordinate space object. If None is specified, then this
             method returns the bounding-box data based on the stage.
             If a `DisplayObject` instance is specified, then this method
             returns the bounding-box data based on the specified object.
+
+        Returns
+        -------
+        bounding_box : RectangleGeom
+            An instance's bounding-box geometry data.
 
         References
         ----------

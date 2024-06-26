@@ -310,7 +310,7 @@ Get the rectangle geometry height.<hr>
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_bounds(self) -> apysc._geom.rectangle_geom.RectangleGeom`<hr>
+**[Interface signature]** `get_bounds(self, target_coordinate_space_object: Union[apysc._display.display_object.DisplayObject, NoneType] = None) -> apysc._geom.rectangle_geom.RectangleGeom`<hr>
 
 **[Interface summary]**
 
@@ -320,6 +320,8 @@ Get an instance's bounding-box geometry data.<hr>
 
 - `bounding_box`: RectangleGeom
   - An instance's bounding-box geometry data.
+- `target_coordinate_space_object`: DisplayObject or None, default None
+  - Target coordinate space object. If None is specified, then this method returns the bounding-box data based on the stage. If a `DisplayObject` instance is specified, then this method returns the bounding-box data based on the specified object.
 
 <hr>
 

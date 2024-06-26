@@ -10,9 +10,15 @@ The `get_bounds` method returns an instance's bounding box (geometry data, such 
 
 The `get_bounds` method returns a `RectangleGeom` instance.
 
-It does not require any arguments.
+This method accepts an optional `target_coordinate_space_object` argument.
 
-Coordinates baseline becomes the stage's x=0 and y=0.
+If this argument is specified, the reference position of the returned value becomes the relative coordinates from the specified argument's `DisplayObject`.
+
+This is useful when you want to get relative coordinates, such as the coordinates of the parent `DisplayObject`.
+
+If you omit this argument, the reference position becomes the `Stage` coordinates (substantially becoming absolute coordinates).
+
+Example of no argument:
 
 ```py
 # runnable
@@ -54,10 +60,50 @@ left_x_and_top_y_text: ap.SvgText = ap.SvgText(
     fill_color=fill_color,
 )
 
-ap.save_overall_html(dest_dir_path="get_bounds_basic_usage/")
+ap.save_overall_html(dest_dir_path="get_bounds_basic_usage_1/")
 ```
 
-<iframe src="static/get_bounds_basic_usage/index.html" width="500" height="440"></iframe>
+<iframe src="static/get_bounds_basic_usage_1/index.html" width="500" height="440"></iframe>
+
+Example of using the `target_coordinate_space_object` argument:
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    background_color=ap.Color("#333"),
+    stage_width=500,
+    stage_height=440,
+    stage_elem_id="stage",
+)
+sprite: ap.Sprite = ap.Sprite()
+sprite.x = ap.Number(250)
+sprite.y = ap.Number(220)
+circle: ap.Circle = ap.Circle(
+    x=0,
+    y=0,
+    radius=150,
+    fill_color=ap.Color("#0af"),
+    parent=sprite,
+)
+bounding_box: ap.RectangleGeom = circle.get_bounds(
+    target_coordinate_space_object=sprite,
+)
+
+box_rectangle: ap.Rectangle = ap.Rectangle(
+    x=bounding_box.left_x,
+    y=bounding_box.top_y,
+    width=bounding_box.width,
+    height=bounding_box.height,
+    line_color=ap.Color("#aaa"),
+    parent=sprite,
+)
+
+ap.save_overall_html(dest_dir_path="get_bounds_basic_usage_2/")
+```
+
+<iframe src="static/get_bounds_basic_usage_2/index.html" width="500" height="440"></iframe>
 
 ## get_bounds method API
 
@@ -65,7 +111,7 @@ ap.save_overall_html(dest_dir_path="get_bounds_basic_usage/")
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_bounds(self) -> apysc._geom.rectangle_geom.RectangleGeom`<hr>
+**[Interface signature]** `get_bounds(self, target_coordinate_space_object: Union[apysc._display.display_object.DisplayObject, NoneType] = None) -> apysc._geom.rectangle_geom.RectangleGeom`<hr>
 
 **[Interface summary]**
 
@@ -75,6 +121,8 @@ Get an instance's bounding-box geometry data.<hr>
 
 - `bounding_box`: RectangleGeom
   - An instance's bounding-box geometry data.
+- `target_coordinate_space_object`: DisplayObject or None, default None
+  - Target coordinate space object. If None is specified, then this method returns the bounding-box data based on the stage. If a `DisplayObject` instance is specified, then this method returns the bounding-box data based on the specified object.
 
 <hr>
 

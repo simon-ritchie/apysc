@@ -5024,5 +5024,9 @@ MAPPINGS: Mappings = Mappings(
             key="  - A mask setting.",
             val="  - マスク設定。",
         ),
+        Mapping(
+            key="  - Target coordinate space object. If None is specified, then this method returns the bounding-box data based on the stage. If a `DisplayObject` instance is specified, then this method returns the bounding-box data based on the specified object.",
+            val="  - 座標の基準となるオブジェクト。もしNoneが指定された場合、このメソッドはステージを基準としたバウンディングボックスのデータを返却します。もし`DisplayObject`のインスタンスが指定された場合、ごのメソッドは指定されたオブジェクトの座標を基準としたバウンディングボックスのデータを返却します。",
+        ),
     ]
 )

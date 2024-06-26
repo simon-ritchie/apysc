@@ -299,7 +299,7 @@ ap.save_overall_html(dest_dir_path="rectangle_geom_each_attribute_point/")
 
 <span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span>
 
-**[インターフェイスの構造]** `get_bounds(self) -> apysc._geom.rectangle_geom.RectangleGeom`<hr>
+**[インターフェイスの構造]** `get_bounds(self, target_coordinate_space_object: Union[apysc._display.display_object.DisplayObject, NoneType] = None) -> apysc._geom.rectangle_geom.RectangleGeom`<hr>
 
 **[インターフェイス概要]**
 
@@ -309,6 +309,9 @@ ap.save_overall_html(dest_dir_path="rectangle_geom_each_attribute_point/")
 
 - `bounding_box`: RectangleGeom
   - インスタンスのバウンディングボックスの幾何データ。
+
+- `target_coordinate_space_object`: DisplayObject or None, default None
+  - 座標の基準となるオブジェクト。もしNoneが指定された場合、このメソッドはステージを基準としたバウンディングボックスのデータを返却します。もし`DisplayObject`のインスタンスが指定された場合、ごのメソッドは指定されたオブジェクトの座標を基準としたバウンディングボックスのデータを返却します。
 
 <hr>
 

@@ -56,8 +56,11 @@
 <section id="id2">
 <h2>基本的な使い方<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">get_bounds</span></code>メソッドでは<code class="docutils literal notranslate"><span class="pre">RectangleGeom</span></code>クラスのインスタンスを返却します。</p>
-<p>このインターフェイスでは引数を必要としません。</p>
-<p>座標の基準座標はステージのx=0とy=0の位置となります。</p>
+<p>このメソッドは省略可能な<code class="docutils literal notranslate"><span class="pre">target_coordinate_space_object</span></code>引数を受け付けます。</p>
+<p>もしこの引数が指定された場合、返却値の基準となる座標は指定された引数の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>からの相対座標となります。</p>
+<p>この設定は親の<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>の座標などの相対座標を取得したい場合などに役に立つことがあります。</p>
+<p>もしこの引数の指定を省略した場合、座標は<code class="docutils literal notranslate"><span class="pre">Stage</span></code>を基準とした座標となります（実質的に絶対座標となります）。</p>
+<p>引数の指定を省略した場合の例 :</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -97,15 +100,52 @@
     <span class="n">fill_color</span><span class="o">=</span><span class="n">fill_color</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;get_bounds_basic_usage/&quot;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;get_bounds_basic_usage_1/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/get_bounds_basic_usage/index.html" width="500" height="440"></iframe>
+<iframe src="static/get_bounds_basic_usage_1/index.html" width="500" height="440"></iframe>
+<p><code class="docutils literal notranslate"><span class="pre">target_coordinate_space_object</span></code>引数を指定した場合の例 :</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#333&quot;</span><span class="p">),</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span>
+<span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#0af&quot;</span><span class="p">),</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">sprite</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">bounding_box</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">RectangleGeom</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">(</span>
+    <span class="n">target_coordinate_space_object</span><span class="o">=</span><span class="n">sprite</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">box_rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">left_x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">top_y</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+    <span class="n">line_color</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#aaa&quot;</span><span class="p">),</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">sprite</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s2">&quot;get_bounds_basic_usage_2/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/get_bounds_basic_usage_2/index.html" width="500" height="440"></iframe>
 </section>
 <section id="get-bounds-api">
 <h2>get_bounds メソッドのAPI<a class="headerlink" href="#get-bounds-api" title="Permalink to this heading">¶</a></h2>
 <p><span class="inconspicuous-txt">特記事項: このAPIドキュメントはドキュメントビルド用のスクリプトによって自動で生成・同期されています。そのためもしかしたらこの節の内容は前節までの内容と重複している場合があります。</span></p>
-<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_bounds(self)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._geom.rectangle_geom.RectangleGeom</span></code><hr></p>
+<p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_bounds(self,</span> <span class="pre">target_coordinate_space_object:</span> <span class="pre">Union[apysc._display.display_object.DisplayObject,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._geom.rectangle_geom.RectangleGeom</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>インスタンスのバウンディングボックスの幾何データを取得します。<hr></p>
 <p><strong>[返却値]</strong></p>
@@ -113,6 +153,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">bounding_box</span></code>: RectangleGeom</p>
 <ul>
 <li><p>インスタンスのバウンディングボックスの幾何データ。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target_coordinate_space_object</span></code>: DisplayObject or None, default None</p>
+<ul>
+<li><p>座標の基準となるオブジェクト。もしNoneが指定された場合、このメソッドはステージを基準としたバウンディングボックスのデータを返却します。もし<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスが指定された場合、ごのメソッドは指定されたオブジェクトの座標を基準としたバウンディングボックスのデータを返却します。</p></li>
 </ul>
 </li>
 </ul>

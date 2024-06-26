@@ -1336,6 +1336,6 @@ from apysc._material_design.setting.material_settings import MaterialSettings
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.10.4"
+__version__: str = "4.10.5"
 
 _logger.info("apysc packages imported successfully!")

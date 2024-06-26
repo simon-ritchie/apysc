@@ -1,8 +1,10 @@
 """The mix-in class implementation for the `get_bounds` method.
 """
 
+from typing import Optional
 from typing_extensions import final
 
+from apysc._display.display_object import DisplayObject
 from apysc._geom.rectangle_geom import RectangleGeom
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
@@ -13,7 +15,10 @@ from apysc._type.variable_name_mixin import VariableNameMixIn
 class GetBoundsMixIn(VariableNameMixIn):
     @final
     @add_debug_info_setting(module_name=__name__)
-    def get_bounds(self) -> RectangleGeom:
+    def get_bounds(
+        self,
+        target_coordinate_space_object: Optional[DisplayObject] = None,
+    ) -> RectangleGeom:
         """
         Get an instance's bounding-box geometry data.
 
@@ -21,6 +26,11 @@ class GetBoundsMixIn(VariableNameMixIn):
         -------
         bounding_box : RectangleGeom
             An instance's bounding-box geometry data.
+        target_coordinate_space_object : DisplayObject or None, default None
+            Target coordinate space object. If None is specified, then this
+            method returns the bounding-box data based on the stage.
+            If a `DisplayObject` instance is specified, then this method
+            returns the bounding-box data based on the specified object.
 
         References
         ----------
@@ -89,6 +99,7 @@ class GetBoundsMixIn(VariableNameMixIn):
         )
         height: Int = Int(0, variable_name_suffix=suffix)
         self._append_get_bounds_expression(
+            target_coordinate_space_object=target_coordinate_space_object,
             left_x=left_x,
             center_x=center_x,
             right_x=right_x,
@@ -113,6 +124,7 @@ class GetBoundsMixIn(VariableNameMixIn):
     def _append_get_bounds_expression(
         self,
         *,
+        target_coordinate_space_object: Optional[DisplayObject],
         left_x: Number,
         center_x: Number,
         right_x: Number,
@@ -127,6 +139,8 @@ class GetBoundsMixIn(VariableNameMixIn):
 
         Parameters
         ----------
+        target_coordinate_space_object : DisplayObject or None, default None
+            Target coordinate space object.
         left_x : Number
             The rectangle left x coordinate.
         center_x : Number
@@ -148,9 +162,16 @@ class GetBoundsMixIn(VariableNameMixIn):
         from apysc._display.stage import get_stage
         from apysc._expression import expression_data_util
 
-        stage: Stage = get_stage()
+        if target_coordinate_space_object is None:
+            stage: Stage = get_stage()
+            coordinate_space_object_variable_name: str = stage.variable_name
+        else:
+            coordinate_space_object_variable_name = (
+                target_coordinate_space_object.variable_name
+            )
         expression: str = (
-            f"var box = {self.variable_name}.rbox({stage.variable_name});"
+            f"var box = {self.variable_name}"
+            f".rbox({coordinate_space_object_variable_name});"
             f"\n{left_x.variable_name} = box.x;"
             f"\n{center_x.variable_name} = box.cx;"
             f"\n{right_x.variable_name} = box.x2;"

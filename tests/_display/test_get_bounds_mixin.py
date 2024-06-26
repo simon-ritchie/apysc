@@ -70,3 +70,9 @@ class TestGetBoundsMixIn:
             f"\n{bounding_box.height.variable_name} = box.height;"
         )
         assert expected in expression
+
+        sprite: ap.Sprite = ap.Sprite()
+        mixin.get_bounds(target_coordinate_space_object=sprite)
+        expected = f"var box = {mixin.variable_name}.rbox({sprite.variable_name});"
+        expression = expression_data_util.get_current_expression()
+        assert expected in expression

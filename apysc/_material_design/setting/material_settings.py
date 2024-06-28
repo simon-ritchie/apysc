@@ -73,7 +73,7 @@ class MaterialSettings:
 
     @classmethod
     def set_dark_color_scheme(
-        cls, *, color_scheme: Optional[MaterialColorScheme]
+        cls, *, color_scheme: MaterialColorScheme
     ) -> None:
         """
         Set a dark color scheme setting.
@@ -81,9 +81,17 @@ class MaterialSettings:
         Parameters
         ----------
         color_scheme : MaterialColorScheme or None
-            Color scheme to set. If None is specified, the color scheme
-            will be removed.
+            Color scheme to set.
+
+        Raises
+        ------
+        ValueError
+            If you call this class method multiple times.
         """
+        if cls._dark_color_scheme is not None:
+            raise ValueError(
+                "The `set_dark_color_scheme` class method can only be called once."
+            )
         cls._dark_color_scheme = color_scheme
 
     _current_brightness_string: String

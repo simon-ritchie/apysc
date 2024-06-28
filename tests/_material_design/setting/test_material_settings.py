@@ -169,13 +169,21 @@ class TestMaterialSettings:
     ) -> None:
         ap.MaterialSettings._reset_settings()
         ap.MaterialSettings._initialize_color_scheme_setting_is_enabled_if_not_initialized()  # noqa
-        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.Boolean(False)
+        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.False_
         ap.MaterialSettings._color_scheme_setting_is_enabled = ap.Boolean(True)
         ap.MaterialSettings._initialize_color_scheme_setting_is_enabled_if_not_initialized()  # noqa
-        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.Boolean(True)
+        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.True_
 
     @apply_test_settings()
     def test__enable_color_scheme_setting(self) -> None:
         ap.MaterialSettings._reset_settings()
         ap.MaterialSettings._enable_color_scheme_setting()
-        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.Boolean(True)
+        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.True_
+
+    @apply_test_settings()
+    def test_color_scheme_setting_is_enabled(self) -> None:
+        ap.MaterialSettings._reset_settings()
+        assert ap.MaterialSettings.color_scheme_setting_is_enabled() == ap.False_
+
+        ap.MaterialSettings._enable_color_scheme_setting()
+        assert ap.MaterialSettings.color_scheme_setting_is_enabled() == ap.True_

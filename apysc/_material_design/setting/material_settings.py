@@ -167,7 +167,8 @@ class MaterialSettings:
     @classmethod
     def current_color_scheme_is_dark_color_scheme(cls) -> Boolean:
         """
-        Get whether the current color scheme is the dark color scheme or not.
+        Get a boolean whether the current color scheme
+        is the dark color scheme or not.
 
         Returns
         -------
@@ -206,3 +207,17 @@ class MaterialSettings:
         if cls._color_scheme_setting_is_enabled._value:
             return
         cls._color_scheme_setting_is_enabled.value = True
+
+    @classmethod
+    def color_scheme_setting_is_enabled(cls) -> Boolean:
+        """
+        Get a boolean whether the color scheme setting is enabled or not.
+
+        Returns
+        -------
+        result : Boolean
+            If the color scheme setting is enabled, then this method
+            returns True.
+        """
+        cls._initialize_color_scheme_setting_is_enabled_if_not_initialized()
+        return cls._color_scheme_setting_is_enabled._copy()

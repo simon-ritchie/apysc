@@ -8,6 +8,7 @@ class TestMaterialSettings:
 
     @apply_test_settings()
     def test_get_light_color_scheme(self) -> None:
+        ap.MaterialSettings._reset_settings()
         assert ap.MaterialSettings.get_light_color_scheme() is None
         color_scheme: ap.MaterialColorScheme = ap.MaterialColorScheme(
             primary=ap.Colors.ACID_GREEN_B0BF1A,
@@ -21,10 +22,10 @@ class TestMaterialSettings:
         )
         ap.MaterialSettings.set_light_color_scheme(color_scheme=color_scheme)
         assert ap.MaterialSettings.get_light_color_scheme() == color_scheme
-        ap.MaterialSettings.set_light_color_scheme(color_scheme=None)
 
     @apply_test_settings()
     def test_set_light_color_scheme(self) -> None:
+        ap.MaterialSettings._reset_settings()
         color_scheme: ap.MaterialColorScheme = ap.MaterialColorScheme(
             primary=ap.Colors.ACID_GREEN_B0BF1A,
             on_primary=ap.Colors.ALGAE_GREEN_64E986,
@@ -37,7 +38,12 @@ class TestMaterialSettings:
         )
         ap.MaterialSettings.set_light_color_scheme(color_scheme=color_scheme)
         assert ap.MaterialSettings.get_light_color_scheme() == color_scheme
-        ap.MaterialSettings.set_light_color_scheme(color_scheme=None)
+
+        assert_raises(
+            expected_error_class=ValueError,
+            callable_=ap.MaterialSettings.set_light_color_scheme,
+            color_scheme=color_scheme,
+        )
 
     @apply_test_settings()
     def test_get_dark_color_scheme(self) -> None:

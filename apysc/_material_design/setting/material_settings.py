@@ -196,3 +196,13 @@ class MaterialSettings:
         cls._color_scheme_setting_is_enabled = Boolean(
             False, variable_name_suffix="color_scheme_setting_is_enabled"
         )
+
+    @classmethod
+    def _enable_color_scheme_setting(cls) -> None:
+        """
+        Enable the color scheme setting.
+        """
+        cls._initialize_color_scheme_setting_is_enabled_if_not_initialized()
+        if cls._color_scheme_setting_is_enabled._value:
+            return
+        cls._color_scheme_setting_is_enabled.value = True

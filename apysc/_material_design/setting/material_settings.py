@@ -23,6 +23,8 @@ class MaterialSettings:
             del cls._light_color_scheme_str
         if hasattr(cls, "_dark_color_scheme_str"):
             del cls._dark_color_scheme_str
+        if hasattr(cls, "_color_scheme_setting_is_enabled"):
+            del cls._color_scheme_setting_is_enabled
 
     _light_color_scheme: Optional[MaterialColorScheme] = None
 
@@ -94,7 +96,10 @@ class MaterialSettings:
         """
         if hasattr(cls, "_current_brightness_string"):
             return
-        cls._current_brightness_string = String(value=MaterialBrightness.LIGHT.value)
+        cls._current_brightness_string = String(
+            value=MaterialBrightness.LIGHT.value,
+            variable_name_suffix="current_brightness_string",
+        )
 
     @classmethod
     def _delete_current_brightness_string_attr(cls) -> None:
@@ -135,7 +140,10 @@ class MaterialSettings:
         """
         cls._initialize_current_brightness_string_if_not_initialized()
         if not hasattr(cls, "_light_color_scheme_str"):
-            cls._light_color_scheme_str = String(value=MaterialBrightness.LIGHT.value)
+            cls._light_color_scheme_str = String(
+                value=MaterialBrightness.LIGHT.value,
+                variable_name_suffix="light_color_scheme_str",
+            )
         return cls._current_brightness_string == cls._light_color_scheme_str
 
     _dark_color_scheme_str: String
@@ -153,5 +161,22 @@ class MaterialSettings:
         """
         cls._initialize_current_brightness_string_if_not_initialized()
         if not hasattr(cls, "_dark_color_scheme_str"):
-            cls._dark_color_scheme_str = String(value=MaterialBrightness.DARK.value)
+            cls._dark_color_scheme_str = String(
+                value=MaterialBrightness.DARK.value,
+                variable_name_suffix="dark_color_scheme_str",
+            )
         return cls._current_brightness_string == cls._dark_color_scheme_str
+
+    _color_scheme_setting_is_enabled: Boolean
+
+    @classmethod
+    def _initialize_color_scheme_setting_is_enabled_if_not_initialized(cls) -> None:
+        """
+        Initialize the `_color_scheme_setting_is_enabled` attribute if it has
+        not been initialized yet.
+        """
+        if hasattr(cls, "_color_scheme_setting_is_enabled"):
+            return
+        cls._color_scheme_setting_is_enabled = Boolean(
+            False, variable_name_suffix="color_scheme_setting_is_enabled"
+        )

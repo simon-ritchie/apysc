@@ -150,3 +150,14 @@ class TestMaterialSettings:
         assert ap.MaterialSettings._dark_color_scheme is None
         assert not hasattr(ap.MaterialSettings, "_light_color_scheme_str")
         assert not hasattr(ap.MaterialSettings, "_dark_color_scheme_str")
+
+    @apply_test_settings()
+    def test__initialize_color_scheme_setting_is_enabled_if_not_initialized(
+        self
+    ) -> None:
+        ap.MaterialSettings._reset_settings()
+        ap.MaterialSettings._initialize_color_scheme_setting_is_enabled_if_not_initialized()  # noqa
+        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.Boolean(False)
+        ap.MaterialSettings._color_scheme_setting_is_enabled = ap.Boolean(True)
+        ap.MaterialSettings._initialize_color_scheme_setting_is_enabled_if_not_initialized()  # noqa
+        assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.Boolean(True)

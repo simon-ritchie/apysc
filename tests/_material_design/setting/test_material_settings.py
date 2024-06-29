@@ -38,6 +38,7 @@ class TestMaterialSettings:
         )
         ap.MaterialSettings.set_light_color_scheme(color_scheme=color_scheme)
         assert ap.MaterialSettings.get_light_color_scheme() == color_scheme
+        assert ap.MaterialSettings.color_scheme_setting_is_enabled() == ap.True_
 
         assert_raises(
             expected_error_class=ValueError,
@@ -77,6 +78,7 @@ class TestMaterialSettings:
         )
         ap.MaterialSettings.set_dark_color_scheme(color_scheme=color_scheme)
         assert ap.MaterialSettings.get_dark_color_scheme() == color_scheme
+        assert ap.MaterialSettings.color_scheme_setting_is_enabled() == ap.True_
 
         assert_raises(
             expected_error_class=ValueError,

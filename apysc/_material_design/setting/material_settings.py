@@ -63,6 +63,7 @@ class MaterialSettings:
                 "The `set_light_color_scheme` class method can only be called once."
             )
         cls._light_color_scheme = color_scheme
+        cls._enable_color_scheme_setting()
 
     _dark_color_scheme: Optional[MaterialColorScheme] = None
 
@@ -101,6 +102,7 @@ class MaterialSettings:
                 "The `set_dark_color_scheme` class method can only be called once."
             )
         cls._dark_color_scheme = color_scheme
+        cls._enable_color_scheme_setting()
 
     _current_brightness_string: String
 

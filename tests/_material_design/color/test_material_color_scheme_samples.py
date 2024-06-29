@@ -6,7 +6,9 @@ from apysc._testing.testing_helper import apply_test_settings
 class TestMaterialColorSchemeSamples:
     @apply_test_settings()
     def test_create_dark_color_schema_sample_brown_1(self) -> None:
-        color_scheme: ap.MaterialColorScheme = ap.MaterialColorSchemeSamples.create_dark_color_schema_sample_brown_1()
+        color_scheme: ap.MaterialColorScheme = (
+            ap.MaterialColorSchemeSamples.create_light_color_schema_sample_brown_1()
+        )
         assert color_scheme.primary == ap.Color("#8F4C38")
         assert color_scheme.on_primary == ap.Color("#FFFFFF")
         assert color_scheme.secondary == ap.Color("#77574E")

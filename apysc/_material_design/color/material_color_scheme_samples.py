@@ -6,9 +6,9 @@ from apysc._material_design.color.material_color_scheme import MaterialColorSche
 
 class MaterialColorSchemeSamples:
     @classmethod
-    def create_dark_color_schema_sample_brown_1(cls) -> MaterialColorScheme:
+    def create_light_color_schema_sample_brown_1(cls) -> MaterialColorScheme:
         """
-        Create a dark color scheme sample setting.
+        Create a light color scheme sample setting.
 
         Returns
         -------

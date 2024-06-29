@@ -21,7 +21,7 @@ class MaterialColorSchemeSamples:
 
         Notes
         -----
-        This setting is created using the material-theme-builder, Apache-2.0 license.
+        This setting is created using the material-theme-builder - Apache-2.0 license.
 
         References
         ----------
@@ -69,7 +69,7 @@ class MaterialColorSchemeSamples:
 
         Notes
         -----
-        This setting is created using the material-theme-builder, Apache-2.0 license.
+        This setting is created using the material-theme-builder - Apache-2.0 license.
 
         References
         ----------

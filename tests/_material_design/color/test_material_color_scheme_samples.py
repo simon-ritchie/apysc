@@ -2,7 +2,6 @@ import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 
 
-
 class TestMaterialColorSchemeSamples:
     @apply_test_settings()
     def test_create_light_color_schema_sample_brown_1(self) -> None:

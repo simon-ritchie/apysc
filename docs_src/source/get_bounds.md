@@ -117,12 +117,17 @@ ap.save_overall_html(dest_dir_path="get_bounds_basic_usage_2/")
 
 Get an instance's bounding-box geometry data.<hr>
 
+**[Parameters]**
+
+- `target_coordinate_space_object`: DisplayObject or None, default None
+  - Target coordinate space object. If None is specified, then this method returns the bounding-box data based on the stage. If a `DisplayObject` instance is specified, then this method returns the bounding-box data based on the specified object.
+
+<hr>
+
 **[Returns]**
 
 - `bounding_box`: RectangleGeom
   - An instance's bounding-box geometry data.
-- `target_coordinate_space_object`: DisplayObject or None, default None
-  - Target coordinate space object. If None is specified, then this method returns the bounding-box data based on the stage. If a `DisplayObject` instance is specified, then this method returns the bounding-box data based on the specified object.
 
 <hr>
 

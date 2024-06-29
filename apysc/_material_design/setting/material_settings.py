@@ -42,9 +42,7 @@ class MaterialSettings:
         return cls._light_color_scheme
 
     @classmethod
-    def set_light_color_scheme(
-        cls, *, color_scheme: MaterialColorScheme
-    ) -> None:
+    def set_light_color_scheme(cls, *, color_scheme: MaterialColorScheme) -> None:
         """
         Set a color scheme setting.
 
@@ -81,9 +79,7 @@ class MaterialSettings:
         return cls._dark_color_scheme
 
     @classmethod
-    def set_dark_color_scheme(
-        cls, *, color_scheme: MaterialColorScheme
-    ) -> None:
+    def set_dark_color_scheme(cls, *, color_scheme: MaterialColorScheme) -> None:
         """
         Set a dark color scheme setting.
 

@@ -363,16 +363,20 @@
 <p><strong>[インターフェイスの構造]</strong> <code class="docutils literal notranslate"><span class="pre">get_bounds(self,</span> <span class="pre">target_coordinate_space_object:</span> <span class="pre">Union[apysc._display.display_object.DisplayObject,</span> <span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._geom.rectangle_geom.RectangleGeom</span></code><hr></p>
 <p><strong>[インターフェイス概要]</strong></p>
 <p>インスタンスのバウンディングボックスの幾何データを取得します。<hr></p>
+<p><strong>[引数]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target_coordinate_space_object</span></code>: DisplayObject or None, default None</p>
+<ul>
+<li><p>座標の基準となるオブジェクト。もしNoneが指定された場合、このメソッドはステージを基準としたバウンディングボックスのデータを返却します。もし<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスが指定された場合、ごのメソッドは指定されたオブジェクトの座標を基準としたバウンディングボックスのデータを返却します。</p></li>
+</ul>
+</li>
+</ul>
+<hr>
 <p><strong>[返却値]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bounding_box</span></code>: RectangleGeom</p>
 <ul>
 <li><p>インスタンスのバウンディングボックスの幾何データ。</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">target_coordinate_space_object</span></code>: DisplayObject or None, default None</p>
-<ul>
-<li><p>座標の基準となるオブジェクト。もしNoneが指定された場合、このメソッドはステージを基準としたバウンディングボックスのデータを返却します。もし<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>のインスタンスが指定された場合、ごのメソッドは指定されたオブジェクトの座標を基準としたバウンディングボックスのデータを返却します。</p></li>
 </ul>
 </li>
 </ul>

@@ -1,5 +1,6 @@
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 
 
 class TestMaterialSettings:
@@ -167,7 +168,7 @@ class TestMaterialSettings:
 
     @apply_test_settings()
     def test__initialize_color_scheme_setting_is_enabled_if_not_initialized(
-        self
+        self,
     ) -> None:
         ap.MaterialSettings._reset_settings()
         ap.MaterialSettings._initialize_color_scheme_setting_is_enabled_if_not_initialized()  # noqa

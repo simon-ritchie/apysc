@@ -117,13 +117,17 @@ ap.save_overall_html(dest_dir_path="get_bounds_basic_usage_2/")
 
 インスタンスのバウンディングボックスの幾何データを取得します。<hr>
 
+**[引数]**
+
+- `target_coordinate_space_object`: DisplayObject or None, default None
+  - 座標の基準となるオブジェクト。もしNoneが指定された場合、このメソッドはステージを基準としたバウンディングボックスのデータを返却します。もし`DisplayObject`のインスタンスが指定された場合、ごのメソッドは指定されたオブジェクトの座標を基準としたバウンディングボックスのデータを返却します。
+
+<hr>
+
 **[返却値]**
 
 - `bounding_box`: RectangleGeom
   - インスタンスのバウンディングボックスの幾何データ。
-
-- `target_coordinate_space_object`: DisplayObject or None, default None
-  - 座標の基準となるオブジェクト。もしNoneが指定された場合、このメソッドはステージを基準としたバウンディングボックスのデータを返却します。もし`DisplayObject`のインスタンスが指定された場合、ごのメソッドは指定されたオブジェクトの座標を基準としたバウンディングボックスのデータを返却します。
 
 <hr>
 

@@ -11,8 +11,7 @@ class DisableValueModificationMixIn:
         prevent the value modification (e.g., the value updating with the
         `value` property).
 
-        This is recommended to call this method at the constructor or after the
-        instantiation.
+        Calling this method after the instantiation is recommended.
         """
         self._disabled_value_modification = True
 

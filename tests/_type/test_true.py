@@ -1,7 +1,7 @@
 import pytest
 
 import apysc as ap
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
+from apysc._testing.testing_helper import apply_test_settings
 
 
 class Test_True:

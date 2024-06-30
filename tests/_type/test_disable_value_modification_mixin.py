@@ -1,5 +1,6 @@
+from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import assert_raises
 from apysc._type.disable_value_modification_mixin import DisableValueModificationMixIn
-from apysc._testing.testing_helper import apply_test_settings, assert_raises
 
 
 class TestDisableValueModificationMixIn:

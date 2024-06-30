@@ -1,3 +1,5 @@
+import pytest
+
 import apysc as ap
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
@@ -182,6 +184,8 @@ class TestMaterialSettings:
         ap.MaterialSettings._reset_settings()
         ap.MaterialSettings._enable_color_scheme_setting()
         assert ap.MaterialSettings._color_scheme_setting_is_enabled == ap.True_
+        with pytest.raises(expected_exception=ValueError):  # type: ignore
+            ap.MaterialSettings.color_scheme_setting_is_enabled().value = False
 
     @apply_test_settings()
     def test_color_scheme_setting_is_enabled(self) -> None:

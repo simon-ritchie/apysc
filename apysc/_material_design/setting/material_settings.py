@@ -205,6 +205,7 @@ class MaterialSettings:
         if cls._color_scheme_setting_is_enabled._value:
             return
         cls._color_scheme_setting_is_enabled.value = True
+        cls._color_scheme_setting_is_enabled.disable_value_modification()
 
     @classmethod
     def color_scheme_setting_is_enabled(cls) -> Boolean:
@@ -218,4 +219,4 @@ class MaterialSettings:
             returns True.
         """
         cls._initialize_color_scheme_setting_is_enabled_if_not_initialized()
-        return cls._color_scheme_setting_is_enabled._copy()
+        return cls._color_scheme_setting_is_enabled

@@ -8,7 +8,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._testing import testing_helper
-from apysc._testing.testing_helper import apply_test_settings
+from apysc._testing.testing_helper import apply_test_settings, assert_raises
 
 
 class TestBoolean:
@@ -67,12 +67,6 @@ class TestBoolean:
         result = boolean_1._get_bool_from_arg_value(value=True)
         assert result
 
-        testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            callable_=boolean_1._get_bool_from_arg_value,
-            value="Hello!",
-        )
-
     @apply_test_settings()
     def test__set_value_and_skip_expression_appending(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(value=1)
@@ -81,6 +75,13 @@ class TestBoolean:
         expression: str = expression_data_util.get_current_expression()
         expected: str = f"{boolean_1.variable_name} = false;"
         assert expected not in expression
+
+        boolean_1.disable_value_modification()
+        assert_raises(
+            expected_error_class=ValueError,
+            callable_=boolean_1._set_value_and_skip_expression_appending,
+            value=False,
+        )
 
     @apply_test_settings()
     def test__append_value_setter_expression(self) -> None:
@@ -327,6 +328,13 @@ class TestBoolean:
         bool_value: ap.Boolean = ap.Boolean(True)
         bool_value._set_value_attr_with_value_arg(value=False)
         assert not bool_value._value
+
+        bool_value.disable_value_modification()
+        assert_raises(
+            expected_error_class=ValueError,
+            callable_=bool_value._set_value_attr_with_value_arg,
+            value=False,
+        )
 
 
 class TestBool:

@@ -24,6 +24,7 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.disable_value_modification_mixin import DisableValueModificationMixIn
 
 
 class Boolean(
@@ -36,6 +37,7 @@ class Boolean(
     InitializeWithBaseValueInterface,
     HashableInterface,
     ToNumberMixIn,
+    DisableValueModificationMixIn,
 ):
     """
     Boolean class for the apysc library.
@@ -150,6 +152,8 @@ class Boolean(
         value : bool
             A boolean value.
         """
+        self.raise_if_value_modification_is_disabled()
+
         self._value = value
 
     @final
@@ -307,6 +311,8 @@ class Boolean(
         value : Boolean or Int or bool or int
             Any boolean value to set.
         """
+        self.raise_if_value_modification_is_disabled()
+
         value_: bool = self._get_bool_from_arg_value(value=value)
         self._value = value_
 

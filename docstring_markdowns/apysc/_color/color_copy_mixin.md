@@ -6,15 +6,6 @@ The mix-in class implementation for the `ColorCopyMixIn` class.
 
 ## `ColorCopyMixIn` class docstring
 
-### `_copy` method docstring
-
-Make a deep copy of this instance.<hr>
-
-**[Returns]**
-
-- `result`: _SelfType
-  - Copied instance.
-
 ### `_get_copy_expression` method docstring
 
 Get a copy expression.<hr>
@@ -30,3 +21,12 @@ Get a copy expression.<hr>
 
 - `expression`: str
   - A target expression.
+
+### `copy` method docstring
+
+Make a deep copy of this instance.<hr>
+
+**[Returns]**
+
+- `result`: _SelfType
+  - Copied instance.

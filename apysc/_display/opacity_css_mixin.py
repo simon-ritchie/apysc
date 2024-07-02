@@ -56,7 +56,7 @@ class OpacityCssMixIn(AttrLinkingMixIn):
         Number(0.5)
         """
         self._initialize_fill_alpha()
-        return self._fill_alpha._copy()
+        return self._fill_alpha.copy()
 
     @fill_alpha.setter
     def fill_alpha(self, value: Number) -> None:

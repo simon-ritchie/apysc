@@ -24,7 +24,7 @@ Append a value updating copy expression if the current scope is an event handler
 - `result_variable_name`: str
   - Copied value's variable name.
 
-### `_copy` method docstring
+### `copy` method docstring
 
 Make a deep copy of this instance.<hr>
 

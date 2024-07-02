@@ -83,7 +83,7 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         >>> datetime_.hour
         Int(10)
         """
-        copied_hour_val: Int = self._hour._copy()
+        copied_hour_val: Int = self._hour.copy()
         self._append_hour_getter_expression(hour_val=copied_hour_val)
         return copied_hour_val
 
@@ -114,7 +114,7 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         >>> datetime_.hour
         Int(10)
         """
-        self._hour = value._copy()
+        self._hour = value.copy()
         self._append_hour_setter_expression(hour_val=value)
 
     @final

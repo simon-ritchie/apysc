@@ -63,7 +63,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
         String("round")
         """
         self._initialize_line_joints_if_not_initialized()
-        return self._line_joints._copy()
+        return self._line_joints.copy()
 
     @line_joints.setter
     @arg_validation_decos.are_line_joints(arg_position_index=1, optional=False)
@@ -99,7 +99,7 @@ class LineJointsMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, Rever
                 "\nAcceptable ones are: String or LineJoints."
             )
         if isinstance(value, String):
-            self._line_joints = value._copy()
+            self._line_joints = value.copy()
         else:
             self._line_joints = String(value.value)
 

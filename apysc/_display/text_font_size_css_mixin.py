@@ -57,7 +57,7 @@ class TextFontSizeCssMixIn(
         Int(32)
         """
         self._initialize_font_size()
-        return self._font_size._copy()
+        return self._font_size.copy()
 
     @font_size.setter
     @arg_validation_decos.is_apysc_integer(arg_position_index=1)

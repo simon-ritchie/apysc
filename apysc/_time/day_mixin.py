@@ -83,7 +83,7 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         >>> datetime_.day
         Int(2)
         """
-        copied_day_val: Int = self._day._copy()
+        copied_day_val: Int = self._day.copy()
         self._append_day_getter_expression(day_val=copied_day_val)
         return copied_day_val
 
@@ -114,7 +114,7 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         >>> datetime_.day
         Int(2)
         """
-        self._day = value._copy()
+        self._day = value.copy()
         self._append_day_setter_expression(day_val=value)
 
     @final

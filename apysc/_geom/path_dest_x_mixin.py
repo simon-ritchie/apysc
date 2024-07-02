@@ -75,7 +75,7 @@ class PathDestXMixIn(
         Number(125.0)
         """
         self._initialize_dest_x_if_not_initialized()
-        return self._dest_x._copy()
+        return self._dest_x.copy()
 
     @dest_x.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)

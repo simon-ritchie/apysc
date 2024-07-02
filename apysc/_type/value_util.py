@@ -179,4 +179,4 @@ def get_copy(*, value: _Type) -> _Type:
 
     if not isinstance(value, CopyInterface):
         return value
-    return value._copy()
+    return value.copy()

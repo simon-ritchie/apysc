@@ -495,7 +495,7 @@ class Array(
         >>> arr
         Array([1, 2, 3, 4, 5, 6])
         """
-        concatenated: Array = self._copy()
+        concatenated: Array = self.copy()
         concatenated.extend(other_arr)
         self._append_concat_expression(concatenated=concatenated, other_arr=other_arr)
         return concatenated
@@ -914,7 +914,7 @@ class Array(
             end_: Optional[int] = int(end.value)
         else:
             end_ = end  # type: ignore[assignment]
-        sliced_arr: Array = self._copy()
+        sliced_arr: Array = self.copy()
         sliced_arr._value = self._value[slice(start_, end_)]
         self._append_slice_expression(sliced_arr=sliced_arr, start=start, end=end)
         return sliced_arr

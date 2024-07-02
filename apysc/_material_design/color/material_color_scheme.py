@@ -176,38 +176,38 @@ class MaterialColorScheme:
         - Flutter license (BSD 3-Clause "New" or "Revised" License)
             - https://github.com/flutter/flutter/blob/master/LICENSE
         """
-        self._primary = primary._copy()
-        self._on_primary = on_primary._copy()
-        self._secondary = secondary._copy()
-        self._on_secondary = on_secondary._copy()
-        self._error = error._copy()
-        self._on_error = on_error._copy()
-        self._surface = surface._copy()
-        self._on_surface = on_surface._copy()
+        self._primary = primary.copy()
+        self._on_primary = on_primary.copy()
+        self._secondary = secondary.copy()
+        self._on_secondary = on_secondary.copy()
+        self._error = error.copy()
+        self._on_error = on_error.copy()
+        self._surface = surface.copy()
+        self._on_surface = on_surface.copy()
         if primary_container is not None:
-            self._primary_container = primary_container._copy()
+            self._primary_container = primary_container.copy()
         if on_primary_container is not None:
-            self._on_primary_container = on_primary_container._copy()
+            self._on_primary_container = on_primary_container.copy()
         if secondary_container is not None:
-            self._secondary_container = secondary_container._copy()
+            self._secondary_container = secondary_container.copy()
         if on_secondary_container is not None:
-            self._on_secondary_container = on_secondary_container._copy()
+            self._on_secondary_container = on_secondary_container.copy()
         if tertiary is not None:
-            self._tertiary = tertiary._copy()
+            self._tertiary = tertiary.copy()
         if on_tertiary is not None:
-            self._on_tertiary = on_tertiary._copy()
+            self._on_tertiary = on_tertiary.copy()
         if tertiary_container is not None:
-            self._tertiary_container = tertiary_container._copy()
+            self._tertiary_container = tertiary_container.copy()
         if on_tertiary_container is not None:
-            self._on_tertiary_container = on_tertiary_container._copy()
+            self._on_tertiary_container = on_tertiary_container.copy()
         if error_container is not None:
-            self._error_container = error_container._copy()
+            self._error_container = error_container.copy()
         if on_error_container is not None:
-            self._on_error_container = on_error_container._copy()
+            self._on_error_container = on_error_container.copy()
         if outline is not None:
-            self._outline = outline._copy()
+            self._outline = outline.copy()
         if outline_variant is not None:
-            self._outline_variant = outline_variant._copy()
+            self._outline_variant = outline_variant.copy()
 
     @property
     def primary(self) -> Color:
@@ -219,7 +219,7 @@ class MaterialColorScheme:
         primary : Color
             The main color displayed most frequently.
         """
-        return self._primary._copy()
+        return self._primary.copy()
 
     @property
     def on_primary(self) -> Color:
@@ -231,7 +231,7 @@ class MaterialColorScheme:
         on_primary : Color
             A color to use on a primary color widget.
         """
-        return self._on_primary._copy()
+        return self._on_primary.copy()
 
     @property
     def secondary(self) -> Color:
@@ -243,7 +243,7 @@ class MaterialColorScheme:
         secondary : Color
             An accent color used for less prominent widgets than the primary color.
         """
-        return self._secondary._copy()
+        return self._secondary.copy()
 
     @property
     def on_secondary(self) -> Color:
@@ -255,7 +255,7 @@ class MaterialColorScheme:
         on_secondary : Color
             A color to use on a secondary color widget.
         """
-        return self._on_secondary._copy()
+        return self._on_secondary.copy()
 
     @property
     def error(self) -> Color:
@@ -267,7 +267,7 @@ class MaterialColorScheme:
         error : Color
             A color to use for input validation errors.
         """
-        return self._error._copy()
+        return self._error.copy()
 
     @property
     def on_error(self) -> Color:
@@ -279,7 +279,7 @@ class MaterialColorScheme:
         on_error : Color
             A color to use on an error color widget.
         """
-        return self._on_error._copy()
+        return self._on_error.copy()
 
     @property
     def surface(self) -> Color:
@@ -291,7 +291,7 @@ class MaterialColorScheme:
         surface : Color
             The background color for widgets like the material design's card.
         """
-        return self._surface._copy()
+        return self._surface.copy()
 
     @property
     def on_surface(self) -> Color:
@@ -303,7 +303,7 @@ class MaterialColorScheme:
         on_surface : Color
             A color to use on a surface color widget.
         """
-        return self._on_surface._copy()
+        return self._on_surface.copy()
 
     @property
     def primary_container(self) -> Optional[Color]:
@@ -319,7 +319,7 @@ class MaterialColorScheme:
         """
         if self._primary_container is None:
             return None
-        return self._primary_container._copy()
+        return self._primary_container.copy()
 
     @property
     def on_primary_container(self) -> Optional[Color]:
@@ -333,7 +333,7 @@ class MaterialColorScheme:
         """
         if self._on_primary_container is None:
             return None
-        return self._on_primary_container._copy()
+        return self._on_primary_container.copy()
 
     @property
     def secondary_container(self) -> Optional[Color]:
@@ -349,7 +349,7 @@ class MaterialColorScheme:
         """
         if self._secondary_container is None:
             return None
-        return self._secondary_container._copy()
+        return self._secondary_container.copy()
 
     @property
     def on_secondary_container(self) -> Optional[Color]:
@@ -363,7 +363,7 @@ class MaterialColorScheme:
         """
         if self._on_secondary_container is None:
             return None
-        return self._on_secondary_container._copy()
+        return self._on_secondary_container.copy()
 
     @property
     def tertiary(self) -> Optional[Color]:
@@ -377,7 +377,7 @@ class MaterialColorScheme:
         """
         if self._tertiary is None:
             return None
-        return self._tertiary._copy()
+        return self._tertiary.copy()
 
     @property
     def on_tertiary(self) -> Optional[Color]:
@@ -391,7 +391,7 @@ class MaterialColorScheme:
         """
         if self._on_tertiary is None:
             return None
-        return self._on_tertiary._copy()
+        return self._on_tertiary.copy()
 
     @property
     def tertiary_container(self) -> Optional[Color]:
@@ -407,7 +407,7 @@ class MaterialColorScheme:
         """
         if self._tertiary_container is None:
             return None
-        return self._tertiary_container._copy()
+        return self._tertiary_container.copy()
 
     @property
     def on_tertiary_container(self) -> Optional[Color]:
@@ -421,7 +421,7 @@ class MaterialColorScheme:
         """
         if self._on_tertiary_container is None:
             return None
-        return self._on_tertiary_container._copy()
+        return self._on_tertiary_container.copy()
 
     @property
     def error_container(self) -> Optional[Color]:
@@ -437,7 +437,7 @@ class MaterialColorScheme:
         """
         if self._error_container is None:
             return None
-        return self._error_container._copy()
+        return self._error_container.copy()
 
     @property
     def on_error_container(self) -> Optional[Color]:
@@ -451,7 +451,7 @@ class MaterialColorScheme:
         """
         if self._on_error_container is None:
             return None
-        return self._on_error_container._copy()
+        return self._on_error_container.copy()
 
     @property
     def outline(self) -> Optional[Color]:
@@ -465,7 +465,7 @@ class MaterialColorScheme:
         """
         if self._outline is None:
             return None
-        return self._outline._copy()
+        return self._outline.copy()
 
     @property
     def outline_variant(self) -> Optional[Color]:
@@ -480,4 +480,4 @@ class MaterialColorScheme:
         """
         if self._outline_variant is None:
             return None
-        return self._outline_variant._copy()
+        return self._outline_variant.copy()

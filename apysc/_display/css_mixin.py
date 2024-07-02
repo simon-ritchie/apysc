@@ -69,7 +69,7 @@ class CssMixIn(VariableNameMixIn, RevertMixIn, AttrToApyscValFromBuiltinMixIn):
             string=name
         )
         if name_ in self._css:
-            css: String = self._css[name_]._copy()
+            css: String = self._css[name_].copy()
         else:
             css = String("")
         self._append_get_css_expresion(name=name, css=css)

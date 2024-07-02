@@ -24,7 +24,7 @@ class ColorCopyMixIn(
 ):
     @final
     @add_debug_info_setting(module_name=__name__)
-    def _copy(self) -> _SelfType:
+    def copy(self) -> _SelfType:
         """
         Make a deep copy of this instance.
 

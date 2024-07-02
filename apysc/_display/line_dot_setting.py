@@ -113,4 +113,4 @@ class LineDotSetting(
         >>> line.line_dot_setting.dot_size
         Int(5)
         """
-        return self["dot_size"]._copy()
+        return self["dot_size"].copy()

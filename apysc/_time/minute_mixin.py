@@ -83,7 +83,7 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         >>> datetime_.minute
         Int(50)
         """
-        copied_minute_val: Int = self._minute._copy()
+        copied_minute_val: Int = self._minute.copy()
         self._append_minute_getter_expression(minute_val=copied_minute_val)
         return copied_minute_val
 
@@ -115,7 +115,7 @@ class MinuteMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         >>> datetime_.minute
         Int(50)
         """
-        self._minute = value._copy()
+        self._minute = value.copy()
         self._append_minute_setter_expression(minute_val=value)
 
     @final

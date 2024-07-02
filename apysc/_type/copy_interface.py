@@ -10,7 +10,7 @@ _SelfType = TypeVar("_SelfType", bound="CopyInterface")
 
 class CopyInterface(Generic[_SelfType]):
     @abstractmethod
-    def _copy(self) -> _SelfType:
+    def copy(self) -> _SelfType:
         """
         Make a deep copy of this instance.
         """

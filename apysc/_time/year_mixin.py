@@ -83,7 +83,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         >>> datetime_.year
         Int(2023)
         """
-        copied_year_val: Int = self._year._copy()
+        copied_year_val: Int = self._year.copy()
         self._append_year_getter_expression(year_val=copied_year_val)
         return copied_year_val
 
@@ -115,7 +115,7 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         >>> datetime_.year
         Int(2023)
         """
-        self._year = value._copy()
+        self._year = value.copy()
         self._append_year_setter_expression(year_val=value)
 
     @final

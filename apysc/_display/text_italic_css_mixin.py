@@ -59,7 +59,7 @@ class TextItalicCssMixIn(
         Boolean(True)
         """
         self._initialize_italic()
-        return self._italic._copy()
+        return self._italic.copy()
 
     @italic.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)

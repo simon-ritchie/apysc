@@ -115,7 +115,7 @@ class LineColorMixIn(
         >>> rectangle.line_color
         Color("#ff00aa")
         """
-        value = value._copy()
+        value = value.copy()
         self._initialize_line_color_if_not_initialized()
         self._update_line_color_and_skip_appending_exp(value=value)
         self._append_line_color_update_expression()

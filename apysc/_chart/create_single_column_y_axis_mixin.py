@@ -360,7 +360,7 @@ def _calculate_y_axis_min(
         A calculated y-axis min value.
     """
     if y_min is not None:
-        return y_min._copy()
+        return y_min.copy()
     return in_value_y_min
 
 
@@ -385,7 +385,7 @@ def _calculate_y_axis_max(
         A calculated y-axis max value.
     """
     if y_max is not None:
-        return y_max._copy()
+        return y_max.copy()
     y_axis_max: Number = in_value_y_max * 1.1
     return y_axis_max
 
@@ -418,7 +418,7 @@ def _apply_x_coordinate_to_y_axis_ticks_texts(
     from apysc._math.math import Math
     from apysc._type.array import Array
 
-    x: Number = horizontal_padding._copy().to_number()
+    x: Number = horizontal_padding.copy().to_number()
     max_arr: Array[Union[Int, Number]] = Array(
         [x],
         variable_name_suffix=variable_name_suffix,

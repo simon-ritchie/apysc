@@ -301,7 +301,7 @@ class String(
             value: str = self._value + other._value
         else:
             value = self._value + other  # type: ignore
-        result: String = self._copy()
+        result: String = self.copy()
         result._value = value
         self._append_addition_expression(result=result, other=other)
         return result
@@ -353,7 +353,7 @@ class String(
             value: int = other.value  # type: ignore
         else:
             value = other
-        result: String = self._copy()
+        result: String = self.copy()
         result._value = result._value * value
         self._append_multiplication_expression(result=result, other=other)
         return result

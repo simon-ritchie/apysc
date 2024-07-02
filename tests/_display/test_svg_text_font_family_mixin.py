@@ -49,7 +49,7 @@ class TestSvgTextFontFamilyMixIn:
         )
         assert match_ is not None, expression
 
-        font_family = font_family._copy()
+        font_family = font_family.copy()
         mixin.font_family = font_family
         expression = expression_data_util.get_current_expression()
         match_ = re.search(

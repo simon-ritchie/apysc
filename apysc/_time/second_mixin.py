@@ -83,7 +83,7 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         >>> datetime_.second
         Int(50)
         """
-        copied_second_val: Int = self._second._copy()
+        copied_second_val: Int = self._second.copy()
         self._append_second_getter_expression(second_val=copied_second_val)
         return copied_second_val
 
@@ -114,7 +114,7 @@ class SecondMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMix
         >>> datetime_.second
         Int(50)
         """
-        self._second = value._copy()
+        self._second = value.copy()
         self._append_second_setter_expression(second_val=value)
 
     @final

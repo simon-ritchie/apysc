@@ -84,7 +84,7 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
         >>> datetime_.month
         Int(1)
         """
-        copied_month_val: Int = self._month._copy()
+        copied_month_val: Int = self._month.copy()
         self._append_month_getter_expression(month_val=copied_month_val)
         return copied_month_val
 
@@ -114,7 +114,7 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
         >>> datetime_.month
         Int(1)
         """
-        self._month = value._copy()
+        self._month = value.copy()
         self._append_month_setter_expression(month_val=value)
 
     @final

@@ -59,7 +59,7 @@ class TextDecorationUnderlineCssMixIn(
         Boolean(True)
         """
         self._initialize_underline()
-        return self._underline._copy()
+        return self._underline.copy()
 
     @underline.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)

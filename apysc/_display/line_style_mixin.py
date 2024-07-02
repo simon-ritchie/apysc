@@ -171,7 +171,7 @@ class LineStyleMixIn(
             Converted line thickness value.
         """
         if isinstance(thickness, Int):
-            thickness_: Int = thickness._copy()
+            thickness_: Int = thickness.copy()
         else:
             suffix: str = self._get_attr_or_variable_name_suffix(
                 value_identifier="line_thickness"
@@ -196,7 +196,7 @@ class LineStyleMixIn(
             Converted line alpha value.
         """
         if isinstance(alpha, Number):
-            alpha_: Number = alpha._copy()
+            alpha_: Number = alpha.copy()
         else:
             suffix = self._get_attr_or_variable_name_suffix(
                 value_identifier="line_alpha"
@@ -386,7 +386,7 @@ class LineStyleMixIn(
         Color("#00aaff")
         """
         self._initialize_line_color_if_not_initialized()
-        return self._line_color._copy()
+        return self._line_color.copy()
 
     @property
     @add_debug_info_setting(module_name=__name__)

@@ -35,5 +35,5 @@ class CopyColorIfDefaultValueSpecifiedMixIn:
             Copied color if it is a default color.
         """
         if color._value.variable_name == default_color._value.variable_name:
-            return color._copy()
+            return color.copy()
         return color

@@ -65,7 +65,7 @@ class StringZfillMixIn:
         self_string: String = string_validation.validate_apysc_string_type(
             string=self,
         )
-        result: String = self_string._copy()
+        result: String = self_string.copy()
         width_: Int = get_copied_int_from_builtin_val(integer=width)
         result._value = result._value.zfill(width_._value)
 

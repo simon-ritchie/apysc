@@ -58,7 +58,7 @@ class TextFillColorCssMixIn(
         >>> assert multi_line_text.fill_color == ap.Colors.CYAN_00AAFF
         """
         self._initialize_fill_color()
-        return self._fill_color._copy()
+        return self._fill_color.copy()
 
     @fill_color.setter
     @arg_validation_decos.is_color(arg_position_index=1, optional=False)

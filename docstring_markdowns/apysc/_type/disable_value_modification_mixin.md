@@ -8,7 +8,7 @@ The mix-in class implementation to disable a value modification.
 
 ### `disable_value_modification` method docstring
 
-Disable a value modification. This method is useful when you want to prevent the value modification (e.g., the value updating with the `value` property). This is recommended to call this method at the constructor or after the instantiation.
+Disable a value modification. This method is useful when you want to prevent the value modification (e.g., the value updating with the `value` property). Calling this method after the instantiation is recommended.
 
 ### `raise_if_value_modification_is_disabled` method docstring
 

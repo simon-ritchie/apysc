@@ -257,7 +257,7 @@ class MultiLineText(
         self.y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=y
         )
-        self.fill_color = fill_color._copy()
+        self.fill_color = fill_color.copy()
         self.fill_alpha = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=fill_alpha,
             variable_name_suffix=variable_name_suffix,

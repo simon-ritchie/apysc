@@ -202,7 +202,7 @@ class NumberValueMixIn(
             value: _NumType = self._value + other._value
         else:
             value = self._value + other  # type: ignore
-        result: NumberValueMixIn = self._copy()
+        result: NumberValueMixIn = self.copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_addition_expression(result=result, other=other)
         return result
@@ -252,7 +252,7 @@ class NumberValueMixIn(
             value: _NumType = self._value - other._value
         else:
             value = self._value - other  # type: ignore
-        result: NumberValueMixIn = self._copy()
+        result: NumberValueMixIn = self.copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_subtraction_expression(result=result, other=other)
         return result
@@ -302,7 +302,7 @@ class NumberValueMixIn(
             value: _NumType = self._value * other._value
         else:
             value = self._value * other  # type: ignore
-        result: _InstanceType = self._copy()
+        result: _InstanceType = self.copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_multiplication_expression(result=result, other=other)
         return result
@@ -589,7 +589,7 @@ class NumberValueMixIn(
             value: Union[int, float] = self._value % other._value
         else:
             value = self._value % other  # type: ignore
-        result: _InstanceType = self._copy()
+        result: _InstanceType = self.copy()
         result._set_value_and_skip_expression_appending(value=value)
         self._append_modulo_expression(result=result, other=other)
         return result

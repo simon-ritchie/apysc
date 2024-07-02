@@ -19,15 +19,15 @@ class TestColorCopyMixIn:
 
     def _test_handler_1(self, e: ap.TimerEvent, options: dict) -> None:
         color: ap.Color = ap.Color("#333333")
-        copied_color: ap.Color = color._copy()
+        copied_color: ap.Color = color.copy()
         self._handler_expected_expression = color._get_copy_expression(
             result=copied_color
         )
 
     @apply_test_settings(retrying_max_attempts_num=0)
-    def test__copy(self) -> None:
+    def test_copy(self) -> None:
         color: ap.Color = ap.Color("#333333")
-        copied_color: ap.Color = color._copy()
+        copied_color: ap.Color = color.copy()
         assert copied_color._value == "#333333"
         assert copied_color._value.variable_name != color._value.variable_name
         expression: str = expression_data_util.get_current_expression()

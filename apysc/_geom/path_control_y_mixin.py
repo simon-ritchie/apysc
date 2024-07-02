@@ -77,7 +77,7 @@ class PathControlMixIn(
         Number(25.0)
         """
         self._initialize_control_y_if_not_initialized()
-        return self._control_y._copy()
+        return self._control_y.copy()
 
     @control_y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)

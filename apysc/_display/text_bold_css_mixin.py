@@ -59,7 +59,7 @@ class TextBoldCssMixIn(
         Boolean(True)
         """
         self._initialize_bold()
-        return self._bold._copy()
+        return self._bold.copy()
 
     @bold.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)

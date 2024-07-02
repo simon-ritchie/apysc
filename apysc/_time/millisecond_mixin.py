@@ -90,7 +90,7 @@ class MillisecondMixIn(
         >>> datetime_.millisecond
         Int(300)
         """
-        copied_millisecond_val: Int = self._millisecond._copy()
+        copied_millisecond_val: Int = self._millisecond.copy()
         self._append_millisecond_getter_expression(
             millisecond_val=copied_millisecond_val
         )
@@ -126,7 +126,7 @@ class MillisecondMixIn(
         >>> datetime_.millisecond
         Int(300)
         """
-        self._millisecond = value._copy()
+        self._millisecond = value.copy()
         self._append_millisecond_setter_expression(millisecond_val=value)
 
     @final

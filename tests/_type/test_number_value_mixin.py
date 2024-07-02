@@ -156,10 +156,10 @@ class TestNumberValueMixIn:
         assert mixin_3.variable_name != mixin_2.variable_name
 
     @apply_test_settings()
-    def test__copy(self) -> None:
+    def test_copy(self) -> None:
         mixin_1: _TestNumberClass = _TestNumberClass(value=10, type_name="test_mixin")
         mixin_1.variable_name = "test_mixin_0"
-        mixin_2: NumberValueMixIn = mixin_1._copy()
+        mixin_2: NumberValueMixIn = mixin_1.copy()
         assert mixin_1.value == mixin_2.value
         assert mixin_1.variable_name != mixin_2.variable_name
         assert mixin_2.variable_name.startswith("test_mixin")

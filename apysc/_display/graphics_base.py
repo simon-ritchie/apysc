@@ -82,8 +82,8 @@ class GraphicsBase(
         from apysc._display.line_joints_mixin import LineJointsMixIn
         from apysc._display.line_thickness_mixin import LineThicknessMixIn
 
-        fill_color = fill_color._copy()
-        line_color = line_color._copy()
+        fill_color = fill_color.copy()
+        line_color = line_color.copy()
 
         if isinstance(self, FillColorMixIn):
             self._set_initial_fill_color_if_not_colorless(fill_color=fill_color)

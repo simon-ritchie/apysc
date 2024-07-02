@@ -41,7 +41,7 @@ class StringLowerMixIn:
         from apysc._validation import string_validation
 
         self_string: String = string_validation.validate_apysc_string_type(string=self)
-        string = self_string._copy()
+        string = self_string.copy()
         string._value = string._value.lower()
         expression: str = (
             f"{string.variable_name} = {self_string.variable_name}.toLowerCase();"

@@ -63,7 +63,7 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         String("round")
         """
         self._initialize_line_cap_if_not_initialized()
-        return self._line_cap._copy()
+        return self._line_cap.copy()
 
     @line_cap.setter
     @arg_validation_decos.is_line_cap(arg_position_index=1, optional=False)
@@ -108,7 +108,7 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
             Line cap style setting to set.
         """
         if isinstance(value, String):
-            self._line_cap = value._copy()
+            self._line_cap = value.copy()
         else:
             self._line_cap = String(value.value)
 

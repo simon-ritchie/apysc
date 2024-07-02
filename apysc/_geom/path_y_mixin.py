@@ -71,7 +71,7 @@ class PathYMixIn(
         Number(100.0)
         """
         self._initialize_y_if_not_initialized()
-        return self._y._copy()
+        return self._y.copy()
 
     @y.setter
     @arg_validation_decos.is_apysc_num(arg_position_index=1)

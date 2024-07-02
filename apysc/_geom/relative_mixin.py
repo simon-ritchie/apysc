@@ -58,7 +58,7 @@ class RelativeMixIn(
         Boolean(True)
         """
         self._initialize_relative_if_not_initialized()
-        return self._relative._copy()
+        return self._relative.copy()
 
     @relative.setter
     @arg_validation_decos.is_apysc_boolean(arg_position_index=1)

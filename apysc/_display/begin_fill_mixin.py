@@ -110,7 +110,7 @@ class BeginFillMixIn(VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
         """
 
         self._initialize_fill_color_if_not_initialized()
-        fill_color: Color = self._fill_color._copy()
+        fill_color: Color = self._fill_color.copy()
         return fill_color
 
     @final

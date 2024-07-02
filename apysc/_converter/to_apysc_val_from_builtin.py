@@ -33,7 +33,7 @@ def get_copied_int_from_builtin_val(
     if isinstance(integer, int):
         copied: Int = Int(integer, variable_name_suffix=variable_name_suffix)
     else:
-        copied = integer._copy()
+        copied = integer.copy()
     return copied
 
 
@@ -60,7 +60,7 @@ def get_copied_number_from_builtin_val(
     if isinstance(float_or_num, (int, float)):
         copied: Number = Number(float_or_num, variable_name_suffix=variable_name_suffix)
     else:
-        copied = float_or_num._copy()
+        copied = float_or_num.copy()
     return copied
 
 
@@ -88,7 +88,7 @@ def get_copied_string_from_builtin_val(
     if isinstance(string, str):
         copied: String = String(string, variable_name_suffix=variable_name_suffix)
     else:
-        copied = string._copy()
+        copied = string.copy()
     return copied
 
 
@@ -116,5 +116,5 @@ def get_copied_boolean_from_builtin_val(
     if isinstance(bool_val, bool):
         copied: Boolean = Boolean(bool_val, variable_name_suffix=variable_name_suffix)
     else:
-        copied = bool_val._copy()
+        copied = bool_val.copy()
     return copied

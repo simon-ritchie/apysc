@@ -115,7 +115,7 @@ class AnyValue(
         20
         """
         if isinstance(self._value, CopyMixIn):
-            return self._value._copy()
+            return self._value.copy()
         return self._value
 
     @value.setter
@@ -176,7 +176,7 @@ class AnyValue(
         from apysc._type.value_util import get_value_str_for_expression
 
         value_str: str = get_value_str_for_expression(value=other)
-        result: AnyValue = self._copy()
+        result: AnyValue = self.copy()
         expression: str = (
             f"{result.variable_name} = " f"{self.variable_name} {operator} {value_str};"
         )
@@ -286,7 +286,7 @@ class AnyValue(
         from apysc._expression import expression_data_util
         from apysc._type.value_util import get_value_str_for_expression
 
-        result: AnyValue = self._copy()
+        result: AnyValue = self.copy()
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
             f"{result.variable_name} = "

@@ -1,3 +1,4 @@
+from typing import List, Union
 import pytest
 
 import apysc as ap
@@ -167,6 +168,7 @@ class TestMaterialSettings:
         assert ap.MaterialSettings._dark_color_scheme is None
         assert not hasattr(ap.MaterialSettings, "_light_color_scheme_str")
         assert not hasattr(ap.MaterialSettings, "_dark_color_scheme_str")
+        assert ap.MaterialSettings._font_family is None
 
     @apply_test_settings()
     def test__initialize_color_scheme_setting_is_enabled_if_not_initialized(
@@ -194,3 +196,10 @@ class TestMaterialSettings:
 
         ap.MaterialSettings._enable_color_scheme_setting()
         assert ap.MaterialSettings.color_scheme_setting_is_enabled() == ap.True_
+
+    @apply_test_settings()
+    def test_set_font_family(self) -> None:
+        font_family: Union[ap.Array, List[str]] = ["Arial", "Times New Roman"]
+        ap.MaterialSettings.set_font_family(font_family=font_family)
+        assert isinstance(ap.MaterialSettings._font_family, ap.Array)
+        assert ap.MaterialSettings._font_family._value == ["Arial", "Times New Roman"]

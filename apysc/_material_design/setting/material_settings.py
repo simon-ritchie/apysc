@@ -1,12 +1,14 @@
 """The static class implementation for the material design settings.
 """
 
-from typing import Optional
+from typing import List, Optional, Union
 
+from apysc._converter.list_of_strs_to_array import list_of_strs_to_array_of_string
 from apysc._material_design.color.material_brightness import MaterialBrightness
 from apysc._material_design.color.material_color_scheme import MaterialColorScheme
 from apysc._type.boolean import Boolean
 from apysc._type.string import String
+from apysc._type.array import Array
 
 
 class MaterialSettings:
@@ -25,6 +27,7 @@ class MaterialSettings:
             del cls._dark_color_scheme_str
         if hasattr(cls, "_color_scheme_setting_is_enabled"):
             del cls._color_scheme_setting_is_enabled
+        cls._font_family = None
 
     _light_color_scheme: Optional[MaterialColorScheme] = None
 
@@ -220,3 +223,20 @@ class MaterialSettings:
         """
         cls._initialize_color_scheme_setting_is_enabled_if_not_initialized()
         return cls._color_scheme_setting_is_enabled
+
+    _font_family: Optional[Array[String]] = None
+
+    @classmethod
+    def set_font_family(cls, *, font_family: Union[Array[String], List[str]]) -> None:
+        """
+        Set a font-family setting.
+
+        Parameters
+        ----------
+        font_family : Union[Array[String], List[str]]
+            A font-family setting.
+        """
+        font_family_: Optional[Array[String]] = list_of_strs_to_array_of_string(
+            optional_list_or_arr=font_family
+        )
+        cls._font_family = font_family_

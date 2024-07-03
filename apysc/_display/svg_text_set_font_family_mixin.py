@@ -7,6 +7,7 @@ from typing import Union
 
 from typing_extensions import final
 
+from apysc._converter.list_of_strs_to_array import list_of_strs_to_array_of_string
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.string import String
@@ -38,18 +39,15 @@ class SvgTextSetFontFamilyMixIn:
                 f"This method is only supported an {SvgTextFontFamilyMixIn.__name__} "
                 f"instance: {type(self).__name__}"
             )
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="font_family",
+        )
+        font_family_: Optional[Array[String]] = list_of_strs_to_array_of_string(
+            optional_list_or_arr=font_family,
+            variable_name_suffix=suffix,
+        )
 
-        if font_family is None:
+        if font_family_ is None:
             return
-        if isinstance(font_family, list):
-            suffix: str = get_attr_or_variable_name_suffix(
-                instance=self,
-                value_identifier="font_family",
-            )
-            font_family_: Array[String] = Array(
-                [String(font_name) for font_name in font_family],
-                variable_name_suffix=suffix,
-            )
-        else:
-            font_family_ = font_family
         self.font_family = font_family_

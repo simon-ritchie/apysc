@@ -214,6 +214,9 @@ Mainly the following decorators exist.
 - is_svg_mask
     - Set a validation to check the specified argument's type
         is the `SvgMask`.
+- is_fixed_html_svg_icon
+    - Set a validation to check the specified argument's type
+        is the `FixedHtmlSvgIconBase` or its subclass type.
 """
 
 import functools
@@ -3703,6 +3706,53 @@ def is_svg_mask(*, arg_position_index: int, optional: bool) -> _Callable:
                 raise TypeError(
                     "The specified argument is not a `SvgMask` instance: "
                     f"{type(mask)}\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_fixed_html_svg_icon(*, arg_position_index: int, optional: bool) -> _Callable:
+    """
+    Set a validation to check the specified argument's type
+    is the `FixedHtmlSvgIconBase` or its subclass type.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+    optional : bool
+        A boolean, whether a target argument accepts
+        optional None value or not.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
+
+            icon: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if optional and icon is None:
+                return callable_(*args, **kwargs)
+            if not isinstance(icon, FixedHtmlSvgIconBase):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "The specified argument is not a `FixedHtmlSvgIconBase` instance: "
+                    f"{type(icon)}\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
 

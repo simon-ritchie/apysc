@@ -1770,3 +1770,33 @@ def test_is_svg_mask() -> None:
         callable_=_test_func_2,
         mask=100,
     )
+
+
+@apply_test_settings()
+def test_is_fixed_html_svg_icon() -> None:
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=0, optional=False)
+    def test_func_1(*, icon: ap.FixedHtmlSvgIconBase) -> int:
+        return 430
+
+    icon: ap.MaterialHomeIcon = ap.MaterialHomeIcon()
+    result: int = test_func_1(icon=icon)
+    assert result == 430
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=test_func_1,
+        icon=100,
+    )
+
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=0, optional=True)
+    def test_func_2(*, icon: Optional[ap.FixedHtmlSvgIconBase]) -> int:
+        return 440
+
+    result = test_func_2(icon=None)
+    assert result == 440
+    result = test_func_2(icon=icon)
+    assert result == 440
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=test_func_2,
+        icon=100,
+    )

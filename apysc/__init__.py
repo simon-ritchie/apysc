@@ -2,9 +2,12 @@
 
 # flake8: noqa
 
+import os as _os
 from apysc._console.loggers import get_info_logger as _get_info_logger
 _logger = _get_info_logger()
 _logger.info("apysc packages importing has been started.")
+_SKIP_MATERIAL_ICONS_IMPORTING: bool = bool(int(_os.environ.get("APYSC_SKIP_MATERIAL_ICONS", False)))
+_imported_modules_rough_count: int = 0
 
 from apysc._type.int import Int
 from apysc._type.number import Number
@@ -97,8 +100,9 @@ from apysc._event.document_mouse_wheel_func import unbind_wheel_event_all_from_d
 from apysc._event.document_mouse_wheel_func import unbind_wheel_event_from_document
 from apysc._html.exporter import save_overall_html
 from apysc._expression.expression_data_util import append_js_expression
+_imported_modules_rough_count += 100
 
-_logger.info("Roughly 100 packages have been imported...")
+_logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
 from apysc._jupyter.jupyter_util import display_on_jupyter
 from apysc._jupyter.jupyter_util import display_on_colaboratory
@@ -148,1187 +152,1191 @@ from apysc._color.color import Color
 from apysc._color.colors import Colors
 from apysc._color.colors import MaterialDesignColors
 from apysc._color.colorless import COLORLESS
-from apysc._material_design.icon.material_10k_icon import Material10KIcon
-from apysc._material_design.icon.material_1k_icon import Material1KIcon
-from apysc._material_design.icon.material_1k_plus_icon import Material1KPlusIcon
-from apysc._material_design.icon.material_2k_icon import Material2KIcon
-from apysc._material_design.icon.material_2k_plus_icon import Material2KPlusIcon
-from apysc._material_design.icon.material_3d_rotation_icon import Material3DRotationIcon
-from apysc._material_design.icon.material_3d_rotation_outlined_icon import Material3DRotationOutlinedIcon
-from apysc._material_design.icon.material_3k_icon import Material3KIcon
-from apysc._material_design.icon.material_3k_plus_icon import Material3KPlusIcon
-from apysc._material_design.icon.material_4k_icon import Material4KIcon
-from apysc._material_design.icon.material_4k_outlined_icon import Material4KOutlinedIcon
-from apysc._material_design.icon.material_4k_plus_icon import Material4KPlusIcon
-from apysc._material_design.icon.material_5g_icon import Material5GIcon
-from apysc._material_design.icon.material_5g_outlined_icon import Material5GOutlinedIcon
-from apysc._material_design.icon.material_5k_icon import Material5KIcon
-from apysc._material_design.icon.material_5k_plus_icon import Material5KPlusIcon
-from apysc._material_design.icon.material_6k_icon import Material6KIcon
-from apysc._material_design.icon.material_6k_plus_icon import Material6KPlusIcon
-from apysc._material_design.icon.material_7k_icon import Material7KIcon
-from apysc._material_design.icon.material_7k_plus_icon import Material7KPlusIcon
-from apysc._material_design.icon.material_8k_icon import Material8KIcon
-from apysc._material_design.icon.material_8k_plus_icon import Material8KPlusIcon
-from apysc._material_design.icon.material_9k_icon import Material9KIcon
-from apysc._material_design.icon.material_9k_plus_icon import Material9KPlusIcon
-from apysc._material_design.icon.material_accessibility_icon import MaterialAccessibilityIcon
-from apysc._material_design.icon.material_accessibility_new_icon import MaterialAccessibilityNewIcon
-from apysc._material_design.icon.material_accessibility_new_outlined_icon import MaterialAccessibilityNewOutlinedIcon
-from apysc._material_design.icon.material_accessibility_outlined_icon import MaterialAccessibilityOutlinedIcon
-from apysc._material_design.icon.material_accessible_forward_icon import MaterialAccessibleForwardIcon
-from apysc._material_design.icon.material_accessible_forward_outlined_icon import MaterialAccessibleForwardOutlinedIcon
-from apysc._material_design.icon.material_accessible_icon import MaterialAccessibleIcon
-from apysc._material_design.icon.material_accessible_outlined_icon import MaterialAccessibleOutlinedIcon
-from apysc._material_design.icon.material_account_balance_icon import MaterialAccountBalanceIcon
-from apysc._material_design.icon.material_account_balance_outlined_icon import MaterialAccountBalanceOutlinedIcon
-from apysc._material_design.icon.material_account_balance_wallet_icon import MaterialAccountBalanceWalletIcon
-from apysc._material_design.icon.material_account_balance_wallet_outlined_icon import MaterialAccountBalanceWalletOutlinedIcon
-from apysc._material_design.icon.material_account_box_icon import MaterialAccountBoxIcon
-from apysc._material_design.icon.material_account_box_outlined_icon import MaterialAccountBoxOutlinedIcon
-from apysc._material_design.icon.material_account_circle_icon import MaterialAccountCircleIcon
-from apysc._material_design.icon.material_account_circle_outlined_icon import MaterialAccountCircleOutlinedIcon
-from apysc._material_design.icon.material_addchart_icon import MaterialAddchartIcon
-from apysc._material_design.icon.material_addchart_outlined_icon import MaterialAddchartOutlinedIcon
-from apysc._material_design.icon.material_add_alert_icon import MaterialAddAlertIcon
-from apysc._material_design.icon.material_add_alert_outlined_icon import MaterialAddAlertOutlinedIcon
-from apysc._material_design.icon.material_add_box_icon import MaterialAddBoxIcon
-from apysc._material_design.icon.material_add_box_outlined_icon import MaterialAddBoxOutlinedIcon
-from apysc._material_design.icon.material_add_circle_icon import MaterialAddCircleIcon
-from apysc._material_design.icon.material_add_circle_outlined_icon import MaterialAddCircleOutlinedIcon
-from apysc._material_design.icon.material_add_circle_outline_icon import MaterialAddCircleOutlineIcon
-from apysc._material_design.icon.material_add_circle_outline_outlined_icon import MaterialAddCircleOutlineOutlinedIcon
+_imported_modules_rough_count += 50
 
-_logger.info("Roughly 200 packages have been imported...")
+if not _SKIP_MATERIAL_ICONS_IMPORTING:
+    from apysc._material_design.icon.material_10k_icon import Material10KIcon
+    from apysc._material_design.icon.material_1k_icon import Material1KIcon
+    from apysc._material_design.icon.material_1k_plus_icon import Material1KPlusIcon
+    from apysc._material_design.icon.material_2k_icon import Material2KIcon
+    from apysc._material_design.icon.material_2k_plus_icon import Material2KPlusIcon
+    from apysc._material_design.icon.material_3d_rotation_icon import Material3DRotationIcon
+    from apysc._material_design.icon.material_3d_rotation_outlined_icon import Material3DRotationOutlinedIcon
+    from apysc._material_design.icon.material_3k_icon import Material3KIcon
+    from apysc._material_design.icon.material_3k_plus_icon import Material3KPlusIcon
+    from apysc._material_design.icon.material_4k_icon import Material4KIcon
+    from apysc._material_design.icon.material_4k_outlined_icon import Material4KOutlinedIcon
+    from apysc._material_design.icon.material_4k_plus_icon import Material4KPlusIcon
+    from apysc._material_design.icon.material_5g_icon import Material5GIcon
+    from apysc._material_design.icon.material_5g_outlined_icon import Material5GOutlinedIcon
+    from apysc._material_design.icon.material_5k_icon import Material5KIcon
+    from apysc._material_design.icon.material_5k_plus_icon import Material5KPlusIcon
+    from apysc._material_design.icon.material_6k_icon import Material6KIcon
+    from apysc._material_design.icon.material_6k_plus_icon import Material6KPlusIcon
+    from apysc._material_design.icon.material_7k_icon import Material7KIcon
+    from apysc._material_design.icon.material_7k_plus_icon import Material7KPlusIcon
+    from apysc._material_design.icon.material_8k_icon import Material8KIcon
+    from apysc._material_design.icon.material_8k_plus_icon import Material8KPlusIcon
+    from apysc._material_design.icon.material_9k_icon import Material9KIcon
+    from apysc._material_design.icon.material_9k_plus_icon import Material9KPlusIcon
+    from apysc._material_design.icon.material_accessibility_icon import MaterialAccessibilityIcon
+    from apysc._material_design.icon.material_accessibility_new_icon import MaterialAccessibilityNewIcon
+    from apysc._material_design.icon.material_accessibility_new_outlined_icon import MaterialAccessibilityNewOutlinedIcon
+    from apysc._material_design.icon.material_accessibility_outlined_icon import MaterialAccessibilityOutlinedIcon
+    from apysc._material_design.icon.material_accessible_forward_icon import MaterialAccessibleForwardIcon
+    from apysc._material_design.icon.material_accessible_forward_outlined_icon import MaterialAccessibleForwardOutlinedIcon
+    from apysc._material_design.icon.material_accessible_icon import MaterialAccessibleIcon
+    from apysc._material_design.icon.material_accessible_outlined_icon import MaterialAccessibleOutlinedIcon
+    from apysc._material_design.icon.material_account_balance_icon import MaterialAccountBalanceIcon
+    from apysc._material_design.icon.material_account_balance_outlined_icon import MaterialAccountBalanceOutlinedIcon
+    from apysc._material_design.icon.material_account_balance_wallet_icon import MaterialAccountBalanceWalletIcon
+    from apysc._material_design.icon.material_account_balance_wallet_outlined_icon import MaterialAccountBalanceWalletOutlinedIcon
+    from apysc._material_design.icon.material_account_box_icon import MaterialAccountBoxIcon
+    from apysc._material_design.icon.material_account_box_outlined_icon import MaterialAccountBoxOutlinedIcon
+    from apysc._material_design.icon.material_account_circle_icon import MaterialAccountCircleIcon
+    from apysc._material_design.icon.material_account_circle_outlined_icon import MaterialAccountCircleOutlinedIcon
+    from apysc._material_design.icon.material_addchart_icon import MaterialAddchartIcon
+    from apysc._material_design.icon.material_addchart_outlined_icon import MaterialAddchartOutlinedIcon
+    from apysc._material_design.icon.material_add_alert_icon import MaterialAddAlertIcon
+    from apysc._material_design.icon.material_add_alert_outlined_icon import MaterialAddAlertOutlinedIcon
+    from apysc._material_design.icon.material_add_box_icon import MaterialAddBoxIcon
+    from apysc._material_design.icon.material_add_box_outlined_icon import MaterialAddBoxOutlinedIcon
+    from apysc._material_design.icon.material_add_circle_icon import MaterialAddCircleIcon
+    from apysc._material_design.icon.material_add_circle_outlined_icon import MaterialAddCircleOutlinedIcon
+    from apysc._material_design.icon.material_add_circle_outline_icon import MaterialAddCircleOutlineIcon
+    from apysc._material_design.icon.material_add_circle_outline_outlined_icon import MaterialAddCircleOutlineOutlinedIcon
+    _imported_modules_rough_count += 50
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-from apysc._material_design.icon.material_add_icon import MaterialAddIcon
-from apysc._material_design.icon.material_add_ic_call_icon import MaterialAddIcCallIcon
-from apysc._material_design.icon.material_add_ic_call_outlined_icon import MaterialAddIcCallOutlinedIcon
-from apysc._material_design.icon.material_add_link_icon import MaterialAddLinkIcon
-from apysc._material_design.icon.material_add_outlined_icon import MaterialAddOutlinedIcon
-from apysc._material_design.icon.material_add_shopping_cart_icon import MaterialAddShoppingCartIcon
-from apysc._material_design.icon.material_add_shopping_cart_outlined_icon import MaterialAddShoppingCartOutlinedIcon
-from apysc._material_design.icon.material_add_task_icon import MaterialAddTaskIcon
-from apysc._material_design.icon.material_add_task_outlined_icon import MaterialAddTaskOutlinedIcon
-from apysc._material_design.icon.material_add_to_drive_icon import MaterialAddToDriveIcon
-from apysc._material_design.icon.material_add_to_queue_icon import MaterialAddToQueueIcon
-from apysc._material_design.icon.material_add_to_queue_outlined_icon import MaterialAddToQueueOutlinedIcon
-from apysc._material_design.icon.material_admin_panel_settings_icon import MaterialAdminPanelSettingsIcon
-from apysc._material_design.icon.material_admin_panel_settings_outlined_icon import MaterialAdminPanelSettingsOutlinedIcon
-from apysc._material_design.icon.material_airplay_icon import MaterialAirplayIcon
-from apysc._material_design.icon.material_airplay_outlined_icon import MaterialAirplayOutlinedIcon
-from apysc._material_design.icon.material_alarm_add_icon import MaterialAlarmAddIcon
-from apysc._material_design.icon.material_alarm_add_outlined_icon import MaterialAlarmAddOutlinedIcon
-from apysc._material_design.icon.material_alarm_icon import MaterialAlarmIcon
-from apysc._material_design.icon.material_alarm_off_icon import MaterialAlarmOffIcon
-from apysc._material_design.icon.material_alarm_off_outlined_icon import MaterialAlarmOffOutlinedIcon
-from apysc._material_design.icon.material_alarm_on_icon import MaterialAlarmOnIcon
-from apysc._material_design.icon.material_alarm_on_outlined_icon import MaterialAlarmOnOutlinedIcon
-from apysc._material_design.icon.material_alarm_outlined_icon import MaterialAlarmOutlinedIcon
-from apysc._material_design.icon.material_album_icon import MaterialAlbumIcon
-from apysc._material_design.icon.material_album_outlined_icon import MaterialAlbumOutlinedIcon
-from apysc._material_design.icon.material_all_inbox_icon import MaterialAllInboxIcon
-from apysc._material_design.icon.material_all_inbox_outlined_icon import MaterialAllInboxOutlinedIcon
-from apysc._material_design.icon.material_all_out_icon import MaterialAllOutIcon
-from apysc._material_design.icon.material_all_out_outlined_icon import MaterialAllOutOutlinedIcon
-from apysc._material_design.icon.material_alternate_email_icon import MaterialAlternateEmailIcon
-from apysc._material_design.icon.material_alternate_email_outlined_icon import MaterialAlternateEmailOutlinedIcon
-from apysc._material_design.icon.material_amp_stories_icon import MaterialAmpStoriesIcon
-from apysc._material_design.icon.material_amp_stories_outlined_icon import MaterialAmpStoriesOutlinedIcon
-from apysc._material_design.icon.material_analytics_icon import MaterialAnalyticsIcon
-from apysc._material_design.icon.material_analytics_outlined_icon import MaterialAnalyticsOutlinedIcon
-from apysc._material_design.icon.material_anchor_icon import MaterialAnchorIcon
-from apysc._material_design.icon.material_anchor_outlined_icon import MaterialAnchorOutlinedIcon
-from apysc._material_design.icon.material_android_icon import MaterialAndroidIcon
-from apysc._material_design.icon.material_android_outlined_icon import MaterialAndroidOutlinedIcon
-from apysc._material_design.icon.material_announcement_icon import MaterialAnnouncementIcon
-from apysc._material_design.icon.material_announcement_outlined_icon import MaterialAnnouncementOutlinedIcon
-from apysc._material_design.icon.material_api_icon import MaterialApiIcon
-from apysc._material_design.icon.material_api_outlined_icon import MaterialApiOutlinedIcon
-from apysc._material_design.icon.material_app_blocking_icon import MaterialAppBlockingIcon
-from apysc._material_design.icon.material_app_blocking_outlined_icon import MaterialAppBlockingOutlinedIcon
-from apysc._material_design.icon.material_app_registration_icon import MaterialAppRegistrationIcon
-from apysc._material_design.icon.material_archive_icon import MaterialArchiveIcon
-from apysc._material_design.icon.material_archive_outlined_icon import MaterialArchiveOutlinedIcon
-from apysc._material_design.icon.material_arrow_circle_down_icon import MaterialArrowCircleDownIcon
-from apysc._material_design.icon.material_arrow_circle_down_outlined_icon import MaterialArrowCircleDownOutlinedIcon
-from apysc._material_design.icon.material_arrow_circle_up_icon import MaterialArrowCircleUpIcon
-from apysc._material_design.icon.material_arrow_circle_up_outlined_icon import MaterialArrowCircleUpOutlinedIcon
-from apysc._material_design.icon.material_arrow_right_alt_icon import MaterialArrowRightAltIcon
-from apysc._material_design.icon.material_arrow_right_alt_outlined_icon import MaterialArrowRightAltOutlinedIcon
-from apysc._material_design.icon.material_article_icon import MaterialArticleIcon
-from apysc._material_design.icon.material_article_outlined_icon import MaterialArticleOutlinedIcon
-from apysc._material_design.icon.material_art_track_icon import MaterialArtTrackIcon
-from apysc._material_design.icon.material_art_track_outlined_icon import MaterialArtTrackOutlinedIcon
-from apysc._material_design.icon.material_aspect_ratio_icon import MaterialAspectRatioIcon
-from apysc._material_design.icon.material_aspect_ratio_outlined_icon import MaterialAspectRatioOutlinedIcon
-from apysc._material_design.icon.material_assessment_icon import MaterialAssessmentIcon
-from apysc._material_design.icon.material_assessment_outlined_icon import MaterialAssessmentOutlinedIcon
-from apysc._material_design.icon.material_assignment_icon import MaterialAssignmentIcon
-from apysc._material_design.icon.material_assignment_ind_icon import MaterialAssignmentIndIcon
-from apysc._material_design.icon.material_assignment_ind_outlined_icon import MaterialAssignmentIndOutlinedIcon
-from apysc._material_design.icon.material_assignment_late_icon import MaterialAssignmentLateIcon
-from apysc._material_design.icon.material_assignment_late_outlined_icon import MaterialAssignmentLateOutlinedIcon
-from apysc._material_design.icon.material_assignment_outlined_icon import MaterialAssignmentOutlinedIcon
-from apysc._material_design.icon.material_assignment_returned_icon import MaterialAssignmentReturnedIcon
-from apysc._material_design.icon.material_assignment_returned_outlined_icon import MaterialAssignmentReturnedOutlinedIcon
-from apysc._material_design.icon.material_assignment_return_icon import MaterialAssignmentReturnIcon
-from apysc._material_design.icon.material_assignment_return_outlined_icon import MaterialAssignmentReturnOutlinedIcon
-from apysc._material_design.icon.material_assignment_turned_in_icon import MaterialAssignmentTurnedInIcon
-from apysc._material_design.icon.material_assignment_turned_in_outlined_icon import MaterialAssignmentTurnedInOutlinedIcon
-from apysc._material_design.icon.material_attribution_outlined_icon import MaterialAttributionOutlinedIcon
-from apysc._material_design.icon.material_autorenew_icon import MaterialAutorenewIcon
-from apysc._material_design.icon.material_autorenew_outlined_icon import MaterialAutorenewOutlinedIcon
-from apysc._material_design.icon.material_auto_delete_icon import MaterialAutoDeleteIcon
-from apysc._material_design.icon.material_auto_delete_outlined_icon import MaterialAutoDeleteOutlinedIcon
-from apysc._material_design.icon.material_av_timer_icon import MaterialAvTimerIcon
-from apysc._material_design.icon.material_av_timer_outlined_icon import MaterialAvTimerOutlinedIcon
-from apysc._material_design.icon.material_backspace_icon import MaterialBackspaceIcon
-from apysc._material_design.icon.material_backspace_outlined_icon import MaterialBackspaceOutlinedIcon
-from apysc._material_design.icon.material_backup_icon import MaterialBackupIcon
-from apysc._material_design.icon.material_backup_outlined_icon import MaterialBackupOutlinedIcon
-from apysc._material_design.icon.material_backup_table_icon import MaterialBackupTableIcon
-from apysc._material_design.icon.material_backup_table_outlined_icon import MaterialBackupTableOutlinedIcon
-from apysc._material_design.icon.material_ballot_icon import MaterialBallotIcon
-from apysc._material_design.icon.material_ballot_outlined_icon import MaterialBallotOutlinedIcon
-from apysc._material_design.icon.material_batch_prediction_icon import MaterialBatchPredictionIcon
-from apysc._material_design.icon.material_batch_prediction_outlined_icon import MaterialBatchPredictionOutlinedIcon
-from apysc._material_design.icon.material_biotech_icon import MaterialBiotechIcon
-from apysc._material_design.icon.material_biotech_outlined_icon import MaterialBiotechOutlinedIcon
-from apysc._material_design.icon.material_block_flipped_icon import MaterialBlockFlippedIcon
-from apysc._material_design.icon.material_block_icon import MaterialBlockIcon
-from apysc._material_design.icon.material_block_outlined_icon import MaterialBlockOutlinedIcon
+    from apysc._material_design.icon.material_add_icon import MaterialAddIcon
+    from apysc._material_design.icon.material_add_ic_call_icon import MaterialAddIcCallIcon
+    from apysc._material_design.icon.material_add_ic_call_outlined_icon import MaterialAddIcCallOutlinedIcon
+    from apysc._material_design.icon.material_add_link_icon import MaterialAddLinkIcon
+    from apysc._material_design.icon.material_add_outlined_icon import MaterialAddOutlinedIcon
+    from apysc._material_design.icon.material_add_shopping_cart_icon import MaterialAddShoppingCartIcon
+    from apysc._material_design.icon.material_add_shopping_cart_outlined_icon import MaterialAddShoppingCartOutlinedIcon
+    from apysc._material_design.icon.material_add_task_icon import MaterialAddTaskIcon
+    from apysc._material_design.icon.material_add_task_outlined_icon import MaterialAddTaskOutlinedIcon
+    from apysc._material_design.icon.material_add_to_drive_icon import MaterialAddToDriveIcon
+    from apysc._material_design.icon.material_add_to_queue_icon import MaterialAddToQueueIcon
+    from apysc._material_design.icon.material_add_to_queue_outlined_icon import MaterialAddToQueueOutlinedIcon
+    from apysc._material_design.icon.material_admin_panel_settings_icon import MaterialAdminPanelSettingsIcon
+    from apysc._material_design.icon.material_admin_panel_settings_outlined_icon import MaterialAdminPanelSettingsOutlinedIcon
+    from apysc._material_design.icon.material_airplay_icon import MaterialAirplayIcon
+    from apysc._material_design.icon.material_airplay_outlined_icon import MaterialAirplayOutlinedIcon
+    from apysc._material_design.icon.material_alarm_add_icon import MaterialAlarmAddIcon
+    from apysc._material_design.icon.material_alarm_add_outlined_icon import MaterialAlarmAddOutlinedIcon
+    from apysc._material_design.icon.material_alarm_icon import MaterialAlarmIcon
+    from apysc._material_design.icon.material_alarm_off_icon import MaterialAlarmOffIcon
+    from apysc._material_design.icon.material_alarm_off_outlined_icon import MaterialAlarmOffOutlinedIcon
+    from apysc._material_design.icon.material_alarm_on_icon import MaterialAlarmOnIcon
+    from apysc._material_design.icon.material_alarm_on_outlined_icon import MaterialAlarmOnOutlinedIcon
+    from apysc._material_design.icon.material_alarm_outlined_icon import MaterialAlarmOutlinedIcon
+    from apysc._material_design.icon.material_album_icon import MaterialAlbumIcon
+    from apysc._material_design.icon.material_album_outlined_icon import MaterialAlbumOutlinedIcon
+    from apysc._material_design.icon.material_all_inbox_icon import MaterialAllInboxIcon
+    from apysc._material_design.icon.material_all_inbox_outlined_icon import MaterialAllInboxOutlinedIcon
+    from apysc._material_design.icon.material_all_out_icon import MaterialAllOutIcon
+    from apysc._material_design.icon.material_all_out_outlined_icon import MaterialAllOutOutlinedIcon
+    from apysc._material_design.icon.material_alternate_email_icon import MaterialAlternateEmailIcon
+    from apysc._material_design.icon.material_alternate_email_outlined_icon import MaterialAlternateEmailOutlinedIcon
+    from apysc._material_design.icon.material_amp_stories_icon import MaterialAmpStoriesIcon
+    from apysc._material_design.icon.material_amp_stories_outlined_icon import MaterialAmpStoriesOutlinedIcon
+    from apysc._material_design.icon.material_analytics_icon import MaterialAnalyticsIcon
+    from apysc._material_design.icon.material_analytics_outlined_icon import MaterialAnalyticsOutlinedIcon
+    from apysc._material_design.icon.material_anchor_icon import MaterialAnchorIcon
+    from apysc._material_design.icon.material_anchor_outlined_icon import MaterialAnchorOutlinedIcon
+    from apysc._material_design.icon.material_android_icon import MaterialAndroidIcon
+    from apysc._material_design.icon.material_android_outlined_icon import MaterialAndroidOutlinedIcon
+    from apysc._material_design.icon.material_announcement_icon import MaterialAnnouncementIcon
+    from apysc._material_design.icon.material_announcement_outlined_icon import MaterialAnnouncementOutlinedIcon
+    from apysc._material_design.icon.material_api_icon import MaterialApiIcon
+    from apysc._material_design.icon.material_api_outlined_icon import MaterialApiOutlinedIcon
+    from apysc._material_design.icon.material_app_blocking_icon import MaterialAppBlockingIcon
+    from apysc._material_design.icon.material_app_blocking_outlined_icon import MaterialAppBlockingOutlinedIcon
+    from apysc._material_design.icon.material_app_registration_icon import MaterialAppRegistrationIcon
+    from apysc._material_design.icon.material_archive_icon import MaterialArchiveIcon
+    from apysc._material_design.icon.material_archive_outlined_icon import MaterialArchiveOutlinedIcon
+    from apysc._material_design.icon.material_arrow_circle_down_icon import MaterialArrowCircleDownIcon
+    from apysc._material_design.icon.material_arrow_circle_down_outlined_icon import MaterialArrowCircleDownOutlinedIcon
+    from apysc._material_design.icon.material_arrow_circle_up_icon import MaterialArrowCircleUpIcon
+    from apysc._material_design.icon.material_arrow_circle_up_outlined_icon import MaterialArrowCircleUpOutlinedIcon
+    from apysc._material_design.icon.material_arrow_right_alt_icon import MaterialArrowRightAltIcon
+    from apysc._material_design.icon.material_arrow_right_alt_outlined_icon import MaterialArrowRightAltOutlinedIcon
+    from apysc._material_design.icon.material_article_icon import MaterialArticleIcon
+    from apysc._material_design.icon.material_article_outlined_icon import MaterialArticleOutlinedIcon
+    from apysc._material_design.icon.material_art_track_icon import MaterialArtTrackIcon
+    from apysc._material_design.icon.material_art_track_outlined_icon import MaterialArtTrackOutlinedIcon
+    from apysc._material_design.icon.material_aspect_ratio_icon import MaterialAspectRatioIcon
+    from apysc._material_design.icon.material_aspect_ratio_outlined_icon import MaterialAspectRatioOutlinedIcon
+    from apysc._material_design.icon.material_assessment_icon import MaterialAssessmentIcon
+    from apysc._material_design.icon.material_assessment_outlined_icon import MaterialAssessmentOutlinedIcon
+    from apysc._material_design.icon.material_assignment_icon import MaterialAssignmentIcon
+    from apysc._material_design.icon.material_assignment_ind_icon import MaterialAssignmentIndIcon
+    from apysc._material_design.icon.material_assignment_ind_outlined_icon import MaterialAssignmentIndOutlinedIcon
+    from apysc._material_design.icon.material_assignment_late_icon import MaterialAssignmentLateIcon
+    from apysc._material_design.icon.material_assignment_late_outlined_icon import MaterialAssignmentLateOutlinedIcon
+    from apysc._material_design.icon.material_assignment_outlined_icon import MaterialAssignmentOutlinedIcon
+    from apysc._material_design.icon.material_assignment_returned_icon import MaterialAssignmentReturnedIcon
+    from apysc._material_design.icon.material_assignment_returned_outlined_icon import MaterialAssignmentReturnedOutlinedIcon
+    from apysc._material_design.icon.material_assignment_return_icon import MaterialAssignmentReturnIcon
+    from apysc._material_design.icon.material_assignment_return_outlined_icon import MaterialAssignmentReturnOutlinedIcon
+    from apysc._material_design.icon.material_assignment_turned_in_icon import MaterialAssignmentTurnedInIcon
+    from apysc._material_design.icon.material_assignment_turned_in_outlined_icon import MaterialAssignmentTurnedInOutlinedIcon
+    from apysc._material_design.icon.material_attribution_outlined_icon import MaterialAttributionOutlinedIcon
+    from apysc._material_design.icon.material_autorenew_icon import MaterialAutorenewIcon
+    from apysc._material_design.icon.material_autorenew_outlined_icon import MaterialAutorenewOutlinedIcon
+    from apysc._material_design.icon.material_auto_delete_icon import MaterialAutoDeleteIcon
+    from apysc._material_design.icon.material_auto_delete_outlined_icon import MaterialAutoDeleteOutlinedIcon
+    from apysc._material_design.icon.material_av_timer_icon import MaterialAvTimerIcon
+    from apysc._material_design.icon.material_av_timer_outlined_icon import MaterialAvTimerOutlinedIcon
+    from apysc._material_design.icon.material_backspace_icon import MaterialBackspaceIcon
+    from apysc._material_design.icon.material_backspace_outlined_icon import MaterialBackspaceOutlinedIcon
+    from apysc._material_design.icon.material_backup_icon import MaterialBackupIcon
+    from apysc._material_design.icon.material_backup_outlined_icon import MaterialBackupOutlinedIcon
+    from apysc._material_design.icon.material_backup_table_icon import MaterialBackupTableIcon
+    from apysc._material_design.icon.material_backup_table_outlined_icon import MaterialBackupTableOutlinedIcon
+    from apysc._material_design.icon.material_ballot_icon import MaterialBallotIcon
+    from apysc._material_design.icon.material_ballot_outlined_icon import MaterialBallotOutlinedIcon
+    from apysc._material_design.icon.material_batch_prediction_icon import MaterialBatchPredictionIcon
+    from apysc._material_design.icon.material_batch_prediction_outlined_icon import MaterialBatchPredictionOutlinedIcon
+    from apysc._material_design.icon.material_biotech_icon import MaterialBiotechIcon
+    from apysc._material_design.icon.material_biotech_outlined_icon import MaterialBiotechOutlinedIcon
+    from apysc._material_design.icon.material_block_flipped_icon import MaterialBlockFlippedIcon
+    from apysc._material_design.icon.material_block_icon import MaterialBlockIcon
+    from apysc._material_design.icon.material_block_outlined_icon import MaterialBlockOutlinedIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-_logger.info("Roughly 300 packages have been imported...")
+    from apysc._material_design.icon.material_bolt_icon import MaterialBoltIcon
+    from apysc._material_design.icon.material_bookmarks_icon import MaterialBookmarksIcon
+    from apysc._material_design.icon.material_bookmarks_outlined_icon import MaterialBookmarksOutlinedIcon
+    from apysc._material_design.icon.material_bookmark_border_icon import MaterialBookmarkBorderIcon
+    from apysc._material_design.icon.material_bookmark_border_outlined_icon import MaterialBookmarkBorderOutlinedIcon
+    from apysc._material_design.icon.material_bookmark_icon import MaterialBookmarkIcon
+    from apysc._material_design.icon.material_bookmark_outlined_icon import MaterialBookmarkOutlinedIcon
+    from apysc._material_design.icon.material_book_icon import MaterialBookIcon
+    from apysc._material_design.icon.material_book_online_icon import MaterialBookOnlineIcon
+    from apysc._material_design.icon.material_book_online_outlined_icon import MaterialBookOnlineOutlinedIcon
+    from apysc._material_design.icon.material_book_outlined_icon import MaterialBookOutlinedIcon
+    from apysc._material_design.icon.material_branding_watermark_icon import MaterialBrandingWatermarkIcon
+    from apysc._material_design.icon.material_branding_watermark_outlined_icon import MaterialBrandingWatermarkOutlinedIcon
+    from apysc._material_design.icon.material_bug_report_icon import MaterialBugReportIcon
+    from apysc._material_design.icon.material_bug_report_outlined_icon import MaterialBugReportOutlinedIcon
+    from apysc._material_design.icon.material_build_circle_icon import MaterialBuildCircleIcon
+    from apysc._material_design.icon.material_build_circle_outlined_icon import MaterialBuildCircleOutlinedIcon
+    from apysc._material_design.icon.material_build_icon import MaterialBuildIcon
+    from apysc._material_design.icon.material_build_outlined_icon import MaterialBuildOutlinedIcon
+    from apysc._material_design.icon.material_business_icon import MaterialBusinessIcon
+    from apysc._material_design.icon.material_business_outlined_icon import MaterialBusinessOutlinedIcon
+    from apysc._material_design.icon.material_cached_icon import MaterialCachedIcon
+    from apysc._material_design.icon.material_cached_outlined_icon import MaterialCachedOutlinedIcon
+    from apysc._material_design.icon.material_calculate_icon import MaterialCalculateIcon
+    from apysc._material_design.icon.material_calculate_outlined_icon import MaterialCalculateOutlinedIcon
+    from apysc._material_design.icon.material_calendar_today_icon import MaterialCalendarTodayIcon
+    from apysc._material_design.icon.material_calendar_today_outlined_icon import MaterialCalendarTodayOutlinedIcon
+    from apysc._material_design.icon.material_calendar_view_day_icon import MaterialCalendarViewDayIcon
+    from apysc._material_design.icon.material_calendar_view_day_outlined_icon import MaterialCalendarViewDayOutlinedIcon
+    from apysc._material_design.icon.material_call_end_icon import MaterialCallEndIcon
+    from apysc._material_design.icon.material_call_end_outlined_icon import MaterialCallEndOutlinedIcon
+    from apysc._material_design.icon.material_call_icon import MaterialCallIcon
+    from apysc._material_design.icon.material_call_made_icon import MaterialCallMadeIcon
+    from apysc._material_design.icon.material_call_made_outlined_icon import MaterialCallMadeOutlinedIcon
+    from apysc._material_design.icon.material_call_merge_icon import MaterialCallMergeIcon
+    from apysc._material_design.icon.material_call_merge_outlined_icon import MaterialCallMergeOutlinedIcon
+    from apysc._material_design.icon.material_call_missed_icon import MaterialCallMissedIcon
+    from apysc._material_design.icon.material_call_missed_outgoing_icon import MaterialCallMissedOutgoingIcon
+    from apysc._material_design.icon.material_call_missed_outgoing_outlined_icon import MaterialCallMissedOutgoingOutlinedIcon
+    from apysc._material_design.icon.material_call_missed_outlined_icon import MaterialCallMissedOutlinedIcon
+    from apysc._material_design.icon.material_call_outlined_icon import MaterialCallOutlinedIcon
+    from apysc._material_design.icon.material_call_received_icon import MaterialCallReceivedIcon
+    from apysc._material_design.icon.material_call_received_outlined_icon import MaterialCallReceivedOutlinedIcon
+    from apysc._material_design.icon.material_call_split_icon import MaterialCallSplitIcon
+    from apysc._material_design.icon.material_call_split_outlined_icon import MaterialCallSplitOutlinedIcon
+    from apysc._material_design.icon.material_call_to_action_icon import MaterialCallToActionIcon
+    from apysc._material_design.icon.material_call_to_action_outlined_icon import MaterialCallToActionOutlinedIcon
+    from apysc._material_design.icon.material_camera_enhance_icon import MaterialCameraEnhanceIcon
+    from apysc._material_design.icon.material_camera_enhance_outlined_icon import MaterialCameraEnhanceOutlinedIcon
+    from apysc._material_design.icon.material_cancel_presentation_icon import MaterialCancelPresentationIcon
+    from apysc._material_design.icon.material_cancel_presentation_outlined_icon import MaterialCancelPresentationOutlinedIcon
+    from apysc._material_design.icon.material_cancel_schedule_send_icon import MaterialCancelScheduleSendIcon
+    from apysc._material_design.icon.material_cancel_schedule_send_outlined_icon import MaterialCancelScheduleSendOutlinedIcon
+    from apysc._material_design.icon.material_card_giftcard_icon import MaterialCardGiftcardIcon
+    from apysc._material_design.icon.material_card_giftcard_outlined_icon import MaterialCardGiftcardOutlinedIcon
+    from apysc._material_design.icon.material_card_membership_icon import MaterialCardMembershipIcon
+    from apysc._material_design.icon.material_card_membership_outlined_icon import MaterialCardMembershipOutlinedIcon
+    from apysc._material_design.icon.material_card_travel_icon import MaterialCardTravelIcon
+    from apysc._material_design.icon.material_card_travel_outlined_icon import MaterialCardTravelOutlinedIcon
+    from apysc._material_design.icon.material_cell_wifi_icon import MaterialCellWifiIcon
+    from apysc._material_design.icon.material_change_history_icon import MaterialChangeHistoryIcon
+    from apysc._material_design.icon.material_change_history_outlined_icon import MaterialChangeHistoryOutlinedIcon
+    from apysc._material_design.icon.material_chat_bubble_icon import MaterialChatBubbleIcon
+    from apysc._material_design.icon.material_chat_bubble_outlined_icon import MaterialChatBubbleOutlinedIcon
+    from apysc._material_design.icon.material_chat_bubble_outline_icon import MaterialChatBubbleOutlineIcon
+    from apysc._material_design.icon.material_chat_bubble_outline_outlined_icon import MaterialChatBubbleOutlineOutlinedIcon
+    from apysc._material_design.icon.material_chat_icon import MaterialChatIcon
+    from apysc._material_design.icon.material_chat_outlined_icon import MaterialChatOutlinedIcon
+    from apysc._material_design.icon.material_check_circle_icon import MaterialCheckCircleIcon
+    from apysc._material_design.icon.material_check_circle_outlined_icon import MaterialCheckCircleOutlinedIcon
+    from apysc._material_design.icon.material_check_circle_outline_icon import MaterialCheckCircleOutlineIcon
+    from apysc._material_design.icon.material_check_circle_outline_outlined_icon import MaterialCheckCircleOutlineOutlinedIcon
+    from apysc._material_design.icon.material_chrome_reader_mode_icon import MaterialChromeReaderModeIcon
+    from apysc._material_design.icon.material_chrome_reader_mode_outlined_icon import MaterialChromeReaderModeOutlinedIcon
+    from apysc._material_design.icon.material_circle_notifications_icon import MaterialCircleNotificationsIcon
+    from apysc._material_design.icon.material_class_icon import MaterialClassIcon
+    from apysc._material_design.icon.material_class_outlined_icon import MaterialClassOutlinedIcon
+    from apysc._material_design.icon.material_clear_all_icon import MaterialClearAllIcon
+    from apysc._material_design.icon.material_clear_all_outlined_icon import MaterialClearAllOutlinedIcon
+    from apysc._material_design.icon.material_clear_icon import MaterialClearIcon
+    from apysc._material_design.icon.material_clear_outlined_icon import MaterialClearOutlinedIcon
+    from apysc._material_design.icon.material_closed_caption_disabled_icon import MaterialClosedCaptionDisabledIcon
+    from apysc._material_design.icon.material_closed_caption_disabled_outlined_icon import MaterialClosedCaptionDisabledOutlinedIcon
+    from apysc._material_design.icon.material_closed_caption_icon import MaterialClosedCaptionIcon
+    from apysc._material_design.icon.material_closed_caption_off_icon import MaterialClosedCaptionOffIcon
+    from apysc._material_design.icon.material_closed_caption_outlined_icon import MaterialClosedCaptionOutlinedIcon
+    from apysc._material_design.icon.material_close_fullscreen_icon import MaterialCloseFullscreenIcon
+    from apysc._material_design.icon.material_close_fullscreen_outlined_icon import MaterialCloseFullscreenOutlinedIcon
+    from apysc._material_design.icon.material_code_icon import MaterialCodeIcon
+    from apysc._material_design.icon.material_code_outlined_icon import MaterialCodeOutlinedIcon
+    from apysc._material_design.icon.material_comment_bank_icon import MaterialCommentBankIcon
+    from apysc._material_design.icon.material_comment_bank_outlined_icon import MaterialCommentBankOutlinedIcon
+    from apysc._material_design.icon.material_comment_icon import MaterialCommentIcon
+    from apysc._material_design.icon.material_comment_outlined_icon import MaterialCommentOutlinedIcon
+    from apysc._material_design.icon.material_commute_icon import MaterialCommuteIcon
+    from apysc._material_design.icon.material_commute_outlined_icon import MaterialCommuteOutlinedIcon
+    from apysc._material_design.icon.material_compare_arrows_icon import MaterialCompareArrowsIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-from apysc._material_design.icon.material_bolt_icon import MaterialBoltIcon
-from apysc._material_design.icon.material_bookmarks_icon import MaterialBookmarksIcon
-from apysc._material_design.icon.material_bookmarks_outlined_icon import MaterialBookmarksOutlinedIcon
-from apysc._material_design.icon.material_bookmark_border_icon import MaterialBookmarkBorderIcon
-from apysc._material_design.icon.material_bookmark_border_outlined_icon import MaterialBookmarkBorderOutlinedIcon
-from apysc._material_design.icon.material_bookmark_icon import MaterialBookmarkIcon
-from apysc._material_design.icon.material_bookmark_outlined_icon import MaterialBookmarkOutlinedIcon
-from apysc._material_design.icon.material_book_icon import MaterialBookIcon
-from apysc._material_design.icon.material_book_online_icon import MaterialBookOnlineIcon
-from apysc._material_design.icon.material_book_online_outlined_icon import MaterialBookOnlineOutlinedIcon
-from apysc._material_design.icon.material_book_outlined_icon import MaterialBookOutlinedIcon
-from apysc._material_design.icon.material_branding_watermark_icon import MaterialBrandingWatermarkIcon
-from apysc._material_design.icon.material_branding_watermark_outlined_icon import MaterialBrandingWatermarkOutlinedIcon
-from apysc._material_design.icon.material_bug_report_icon import MaterialBugReportIcon
-from apysc._material_design.icon.material_bug_report_outlined_icon import MaterialBugReportOutlinedIcon
-from apysc._material_design.icon.material_build_circle_icon import MaterialBuildCircleIcon
-from apysc._material_design.icon.material_build_circle_outlined_icon import MaterialBuildCircleOutlinedIcon
-from apysc._material_design.icon.material_build_icon import MaterialBuildIcon
-from apysc._material_design.icon.material_build_outlined_icon import MaterialBuildOutlinedIcon
-from apysc._material_design.icon.material_business_icon import MaterialBusinessIcon
-from apysc._material_design.icon.material_business_outlined_icon import MaterialBusinessOutlinedIcon
-from apysc._material_design.icon.material_cached_icon import MaterialCachedIcon
-from apysc._material_design.icon.material_cached_outlined_icon import MaterialCachedOutlinedIcon
-from apysc._material_design.icon.material_calculate_icon import MaterialCalculateIcon
-from apysc._material_design.icon.material_calculate_outlined_icon import MaterialCalculateOutlinedIcon
-from apysc._material_design.icon.material_calendar_today_icon import MaterialCalendarTodayIcon
-from apysc._material_design.icon.material_calendar_today_outlined_icon import MaterialCalendarTodayOutlinedIcon
-from apysc._material_design.icon.material_calendar_view_day_icon import MaterialCalendarViewDayIcon
-from apysc._material_design.icon.material_calendar_view_day_outlined_icon import MaterialCalendarViewDayOutlinedIcon
-from apysc._material_design.icon.material_call_end_icon import MaterialCallEndIcon
-from apysc._material_design.icon.material_call_end_outlined_icon import MaterialCallEndOutlinedIcon
-from apysc._material_design.icon.material_call_icon import MaterialCallIcon
-from apysc._material_design.icon.material_call_made_icon import MaterialCallMadeIcon
-from apysc._material_design.icon.material_call_made_outlined_icon import MaterialCallMadeOutlinedIcon
-from apysc._material_design.icon.material_call_merge_icon import MaterialCallMergeIcon
-from apysc._material_design.icon.material_call_merge_outlined_icon import MaterialCallMergeOutlinedIcon
-from apysc._material_design.icon.material_call_missed_icon import MaterialCallMissedIcon
-from apysc._material_design.icon.material_call_missed_outgoing_icon import MaterialCallMissedOutgoingIcon
-from apysc._material_design.icon.material_call_missed_outgoing_outlined_icon import MaterialCallMissedOutgoingOutlinedIcon
-from apysc._material_design.icon.material_call_missed_outlined_icon import MaterialCallMissedOutlinedIcon
-from apysc._material_design.icon.material_call_outlined_icon import MaterialCallOutlinedIcon
-from apysc._material_design.icon.material_call_received_icon import MaterialCallReceivedIcon
-from apysc._material_design.icon.material_call_received_outlined_icon import MaterialCallReceivedOutlinedIcon
-from apysc._material_design.icon.material_call_split_icon import MaterialCallSplitIcon
-from apysc._material_design.icon.material_call_split_outlined_icon import MaterialCallSplitOutlinedIcon
-from apysc._material_design.icon.material_call_to_action_icon import MaterialCallToActionIcon
-from apysc._material_design.icon.material_call_to_action_outlined_icon import MaterialCallToActionOutlinedIcon
-from apysc._material_design.icon.material_camera_enhance_icon import MaterialCameraEnhanceIcon
-from apysc._material_design.icon.material_camera_enhance_outlined_icon import MaterialCameraEnhanceOutlinedIcon
-from apysc._material_design.icon.material_cancel_presentation_icon import MaterialCancelPresentationIcon
-from apysc._material_design.icon.material_cancel_presentation_outlined_icon import MaterialCancelPresentationOutlinedIcon
-from apysc._material_design.icon.material_cancel_schedule_send_icon import MaterialCancelScheduleSendIcon
-from apysc._material_design.icon.material_cancel_schedule_send_outlined_icon import MaterialCancelScheduleSendOutlinedIcon
-from apysc._material_design.icon.material_card_giftcard_icon import MaterialCardGiftcardIcon
-from apysc._material_design.icon.material_card_giftcard_outlined_icon import MaterialCardGiftcardOutlinedIcon
-from apysc._material_design.icon.material_card_membership_icon import MaterialCardMembershipIcon
-from apysc._material_design.icon.material_card_membership_outlined_icon import MaterialCardMembershipOutlinedIcon
-from apysc._material_design.icon.material_card_travel_icon import MaterialCardTravelIcon
-from apysc._material_design.icon.material_card_travel_outlined_icon import MaterialCardTravelOutlinedIcon
-from apysc._material_design.icon.material_cell_wifi_icon import MaterialCellWifiIcon
-from apysc._material_design.icon.material_change_history_icon import MaterialChangeHistoryIcon
-from apysc._material_design.icon.material_change_history_outlined_icon import MaterialChangeHistoryOutlinedIcon
-from apysc._material_design.icon.material_chat_bubble_icon import MaterialChatBubbleIcon
-from apysc._material_design.icon.material_chat_bubble_outlined_icon import MaterialChatBubbleOutlinedIcon
-from apysc._material_design.icon.material_chat_bubble_outline_icon import MaterialChatBubbleOutlineIcon
-from apysc._material_design.icon.material_chat_bubble_outline_outlined_icon import MaterialChatBubbleOutlineOutlinedIcon
-from apysc._material_design.icon.material_chat_icon import MaterialChatIcon
-from apysc._material_design.icon.material_chat_outlined_icon import MaterialChatOutlinedIcon
-from apysc._material_design.icon.material_check_circle_icon import MaterialCheckCircleIcon
-from apysc._material_design.icon.material_check_circle_outlined_icon import MaterialCheckCircleOutlinedIcon
-from apysc._material_design.icon.material_check_circle_outline_icon import MaterialCheckCircleOutlineIcon
-from apysc._material_design.icon.material_check_circle_outline_outlined_icon import MaterialCheckCircleOutlineOutlinedIcon
-from apysc._material_design.icon.material_chrome_reader_mode_icon import MaterialChromeReaderModeIcon
-from apysc._material_design.icon.material_chrome_reader_mode_outlined_icon import MaterialChromeReaderModeOutlinedIcon
-from apysc._material_design.icon.material_circle_notifications_icon import MaterialCircleNotificationsIcon
-from apysc._material_design.icon.material_class_icon import MaterialClassIcon
-from apysc._material_design.icon.material_class_outlined_icon import MaterialClassOutlinedIcon
-from apysc._material_design.icon.material_clear_all_icon import MaterialClearAllIcon
-from apysc._material_design.icon.material_clear_all_outlined_icon import MaterialClearAllOutlinedIcon
-from apysc._material_design.icon.material_clear_icon import MaterialClearIcon
-from apysc._material_design.icon.material_clear_outlined_icon import MaterialClearOutlinedIcon
-from apysc._material_design.icon.material_closed_caption_disabled_icon import MaterialClosedCaptionDisabledIcon
-from apysc._material_design.icon.material_closed_caption_disabled_outlined_icon import MaterialClosedCaptionDisabledOutlinedIcon
-from apysc._material_design.icon.material_closed_caption_icon import MaterialClosedCaptionIcon
-from apysc._material_design.icon.material_closed_caption_off_icon import MaterialClosedCaptionOffIcon
-from apysc._material_design.icon.material_closed_caption_outlined_icon import MaterialClosedCaptionOutlinedIcon
-from apysc._material_design.icon.material_close_fullscreen_icon import MaterialCloseFullscreenIcon
-from apysc._material_design.icon.material_close_fullscreen_outlined_icon import MaterialCloseFullscreenOutlinedIcon
-from apysc._material_design.icon.material_code_icon import MaterialCodeIcon
-from apysc._material_design.icon.material_code_outlined_icon import MaterialCodeOutlinedIcon
-from apysc._material_design.icon.material_comment_bank_icon import MaterialCommentBankIcon
-from apysc._material_design.icon.material_comment_bank_outlined_icon import MaterialCommentBankOutlinedIcon
-from apysc._material_design.icon.material_comment_icon import MaterialCommentIcon
-from apysc._material_design.icon.material_comment_outlined_icon import MaterialCommentOutlinedIcon
-from apysc._material_design.icon.material_commute_icon import MaterialCommuteIcon
-from apysc._material_design.icon.material_commute_outlined_icon import MaterialCommuteOutlinedIcon
-from apysc._material_design.icon.material_compare_arrows_icon import MaterialCompareArrowsIcon
+    from apysc._material_design.icon.material_compare_arrows_outlined_icon import MaterialCompareArrowsOutlinedIcon
+    from apysc._material_design.icon.material_compress_icon import MaterialCompressIcon
+    from apysc._material_design.icon.material_contactless_icon import MaterialContactlessIcon
+    from apysc._material_design.icon.material_contactless_outlined_icon import MaterialContactlessOutlinedIcon
+    from apysc._material_design.icon.material_contacts_icon import MaterialContactsIcon
+    from apysc._material_design.icon.material_contacts_outlined_icon import MaterialContactsOutlinedIcon
+    from apysc._material_design.icon.material_contact_mail_icon import MaterialContactMailIcon
+    from apysc._material_design.icon.material_contact_mail_outlined_icon import MaterialContactMailOutlinedIcon
+    from apysc._material_design.icon.material_contact_page_icon import MaterialContactPageIcon
+    from apysc._material_design.icon.material_contact_page_outlined_icon import MaterialContactPageOutlinedIcon
+    from apysc._material_design.icon.material_contact_phone_icon import MaterialContactPhoneIcon
+    from apysc._material_design.icon.material_contact_phone_outlined_icon import MaterialContactPhoneOutlinedIcon
+    from apysc._material_design.icon.material_contact_support_icon import MaterialContactSupportIcon
+    from apysc._material_design.icon.material_contact_support_outlined_icon import MaterialContactSupportOutlinedIcon
+    from apysc._material_design.icon.material_content_copy_icon import MaterialContentCopyIcon
+    from apysc._material_design.icon.material_content_copy_outlined_icon import MaterialContentCopyOutlinedIcon
+    from apysc._material_design.icon.material_content_cut_icon import MaterialContentCutIcon
+    from apysc._material_design.icon.material_content_cut_outlined_icon import MaterialContentCutOutlinedIcon
+    from apysc._material_design.icon.material_content_paste_icon import MaterialContentPasteIcon
+    from apysc._material_design.icon.material_content_paste_outlined_icon import MaterialContentPasteOutlinedIcon
+    from apysc._material_design.icon.material_control_camera_icon import MaterialControlCameraIcon
+    from apysc._material_design.icon.material_control_camera_outlined_icon import MaterialControlCameraOutlinedIcon
+    from apysc._material_design.icon.material_copyright_icon import MaterialCopyrightIcon
+    from apysc._material_design.icon.material_copyright_outlined_icon import MaterialCopyrightOutlinedIcon
+    from apysc._material_design.icon.material_create_icon import MaterialCreateIcon
+    from apysc._material_design.icon.material_create_outlined_icon import MaterialCreateOutlinedIcon
+    from apysc._material_design.icon.material_credit_card_icon import MaterialCreditCardIcon
+    from apysc._material_design.icon.material_credit_card_outlined_icon import MaterialCreditCardOutlinedIcon
+    from apysc._material_design.icon.material_dangerous_icon import MaterialDangerousIcon
+    from apysc._material_design.icon.material_dashboard_customize_icon import MaterialDashboardCustomizeIcon
+    from apysc._material_design.icon.material_dashboard_icon import MaterialDashboardIcon
+    from apysc._material_design.icon.material_dashboard_outlined_icon import MaterialDashboardOutlinedIcon
+    from apysc._material_design.icon.material_date_range_icon import MaterialDateRangeIcon
+    from apysc._material_design.icon.material_date_range_outlined_icon import MaterialDateRangeOutlinedIcon
+    from apysc._material_design.icon.material_delete_forever_icon import MaterialDeleteForeverIcon
+    from apysc._material_design.icon.material_delete_forever_outlined_icon import MaterialDeleteForeverOutlinedIcon
+    from apysc._material_design.icon.material_delete_icon import MaterialDeleteIcon
+    from apysc._material_design.icon.material_delete_outlined_icon import MaterialDeleteOutlinedIcon
+    from apysc._material_design.icon.material_delete_outline_icon import MaterialDeleteOutlineIcon
+    from apysc._material_design.icon.material_delete_outline_outlined_icon import MaterialDeleteOutlineOutlinedIcon
+    from apysc._material_design.icon.material_delete_sweep_icon import MaterialDeleteSweepIcon
+    from apysc._material_design.icon.material_delete_sweep_outlined_icon import MaterialDeleteSweepOutlinedIcon
+    from apysc._material_design.icon.material_description_icon import MaterialDescriptionIcon
+    from apysc._material_design.icon.material_description_outlined_icon import MaterialDescriptionOutlinedIcon
+    from apysc._material_design.icon.material_desktop_access_disabled_icon import MaterialDesktopAccessDisabledIcon
+    from apysc._material_design.icon.material_desktop_access_disabled_outlined_icon import MaterialDesktopAccessDisabledOutlinedIcon
+    from apysc._material_design.icon.material_dialer_sip_icon import MaterialDialerSipIcon
+    from apysc._material_design.icon.material_dialer_sip_outlined_icon import MaterialDialerSipOutlinedIcon
+    from apysc._material_design.icon.material_dialpad_icon import MaterialDialpadIcon
+    from apysc._material_design.icon.material_dialpad_outlined_icon import MaterialDialpadOutlinedIcon
+    from apysc._material_design.icon.material_disabled_by_default_icon import MaterialDisabledByDefaultIcon
+    from apysc._material_design.icon.material_disabled_by_default_outlined_icon import MaterialDisabledByDefaultOutlinedIcon
+    from apysc._material_design.icon.material_dns_icon import MaterialDnsIcon
+    from apysc._material_design.icon.material_dns_outlined_icon import MaterialDnsOutlinedIcon
+    from apysc._material_design.icon.material_domain_disabled_icon import MaterialDomainDisabledIcon
+    from apysc._material_design.icon.material_domain_disabled_outlined_icon import MaterialDomainDisabledOutlinedIcon
+    from apysc._material_design.icon.material_domain_verification_icon import MaterialDomainVerificationIcon
+    from apysc._material_design.icon.material_domain_verification_outlined_icon import MaterialDomainVerificationOutlinedIcon
+    from apysc._material_design.icon.material_done_all_icon import MaterialDoneAllIcon
+    from apysc._material_design.icon.material_done_all_outlined_icon import MaterialDoneAllOutlinedIcon
+    from apysc._material_design.icon.material_done_icon import MaterialDoneIcon
+    from apysc._material_design.icon.material_done_outlined_icon import MaterialDoneOutlinedIcon
+    from apysc._material_design.icon.material_done_outline_icon import MaterialDoneOutlineIcon
+    from apysc._material_design.icon.material_done_outline_outlined_icon import MaterialDoneOutlineOutlinedIcon
+    from apysc._material_design.icon.material_donut_large_icon import MaterialDonutLargeIcon
+    from apysc._material_design.icon.material_donut_large_outlined_icon import MaterialDonutLargeOutlinedIcon
+    from apysc._material_design.icon.material_donut_small_icon import MaterialDonutSmallIcon
+    from apysc._material_design.icon.material_donut_small_outlined_icon import MaterialDonutSmallOutlinedIcon
+    from apysc._material_design.icon.material_drafts_icon import MaterialDraftsIcon
+    from apysc._material_design.icon.material_drafts_outlined_icon import MaterialDraftsOutlinedIcon
+    from apysc._material_design.icon.material_drag_indicator_icon import MaterialDragIndicatorIcon
+    from apysc._material_design.icon.material_drag_indicator_outlined_icon import MaterialDragIndicatorOutlinedIcon
+    from apysc._material_design.icon.material_duo_icon import MaterialDuoIcon
+    from apysc._material_design.icon.material_duo_outlined_icon import MaterialDuoOutlinedIcon
+    from apysc._material_design.icon.material_dynamic_feed_icon import MaterialDynamicFeedIcon
+    from apysc._material_design.icon.material_dynamic_feed_outlined_icon import MaterialDynamicFeedOutlinedIcon
+    from apysc._material_design.icon.material_dynamic_form_icon import MaterialDynamicFormIcon
+    from apysc._material_design.icon.material_dynamic_form_outlined_icon import MaterialDynamicFormOutlinedIcon
+    from apysc._material_design.icon.material_eco_icon import MaterialEcoIcon
+    from apysc._material_design.icon.material_eco_outlined_icon import MaterialEcoOutlinedIcon
+    from apysc._material_design.icon.material_edit_off_icon import MaterialEditOffIcon
+    from apysc._material_design.icon.material_eject_icon import MaterialEjectIcon
+    from apysc._material_design.icon.material_eject_outlined_icon import MaterialEjectOutlinedIcon
+    from apysc._material_design.icon.material_email_icon import MaterialEmailIcon
+    from apysc._material_design.icon.material_email_outlined_icon import MaterialEmailOutlinedIcon
+    from apysc._material_design.icon.material_equalizer_icon import MaterialEqualizerIcon
+    from apysc._material_design.icon.material_equalizer_outlined_icon import MaterialEqualizerOutlinedIcon
+    from apysc._material_design.icon.material_error_icon import MaterialErrorIcon
+    from apysc._material_design.icon.material_error_outlined_icon import MaterialErrorOutlinedIcon
+    from apysc._material_design.icon.material_error_outline_icon import MaterialErrorOutlineIcon
+    from apysc._material_design.icon.material_error_outline_outlined_icon import MaterialErrorOutlineOutlinedIcon
+    from apysc._material_design.icon.material_euro_symbol_icon import MaterialEuroSymbolIcon
+    from apysc._material_design.icon.material_euro_symbol_outlined_icon import MaterialEuroSymbolOutlinedIcon
+    from apysc._material_design.icon.material_event_icon import MaterialEventIcon
+    from apysc._material_design.icon.material_event_outlined_icon import MaterialEventOutlinedIcon
+    from apysc._material_design.icon.material_event_seat_icon import MaterialEventSeatIcon
+    from apysc._material_design.icon.material_event_seat_outlined_icon import MaterialEventSeatOutlinedIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-_logger.info("Roughly 400 packages have been imported...")
+    from apysc._material_design.icon.material_exit_to_app_icon import MaterialExitToAppIcon
+    from apysc._material_design.icon.material_exit_to_app_outlined_icon import MaterialExitToAppOutlinedIcon
+    from apysc._material_design.icon.material_expand_icon import MaterialExpandIcon
+    from apysc._material_design.icon.material_explicit_icon import MaterialExplicitIcon
+    from apysc._material_design.icon.material_explicit_outlined_icon import MaterialExplicitOutlinedIcon
+    from apysc._material_design.icon.material_explore_icon import MaterialExploreIcon
+    from apysc._material_design.icon.material_explore_off_icon import MaterialExploreOffIcon
+    from apysc._material_design.icon.material_explore_off_outlined_icon import MaterialExploreOffOutlinedIcon
+    from apysc._material_design.icon.material_explore_outlined_icon import MaterialExploreOutlinedIcon
+    from apysc._material_design.icon.material_extension_icon import MaterialExtensionIcon
+    from apysc._material_design.icon.material_extension_outlined_icon import MaterialExtensionOutlinedIcon
+    from apysc._material_design.icon.material_face_icon import MaterialFaceIcon
+    from apysc._material_design.icon.material_face_outlined_icon import MaterialFaceOutlinedIcon
+    from apysc._material_design.icon.material_face_unlock_outlined_icon import MaterialFaceUnlockOutlinedIcon
+    from apysc._material_design.icon.material_fact_check_icon import MaterialFactCheckIcon
+    from apysc._material_design.icon.material_fact_check_outlined_icon import MaterialFactCheckOutlinedIcon
+    from apysc._material_design.icon.material_fast_forward_icon import MaterialFastForwardIcon
+    from apysc._material_design.icon.material_fast_forward_outlined_icon import MaterialFastForwardOutlinedIcon
+    from apysc._material_design.icon.material_fast_rewind_icon import MaterialFastRewindIcon
+    from apysc._material_design.icon.material_fast_rewind_outlined_icon import MaterialFastRewindOutlinedIcon
+    from apysc._material_design.icon.material_favorite_border_icon import MaterialFavoriteBorderIcon
+    from apysc._material_design.icon.material_favorite_border_outlined_icon import MaterialFavoriteBorderOutlinedIcon
+    from apysc._material_design.icon.material_favorite_icon import MaterialFavoriteIcon
+    from apysc._material_design.icon.material_favorite_outlined_icon import MaterialFavoriteOutlinedIcon
+    from apysc._material_design.icon.material_featured_play_list_icon import MaterialFeaturedPlayListIcon
+    from apysc._material_design.icon.material_featured_play_list_outlined_icon import MaterialFeaturedPlayListOutlinedIcon
+    from apysc._material_design.icon.material_featured_video_icon import MaterialFeaturedVideoIcon
+    from apysc._material_design.icon.material_featured_video_outlined_icon import MaterialFeaturedVideoOutlinedIcon
+    from apysc._material_design.icon.material_feedback_icon import MaterialFeedbackIcon
+    from apysc._material_design.icon.material_feedback_outlined_icon import MaterialFeedbackOutlinedIcon
+    from apysc._material_design.icon.material_fiber_dvr_icon import MaterialFiberDvrIcon
+    from apysc._material_design.icon.material_fiber_dvr_outlined_icon import MaterialFiberDvrOutlinedIcon
+    from apysc._material_design.icon.material_fiber_manual_record_icon import MaterialFiberManualRecordIcon
+    from apysc._material_design.icon.material_fiber_manual_record_outlined_icon import MaterialFiberManualRecordOutlinedIcon
+    from apysc._material_design.icon.material_fiber_new_icon import MaterialFiberNewIcon
+    from apysc._material_design.icon.material_fiber_new_outlined_icon import MaterialFiberNewOutlinedIcon
+    from apysc._material_design.icon.material_fiber_pin_icon import MaterialFiberPinIcon
+    from apysc._material_design.icon.material_fiber_pin_outlined_icon import MaterialFiberPinOutlinedIcon
+    from apysc._material_design.icon.material_fiber_smart_record_icon import MaterialFiberSmartRecordIcon
+    from apysc._material_design.icon.material_fiber_smart_record_outlined_icon import MaterialFiberSmartRecordOutlinedIcon
+    from apysc._material_design.icon.material_file_copy_icon import MaterialFileCopyIcon
+    from apysc._material_design.icon.material_file_copy_outlined_icon import MaterialFileCopyOutlinedIcon
+    from apysc._material_design.icon.material_file_present_icon import MaterialFilePresentIcon
+    from apysc._material_design.icon.material_filter_alt_icon import MaterialFilterAltIcon
+    from apysc._material_design.icon.material_filter_alt_outlined_icon import MaterialFilterAltOutlinedIcon
+    from apysc._material_design.icon.material_filter_list_alt_icon import MaterialFilterListAltIcon
+    from apysc._material_design.icon.material_filter_list_icon import MaterialFilterListIcon
+    from apysc._material_design.icon.material_filter_list_outlined_icon import MaterialFilterListOutlinedIcon
+    from apysc._material_design.icon.material_find_in_page_icon import MaterialFindInPageIcon
+    from apysc._material_design.icon.material_find_in_page_outlined_icon import MaterialFindInPageOutlinedIcon
+    from apysc._material_design.icon.material_find_replace_icon import MaterialFindReplaceIcon
+    from apysc._material_design.icon.material_find_replace_outlined_icon import MaterialFindReplaceOutlinedIcon
+    from apysc._material_design.icon.material_fingerprint_icon import MaterialFingerprintIcon
+    from apysc._material_design.icon.material_fingerprint_outlined_icon import MaterialFingerprintOutlinedIcon
+    from apysc._material_design.icon.material_fit_screen_icon import MaterialFitScreenIcon
+    from apysc._material_design.icon.material_flag_icon import MaterialFlagIcon
+    from apysc._material_design.icon.material_flag_outlined_icon import MaterialFlagOutlinedIcon
+    from apysc._material_design.icon.material_flaky_icon import MaterialFlakyIcon
+    from apysc._material_design.icon.material_flaky_outlined_icon import MaterialFlakyOutlinedIcon
+    from apysc._material_design.icon.material_flight_land_icon import MaterialFlightLandIcon
+    from apysc._material_design.icon.material_flight_land_outlined_icon import MaterialFlightLandOutlinedIcon
+    from apysc._material_design.icon.material_flight_takeoff_icon import MaterialFlightTakeoffIcon
+    from apysc._material_design.icon.material_flight_takeoff_outlined_icon import MaterialFlightTakeoffOutlinedIcon
+    from apysc._material_design.icon.material_flip_to_back_icon import MaterialFlipToBackIcon
+    from apysc._material_design.icon.material_flip_to_back_outlined_icon import MaterialFlipToBackOutlinedIcon
+    from apysc._material_design.icon.material_flip_to_front_icon import MaterialFlipToFrontIcon
+    from apysc._material_design.icon.material_flip_to_front_outlined_icon import MaterialFlipToFrontOutlinedIcon
+    from apysc._material_design.icon.material_font_download_icon import MaterialFontDownloadIcon
+    from apysc._material_design.icon.material_font_download_outlined_icon import MaterialFontDownloadOutlinedIcon
+    from apysc._material_design.icon.material_forum_icon import MaterialForumIcon
+    from apysc._material_design.icon.material_forum_outlined_icon import MaterialForumOutlinedIcon
+    from apysc._material_design.icon.material_forward_10_icon import MaterialForward10Icon
+    from apysc._material_design.icon.material_forward_10_outlined_icon import MaterialForward10OutlinedIcon
+    from apysc._material_design.icon.material_forward_30_icon import MaterialForward30Icon
+    from apysc._material_design.icon.material_forward_30_outlined_icon import MaterialForward30OutlinedIcon
+    from apysc._material_design.icon.material_forward_5_icon import MaterialForward5Icon
+    from apysc._material_design.icon.material_forward_5_outlined_icon import MaterialForward5OutlinedIcon
+    from apysc._material_design.icon.material_forward_icon import MaterialForwardIcon
+    from apysc._material_design.icon.material_forward_outlined_icon import MaterialForwardOutlinedIcon
+    from apysc._material_design.icon.material_forward_to_inbox_icon import MaterialForwardToInboxIcon
+    from apysc._material_design.icon.material_forward_to_inbox_outlined_icon import MaterialForwardToInboxOutlinedIcon
+    from apysc._material_design.icon.material_games_icon import MaterialGamesIcon
+    from apysc._material_design.icon.material_games_outlined_icon import MaterialGamesOutlinedIcon
+    from apysc._material_design.icon.material_gavel_icon import MaterialGavelIcon
+    from apysc._material_design.icon.material_gavel_outlined_icon import MaterialGavelOutlinedIcon
+    from apysc._material_design.icon.material_gesture_icon import MaterialGestureIcon
+    from apysc._material_design.icon.material_gesture_outlined_icon import MaterialGestureOutlinedIcon
+    from apysc._material_design.icon.material_get_app_icon import MaterialGetAppIcon
+    from apysc._material_design.icon.material_get_app_outlined_icon import MaterialGetAppOutlinedIcon
+    from apysc._material_design.icon.material_gif_icon import MaterialGifIcon
+    from apysc._material_design.icon.material_gif_outlined_icon import MaterialGifOutlinedIcon
+    from apysc._material_design.icon.material_grade_icon import MaterialGradeIcon
+    from apysc._material_design.icon.material_grade_outlined_icon import MaterialGradeOutlinedIcon
+    from apysc._material_design.icon.material_grading_icon import MaterialGradingIcon
+    from apysc._material_design.icon.material_grading_outlined_icon import MaterialGradingOutlinedIcon
+    from apysc._material_design.icon.material_group_work_icon import MaterialGroupWorkIcon
+    from apysc._material_design.icon.material_group_work_outlined_icon import MaterialGroupWorkOutlinedIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-from apysc._material_design.icon.material_compare_arrows_outlined_icon import MaterialCompareArrowsOutlinedIcon
-from apysc._material_design.icon.material_compress_icon import MaterialCompressIcon
-from apysc._material_design.icon.material_contactless_icon import MaterialContactlessIcon
-from apysc._material_design.icon.material_contactless_outlined_icon import MaterialContactlessOutlinedIcon
-from apysc._material_design.icon.material_contacts_icon import MaterialContactsIcon
-from apysc._material_design.icon.material_contacts_outlined_icon import MaterialContactsOutlinedIcon
-from apysc._material_design.icon.material_contact_mail_icon import MaterialContactMailIcon
-from apysc._material_design.icon.material_contact_mail_outlined_icon import MaterialContactMailOutlinedIcon
-from apysc._material_design.icon.material_contact_page_icon import MaterialContactPageIcon
-from apysc._material_design.icon.material_contact_page_outlined_icon import MaterialContactPageOutlinedIcon
-from apysc._material_design.icon.material_contact_phone_icon import MaterialContactPhoneIcon
-from apysc._material_design.icon.material_contact_phone_outlined_icon import MaterialContactPhoneOutlinedIcon
-from apysc._material_design.icon.material_contact_support_icon import MaterialContactSupportIcon
-from apysc._material_design.icon.material_contact_support_outlined_icon import MaterialContactSupportOutlinedIcon
-from apysc._material_design.icon.material_content_copy_icon import MaterialContentCopyIcon
-from apysc._material_design.icon.material_content_copy_outlined_icon import MaterialContentCopyOutlinedIcon
-from apysc._material_design.icon.material_content_cut_icon import MaterialContentCutIcon
-from apysc._material_design.icon.material_content_cut_outlined_icon import MaterialContentCutOutlinedIcon
-from apysc._material_design.icon.material_content_paste_icon import MaterialContentPasteIcon
-from apysc._material_design.icon.material_content_paste_outlined_icon import MaterialContentPasteOutlinedIcon
-from apysc._material_design.icon.material_control_camera_icon import MaterialControlCameraIcon
-from apysc._material_design.icon.material_control_camera_outlined_icon import MaterialControlCameraOutlinedIcon
-from apysc._material_design.icon.material_copyright_icon import MaterialCopyrightIcon
-from apysc._material_design.icon.material_copyright_outlined_icon import MaterialCopyrightOutlinedIcon
-from apysc._material_design.icon.material_create_icon import MaterialCreateIcon
-from apysc._material_design.icon.material_create_outlined_icon import MaterialCreateOutlinedIcon
-from apysc._material_design.icon.material_credit_card_icon import MaterialCreditCardIcon
-from apysc._material_design.icon.material_credit_card_outlined_icon import MaterialCreditCardOutlinedIcon
-from apysc._material_design.icon.material_dangerous_icon import MaterialDangerousIcon
-from apysc._material_design.icon.material_dashboard_customize_icon import MaterialDashboardCustomizeIcon
-from apysc._material_design.icon.material_dashboard_icon import MaterialDashboardIcon
-from apysc._material_design.icon.material_dashboard_outlined_icon import MaterialDashboardOutlinedIcon
-from apysc._material_design.icon.material_date_range_icon import MaterialDateRangeIcon
-from apysc._material_design.icon.material_date_range_outlined_icon import MaterialDateRangeOutlinedIcon
-from apysc._material_design.icon.material_delete_forever_icon import MaterialDeleteForeverIcon
-from apysc._material_design.icon.material_delete_forever_outlined_icon import MaterialDeleteForeverOutlinedIcon
-from apysc._material_design.icon.material_delete_icon import MaterialDeleteIcon
-from apysc._material_design.icon.material_delete_outlined_icon import MaterialDeleteOutlinedIcon
-from apysc._material_design.icon.material_delete_outline_icon import MaterialDeleteOutlineIcon
-from apysc._material_design.icon.material_delete_outline_outlined_icon import MaterialDeleteOutlineOutlinedIcon
-from apysc._material_design.icon.material_delete_sweep_icon import MaterialDeleteSweepIcon
-from apysc._material_design.icon.material_delete_sweep_outlined_icon import MaterialDeleteSweepOutlinedIcon
-from apysc._material_design.icon.material_description_icon import MaterialDescriptionIcon
-from apysc._material_design.icon.material_description_outlined_icon import MaterialDescriptionOutlinedIcon
-from apysc._material_design.icon.material_desktop_access_disabled_icon import MaterialDesktopAccessDisabledIcon
-from apysc._material_design.icon.material_desktop_access_disabled_outlined_icon import MaterialDesktopAccessDisabledOutlinedIcon
-from apysc._material_design.icon.material_dialer_sip_icon import MaterialDialerSipIcon
-from apysc._material_design.icon.material_dialer_sip_outlined_icon import MaterialDialerSipOutlinedIcon
-from apysc._material_design.icon.material_dialpad_icon import MaterialDialpadIcon
-from apysc._material_design.icon.material_dialpad_outlined_icon import MaterialDialpadOutlinedIcon
-from apysc._material_design.icon.material_disabled_by_default_icon import MaterialDisabledByDefaultIcon
-from apysc._material_design.icon.material_disabled_by_default_outlined_icon import MaterialDisabledByDefaultOutlinedIcon
-from apysc._material_design.icon.material_dns_icon import MaterialDnsIcon
-from apysc._material_design.icon.material_dns_outlined_icon import MaterialDnsOutlinedIcon
-from apysc._material_design.icon.material_domain_disabled_icon import MaterialDomainDisabledIcon
-from apysc._material_design.icon.material_domain_disabled_outlined_icon import MaterialDomainDisabledOutlinedIcon
-from apysc._material_design.icon.material_domain_verification_icon import MaterialDomainVerificationIcon
-from apysc._material_design.icon.material_domain_verification_outlined_icon import MaterialDomainVerificationOutlinedIcon
-from apysc._material_design.icon.material_done_all_icon import MaterialDoneAllIcon
-from apysc._material_design.icon.material_done_all_outlined_icon import MaterialDoneAllOutlinedIcon
-from apysc._material_design.icon.material_done_icon import MaterialDoneIcon
-from apysc._material_design.icon.material_done_outlined_icon import MaterialDoneOutlinedIcon
-from apysc._material_design.icon.material_done_outline_icon import MaterialDoneOutlineIcon
-from apysc._material_design.icon.material_done_outline_outlined_icon import MaterialDoneOutlineOutlinedIcon
-from apysc._material_design.icon.material_donut_large_icon import MaterialDonutLargeIcon
-from apysc._material_design.icon.material_donut_large_outlined_icon import MaterialDonutLargeOutlinedIcon
-from apysc._material_design.icon.material_donut_small_icon import MaterialDonutSmallIcon
-from apysc._material_design.icon.material_donut_small_outlined_icon import MaterialDonutSmallOutlinedIcon
-from apysc._material_design.icon.material_drafts_icon import MaterialDraftsIcon
-from apysc._material_design.icon.material_drafts_outlined_icon import MaterialDraftsOutlinedIcon
-from apysc._material_design.icon.material_drag_indicator_icon import MaterialDragIndicatorIcon
-from apysc._material_design.icon.material_drag_indicator_outlined_icon import MaterialDragIndicatorOutlinedIcon
-from apysc._material_design.icon.material_duo_icon import MaterialDuoIcon
-from apysc._material_design.icon.material_duo_outlined_icon import MaterialDuoOutlinedIcon
-from apysc._material_design.icon.material_dynamic_feed_icon import MaterialDynamicFeedIcon
-from apysc._material_design.icon.material_dynamic_feed_outlined_icon import MaterialDynamicFeedOutlinedIcon
-from apysc._material_design.icon.material_dynamic_form_icon import MaterialDynamicFormIcon
-from apysc._material_design.icon.material_dynamic_form_outlined_icon import MaterialDynamicFormOutlinedIcon
-from apysc._material_design.icon.material_eco_icon import MaterialEcoIcon
-from apysc._material_design.icon.material_eco_outlined_icon import MaterialEcoOutlinedIcon
-from apysc._material_design.icon.material_edit_off_icon import MaterialEditOffIcon
-from apysc._material_design.icon.material_eject_icon import MaterialEjectIcon
-from apysc._material_design.icon.material_eject_outlined_icon import MaterialEjectOutlinedIcon
-from apysc._material_design.icon.material_email_icon import MaterialEmailIcon
-from apysc._material_design.icon.material_email_outlined_icon import MaterialEmailOutlinedIcon
-from apysc._material_design.icon.material_equalizer_icon import MaterialEqualizerIcon
-from apysc._material_design.icon.material_equalizer_outlined_icon import MaterialEqualizerOutlinedIcon
-from apysc._material_design.icon.material_error_icon import MaterialErrorIcon
-from apysc._material_design.icon.material_error_outlined_icon import MaterialErrorOutlinedIcon
-from apysc._material_design.icon.material_error_outline_icon import MaterialErrorOutlineIcon
-from apysc._material_design.icon.material_error_outline_outlined_icon import MaterialErrorOutlineOutlinedIcon
-from apysc._material_design.icon.material_euro_symbol_icon import MaterialEuroSymbolIcon
-from apysc._material_design.icon.material_euro_symbol_outlined_icon import MaterialEuroSymbolOutlinedIcon
-from apysc._material_design.icon.material_event_icon import MaterialEventIcon
-from apysc._material_design.icon.material_event_outlined_icon import MaterialEventOutlinedIcon
-from apysc._material_design.icon.material_event_seat_icon import MaterialEventSeatIcon
-from apysc._material_design.icon.material_event_seat_outlined_icon import MaterialEventSeatOutlinedIcon
+    from apysc._material_design.icon.material_g_translate_icon import MaterialGTranslateIcon
+    from apysc._material_design.icon.material_g_translate_outlined_icon import MaterialGTranslateOutlinedIcon
+    from apysc._material_design.icon.material_hd_icon import MaterialHdIcon
+    from apysc._material_design.icon.material_hd_outlined_icon import MaterialHdOutlinedIcon
+    from apysc._material_design.icon.material_hearing_disabled_icon import MaterialHearingDisabledIcon
+    from apysc._material_design.icon.material_hearing_disabled_outlined_icon import MaterialHearingDisabledOutlinedIcon
+    from apysc._material_design.icon.material_hearing_icon import MaterialHearingIcon
+    from apysc._material_design.icon.material_hearing_outlined_icon import MaterialHearingOutlinedIcon
+    from apysc._material_design.icon.material_help_center_icon import MaterialHelpCenterIcon
+    from apysc._material_design.icon.material_help_center_outlined_icon import MaterialHelpCenterOutlinedIcon
+    from apysc._material_design.icon.material_help_icon import MaterialHelpIcon
+    from apysc._material_design.icon.material_help_outlined_icon import MaterialHelpOutlinedIcon
+    from apysc._material_design.icon.material_help_outline_icon import MaterialHelpOutlineIcon
+    from apysc._material_design.icon.material_help_outline_outlined_icon import MaterialHelpOutlineOutlinedIcon
+    from apysc._material_design.icon.material_highlight_alt_icon import MaterialHighlightAltIcon
+    from apysc._material_design.icon.material_highlight_alt_outlined_icon import MaterialHighlightAltOutlinedIcon
+    from apysc._material_design.icon.material_highlight_off_icon import MaterialHighlightOffIcon
+    from apysc._material_design.icon.material_highlight_off_outlined_icon import MaterialHighlightOffOutlinedIcon
+    from apysc._material_design.icon.material_high_quality_icon import MaterialHighQualityIcon
+    from apysc._material_design.icon.material_high_quality_outlined_icon import MaterialHighQualityOutlinedIcon
+    from apysc._material_design.icon.material_history_icon import MaterialHistoryIcon
+    from apysc._material_design.icon.material_history_outlined_icon import MaterialHistoryOutlinedIcon
+    from apysc._material_design.icon.material_history_toggle_off_icon import MaterialHistoryToggleOffIcon
+    from apysc._material_design.icon.material_history_toggle_off_outlined_icon import MaterialHistoryToggleOffOutlinedIcon
+    from apysc._material_design.icon.material_home_filled_icon import MaterialHomeFilledIcon
+    from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
+    from apysc._material_design.icon.material_home_outlined_icon import MaterialHomeOutlinedIcon
+    from apysc._material_design.icon.material_horizontal_split_icon import MaterialHorizontalSplitIcon
+    from apysc._material_design.icon.material_horizontal_split_outlined_icon import MaterialHorizontalSplitOutlinedIcon
+    from apysc._material_design.icon.material_hourglass_bottom_icon import MaterialHourglassBottomIcon
+    from apysc._material_design.icon.material_hourglass_bottom_outlined_icon import MaterialHourglassBottomOutlinedIcon
+    from apysc._material_design.icon.material_hourglass_disabled_icon import MaterialHourglassDisabledIcon
+    from apysc._material_design.icon.material_hourglass_disabled_outlined_icon import MaterialHourglassDisabledOutlinedIcon
+    from apysc._material_design.icon.material_hourglass_empty_icon import MaterialHourglassEmptyIcon
+    from apysc._material_design.icon.material_hourglass_empty_outlined_icon import MaterialHourglassEmptyOutlinedIcon
+    from apysc._material_design.icon.material_hourglass_full_icon import MaterialHourglassFullIcon
+    from apysc._material_design.icon.material_hourglass_full_outlined_icon import MaterialHourglassFullOutlinedIcon
+    from apysc._material_design.icon.material_hourglass_top_icon import MaterialHourglassTopIcon
+    from apysc._material_design.icon.material_hourglass_top_outlined_icon import MaterialHourglassTopOutlinedIcon
+    from apysc._material_design.icon.material_how_to_reg_icon import MaterialHowToRegIcon
+    from apysc._material_design.icon.material_how_to_reg_outlined_icon import MaterialHowToRegOutlinedIcon
+    from apysc._material_design.icon.material_how_to_vote_icon import MaterialHowToVoteIcon
+    from apysc._material_design.icon.material_how_to_vote_outlined_icon import MaterialHowToVoteOutlinedIcon
+    from apysc._material_design.icon.material_https_icon import MaterialHttpsIcon
+    from apysc._material_design.icon.material_https_outlined_icon import MaterialHttpsOutlinedIcon
+    from apysc._material_design.icon.material_http_icon import MaterialHttpIcon
+    from apysc._material_design.icon.material_http_outlined_icon import MaterialHttpOutlinedIcon
+    from apysc._material_design.icon.material_important_devices_icon import MaterialImportantDevicesIcon
+    from apysc._material_design.icon.material_important_devices_outlined_icon import MaterialImportantDevicesOutlinedIcon
+    from apysc._material_design.icon.material_import_contacts_icon import MaterialImportContactsIcon
+    from apysc._material_design.icon.material_import_contacts_outlined_icon import MaterialImportContactsOutlinedIcon
+    from apysc._material_design.icon.material_import_export_icon import MaterialImportExportIcon
+    from apysc._material_design.icon.material_import_export_outlined_icon import MaterialImportExportOutlinedIcon
+    from apysc._material_design.icon.material_inbox_icon import MaterialInboxIcon
+    from apysc._material_design.icon.material_inbox_outlined_icon import MaterialInboxOutlinedIcon
+    from apysc._material_design.icon.material_info_icon import MaterialInfoIcon
+    from apysc._material_design.icon.material_info_outlined_icon import MaterialInfoOutlinedIcon
+    from apysc._material_design.icon.material_info_outline_icon import MaterialInfoOutlineIcon
+    from apysc._material_design.icon.material_input_icon import MaterialInputIcon
+    from apysc._material_design.icon.material_input_outlined_icon import MaterialInputOutlinedIcon
+    from apysc._material_design.icon.material_insights_icon import MaterialInsightsIcon
+    from apysc._material_design.icon.material_insights_outlined_icon import MaterialInsightsOutlinedIcon
+    from apysc._material_design.icon.material_integration_instructions_icon import MaterialIntegrationInstructionsIcon
+    from apysc._material_design.icon.material_integration_instructions_outlined_icon import MaterialIntegrationInstructionsOutlinedIcon
+    from apysc._material_design.icon.material_inventory_icon import MaterialInventoryIcon
+    from apysc._material_design.icon.material_invert_colors_icon import MaterialInvertColorsIcon
+    from apysc._material_design.icon.material_invert_colors_off_icon import MaterialInvertColorsOffIcon
+    from apysc._material_design.icon.material_invert_colors_off_outlined_icon import MaterialInvertColorsOffOutlinedIcon
+    from apysc._material_design.icon.material_invert_colors_outlined_icon import MaterialInvertColorsOutlinedIcon
+    from apysc._material_design.icon.material_label_icon import MaterialLabelIcon
+    from apysc._material_design.icon.material_label_important_icon import MaterialLabelImportantIcon
+    from apysc._material_design.icon.material_label_important_outlined_icon import MaterialLabelImportantOutlinedIcon
+    from apysc._material_design.icon.material_label_important_outline_icon import MaterialLabelImportantOutlineIcon
+    from apysc._material_design.icon.material_label_off_icon import MaterialLabelOffIcon
+    from apysc._material_design.icon.material_label_off_outlined_icon import MaterialLabelOffOutlinedIcon
+    from apysc._material_design.icon.material_label_outlined_icon import MaterialLabelOutlinedIcon
+    from apysc._material_design.icon.material_label_outline_icon import MaterialLabelOutlineIcon
+    from apysc._material_design.icon.material_language_icon import MaterialLanguageIcon
+    from apysc._material_design.icon.material_language_outlined_icon import MaterialLanguageOutlinedIcon
+    from apysc._material_design.icon.material_launch_icon import MaterialLaunchIcon
+    from apysc._material_design.icon.material_launch_outlined_icon import MaterialLaunchOutlinedIcon
+    from apysc._material_design.icon.material_leaderboard_icon import MaterialLeaderboardIcon
+    from apysc._material_design.icon.material_leaderboard_outlined_icon import MaterialLeaderboardOutlinedIcon
+    from apysc._material_design.icon.material_library_add_check_icon import MaterialLibraryAddCheckIcon
+    from apysc._material_design.icon.material_library_add_check_outlined_icon import MaterialLibraryAddCheckOutlinedIcon
+    from apysc._material_design.icon.material_library_add_icon import MaterialLibraryAddIcon
+    from apysc._material_design.icon.material_library_add_outlined_icon import MaterialLibraryAddOutlinedIcon
+    from apysc._material_design.icon.material_library_books_icon import MaterialLibraryBooksIcon
+    from apysc._material_design.icon.material_library_books_outlined_icon import MaterialLibraryBooksOutlinedIcon
+    from apysc._material_design.icon.material_library_music_icon import MaterialLibraryMusicIcon
+    from apysc._material_design.icon.material_library_music_outlined_icon import MaterialLibraryMusicOutlinedIcon
+    from apysc._material_design.icon.material_lightbulb_icon import MaterialLightbulbIcon
+    from apysc._material_design.icon.material_lightbulb_outlined_icon import MaterialLightbulbOutlinedIcon
+    from apysc._material_design.icon.material_lightbulb_outline_icon import MaterialLightbulbOutlineIcon
+    from apysc._material_design.icon.material_line_style_icon import MaterialLineStyleIcon
+    from apysc._material_design.icon.material_line_style_outlined_icon import MaterialLineStyleOutlinedIcon
+    from apysc._material_design.icon.material_line_weight_icon import MaterialLineWeightIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-_logger.info("Roughly 500 packages have been imported...")
+    from apysc._material_design.icon.material_line_weight_outlined_icon import MaterialLineWeightOutlinedIcon
+    from apysc._material_design.icon.material_link_icon import MaterialLinkIcon
+    from apysc._material_design.icon.material_link_off_icon import MaterialLinkOffIcon
+    from apysc._material_design.icon.material_link_off_outlined_icon import MaterialLinkOffOutlinedIcon
+    from apysc._material_design.icon.material_link_outlined_icon import MaterialLinkOutlinedIcon
+    from apysc._material_design.icon.material_list_alt_icon import MaterialListAltIcon
+    from apysc._material_design.icon.material_list_alt_outlined_icon import MaterialListAltOutlinedIcon
+    from apysc._material_design.icon.material_list_icon import MaterialListIcon
+    from apysc._material_design.icon.material_list_outlined_icon import MaterialListOutlinedIcon
+    from apysc._material_design.icon.material_live_help_icon import MaterialLiveHelpIcon
+    from apysc._material_design.icon.material_live_help_outlined_icon import MaterialLiveHelpOutlinedIcon
+    from apysc._material_design.icon.material_location_off_icon import MaterialLocationOffIcon
+    from apysc._material_design.icon.material_location_off_outlined_icon import MaterialLocationOffOutlinedIcon
+    from apysc._material_design.icon.material_location_on_icon import MaterialLocationOnIcon
+    from apysc._material_design.icon.material_location_on_outlined_icon import MaterialLocationOnOutlinedIcon
+    from apysc._material_design.icon.material_lock_clock_icon import MaterialLockClockIcon
+    from apysc._material_design.icon.material_lock_icon import MaterialLockIcon
+    from apysc._material_design.icon.material_lock_open_icon import MaterialLockOpenIcon
+    from apysc._material_design.icon.material_lock_open_outlined_icon import MaterialLockOpenOutlinedIcon
+    from apysc._material_design.icon.material_lock_outlined_icon import MaterialLockOutlinedIcon
+    from apysc._material_design.icon.material_lock_outline_icon import MaterialLockOutlineIcon
+    from apysc._material_design.icon.material_login_icon import MaterialLoginIcon
+    from apysc._material_design.icon.material_login_outlined_icon import MaterialLoginOutlinedIcon
+    from apysc._material_design.icon.material_logout_icon import MaterialLogoutIcon
+    from apysc._material_design.icon.material_loop_icon import MaterialLoopIcon
+    from apysc._material_design.icon.material_loop_outlined_icon import MaterialLoopOutlinedIcon
+    from apysc._material_design.icon.material_low_priority_icon import MaterialLowPriorityIcon
+    from apysc._material_design.icon.material_low_priority_outlined_icon import MaterialLowPriorityOutlinedIcon
+    from apysc._material_design.icon.material_loyalty_icon import MaterialLoyaltyIcon
+    from apysc._material_design.icon.material_loyalty_outlined_icon import MaterialLoyaltyOutlinedIcon
+    from apysc._material_design.icon.material_mail_icon import MaterialMailIcon
+    from apysc._material_design.icon.material_mail_outlined_icon import MaterialMailOutlinedIcon
+    from apysc._material_design.icon.material_mail_outline_icon import MaterialMailOutlineIcon
+    from apysc._material_design.icon.material_mail_outline_outlined_icon import MaterialMailOutlineOutlinedIcon
+    from apysc._material_design.icon.material_markunread_icon import MaterialMarkunreadIcon
+    from apysc._material_design.icon.material_markunread_mailbox_icon import MaterialMarkunreadMailboxIcon
+    from apysc._material_design.icon.material_markunread_mailbox_outlined_icon import MaterialMarkunreadMailboxOutlinedIcon
+    from apysc._material_design.icon.material_markunread_outlined_icon import MaterialMarkunreadOutlinedIcon
+    from apysc._material_design.icon.material_mark_as_unread_icon import MaterialMarkAsUnreadIcon
+    from apysc._material_design.icon.material_mark_chat_read_icon import MaterialMarkChatReadIcon
+    from apysc._material_design.icon.material_mark_chat_read_outlined_icon import MaterialMarkChatReadOutlinedIcon
+    from apysc._material_design.icon.material_mark_chat_unread_icon import MaterialMarkChatUnreadIcon
+    from apysc._material_design.icon.material_mark_chat_unread_outlined_icon import MaterialMarkChatUnreadOutlinedIcon
+    from apysc._material_design.icon.material_mark_email_read_icon import MaterialMarkEmailReadIcon
+    from apysc._material_design.icon.material_mark_email_read_outlined_icon import MaterialMarkEmailReadOutlinedIcon
+    from apysc._material_design.icon.material_mark_email_unread_icon import MaterialMarkEmailUnreadIcon
+    from apysc._material_design.icon.material_mark_email_unread_outlined_icon import MaterialMarkEmailUnreadOutlinedIcon
+    from apysc._material_design.icon.material_maximize_icon import MaterialMaximizeIcon
+    from apysc._material_design.icon.material_maximize_outlined_icon import MaterialMaximizeOutlinedIcon
+    from apysc._material_design.icon.material_mediation_icon import MaterialMediationIcon
+    from apysc._material_design.icon.material_mediation_outlined_icon import MaterialMediationOutlinedIcon
+    from apysc._material_design.icon.material_message_icon import MaterialMessageIcon
+    from apysc._material_design.icon.material_message_outlined_icon import MaterialMessageOutlinedIcon
+    from apysc._material_design.icon.material_mic_icon import MaterialMicIcon
+    from apysc._material_design.icon.material_mic_none_icon import MaterialMicNoneIcon
+    from apysc._material_design.icon.material_mic_none_outlined_icon import MaterialMicNoneOutlinedIcon
+    from apysc._material_design.icon.material_mic_off_icon import MaterialMicOffIcon
+    from apysc._material_design.icon.material_mic_off_outlined_icon import MaterialMicOffOutlinedIcon
+    from apysc._material_design.icon.material_mic_outlined_icon import MaterialMicOutlinedIcon
+    from apysc._material_design.icon.material_minimize_icon import MaterialMinimizeIcon
+    from apysc._material_design.icon.material_minimize_outlined_icon import MaterialMinimizeOutlinedIcon
+    from apysc._material_design.icon.material_missed_video_call_icon import MaterialMissedVideoCallIcon
+    from apysc._material_design.icon.material_missed_video_call_outlined_icon import MaterialMissedVideoCallOutlinedIcon
+    from apysc._material_design.icon.material_mobile_screen_share_icon import MaterialMobileScreenShareIcon
+    from apysc._material_design.icon.material_mobile_screen_share_outlined_icon import MaterialMobileScreenShareOutlinedIcon
+    from apysc._material_design.icon.material_model_training_icon import MaterialModelTrainingIcon
+    from apysc._material_design.icon.material_model_training_outlined_icon import MaterialModelTrainingOutlinedIcon
+    from apysc._material_design.icon.material_more_time_icon import MaterialMoreTimeIcon
+    from apysc._material_design.icon.material_more_time_outlined_icon import MaterialMoreTimeOutlinedIcon
+    from apysc._material_design.icon.material_move_to_inbox_icon import MaterialMoveToInboxIcon
+    from apysc._material_design.icon.material_move_to_inbox_outlined_icon import MaterialMoveToInboxOutlinedIcon
+    from apysc._material_design.icon.material_movie_icon import MaterialMovieIcon
+    from apysc._material_design.icon.material_movie_outlined_icon import MaterialMovieOutlinedIcon
+    from apysc._material_design.icon.material_music_video_icon import MaterialMusicVideoIcon
+    from apysc._material_design.icon.material_music_video_outlined_icon import MaterialMusicVideoOutlinedIcon
+    from apysc._material_design.icon.material_nat_icon import MaterialNatIcon
+    from apysc._material_design.icon.material_nat_outlined_icon import MaterialNatOutlinedIcon
+    from apysc._material_design.icon.material_new_releases_icon import MaterialNewReleasesIcon
+    from apysc._material_design.icon.material_new_releases_outlined_icon import MaterialNewReleasesOutlinedIcon
+    from apysc._material_design.icon.material_next_plan_icon import MaterialNextPlanIcon
+    from apysc._material_design.icon.material_next_plan_outlined_icon import MaterialNextPlanOutlinedIcon
+    from apysc._material_design.icon.material_next_week_icon import MaterialNextWeekIcon
+    from apysc._material_design.icon.material_next_week_outlined_icon import MaterialNextWeekOutlinedIcon
+    from apysc._material_design.icon.material_nightlight_round_icon import MaterialNightlightRoundIcon
+    from apysc._material_design.icon.material_note_add_icon import MaterialNoteAddIcon
+    from apysc._material_design.icon.material_note_add_outlined_icon import MaterialNoteAddOutlinedIcon
+    from apysc._material_design.icon.material_note_icon import MaterialNoteIcon
+    from apysc._material_design.icon.material_note_outlined_icon import MaterialNoteOutlinedIcon
+    from apysc._material_design.icon.material_notification_important_icon import MaterialNotificationImportantIcon
+    from apysc._material_design.icon.material_notification_important_outlined_icon import MaterialNotificationImportantOutlinedIcon
+    from apysc._material_design.icon.material_not_accessible_icon import MaterialNotAccessibleIcon
+    from apysc._material_design.icon.material_not_accessible_outlined_icon import MaterialNotAccessibleOutlinedIcon
+    from apysc._material_design.icon.material_not_interested_icon import MaterialNotInterestedIcon
+    from apysc._material_design.icon.material_not_interested_outlined_icon import MaterialNotInterestedOutlinedIcon
+    from apysc._material_design.icon.material_not_started_icon import MaterialNotStartedIcon
+    from apysc._material_design.icon.material_not_started_outlined_icon import MaterialNotStartedOutlinedIcon
+    from apysc._material_design.icon.material_no_sim_icon import MaterialNoSimIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-from apysc._material_design.icon.material_exit_to_app_icon import MaterialExitToAppIcon
-from apysc._material_design.icon.material_exit_to_app_outlined_icon import MaterialExitToAppOutlinedIcon
-from apysc._material_design.icon.material_expand_icon import MaterialExpandIcon
-from apysc._material_design.icon.material_explicit_icon import MaterialExplicitIcon
-from apysc._material_design.icon.material_explicit_outlined_icon import MaterialExplicitOutlinedIcon
-from apysc._material_design.icon.material_explore_icon import MaterialExploreIcon
-from apysc._material_design.icon.material_explore_off_icon import MaterialExploreOffIcon
-from apysc._material_design.icon.material_explore_off_outlined_icon import MaterialExploreOffOutlinedIcon
-from apysc._material_design.icon.material_explore_outlined_icon import MaterialExploreOutlinedIcon
-from apysc._material_design.icon.material_extension_icon import MaterialExtensionIcon
-from apysc._material_design.icon.material_extension_outlined_icon import MaterialExtensionOutlinedIcon
-from apysc._material_design.icon.material_face_icon import MaterialFaceIcon
-from apysc._material_design.icon.material_face_outlined_icon import MaterialFaceOutlinedIcon
-from apysc._material_design.icon.material_face_unlock_outlined_icon import MaterialFaceUnlockOutlinedIcon
-from apysc._material_design.icon.material_fact_check_icon import MaterialFactCheckIcon
-from apysc._material_design.icon.material_fact_check_outlined_icon import MaterialFactCheckOutlinedIcon
-from apysc._material_design.icon.material_fast_forward_icon import MaterialFastForwardIcon
-from apysc._material_design.icon.material_fast_forward_outlined_icon import MaterialFastForwardOutlinedIcon
-from apysc._material_design.icon.material_fast_rewind_icon import MaterialFastRewindIcon
-from apysc._material_design.icon.material_fast_rewind_outlined_icon import MaterialFastRewindOutlinedIcon
-from apysc._material_design.icon.material_favorite_border_icon import MaterialFavoriteBorderIcon
-from apysc._material_design.icon.material_favorite_border_outlined_icon import MaterialFavoriteBorderOutlinedIcon
-from apysc._material_design.icon.material_favorite_icon import MaterialFavoriteIcon
-from apysc._material_design.icon.material_favorite_outlined_icon import MaterialFavoriteOutlinedIcon
-from apysc._material_design.icon.material_featured_play_list_icon import MaterialFeaturedPlayListIcon
-from apysc._material_design.icon.material_featured_play_list_outlined_icon import MaterialFeaturedPlayListOutlinedIcon
-from apysc._material_design.icon.material_featured_video_icon import MaterialFeaturedVideoIcon
-from apysc._material_design.icon.material_featured_video_outlined_icon import MaterialFeaturedVideoOutlinedIcon
-from apysc._material_design.icon.material_feedback_icon import MaterialFeedbackIcon
-from apysc._material_design.icon.material_feedback_outlined_icon import MaterialFeedbackOutlinedIcon
-from apysc._material_design.icon.material_fiber_dvr_icon import MaterialFiberDvrIcon
-from apysc._material_design.icon.material_fiber_dvr_outlined_icon import MaterialFiberDvrOutlinedIcon
-from apysc._material_design.icon.material_fiber_manual_record_icon import MaterialFiberManualRecordIcon
-from apysc._material_design.icon.material_fiber_manual_record_outlined_icon import MaterialFiberManualRecordOutlinedIcon
-from apysc._material_design.icon.material_fiber_new_icon import MaterialFiberNewIcon
-from apysc._material_design.icon.material_fiber_new_outlined_icon import MaterialFiberNewOutlinedIcon
-from apysc._material_design.icon.material_fiber_pin_icon import MaterialFiberPinIcon
-from apysc._material_design.icon.material_fiber_pin_outlined_icon import MaterialFiberPinOutlinedIcon
-from apysc._material_design.icon.material_fiber_smart_record_icon import MaterialFiberSmartRecordIcon
-from apysc._material_design.icon.material_fiber_smart_record_outlined_icon import MaterialFiberSmartRecordOutlinedIcon
-from apysc._material_design.icon.material_file_copy_icon import MaterialFileCopyIcon
-from apysc._material_design.icon.material_file_copy_outlined_icon import MaterialFileCopyOutlinedIcon
-from apysc._material_design.icon.material_file_present_icon import MaterialFilePresentIcon
-from apysc._material_design.icon.material_filter_alt_icon import MaterialFilterAltIcon
-from apysc._material_design.icon.material_filter_alt_outlined_icon import MaterialFilterAltOutlinedIcon
-from apysc._material_design.icon.material_filter_list_alt_icon import MaterialFilterListAltIcon
-from apysc._material_design.icon.material_filter_list_icon import MaterialFilterListIcon
-from apysc._material_design.icon.material_filter_list_outlined_icon import MaterialFilterListOutlinedIcon
-from apysc._material_design.icon.material_find_in_page_icon import MaterialFindInPageIcon
-from apysc._material_design.icon.material_find_in_page_outlined_icon import MaterialFindInPageOutlinedIcon
-from apysc._material_design.icon.material_find_replace_icon import MaterialFindReplaceIcon
-from apysc._material_design.icon.material_find_replace_outlined_icon import MaterialFindReplaceOutlinedIcon
-from apysc._material_design.icon.material_fingerprint_icon import MaterialFingerprintIcon
-from apysc._material_design.icon.material_fingerprint_outlined_icon import MaterialFingerprintOutlinedIcon
-from apysc._material_design.icon.material_fit_screen_icon import MaterialFitScreenIcon
-from apysc._material_design.icon.material_flag_icon import MaterialFlagIcon
-from apysc._material_design.icon.material_flag_outlined_icon import MaterialFlagOutlinedIcon
-from apysc._material_design.icon.material_flaky_icon import MaterialFlakyIcon
-from apysc._material_design.icon.material_flaky_outlined_icon import MaterialFlakyOutlinedIcon
-from apysc._material_design.icon.material_flight_land_icon import MaterialFlightLandIcon
-from apysc._material_design.icon.material_flight_land_outlined_icon import MaterialFlightLandOutlinedIcon
-from apysc._material_design.icon.material_flight_takeoff_icon import MaterialFlightTakeoffIcon
-from apysc._material_design.icon.material_flight_takeoff_outlined_icon import MaterialFlightTakeoffOutlinedIcon
-from apysc._material_design.icon.material_flip_to_back_icon import MaterialFlipToBackIcon
-from apysc._material_design.icon.material_flip_to_back_outlined_icon import MaterialFlipToBackOutlinedIcon
-from apysc._material_design.icon.material_flip_to_front_icon import MaterialFlipToFrontIcon
-from apysc._material_design.icon.material_flip_to_front_outlined_icon import MaterialFlipToFrontOutlinedIcon
-from apysc._material_design.icon.material_font_download_icon import MaterialFontDownloadIcon
-from apysc._material_design.icon.material_font_download_outlined_icon import MaterialFontDownloadOutlinedIcon
-from apysc._material_design.icon.material_forum_icon import MaterialForumIcon
-from apysc._material_design.icon.material_forum_outlined_icon import MaterialForumOutlinedIcon
-from apysc._material_design.icon.material_forward_10_icon import MaterialForward10Icon
-from apysc._material_design.icon.material_forward_10_outlined_icon import MaterialForward10OutlinedIcon
-from apysc._material_design.icon.material_forward_30_icon import MaterialForward30Icon
-from apysc._material_design.icon.material_forward_30_outlined_icon import MaterialForward30OutlinedIcon
-from apysc._material_design.icon.material_forward_5_icon import MaterialForward5Icon
-from apysc._material_design.icon.material_forward_5_outlined_icon import MaterialForward5OutlinedIcon
-from apysc._material_design.icon.material_forward_icon import MaterialForwardIcon
-from apysc._material_design.icon.material_forward_outlined_icon import MaterialForwardOutlinedIcon
-from apysc._material_design.icon.material_forward_to_inbox_icon import MaterialForwardToInboxIcon
-from apysc._material_design.icon.material_forward_to_inbox_outlined_icon import MaterialForwardToInboxOutlinedIcon
-from apysc._material_design.icon.material_games_icon import MaterialGamesIcon
-from apysc._material_design.icon.material_games_outlined_icon import MaterialGamesOutlinedIcon
-from apysc._material_design.icon.material_gavel_icon import MaterialGavelIcon
-from apysc._material_design.icon.material_gavel_outlined_icon import MaterialGavelOutlinedIcon
-from apysc._material_design.icon.material_gesture_icon import MaterialGestureIcon
-from apysc._material_design.icon.material_gesture_outlined_icon import MaterialGestureOutlinedIcon
-from apysc._material_design.icon.material_get_app_icon import MaterialGetAppIcon
-from apysc._material_design.icon.material_get_app_outlined_icon import MaterialGetAppOutlinedIcon
-from apysc._material_design.icon.material_gif_icon import MaterialGifIcon
-from apysc._material_design.icon.material_gif_outlined_icon import MaterialGifOutlinedIcon
-from apysc._material_design.icon.material_grade_icon import MaterialGradeIcon
-from apysc._material_design.icon.material_grade_outlined_icon import MaterialGradeOutlinedIcon
-from apysc._material_design.icon.material_grading_icon import MaterialGradingIcon
-from apysc._material_design.icon.material_grading_outlined_icon import MaterialGradingOutlinedIcon
-from apysc._material_design.icon.material_group_work_icon import MaterialGroupWorkIcon
-from apysc._material_design.icon.material_group_work_outlined_icon import MaterialGroupWorkOutlinedIcon
+    from apysc._material_design.icon.material_no_sim_outlined_icon import MaterialNoSimOutlinedIcon
+    from apysc._material_design.icon.material_offline_bolt_icon import MaterialOfflineBoltIcon
+    from apysc._material_design.icon.material_offline_bolt_outlined_icon import MaterialOfflineBoltOutlinedIcon
+    from apysc._material_design.icon.material_offline_pin_icon import MaterialOfflinePinIcon
+    from apysc._material_design.icon.material_offline_pin_outlined_icon import MaterialOfflinePinOutlinedIcon
+    from apysc._material_design.icon.material_online_prediction_icon import MaterialOnlinePredictionIcon
+    from apysc._material_design.icon.material_online_prediction_outlined_icon import MaterialOnlinePredictionOutlinedIcon
+    from apysc._material_design.icon.material_opacity_icon import MaterialOpacityIcon
+    from apysc._material_design.icon.material_opacity_outlined_icon import MaterialOpacityOutlinedIcon
+    from apysc._material_design.icon.material_open_in_browser_icon import MaterialOpenInBrowserIcon
+    from apysc._material_design.icon.material_open_in_browser_outlined_icon import MaterialOpenInBrowserOutlinedIcon
+    from apysc._material_design.icon.material_open_in_full_icon import MaterialOpenInFullIcon
+    from apysc._material_design.icon.material_open_in_full_outlined_icon import MaterialOpenInFullOutlinedIcon
+    from apysc._material_design.icon.material_open_in_new_icon import MaterialOpenInNewIcon
+    from apysc._material_design.icon.material_open_in_new_outlined_icon import MaterialOpenInNewOutlinedIcon
+    from apysc._material_design.icon.material_open_with_icon import MaterialOpenWithIcon
+    from apysc._material_design.icon.material_open_with_outlined_icon import MaterialOpenWithOutlinedIcon
+    from apysc._material_design.icon.material_outbond_icon import MaterialOutbondIcon
+    from apysc._material_design.icon.material_outbond_outlined_icon import MaterialOutbondOutlinedIcon
+    from apysc._material_design.icon.material_outbox_icon import MaterialOutboxIcon
+    from apysc._material_design.icon.material_outgoing_mail_icon import MaterialOutgoingMailIcon
+    from apysc._material_design.icon.material_outlet_icon import MaterialOutletIcon
+    from apysc._material_design.icon.material_outlet_outlined_icon import MaterialOutletOutlinedIcon
+    from apysc._material_design.icon.material_outlined_flag_icon import MaterialOutlinedFlagIcon
+    from apysc._material_design.icon.material_outlined_flag_outlined_icon import MaterialOutlinedFlagOutlinedIcon
+    from apysc._material_design.icon.material_pageview_icon import MaterialPageviewIcon
+    from apysc._material_design.icon.material_pageview_outlined_icon import MaterialPageviewOutlinedIcon
+    from apysc._material_design.icon.material_pan_tool_icon import MaterialPanToolIcon
+    from apysc._material_design.icon.material_pan_tool_outlined_icon import MaterialPanToolOutlinedIcon
+    from apysc._material_design.icon.material_pause_circle_filled_icon import MaterialPauseCircleFilledIcon
+    from apysc._material_design.icon.material_pause_circle_filled_outlined_icon import MaterialPauseCircleFilledOutlinedIcon
+    from apysc._material_design.icon.material_pause_circle_outline_icon import MaterialPauseCircleOutlineIcon
+    from apysc._material_design.icon.material_pause_circle_outline_outlined_icon import MaterialPauseCircleOutlineOutlinedIcon
+    from apysc._material_design.icon.material_pause_icon import MaterialPauseIcon
+    from apysc._material_design.icon.material_pause_outlined_icon import MaterialPauseOutlinedIcon
+    from apysc._material_design.icon.material_pause_presentation_icon import MaterialPausePresentationIcon
+    from apysc._material_design.icon.material_pause_presentation_outlined_icon import MaterialPausePresentationOutlinedIcon
+    from apysc._material_design.icon.material_payment_icon import MaterialPaymentIcon
+    from apysc._material_design.icon.material_payment_outlined_icon import MaterialPaymentOutlinedIcon
+    from apysc._material_design.icon.material_pending_actions_icon import MaterialPendingActionsIcon
+    from apysc._material_design.icon.material_pending_actions_outlined_icon import MaterialPendingActionsOutlinedIcon
+    from apysc._material_design.icon.material_pending_icon import MaterialPendingIcon
+    from apysc._material_design.icon.material_pending_outlined_icon import MaterialPendingOutlinedIcon
+    from apysc._material_design.icon.material_perm_camera_mic_icon import MaterialPermCameraMicIcon
+    from apysc._material_design.icon.material_perm_camera_mic_outlined_icon import MaterialPermCameraMicOutlinedIcon
+    from apysc._material_design.icon.material_perm_contact_calendar_icon import MaterialPermContactCalendarIcon
+    from apysc._material_design.icon.material_perm_contact_calendar_outlined_icon import MaterialPermContactCalendarOutlinedIcon
+    from apysc._material_design.icon.material_perm_data_setting_icon import MaterialPermDataSettingIcon
+    from apysc._material_design.icon.material_perm_data_setting_outlined_icon import MaterialPermDataSettingOutlinedIcon
+    from apysc._material_design.icon.material_perm_device_information_icon import MaterialPermDeviceInformationIcon
+    from apysc._material_design.icon.material_perm_device_information_outlined_icon import MaterialPermDeviceInformationOutlinedIcon
+    from apysc._material_design.icon.material_perm_identity_icon import MaterialPermIdentityIcon
+    from apysc._material_design.icon.material_perm_identity_outlined_icon import MaterialPermIdentityOutlinedIcon
+    from apysc._material_design.icon.material_perm_media_icon import MaterialPermMediaIcon
+    from apysc._material_design.icon.material_perm_media_outlined_icon import MaterialPermMediaOutlinedIcon
+    from apysc._material_design.icon.material_perm_phone_msg_icon import MaterialPermPhoneMsgIcon
+    from apysc._material_design.icon.material_perm_phone_msg_outlined_icon import MaterialPermPhoneMsgOutlinedIcon
+    from apysc._material_design.icon.material_perm_scan_wifi_icon import MaterialPermScanWifiIcon
+    from apysc._material_design.icon.material_perm_scan_wifi_outlined_icon import MaterialPermScanWifiOutlinedIcon
+    from apysc._material_design.icon.material_person_add_disabled_icon import MaterialPersonAddDisabledIcon
+    from apysc._material_design.icon.material_person_add_disabled_outlined_icon import MaterialPersonAddDisabledOutlinedIcon
+    from apysc._material_design.icon.material_person_search_icon import MaterialPersonSearchIcon
+    from apysc._material_design.icon.material_person_search_outlined_icon import MaterialPersonSearchOutlinedIcon
+    from apysc._material_design.icon.material_pets_icon import MaterialPetsIcon
+    from apysc._material_design.icon.material_pets_outlined_icon import MaterialPetsOutlinedIcon
+    from apysc._material_design.icon.material_phonelink_erase_icon import MaterialPhonelinkEraseIcon
+    from apysc._material_design.icon.material_phonelink_erase_outlined_icon import MaterialPhonelinkEraseOutlinedIcon
+    from apysc._material_design.icon.material_phonelink_lock_icon import MaterialPhonelinkLockIcon
+    from apysc._material_design.icon.material_phonelink_lock_outlined_icon import MaterialPhonelinkLockOutlinedIcon
+    from apysc._material_design.icon.material_phonelink_ring_icon import MaterialPhonelinkRingIcon
+    from apysc._material_design.icon.material_phonelink_ring_outlined_icon import MaterialPhonelinkRingOutlinedIcon
+    from apysc._material_design.icon.material_phonelink_setup_icon import MaterialPhonelinkSetupIcon
+    from apysc._material_design.icon.material_phonelink_setup_outlined_icon import MaterialPhonelinkSetupOutlinedIcon
+    from apysc._material_design.icon.material_phone_disabled_icon import MaterialPhoneDisabledIcon
+    from apysc._material_design.icon.material_phone_disabled_outlined_icon import MaterialPhoneDisabledOutlinedIcon
+    from apysc._material_design.icon.material_phone_enabled_icon import MaterialPhoneEnabledIcon
+    from apysc._material_design.icon.material_phone_enabled_outlined_icon import MaterialPhoneEnabledOutlinedIcon
+    from apysc._material_design.icon.material_phone_icon import MaterialPhoneIcon
+    from apysc._material_design.icon.material_phone_outlined_icon import MaterialPhoneOutlinedIcon
+    from apysc._material_design.icon.material_picture_in_picture_alt_icon import MaterialPictureInPictureAltIcon
+    from apysc._material_design.icon.material_picture_in_picture_alt_outlined_icon import MaterialPictureInPictureAltOutlinedIcon
+    from apysc._material_design.icon.material_picture_in_picture_icon import MaterialPictureInPictureIcon
+    from apysc._material_design.icon.material_picture_in_picture_outlined_icon import MaterialPictureInPictureOutlinedIcon
+    from apysc._material_design.icon.material_plagiarism_icon import MaterialPlagiarismIcon
+    from apysc._material_design.icon.material_plagiarism_outlined_icon import MaterialPlagiarismOutlinedIcon
+    from apysc._material_design.icon.material_playlist_add_check_icon import MaterialPlaylistAddCheckIcon
+    from apysc._material_design.icon.material_playlist_add_check_outlined_icon import MaterialPlaylistAddCheckOutlinedIcon
+    from apysc._material_design.icon.material_playlist_add_icon import MaterialPlaylistAddIcon
+    from apysc._material_design.icon.material_playlist_add_outlined_icon import MaterialPlaylistAddOutlinedIcon
+    from apysc._material_design.icon.material_playlist_play_icon import MaterialPlaylistPlayIcon
+    from apysc._material_design.icon.material_playlist_play_outlined_icon import MaterialPlaylistPlayOutlinedIcon
+    from apysc._material_design.icon.material_play_arrow_icon import MaterialPlayArrowIcon
+    from apysc._material_design.icon.material_play_arrow_outlined_icon import MaterialPlayArrowOutlinedIcon
+    from apysc._material_design.icon.material_play_circle_filled_icon import MaterialPlayCircleFilledIcon
+    from apysc._material_design.icon.material_play_circle_filled_outlined_icon import MaterialPlayCircleFilledOutlinedIcon
+    from apysc._material_design.icon.material_play_circle_outline_icon import MaterialPlayCircleOutlineIcon
+    from apysc._material_design.icon.material_play_circle_outline_outlined_icon import MaterialPlayCircleOutlineOutlinedIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-_logger.info("Roughly 600 packages have been imported...")
+    from apysc._material_design.icon.material_play_disabled_icon import MaterialPlayDisabledIcon
+    from apysc._material_design.icon.material_play_for_work_icon import MaterialPlayForWorkIcon
+    from apysc._material_design.icon.material_play_for_work_outlined_icon import MaterialPlayForWorkOutlinedIcon
+    from apysc._material_design.icon.material_policy_icon import MaterialPolicyIcon
+    from apysc._material_design.icon.material_policy_outlined_icon import MaterialPolicyOutlinedIcon
+    from apysc._material_design.icon.material_polymer_icon import MaterialPolymerIcon
+    from apysc._material_design.icon.material_polymer_outlined_icon import MaterialPolymerOutlinedIcon
+    from apysc._material_design.icon.material_portable_wifi_off_icon import MaterialPortableWifiOffIcon
+    from apysc._material_design.icon.material_portable_wifi_off_outlined_icon import MaterialPortableWifiOffOutlinedIcon
+    from apysc._material_design.icon.material_power_settings_new_icon import MaterialPowerSettingsNewIcon
+    from apysc._material_design.icon.material_power_settings_new_outlined_icon import MaterialPowerSettingsNewOutlinedIcon
+    from apysc._material_design.icon.material_pregnant_woman_icon import MaterialPregnantWomanIcon
+    from apysc._material_design.icon.material_pregnant_woman_outlined_icon import MaterialPregnantWomanOutlinedIcon
+    from apysc._material_design.icon.material_present_to_all_icon import MaterialPresentToAllIcon
+    from apysc._material_design.icon.material_present_to_all_outlined_icon import MaterialPresentToAllOutlinedIcon
+    from apysc._material_design.icon.material_preview_icon import MaterialPreviewIcon
+    from apysc._material_design.icon.material_preview_outlined_icon import MaterialPreviewOutlinedIcon
+    from apysc._material_design.icon.material_print_disabled_icon import MaterialPrintDisabledIcon
+    from apysc._material_design.icon.material_print_disabled_outlined_icon import MaterialPrintDisabledOutlinedIcon
+    from apysc._material_design.icon.material_print_icon import MaterialPrintIcon
+    from apysc._material_design.icon.material_print_outlined_icon import MaterialPrintOutlinedIcon
+    from apysc._material_design.icon.material_privacy_tip_icon import MaterialPrivacyTipIcon
+    from apysc._material_design.icon.material_privacy_tip_outlined_icon import MaterialPrivacyTipOutlinedIcon
+    from apysc._material_design.icon.material_published_with_changes_icon import MaterialPublishedWithChangesIcon
+    from apysc._material_design.icon.material_published_with_changes_outlined_icon import MaterialPublishedWithChangesOutlinedIcon
+    from apysc._material_design.icon.material_push_pin_icon import MaterialPushPinIcon
+    from apysc._material_design.icon.material_push_pin_outlined_icon import MaterialPushPinOutlinedIcon
+    from apysc._material_design.icon.material_qr_code_icon import MaterialQrCodeIcon
+    from apysc._material_design.icon.material_qr_code_outlined_icon import MaterialQrCodeOutlinedIcon
+    from apysc._material_design.icon.material_qr_code_scanner_icon import MaterialQrCodeScannerIcon
+    from apysc._material_design.icon.material_qr_code_scanner_outlined_icon import MaterialQrCodeScannerOutlinedIcon
+    from apysc._material_design.icon.material_query_builder_icon import MaterialQueryBuilderIcon
+    from apysc._material_design.icon.material_query_builder_outlined_icon import MaterialQueryBuilderOutlinedIcon
+    from apysc._material_design.icon.material_question_answer_icon import MaterialQuestionAnswerIcon
+    from apysc._material_design.icon.material_question_answer_outlined_icon import MaterialQuestionAnswerOutlinedIcon
+    from apysc._material_design.icon.material_queue_icon import MaterialQueueIcon
+    from apysc._material_design.icon.material_queue_music_icon import MaterialQueueMusicIcon
+    from apysc._material_design.icon.material_queue_music_outlined_icon import MaterialQueueMusicOutlinedIcon
+    from apysc._material_design.icon.material_queue_outlined_icon import MaterialQueueOutlinedIcon
+    from apysc._material_design.icon.material_queue_play_next_icon import MaterialQueuePlayNextIcon
+    from apysc._material_design.icon.material_queue_play_next_outlined_icon import MaterialQueuePlayNextOutlinedIcon
+    from apysc._material_design.icon.material_quickreply_icon import MaterialQuickreplyIcon
+    from apysc._material_design.icon.material_quickreply_outlined_icon import MaterialQuickreplyOutlinedIcon
+    from apysc._material_design.icon.material_radio_icon import MaterialRadioIcon
+    from apysc._material_design.icon.material_radio_outlined_icon import MaterialRadioOutlinedIcon
+    from apysc._material_design.icon.material_read_more_icon import MaterialReadMoreIcon
+    from apysc._material_design.icon.material_read_more_outlined_icon import MaterialReadMoreOutlinedIcon
+    from apysc._material_design.icon.material_receipt_icon import MaterialReceiptIcon
+    from apysc._material_design.icon.material_receipt_outlined_icon import MaterialReceiptOutlinedIcon
+    from apysc._material_design.icon.material_recent_actors_icon import MaterialRecentActorsIcon
+    from apysc._material_design.icon.material_recent_actors_outlined_icon import MaterialRecentActorsOutlinedIcon
+    from apysc._material_design.icon.material_record_voice_over_icon import MaterialRecordVoiceOverIcon
+    from apysc._material_design.icon.material_record_voice_over_outlined_icon import MaterialRecordVoiceOverOutlinedIcon
+    from apysc._material_design.icon.material_redeem_icon import MaterialRedeemIcon
+    from apysc._material_design.icon.material_redeem_outlined_icon import MaterialRedeemOutlinedIcon
+    from apysc._material_design.icon.material_redo_icon import MaterialRedoIcon
+    from apysc._material_design.icon.material_redo_outlined_icon import MaterialRedoOutlinedIcon
+    from apysc._material_design.icon.material_remove_circle_icon import MaterialRemoveCircleIcon
+    from apysc._material_design.icon.material_remove_circle_outlined_icon import MaterialRemoveCircleOutlinedIcon
+    from apysc._material_design.icon.material_remove_circle_outline_icon import MaterialRemoveCircleOutlineIcon
+    from apysc._material_design.icon.material_remove_circle_outline_outlined_icon import MaterialRemoveCircleOutlineOutlinedIcon
+    from apysc._material_design.icon.material_remove_done_icon import MaterialRemoveDoneIcon
+    from apysc._material_design.icon.material_remove_from_queue_icon import MaterialRemoveFromQueueIcon
+    from apysc._material_design.icon.material_remove_from_queue_outlined_icon import MaterialRemoveFromQueueOutlinedIcon
+    from apysc._material_design.icon.material_remove_icon import MaterialRemoveIcon
+    from apysc._material_design.icon.material_remove_outlined_icon import MaterialRemoveOutlinedIcon
+    from apysc._material_design.icon.material_remove_shopping_cart_icon import MaterialRemoveShoppingCartIcon
+    from apysc._material_design.icon.material_remove_shopping_cart_outlined_icon import MaterialRemoveShoppingCartOutlinedIcon
+    from apysc._material_design.icon.material_reorder_icon import MaterialReorderIcon
+    from apysc._material_design.icon.material_reorder_outlined_icon import MaterialReorderOutlinedIcon
+    from apysc._material_design.icon.material_repeat_icon import MaterialRepeatIcon
+    from apysc._material_design.icon.material_repeat_one_icon import MaterialRepeatOneIcon
+    from apysc._material_design.icon.material_repeat_one_on_icon import MaterialRepeatOneOnIcon
+    from apysc._material_design.icon.material_repeat_one_outlined_icon import MaterialRepeatOneOutlinedIcon
+    from apysc._material_design.icon.material_repeat_on_icon import MaterialRepeatOnIcon
+    from apysc._material_design.icon.material_repeat_outlined_icon import MaterialRepeatOutlinedIcon
+    from apysc._material_design.icon.material_replay_10_icon import MaterialReplay10Icon
+    from apysc._material_design.icon.material_replay_10_outlined_icon import MaterialReplay10OutlinedIcon
+    from apysc._material_design.icon.material_replay_30_icon import MaterialReplay30Icon
+    from apysc._material_design.icon.material_replay_30_outlined_icon import MaterialReplay30OutlinedIcon
+    from apysc._material_design.icon.material_replay_5_icon import MaterialReplay5Icon
+    from apysc._material_design.icon.material_replay_5_outlined_icon import MaterialReplay5OutlinedIcon
+    from apysc._material_design.icon.material_replay_circle_filled_icon import MaterialReplayCircleFilledIcon
+    from apysc._material_design.icon.material_replay_icon import MaterialReplayIcon
+    from apysc._material_design.icon.material_replay_outlined_icon import MaterialReplayOutlinedIcon
+    from apysc._material_design.icon.material_reply_all_icon import MaterialReplyAllIcon
+    from apysc._material_design.icon.material_reply_all_outlined_icon import MaterialReplyAllOutlinedIcon
+    from apysc._material_design.icon.material_reply_icon import MaterialReplyIcon
+    from apysc._material_design.icon.material_reply_outlined_icon import MaterialReplyOutlinedIcon
+    from apysc._material_design.icon.material_report_gmailerrorred_outlined_icon import MaterialReportGmailerrorredOutlinedIcon
+    from apysc._material_design.icon.material_report_icon import MaterialReportIcon
+    from apysc._material_design.icon.material_report_off_icon import MaterialReportOffIcon
+    from apysc._material_design.icon.material_report_off_outlined_icon import MaterialReportOffOutlinedIcon
+    from apysc._material_design.icon.material_report_outlined_icon import MaterialReportOutlinedIcon
+    from apysc._material_design.icon.material_report_problem_icon import MaterialReportProblemIcon
+    from apysc._material_design.icon.material_report_problem_outlined_icon import MaterialReportProblemOutlinedIcon
+    from apysc._material_design.icon.material_request_page_icon import MaterialRequestPageIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-from apysc._material_design.icon.material_g_translate_icon import MaterialGTranslateIcon
-from apysc._material_design.icon.material_g_translate_outlined_icon import MaterialGTranslateOutlinedIcon
-from apysc._material_design.icon.material_hd_icon import MaterialHdIcon
-from apysc._material_design.icon.material_hd_outlined_icon import MaterialHdOutlinedIcon
-from apysc._material_design.icon.material_hearing_disabled_icon import MaterialHearingDisabledIcon
-from apysc._material_design.icon.material_hearing_disabled_outlined_icon import MaterialHearingDisabledOutlinedIcon
-from apysc._material_design.icon.material_hearing_icon import MaterialHearingIcon
-from apysc._material_design.icon.material_hearing_outlined_icon import MaterialHearingOutlinedIcon
-from apysc._material_design.icon.material_help_center_icon import MaterialHelpCenterIcon
-from apysc._material_design.icon.material_help_center_outlined_icon import MaterialHelpCenterOutlinedIcon
-from apysc._material_design.icon.material_help_icon import MaterialHelpIcon
-from apysc._material_design.icon.material_help_outlined_icon import MaterialHelpOutlinedIcon
-from apysc._material_design.icon.material_help_outline_icon import MaterialHelpOutlineIcon
-from apysc._material_design.icon.material_help_outline_outlined_icon import MaterialHelpOutlineOutlinedIcon
-from apysc._material_design.icon.material_highlight_alt_icon import MaterialHighlightAltIcon
-from apysc._material_design.icon.material_highlight_alt_outlined_icon import MaterialHighlightAltOutlinedIcon
-from apysc._material_design.icon.material_highlight_off_icon import MaterialHighlightOffIcon
-from apysc._material_design.icon.material_highlight_off_outlined_icon import MaterialHighlightOffOutlinedIcon
-from apysc._material_design.icon.material_high_quality_icon import MaterialHighQualityIcon
-from apysc._material_design.icon.material_high_quality_outlined_icon import MaterialHighQualityOutlinedIcon
-from apysc._material_design.icon.material_history_icon import MaterialHistoryIcon
-from apysc._material_design.icon.material_history_outlined_icon import MaterialHistoryOutlinedIcon
-from apysc._material_design.icon.material_history_toggle_off_icon import MaterialHistoryToggleOffIcon
-from apysc._material_design.icon.material_history_toggle_off_outlined_icon import MaterialHistoryToggleOffOutlinedIcon
-from apysc._material_design.icon.material_home_filled_icon import MaterialHomeFilledIcon
-from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
-from apysc._material_design.icon.material_home_outlined_icon import MaterialHomeOutlinedIcon
-from apysc._material_design.icon.material_horizontal_split_icon import MaterialHorizontalSplitIcon
-from apysc._material_design.icon.material_horizontal_split_outlined_icon import MaterialHorizontalSplitOutlinedIcon
-from apysc._material_design.icon.material_hourglass_bottom_icon import MaterialHourglassBottomIcon
-from apysc._material_design.icon.material_hourglass_bottom_outlined_icon import MaterialHourglassBottomOutlinedIcon
-from apysc._material_design.icon.material_hourglass_disabled_icon import MaterialHourglassDisabledIcon
-from apysc._material_design.icon.material_hourglass_disabled_outlined_icon import MaterialHourglassDisabledOutlinedIcon
-from apysc._material_design.icon.material_hourglass_empty_icon import MaterialHourglassEmptyIcon
-from apysc._material_design.icon.material_hourglass_empty_outlined_icon import MaterialHourglassEmptyOutlinedIcon
-from apysc._material_design.icon.material_hourglass_full_icon import MaterialHourglassFullIcon
-from apysc._material_design.icon.material_hourglass_full_outlined_icon import MaterialHourglassFullOutlinedIcon
-from apysc._material_design.icon.material_hourglass_top_icon import MaterialHourglassTopIcon
-from apysc._material_design.icon.material_hourglass_top_outlined_icon import MaterialHourglassTopOutlinedIcon
-from apysc._material_design.icon.material_how_to_reg_icon import MaterialHowToRegIcon
-from apysc._material_design.icon.material_how_to_reg_outlined_icon import MaterialHowToRegOutlinedIcon
-from apysc._material_design.icon.material_how_to_vote_icon import MaterialHowToVoteIcon
-from apysc._material_design.icon.material_how_to_vote_outlined_icon import MaterialHowToVoteOutlinedIcon
-from apysc._material_design.icon.material_https_icon import MaterialHttpsIcon
-from apysc._material_design.icon.material_https_outlined_icon import MaterialHttpsOutlinedIcon
-from apysc._material_design.icon.material_http_icon import MaterialHttpIcon
-from apysc._material_design.icon.material_http_outlined_icon import MaterialHttpOutlinedIcon
-from apysc._material_design.icon.material_important_devices_icon import MaterialImportantDevicesIcon
-from apysc._material_design.icon.material_important_devices_outlined_icon import MaterialImportantDevicesOutlinedIcon
-from apysc._material_design.icon.material_import_contacts_icon import MaterialImportContactsIcon
-from apysc._material_design.icon.material_import_contacts_outlined_icon import MaterialImportContactsOutlinedIcon
-from apysc._material_design.icon.material_import_export_icon import MaterialImportExportIcon
-from apysc._material_design.icon.material_import_export_outlined_icon import MaterialImportExportOutlinedIcon
-from apysc._material_design.icon.material_inbox_icon import MaterialInboxIcon
-from apysc._material_design.icon.material_inbox_outlined_icon import MaterialInboxOutlinedIcon
-from apysc._material_design.icon.material_info_icon import MaterialInfoIcon
-from apysc._material_design.icon.material_info_outlined_icon import MaterialInfoOutlinedIcon
-from apysc._material_design.icon.material_info_outline_icon import MaterialInfoOutlineIcon
-from apysc._material_design.icon.material_input_icon import MaterialInputIcon
-from apysc._material_design.icon.material_input_outlined_icon import MaterialInputOutlinedIcon
-from apysc._material_design.icon.material_insights_icon import MaterialInsightsIcon
-from apysc._material_design.icon.material_insights_outlined_icon import MaterialInsightsOutlinedIcon
-from apysc._material_design.icon.material_integration_instructions_icon import MaterialIntegrationInstructionsIcon
-from apysc._material_design.icon.material_integration_instructions_outlined_icon import MaterialIntegrationInstructionsOutlinedIcon
-from apysc._material_design.icon.material_inventory_icon import MaterialInventoryIcon
-from apysc._material_design.icon.material_invert_colors_icon import MaterialInvertColorsIcon
-from apysc._material_design.icon.material_invert_colors_off_icon import MaterialInvertColorsOffIcon
-from apysc._material_design.icon.material_invert_colors_off_outlined_icon import MaterialInvertColorsOffOutlinedIcon
-from apysc._material_design.icon.material_invert_colors_outlined_icon import MaterialInvertColorsOutlinedIcon
-from apysc._material_design.icon.material_label_icon import MaterialLabelIcon
-from apysc._material_design.icon.material_label_important_icon import MaterialLabelImportantIcon
-from apysc._material_design.icon.material_label_important_outlined_icon import MaterialLabelImportantOutlinedIcon
-from apysc._material_design.icon.material_label_important_outline_icon import MaterialLabelImportantOutlineIcon
-from apysc._material_design.icon.material_label_off_icon import MaterialLabelOffIcon
-from apysc._material_design.icon.material_label_off_outlined_icon import MaterialLabelOffOutlinedIcon
-from apysc._material_design.icon.material_label_outlined_icon import MaterialLabelOutlinedIcon
-from apysc._material_design.icon.material_label_outline_icon import MaterialLabelOutlineIcon
-from apysc._material_design.icon.material_language_icon import MaterialLanguageIcon
-from apysc._material_design.icon.material_language_outlined_icon import MaterialLanguageOutlinedIcon
-from apysc._material_design.icon.material_launch_icon import MaterialLaunchIcon
-from apysc._material_design.icon.material_launch_outlined_icon import MaterialLaunchOutlinedIcon
-from apysc._material_design.icon.material_leaderboard_icon import MaterialLeaderboardIcon
-from apysc._material_design.icon.material_leaderboard_outlined_icon import MaterialLeaderboardOutlinedIcon
-from apysc._material_design.icon.material_library_add_check_icon import MaterialLibraryAddCheckIcon
-from apysc._material_design.icon.material_library_add_check_outlined_icon import MaterialLibraryAddCheckOutlinedIcon
-from apysc._material_design.icon.material_library_add_icon import MaterialLibraryAddIcon
-from apysc._material_design.icon.material_library_add_outlined_icon import MaterialLibraryAddOutlinedIcon
-from apysc._material_design.icon.material_library_books_icon import MaterialLibraryBooksIcon
-from apysc._material_design.icon.material_library_books_outlined_icon import MaterialLibraryBooksOutlinedIcon
-from apysc._material_design.icon.material_library_music_icon import MaterialLibraryMusicIcon
-from apysc._material_design.icon.material_library_music_outlined_icon import MaterialLibraryMusicOutlinedIcon
-from apysc._material_design.icon.material_lightbulb_icon import MaterialLightbulbIcon
-from apysc._material_design.icon.material_lightbulb_outlined_icon import MaterialLightbulbOutlinedIcon
-from apysc._material_design.icon.material_lightbulb_outline_icon import MaterialLightbulbOutlineIcon
-from apysc._material_design.icon.material_line_style_icon import MaterialLineStyleIcon
-from apysc._material_design.icon.material_line_style_outlined_icon import MaterialLineStyleOutlinedIcon
-from apysc._material_design.icon.material_line_weight_icon import MaterialLineWeightIcon
+    from apysc._material_design.icon.material_request_page_outlined_icon import MaterialRequestPageOutlinedIcon
+    from apysc._material_design.icon.material_restore_from_trash_icon import MaterialRestoreFromTrashIcon
+    from apysc._material_design.icon.material_restore_from_trash_outlined_icon import MaterialRestoreFromTrashOutlinedIcon
+    from apysc._material_design.icon.material_restore_icon import MaterialRestoreIcon
+    from apysc._material_design.icon.material_restore_outlined_icon import MaterialRestoreOutlinedIcon
+    from apysc._material_design.icon.material_restore_page_icon import MaterialRestorePageIcon
+    from apysc._material_design.icon.material_restore_page_outlined_icon import MaterialRestorePageOutlinedIcon
+    from apysc._material_design.icon.material_ring_volume_icon import MaterialRingVolumeIcon
+    from apysc._material_design.icon.material_ring_volume_outlined_icon import MaterialRingVolumeOutlinedIcon
+    from apysc._material_design.icon.material_room_icon import MaterialRoomIcon
+    from apysc._material_design.icon.material_room_outlined_icon import MaterialRoomOutlinedIcon
+    from apysc._material_design.icon.material_rounded_corner_icon import MaterialRoundedCornerIcon
+    from apysc._material_design.icon.material_rounded_corner_outlined_icon import MaterialRoundedCornerOutlinedIcon
+    from apysc._material_design.icon.material_rowing_icon import MaterialRowingIcon
+    from apysc._material_design.icon.material_rowing_outlined_icon import MaterialRowingOutlinedIcon
+    from apysc._material_design.icon.material_rss_feed_icon import MaterialRssFeedIcon
+    from apysc._material_design.icon.material_rss_feed_outlined_icon import MaterialRssFeedOutlinedIcon
+    from apysc._material_design.icon.material_rtt_icon import MaterialRttIcon
+    from apysc._material_design.icon.material_rule_icon import MaterialRuleIcon
+    from apysc._material_design.icon.material_rule_outlined_icon import MaterialRuleOutlinedIcon
+    from apysc._material_design.icon.material_saved_search_icon import MaterialSavedSearchIcon
+    from apysc._material_design.icon.material_save_alt_icon import MaterialSaveAltIcon
+    from apysc._material_design.icon.material_save_alt_outlined_icon import MaterialSaveAltOutlinedIcon
+    from apysc._material_design.icon.material_save_icon import MaterialSaveIcon
+    from apysc._material_design.icon.material_save_outlined_icon import MaterialSaveOutlinedIcon
+    from apysc._material_design.icon.material_schedule_icon import MaterialScheduleIcon
+    from apysc._material_design.icon.material_schedule_outlined_icon import MaterialScheduleOutlinedIcon
+    from apysc._material_design.icon.material_schedule_send_icon import MaterialScheduleSendIcon
+    from apysc._material_design.icon.material_screen_share_icon import MaterialScreenShareIcon
+    from apysc._material_design.icon.material_screen_share_outlined_icon import MaterialScreenShareOutlinedIcon
+    from apysc._material_design.icon.material_sd_icon import MaterialSdIcon
+    from apysc._material_design.icon.material_search_icon import MaterialSearchIcon
+    from apysc._material_design.icon.material_search_off_icon import MaterialSearchOffIcon
+    from apysc._material_design.icon.material_search_off_outlined_icon import MaterialSearchOffOutlinedIcon
+    from apysc._material_design.icon.material_search_outlined_icon import MaterialSearchOutlinedIcon
+    from apysc._material_design.icon.material_segment_icon import MaterialSegmentIcon
+    from apysc._material_design.icon.material_select_all_icon import MaterialSelectAllIcon
+    from apysc._material_design.icon.material_select_all_outlined_icon import MaterialSelectAllOutlinedIcon
+    from apysc._material_design.icon.material_send_and_archive_icon import MaterialSendAndArchiveIcon
+    from apysc._material_design.icon.material_send_icon import MaterialSendIcon
+    from apysc._material_design.icon.material_send_outlined_icon import MaterialSendOutlinedIcon
+    from apysc._material_design.icon.material_sentiment_satisfied_alt_icon import MaterialSentimentSatisfiedAltIcon
+    from apysc._material_design.icon.material_sentiment_satisfied_alt_outlined_icon import MaterialSentimentSatisfiedAltOutlinedIcon
+    from apysc._material_design.icon.material_settings_applications_icon import MaterialSettingsApplicationsIcon
+    from apysc._material_design.icon.material_settings_applications_outlined_icon import MaterialSettingsApplicationsOutlinedIcon
+    from apysc._material_design.icon.material_settings_backup_restore_icon import MaterialSettingsBackupRestoreIcon
+    from apysc._material_design.icon.material_settings_backup_restore_outlined_icon import MaterialSettingsBackupRestoreOutlinedIcon
+    from apysc._material_design.icon.material_settings_bluetooth_icon import MaterialSettingsBluetoothIcon
+    from apysc._material_design.icon.material_settings_bluetooth_outlined_icon import MaterialSettingsBluetoothOutlinedIcon
+    from apysc._material_design.icon.material_settings_brightness_icon import MaterialSettingsBrightnessIcon
+    from apysc._material_design.icon.material_settings_brightness_outlined_icon import MaterialSettingsBrightnessOutlinedIcon
+    from apysc._material_design.icon.material_settings_cell_icon import MaterialSettingsCellIcon
+    from apysc._material_design.icon.material_settings_cell_outlined_icon import MaterialSettingsCellOutlinedIcon
+    from apysc._material_design.icon.material_settings_ethernet_icon import MaterialSettingsEthernetIcon
+    from apysc._material_design.icon.material_settings_ethernet_outlined_icon import MaterialSettingsEthernetOutlinedIcon
+    from apysc._material_design.icon.material_settings_icon import MaterialSettingsIcon
+    from apysc._material_design.icon.material_settings_input_antenna_icon import MaterialSettingsInputAntennaIcon
+    from apysc._material_design.icon.material_settings_input_antenna_outlined_icon import MaterialSettingsInputAntennaOutlinedIcon
+    from apysc._material_design.icon.material_settings_input_component_icon import MaterialSettingsInputComponentIcon
+    from apysc._material_design.icon.material_settings_input_component_outlined_icon import MaterialSettingsInputComponentOutlinedIcon
+    from apysc._material_design.icon.material_settings_input_composite_icon import MaterialSettingsInputCompositeIcon
+    from apysc._material_design.icon.material_settings_input_composite_outlined_icon import MaterialSettingsInputCompositeOutlinedIcon
+    from apysc._material_design.icon.material_settings_input_hdmi_icon import MaterialSettingsInputHdmiIcon
+    from apysc._material_design.icon.material_settings_input_hdmi_outlined_icon import MaterialSettingsInputHdmiOutlinedIcon
+    from apysc._material_design.icon.material_settings_input_svideo_icon import MaterialSettingsInputSvideoIcon
+    from apysc._material_design.icon.material_settings_input_svideo_outlined_icon import MaterialSettingsInputSvideoOutlinedIcon
+    from apysc._material_design.icon.material_settings_outlined_icon import MaterialSettingsOutlinedIcon
+    from apysc._material_design.icon.material_settings_overscan_icon import MaterialSettingsOverscanIcon
+    from apysc._material_design.icon.material_settings_overscan_outlined_icon import MaterialSettingsOverscanOutlinedIcon
+    from apysc._material_design.icon.material_settings_phone_icon import MaterialSettingsPhoneIcon
+    from apysc._material_design.icon.material_settings_phone_outlined_icon import MaterialSettingsPhoneOutlinedIcon
+    from apysc._material_design.icon.material_settings_power_icon import MaterialSettingsPowerIcon
+    from apysc._material_design.icon.material_settings_power_outlined_icon import MaterialSettingsPowerOutlinedIcon
+    from apysc._material_design.icon.material_settings_remote_icon import MaterialSettingsRemoteIcon
+    from apysc._material_design.icon.material_settings_remote_outlined_icon import MaterialSettingsRemoteOutlinedIcon
+    from apysc._material_design.icon.material_settings_voice_icon import MaterialSettingsVoiceIcon
+    from apysc._material_design.icon.material_settings_voice_outlined_icon import MaterialSettingsVoiceOutlinedIcon
+    from apysc._material_design.icon.material_shopping_bag_icon import MaterialShoppingBagIcon
+    from apysc._material_design.icon.material_shopping_bag_outlined_icon import MaterialShoppingBagOutlinedIcon
+    from apysc._material_design.icon.material_shopping_basket_icon import MaterialShoppingBasketIcon
+    from apysc._material_design.icon.material_shopping_basket_outlined_icon import MaterialShoppingBasketOutlinedIcon
+    from apysc._material_design.icon.material_shopping_cart_icon import MaterialShoppingCartIcon
+    from apysc._material_design.icon.material_shopping_cart_outlined_icon import MaterialShoppingCartOutlinedIcon
+    from apysc._material_design.icon.material_shop_icon import MaterialShopIcon
+    from apysc._material_design.icon.material_shop_outlined_icon import MaterialShopOutlinedIcon
+    from apysc._material_design.icon.material_shop_two_icon import MaterialShopTwoIcon
+    from apysc._material_design.icon.material_shop_two_outlined_icon import MaterialShopTwoOutlinedIcon
+    from apysc._material_design.icon.material_shuffle_icon import MaterialShuffleIcon
+    from apysc._material_design.icon.material_shuffle_on_icon import MaterialShuffleOnIcon
+    from apysc._material_design.icon.material_shuffle_outlined_icon import MaterialShuffleOutlinedIcon
+    from apysc._material_design.icon.material_skip_next_icon import MaterialSkipNextIcon
+    from apysc._material_design.icon.material_skip_next_outlined_icon import MaterialSkipNextOutlinedIcon
+    from apysc._material_design.icon.material_skip_previous_icon import MaterialSkipPreviousIcon
+    from apysc._material_design.icon.material_skip_previous_outlined_icon import MaterialSkipPreviousOutlinedIcon
+    from apysc._material_design.icon.material_slow_motion_video_icon import MaterialSlowMotionVideoIcon
+    from apysc._material_design.icon.material_slow_motion_video_outlined_icon import MaterialSlowMotionVideoOutlinedIcon
+    from apysc._material_design.icon.material_smart_button_icon import MaterialSmartButtonIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-_logger.info("Roughly 700 packages have been imported...")
+    from apysc._material_design.icon.material_smart_button_outlined_icon import MaterialSmartButtonOutlinedIcon
+    from apysc._material_design.icon.material_snooze_icon import MaterialSnoozeIcon
+    from apysc._material_design.icon.material_snooze_outlined_icon import MaterialSnoozeOutlinedIcon
+    from apysc._material_design.icon.material_sort_by_alpha_icon import MaterialSortByAlphaIcon
+    from apysc._material_design.icon.material_sort_by_alpha_outlined_icon import MaterialSortByAlphaOutlinedIcon
+    from apysc._material_design.icon.material_source_icon import MaterialSourceIcon
+    from apysc._material_design.icon.material_source_outlined_icon import MaterialSourceOutlinedIcon
+    from apysc._material_design.icon.material_speaker_notes_icon import MaterialSpeakerNotesIcon
+    from apysc._material_design.icon.material_speaker_notes_off_icon import MaterialSpeakerNotesOffIcon
+    from apysc._material_design.icon.material_speaker_notes_off_outlined_icon import MaterialSpeakerNotesOffOutlinedIcon
+    from apysc._material_design.icon.material_speaker_notes_outlined_icon import MaterialSpeakerNotesOutlinedIcon
+    from apysc._material_design.icon.material_speaker_phone_icon import MaterialSpeakerPhoneIcon
+    from apysc._material_design.icon.material_speaker_phone_outlined_icon import MaterialSpeakerPhoneOutlinedIcon
+    from apysc._material_design.icon.material_speed_icon import MaterialSpeedIcon
+    from apysc._material_design.icon.material_speed_outlined_icon import MaterialSpeedOutlinedIcon
+    from apysc._material_design.icon.material_spellcheck_icon import MaterialSpellcheckIcon
+    from apysc._material_design.icon.material_spellcheck_outlined_icon import MaterialSpellcheckOutlinedIcon
+    from apysc._material_design.icon.material_stars_icon import MaterialStarsIcon
+    from apysc._material_design.icon.material_stars_outlined_icon import MaterialStarsOutlinedIcon
+    from apysc._material_design.icon.material_star_rate_icon import MaterialStarRateIcon
+    from apysc._material_design.icon.material_star_rate_outlined_icon import MaterialStarRateOutlinedIcon
+    from apysc._material_design.icon.material_stay_current_landscape_icon import MaterialStayCurrentLandscapeIcon
+    from apysc._material_design.icon.material_stay_current_landscape_outlined_icon import MaterialStayCurrentLandscapeOutlinedIcon
+    from apysc._material_design.icon.material_stay_current_portrait_icon import MaterialStayCurrentPortraitIcon
+    from apysc._material_design.icon.material_stay_current_portrait_outlined_icon import MaterialStayCurrentPortraitOutlinedIcon
+    from apysc._material_design.icon.material_stay_primary_landscape_icon import MaterialStayPrimaryLandscapeIcon
+    from apysc._material_design.icon.material_stay_primary_landscape_outlined_icon import MaterialStayPrimaryLandscapeOutlinedIcon
+    from apysc._material_design.icon.material_stay_primary_portrait_icon import MaterialStayPrimaryPortraitIcon
+    from apysc._material_design.icon.material_stay_primary_portrait_outlined_icon import MaterialStayPrimaryPortraitOutlinedIcon
+    from apysc._material_design.icon.material_sticky_note_2_icon import MaterialStickyNote2Icon
+    from apysc._material_design.icon.material_sticky_note_2_outlined_icon import MaterialStickyNote2OutlinedIcon
+    from apysc._material_design.icon.material_stop_circle_icon import MaterialStopCircleIcon
+    from apysc._material_design.icon.material_stop_circle_outlined_icon import MaterialStopCircleOutlinedIcon
+    from apysc._material_design.icon.material_stop_icon import MaterialStopIcon
+    from apysc._material_design.icon.material_stop_outlined_icon import MaterialStopOutlinedIcon
+    from apysc._material_design.icon.material_stop_screen_share_icon import MaterialStopScreenShareIcon
+    from apysc._material_design.icon.material_stop_screen_share_outlined_icon import MaterialStopScreenShareOutlinedIcon
+    from apysc._material_design.icon.material_store_icon import MaterialStoreIcon
+    from apysc._material_design.icon.material_store_outlined_icon import MaterialStoreOutlinedIcon
+    from apysc._material_design.icon.material_subject_icon import MaterialSubjectIcon
+    from apysc._material_design.icon.material_subject_outlined_icon import MaterialSubjectOutlinedIcon
+    from apysc._material_design.icon.material_subscriptions_icon import MaterialSubscriptionsIcon
+    from apysc._material_design.icon.material_subscriptions_outlined_icon import MaterialSubscriptionsOutlinedIcon
+    from apysc._material_design.icon.material_subtitles_icon import MaterialSubtitlesIcon
+    from apysc._material_design.icon.material_subtitles_off_icon import MaterialSubtitlesOffIcon
+    from apysc._material_design.icon.material_subtitles_off_outlined_icon import MaterialSubtitlesOffOutlinedIcon
+    from apysc._material_design.icon.material_subtitles_outlined_icon import MaterialSubtitlesOutlinedIcon
+    from apysc._material_design.icon.material_supervised_user_circle_icon import MaterialSupervisedUserCircleIcon
+    from apysc._material_design.icon.material_supervised_user_circle_outlined_icon import MaterialSupervisedUserCircleOutlinedIcon
+    from apysc._material_design.icon.material_supervisor_account_icon import MaterialSupervisorAccountIcon
+    from apysc._material_design.icon.material_supervisor_account_outlined_icon import MaterialSupervisorAccountOutlinedIcon
+    from apysc._material_design.icon.material_support_icon import MaterialSupportIcon
+    from apysc._material_design.icon.material_support_outlined_icon import MaterialSupportOutlinedIcon
+    from apysc._material_design.icon.material_surround_sound_icon import MaterialSurroundSoundIcon
+    from apysc._material_design.icon.material_surround_sound_outlined_icon import MaterialSurroundSoundOutlinedIcon
+    from apysc._material_design.icon.material_swap_calls_icon import MaterialSwapCallsIcon
+    from apysc._material_design.icon.material_swap_calls_outlined_icon import MaterialSwapCallsOutlinedIcon
+    from apysc._material_design.icon.material_swap_horizontal_circle_icon import MaterialSwapHorizontalCircleIcon
+    from apysc._material_design.icon.material_swap_horizontal_circle_outlined_icon import MaterialSwapHorizontalCircleOutlinedIcon
+    from apysc._material_design.icon.material_swap_horiz_icon import MaterialSwapHorizIcon
+    from apysc._material_design.icon.material_swap_horiz_outlined_icon import MaterialSwapHorizOutlinedIcon
+    from apysc._material_design.icon.material_swap_vertical_circle_icon import MaterialSwapVerticalCircleIcon
+    from apysc._material_design.icon.material_swap_vertical_circle_outlined_icon import MaterialSwapVerticalCircleOutlinedIcon
+    from apysc._material_design.icon.material_swap_vert_icon import MaterialSwapVertIcon
+    from apysc._material_design.icon.material_swap_vert_outlined_icon import MaterialSwapVertOutlinedIcon
+    from apysc._material_design.icon.material_swipe_icon import MaterialSwipeIcon
+    from apysc._material_design.icon.material_sync_alt_icon import MaterialSyncAltIcon
+    from apysc._material_design.icon.material_sync_alt_outlined_icon import MaterialSyncAltOutlinedIcon
+    from apysc._material_design.icon.material_system_update_alt_icon import MaterialSystemUpdateAltIcon
+    from apysc._material_design.icon.material_system_update_alt_outlined_icon import MaterialSystemUpdateAltOutlinedIcon
+    from apysc._material_design.icon.material_table_view_icon import MaterialTableViewIcon
+    from apysc._material_design.icon.material_table_view_outlined_icon import MaterialTableViewOutlinedIcon
+    from apysc._material_design.icon.material_tab_icon import MaterialTabIcon
+    from apysc._material_design.icon.material_tab_outlined_icon import MaterialTabOutlinedIcon
+    from apysc._material_design.icon.material_tab_unselected_icon import MaterialTabUnselectedIcon
+    from apysc._material_design.icon.material_tab_unselected_outlined_icon import MaterialTabUnselectedOutlinedIcon
+    from apysc._material_design.icon.material_textsms_icon import MaterialTextsmsIcon
+    from apysc._material_design.icon.material_textsms_outlined_icon import MaterialTextsmsOutlinedIcon
+    from apysc._material_design.icon.material_text_rotate_up_icon import MaterialTextRotateUpIcon
+    from apysc._material_design.icon.material_text_rotate_up_outlined_icon import MaterialTextRotateUpOutlinedIcon
+    from apysc._material_design.icon.material_text_rotate_vertical_icon import MaterialTextRotateVerticalIcon
+    from apysc._material_design.icon.material_text_rotate_vertical_outlined_icon import MaterialTextRotateVerticalOutlinedIcon
+    from apysc._material_design.icon.material_text_rotation_angledown_icon import MaterialTextRotationAngledownIcon
+    from apysc._material_design.icon.material_text_rotation_angledown_outlined_icon import MaterialTextRotationAngledownOutlinedIcon
+    from apysc._material_design.icon.material_text_rotation_angleup_icon import MaterialTextRotationAngleupIcon
+    from apysc._material_design.icon.material_text_rotation_angleup_outlined_icon import MaterialTextRotationAngleupOutlinedIcon
+    from apysc._material_design.icon.material_text_rotation_down_icon import MaterialTextRotationDownIcon
+    from apysc._material_design.icon.material_text_rotation_down_outlined_icon import MaterialTextRotationDownOutlinedIcon
+    from apysc._material_design.icon.material_text_rotation_none_icon import MaterialTextRotationNoneIcon
+    from apysc._material_design.icon.material_text_rotation_none_outlined_icon import MaterialTextRotationNoneOutlinedIcon
+    from apysc._material_design.icon.material_theaters_icon import MaterialTheatersIcon
+    from apysc._material_design.icon.material_theaters_outlined_icon import MaterialTheatersOutlinedIcon
+    from apysc._material_design.icon.material_thumbs_up_down_icon import MaterialThumbsUpDownIcon
+    from apysc._material_design.icon.material_thumbs_up_down_outlined_icon import MaterialThumbsUpDownOutlinedIcon
+    from apysc._material_design.icon.material_thumb_down_icon import MaterialThumbDownIcon
+    from apysc._material_design.icon.material_thumb_down_off_alt_icon import MaterialThumbDownOffAltIcon
+    from apysc._material_design.icon.material_thumb_down_outlined_icon import MaterialThumbDownOutlinedIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-from apysc._material_design.icon.material_line_weight_outlined_icon import MaterialLineWeightOutlinedIcon
-from apysc._material_design.icon.material_link_icon import MaterialLinkIcon
-from apysc._material_design.icon.material_link_off_icon import MaterialLinkOffIcon
-from apysc._material_design.icon.material_link_off_outlined_icon import MaterialLinkOffOutlinedIcon
-from apysc._material_design.icon.material_link_outlined_icon import MaterialLinkOutlinedIcon
-from apysc._material_design.icon.material_list_alt_icon import MaterialListAltIcon
-from apysc._material_design.icon.material_list_alt_outlined_icon import MaterialListAltOutlinedIcon
-from apysc._material_design.icon.material_list_icon import MaterialListIcon
-from apysc._material_design.icon.material_list_outlined_icon import MaterialListOutlinedIcon
-from apysc._material_design.icon.material_live_help_icon import MaterialLiveHelpIcon
-from apysc._material_design.icon.material_live_help_outlined_icon import MaterialLiveHelpOutlinedIcon
-from apysc._material_design.icon.material_location_off_icon import MaterialLocationOffIcon
-from apysc._material_design.icon.material_location_off_outlined_icon import MaterialLocationOffOutlinedIcon
-from apysc._material_design.icon.material_location_on_icon import MaterialLocationOnIcon
-from apysc._material_design.icon.material_location_on_outlined_icon import MaterialLocationOnOutlinedIcon
-from apysc._material_design.icon.material_lock_clock_icon import MaterialLockClockIcon
-from apysc._material_design.icon.material_lock_icon import MaterialLockIcon
-from apysc._material_design.icon.material_lock_open_icon import MaterialLockOpenIcon
-from apysc._material_design.icon.material_lock_open_outlined_icon import MaterialLockOpenOutlinedIcon
-from apysc._material_design.icon.material_lock_outlined_icon import MaterialLockOutlinedIcon
-from apysc._material_design.icon.material_lock_outline_icon import MaterialLockOutlineIcon
-from apysc._material_design.icon.material_login_icon import MaterialLoginIcon
-from apysc._material_design.icon.material_login_outlined_icon import MaterialLoginOutlinedIcon
-from apysc._material_design.icon.material_logout_icon import MaterialLogoutIcon
-from apysc._material_design.icon.material_loop_icon import MaterialLoopIcon
-from apysc._material_design.icon.material_loop_outlined_icon import MaterialLoopOutlinedIcon
-from apysc._material_design.icon.material_low_priority_icon import MaterialLowPriorityIcon
-from apysc._material_design.icon.material_low_priority_outlined_icon import MaterialLowPriorityOutlinedIcon
-from apysc._material_design.icon.material_loyalty_icon import MaterialLoyaltyIcon
-from apysc._material_design.icon.material_loyalty_outlined_icon import MaterialLoyaltyOutlinedIcon
-from apysc._material_design.icon.material_mail_icon import MaterialMailIcon
-from apysc._material_design.icon.material_mail_outlined_icon import MaterialMailOutlinedIcon
-from apysc._material_design.icon.material_mail_outline_icon import MaterialMailOutlineIcon
-from apysc._material_design.icon.material_mail_outline_outlined_icon import MaterialMailOutlineOutlinedIcon
-from apysc._material_design.icon.material_markunread_icon import MaterialMarkunreadIcon
-from apysc._material_design.icon.material_markunread_mailbox_icon import MaterialMarkunreadMailboxIcon
-from apysc._material_design.icon.material_markunread_mailbox_outlined_icon import MaterialMarkunreadMailboxOutlinedIcon
-from apysc._material_design.icon.material_markunread_outlined_icon import MaterialMarkunreadOutlinedIcon
-from apysc._material_design.icon.material_mark_as_unread_icon import MaterialMarkAsUnreadIcon
-from apysc._material_design.icon.material_mark_chat_read_icon import MaterialMarkChatReadIcon
-from apysc._material_design.icon.material_mark_chat_read_outlined_icon import MaterialMarkChatReadOutlinedIcon
-from apysc._material_design.icon.material_mark_chat_unread_icon import MaterialMarkChatUnreadIcon
-from apysc._material_design.icon.material_mark_chat_unread_outlined_icon import MaterialMarkChatUnreadOutlinedIcon
-from apysc._material_design.icon.material_mark_email_read_icon import MaterialMarkEmailReadIcon
-from apysc._material_design.icon.material_mark_email_read_outlined_icon import MaterialMarkEmailReadOutlinedIcon
-from apysc._material_design.icon.material_mark_email_unread_icon import MaterialMarkEmailUnreadIcon
-from apysc._material_design.icon.material_mark_email_unread_outlined_icon import MaterialMarkEmailUnreadOutlinedIcon
-from apysc._material_design.icon.material_maximize_icon import MaterialMaximizeIcon
-from apysc._material_design.icon.material_maximize_outlined_icon import MaterialMaximizeOutlinedIcon
-from apysc._material_design.icon.material_mediation_icon import MaterialMediationIcon
-from apysc._material_design.icon.material_mediation_outlined_icon import MaterialMediationOutlinedIcon
-from apysc._material_design.icon.material_message_icon import MaterialMessageIcon
-from apysc._material_design.icon.material_message_outlined_icon import MaterialMessageOutlinedIcon
-from apysc._material_design.icon.material_mic_icon import MaterialMicIcon
-from apysc._material_design.icon.material_mic_none_icon import MaterialMicNoneIcon
-from apysc._material_design.icon.material_mic_none_outlined_icon import MaterialMicNoneOutlinedIcon
-from apysc._material_design.icon.material_mic_off_icon import MaterialMicOffIcon
-from apysc._material_design.icon.material_mic_off_outlined_icon import MaterialMicOffOutlinedIcon
-from apysc._material_design.icon.material_mic_outlined_icon import MaterialMicOutlinedIcon
-from apysc._material_design.icon.material_minimize_icon import MaterialMinimizeIcon
-from apysc._material_design.icon.material_minimize_outlined_icon import MaterialMinimizeOutlinedIcon
-from apysc._material_design.icon.material_missed_video_call_icon import MaterialMissedVideoCallIcon
-from apysc._material_design.icon.material_missed_video_call_outlined_icon import MaterialMissedVideoCallOutlinedIcon
-from apysc._material_design.icon.material_mobile_screen_share_icon import MaterialMobileScreenShareIcon
-from apysc._material_design.icon.material_mobile_screen_share_outlined_icon import MaterialMobileScreenShareOutlinedIcon
-from apysc._material_design.icon.material_model_training_icon import MaterialModelTrainingIcon
-from apysc._material_design.icon.material_model_training_outlined_icon import MaterialModelTrainingOutlinedIcon
-from apysc._material_design.icon.material_more_time_icon import MaterialMoreTimeIcon
-from apysc._material_design.icon.material_more_time_outlined_icon import MaterialMoreTimeOutlinedIcon
-from apysc._material_design.icon.material_move_to_inbox_icon import MaterialMoveToInboxIcon
-from apysc._material_design.icon.material_move_to_inbox_outlined_icon import MaterialMoveToInboxOutlinedIcon
-from apysc._material_design.icon.material_movie_icon import MaterialMovieIcon
-from apysc._material_design.icon.material_movie_outlined_icon import MaterialMovieOutlinedIcon
-from apysc._material_design.icon.material_music_video_icon import MaterialMusicVideoIcon
-from apysc._material_design.icon.material_music_video_outlined_icon import MaterialMusicVideoOutlinedIcon
-from apysc._material_design.icon.material_nat_icon import MaterialNatIcon
-from apysc._material_design.icon.material_nat_outlined_icon import MaterialNatOutlinedIcon
-from apysc._material_design.icon.material_new_releases_icon import MaterialNewReleasesIcon
-from apysc._material_design.icon.material_new_releases_outlined_icon import MaterialNewReleasesOutlinedIcon
-from apysc._material_design.icon.material_next_plan_icon import MaterialNextPlanIcon
-from apysc._material_design.icon.material_next_plan_outlined_icon import MaterialNextPlanOutlinedIcon
-from apysc._material_design.icon.material_next_week_icon import MaterialNextWeekIcon
-from apysc._material_design.icon.material_next_week_outlined_icon import MaterialNextWeekOutlinedIcon
-from apysc._material_design.icon.material_nightlight_round_icon import MaterialNightlightRoundIcon
-from apysc._material_design.icon.material_note_add_icon import MaterialNoteAddIcon
-from apysc._material_design.icon.material_note_add_outlined_icon import MaterialNoteAddOutlinedIcon
-from apysc._material_design.icon.material_note_icon import MaterialNoteIcon
-from apysc._material_design.icon.material_note_outlined_icon import MaterialNoteOutlinedIcon
-from apysc._material_design.icon.material_notification_important_icon import MaterialNotificationImportantIcon
-from apysc._material_design.icon.material_notification_important_outlined_icon import MaterialNotificationImportantOutlinedIcon
-from apysc._material_design.icon.material_not_accessible_icon import MaterialNotAccessibleIcon
-from apysc._material_design.icon.material_not_accessible_outlined_icon import MaterialNotAccessibleOutlinedIcon
-from apysc._material_design.icon.material_not_interested_icon import MaterialNotInterestedIcon
-from apysc._material_design.icon.material_not_interested_outlined_icon import MaterialNotInterestedOutlinedIcon
-from apysc._material_design.icon.material_not_started_icon import MaterialNotStartedIcon
-from apysc._material_design.icon.material_not_started_outlined_icon import MaterialNotStartedOutlinedIcon
-from apysc._material_design.icon.material_no_sim_icon import MaterialNoSimIcon
+    from apysc._material_design.icon.material_thumb_up_icon import MaterialThumbUpIcon
+    from apysc._material_design.icon.material_thumb_up_off_alt_icon import MaterialThumbUpOffAltIcon
+    from apysc._material_design.icon.material_thumb_up_outlined_icon import MaterialThumbUpOutlinedIcon
+    from apysc._material_design.icon.material_timeline_icon import MaterialTimelineIcon
+    from apysc._material_design.icon.material_timeline_outlined_icon import MaterialTimelineOutlinedIcon
+    from apysc._material_design.icon.material_toc_icon import MaterialTocIcon
+    from apysc._material_design.icon.material_toc_outlined_icon import MaterialTocOutlinedIcon
+    from apysc._material_design.icon.material_today_icon import MaterialTodayIcon
+    from apysc._material_design.icon.material_today_outlined_icon import MaterialTodayOutlinedIcon
+    from apysc._material_design.icon.material_toll_icon import MaterialTollIcon
+    from apysc._material_design.icon.material_toll_outlined_icon import MaterialTollOutlinedIcon
+    from apysc._material_design.icon.material_touch_app_icon import MaterialTouchAppIcon
+    from apysc._material_design.icon.material_touch_app_outlined_icon import MaterialTouchAppOutlinedIcon
+    from apysc._material_design.icon.material_tour_icon import MaterialTourIcon
+    from apysc._material_design.icon.material_tour_outlined_icon import MaterialTourOutlinedIcon
+    from apysc._material_design.icon.material_track_changes_icon import MaterialTrackChangesIcon
+    from apysc._material_design.icon.material_track_changes_outlined_icon import MaterialTrackChangesOutlinedIcon
+    from apysc._material_design.icon.material_translate_icon import MaterialTranslateIcon
+    from apysc._material_design.icon.material_translate_outlined_icon import MaterialTranslateOutlinedIcon
+    from apysc._material_design.icon.material_trending_down_icon import MaterialTrendingDownIcon
+    from apysc._material_design.icon.material_trending_down_outlined_icon import MaterialTrendingDownOutlinedIcon
+    from apysc._material_design.icon.material_trending_flat_icon import MaterialTrendingFlatIcon
+    from apysc._material_design.icon.material_trending_flat_outlined_icon import MaterialTrendingFlatOutlinedIcon
+    from apysc._material_design.icon.material_trending_up_icon import MaterialTrendingUpIcon
+    from apysc._material_design.icon.material_trending_up_outlined_icon import MaterialTrendingUpOutlinedIcon
+    from apysc._material_design.icon.material_turned_in_icon import MaterialTurnedInIcon
+    from apysc._material_design.icon.material_turned_in_not_icon import MaterialTurnedInNotIcon
+    from apysc._material_design.icon.material_turned_in_not_outlined_icon import MaterialTurnedInNotOutlinedIcon
+    from apysc._material_design.icon.material_turned_in_outlined_icon import MaterialTurnedInOutlinedIcon
+    from apysc._material_design.icon.material_unpublished_icon import MaterialUnpublishedIcon
+    from apysc._material_design.icon.material_unpublished_outlined_icon import MaterialUnpublishedOutlinedIcon
+    from apysc._material_design.icon.material_unsubscribe_icon import MaterialUnsubscribeIcon
+    from apysc._material_design.icon.material_unsubscribe_outlined_icon import MaterialUnsubscribeOutlinedIcon
+    from apysc._material_design.icon.material_update_icon import MaterialUpdateIcon
+    from apysc._material_design.icon.material_update_outlined_icon import MaterialUpdateOutlinedIcon
+    from apysc._material_design.icon.material_upgrade_icon import MaterialUpgradeIcon
+    from apysc._material_design.icon.material_upgrade_outlined_icon import MaterialUpgradeOutlinedIcon
+    from apysc._material_design.icon.material_verified_icon import MaterialVerifiedIcon
+    from apysc._material_design.icon.material_verified_outlined_icon import MaterialVerifiedOutlinedIcon
+    from apysc._material_design.icon.material_verified_user_icon import MaterialVerifiedUserIcon
+    from apysc._material_design.icon.material_verified_user_outlined_icon import MaterialVerifiedUserOutlinedIcon
+    from apysc._material_design.icon.material_vertical_split_icon import MaterialVerticalSplitIcon
+    from apysc._material_design.icon.material_vertical_split_outlined_icon import MaterialVerticalSplitOutlinedIcon
+    from apysc._material_design.icon.material_videocam_icon import MaterialVideocamIcon
+    from apysc._material_design.icon.material_videocam_off_icon import MaterialVideocamOffIcon
+    from apysc._material_design.icon.material_videocam_off_outlined_icon import MaterialVideocamOffOutlinedIcon
+    from apysc._material_design.icon.material_videocam_outlined_icon import MaterialVideocamOutlinedIcon
+    from apysc._material_design.icon.material_video_call_icon import MaterialVideoCallIcon
+    from apysc._material_design.icon.material_video_call_outlined_icon import MaterialVideoCallOutlinedIcon
+    from apysc._material_design.icon.material_video_label_icon import MaterialVideoLabelIcon
+    from apysc._material_design.icon.material_video_label_outlined_icon import MaterialVideoLabelOutlinedIcon
+    from apysc._material_design.icon.material_video_library_icon import MaterialVideoLibraryIcon
+    from apysc._material_design.icon.material_video_library_outlined_icon import MaterialVideoLibraryOutlinedIcon
+    from apysc._material_design.icon.material_video_settings_icon import MaterialVideoSettingsIcon
+    from apysc._material_design.icon.material_video_settings_outlined_icon import MaterialVideoSettingsOutlinedIcon
+    from apysc._material_design.icon.material_view_agenda_icon import MaterialViewAgendaIcon
+    from apysc._material_design.icon.material_view_agenda_outlined_icon import MaterialViewAgendaOutlinedIcon
+    from apysc._material_design.icon.material_view_array_icon import MaterialViewArrayIcon
+    from apysc._material_design.icon.material_view_array_outlined_icon import MaterialViewArrayOutlinedIcon
+    from apysc._material_design.icon.material_view_carousel_icon import MaterialViewCarouselIcon
+    from apysc._material_design.icon.material_view_carousel_outlined_icon import MaterialViewCarouselOutlinedIcon
+    from apysc._material_design.icon.material_view_column_icon import MaterialViewColumnIcon
+    from apysc._material_design.icon.material_view_column_outlined_icon import MaterialViewColumnOutlinedIcon
+    from apysc._material_design.icon.material_view_day_icon import MaterialViewDayIcon
+    from apysc._material_design.icon.material_view_day_outlined_icon import MaterialViewDayOutlinedIcon
+    from apysc._material_design.icon.material_view_headline_icon import MaterialViewHeadlineIcon
+    from apysc._material_design.icon.material_view_headline_outlined_icon import MaterialViewHeadlineOutlinedIcon
+    from apysc._material_design.icon.material_view_in_ar_icon import MaterialViewInArIcon
+    from apysc._material_design.icon.material_view_list_icon import MaterialViewListIcon
+    from apysc._material_design.icon.material_view_list_outlined_icon import MaterialViewListOutlinedIcon
+    from apysc._material_design.icon.material_view_module_icon import MaterialViewModuleIcon
+    from apysc._material_design.icon.material_view_module_outlined_icon import MaterialViewModuleOutlinedIcon
+    from apysc._material_design.icon.material_view_quilt_icon import MaterialViewQuiltIcon
+    from apysc._material_design.icon.material_view_quilt_outlined_icon import MaterialViewQuiltOutlinedIcon
+    from apysc._material_design.icon.material_view_sidebar_icon import MaterialViewSidebarIcon
+    from apysc._material_design.icon.material_view_sidebar_outlined_icon import MaterialViewSidebarOutlinedIcon
+    from apysc._material_design.icon.material_view_stream_icon import MaterialViewStreamIcon
+    from apysc._material_design.icon.material_view_stream_outlined_icon import MaterialViewStreamOutlinedIcon
+    from apysc._material_design.icon.material_view_week_icon import MaterialViewWeekIcon
+    from apysc._material_design.icon.material_view_week_outlined_icon import MaterialViewWeekOutlinedIcon
+    from apysc._material_design.icon.material_visibility_icon import MaterialVisibilityIcon
+    from apysc._material_design.icon.material_visibility_off_icon import MaterialVisibilityOffIcon
+    from apysc._material_design.icon.material_visibility_off_outlined_icon import MaterialVisibilityOffOutlinedIcon
+    from apysc._material_design.icon.material_visibility_outlined_icon import MaterialVisibilityOutlinedIcon
+    from apysc._material_design.icon.material_voicemail_icon import MaterialVoicemailIcon
+    from apysc._material_design.icon.material_voicemail_outlined_icon import MaterialVoicemailOutlinedIcon
+    from apysc._material_design.icon.material_voice_over_off_icon import MaterialVoiceOverOffIcon
+    from apysc._material_design.icon.material_voice_over_off_outlined_icon import MaterialVoiceOverOffOutlinedIcon
+    from apysc._material_design.icon.material_volume_down_icon import MaterialVolumeDownIcon
+    from apysc._material_design.icon.material_volume_down_outlined_icon import MaterialVolumeDownOutlinedIcon
+    from apysc._material_design.icon.material_volume_mute_icon import MaterialVolumeMuteIcon
+    from apysc._material_design.icon.material_volume_mute_outlined_icon import MaterialVolumeMuteOutlinedIcon
+    from apysc._material_design.icon.material_volume_off_icon import MaterialVolumeOffIcon
+    from apysc._material_design.icon.material_volume_off_outlined_icon import MaterialVolumeOffOutlinedIcon
+    from apysc._material_design.icon.material_volume_up_icon import MaterialVolumeUpIcon
+    from apysc._material_design.icon.material_volume_up_outlined_icon import MaterialVolumeUpOutlinedIcon
+    from apysc._material_design.icon.material_vpn_key_icon import MaterialVpnKeyIcon
+    from apysc._material_design.icon.material_vpn_key_outlined_icon import MaterialVpnKeyOutlinedIcon
+    from apysc._material_design.icon.material_warning_amber_outlined_icon import MaterialWarningAmberOutlinedIcon
+    from apysc._material_design.icon.material_warning_icon import MaterialWarningIcon
+    from apysc._material_design.icon.material_warning_outlined_icon import MaterialWarningOutlinedIcon
+    from apysc._material_design.icon.material_watch_later_icon import MaterialWatchLaterIcon
+    from apysc._material_design.icon.material_watch_later_outlined_icon import MaterialWatchLaterOutlinedIcon
+    from apysc._material_design.icon.material_web_asset_icon import MaterialWebAssetIcon
+    from apysc._material_design.icon.material_web_asset_outlined_icon import MaterialWebAssetOutlinedIcon
+    from apysc._material_design.icon.material_web_icon import MaterialWebIcon
+    from apysc._material_design.icon.material_web_outlined_icon import MaterialWebOutlinedIcon
+    _imported_modules_rough_count += 100
+    _logger.info(f"Roughly {_imported_modules_rough_count} packages have been imported...")
 
-_logger.info("Roughly 800 packages have been imported...")
+    from apysc._material_design.icon.material_wifi_calling_icon import MaterialWifiCallingIcon
+    from apysc._material_design.icon.material_wifi_calling_outlined_icon import MaterialWifiCallingOutlinedIcon
+    from apysc._material_design.icon.material_wifi_protected_setup_icon import MaterialWifiProtectedSetupIcon
+    from apysc._material_design.icon.material_wifi_protected_setup_outlined_icon import MaterialWifiProtectedSetupOutlinedIcon
+    from apysc._material_design.icon.material_work_icon import MaterialWorkIcon
+    from apysc._material_design.icon.material_work_off_icon import MaterialWorkOffIcon
+    from apysc._material_design.icon.material_work_off_outlined_icon import MaterialWorkOffOutlinedIcon
+    from apysc._material_design.icon.material_work_outlined_icon import MaterialWorkOutlinedIcon
+    from apysc._material_design.icon.material_work_outline_icon import MaterialWorkOutlineIcon
+    from apysc._material_design.icon.material_work_outline_outlined_icon import MaterialWorkOutlineOutlinedIcon
+    from apysc._material_design.icon.material_wysiwyg_icon import MaterialWysiwygIcon
+    from apysc._material_design.icon.material_wysiwyg_outlined_icon import MaterialWysiwygOutlinedIcon
+    from apysc._material_design.icon.material_youtube_searched_for_icon import MaterialYoutubeSearchedForIcon
+    from apysc._material_design.icon.material_youtube_searched_for_outlined_icon import MaterialYoutubeSearchedForOutlinedIcon
+    from apysc._material_design.icon.material_zoom_in_icon import MaterialZoomInIcon
+    from apysc._material_design.icon.material_zoom_in_outlined_icon import MaterialZoomInOutlinedIcon
+    from apysc._material_design.icon.material_zoom_out_icon import MaterialZoomOutIcon
+    from apysc._material_design.icon.material_zoom_out_outlined_icon import MaterialZoomOutOutlinedIcon
 
-from apysc._material_design.icon.material_no_sim_outlined_icon import MaterialNoSimOutlinedIcon
-from apysc._material_design.icon.material_offline_bolt_icon import MaterialOfflineBoltIcon
-from apysc._material_design.icon.material_offline_bolt_outlined_icon import MaterialOfflineBoltOutlinedIcon
-from apysc._material_design.icon.material_offline_pin_icon import MaterialOfflinePinIcon
-from apysc._material_design.icon.material_offline_pin_outlined_icon import MaterialOfflinePinOutlinedIcon
-from apysc._material_design.icon.material_online_prediction_icon import MaterialOnlinePredictionIcon
-from apysc._material_design.icon.material_online_prediction_outlined_icon import MaterialOnlinePredictionOutlinedIcon
-from apysc._material_design.icon.material_opacity_icon import MaterialOpacityIcon
-from apysc._material_design.icon.material_opacity_outlined_icon import MaterialOpacityOutlinedIcon
-from apysc._material_design.icon.material_open_in_browser_icon import MaterialOpenInBrowserIcon
-from apysc._material_design.icon.material_open_in_browser_outlined_icon import MaterialOpenInBrowserOutlinedIcon
-from apysc._material_design.icon.material_open_in_full_icon import MaterialOpenInFullIcon
-from apysc._material_design.icon.material_open_in_full_outlined_icon import MaterialOpenInFullOutlinedIcon
-from apysc._material_design.icon.material_open_in_new_icon import MaterialOpenInNewIcon
-from apysc._material_design.icon.material_open_in_new_outlined_icon import MaterialOpenInNewOutlinedIcon
-from apysc._material_design.icon.material_open_with_icon import MaterialOpenWithIcon
-from apysc._material_design.icon.material_open_with_outlined_icon import MaterialOpenWithOutlinedIcon
-from apysc._material_design.icon.material_outbond_icon import MaterialOutbondIcon
-from apysc._material_design.icon.material_outbond_outlined_icon import MaterialOutbondOutlinedIcon
-from apysc._material_design.icon.material_outbox_icon import MaterialOutboxIcon
-from apysc._material_design.icon.material_outgoing_mail_icon import MaterialOutgoingMailIcon
-from apysc._material_design.icon.material_outlet_icon import MaterialOutletIcon
-from apysc._material_design.icon.material_outlet_outlined_icon import MaterialOutletOutlinedIcon
-from apysc._material_design.icon.material_outlined_flag_icon import MaterialOutlinedFlagIcon
-from apysc._material_design.icon.material_outlined_flag_outlined_icon import MaterialOutlinedFlagOutlinedIcon
-from apysc._material_design.icon.material_pageview_icon import MaterialPageviewIcon
-from apysc._material_design.icon.material_pageview_outlined_icon import MaterialPageviewOutlinedIcon
-from apysc._material_design.icon.material_pan_tool_icon import MaterialPanToolIcon
-from apysc._material_design.icon.material_pan_tool_outlined_icon import MaterialPanToolOutlinedIcon
-from apysc._material_design.icon.material_pause_circle_filled_icon import MaterialPauseCircleFilledIcon
-from apysc._material_design.icon.material_pause_circle_filled_outlined_icon import MaterialPauseCircleFilledOutlinedIcon
-from apysc._material_design.icon.material_pause_circle_outline_icon import MaterialPauseCircleOutlineIcon
-from apysc._material_design.icon.material_pause_circle_outline_outlined_icon import MaterialPauseCircleOutlineOutlinedIcon
-from apysc._material_design.icon.material_pause_icon import MaterialPauseIcon
-from apysc._material_design.icon.material_pause_outlined_icon import MaterialPauseOutlinedIcon
-from apysc._material_design.icon.material_pause_presentation_icon import MaterialPausePresentationIcon
-from apysc._material_design.icon.material_pause_presentation_outlined_icon import MaterialPausePresentationOutlinedIcon
-from apysc._material_design.icon.material_payment_icon import MaterialPaymentIcon
-from apysc._material_design.icon.material_payment_outlined_icon import MaterialPaymentOutlinedIcon
-from apysc._material_design.icon.material_pending_actions_icon import MaterialPendingActionsIcon
-from apysc._material_design.icon.material_pending_actions_outlined_icon import MaterialPendingActionsOutlinedIcon
-from apysc._material_design.icon.material_pending_icon import MaterialPendingIcon
-from apysc._material_design.icon.material_pending_outlined_icon import MaterialPendingOutlinedIcon
-from apysc._material_design.icon.material_perm_camera_mic_icon import MaterialPermCameraMicIcon
-from apysc._material_design.icon.material_perm_camera_mic_outlined_icon import MaterialPermCameraMicOutlinedIcon
-from apysc._material_design.icon.material_perm_contact_calendar_icon import MaterialPermContactCalendarIcon
-from apysc._material_design.icon.material_perm_contact_calendar_outlined_icon import MaterialPermContactCalendarOutlinedIcon
-from apysc._material_design.icon.material_perm_data_setting_icon import MaterialPermDataSettingIcon
-from apysc._material_design.icon.material_perm_data_setting_outlined_icon import MaterialPermDataSettingOutlinedIcon
-from apysc._material_design.icon.material_perm_device_information_icon import MaterialPermDeviceInformationIcon
-from apysc._material_design.icon.material_perm_device_information_outlined_icon import MaterialPermDeviceInformationOutlinedIcon
-from apysc._material_design.icon.material_perm_identity_icon import MaterialPermIdentityIcon
-from apysc._material_design.icon.material_perm_identity_outlined_icon import MaterialPermIdentityOutlinedIcon
-from apysc._material_design.icon.material_perm_media_icon import MaterialPermMediaIcon
-from apysc._material_design.icon.material_perm_media_outlined_icon import MaterialPermMediaOutlinedIcon
-from apysc._material_design.icon.material_perm_phone_msg_icon import MaterialPermPhoneMsgIcon
-from apysc._material_design.icon.material_perm_phone_msg_outlined_icon import MaterialPermPhoneMsgOutlinedIcon
-from apysc._material_design.icon.material_perm_scan_wifi_icon import MaterialPermScanWifiIcon
-from apysc._material_design.icon.material_perm_scan_wifi_outlined_icon import MaterialPermScanWifiOutlinedIcon
-from apysc._material_design.icon.material_person_add_disabled_icon import MaterialPersonAddDisabledIcon
-from apysc._material_design.icon.material_person_add_disabled_outlined_icon import MaterialPersonAddDisabledOutlinedIcon
-from apysc._material_design.icon.material_person_search_icon import MaterialPersonSearchIcon
-from apysc._material_design.icon.material_person_search_outlined_icon import MaterialPersonSearchOutlinedIcon
-from apysc._material_design.icon.material_pets_icon import MaterialPetsIcon
-from apysc._material_design.icon.material_pets_outlined_icon import MaterialPetsOutlinedIcon
-from apysc._material_design.icon.material_phonelink_erase_icon import MaterialPhonelinkEraseIcon
-from apysc._material_design.icon.material_phonelink_erase_outlined_icon import MaterialPhonelinkEraseOutlinedIcon
-from apysc._material_design.icon.material_phonelink_lock_icon import MaterialPhonelinkLockIcon
-from apysc._material_design.icon.material_phonelink_lock_outlined_icon import MaterialPhonelinkLockOutlinedIcon
-from apysc._material_design.icon.material_phonelink_ring_icon import MaterialPhonelinkRingIcon
-from apysc._material_design.icon.material_phonelink_ring_outlined_icon import MaterialPhonelinkRingOutlinedIcon
-from apysc._material_design.icon.material_phonelink_setup_icon import MaterialPhonelinkSetupIcon
-from apysc._material_design.icon.material_phonelink_setup_outlined_icon import MaterialPhonelinkSetupOutlinedIcon
-from apysc._material_design.icon.material_phone_disabled_icon import MaterialPhoneDisabledIcon
-from apysc._material_design.icon.material_phone_disabled_outlined_icon import MaterialPhoneDisabledOutlinedIcon
-from apysc._material_design.icon.material_phone_enabled_icon import MaterialPhoneEnabledIcon
-from apysc._material_design.icon.material_phone_enabled_outlined_icon import MaterialPhoneEnabledOutlinedIcon
-from apysc._material_design.icon.material_phone_icon import MaterialPhoneIcon
-from apysc._material_design.icon.material_phone_outlined_icon import MaterialPhoneOutlinedIcon
-from apysc._material_design.icon.material_picture_in_picture_alt_icon import MaterialPictureInPictureAltIcon
-from apysc._material_design.icon.material_picture_in_picture_alt_outlined_icon import MaterialPictureInPictureAltOutlinedIcon
-from apysc._material_design.icon.material_picture_in_picture_icon import MaterialPictureInPictureIcon
-from apysc._material_design.icon.material_picture_in_picture_outlined_icon import MaterialPictureInPictureOutlinedIcon
-from apysc._material_design.icon.material_plagiarism_icon import MaterialPlagiarismIcon
-from apysc._material_design.icon.material_plagiarism_outlined_icon import MaterialPlagiarismOutlinedIcon
-from apysc._material_design.icon.material_playlist_add_check_icon import MaterialPlaylistAddCheckIcon
-from apysc._material_design.icon.material_playlist_add_check_outlined_icon import MaterialPlaylistAddCheckOutlinedIcon
-from apysc._material_design.icon.material_playlist_add_icon import MaterialPlaylistAddIcon
-from apysc._material_design.icon.material_playlist_add_outlined_icon import MaterialPlaylistAddOutlinedIcon
-from apysc._material_design.icon.material_playlist_play_icon import MaterialPlaylistPlayIcon
-from apysc._material_design.icon.material_playlist_play_outlined_icon import MaterialPlaylistPlayOutlinedIcon
-from apysc._material_design.icon.material_play_arrow_icon import MaterialPlayArrowIcon
-from apysc._material_design.icon.material_play_arrow_outlined_icon import MaterialPlayArrowOutlinedIcon
-from apysc._material_design.icon.material_play_circle_filled_icon import MaterialPlayCircleFilledIcon
-from apysc._material_design.icon.material_play_circle_filled_outlined_icon import MaterialPlayCircleFilledOutlinedIcon
-from apysc._material_design.icon.material_play_circle_outline_icon import MaterialPlayCircleOutlineIcon
-from apysc._material_design.icon.material_play_circle_outline_outlined_icon import MaterialPlayCircleOutlineOutlinedIcon
-
-_logger.info("Roughly 900 packages have been imported...")
-
-from apysc._material_design.icon.material_play_disabled_icon import MaterialPlayDisabledIcon
-from apysc._material_design.icon.material_play_for_work_icon import MaterialPlayForWorkIcon
-from apysc._material_design.icon.material_play_for_work_outlined_icon import MaterialPlayForWorkOutlinedIcon
-from apysc._material_design.icon.material_policy_icon import MaterialPolicyIcon
-from apysc._material_design.icon.material_policy_outlined_icon import MaterialPolicyOutlinedIcon
-from apysc._material_design.icon.material_polymer_icon import MaterialPolymerIcon
-from apysc._material_design.icon.material_polymer_outlined_icon import MaterialPolymerOutlinedIcon
-from apysc._material_design.icon.material_portable_wifi_off_icon import MaterialPortableWifiOffIcon
-from apysc._material_design.icon.material_portable_wifi_off_outlined_icon import MaterialPortableWifiOffOutlinedIcon
-from apysc._material_design.icon.material_power_settings_new_icon import MaterialPowerSettingsNewIcon
-from apysc._material_design.icon.material_power_settings_new_outlined_icon import MaterialPowerSettingsNewOutlinedIcon
-from apysc._material_design.icon.material_pregnant_woman_icon import MaterialPregnantWomanIcon
-from apysc._material_design.icon.material_pregnant_woman_outlined_icon import MaterialPregnantWomanOutlinedIcon
-from apysc._material_design.icon.material_present_to_all_icon import MaterialPresentToAllIcon
-from apysc._material_design.icon.material_present_to_all_outlined_icon import MaterialPresentToAllOutlinedIcon
-from apysc._material_design.icon.material_preview_icon import MaterialPreviewIcon
-from apysc._material_design.icon.material_preview_outlined_icon import MaterialPreviewOutlinedIcon
-from apysc._material_design.icon.material_print_disabled_icon import MaterialPrintDisabledIcon
-from apysc._material_design.icon.material_print_disabled_outlined_icon import MaterialPrintDisabledOutlinedIcon
-from apysc._material_design.icon.material_print_icon import MaterialPrintIcon
-from apysc._material_design.icon.material_print_outlined_icon import MaterialPrintOutlinedIcon
-from apysc._material_design.icon.material_privacy_tip_icon import MaterialPrivacyTipIcon
-from apysc._material_design.icon.material_privacy_tip_outlined_icon import MaterialPrivacyTipOutlinedIcon
-from apysc._material_design.icon.material_published_with_changes_icon import MaterialPublishedWithChangesIcon
-from apysc._material_design.icon.material_published_with_changes_outlined_icon import MaterialPublishedWithChangesOutlinedIcon
-from apysc._material_design.icon.material_push_pin_icon import MaterialPushPinIcon
-from apysc._material_design.icon.material_push_pin_outlined_icon import MaterialPushPinOutlinedIcon
-from apysc._material_design.icon.material_qr_code_icon import MaterialQrCodeIcon
-from apysc._material_design.icon.material_qr_code_outlined_icon import MaterialQrCodeOutlinedIcon
-from apysc._material_design.icon.material_qr_code_scanner_icon import MaterialQrCodeScannerIcon
-from apysc._material_design.icon.material_qr_code_scanner_outlined_icon import MaterialQrCodeScannerOutlinedIcon
-from apysc._material_design.icon.material_query_builder_icon import MaterialQueryBuilderIcon
-from apysc._material_design.icon.material_query_builder_outlined_icon import MaterialQueryBuilderOutlinedIcon
-from apysc._material_design.icon.material_question_answer_icon import MaterialQuestionAnswerIcon
-from apysc._material_design.icon.material_question_answer_outlined_icon import MaterialQuestionAnswerOutlinedIcon
-from apysc._material_design.icon.material_queue_icon import MaterialQueueIcon
-from apysc._material_design.icon.material_queue_music_icon import MaterialQueueMusicIcon
-from apysc._material_design.icon.material_queue_music_outlined_icon import MaterialQueueMusicOutlinedIcon
-from apysc._material_design.icon.material_queue_outlined_icon import MaterialQueueOutlinedIcon
-from apysc._material_design.icon.material_queue_play_next_icon import MaterialQueuePlayNextIcon
-from apysc._material_design.icon.material_queue_play_next_outlined_icon import MaterialQueuePlayNextOutlinedIcon
-from apysc._material_design.icon.material_quickreply_icon import MaterialQuickreplyIcon
-from apysc._material_design.icon.material_quickreply_outlined_icon import MaterialQuickreplyOutlinedIcon
-from apysc._material_design.icon.material_radio_icon import MaterialRadioIcon
-from apysc._material_design.icon.material_radio_outlined_icon import MaterialRadioOutlinedIcon
-from apysc._material_design.icon.material_read_more_icon import MaterialReadMoreIcon
-from apysc._material_design.icon.material_read_more_outlined_icon import MaterialReadMoreOutlinedIcon
-from apysc._material_design.icon.material_receipt_icon import MaterialReceiptIcon
-from apysc._material_design.icon.material_receipt_outlined_icon import MaterialReceiptOutlinedIcon
-from apysc._material_design.icon.material_recent_actors_icon import MaterialRecentActorsIcon
-from apysc._material_design.icon.material_recent_actors_outlined_icon import MaterialRecentActorsOutlinedIcon
-from apysc._material_design.icon.material_record_voice_over_icon import MaterialRecordVoiceOverIcon
-from apysc._material_design.icon.material_record_voice_over_outlined_icon import MaterialRecordVoiceOverOutlinedIcon
-from apysc._material_design.icon.material_redeem_icon import MaterialRedeemIcon
-from apysc._material_design.icon.material_redeem_outlined_icon import MaterialRedeemOutlinedIcon
-from apysc._material_design.icon.material_redo_icon import MaterialRedoIcon
-from apysc._material_design.icon.material_redo_outlined_icon import MaterialRedoOutlinedIcon
-from apysc._material_design.icon.material_remove_circle_icon import MaterialRemoveCircleIcon
-from apysc._material_design.icon.material_remove_circle_outlined_icon import MaterialRemoveCircleOutlinedIcon
-from apysc._material_design.icon.material_remove_circle_outline_icon import MaterialRemoveCircleOutlineIcon
-from apysc._material_design.icon.material_remove_circle_outline_outlined_icon import MaterialRemoveCircleOutlineOutlinedIcon
-from apysc._material_design.icon.material_remove_done_icon import MaterialRemoveDoneIcon
-from apysc._material_design.icon.material_remove_from_queue_icon import MaterialRemoveFromQueueIcon
-from apysc._material_design.icon.material_remove_from_queue_outlined_icon import MaterialRemoveFromQueueOutlinedIcon
-from apysc._material_design.icon.material_remove_icon import MaterialRemoveIcon
-from apysc._material_design.icon.material_remove_outlined_icon import MaterialRemoveOutlinedIcon
-from apysc._material_design.icon.material_remove_shopping_cart_icon import MaterialRemoveShoppingCartIcon
-from apysc._material_design.icon.material_remove_shopping_cart_outlined_icon import MaterialRemoveShoppingCartOutlinedIcon
-from apysc._material_design.icon.material_reorder_icon import MaterialReorderIcon
-from apysc._material_design.icon.material_reorder_outlined_icon import MaterialReorderOutlinedIcon
-from apysc._material_design.icon.material_repeat_icon import MaterialRepeatIcon
-from apysc._material_design.icon.material_repeat_one_icon import MaterialRepeatOneIcon
-from apysc._material_design.icon.material_repeat_one_on_icon import MaterialRepeatOneOnIcon
-from apysc._material_design.icon.material_repeat_one_outlined_icon import MaterialRepeatOneOutlinedIcon
-from apysc._material_design.icon.material_repeat_on_icon import MaterialRepeatOnIcon
-from apysc._material_design.icon.material_repeat_outlined_icon import MaterialRepeatOutlinedIcon
-from apysc._material_design.icon.material_replay_10_icon import MaterialReplay10Icon
-from apysc._material_design.icon.material_replay_10_outlined_icon import MaterialReplay10OutlinedIcon
-from apysc._material_design.icon.material_replay_30_icon import MaterialReplay30Icon
-from apysc._material_design.icon.material_replay_30_outlined_icon import MaterialReplay30OutlinedIcon
-from apysc._material_design.icon.material_replay_5_icon import MaterialReplay5Icon
-from apysc._material_design.icon.material_replay_5_outlined_icon import MaterialReplay5OutlinedIcon
-from apysc._material_design.icon.material_replay_circle_filled_icon import MaterialReplayCircleFilledIcon
-from apysc._material_design.icon.material_replay_icon import MaterialReplayIcon
-from apysc._material_design.icon.material_replay_outlined_icon import MaterialReplayOutlinedIcon
-from apysc._material_design.icon.material_reply_all_icon import MaterialReplyAllIcon
-from apysc._material_design.icon.material_reply_all_outlined_icon import MaterialReplyAllOutlinedIcon
-from apysc._material_design.icon.material_reply_icon import MaterialReplyIcon
-from apysc._material_design.icon.material_reply_outlined_icon import MaterialReplyOutlinedIcon
-from apysc._material_design.icon.material_report_gmailerrorred_outlined_icon import MaterialReportGmailerrorredOutlinedIcon
-from apysc._material_design.icon.material_report_icon import MaterialReportIcon
-from apysc._material_design.icon.material_report_off_icon import MaterialReportOffIcon
-from apysc._material_design.icon.material_report_off_outlined_icon import MaterialReportOffOutlinedIcon
-from apysc._material_design.icon.material_report_outlined_icon import MaterialReportOutlinedIcon
-from apysc._material_design.icon.material_report_problem_icon import MaterialReportProblemIcon
-from apysc._material_design.icon.material_report_problem_outlined_icon import MaterialReportProblemOutlinedIcon
-from apysc._material_design.icon.material_request_page_icon import MaterialRequestPageIcon
-
-_logger.info("Roughly 1000 packages have been imported...")
-
-from apysc._material_design.icon.material_request_page_outlined_icon import MaterialRequestPageOutlinedIcon
-from apysc._material_design.icon.material_restore_from_trash_icon import MaterialRestoreFromTrashIcon
-from apysc._material_design.icon.material_restore_from_trash_outlined_icon import MaterialRestoreFromTrashOutlinedIcon
-from apysc._material_design.icon.material_restore_icon import MaterialRestoreIcon
-from apysc._material_design.icon.material_restore_outlined_icon import MaterialRestoreOutlinedIcon
-from apysc._material_design.icon.material_restore_page_icon import MaterialRestorePageIcon
-from apysc._material_design.icon.material_restore_page_outlined_icon import MaterialRestorePageOutlinedIcon
-from apysc._material_design.icon.material_ring_volume_icon import MaterialRingVolumeIcon
-from apysc._material_design.icon.material_ring_volume_outlined_icon import MaterialRingVolumeOutlinedIcon
-from apysc._material_design.icon.material_room_icon import MaterialRoomIcon
-from apysc._material_design.icon.material_room_outlined_icon import MaterialRoomOutlinedIcon
-from apysc._material_design.icon.material_rounded_corner_icon import MaterialRoundedCornerIcon
-from apysc._material_design.icon.material_rounded_corner_outlined_icon import MaterialRoundedCornerOutlinedIcon
-from apysc._material_design.icon.material_rowing_icon import MaterialRowingIcon
-from apysc._material_design.icon.material_rowing_outlined_icon import MaterialRowingOutlinedIcon
-from apysc._material_design.icon.material_rss_feed_icon import MaterialRssFeedIcon
-from apysc._material_design.icon.material_rss_feed_outlined_icon import MaterialRssFeedOutlinedIcon
-from apysc._material_design.icon.material_rtt_icon import MaterialRttIcon
-from apysc._material_design.icon.material_rule_icon import MaterialRuleIcon
-from apysc._material_design.icon.material_rule_outlined_icon import MaterialRuleOutlinedIcon
-from apysc._material_design.icon.material_saved_search_icon import MaterialSavedSearchIcon
-from apysc._material_design.icon.material_save_alt_icon import MaterialSaveAltIcon
-from apysc._material_design.icon.material_save_alt_outlined_icon import MaterialSaveAltOutlinedIcon
-from apysc._material_design.icon.material_save_icon import MaterialSaveIcon
-from apysc._material_design.icon.material_save_outlined_icon import MaterialSaveOutlinedIcon
-from apysc._material_design.icon.material_schedule_icon import MaterialScheduleIcon
-from apysc._material_design.icon.material_schedule_outlined_icon import MaterialScheduleOutlinedIcon
-from apysc._material_design.icon.material_schedule_send_icon import MaterialScheduleSendIcon
-from apysc._material_design.icon.material_screen_share_icon import MaterialScreenShareIcon
-from apysc._material_design.icon.material_screen_share_outlined_icon import MaterialScreenShareOutlinedIcon
-from apysc._material_design.icon.material_sd_icon import MaterialSdIcon
-from apysc._material_design.icon.material_search_icon import MaterialSearchIcon
-from apysc._material_design.icon.material_search_off_icon import MaterialSearchOffIcon
-from apysc._material_design.icon.material_search_off_outlined_icon import MaterialSearchOffOutlinedIcon
-from apysc._material_design.icon.material_search_outlined_icon import MaterialSearchOutlinedIcon
-from apysc._material_design.icon.material_segment_icon import MaterialSegmentIcon
-from apysc._material_design.icon.material_select_all_icon import MaterialSelectAllIcon
-from apysc._material_design.icon.material_select_all_outlined_icon import MaterialSelectAllOutlinedIcon
-from apysc._material_design.icon.material_send_and_archive_icon import MaterialSendAndArchiveIcon
-from apysc._material_design.icon.material_send_icon import MaterialSendIcon
-from apysc._material_design.icon.material_send_outlined_icon import MaterialSendOutlinedIcon
-from apysc._material_design.icon.material_sentiment_satisfied_alt_icon import MaterialSentimentSatisfiedAltIcon
-from apysc._material_design.icon.material_sentiment_satisfied_alt_outlined_icon import MaterialSentimentSatisfiedAltOutlinedIcon
-from apysc._material_design.icon.material_settings_applications_icon import MaterialSettingsApplicationsIcon
-from apysc._material_design.icon.material_settings_applications_outlined_icon import MaterialSettingsApplicationsOutlinedIcon
-from apysc._material_design.icon.material_settings_backup_restore_icon import MaterialSettingsBackupRestoreIcon
-from apysc._material_design.icon.material_settings_backup_restore_outlined_icon import MaterialSettingsBackupRestoreOutlinedIcon
-from apysc._material_design.icon.material_settings_bluetooth_icon import MaterialSettingsBluetoothIcon
-from apysc._material_design.icon.material_settings_bluetooth_outlined_icon import MaterialSettingsBluetoothOutlinedIcon
-from apysc._material_design.icon.material_settings_brightness_icon import MaterialSettingsBrightnessIcon
-from apysc._material_design.icon.material_settings_brightness_outlined_icon import MaterialSettingsBrightnessOutlinedIcon
-from apysc._material_design.icon.material_settings_cell_icon import MaterialSettingsCellIcon
-from apysc._material_design.icon.material_settings_cell_outlined_icon import MaterialSettingsCellOutlinedIcon
-from apysc._material_design.icon.material_settings_ethernet_icon import MaterialSettingsEthernetIcon
-from apysc._material_design.icon.material_settings_ethernet_outlined_icon import MaterialSettingsEthernetOutlinedIcon
-from apysc._material_design.icon.material_settings_icon import MaterialSettingsIcon
-from apysc._material_design.icon.material_settings_input_antenna_icon import MaterialSettingsInputAntennaIcon
-from apysc._material_design.icon.material_settings_input_antenna_outlined_icon import MaterialSettingsInputAntennaOutlinedIcon
-from apysc._material_design.icon.material_settings_input_component_icon import MaterialSettingsInputComponentIcon
-from apysc._material_design.icon.material_settings_input_component_outlined_icon import MaterialSettingsInputComponentOutlinedIcon
-from apysc._material_design.icon.material_settings_input_composite_icon import MaterialSettingsInputCompositeIcon
-from apysc._material_design.icon.material_settings_input_composite_outlined_icon import MaterialSettingsInputCompositeOutlinedIcon
-from apysc._material_design.icon.material_settings_input_hdmi_icon import MaterialSettingsInputHdmiIcon
-from apysc._material_design.icon.material_settings_input_hdmi_outlined_icon import MaterialSettingsInputHdmiOutlinedIcon
-from apysc._material_design.icon.material_settings_input_svideo_icon import MaterialSettingsInputSvideoIcon
-from apysc._material_design.icon.material_settings_input_svideo_outlined_icon import MaterialSettingsInputSvideoOutlinedIcon
-from apysc._material_design.icon.material_settings_outlined_icon import MaterialSettingsOutlinedIcon
-from apysc._material_design.icon.material_settings_overscan_icon import MaterialSettingsOverscanIcon
-from apysc._material_design.icon.material_settings_overscan_outlined_icon import MaterialSettingsOverscanOutlinedIcon
-from apysc._material_design.icon.material_settings_phone_icon import MaterialSettingsPhoneIcon
-from apysc._material_design.icon.material_settings_phone_outlined_icon import MaterialSettingsPhoneOutlinedIcon
-from apysc._material_design.icon.material_settings_power_icon import MaterialSettingsPowerIcon
-from apysc._material_design.icon.material_settings_power_outlined_icon import MaterialSettingsPowerOutlinedIcon
-from apysc._material_design.icon.material_settings_remote_icon import MaterialSettingsRemoteIcon
-from apysc._material_design.icon.material_settings_remote_outlined_icon import MaterialSettingsRemoteOutlinedIcon
-from apysc._material_design.icon.material_settings_voice_icon import MaterialSettingsVoiceIcon
-from apysc._material_design.icon.material_settings_voice_outlined_icon import MaterialSettingsVoiceOutlinedIcon
-from apysc._material_design.icon.material_shopping_bag_icon import MaterialShoppingBagIcon
-from apysc._material_design.icon.material_shopping_bag_outlined_icon import MaterialShoppingBagOutlinedIcon
-from apysc._material_design.icon.material_shopping_basket_icon import MaterialShoppingBasketIcon
-from apysc._material_design.icon.material_shopping_basket_outlined_icon import MaterialShoppingBasketOutlinedIcon
-from apysc._material_design.icon.material_shopping_cart_icon import MaterialShoppingCartIcon
-from apysc._material_design.icon.material_shopping_cart_outlined_icon import MaterialShoppingCartOutlinedIcon
-from apysc._material_design.icon.material_shop_icon import MaterialShopIcon
-from apysc._material_design.icon.material_shop_outlined_icon import MaterialShopOutlinedIcon
-from apysc._material_design.icon.material_shop_two_icon import MaterialShopTwoIcon
-from apysc._material_design.icon.material_shop_two_outlined_icon import MaterialShopTwoOutlinedIcon
-from apysc._material_design.icon.material_shuffle_icon import MaterialShuffleIcon
-from apysc._material_design.icon.material_shuffle_on_icon import MaterialShuffleOnIcon
-from apysc._material_design.icon.material_shuffle_outlined_icon import MaterialShuffleOutlinedIcon
-from apysc._material_design.icon.material_skip_next_icon import MaterialSkipNextIcon
-from apysc._material_design.icon.material_skip_next_outlined_icon import MaterialSkipNextOutlinedIcon
-from apysc._material_design.icon.material_skip_previous_icon import MaterialSkipPreviousIcon
-from apysc._material_design.icon.material_skip_previous_outlined_icon import MaterialSkipPreviousOutlinedIcon
-from apysc._material_design.icon.material_slow_motion_video_icon import MaterialSlowMotionVideoIcon
-from apysc._material_design.icon.material_slow_motion_video_outlined_icon import MaterialSlowMotionVideoOutlinedIcon
-from apysc._material_design.icon.material_smart_button_icon import MaterialSmartButtonIcon
-
-_logger.info("Roughly 1100 packages have been imported...")
-
-from apysc._material_design.icon.material_smart_button_outlined_icon import MaterialSmartButtonOutlinedIcon
-from apysc._material_design.icon.material_snooze_icon import MaterialSnoozeIcon
-from apysc._material_design.icon.material_snooze_outlined_icon import MaterialSnoozeOutlinedIcon
-from apysc._material_design.icon.material_sort_by_alpha_icon import MaterialSortByAlphaIcon
-from apysc._material_design.icon.material_sort_by_alpha_outlined_icon import MaterialSortByAlphaOutlinedIcon
-from apysc._material_design.icon.material_source_icon import MaterialSourceIcon
-from apysc._material_design.icon.material_source_outlined_icon import MaterialSourceOutlinedIcon
-from apysc._material_design.icon.material_speaker_notes_icon import MaterialSpeakerNotesIcon
-from apysc._material_design.icon.material_speaker_notes_off_icon import MaterialSpeakerNotesOffIcon
-from apysc._material_design.icon.material_speaker_notes_off_outlined_icon import MaterialSpeakerNotesOffOutlinedIcon
-from apysc._material_design.icon.material_speaker_notes_outlined_icon import MaterialSpeakerNotesOutlinedIcon
-from apysc._material_design.icon.material_speaker_phone_icon import MaterialSpeakerPhoneIcon
-from apysc._material_design.icon.material_speaker_phone_outlined_icon import MaterialSpeakerPhoneOutlinedIcon
-from apysc._material_design.icon.material_speed_icon import MaterialSpeedIcon
-from apysc._material_design.icon.material_speed_outlined_icon import MaterialSpeedOutlinedIcon
-from apysc._material_design.icon.material_spellcheck_icon import MaterialSpellcheckIcon
-from apysc._material_design.icon.material_spellcheck_outlined_icon import MaterialSpellcheckOutlinedIcon
-from apysc._material_design.icon.material_stars_icon import MaterialStarsIcon
-from apysc._material_design.icon.material_stars_outlined_icon import MaterialStarsOutlinedIcon
-from apysc._material_design.icon.material_star_rate_icon import MaterialStarRateIcon
-from apysc._material_design.icon.material_star_rate_outlined_icon import MaterialStarRateOutlinedIcon
-from apysc._material_design.icon.material_stay_current_landscape_icon import MaterialStayCurrentLandscapeIcon
-from apysc._material_design.icon.material_stay_current_landscape_outlined_icon import MaterialStayCurrentLandscapeOutlinedIcon
-from apysc._material_design.icon.material_stay_current_portrait_icon import MaterialStayCurrentPortraitIcon
-from apysc._material_design.icon.material_stay_current_portrait_outlined_icon import MaterialStayCurrentPortraitOutlinedIcon
-from apysc._material_design.icon.material_stay_primary_landscape_icon import MaterialStayPrimaryLandscapeIcon
-from apysc._material_design.icon.material_stay_primary_landscape_outlined_icon import MaterialStayPrimaryLandscapeOutlinedIcon
-from apysc._material_design.icon.material_stay_primary_portrait_icon import MaterialStayPrimaryPortraitIcon
-from apysc._material_design.icon.material_stay_primary_portrait_outlined_icon import MaterialStayPrimaryPortraitOutlinedIcon
-from apysc._material_design.icon.material_sticky_note_2_icon import MaterialStickyNote2Icon
-from apysc._material_design.icon.material_sticky_note_2_outlined_icon import MaterialStickyNote2OutlinedIcon
-from apysc._material_design.icon.material_stop_circle_icon import MaterialStopCircleIcon
-from apysc._material_design.icon.material_stop_circle_outlined_icon import MaterialStopCircleOutlinedIcon
-from apysc._material_design.icon.material_stop_icon import MaterialStopIcon
-from apysc._material_design.icon.material_stop_outlined_icon import MaterialStopOutlinedIcon
-from apysc._material_design.icon.material_stop_screen_share_icon import MaterialStopScreenShareIcon
-from apysc._material_design.icon.material_stop_screen_share_outlined_icon import MaterialStopScreenShareOutlinedIcon
-from apysc._material_design.icon.material_store_icon import MaterialStoreIcon
-from apysc._material_design.icon.material_store_outlined_icon import MaterialStoreOutlinedIcon
-from apysc._material_design.icon.material_subject_icon import MaterialSubjectIcon
-from apysc._material_design.icon.material_subject_outlined_icon import MaterialSubjectOutlinedIcon
-from apysc._material_design.icon.material_subscriptions_icon import MaterialSubscriptionsIcon
-from apysc._material_design.icon.material_subscriptions_outlined_icon import MaterialSubscriptionsOutlinedIcon
-from apysc._material_design.icon.material_subtitles_icon import MaterialSubtitlesIcon
-from apysc._material_design.icon.material_subtitles_off_icon import MaterialSubtitlesOffIcon
-from apysc._material_design.icon.material_subtitles_off_outlined_icon import MaterialSubtitlesOffOutlinedIcon
-from apysc._material_design.icon.material_subtitles_outlined_icon import MaterialSubtitlesOutlinedIcon
-from apysc._material_design.icon.material_supervised_user_circle_icon import MaterialSupervisedUserCircleIcon
-from apysc._material_design.icon.material_supervised_user_circle_outlined_icon import MaterialSupervisedUserCircleOutlinedIcon
-from apysc._material_design.icon.material_supervisor_account_icon import MaterialSupervisorAccountIcon
-from apysc._material_design.icon.material_supervisor_account_outlined_icon import MaterialSupervisorAccountOutlinedIcon
-from apysc._material_design.icon.material_support_icon import MaterialSupportIcon
-from apysc._material_design.icon.material_support_outlined_icon import MaterialSupportOutlinedIcon
-from apysc._material_design.icon.material_surround_sound_icon import MaterialSurroundSoundIcon
-from apysc._material_design.icon.material_surround_sound_outlined_icon import MaterialSurroundSoundOutlinedIcon
-from apysc._material_design.icon.material_swap_calls_icon import MaterialSwapCallsIcon
-from apysc._material_design.icon.material_swap_calls_outlined_icon import MaterialSwapCallsOutlinedIcon
-from apysc._material_design.icon.material_swap_horizontal_circle_icon import MaterialSwapHorizontalCircleIcon
-from apysc._material_design.icon.material_swap_horizontal_circle_outlined_icon import MaterialSwapHorizontalCircleOutlinedIcon
-from apysc._material_design.icon.material_swap_horiz_icon import MaterialSwapHorizIcon
-from apysc._material_design.icon.material_swap_horiz_outlined_icon import MaterialSwapHorizOutlinedIcon
-from apysc._material_design.icon.material_swap_vertical_circle_icon import MaterialSwapVerticalCircleIcon
-from apysc._material_design.icon.material_swap_vertical_circle_outlined_icon import MaterialSwapVerticalCircleOutlinedIcon
-from apysc._material_design.icon.material_swap_vert_icon import MaterialSwapVertIcon
-from apysc._material_design.icon.material_swap_vert_outlined_icon import MaterialSwapVertOutlinedIcon
-from apysc._material_design.icon.material_swipe_icon import MaterialSwipeIcon
-from apysc._material_design.icon.material_sync_alt_icon import MaterialSyncAltIcon
-from apysc._material_design.icon.material_sync_alt_outlined_icon import MaterialSyncAltOutlinedIcon
-from apysc._material_design.icon.material_system_update_alt_icon import MaterialSystemUpdateAltIcon
-from apysc._material_design.icon.material_system_update_alt_outlined_icon import MaterialSystemUpdateAltOutlinedIcon
-from apysc._material_design.icon.material_table_view_icon import MaterialTableViewIcon
-from apysc._material_design.icon.material_table_view_outlined_icon import MaterialTableViewOutlinedIcon
-from apysc._material_design.icon.material_tab_icon import MaterialTabIcon
-from apysc._material_design.icon.material_tab_outlined_icon import MaterialTabOutlinedIcon
-from apysc._material_design.icon.material_tab_unselected_icon import MaterialTabUnselectedIcon
-from apysc._material_design.icon.material_tab_unselected_outlined_icon import MaterialTabUnselectedOutlinedIcon
-from apysc._material_design.icon.material_textsms_icon import MaterialTextsmsIcon
-from apysc._material_design.icon.material_textsms_outlined_icon import MaterialTextsmsOutlinedIcon
-from apysc._material_design.icon.material_text_rotate_up_icon import MaterialTextRotateUpIcon
-from apysc._material_design.icon.material_text_rotate_up_outlined_icon import MaterialTextRotateUpOutlinedIcon
-from apysc._material_design.icon.material_text_rotate_vertical_icon import MaterialTextRotateVerticalIcon
-from apysc._material_design.icon.material_text_rotate_vertical_outlined_icon import MaterialTextRotateVerticalOutlinedIcon
-from apysc._material_design.icon.material_text_rotation_angledown_icon import MaterialTextRotationAngledownIcon
-from apysc._material_design.icon.material_text_rotation_angledown_outlined_icon import MaterialTextRotationAngledownOutlinedIcon
-from apysc._material_design.icon.material_text_rotation_angleup_icon import MaterialTextRotationAngleupIcon
-from apysc._material_design.icon.material_text_rotation_angleup_outlined_icon import MaterialTextRotationAngleupOutlinedIcon
-from apysc._material_design.icon.material_text_rotation_down_icon import MaterialTextRotationDownIcon
-from apysc._material_design.icon.material_text_rotation_down_outlined_icon import MaterialTextRotationDownOutlinedIcon
-from apysc._material_design.icon.material_text_rotation_none_icon import MaterialTextRotationNoneIcon
-from apysc._material_design.icon.material_text_rotation_none_outlined_icon import MaterialTextRotationNoneOutlinedIcon
-from apysc._material_design.icon.material_theaters_icon import MaterialTheatersIcon
-from apysc._material_design.icon.material_theaters_outlined_icon import MaterialTheatersOutlinedIcon
-from apysc._material_design.icon.material_thumbs_up_down_icon import MaterialThumbsUpDownIcon
-from apysc._material_design.icon.material_thumbs_up_down_outlined_icon import MaterialThumbsUpDownOutlinedIcon
-from apysc._material_design.icon.material_thumb_down_icon import MaterialThumbDownIcon
-from apysc._material_design.icon.material_thumb_down_off_alt_icon import MaterialThumbDownOffAltIcon
-from apysc._material_design.icon.material_thumb_down_outlined_icon import MaterialThumbDownOutlinedIcon
-
-_logger.info("Roughly 1200 packages have been imported...")
-
-from apysc._material_design.icon.material_thumb_up_icon import MaterialThumbUpIcon
-from apysc._material_design.icon.material_thumb_up_off_alt_icon import MaterialThumbUpOffAltIcon
-from apysc._material_design.icon.material_thumb_up_outlined_icon import MaterialThumbUpOutlinedIcon
-from apysc._material_design.icon.material_timeline_icon import MaterialTimelineIcon
-from apysc._material_design.icon.material_timeline_outlined_icon import MaterialTimelineOutlinedIcon
-from apysc._material_design.icon.material_toc_icon import MaterialTocIcon
-from apysc._material_design.icon.material_toc_outlined_icon import MaterialTocOutlinedIcon
-from apysc._material_design.icon.material_today_icon import MaterialTodayIcon
-from apysc._material_design.icon.material_today_outlined_icon import MaterialTodayOutlinedIcon
-from apysc._material_design.icon.material_toll_icon import MaterialTollIcon
-from apysc._material_design.icon.material_toll_outlined_icon import MaterialTollOutlinedIcon
-from apysc._material_design.icon.material_touch_app_icon import MaterialTouchAppIcon
-from apysc._material_design.icon.material_touch_app_outlined_icon import MaterialTouchAppOutlinedIcon
-from apysc._material_design.icon.material_tour_icon import MaterialTourIcon
-from apysc._material_design.icon.material_tour_outlined_icon import MaterialTourOutlinedIcon
-from apysc._material_design.icon.material_track_changes_icon import MaterialTrackChangesIcon
-from apysc._material_design.icon.material_track_changes_outlined_icon import MaterialTrackChangesOutlinedIcon
-from apysc._material_design.icon.material_translate_icon import MaterialTranslateIcon
-from apysc._material_design.icon.material_translate_outlined_icon import MaterialTranslateOutlinedIcon
-from apysc._material_design.icon.material_trending_down_icon import MaterialTrendingDownIcon
-from apysc._material_design.icon.material_trending_down_outlined_icon import MaterialTrendingDownOutlinedIcon
-from apysc._material_design.icon.material_trending_flat_icon import MaterialTrendingFlatIcon
-from apysc._material_design.icon.material_trending_flat_outlined_icon import MaterialTrendingFlatOutlinedIcon
-from apysc._material_design.icon.material_trending_up_icon import MaterialTrendingUpIcon
-from apysc._material_design.icon.material_trending_up_outlined_icon import MaterialTrendingUpOutlinedIcon
-from apysc._material_design.icon.material_turned_in_icon import MaterialTurnedInIcon
-from apysc._material_design.icon.material_turned_in_not_icon import MaterialTurnedInNotIcon
-from apysc._material_design.icon.material_turned_in_not_outlined_icon import MaterialTurnedInNotOutlinedIcon
-from apysc._material_design.icon.material_turned_in_outlined_icon import MaterialTurnedInOutlinedIcon
-from apysc._material_design.icon.material_unpublished_icon import MaterialUnpublishedIcon
-from apysc._material_design.icon.material_unpublished_outlined_icon import MaterialUnpublishedOutlinedIcon
-from apysc._material_design.icon.material_unsubscribe_icon import MaterialUnsubscribeIcon
-from apysc._material_design.icon.material_unsubscribe_outlined_icon import MaterialUnsubscribeOutlinedIcon
-from apysc._material_design.icon.material_update_icon import MaterialUpdateIcon
-from apysc._material_design.icon.material_update_outlined_icon import MaterialUpdateOutlinedIcon
-from apysc._material_design.icon.material_upgrade_icon import MaterialUpgradeIcon
-from apysc._material_design.icon.material_upgrade_outlined_icon import MaterialUpgradeOutlinedIcon
-from apysc._material_design.icon.material_verified_icon import MaterialVerifiedIcon
-from apysc._material_design.icon.material_verified_outlined_icon import MaterialVerifiedOutlinedIcon
-from apysc._material_design.icon.material_verified_user_icon import MaterialVerifiedUserIcon
-from apysc._material_design.icon.material_verified_user_outlined_icon import MaterialVerifiedUserOutlinedIcon
-from apysc._material_design.icon.material_vertical_split_icon import MaterialVerticalSplitIcon
-from apysc._material_design.icon.material_vertical_split_outlined_icon import MaterialVerticalSplitOutlinedIcon
-from apysc._material_design.icon.material_videocam_icon import MaterialVideocamIcon
-from apysc._material_design.icon.material_videocam_off_icon import MaterialVideocamOffIcon
-from apysc._material_design.icon.material_videocam_off_outlined_icon import MaterialVideocamOffOutlinedIcon
-from apysc._material_design.icon.material_videocam_outlined_icon import MaterialVideocamOutlinedIcon
-from apysc._material_design.icon.material_video_call_icon import MaterialVideoCallIcon
-from apysc._material_design.icon.material_video_call_outlined_icon import MaterialVideoCallOutlinedIcon
-from apysc._material_design.icon.material_video_label_icon import MaterialVideoLabelIcon
-from apysc._material_design.icon.material_video_label_outlined_icon import MaterialVideoLabelOutlinedIcon
-from apysc._material_design.icon.material_video_library_icon import MaterialVideoLibraryIcon
-from apysc._material_design.icon.material_video_library_outlined_icon import MaterialVideoLibraryOutlinedIcon
-from apysc._material_design.icon.material_video_settings_icon import MaterialVideoSettingsIcon
-from apysc._material_design.icon.material_video_settings_outlined_icon import MaterialVideoSettingsOutlinedIcon
-from apysc._material_design.icon.material_view_agenda_icon import MaterialViewAgendaIcon
-from apysc._material_design.icon.material_view_agenda_outlined_icon import MaterialViewAgendaOutlinedIcon
-from apysc._material_design.icon.material_view_array_icon import MaterialViewArrayIcon
-from apysc._material_design.icon.material_view_array_outlined_icon import MaterialViewArrayOutlinedIcon
-from apysc._material_design.icon.material_view_carousel_icon import MaterialViewCarouselIcon
-from apysc._material_design.icon.material_view_carousel_outlined_icon import MaterialViewCarouselOutlinedIcon
-from apysc._material_design.icon.material_view_column_icon import MaterialViewColumnIcon
-from apysc._material_design.icon.material_view_column_outlined_icon import MaterialViewColumnOutlinedIcon
-from apysc._material_design.icon.material_view_day_icon import MaterialViewDayIcon
-from apysc._material_design.icon.material_view_day_outlined_icon import MaterialViewDayOutlinedIcon
-from apysc._material_design.icon.material_view_headline_icon import MaterialViewHeadlineIcon
-from apysc._material_design.icon.material_view_headline_outlined_icon import MaterialViewHeadlineOutlinedIcon
-from apysc._material_design.icon.material_view_in_ar_icon import MaterialViewInArIcon
-from apysc._material_design.icon.material_view_list_icon import MaterialViewListIcon
-from apysc._material_design.icon.material_view_list_outlined_icon import MaterialViewListOutlinedIcon
-from apysc._material_design.icon.material_view_module_icon import MaterialViewModuleIcon
-from apysc._material_design.icon.material_view_module_outlined_icon import MaterialViewModuleOutlinedIcon
-from apysc._material_design.icon.material_view_quilt_icon import MaterialViewQuiltIcon
-from apysc._material_design.icon.material_view_quilt_outlined_icon import MaterialViewQuiltOutlinedIcon
-from apysc._material_design.icon.material_view_sidebar_icon import MaterialViewSidebarIcon
-from apysc._material_design.icon.material_view_sidebar_outlined_icon import MaterialViewSidebarOutlinedIcon
-from apysc._material_design.icon.material_view_stream_icon import MaterialViewStreamIcon
-from apysc._material_design.icon.material_view_stream_outlined_icon import MaterialViewStreamOutlinedIcon
-from apysc._material_design.icon.material_view_week_icon import MaterialViewWeekIcon
-from apysc._material_design.icon.material_view_week_outlined_icon import MaterialViewWeekOutlinedIcon
-from apysc._material_design.icon.material_visibility_icon import MaterialVisibilityIcon
-from apysc._material_design.icon.material_visibility_off_icon import MaterialVisibilityOffIcon
-from apysc._material_design.icon.material_visibility_off_outlined_icon import MaterialVisibilityOffOutlinedIcon
-from apysc._material_design.icon.material_visibility_outlined_icon import MaterialVisibilityOutlinedIcon
-from apysc._material_design.icon.material_voicemail_icon import MaterialVoicemailIcon
-from apysc._material_design.icon.material_voicemail_outlined_icon import MaterialVoicemailOutlinedIcon
-from apysc._material_design.icon.material_voice_over_off_icon import MaterialVoiceOverOffIcon
-from apysc._material_design.icon.material_voice_over_off_outlined_icon import MaterialVoiceOverOffOutlinedIcon
-from apysc._material_design.icon.material_volume_down_icon import MaterialVolumeDownIcon
-from apysc._material_design.icon.material_volume_down_outlined_icon import MaterialVolumeDownOutlinedIcon
-from apysc._material_design.icon.material_volume_mute_icon import MaterialVolumeMuteIcon
-from apysc._material_design.icon.material_volume_mute_outlined_icon import MaterialVolumeMuteOutlinedIcon
-from apysc._material_design.icon.material_volume_off_icon import MaterialVolumeOffIcon
-from apysc._material_design.icon.material_volume_off_outlined_icon import MaterialVolumeOffOutlinedIcon
-from apysc._material_design.icon.material_volume_up_icon import MaterialVolumeUpIcon
-from apysc._material_design.icon.material_volume_up_outlined_icon import MaterialVolumeUpOutlinedIcon
-from apysc._material_design.icon.material_vpn_key_icon import MaterialVpnKeyIcon
-from apysc._material_design.icon.material_vpn_key_outlined_icon import MaterialVpnKeyOutlinedIcon
-from apysc._material_design.icon.material_warning_amber_outlined_icon import MaterialWarningAmberOutlinedIcon
-from apysc._material_design.icon.material_warning_icon import MaterialWarningIcon
-from apysc._material_design.icon.material_warning_outlined_icon import MaterialWarningOutlinedIcon
-from apysc._material_design.icon.material_watch_later_icon import MaterialWatchLaterIcon
-from apysc._material_design.icon.material_watch_later_outlined_icon import MaterialWatchLaterOutlinedIcon
-from apysc._material_design.icon.material_web_asset_icon import MaterialWebAssetIcon
-from apysc._material_design.icon.material_web_asset_outlined_icon import MaterialWebAssetOutlinedIcon
-from apysc._material_design.icon.material_web_icon import MaterialWebIcon
-from apysc._material_design.icon.material_web_outlined_icon import MaterialWebOutlinedIcon
-
-_logger.info("Roughly 1300 packages have been imported...")
-
-from apysc._material_design.icon.material_wifi_calling_icon import MaterialWifiCallingIcon
-from apysc._material_design.icon.material_wifi_calling_outlined_icon import MaterialWifiCallingOutlinedIcon
-from apysc._material_design.icon.material_wifi_protected_setup_icon import MaterialWifiProtectedSetupIcon
-from apysc._material_design.icon.material_wifi_protected_setup_outlined_icon import MaterialWifiProtectedSetupOutlinedIcon
-from apysc._material_design.icon.material_work_icon import MaterialWorkIcon
-from apysc._material_design.icon.material_work_off_icon import MaterialWorkOffIcon
-from apysc._material_design.icon.material_work_off_outlined_icon import MaterialWorkOffOutlinedIcon
-from apysc._material_design.icon.material_work_outlined_icon import MaterialWorkOutlinedIcon
-from apysc._material_design.icon.material_work_outline_icon import MaterialWorkOutlineIcon
-from apysc._material_design.icon.material_work_outline_outlined_icon import MaterialWorkOutlineOutlinedIcon
-from apysc._material_design.icon.material_wysiwyg_icon import MaterialWysiwygIcon
-from apysc._material_design.icon.material_wysiwyg_outlined_icon import MaterialWysiwygOutlinedIcon
-from apysc._material_design.icon.material_youtube_searched_for_icon import MaterialYoutubeSearchedForIcon
-from apysc._material_design.icon.material_youtube_searched_for_outlined_icon import MaterialYoutubeSearchedForOutlinedIcon
-from apysc._material_design.icon.material_zoom_in_icon import MaterialZoomInIcon
-from apysc._material_design.icon.material_zoom_in_outlined_icon import MaterialZoomInOutlinedIcon
-from apysc._material_design.icon.material_zoom_out_icon import MaterialZoomOutIcon
-from apysc._material_design.icon.material_zoom_out_outlined_icon import MaterialZoomOutOutlinedIcon
 from apysc._material_design.color.material_color_scheme import MaterialColorScheme
 from apysc._material_design.color.material_color_scheme_samples import MaterialColorSchemeSamples
 from apysc._material_design.color.material_brightness import MaterialBrightness

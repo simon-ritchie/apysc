@@ -50,10 +50,10 @@ class MaterialSettingsUtils:
         """
         from apysc._material_design.setting.material_settings import MaterialSettings
         from apysc._branch._if import If
-        from apysc._type.boolean import Boolean
         from apysc._material_design.color.material_color_scheme import (
             MaterialColorScheme
         )
+        from apysc._branch._elif import Elif
 
         if argument_color is not None:
             return argument_color
@@ -66,10 +66,10 @@ class MaterialSettingsUtils:
                 if color_scheme is not None:
                     return color_scheme.primary
 
-            with If(MaterialSettings.current_color_scheme_is_dark_color_scheme()):
+            with Elif(MaterialSettings.current_color_scheme_is_dark_color_scheme()):
                 color_scheme = MaterialSettings.get_dark_color_scheme()
                 if color_scheme is not None:
                     return color_scheme.primary
 
         cls._initialize_fixed_color_scheme_if_not_initialized()
-        pass
+        return cls._fixed_color_scheme.primary

@@ -67,7 +67,7 @@ class MaterialFilledButton(
         y: Union[float, Number] = 0.0,
         text_color: Optional[Color] = None,
         font_family: Optional[Union[Array[String], List[str]]] = None,
-        font_size: Union[int, Int] = 16,
+        font_size: Union[int, Int] = 14,
         background_color: Optional[Color] = None,
         parent: Optional[ChildMixIn] = None,
         variable_name_suffix: str = "",

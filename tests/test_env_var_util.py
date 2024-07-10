@@ -1,6 +1,6 @@
 import os
 
-from apysc._setting import env_var_util
+import env_var_util
 from apysc._testing.testing_helper import apply_test_settings
 
 

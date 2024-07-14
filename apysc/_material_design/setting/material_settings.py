@@ -32,6 +32,24 @@ class MaterialSettings:
     _light_color_scheme: Optional[MaterialColorScheme] = None
 
     @classmethod
+    def _initialize_attrs(cls) -> None:
+        """
+        Initialize each attribute if it has not been initialized yet.
+        """
+        cls._initialize_current_brightness_string_if_not_initialized()
+        if not hasattr(cls, "_light_color_scheme_str"):
+            cls._light_color_scheme_str = String(
+                value=MaterialBrightness.LIGHT.value,
+                variable_name_suffix="light_color_scheme_str",
+            )
+        if not hasattr(cls, "_dark_color_scheme_str"):
+            cls._dark_color_scheme_str = String(
+                value=MaterialBrightness.DARK.value,
+                variable_name_suffix="dark_color_scheme_str",
+            )
+        cls._initialize_color_scheme_setting_is_enabled_if_not_initialized()
+
+    @classmethod
     def get_light_color_scheme(cls) -> Optional[MaterialColorScheme]:
         """
         Get a light color scheme setting.
@@ -42,6 +60,7 @@ class MaterialSettings:
             A light color scheme setting. If the color scheme is not set,
             this property becomes None.
         """
+        cls._initialize_attrs()
         return cls._light_color_scheme
 
     @classmethod
@@ -59,12 +78,13 @@ class MaterialSettings:
         ValueError
             If you call this class method multiple times.
         """
+        cls._initialize_attrs()
+        cls._enable_color_scheme_setting()
         if cls._light_color_scheme is not None:
             raise ValueError(
                 "The `set_light_color_scheme` class method can only be called once."
             )
         cls._light_color_scheme = color_scheme
-        cls._enable_color_scheme_setting()
 
     _dark_color_scheme: Optional[MaterialColorScheme] = None
 
@@ -79,6 +99,7 @@ class MaterialSettings:
             A dark color scheme setting. If the color scheme is not set,
             this property becomes None.
         """
+        cls._initialize_attrs()
         return cls._dark_color_scheme
 
     @classmethod
@@ -96,12 +117,13 @@ class MaterialSettings:
         ValueError
             If you call this class method multiple times.
         """
+        cls._initialize_attrs()
+        cls._enable_color_scheme_setting()
         if cls._dark_color_scheme is not None:
             raise ValueError(
                 "The `set_dark_color_scheme` class method can only be called once."
             )
         cls._dark_color_scheme = color_scheme
-        cls._enable_color_scheme_setting()
 
     _current_brightness_string: String
 
@@ -131,7 +153,7 @@ class MaterialSettings:
         """
         Switch the current color scheme to the light color scheme.
         """
-        cls._initialize_current_brightness_string_if_not_initialized()
+        cls._initialize_attrs()
         cls._current_brightness_string.value = MaterialBrightness.LIGHT.value
 
     @classmethod
@@ -139,7 +161,7 @@ class MaterialSettings:
         """
         Switch the current color scheme to the dark color scheme.
         """
-        cls._initialize_current_brightness_string_if_not_initialized()
+        cls._initialize_attrs()
         cls._current_brightness_string.value = MaterialBrightness.DARK.value
 
     _light_color_scheme_str: String
@@ -155,12 +177,7 @@ class MaterialSettings:
             If the current color scheme is the light color scheme, then
             this method returns True.
         """
-        cls._initialize_current_brightness_string_if_not_initialized()
-        if not hasattr(cls, "_light_color_scheme_str"):
-            cls._light_color_scheme_str = String(
-                value=MaterialBrightness.LIGHT.value,
-                variable_name_suffix="light_color_scheme_str",
-            )
+        cls._initialize_attrs()
         return cls._current_brightness_string == cls._light_color_scheme_str
 
     _dark_color_scheme_str: String
@@ -177,12 +194,7 @@ class MaterialSettings:
             If the current color scheme is the dark color scheme, then
             this method returns True.
         """
-        cls._initialize_current_brightness_string_if_not_initialized()
-        if not hasattr(cls, "_dark_color_scheme_str"):
-            cls._dark_color_scheme_str = String(
-                value=MaterialBrightness.DARK.value,
-                variable_name_suffix="dark_color_scheme_str",
-            )
+        cls._initialize_attrs()
         return cls._current_brightness_string == cls._dark_color_scheme_str
 
     _color_scheme_setting_is_enabled: Boolean
@@ -204,7 +216,7 @@ class MaterialSettings:
         """
         Enable the color scheme setting.
         """
-        cls._initialize_color_scheme_setting_is_enabled_if_not_initialized()
+        cls._initialize_attrs()
         if cls._color_scheme_setting_is_enabled._value:
             return
         cls._color_scheme_setting_is_enabled.value = True
@@ -221,7 +233,7 @@ class MaterialSettings:
             If the color scheme setting is enabled, then this method
             returns True.
         """
-        cls._initialize_color_scheme_setting_is_enabled_if_not_initialized()
+        cls._initialize_attrs()
         return cls._color_scheme_setting_is_enabled
 
     _font_family: Optional[Array[String]] = None
@@ -236,6 +248,7 @@ class MaterialSettings:
         font_family : Union[Array[String], List[str]]
             A font-family setting.
         """
+        cls._initialize_attrs()
         font_family_: Optional[Array[String]] = list_of_strs_to_array_of_string(
             optional_list_or_arr=font_family
         )

@@ -2,6 +2,7 @@ from typing import List, Union
 import pytest
 
 import apysc as ap
+from apysc._material_design.color.material_brightness import MaterialBrightness
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 
@@ -203,3 +204,14 @@ class TestMaterialSettings:
         ap.MaterialSettings.set_font_family(font_family=font_family)
         assert isinstance(ap.MaterialSettings._font_family, ap.Array)
         assert ap.MaterialSettings._font_family._value == ["Arial", "Times New Roman"]
+
+    @apply_test_settings()
+    def test__initialize_attrs(self) -> None:
+        ap.MaterialSettings._reset_settings()
+        ap.MaterialSettings._initialize_attrs()
+        assert ap.MaterialSettings._light_color_scheme_str == ap.String(
+            MaterialBrightness.LIGHT.value
+        )
+        assert ap.MaterialSettings._dark_color_scheme_str == ap.String(
+            MaterialBrightness.DARK.value
+        )

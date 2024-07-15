@@ -59,3 +59,10 @@ class TestMaterialSettingsUtils:
         assert expression.count("if (") == 3
         assert expression.count("else if (") == 1
         assert expression.count("else") == 2
+
+    @apply_test_settings()
+    def test_get_primary_color(self) -> None:
+        target_color: ap.Color = ap.MaterialSettingsUtils.get_primary_color(
+            argument_color=None
+        )
+        assert target_color == ap.MaterialSettingsUtils._fixed_color_scheme.primary

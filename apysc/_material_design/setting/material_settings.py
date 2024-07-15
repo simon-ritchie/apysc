@@ -1,14 +1,16 @@
 """The static class implementation for the material design settings.
 """
 
-from typing import List, Optional, Union
+from typing import List
+from typing import Optional
+from typing import Union
 
 from apysc._converter.list_of_strs_to_array import list_of_strs_to_array_of_string
 from apysc._material_design.color.material_brightness import MaterialBrightness
 from apysc._material_design.color.material_color_scheme import MaterialColorScheme
+from apysc._type.array import Array
 from apysc._type.boolean import Boolean
 from apysc._type.string import String
-from apysc._type.array import Array
 
 
 class MaterialSettings:

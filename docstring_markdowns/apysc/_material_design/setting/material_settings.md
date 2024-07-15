@@ -14,6 +14,10 @@ Delete the `_current_brightness_string` attribute.
 
 Enable the color scheme setting.
 
+### `_initialize_attrs` method docstring
+
+Initialize each attribute if it has not been initialized yet.
+
 ### `_initialize_color_scheme_setting_is_enabled_if_not_initialized` method docstring
 
 Initialize the `_color_scheme_setting_is_enabled` attribute if it has not been initialized yet.
@@ -85,6 +89,15 @@ Set a dark color scheme setting.<hr>
 **[Raises]**
 
 - ValueError: If you call this class method multiple times.
+
+### `set_font_family` method docstring
+
+Set a font-family setting.<hr>
+
+**[Parameters]**
+
+- `font_family`: Union[Array[String], List[str]]
+  - A font-family setting.
 
 ### `set_light_color_scheme` method docstring
 

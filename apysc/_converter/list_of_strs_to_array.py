@@ -2,7 +2,10 @@
 an apysc's Array of String.
 """
 
-from typing import List, Optional, Union
+from typing import List
+from typing import Optional
+from typing import Union
+
 from apysc._type.array import Array
 from apysc._type.string import String
 

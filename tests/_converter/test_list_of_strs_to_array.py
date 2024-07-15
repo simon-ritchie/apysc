@@ -1,7 +1,8 @@
 from typing import Optional
+
+import apysc as ap
 from apysc._converter import list_of_strs_to_array
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 @apply_test_settings()

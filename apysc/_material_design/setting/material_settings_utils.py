@@ -1,16 +1,13 @@
 """The utility module for getting material design settings.
 """
 
-
-from typing import Optional, Literal
+from typing import Optional
 
 from apysc._color.color import Color
+from apysc._material_design.color.material_color_scheme import MaterialColorScheme
 from apysc._material_design.color.material_color_scheme_names import MaterialColorNames
 from apysc._material_design.color.material_color_scheme_samples import (
-    MaterialColorSchemeSamples
-)
-from apysc._material_design.color.material_color_scheme import (
-    MaterialColorScheme
+    MaterialColorSchemeSamples,
 )
 
 
@@ -24,7 +21,7 @@ class MaterialSettingsUtils:
         Initialize the `_fixed_color_scheme` attribute
         if it has not been initialized yet.
         """
-        if hasattr(cls, '_fixed_color_scheme'):
+        if hasattr(cls, "_fixed_color_scheme"):
             return
         cls._fixed_color_scheme = (
             MaterialColorSchemeSamples.create_dark_color_scheme_sample_brown_1()
@@ -95,14 +92,14 @@ class MaterialSettingsUtils:
             2. If a color scheme is set in the `MaterialSettings`
             3. A fixed color value.
         """
-        from apysc._material_design.setting.material_settings import MaterialSettings
+        from apysc._branch._elif import Elif
+        from apysc._branch._else import Else
         from apysc._branch._if import If
         from apysc._material_design.color.material_color_scheme import (
-            MaterialColorScheme
+            MaterialColorScheme,
         )
-        from apysc._branch._elif import Elif
+        from apysc._material_design.setting.material_settings import MaterialSettings
         from apysc._type.boolean import Boolean
-        from apysc._branch._else import Else
 
         cls._initialize_fixed_color_scheme_if_not_initialized()
 
@@ -149,7 +146,7 @@ class MaterialSettingsUtils:
 
         Parameters
         ----------
-        color : Optional[Color]
+        argument_color : Optional[Color]
             A specified argument color.
 
         Returns

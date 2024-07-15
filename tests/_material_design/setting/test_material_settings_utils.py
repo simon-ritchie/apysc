@@ -40,19 +40,15 @@ class TestMaterialSettingsUtils:
     @apply_test_settings()
     def test__get_target_color_and_add_expressions_by_color_name(self) -> None:
         target_color: ap.Color = ap.Colors.RED_DIRT_7F5217.copy()
-        target_color = (
-            ap.MaterialSettingsUtils._get_target_color_and_add_expressions_by_color_name(  # noqa
-                color_name="primary",
-                argument_color=target_color,
-            )
+        target_color = ap.MaterialSettingsUtils._get_target_color_and_add_expressions_by_color_name(  # noqa
+            color_name="primary",
+            argument_color=target_color,
         )
         assert target_color == ap.Colors.RED_DIRT_7F5217
 
-        target_color = (
-            ap.MaterialSettingsUtils._get_target_color_and_add_expressions_by_color_name(  # noqa
-                color_name="primary",
-                argument_color=None,
-            )
+        target_color = ap.MaterialSettingsUtils._get_target_color_and_add_expressions_by_color_name(  # noqa
+            color_name="primary",
+            argument_color=None,
         )
         assert isinstance(target_color, ap.Color)
         expression: str = expression_data_util.get_current_expression()

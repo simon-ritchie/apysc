@@ -1,19 +1,22 @@
 """The class implementation for the material design filled button.
 """
 
-from typing import List, Optional, Union
+from typing import List
+from typing import Optional
+from typing import Union
+
 from apysc._color.color import Color
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 from apysc._display.sprite import Sprite
+from apysc._material_design.button.material_button_label_mixin import (
+    MaterialButtonLabelMixIn,
+)
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._material_design.button.material_button_label_mixin import (
-    MaterialButtonLabelMixIn
-)
 
 
 class MaterialFilledButton(
@@ -95,9 +98,9 @@ class MaterialFilledButton(
         text_color : Optional[Color], optional
             The color of the label text.
             The label color becomes according to the following priorities:
-            1. If this argument is not omitted (i.e, it is not `None`)
+            1. If this argument is not omitted (i.e., it is not `None`)
             2. If a color scheme is set in the `MaterialSettings` (this button
-                refers the `primary` color)
+                refers to the `primary` color)
             3. A fixed color value.
         font_family : Optional[Union[Array[String], List[str]]], optional
             A font-family setting.
@@ -106,9 +109,9 @@ class MaterialFilledButton(
         background_color : Optional[Color], optional
             The background color of this button.
             The background color becomes according to the following priorities:
-            1. If this argument is not omitted (i.e, it is not `None`)
+            1. If this argument is not omitted (i.e., it is not `None`)
             2. If a color scheme is set in the `MaterialSettings` (this button
-                refers the `on_primary` color)
+                refers to the `on_primary` color)
             3. A fixed color value.
         parent : Optional[ChildMixIn], optional
             A parent instance to add this instance.
@@ -119,4 +122,3 @@ class MaterialFilledButton(
             This setting is sometimes useful for JavaScript debugging.
         """
         self._variable_name_suffix = variable_name_suffix
-        pass

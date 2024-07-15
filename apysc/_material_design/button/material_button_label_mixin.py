@@ -1,7 +1,10 @@
 """The mix-in class implementation for the material design button's label.
 """
 
-from typing import List, Optional, Union
+from typing import List
+from typing import Optional
+from typing import Union
+
 from apysc._color.color import Color
 from apysc._display.svg_text import SvgText
 from apysc._type.array import Array
@@ -38,7 +41,9 @@ class MaterialButtonLabelMixIn:
         font_size : Union[int, Int]
             A font-size setting.
         """
-        from apysc._converter.to_apysc_val_from_builtin import get_copied_string_from_builtin_val
+        from apysc._converter.to_apysc_val_from_builtin import (
+            get_copied_string_from_builtin_val,
+        )
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
@@ -47,6 +52,5 @@ class MaterialButtonLabelMixIn:
             string=label,
             variable_name_suffix=get_attr_or_variable_name_suffix(
                 instance=self, value_identifier="label"
-            )
+            ),
         )
-        pass

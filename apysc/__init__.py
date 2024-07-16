@@ -6,7 +6,13 @@ import os as _os
 from apysc._console.loggers import get_info_logger as _get_info_logger
 _logger = _get_info_logger()
 _logger.info("apysc packages importing has been started.")
-_SKIP_MATERIAL_ICONS_IMPORTING: bool = bool(int(_os.environ.get("APYSC_SKIP_MATERIAL_ICONS", False)))
+_skip_material_icons_importing_str: str = _os.environ.get("APYSC_SKIP_MATERIAL_ICONS", "")
+if _skip_material_icons_importing_str == "":
+    _skip_material_icons_importing_str = "0"
+try:
+    _skip_material_icons_importing: bool = bool(int(_skip_material_icons_importing_str))
+except ValueError:
+    _skip_material_icons_importing = False
 _imported_modules_rough_count: int = 0
 
 from apysc._type.int import Int
@@ -154,7 +160,7 @@ from apysc._color.colors import MaterialDesignColors
 from apysc._color.colorless import COLORLESS
 _imported_modules_rough_count += 50
 
-if not _SKIP_MATERIAL_ICONS_IMPORTING:
+if not _skip_material_icons_importing:
     from apysc._material_design.icon.material_10k_icon import Material10KIcon
     from apysc._material_design.icon.material_1k_icon import Material1KIcon
     from apysc._material_design.icon.material_1k_plus_icon import Material1KPlusIcon

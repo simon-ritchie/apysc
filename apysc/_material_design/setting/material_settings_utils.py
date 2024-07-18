@@ -234,3 +234,27 @@ class MaterialSettingsUtils:
             color_name="on_secondary",
             argument_color=argument_color,
         )
+
+    @classmethod
+    def get_error(cls, *, argument_color: Optional[Color]) -> Color:
+        """
+        Get an error color setting from setting.
+
+        Parameters
+        ----------
+        argument_color : Optional[Color]
+            A specified argument color.
+
+        Returns
+        -------
+        target_color : Color
+            A target `error` color.
+            This value becomes according to the following priorities:
+            1. If the `argument_color` is not the `None`
+            2. If a color scheme is set in the `MaterialSettings`
+            3. A fixed color value.
+        """
+        return cls._get_target_color_and_add_expressions_by_color_name(
+            color_name="error",
+            argument_color=argument_color,
+        )

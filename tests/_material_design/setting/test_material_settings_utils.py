@@ -83,3 +83,10 @@ class TestMaterialSettingsUtils:
             argument_color=None
         )
         assert target_color == ap.MaterialSettingsUtils._fixed_color_scheme.on_secondary
+
+    @apply_test_settings()
+    def test_get_error(self) -> None:
+        target_color: ap.Color = ap.MaterialSettingsUtils.get_error(
+            argument_color=None
+        )
+        assert target_color == ap.MaterialSettingsUtils._fixed_color_scheme.error

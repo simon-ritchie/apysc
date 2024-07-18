@@ -104,3 +104,10 @@ class TestMaterialSettingsUtils:
             argument_color=None
         )
         assert surface == ap.MaterialSettingsUtils._fixed_color_scheme.surface
+
+    @apply_test_settings()
+    def test_on_surface_color(self) -> None:
+        on_surface: ap.Color = ap.MaterialSettingsUtils.on_surface_color(
+            argument_color=None
+        )
+        assert on_surface == ap.MaterialSettingsUtils._fixed_color_scheme.on_surface

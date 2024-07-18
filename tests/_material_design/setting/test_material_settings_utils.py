@@ -162,3 +162,10 @@ class TestMaterialSettingsUtils:
             argument_color=None
         )
         assert tertiary == ap.MaterialSettingsUtils._fixed_color_scheme.tertiary
+
+    @apply_test_settings()
+    def test_get_on_tertiary_color(self) -> None:
+        on_tertiary: ap.Color = ap.MaterialSettingsUtils.get_on_tertiary_color(
+            argument_color=None
+        )
+        assert on_tertiary == ap.MaterialSettingsUtils._fixed_color_scheme.on_tertiary

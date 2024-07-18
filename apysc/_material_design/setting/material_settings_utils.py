@@ -502,3 +502,31 @@ class MaterialSettingsUtils:
             color_name="tertiary_container",
             argument_color=argument_color,
         )
+
+    @classmethod
+    def get_on_tertiary_container_color(
+        cls,
+        *,
+        argument_color: Optional[Color],
+    ) -> Color:
+        """
+        Get an `on_tertiary_container` color setting from setting.
+
+        Parameters
+        ----------
+        argument_color : Optional[Color]
+            A specified argument color.
+
+        Returns
+        -------
+        target_color : Color
+            A target `on_tertiary_container` color.
+            This value becomes according to the following priorities:
+            1. If the `argument_color` is not the `None`
+            2. If a color scheme is set in the `MaterialSettings`
+            3. A fixed color value.
+        """
+        return cls._get_target_color_and_add_expressions_by_color_name(
+            color_name="on_tertiary_container",
+            argument_color=argument_color,
+        )

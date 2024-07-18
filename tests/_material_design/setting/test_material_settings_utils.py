@@ -180,3 +180,14 @@ class TestMaterialSettingsUtils:
         assert tertiary_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.tertiary_container
         )
+
+    @apply_test_settings()
+    def test_get_on_tertiary_container_color(self) -> None:
+        on_tertiary_container: ap.Color = (
+            ap.MaterialSettingsUtils.get_on_tertiary_container_color(
+                argument_color=None
+            )
+        )
+        assert on_tertiary_container == (
+            ap.MaterialSettingsUtils._fixed_color_scheme.on_tertiary_container
+        )

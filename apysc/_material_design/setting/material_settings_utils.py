@@ -142,7 +142,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_primary_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get a primary color setting from setting.
+        Get a primary color setting from a setting or argument.
 
         Parameters
         ----------
@@ -166,7 +166,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_on_primary_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an `on_primary` color setting from setting.
+        Get an `on_primary` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -190,7 +190,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_secondary_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get a secondary color setting from setting.
+        Get a secondary color setting from a setting or argument.
 
         Parameters
         ----------
@@ -214,7 +214,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_on_secondary_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an `on_secondary` color setting from setting.
+        Get an `on_secondary` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -238,7 +238,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_error_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an error color setting from setting.
+        Get an error color setting from a setting or argument.
 
         Parameters
         ----------
@@ -262,7 +262,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_on_error_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an `on_error` color setting from setting.
+        Get an `on_error` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -286,7 +286,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_surface(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get a surface color setting from setting.
+        Get a surface color setting from a setting or argument.
 
         Parameters
         ----------
@@ -310,7 +310,7 @@ class MaterialSettingsUtils:
     @classmethod
     def on_surface_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an `on_surface` color setting from setting.
+        Get an `on_surface` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -334,7 +334,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_primary_container_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get a `primary_container` color setting from setting.
+        Get a `primary_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -362,7 +362,7 @@ class MaterialSettingsUtils:
         argument_color: Optional[Color],
     ) -> Color:
         """
-        Get an `on_primary_container` color setting from setting.
+        Get an `on_primary_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -386,7 +386,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_secondary_container_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get a `secondary_container` color setting from setting.
+        Get a `secondary_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -408,9 +408,11 @@ class MaterialSettingsUtils:
         )
 
     @classmethod
-    def get_on_secondary_container_color(cls, *, argument_color: Optional[Color]) -> Color:
+    def get_on_secondary_container_color(
+        cls, *, argument_color: Optional[Color]
+    ) -> Color:
         """
-        Get an `on_secondary_container` color setting from setting.
+        Get an `on_secondary_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -434,7 +436,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_tertiary_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get a `tertiary` color setting from setting.
+        Get a `tertiary` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -458,7 +460,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_on_tertiary_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an `on_tertiary` color setting from setting.
+        Get an `on_tertiary` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -482,7 +484,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_tertiary_container_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get a `tertiary_container` color setting from setting.
+        Get a `tertiary_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -510,7 +512,7 @@ class MaterialSettingsUtils:
         argument_color: Optional[Color],
     ) -> Color:
         """
-        Get an `on_tertiary_container` color setting from setting.
+        Get an `on_tertiary_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -538,7 +540,7 @@ class MaterialSettingsUtils:
         argument_color: Optional[Color],
     ) -> Color:
         """
-        Get an `error_container` color setting from setting.
+        Get an `error_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -566,7 +568,7 @@ class MaterialSettingsUtils:
         argument_color: Optional[Color],
     ) -> Color:
         """
-        Get an `on_error_container` color setting from setting.
+        Get an `on_error_container` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -590,7 +592,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_outline_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an `outline` color setting from setting.
+        Get an `outline` color setting from a setting or argument.
 
         Parameters
         ----------
@@ -614,7 +616,7 @@ class MaterialSettingsUtils:
     @classmethod
     def get_outline_variant_color(cls, *, argument_color: Optional[Color]) -> Color:
         """
-        Get an `outline_variant` color setting from setting.
+        Get an `outline_variant` color setting from a setting or argument.
 
         Parameters
         ----------

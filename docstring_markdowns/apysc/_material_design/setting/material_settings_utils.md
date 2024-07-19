@@ -47,9 +47,9 @@ Set a color scheme value to the target color and append color-related expression
 
 If the specified `color_scheme` is `None`, then this method will do nothing.
 
-### `get_primary_color` method docstring
+### `get_error_color` method docstring
 
-Get a primary color setting from setting.<hr>
+Get an error color setting from a setting or argument.<hr>
 
 **[Parameters]**
 
@@ -61,4 +61,308 @@ Get a primary color setting from setting.<hr>
 **[Returns]**
 
 - `target_color`: Color
-  - A target primary color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+  - A target `error` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_error_container_color` method docstring
+
+Get an `error_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `error_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_error_color` method docstring
+
+Get an `on_error` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_error` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_error_container_color` method docstring
+
+Get an `on_error_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_error_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_primary_color` method docstring
+
+Get an `on_primary` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_primary` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_primary_container_color` method docstring
+
+Get an `on_primary_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_primary_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_secondary_color` method docstring
+
+Get an `on_secondary` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_secondary` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_secondary_container_color` method docstring
+
+Get an `on_secondary_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_secondary_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_tertiary_color` method docstring
+
+Get an `on_tertiary` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_tertiary` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_on_tertiary_container_color` method docstring
+
+Get an `on_tertiary_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_tertiary_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_outline_color` method docstring
+
+Get an `outline` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `outline` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_outline_variant_color` method docstring
+
+Get an `outline_variant` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `outline_variant` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_primary_color` method docstring
+
+Get a primary color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `primary` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_primary_container_color` method docstring
+
+Get a `primary_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `primary_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_secondary_color` method docstring
+
+Get a secondary color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `secondary` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_secondary_container_color` method docstring
+
+Get a `secondary_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `secondary_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_surface` method docstring
+
+Get a surface color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `surface` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_tertiary_color` method docstring
+
+Get a `tertiary` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `tertiary` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `get_tertiary_container_color` method docstring
+
+Get a `tertiary_container` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `tertiary_container` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.
+
+### `on_surface_color` method docstring
+
+Get an `on_surface` color setting from a setting or argument.<hr>
+
+**[Parameters]**
+
+- `argument_color`: Optional[Color]
+  - A specified argument color.
+
+<hr>
+
+**[Returns]**
+
+- `target_color`: Color
+  - A target `on_surface` color. This value becomes according to the following priorities: 1. If the `argument_color` is not the `None` 2. If a color scheme is set in the `MaterialSettings` 3. A fixed color value.

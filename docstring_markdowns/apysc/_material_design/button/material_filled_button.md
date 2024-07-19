@@ -29,7 +29,7 @@ The class for the material design filled button.<hr>
 - `y`: Union[float, Number], optional
   - Y-coordinate of this button.
 - `text_color`: Optional[Color], optional
-  - The color of the label text. The label color becomes according to the following priorities: 1. If this argument is not omitted (i.e., it is not `None`) 2. If a color scheme is set in the `MaterialSettings` (this button refers the `primary` color) 3. A fixed color value.
+  - The color of the label text. The label color becomes according to the following priorities: 1. If this argument is not omitted (i.e., it is not `None`) 2. If a color scheme is set in the `MaterialSettings` (this button refers to the `primary` color) 3. A fixed color value.
 - `font_family`: Optional[Union[Array[String], List[str]]], optional
   - A font-family setting.
 - `font_size`: Union[int, Int], optional

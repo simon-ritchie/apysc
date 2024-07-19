@@ -100,9 +100,7 @@ class TestMaterialSettingsUtils:
 
     @apply_test_settings()
     def test_get_surface(self) -> None:
-        surface: ap.Color = ap.MaterialSettingsUtils.get_surface(
-            argument_color=None
-        )
+        surface: ap.Color = ap.MaterialSettingsUtils.get_surface(argument_color=None)
         assert surface == ap.MaterialSettingsUtils._fixed_color_scheme.surface
 
     @apply_test_settings()
@@ -115,9 +113,7 @@ class TestMaterialSettingsUtils:
     @apply_test_settings()
     def test_get_primary_container_color(self) -> None:
         primary_container: ap.Color = (
-            ap.MaterialSettingsUtils.get_primary_container_color(
-                argument_color=None
-            )
+            ap.MaterialSettingsUtils.get_primary_container_color(argument_color=None)
         )
         assert primary_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.primary_container
@@ -126,9 +122,7 @@ class TestMaterialSettingsUtils:
     @apply_test_settings()
     def test_get_on_primary_container_color(self) -> None:
         on_primary_container: ap.Color = (
-            ap.MaterialSettingsUtils.get_on_primary_container_color(
-                argument_color=None
-            )
+            ap.MaterialSettingsUtils.get_on_primary_container_color(argument_color=None)
         )
         assert on_primary_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.on_primary_container
@@ -137,9 +131,7 @@ class TestMaterialSettingsUtils:
     @apply_test_settings()
     def test_get_secondary_container_color(self) -> None:
         secondary_container: ap.Color = (
-            ap.MaterialSettingsUtils.get_secondary_container_color(
-                argument_color=None
-            )
+            ap.MaterialSettingsUtils.get_secondary_container_color(argument_color=None)
         )
         assert secondary_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.secondary_container
@@ -173,9 +165,7 @@ class TestMaterialSettingsUtils:
     @apply_test_settings()
     def test_get_tertiary_container_color(self) -> None:
         tertiary_container: ap.Color = (
-            ap.MaterialSettingsUtils.get_tertiary_container_color(
-                argument_color=None
-            )
+            ap.MaterialSettingsUtils.get_tertiary_container_color(argument_color=None)
         )
         assert tertiary_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.tertiary_container
@@ -194,10 +184,8 @@ class TestMaterialSettingsUtils:
 
     @apply_test_settings()
     def test_get_error_container_color(self) -> None:
-        error_container: ap.Color = (
-            ap.MaterialSettingsUtils.get_error_container_color(
-                argument_color=None
-            )
+        error_container: ap.Color = ap.MaterialSettingsUtils.get_error_container_color(
+            argument_color=None
         )
         assert error_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.error_container
@@ -206,9 +194,7 @@ class TestMaterialSettingsUtils:
     @apply_test_settings()
     def test_get_on_error_container_color(self) -> None:
         on_error_container: ap.Color = (
-            ap.MaterialSettingsUtils.get_on_error_container_color(
-                argument_color=None
-            )
+            ap.MaterialSettingsUtils.get_on_error_container_color(argument_color=None)
         )
         assert on_error_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.on_error_container
@@ -223,10 +209,8 @@ class TestMaterialSettingsUtils:
 
     @apply_test_settings()
     def test_get_outline_variant_color(self) -> None:
-        outline_variant: ap.Color = (
-            ap.MaterialSettingsUtils.get_outline_variant_color(
-                argument_color=None
-            )
+        outline_variant: ap.Color = ap.MaterialSettingsUtils.get_outline_variant_color(
+            argument_color=None
         )
         assert outline_variant == (
             ap.MaterialSettingsUtils._fixed_color_scheme.outline_variant

@@ -202,3 +202,14 @@ class TestMaterialSettingsUtils:
         assert error_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.error_container
         )
+
+    @apply_test_settings()
+    def test_get_on_error_container_color(self) -> None:
+        on_error_container: ap.Color = (
+            ap.MaterialSettingsUtils.get_on_error_container_color(
+                argument_color=None
+            )
+        )
+        assert on_error_container == (
+            ap.MaterialSettingsUtils._fixed_color_scheme.on_error_container
+        )

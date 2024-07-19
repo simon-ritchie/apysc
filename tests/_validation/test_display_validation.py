@@ -1,5 +1,6 @@
 import apysc as ap
 from apysc._display.any_display_object import AnyDisplayObject
+from apysc._display.child_mixin import ChildMixIn
 from apysc._display.css_interface import CssInterface
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
@@ -189,7 +190,10 @@ def test_validate_multiple_line_settings_are_not_set() -> None:
 @apply_test_settings()
 def test_validate_display_object_container() -> None:
     stage: ap.Stage = ap.Stage()
-    display_validation.validate_display_object_container(container_object=stage)
+    result: ChildMixIn = display_validation.validate_display_object_container(
+        container_object=stage
+    )
+    assert isinstance(result, ap.Stage)
     sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_display_object_container(container_object=sprite)
 

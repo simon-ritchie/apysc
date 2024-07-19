@@ -29,6 +29,7 @@ from typing import Any
 from typing import List
 
 from apysc._display.css_interface import CssInterface
+from apysc._display.child_mixin import ChildMixIn
 
 
 def validate_stage(*, stage: Any) -> None:
@@ -89,7 +90,7 @@ def validate_display_object(
 
 def validate_display_object_container(
     *, container_object: Any, additional_err_msg: str = ""
-) -> None:
+) -> ChildMixIn:
     """
     Validate whether a specified instance is a container type
     of a `DisplayObject` instance (e.g., `Sprite`, `Stage`).
@@ -106,11 +107,10 @@ def validate_display_object_container(
     ValueError
         If a specified instance is not a container type instance.
     """
-    from apysc._display.child_mixin import ChildMixIn
     from apysc._validation import validation_common_utils
 
     if isinstance(container_object, ChildMixIn):
-        return
+        return container_object
     err_msg: str = (
         "A specified instance is not a container type (e.g., "
         f"`Sprite`, `Stage`) instance: {type(container_object)}"

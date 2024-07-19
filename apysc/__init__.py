@@ -1353,6 +1353,6 @@ from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 True_: __True = __True()
 False_: __False = __False()
 
-__version__: str = "4.11.6"
+__version__: str = "4.11.7"
 
 _logger.info("apysc packages imported successfully!")

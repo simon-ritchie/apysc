@@ -213,3 +213,10 @@ class TestMaterialSettingsUtils:
         assert on_error_container == (
             ap.MaterialSettingsUtils._fixed_color_scheme.on_error_container
         )
+
+    @apply_test_settings()
+    def test_get_outline_color(self) -> None:
+        outline: ap.Color = ap.MaterialSettingsUtils.get_outline_color(
+            argument_color=None
+        )
+        assert outline == ap.MaterialSettingsUtils._fixed_color_scheme.outline

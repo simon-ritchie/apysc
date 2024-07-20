@@ -93,7 +93,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         from apysc._branch._elif import Elif
@@ -161,7 +161,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -187,7 +187,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -213,7 +213,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -239,7 +239,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -265,7 +265,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -291,7 +291,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -317,7 +317,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -343,7 +343,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -369,7 +369,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -399,7 +399,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -425,7 +425,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -453,7 +453,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -479,7 +479,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -505,7 +505,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -531,7 +531,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -561,7 +561,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -591,7 +591,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -621,7 +621,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -647,7 +647,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -673,7 +673,7 @@ class MaterialSettingsUtils:
             1. If the `argument_color` is not the `None`,
                 the return value becomes its argument.
             2. If a color scheme is set in the `MaterialSettings`,
-                the return value becomes its argument.
+                the return value becomes its setting.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(

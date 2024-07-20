@@ -681,6 +681,25 @@ class MaterialSettingsUtils:
             argument_color=argument_color,
         )
 
+    _fixed_font_family: Array[String]
+
+    @classmethod
+    def _initialize_fixed_font_family_if_not_initialized(cls) -> None:
+        """
+        Initialize the `_fixed_font_family` attribute
+        if it has not been initialized yet.
+        """
+        if hasattr(cls, "_fixed_font_family"):
+            return
+        cls._fixed_font_family = Array(
+            [
+                String("Arial"),
+                String("Helvetica"),
+                String("Roboto"),
+                String("sans-serif"),
+            ]
+        )
+
     @classmethod
     def get_font_family(
         cls,
@@ -700,8 +719,11 @@ class MaterialSettingsUtils:
         target_font_family : Array[String]
             A target font-family setting.
             This value becomes according to the following priorities:
-            1. If the `argument_font_family` is not the `None`
-            2. If a font-family setting is set in the `MaterialSettings`
+            1. If the `argument_font_family` is not the `None`,
+                the return value becomes its argument.
+            2. If a font-family setting is set in the `MaterialSettings`,
+                the return value becomes its setting.
             3. A fixed font-family value.
         """
+        cls._initialize_fixed_font_family_if_not_initialized()
         pass

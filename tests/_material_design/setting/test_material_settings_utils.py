@@ -215,3 +215,17 @@ class TestMaterialSettingsUtils:
         assert outline_variant == (
             ap.MaterialSettingsUtils._fixed_color_scheme.outline_variant
         )
+
+    @apply_test_settings()
+    def test__initialize_fixed_font_family_if_not_initialized(self) -> None:
+        if hasattr(ap.MaterialSettingsUtils, "_fixed_font_family"):
+            del ap.MaterialSettingsUtils._fixed_font_family
+        ap.MaterialSettingsUtils._initialize_fixed_font_family_if_not_initialized()
+        assert isinstance(ap.MaterialSettingsUtils._fixed_font_family, ap.Array)
+        assert len(ap.MaterialSettingsUtils._fixed_font_family._value) > 0
+
+        ap.MaterialSettingsUtils._initialize_fixed_font_family_if_not_initialized()
+        assert isinstance(ap.MaterialSettingsUtils._fixed_font_family, ap.Array)
+
+        if hasattr(ap.MaterialSettingsUtils, "_fixed_font_family"):
+            del ap.MaterialSettingsUtils._fixed_font_family

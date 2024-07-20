@@ -9,6 +9,8 @@ from apysc._material_design.color.material_color_scheme_names import MaterialCol
 from apysc._material_design.color.material_color_scheme_samples import (
     MaterialColorSchemeSamples,
 )
+from apysc._type.array import Array
+from apysc._type.string import String
 
 
 class MaterialSettingsUtils:
@@ -88,8 +90,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target primary color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         from apysc._branch._elif import Elif
@@ -154,8 +158,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `primary` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -178,8 +184,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_primary` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -202,8 +210,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `secondary` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -226,8 +236,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_secondary` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -250,8 +262,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `error` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -274,8 +288,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_error` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -298,8 +314,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `surface` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -322,8 +340,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_surface` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -346,8 +366,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `primary_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -374,8 +396,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_primary_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -398,8 +422,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `secondary_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -424,8 +450,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_secondary_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -448,8 +476,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `tertiary` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -472,8 +502,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_tertiary` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -496,8 +528,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `tertiary_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -524,8 +558,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_tertiary_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -552,8 +588,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `error_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -580,8 +618,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `on_error_container` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -604,8 +644,10 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `outline` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
@@ -628,11 +670,38 @@ class MaterialSettingsUtils:
         target_color : Color
             A target `outline_variant` color.
             This value becomes according to the following priorities:
-            1. If the `argument_color` is not the `None`
-            2. If a color scheme is set in the `MaterialSettings`
+            1. If the `argument_color` is not the `None`,
+                the return value becomes its argument.
+            2. If a color scheme is set in the `MaterialSettings`,
+                the return value becomes its argument.
             3. A fixed color value.
         """
         return cls._get_target_color_and_add_expressions_by_color_name(
             color_name="outline_variant",
             argument_color=argument_color,
         )
+
+    @classmethod
+    def get_font_family(
+        cls,
+        *,
+        argument_font_family: Optional[Array[String]],
+    ) -> Array[String]:
+        """
+        Get a font-family setting from a setting or argument.
+
+        Parameters
+        ----------
+        argument_font_family : Optional[Array[String]]
+            A specified argument font-family setting.
+
+        Returns
+        -------
+        target_font_family : Array[String]
+            A target font-family setting.
+            This value becomes according to the following priorities:
+            1. If the `argument_font_family` is not the `None`
+            2. If a font-family setting is set in the `MaterialSettings`
+            3. A fixed font-family value.
+        """
+        pass

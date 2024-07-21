@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from typing import Union
 
 import pytest
@@ -217,3 +217,15 @@ class TestMaterialSettings:
         assert ap.MaterialSettings._dark_color_scheme_str == ap.String(
             MaterialBrightness.DARK.value
         )
+
+    @apply_test_settings()
+    def test_get_font_family(self) -> None:
+        ap.MaterialSettings._reset_settings()
+        font_family: Optional[ap.Array[ap.String]] = (
+            ap.MaterialSettings.get_font_family()
+        )
+        assert font_family is None
+
+        ap.MaterialSettings.set_font_family(font_family=["Arial", "Times New Roman"])
+        font_family = ap.MaterialSettings.get_font_family()
+        assert font_family == ap.Array(["Arial", "Times New Roman"])

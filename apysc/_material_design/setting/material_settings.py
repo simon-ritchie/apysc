@@ -255,3 +255,18 @@ class MaterialSettings:
             optional_list_or_arr=font_family
         )
         cls._font_family = font_family_
+
+    @classmethod
+    def get_font_family(cls) -> Optional[Array[String]]:
+        """
+        Get a font-family setting.
+
+        Returns
+        -------
+        font_family : Array[String] or None
+            A font-family setting.
+        """
+        cls._initialize_attrs()
+        if cls._font_family is None:
+            return None
+        return cls._font_family.copy()

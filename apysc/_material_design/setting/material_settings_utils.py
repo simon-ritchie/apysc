@@ -725,5 +725,17 @@ class MaterialSettingsUtils:
                 the return value becomes its setting.
             3. A fixed font-family value.
         """
+        from apysc._material_design.setting.material_settings import MaterialSettings
+
         cls._initialize_fixed_font_family_if_not_initialized()
-        pass
+
+        if argument_font_family is not None:
+            return argument_font_family
+
+        target_font_family: Optional[Array[String]] = (
+            MaterialSettings.get_font_family()
+        )
+        if target_font_family is not None:
+            return target_font_family
+
+        return cls._fixed_font_family.copy()

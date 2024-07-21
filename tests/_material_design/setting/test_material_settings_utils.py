@@ -229,3 +229,26 @@ class TestMaterialSettingsUtils:
 
         if hasattr(ap.MaterialSettingsUtils, "_fixed_font_family"):
             del ap.MaterialSettingsUtils._fixed_font_family
+
+    @apply_test_settings()
+    def test_get_font_family(self) -> None:
+        ap.MaterialSettings._reset_settings()
+        font_family_1: ap.Array[ap.String] = ap.Array([ap.String("Arial")])
+        font_family_2: ap.Array[ap.String] = ap.Array([ap.String("Times New Roman")])
+        ap.MaterialSettings.set_font_family(font_family=font_family_2)
+
+        target_font_family: ap.Array[ap.String] = (
+            ap.MaterialSettingsUtils.get_font_family(argument_font_family=font_family_1)
+        )
+        assert target_font_family == font_family_1
+
+        target_font_family = ap.MaterialSettingsUtils.get_font_family(
+            argument_font_family=None
+        )
+        assert target_font_family == font_family_2
+
+        ap.MaterialSettings._reset_settings()
+        target_font_family = ap.MaterialSettingsUtils.get_font_family(
+            argument_font_family=None
+        )
+        assert target_font_family == ap.MaterialSettingsUtils._fixed_font_family

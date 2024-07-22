@@ -6,6 +6,7 @@ from typing import Optional
 from typing import Union
 
 from apysc._color.color import Color
+from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 from apysc._display.sprite import Sprite
@@ -17,11 +18,13 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._geom.rectangle_geom import RectangleGeom
 
 
 class MaterialFilledButton(
     Sprite,
     MaterialButtonLabelMixIn,
+    AddToParentMixIn,
 ):
     """
     The class for the material design filled button.
@@ -32,7 +35,9 @@ class MaterialFilledButton(
         - https://m3.material.io/components/buttons/specs#0b1b7bd2-3de8-431a-afa1-d692e2e18b0d  # noqa
     """
 
+    _BUTTON_HEIGHT: int = 40
     _prefix_icon: Optional[FixedHtmlSvgIconBase]
+    _background_color: Color
 
     # label
     @arg_validation_decos.is_string(arg_position_index=1, optional=False)
@@ -121,4 +126,126 @@ class MaterialFilledButton(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
+        from apysc._material_design.setting.material_settings_utils import (
+            MaterialSettingsUtils
+        )
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+
         self._variable_name_suffix = variable_name_suffix
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.MATERIAL_FILLED_BUTTON,
+        )
+        super(MaterialFilledButton, self).__init__(
+            variable_name=variable_name,
+            variable_name_suffix=variable_name_suffix
+        )
+
+        self._initialize_label(
+            label=label,
+            text_color=text_color,
+            font_family=font_family,
+            font_size=font_size,
+        )
+        self._background_color = MaterialSettingsUtils.get_primary_color(
+            argument_color=background_color
+        )
+        label_text_initial_bounding_box: RectangleGeom = self._label_text.get_bounds(
+            target_coordinate_space_object=self
+        )
+        self._resize_icon_size(prefix_icon=prefix_icon, suffix_icon=suffix_icon)
+        self._add_icons(prefix_icon=prefix_icon, suffix_icon=suffix_icon)
+        self._redraw_background(label_text_bounding_box=label_text_initial_bounding_box)
+        self._locate_text_at_center_position(
+            label_text_bounding_box=label_text_initial_bounding_box
+        )
+        self._add_to_parent(parent=parent)
+
+    _ICON_SIZE: int = 18
+
+    def _resize_icon_size(
+        self,
+        *,
+        prefix_icon: Optional[FixedHtmlSvgIconBase],
+        suffix_icon: Optional[FixedHtmlSvgIconBase],
+    ) -> None:
+        """
+        Resize the icon size if each icon is specified.
+
+        Parameters
+        ----------
+        prefix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the left side of the label.
+        suffix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the right side of the label.
+        """
+        if prefix_icon is not None:
+            prefix_icon.width = Int(
+                self._ICON_SIZE, variable_name_suffix="prefix_icon_width"
+            )
+            prefix_icon.height = Int(
+                self._ICON_SIZE, variable_name_suffix="prefix_icon_height"
+            )
+        if suffix_icon is not None:
+            suffix_icon.width = Int(
+                self._ICON_SIZE, variable_name_suffix="suffix_icon_width"
+            )
+            suffix_icon.height = Int(
+                self._ICON_SIZE, variable_name_suffix="suffix_icon_height"
+            )
+
+    def _add_icons(
+        self,
+        *,
+        prefix_icon: Optional[FixedHtmlSvgIconBase],
+        suffix_icon: Optional[FixedHtmlSvgIconBase],
+    ) -> None:
+        """
+        Add each icon to this button.
+
+        Parameters
+        ----------
+        prefix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the left side of the label.
+        suffix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the right side of the label.
+        parent : Optional[ChildMixIn]
+            A parent instance to add this instance.
+            If the specified value is None, this interface uses
+            a stage instance.
+        """
+        if prefix_icon is not None:
+            self.add_child(child=prefix_icon)
+        if suffix_icon is not None:
+            self.add_child(child=suffix_icon)
+
+    def _locate_text_at_center_position(
+        self,
+        *,
+        label_text_bounding_box: RectangleGeom,
+    ) -> None:
+        pass
+
+    def _redraw_background(
+        self,
+        *,
+        label_text_bounding_box: RectangleGeom,
+    ) -> None:
+        """
+        Redraw the background of this button.
+
+        Parameters
+        ----------
+        label_text_bounding_box : RectangleGeom
+            The bounding box of the label text.
+        """
+        self.graphics.clear()
+        self.graphics.begin_fill(color=self._background_color)
+        self.graphics.draw_round_rect(
+            x=0,
+            y=0,
+            width=label_text_bounding_box.width + 24,
+            height=self._BUTTON_HEIGHT,
+            ellipse_width=int(self._BUTTON_HEIGHT / 2),
+            ellipse_height=int(self._BUTTON_HEIGHT / 2),
+        )

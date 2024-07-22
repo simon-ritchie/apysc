@@ -1348,6 +1348,7 @@ from apysc._material_design.color.material_color_scheme_samples import MaterialC
 from apysc._material_design.color.material_brightness import MaterialBrightness
 from apysc._material_design.setting.material_settings import MaterialSettings
 from apysc._material_design.setting.material_settings_utils import MaterialSettingsUtils
+from apysc._material_design.button.material_filled_button import MaterialFilledButton
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 
 True_: __True = __True()

@@ -160,13 +160,22 @@ class MaterialFilledButton(
             prefix_icon=prefix_icon,
             suffix_icon=suffix_icon,
         )
-        self._locate_text_at_center_position(
+        background_initial_bounding_box: RectangleGeom = self.get_bounds()
+        self._locate_icons(
+            prefix_icon=prefix_icon,
+            suffix_icon=suffix_icon,
+            background_bounding_box=background_initial_bounding_box,
+        )
+        self._locate_label_text(
             label_text_bounding_box=label_text_initial_bounding_box
         )
         self._add_to_parent(parent=parent)
 
     _ICON_SIZE: int = 18
     _EACH_ICON_AREA_SIZE: int = 18
+    _ICON_Y: int = (_BUTTON_HEIGHT - _ICON_SIZE) // 2
+    _ICON_OUTER_PADDING_WIDTH: int = 16
+    _ICON_INNER_PADDING_WIDTH: int = 8
 
     def _resize_icon_size(
         self,
@@ -224,7 +233,55 @@ class MaterialFilledButton(
         if suffix_icon is not None:
             self.add_child(child=suffix_icon)
 
-    def _locate_text_at_center_position(
+    def _locate_icons(
+        self,
+        *,
+        prefix_icon: Optional[FixedHtmlSvgIconBase],
+        suffix_icon: Optional[FixedHtmlSvgIconBase],
+        background_bounding_box: RectangleGeom,
+    ) -> None:
+        """
+        Locate each icon.
+
+        Parameters
+        ----------
+        prefix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the left side of the label.
+        suffix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the right side of the label.
+        background_bounding_box : RectangleGeom
+            A bounding box of the background.
+        """
+        if prefix_icon is not None:
+            suffix: str = self._get_attr_or_variable_name_suffix(
+                value_identifier="prefix_icon_x"
+            )
+            prefix_icon.x = Number(
+                self._ICON_OUTER_PADDING_WIDTH, variable_name_suffix=suffix
+            )
+
+            suffix = self._get_attr_or_variable_name_suffix(
+                value_identifier="prefix_icon_y"
+            )
+            prefix_icon.y = Number(self._ICON_Y, variable_name_suffix=suffix)
+
+        if suffix_icon is not None:
+            suffix = self._get_attr_or_variable_name_suffix(
+                value_identifier="suffix_icon_x"
+            )
+            suffix_icon.x = Number(
+                background_bounding_box.width
+                - self._ICON_OUTER_PADDING_WIDTH
+                - self._ICON_SIZE,
+                variable_name_suffix=suffix,
+            )
+
+            suffix = self._get_attr_or_variable_name_suffix(
+                value_identifier="suffix_icon_y"
+            )
+            suffix_icon.y = Number(self._ICON_Y, variable_name_suffix=suffix)
+
+    def _locate_label_text(
         self,
         *,
         label_text_bounding_box: RectangleGeom,

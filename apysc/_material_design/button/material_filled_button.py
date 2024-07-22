@@ -155,13 +155,18 @@ class MaterialFilledButton(
         )
         self._resize_icon_size(prefix_icon=prefix_icon, suffix_icon=suffix_icon)
         self._add_icons(prefix_icon=prefix_icon, suffix_icon=suffix_icon)
-        self._redraw_background(label_text_bounding_box=label_text_initial_bounding_box)
+        self._redraw_background(
+            label_text_bounding_box=label_text_initial_bounding_box,
+            prefix_icon=prefix_icon,
+            suffix_icon=suffix_icon,
+        )
         self._locate_text_at_center_position(
             label_text_bounding_box=label_text_initial_bounding_box
         )
         self._add_to_parent(parent=parent)
 
     _ICON_SIZE: int = 18
+    _EACH_ICON_AREA_SIZE: int = 18
 
     def _resize_icon_size(
         self,
@@ -230,6 +235,8 @@ class MaterialFilledButton(
         self,
         *,
         label_text_bounding_box: RectangleGeom,
+        prefix_icon: Optional[FixedHtmlSvgIconBase],
+        suffix_icon: Optional[FixedHtmlSvgIconBase],
     ) -> None:
         """
         Redraw the background of this button.
@@ -238,13 +245,22 @@ class MaterialFilledButton(
         ----------
         label_text_bounding_box : RectangleGeom
             The bounding box of the label text.
+        prefix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the left side of the label.
+        suffix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the right side of the label.
         """
         self.graphics.clear()
         self.graphics.begin_fill(color=self._background_color)
+        additional_width: int = 0
+        if prefix_icon is not None:
+            additional_width += self._EACH_ICON_AREA_SIZE
+        if suffix_icon is not None:
+            additional_width += self._EACH_ICON_AREA_SIZE
         self.graphics.draw_round_rect(
             x=0,
             y=0,
-            width=label_text_bounding_box.width + 24,
+            width=label_text_bounding_box.width + 24 + additional_width,
             height=self._BUTTON_HEIGHT,
             ellipse_width=int(self._BUTTON_HEIGHT / 2),
             ellipse_height=int(self._BUTTON_HEIGHT / 2),

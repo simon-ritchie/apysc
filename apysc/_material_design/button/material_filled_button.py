@@ -149,10 +149,9 @@ class MaterialFilledButton(
             font_family=font_family,
             font_size=font_size,
         )
-        primary_color: Color = MaterialSettingsUtils.get_primary_color(
+        self._background_color = MaterialSettingsUtils.get_primary_color(
             argument_color=background_color
         )
-        self._background_color = primary_color
         label_text_initial_bounding_box: RectangleGeom = self._label_text.get_bounds(
             target_coordinate_space_object=self
         )

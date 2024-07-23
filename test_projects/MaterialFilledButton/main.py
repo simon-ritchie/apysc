@@ -65,6 +65,13 @@ def main() -> None:
     button_4.x = ap.Number(20)
     button_4.y = ap.Number(200)
 
+    ap.MaterialFilledButton = ap.MaterialFilledButton(
+        label="Filled button 5",
+        prefix_icon=MaterialHomeIcon(),
+        x=20,
+        y=260,
+    )
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

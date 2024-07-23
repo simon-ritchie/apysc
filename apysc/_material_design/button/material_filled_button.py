@@ -131,6 +131,7 @@ class MaterialFilledButton(
         )
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        from apysc._converter import to_apysc_val_from_builtin
 
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
@@ -178,6 +179,18 @@ class MaterialFilledButton(
             color=on_primary_color,
             prefix_icon=prefix_icon,
             suffix_icon=suffix_icon
+        )
+        self.x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=x,
+            variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                value_identifier="x"
+            )
+        )
+        self.y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
+            float_or_num=y,
+            variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                value_identifier="y"
+            )
         )
         self._add_to_parent(parent=parent)
 

@@ -66,6 +66,15 @@ Get a dark color scheme setting.<hr>
 - `color_scheme`: MaterialColorScheme or None
   - A dark color scheme setting. If the color scheme is not set, this property becomes None.
 
+### `get_font_family` method docstring
+
+Get a font-family setting.<hr>
+
+**[Returns]**
+
+- `font_family`: Array[String] or None
+  - A font-family setting.
+
 ### `get_light_color_scheme` method docstring
 
 Get a light color scheme setting.<hr>

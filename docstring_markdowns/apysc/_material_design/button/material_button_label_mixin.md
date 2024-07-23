@@ -14,7 +14,7 @@ Initialize the label setting with the specified argument.<hr>
 
 - `label`: Union[str, String]
   - A label text to display on this button.
-- `text_color`: Optional[Color]
+- `text_color`: Color
   - The color of the label text.
 - `font_family`: Optional[Union[Array[String], List[str]]]
   - A font-family setting.

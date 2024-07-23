@@ -732,9 +732,7 @@ class MaterialSettingsUtils:
         if argument_font_family is not None:
             return argument_font_family
 
-        target_font_family: Optional[Array[String]] = (
-            MaterialSettings.get_font_family()
-        )
+        target_font_family: Optional[Array[String]] = MaterialSettings.get_font_family()
         if target_font_family is not None:
             return target_font_family
 

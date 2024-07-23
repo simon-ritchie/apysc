@@ -28,8 +28,8 @@ Mainly following interfaces are defined:
 from typing import Any
 from typing import List
 
-from apysc._display.css_interface import CssInterface
 from apysc._display.child_mixin import ChildMixIn
+from apysc._display.css_interface import CssInterface
 
 
 def validate_stage(*, stage: Any) -> None:
@@ -101,6 +101,11 @@ def validate_display_object_container(
         A target container instance to check.
     additional_err_msg : str, optional
         An additional error message to display.
+
+    Returns
+    -------
+    container_object : ChildMixIn
+        A target container instance.
 
     Raises
     ------

@@ -50,6 +50,13 @@ Validate whether a specified instance is a container type of a `DisplayObject` i
 
 <hr>
 
+**[Returns]**
+
+- `container_object`: ChildMixIn
+  - A target container instance.
+
+<hr>
+
 **[Raises]**
 
 - ValueError: If a specified instance is not a container type instance.

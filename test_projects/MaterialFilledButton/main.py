@@ -17,8 +17,8 @@ env_var_util.apply_material_icons_import_skipping_setting()
 
 import apysc as ap
 from apysc._file import file_util
-from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 from apysc._material_design.icon.material_create_icon import MaterialCreateIcon
+from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 
 this_module: ModuleType = sys.modules[__name__]
 

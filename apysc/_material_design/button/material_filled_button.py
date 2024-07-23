@@ -10,6 +10,7 @@ from apysc._display.add_to_parent_mixin import AddToParentMixIn
 from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 from apysc._display.sprite import Sprite
+from apysc._geom.rectangle_geom import RectangleGeom
 from apysc._material_design.button.material_button_label_mixin import (
     MaterialButtonLabelMixIn,
 )
@@ -18,7 +19,6 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._geom.rectangle_geom import RectangleGeom
 
 
 class MaterialFilledButton(
@@ -126,20 +126,19 @@ class MaterialFilledButton(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
-        from apysc._material_design.setting.material_settings_utils import (
-            MaterialSettingsUtils
-        )
+        from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._converter import to_apysc_val_from_builtin
+        from apysc._material_design.setting.material_settings_utils import (
+            MaterialSettingsUtils,
+        )
 
         self._variable_name_suffix = variable_name_suffix
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.MATERIAL_FILLED_BUTTON,
         )
         super(MaterialFilledButton, self).__init__(
-            variable_name=variable_name,
-            variable_name_suffix=variable_name_suffix
+            variable_name=variable_name, variable_name_suffix=variable_name_suffix
         )
 
         on_primary_color: Color = MaterialSettingsUtils.get_on_primary_color(
@@ -176,21 +175,19 @@ class MaterialFilledButton(
             prefix_icon=prefix_icon,
         )
         self._set_fill_color_to_icons(
-            color=on_primary_color,
-            prefix_icon=prefix_icon,
-            suffix_icon=suffix_icon
+            color=on_primary_color, prefix_icon=prefix_icon, suffix_icon=suffix_icon
         )
         self.x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=x,
             variable_name_suffix=self._get_attr_or_variable_name_suffix(
                 value_identifier="x"
-            )
+            ),
         )
         self.y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=y,
             variable_name_suffix=self._get_attr_or_variable_name_suffix(
                 value_identifier="y"
-            )
+            ),
         )
         self._add_to_parent(parent=parent)
 
@@ -247,10 +244,6 @@ class MaterialFilledButton(
             An icon to display on the left side of the label.
         suffix_icon : Optional[FixedHtmlSvgIconBase]
             An icon to display on the right side of the label.
-        parent : Optional[ChildMixIn]
-            A parent instance to add this instance.
-            If the specified value is None, this interface uses
-            a stage instance.
         """
         if prefix_icon is not None:
             self.add_child(child=prefix_icon)
@@ -362,13 +355,14 @@ class MaterialFilledButton(
             )
 
         half_button_height: float = self._BUTTON_HEIGHT / 2
-        suffix = self._get_attr_or_variable_name_suffix(
-            value_identifier="label_text_y"
+        suffix = self._get_attr_or_variable_name_suffix(value_identifier="label_text_y")
+        self._label_text.y = (
+            Number(
+                half_button_height,
+                variable_name_suffix=suffix,
+            )
+            - label_text_bounding_box.height / 2
         )
-        self._label_text.y = Number(
-            half_button_height,
-            variable_name_suffix=suffix,
-        ) - label_text_bounding_box.height / 2
 
     def _redraw_background(
         self,

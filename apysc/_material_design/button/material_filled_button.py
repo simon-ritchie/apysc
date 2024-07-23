@@ -126,7 +126,6 @@ class MaterialFilledButton(
             A JavaScript variable name suffix string.
             This setting is sometimes useful for JavaScript debugging.
         """
-        from apysc._converter import to_apysc_val_from_builtin
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._material_design.setting.material_settings_utils import (
@@ -177,6 +176,22 @@ class MaterialFilledButton(
         self._set_fill_color_to_icons(
             color=on_primary_color, prefix_icon=prefix_icon, suffix_icon=suffix_icon
         )
+        self._set_x_and_y_coordinates(x=x, y=y)
+        self._add_to_parent(parent=parent)
+
+    def _set_x_and_y_coordinates(self, *, x: Union[float, Number], y: Union[float, Number]) -> None:
+        """
+        Set the x and y coordinates to this button.
+
+        Parameters
+        ----------
+        x : Union[float, Number]
+            X-coordinate of this button.
+        y : Union[float, Number]
+            Y-coordinate of this button.
+        """
+        from apysc._converter import to_apysc_val_from_builtin
+
         self.x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
             float_or_num=x,
             variable_name_suffix=self._get_attr_or_variable_name_suffix(
@@ -189,7 +204,6 @@ class MaterialFilledButton(
                 value_identifier="y"
             ),
         )
-        self._add_to_parent(parent=parent)
 
     _NO_ICON_OUTER_PADDING: int = 24
     _ICON_SIZE: int = 18

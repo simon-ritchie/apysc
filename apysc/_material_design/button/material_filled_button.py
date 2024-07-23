@@ -19,6 +19,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._material_design.button.material_button_const import BUTTON_HEIGHT, NO_ICON_OUTER_PADDING, ICON_SIZE, EACH_ICON_AREA_SIZE, ICON_Y, ICON_OUTER_PADDING_WIDTH, ICON_INNER_PADDING_WIDTH
 
 
 class MaterialFilledButton(
@@ -35,7 +36,6 @@ class MaterialFilledButton(
         - https://m3.material.io/components/buttons/specs#0b1b7bd2-3de8-431a-afa1-d692e2e18b0d  # noqa
     """
 
-    _BUTTON_HEIGHT: int = 40
     _prefix_icon: Optional[FixedHtmlSvgIconBase]
     _background_color: Color
 
@@ -205,13 +205,6 @@ class MaterialFilledButton(
             ),
         )
 
-    _NO_ICON_OUTER_PADDING: int = 24
-    _ICON_SIZE: int = 18
-    _EACH_ICON_AREA_SIZE: int = 18
-    _ICON_Y: int = (_BUTTON_HEIGHT - _ICON_SIZE) // 2
-    _ICON_OUTER_PADDING_WIDTH: int = 16
-    _ICON_INNER_PADDING_WIDTH: int = 8
-
     def _resize_icon_size(
         self,
         *,
@@ -230,17 +223,17 @@ class MaterialFilledButton(
         """
         if prefix_icon is not None:
             prefix_icon.width = Int(
-                self._ICON_SIZE, variable_name_suffix="prefix_icon_width"
+                ICON_SIZE, variable_name_suffix="prefix_icon_width"
             )
             prefix_icon.height = Int(
-                self._ICON_SIZE, variable_name_suffix="prefix_icon_height"
+                ICON_SIZE, variable_name_suffix="prefix_icon_height"
             )
         if suffix_icon is not None:
             suffix_icon.width = Int(
-                self._ICON_SIZE, variable_name_suffix="suffix_icon_width"
+                ICON_SIZE, variable_name_suffix="suffix_icon_width"
             )
             suffix_icon.height = Int(
-                self._ICON_SIZE, variable_name_suffix="suffix_icon_height"
+                ICON_SIZE, variable_name_suffix="suffix_icon_height"
             )
 
     def _add_icons(
@@ -288,13 +281,13 @@ class MaterialFilledButton(
                 value_identifier="prefix_icon_x"
             )
             prefix_icon.x = Number(
-                self._ICON_OUTER_PADDING_WIDTH, variable_name_suffix=suffix
+                ICON_OUTER_PADDING_WIDTH, variable_name_suffix=suffix
             )
 
             suffix = self._get_attr_or_variable_name_suffix(
                 value_identifier="prefix_icon_y"
             )
-            prefix_icon.y = Number(self._ICON_Y, variable_name_suffix=suffix)
+            prefix_icon.y = Number(ICON_Y, variable_name_suffix=suffix)
 
         if suffix_icon is not None:
             suffix = self._get_attr_or_variable_name_suffix(
@@ -302,15 +295,15 @@ class MaterialFilledButton(
             )
             suffix_icon.x = Number(
                 background_bounding_box.width
-                - self._ICON_OUTER_PADDING_WIDTH
-                - self._ICON_SIZE,
+                - ICON_OUTER_PADDING_WIDTH
+                - ICON_SIZE,
                 variable_name_suffix=suffix,
             )
 
             suffix = self._get_attr_or_variable_name_suffix(
                 value_identifier="suffix_icon_y"
             )
-            suffix_icon.y = Number(self._ICON_Y, variable_name_suffix=suffix)
+            suffix_icon.y = Number(ICON_Y, variable_name_suffix=suffix)
 
     def _set_fill_color_to_icons(
         self,
@@ -357,18 +350,18 @@ class MaterialFilledButton(
         )
         if prefix_icon is None:
             self._label_text.x = Number(
-                self._NO_ICON_OUTER_PADDING,
+                NO_ICON_OUTER_PADDING,
                 variable_name_suffix=suffix,
             )
         else:
             self._label_text.x = Number(
-                self._ICON_OUTER_PADDING_WIDTH
-                + self._ICON_SIZE
-                + self._ICON_INNER_PADDING_WIDTH,
+                ICON_OUTER_PADDING_WIDTH
+                + ICON_SIZE
+                + ICON_INNER_PADDING_WIDTH,
                 variable_name_suffix=suffix,
             )
 
-        half_button_height: float = self._BUTTON_HEIGHT / 2
+        half_button_height: float = BUTTON_HEIGHT / 2
         suffix = self._get_attr_or_variable_name_suffix(value_identifier="label_text_y")
         self._label_text.y = (
             Number(
@@ -401,18 +394,18 @@ class MaterialFilledButton(
         self.graphics.begin_fill(color=self._background_color)
         additional_width: int = 0
         if prefix_icon is not None:
-            additional_width += self._EACH_ICON_AREA_SIZE
+            additional_width += EACH_ICON_AREA_SIZE
         if suffix_icon is not None:
-            additional_width += self._EACH_ICON_AREA_SIZE
+            additional_width += EACH_ICON_AREA_SIZE
         self.graphics.draw_round_rect(
             x=0,
             y=0,
             width=(
                 label_text_bounding_box.width
-                + self._NO_ICON_OUTER_PADDING * 2
+                + NO_ICON_OUTER_PADDING * 2
                 + additional_width
             ),
-            height=self._BUTTON_HEIGHT,
-            ellipse_width=int(self._BUTTON_HEIGHT / 2),
-            ellipse_height=int(self._BUTTON_HEIGHT / 2),
+            height=BUTTON_HEIGHT,
+            ellipse_width=int(BUTTON_HEIGHT / 2),
+            ellipse_height=int(BUTTON_HEIGHT / 2),
         )

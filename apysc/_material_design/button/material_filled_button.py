@@ -141,15 +141,19 @@ class MaterialFilledButton(
             variable_name_suffix=variable_name_suffix
         )
 
+        on_primary_color: Color = MaterialSettingsUtils.get_on_primary_color(
+            argument_color=text_color
+        )
         self._initialize_label(
             label=label,
-            text_color=text_color,
+            text_color=on_primary_color,
             font_family=font_family,
             font_size=font_size,
         )
-        self._background_color = MaterialSettingsUtils.get_primary_color(
+        primary_color: Color = MaterialSettingsUtils.get_primary_color(
             argument_color=background_color
         )
+        self._background_color = primary_color
         label_text_initial_bounding_box: RectangleGeom = self._label_text.get_bounds(
             target_coordinate_space_object=self
         )
@@ -169,6 +173,11 @@ class MaterialFilledButton(
         self._locate_label_text(
             label_text_bounding_box=label_text_initial_bounding_box,
             prefix_icon=prefix_icon,
+        )
+        self._set_fill_color_to_icons(
+            color=on_primary_color,
+            prefix_icon=prefix_icon,
+            suffix_icon=suffix_icon
         )
         self._add_to_parent(parent=parent)
 
@@ -282,6 +291,30 @@ class MaterialFilledButton(
                 value_identifier="suffix_icon_y"
             )
             suffix_icon.y = Number(self._ICON_Y, variable_name_suffix=suffix)
+
+    def _set_fill_color_to_icons(
+        self,
+        *,
+        color: Color,
+        prefix_icon: Optional[FixedHtmlSvgIconBase],
+        suffix_icon: Optional[FixedHtmlSvgIconBase],
+    ) -> None:
+        """
+        Set a fill-color to the icons.
+
+        Parameters
+        ----------
+        color : Color
+            A color to set.
+        prefix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the left side of the label.
+        suffix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the right side of the label.
+        """
+        if prefix_icon is not None:
+            prefix_icon.fill_color = color
+        if suffix_icon is not None:
+            suffix_icon.fill_color = color
 
     def _locate_label_text(
         self,

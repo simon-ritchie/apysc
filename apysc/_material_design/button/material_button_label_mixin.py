@@ -23,7 +23,7 @@ class MaterialButtonLabelMixIn:
         self,
         *,
         label: Union[str, String],
-        text_color: Optional[Color],
+        text_color: Color,
         font_family: Optional[Union[Array[String], List[str]]],
         font_size: Union[int, Int],
     ) -> None:
@@ -34,7 +34,7 @@ class MaterialButtonLabelMixIn:
         ----------
         label : Union[str, String]
             A label text to display on this button.
-        text_color : Optional[Color]
+        text_color : Color
             The color of the label text.
         font_family : Optional[Union[Array[String], List[str]]]
             A font-family setting.
@@ -67,9 +67,7 @@ class MaterialButtonLabelMixIn:
                 instance=self, value_identifier="label"
             ),
         )
-        self._text_color = MaterialSettingsUtils.get_on_primary_color(
-            argument_color=text_color
-        )
+        self._text_color = text_color
         self._font_family = MaterialSettingsUtils.get_font_family(
             argument_font_family=list_of_strs_to_array_of_string(
                 optional_list_or_arr=font_family,

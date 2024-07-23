@@ -167,10 +167,12 @@ class MaterialFilledButton(
             background_bounding_box=background_initial_bounding_box,
         )
         self._locate_label_text(
-            label_text_bounding_box=label_text_initial_bounding_box
+            label_text_bounding_box=label_text_initial_bounding_box,
+            prefix_icon=prefix_icon,
         )
         self._add_to_parent(parent=parent)
 
+    _NO_ICON_OUTER_PADDING: int = 24
     _ICON_SIZE: int = 18
     _EACH_ICON_AREA_SIZE: int = 18
     _ICON_Y: int = (_BUTTON_HEIGHT - _ICON_SIZE) // 2
@@ -285,8 +287,42 @@ class MaterialFilledButton(
         self,
         *,
         label_text_bounding_box: RectangleGeom,
+        prefix_icon: Optional[FixedHtmlSvgIconBase],
     ) -> None:
-        pass
+        """
+        Locate the label text.
+
+        Parameters
+        ----------
+        label_text_bounding_box : RectangleGeom
+            The bounding box of the label text.
+        prefix_icon : Optional[FixedHtmlSvgIconBase]
+            An icon to display on the left side of the label.
+        """
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="label_text_x"
+        )
+        if prefix_icon is None:
+            self._label_text.x = Number(
+                self._NO_ICON_OUTER_PADDING,
+                variable_name_suffix=suffix,
+            )
+        else:
+            self._label_text.x = Number(
+                self._ICON_OUTER_PADDING_WIDTH
+                + self._ICON_SIZE
+                + self._ICON_INNER_PADDING_WIDTH,
+                variable_name_suffix=suffix,
+            )
+
+        half_button_height: float = self._BUTTON_HEIGHT / 2
+        suffix = self._get_attr_or_variable_name_suffix(
+            value_identifier="label_text_y"
+        )
+        self._label_text.y = Number(
+            half_button_height,
+            variable_name_suffix=suffix,
+        ) - label_text_bounding_box.height / 2
 
     def _redraw_background(
         self,
@@ -317,7 +353,11 @@ class MaterialFilledButton(
         self.graphics.draw_round_rect(
             x=0,
             y=0,
-            width=label_text_bounding_box.width + 24 + additional_width,
+            width=(
+                label_text_bounding_box.width
+                + self._NO_ICON_OUTER_PADDING * 2
+                + additional_width
+            ),
             height=self._BUTTON_HEIGHT,
             ellipse_width=int(self._BUTTON_HEIGHT / 2),
             ellipse_height=int(self._BUTTON_HEIGHT / 2),

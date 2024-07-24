@@ -20,12 +20,14 @@ from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._material_design.button.material_button_const import BUTTON_HEIGHT, NO_ICON_OUTER_PADDING, ICON_SIZE, EACH_ICON_AREA_SIZE, ICON_Y, ICON_OUTER_PADDING_WIDTH, ICON_INNER_PADDING_WIDTH
+from apysc._material_design.button.material_button_icon_mixin import MaterialButtonIconMixIn
 
 
 class MaterialFilledButton(
     Sprite,
     MaterialButtonLabelMixIn,
     AddToParentMixIn,
+    MaterialButtonIconMixIn,
 ):
     """
     The class for the material design filled button.
@@ -203,130 +205,6 @@ class MaterialFilledButton(
                 value_identifier="y"
             ),
         )
-
-    def _resize_icon_size(
-        self,
-        *,
-        prefix_icon: Optional[FixedHtmlSvgIconBase],
-        suffix_icon: Optional[FixedHtmlSvgIconBase],
-    ) -> None:
-        """
-        Resize the icon size if each icon is specified.
-
-        Parameters
-        ----------
-        prefix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the left side of the label.
-        suffix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the right side of the label.
-        """
-        if prefix_icon is not None:
-            prefix_icon.width = Int(
-                ICON_SIZE, variable_name_suffix="prefix_icon_width"
-            )
-            prefix_icon.height = Int(
-                ICON_SIZE, variable_name_suffix="prefix_icon_height"
-            )
-        if suffix_icon is not None:
-            suffix_icon.width = Int(
-                ICON_SIZE, variable_name_suffix="suffix_icon_width"
-            )
-            suffix_icon.height = Int(
-                ICON_SIZE, variable_name_suffix="suffix_icon_height"
-            )
-
-    def _add_icons(
-        self,
-        *,
-        prefix_icon: Optional[FixedHtmlSvgIconBase],
-        suffix_icon: Optional[FixedHtmlSvgIconBase],
-    ) -> None:
-        """
-        Add each icon to this button.
-
-        Parameters
-        ----------
-        prefix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the left side of the label.
-        suffix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the right side of the label.
-        """
-        if prefix_icon is not None:
-            self.add_child(child=prefix_icon)
-        if suffix_icon is not None:
-            self.add_child(child=suffix_icon)
-
-    def _locate_icons(
-        self,
-        *,
-        prefix_icon: Optional[FixedHtmlSvgIconBase],
-        suffix_icon: Optional[FixedHtmlSvgIconBase],
-        background_bounding_box: RectangleGeom,
-    ) -> None:
-        """
-        Locate each icon.
-
-        Parameters
-        ----------
-        prefix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the left side of the label.
-        suffix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the right side of the label.
-        background_bounding_box : RectangleGeom
-            A bounding box of the background.
-        """
-        if prefix_icon is not None:
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="prefix_icon_x"
-            )
-            prefix_icon.x = Number(
-                ICON_OUTER_PADDING_WIDTH, variable_name_suffix=suffix
-            )
-
-            suffix = self._get_attr_or_variable_name_suffix(
-                value_identifier="prefix_icon_y"
-            )
-            prefix_icon.y = Number(ICON_Y, variable_name_suffix=suffix)
-
-        if suffix_icon is not None:
-            suffix = self._get_attr_or_variable_name_suffix(
-                value_identifier="suffix_icon_x"
-            )
-            suffix_icon.x = Number(
-                background_bounding_box.width
-                - ICON_OUTER_PADDING_WIDTH
-                - ICON_SIZE,
-                variable_name_suffix=suffix,
-            )
-
-            suffix = self._get_attr_or_variable_name_suffix(
-                value_identifier="suffix_icon_y"
-            )
-            suffix_icon.y = Number(ICON_Y, variable_name_suffix=suffix)
-
-    def _set_fill_color_to_icons(
-        self,
-        *,
-        color: Color,
-        prefix_icon: Optional[FixedHtmlSvgIconBase],
-        suffix_icon: Optional[FixedHtmlSvgIconBase],
-    ) -> None:
-        """
-        Set a fill-color to the icons.
-
-        Parameters
-        ----------
-        color : Color
-            A color to set.
-        prefix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the left side of the label.
-        suffix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the right side of the label.
-        """
-        if prefix_icon is not None:
-            prefix_icon.fill_color = color
-        if suffix_icon is not None:
-            suffix_icon.fill_color = color
 
     def _locate_label_text(
         self,

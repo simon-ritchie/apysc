@@ -12,6 +12,7 @@ from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._geom.rectangle_geom import RectangleGeom
 from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._validation import arg_validation_decos
 
 
 class _InstanceStub(
@@ -29,6 +30,9 @@ class MaterialButtonIconMixIn:
     icon-related methods.
     """
 
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=1, optional=True)
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=2, optional=True)
+    @arg_validation_decos.is_rectangle_geom(arg_position_index=3)
     def _locate_icons(
         self,
         *,
@@ -81,6 +85,8 @@ class MaterialButtonIconMixIn:
             )
             suffix_icon.y = Number(ICON_Y, variable_name_suffix=suffix)
 
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=1, optional=True)
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=2, optional=True)
     def _add_icons(
         self,
         *,
@@ -103,6 +109,8 @@ class MaterialButtonIconMixIn:
         if suffix_icon is not None:
             self_instance.add_child(child=suffix_icon)
 
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=1, optional=True)
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=2, optional=True)
     def _resize_icon_size(
         self,
         *,
@@ -137,6 +145,8 @@ class MaterialButtonIconMixIn:
                 ICON_SIZE, variable_name_suffix="suffix_icon_height"
             )
 
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=2, optional=True)
+    @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=3, optional=True)
     def _set_fill_color_to_icons(
         self,
         *,

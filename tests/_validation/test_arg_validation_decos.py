@@ -14,6 +14,7 @@ from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
+from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 
 
 class _TestClass1:
@@ -1778,7 +1779,7 @@ def test_is_fixed_html_svg_icon() -> None:
     def test_func_1(*, icon: ap.FixedHtmlSvgIconBase) -> int:
         return 430
 
-    icon: ap.MaterialHomeIcon = ap.MaterialHomeIcon()
+    icon: MaterialHomeIcon = MaterialHomeIcon()
     result: int = test_func_1(icon=icon)
     assert result == 430
     assert_raises(
@@ -1799,4 +1800,30 @@ def test_is_fixed_html_svg_icon() -> None:
         expected_error_class=TypeError,
         callable_=test_func_2,
         icon=100,
+    )
+
+
+@apply_test_settings()
+def test_is_rectangle_geom() -> None:
+    @arg_validation_decos.is_rectangle_geom(arg_position_index=0)
+    def _test_func(*, geom: ap.RectangleGeom) -> int:
+        return 450
+
+    geom: ap.RectangleGeom = ap.RectangleGeom(
+        left_x=ap.Number(50),
+        center_x=ap.Number(100),
+        right_x=ap.Number(150),
+        top_y=ap.Number(50),
+        center_y=ap.Number(100),
+        bottom_y=ap.Number(150),
+        width=ap.Int(100),
+        height=ap.Int(100),
+    )
+    result: int = _test_func(geom=geom)
+    assert result == 450
+
+    assert_raises(
+        expected_error_class=TypeError,
+        callable_=_test_func,
+        geom=100,
     )

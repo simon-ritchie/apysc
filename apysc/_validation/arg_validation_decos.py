@@ -217,6 +217,9 @@ Mainly the following decorators exist.
 - is_fixed_html_svg_icon
     - Set a validation to check the specified argument's type
         is the `FixedHtmlSvgIconBase` or its subclass type.
+- is_rectangle_geom
+    - Set a validation to check the specified argument's type
+        is the `RectangleGeom`.
 """
 
 import functools
@@ -3753,6 +3756,48 @@ def is_fixed_html_svg_icon(*, arg_position_index: int, optional: bool) -> _Calla
                 raise TypeError(
                     "The specified argument is not a `FixedHtmlSvgIconBase` instance: "
                     f"{type(icon)}\n{callable_and_arg_names_msg}"
+                )
+            return callable_(*args, **kwargs)
+
+        return inner_wrapped  # type: ignore
+
+    return wrapped  # type: ignore
+
+
+def is_rectangle_geom(*, arg_position_index: int) -> _Callable:
+    """
+    Set a validation to check the specified argument's type
+    is the `RectangleGeom`.
+
+    Parameters
+    ----------
+    arg_position_index : int
+        A target argument position index.
+
+    Returns
+    -------
+    wrapped : Callable
+        Wrapped callable object.
+    """
+
+    def wrapped(callable_: _Callable) -> _Callable:
+        @functools.wraps(callable_)
+        def inner_wrapped(*args: Any, **kwargs: Any) -> Any:
+            from apysc._geom.rectangle_geom import RectangleGeom
+
+            rectangle_geom: Any = _extract_arg_value(
+                args=args,
+                kwargs=kwargs,
+                arg_position_index=arg_position_index,
+                callable_=callable_,
+            )
+            if not isinstance(rectangle_geom, RectangleGeom):
+                callable_and_arg_names_msg: str = _get_callable_and_arg_names_msg(
+                    callable_=callable_, arg_position_index=arg_position_index
+                )
+                raise TypeError(
+                    "The specified argument is not a `RectangleGeom` instance: "
+                    f"{type(rectangle_geom)}\n{callable_and_arg_names_msg}"
                 )
             return callable_(*args, **kwargs)
 

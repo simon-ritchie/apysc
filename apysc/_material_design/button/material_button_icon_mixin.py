@@ -2,8 +2,8 @@
 methods.
 """
 
-
-from typing import Optional, cast
+from typing import Optional
+from typing import cast
 
 from apysc._color.color import Color
 from apysc._display.child_mixin import ChildMixIn
@@ -11,7 +11,9 @@ from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._geom.rectangle_geom import RectangleGeom
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._validation import arg_validation_decos
 
 
@@ -52,8 +54,12 @@ class MaterialButtonIconMixIn:
         background_bounding_box : RectangleGeom
             A bounding box of the background.
         """
+        from apysc._material_design.button.material_button_const import (
+            ICON_OUTER_PADDING_WIDTH,
+        )
+        from apysc._material_design.button.material_button_const import ICON_SIZE
+        from apysc._material_design.button.material_button_const import ICON_Y
         from apysc._type.number import Number
-        from apysc._material_design.button.material_button_const import ICON_OUTER_PADDING_WIDTH, ICON_SIZE, ICON_Y
 
         self_instance: _InstanceStub = cast(_InstanceStub, self)
         if prefix_icon is not None:
@@ -74,9 +80,7 @@ class MaterialButtonIconMixIn:
                 value_identifier="suffix_icon_x"
             )
             suffix_icon.x = Number(
-                background_bounding_box.width
-                - ICON_OUTER_PADDING_WIDTH
-                - ICON_SIZE,
+                background_bounding_box.width - ICON_OUTER_PADDING_WIDTH - ICON_SIZE,
                 variable_name_suffix=suffix,
             )
 
@@ -127,20 +131,16 @@ class MaterialButtonIconMixIn:
         suffix_icon : Optional[FixedHtmlSvgIconBase]
             An icon to display on the right side of the label.
         """
-        from apysc._type.int import Int
         from apysc._material_design.button.material_button_const import ICON_SIZE
+        from apysc._type.int import Int
 
         if prefix_icon is not None:
-            prefix_icon.width = Int(
-                ICON_SIZE, variable_name_suffix="prefix_icon_width"
-            )
+            prefix_icon.width = Int(ICON_SIZE, variable_name_suffix="prefix_icon_width")
             prefix_icon.height = Int(
                 ICON_SIZE, variable_name_suffix="prefix_icon_height"
             )
         if suffix_icon is not None:
-            suffix_icon.width = Int(
-                ICON_SIZE, variable_name_suffix="suffix_icon_width"
-            )
+            suffix_icon.width = Int(ICON_SIZE, variable_name_suffix="suffix_icon_width")
             suffix_icon.height = Int(
                 ICON_SIZE, variable_name_suffix="suffix_icon_height"
             )

@@ -11,17 +11,23 @@ from apysc._display.child_mixin import ChildMixIn
 from apysc._display.fixed_html_svg_icon_base import FixedHtmlSvgIconBase
 from apysc._display.sprite import Sprite
 from apysc._geom.rectangle_geom import RectangleGeom
+from apysc._material_design.button.material_button_const import BUTTON_HEIGHT
+from apysc._material_design.button.material_button_const import ICON_SIZE
+from apysc._material_design.button.material_button_const import NO_ICON_OUTER_PADDING
+from apysc._material_design.button.material_button_icon_mixin import (
+    MaterialButtonIconMixIn,
+)
 from apysc._material_design.button.material_button_label_mixin import (
     MaterialButtonLabelMixIn,
+)
+from apysc._material_design.geom.material_x_and_y_attributes_mixin import (
+    MaterialXAndYAttributesMixIn,
 )
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._material_design.button.material_button_const import BUTTON_HEIGHT, NO_ICON_OUTER_PADDING, ICON_SIZE, ICON_Y, ICON_OUTER_PADDING_WIDTH, ICON_INNER_PADDING_WIDTH
-from apysc._material_design.button.material_button_icon_mixin import MaterialButtonIconMixIn
-from apysc._material_design.geom.material_x_and_y_attributes_mixin import MaterialXAndYAttributesMixIn
 
 
 class MaterialFilledButton(

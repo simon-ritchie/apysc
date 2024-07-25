@@ -1,0 +1,1 @@
+# `apysc._material_design.geom.__init__` docstrings

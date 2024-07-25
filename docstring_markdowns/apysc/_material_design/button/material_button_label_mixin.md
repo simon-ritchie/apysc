@@ -20,3 +20,14 @@ Initialize the label setting with the specified argument.<hr>
   - A font-family setting.
 - `font_size`: Union[int, Int]
   - A font-size setting.
+
+### `_locate_label_text` method docstring
+
+Locate the label text.<hr>
+
+**[Parameters]**
+
+- `label_text_bounding_box`: RectangleGeom
+  - The bounding box of the label text.
+- `prefix_icon`: Optional[FixedHtmlSvgIconBase]
+  - An icon to display on the left side of the label.

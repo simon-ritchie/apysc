@@ -11,10 +11,10 @@ import pytest
 import apysc as ap
 from apysc._display.fill_color_mixin import FillColorMixIn
 from apysc._display.svg_foreign_object_child import SvgForeignObjectChild
+from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
 from apysc._validation import arg_validation_decos
-from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 
 
 class _TestClass1:

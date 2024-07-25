@@ -113,11 +113,21 @@ class MaterialButtonLabelMixIn:
         prefix_icon : Optional[FixedHtmlSvgIconBase]
             An icon to display on the left side of the label.
         """
+        from apysc._material_design.button.material_button_const import BUTTON_HEIGHT
+        from apysc._material_design.button.material_button_const import (
+            ICON_INNER_PADDING_WIDTH,
+        )
+        from apysc._material_design.button.material_button_const import (
+            ICON_OUTER_PADDING_WIDTH,
+        )
+        from apysc._material_design.button.material_button_const import ICON_SIZE
+        from apysc._material_design.button.material_button_const import (
+            NO_ICON_OUTER_PADDING,
+        )
         from apysc._type.number import Number
         from apysc._type.variable_name_suffix_utils import (
             get_attr_or_variable_name_suffix,
         )
-        from apysc._material_design.button.material_button_const import BUTTON_HEIGHT, NO_ICON_OUTER_PADDING, ICON_SIZE, ICON_OUTER_PADDING_WIDTH, ICON_INNER_PADDING_WIDTH
 
         suffix: str = get_attr_or_variable_name_suffix(
             instance=self,
@@ -130,9 +140,7 @@ class MaterialButtonLabelMixIn:
             )
         else:
             self._label_text.x = Number(
-                ICON_OUTER_PADDING_WIDTH
-                + ICON_SIZE
-                + ICON_INNER_PADDING_WIDTH,
+                ICON_OUTER_PADDING_WIDTH + ICON_SIZE + ICON_INNER_PADDING_WIDTH,
                 variable_name_suffix=suffix,
             )
 

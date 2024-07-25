@@ -1,7 +1,6 @@
 """The mix-in class implementation for the material design's x and y
-coodrinates attributes.
+coordinates attributes.
 """
-
 
 from typing import Union
 
@@ -11,12 +10,10 @@ from apysc._type.number import Number
 class MaterialXAndYAttributesMixIn:
 
     def _set_x_and_y_coordinates(
-        self,
-        *, x:
-        Union[float, Number],
-        y: Union[float, Number]) -> None:
+        self, *, x: Union[float, Number], y: Union[float, Number]
+    ) -> None:
         """
-        Set the x and y coordinates to instance button.
+        Set the x and y coordinates to an instance button.
 
         Parameters
         ----------

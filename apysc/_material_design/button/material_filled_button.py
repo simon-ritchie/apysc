@@ -206,48 +206,6 @@ class MaterialFilledButton(
             ),
         )
 
-    def _locate_label_text(
-        self,
-        *,
-        label_text_bounding_box: RectangleGeom,
-        prefix_icon: Optional[FixedHtmlSvgIconBase],
-    ) -> None:
-        """
-        Locate the label text.
-
-        Parameters
-        ----------
-        label_text_bounding_box : RectangleGeom
-            The bounding box of the label text.
-        prefix_icon : Optional[FixedHtmlSvgIconBase]
-            An icon to display on the left side of the label.
-        """
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="label_text_x"
-        )
-        if prefix_icon is None:
-            self._label_text.x = Number(
-                NO_ICON_OUTER_PADDING,
-                variable_name_suffix=suffix,
-            )
-        else:
-            self._label_text.x = Number(
-                ICON_OUTER_PADDING_WIDTH
-                + ICON_SIZE
-                + ICON_INNER_PADDING_WIDTH,
-                variable_name_suffix=suffix,
-            )
-
-        half_button_height: float = BUTTON_HEIGHT / 2
-        suffix = self._get_attr_or_variable_name_suffix(value_identifier="label_text_y")
-        self._label_text.y = (
-            Number(
-                half_button_height,
-                variable_name_suffix=suffix,
-            )
-            - label_text_bounding_box.height / 2
-        )
-
     def _redraw_background(
         self,
         *,

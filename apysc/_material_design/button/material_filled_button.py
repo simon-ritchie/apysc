@@ -40,7 +40,6 @@ class MaterialFilledButton(
         - https://m3.material.io/components/buttons/specs#0b1b7bd2-3de8-431a-afa1-d692e2e18b0d  # noqa
     """
 
-    _prefix_icon: Optional[FixedHtmlSvgIconBase]
     _background_color: Color
 
     # label

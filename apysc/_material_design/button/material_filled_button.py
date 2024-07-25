@@ -21,13 +21,15 @@ from apysc._type.string import String
 from apysc._validation import arg_validation_decos
 from apysc._material_design.button.material_button_const import BUTTON_HEIGHT, NO_ICON_OUTER_PADDING, ICON_SIZE, EACH_ICON_AREA_SIZE, ICON_Y, ICON_OUTER_PADDING_WIDTH, ICON_INNER_PADDING_WIDTH
 from apysc._material_design.button.material_button_icon_mixin import MaterialButtonIconMixIn
+from apysc._material_design.geom.material_x_and_y_attributes_mixin import MaterialXAndYAttributesMixIn
 
 
 class MaterialFilledButton(
     Sprite,
     MaterialButtonLabelMixIn,
-    AddToParentMixIn,
     MaterialButtonIconMixIn,
+    MaterialXAndYAttributesMixIn,
+    AddToParentMixIn,
 ):
     """
     The class for the material design filled button.
@@ -179,32 +181,6 @@ class MaterialFilledButton(
         )
         self._set_x_and_y_coordinates(x=x, y=y)
         self._add_to_parent(parent=parent)
-
-    def _set_x_and_y_coordinates(self, *, x: Union[float, Number], y: Union[float, Number]) -> None:
-        """
-        Set the x and y coordinates to this button.
-
-        Parameters
-        ----------
-        x : Union[float, Number]
-            X-coordinate of this button.
-        y : Union[float, Number]
-            Y-coordinate of this button.
-        """
-        from apysc._converter import to_apysc_val_from_builtin
-
-        self.x = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
-            float_or_num=x,
-            variable_name_suffix=self._get_attr_or_variable_name_suffix(
-                value_identifier="x"
-            ),
-        )
-        self.y = to_apysc_val_from_builtin.get_copied_number_from_builtin_val(
-            float_or_num=y,
-            variable_name_suffix=self._get_attr_or_variable_name_suffix(
-                value_identifier="y"
-            ),
-        )
 
     def _redraw_background(
         self,

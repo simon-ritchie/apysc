@@ -19,7 +19,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
-from apysc._material_design.button.material_button_const import BUTTON_HEIGHT, NO_ICON_OUTER_PADDING, ICON_SIZE, EACH_ICON_AREA_SIZE, ICON_Y, ICON_OUTER_PADDING_WIDTH, ICON_INNER_PADDING_WIDTH
+from apysc._material_design.button.material_button_const import BUTTON_HEIGHT, NO_ICON_OUTER_PADDING, ICON_SIZE, ICON_Y, ICON_OUTER_PADDING_WIDTH, ICON_INNER_PADDING_WIDTH
 from apysc._material_design.button.material_button_icon_mixin import MaterialButtonIconMixIn
 from apysc._material_design.geom.material_x_and_y_attributes_mixin import MaterialXAndYAttributesMixIn
 
@@ -204,9 +204,9 @@ class MaterialFilledButton(
         self.graphics.begin_fill(color=self._background_color)
         additional_width: int = 0
         if prefix_icon is not None:
-            additional_width += EACH_ICON_AREA_SIZE
+            additional_width += ICON_SIZE
         if suffix_icon is not None:
-            additional_width += EACH_ICON_AREA_SIZE
+            additional_width += ICON_SIZE
         self.graphics.draw_round_rect(
             x=0,
             y=0,

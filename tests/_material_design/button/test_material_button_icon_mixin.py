@@ -26,3 +26,16 @@ class TestMaterialButtonIconMixIn:
         assert prefix_icon.y != 0
         assert suffix_icon.x != 0
         assert suffix_icon.y != 0
+
+    @apply_test_settings()
+    def test__add_icons(self) -> None:
+        prefix_icon: MaterialHomeIcon = MaterialHomeIcon()
+        suffix_icon: MaterialAddBoxIcon = MaterialAddBoxIcon()
+        button: ap.MaterialFilledButton = ap.MaterialFilledButton(
+            label="Test button",
+            prefix_icon=prefix_icon,
+            suffix_icon=suffix_icon,
+            variable_name_suffix="test_button"
+        )
+        assert prefix_icon.parent == button
+        assert suffix_icon.parent == button

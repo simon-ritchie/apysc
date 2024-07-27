@@ -60,3 +60,20 @@ class TestMaterialButtonIconMixIn:
         assert prefix_icon.height == ap.Int(ICON_SIZE)
         assert suffix_icon.width == ap.Int(ICON_SIZE)
         assert suffix_icon.height == ap.Int(ICON_SIZE)
+
+    @apply_test_settings()
+    def test__set_fill_color_to_icons(self) -> None:
+        prefix_icon: MaterialHomeIcon = MaterialHomeIcon()
+        suffix_icon: MaterialAddBoxIcon = MaterialAddBoxIcon()
+        button: ap.MaterialFilledButton = ap.MaterialFilledButton(
+            label="Test button",
+            prefix_icon=prefix_icon,
+            suffix_icon=suffix_icon,
+        )
+        button._set_fill_color_to_icons(
+            color=ap.Colors.RED_BROWN_622F22,
+            prefix_icon=prefix_icon,
+            suffix_icon=suffix_icon
+        )
+        assert prefix_icon.fill_color == ap.Colors.RED_BROWN_622F22
+        assert suffix_icon.fill_color == ap.Colors.RED_BROWN_622F22

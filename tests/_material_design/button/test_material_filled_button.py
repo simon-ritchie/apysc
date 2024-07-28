@@ -36,3 +36,20 @@ class TestMaterialFilledButton:
         assert button.parent == parent
         assert var_names.MATERIAL_FILLED_BUTTON in button._variable_name
         assert button._variable_name_suffix == 'test_button'
+
+    @apply_test_settings()
+    def test__redraw_background(self) -> None:
+        button: ap.MaterialFilledButton = ap.MaterialFilledButton(
+            label="Test label",
+            prefix_icon=MaterialHomeIcon(),
+            suffix_icon=MaterialChatIcon(),
+            variable_name_suffix="test_button",
+        )
+        rectangle_child_exists: bool = False
+        for child in button.graphics._children._value:
+            if isinstance(child, ap.Rectangle):
+                rectangle_child_exists = True
+                assert child.ellipse_width != ap.Int(0)
+                assert child.ellipse_height != ap.Int(0)
+                break
+        assert rectangle_child_exists

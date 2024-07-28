@@ -66,7 +66,7 @@ class MaterialButtonLabelMixIn:
         self._label = get_copied_string_from_builtin_val(
             string=label,
             variable_name_suffix=get_attr_or_variable_name_suffix(
-                instance=self, value_identifier="label"
+                instance=self, value_identifier="material_button_label"
             ),
         )
         self._text_color = text_color
@@ -74,14 +74,14 @@ class MaterialButtonLabelMixIn:
             argument_font_family=list_of_strs_to_array_of_string(
                 optional_list_or_arr=font_family,
                 variable_name_suffix=get_attr_or_variable_name_suffix(
-                    instance=self, value_identifier="font_family"
+                    instance=self, value_identifier="material_button_label_font_family"
                 ),
             )
         )
         self._font_size = get_copied_int_from_builtin_val(
             integer=font_size,
             variable_name_suffix=get_attr_or_variable_name_suffix(
-                instance=self, value_identifier="font_size"
+                instance=self, value_identifier="material_button_label_font_size"
             ),
         )
 
@@ -92,7 +92,7 @@ class MaterialButtonLabelMixIn:
             font_family=self._font_family,
             fill_color=self._text_color,
             variable_name_suffix=get_attr_or_variable_name_suffix(
-                instance=self, value_identifier="label_text"
+                instance=self, value_identifier="material_button_label_text"
             ),
             parent=parent,
         )

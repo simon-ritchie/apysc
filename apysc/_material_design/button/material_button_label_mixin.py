@@ -131,7 +131,7 @@ class MaterialButtonLabelMixIn:
 
         suffix: str = get_attr_or_variable_name_suffix(
             instance=self,
-            value_identifier="label_text_x",
+            value_identifier="material_button_label_text_x",
         )
         if prefix_icon is None:
             self._label_text.x = Number(
@@ -147,7 +147,7 @@ class MaterialButtonLabelMixIn:
         half_button_height: float = BUTTON_HEIGHT / 2
         suffix = get_attr_or_variable_name_suffix(
             instance=self,
-            value_identifier="label_text_y",
+            value_identifier="material_button_label_text_y",
         )
         self._label_text.y = (
             Number(

@@ -1,10 +1,10 @@
 from typing import List
+
+import apysc as ap
 from apysc._expression import var_names
-from apysc._material_design.button.material_filled_button import MaterialFilledButton
 from apysc._material_design.icon.material_chat_icon import MaterialChatIcon
 from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 from apysc._testing.testing_helper import apply_test_settings
-import apysc as ap
 
 
 class TestMaterialFilledButton:
@@ -35,7 +35,7 @@ class TestMaterialFilledButton:
         assert button._label_text.text == ap.String(label)
         assert button.parent == parent
         assert var_names.MATERIAL_FILLED_BUTTON in button._variable_name
-        assert button._variable_name_suffix == 'test_button'
+        assert button._variable_name_suffix == "test_button"
 
     @apply_test_settings()
     def test__redraw_background(self) -> None:

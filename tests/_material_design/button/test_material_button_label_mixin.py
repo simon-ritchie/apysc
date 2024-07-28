@@ -1,6 +1,9 @@
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._material_design.button.material_button_const import ICON_INNER_PADDING_WIDTH, ICON_OUTER_PADDING_WIDTH, ICON_SIZE, NO_ICON_OUTER_PADDING
+from apysc._material_design.button.material_button_const import ICON_INNER_PADDING_WIDTH
+from apysc._material_design.button.material_button_const import ICON_OUTER_PADDING_WIDTH
+from apysc._material_design.button.material_button_const import ICON_SIZE
+from apysc._material_design.button.material_button_const import NO_ICON_OUTER_PADDING
 from apysc._material_design.icon.material_home_icon import MaterialHomeIcon
 from apysc._testing.testing_helper import apply_test_settings
 

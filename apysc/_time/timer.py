@@ -162,7 +162,7 @@ class Timer(VariableNameMixIn, CustomEventMixIn["TimerEvent"]):
             )
             self._handler_name = get_handler_name(handler=handler, instance=self)
             handler = self._wrap_handler(handler=handler)
-            self._handler: _Handler[_ConstructorOptions] = handler
+            self._handler: _Handler[_ConstructorOptions] = handler  # type: ignore
             delay_: Number = self._convert_delay_to_number(delay=delay)
             number_validation.validate_num_is_gte_zero(num=delay_)
             self._delay = delay_

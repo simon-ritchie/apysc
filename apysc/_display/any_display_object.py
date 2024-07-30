@@ -9,6 +9,7 @@ from apysc._display.display_object import DisplayObject
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._expression import var_names
@@ -16,7 +17,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
-from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 
 class AnyDisplayObject(

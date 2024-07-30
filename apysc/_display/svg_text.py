@@ -69,6 +69,7 @@ from apysc._display.svg_text_set_leading_mixin import SvgTextSetLeadingMixIn
 from apysc._display.svg_text_set_text_value_mixin import SvgTextSetTextValueMixIn
 from apysc._display.svg_text_span import SvgTextSpan
 from apysc._display.svg_text_text_mixin import SvgTextTextMixIn
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._html.debug_mode import add_debug_info_setting
@@ -84,7 +85,6 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 
 class SvgText(

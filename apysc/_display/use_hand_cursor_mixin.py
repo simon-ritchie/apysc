@@ -1,7 +1,6 @@
 """The mix-in class implementation for the `use_hand_cursor` setting.
 """
 
-
 from apysc._type.boolean import Boolean
 
 
@@ -50,10 +49,10 @@ class UseHandCursorMixIn:
         value : Boolean
             Boolean value to set.
         """
-        from apysc._branch._if import If
         from apysc._branch._else import Else
-        from apysc._validation.display_validation import validate_css_interface
+        from apysc._branch._if import If
         from apysc._display.css_interface import CssInterface
+        from apysc._validation.display_validation import validate_css_interface
 
         self._initialize_use_hand_cursor()
         self._use_hand_cursor.value = value

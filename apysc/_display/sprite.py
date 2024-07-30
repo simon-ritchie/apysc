@@ -13,6 +13,7 @@ from apysc._display.get_bounds_mixin import GetBoundsMixIn
 from apysc._display.set_overflow_visible_setting_mixin import (
     SetOverflowVisibleSettingMixIn,
 )
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._event.enter_frame_mixin import EnterFrameMixIn
@@ -23,7 +24,6 @@ from apysc._loop.initialize_with_base_value_interface import (
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 _Graphics = graphics.Graphics
 

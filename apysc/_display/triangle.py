@@ -74,6 +74,7 @@ from apysc._display.set_overflow_visible_setting_mixin import (
 )
 from apysc._display.skew_x_mixin import SkewXMixIn
 from apysc._display.skew_y_mixin import SkewYMixIn
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 from apysc._display.x_mixin import XMixIn
 from apysc._display.y_mixin import YMixIn
 from apysc._geom.point2d import Point2D
@@ -89,7 +90,6 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 
 class Triangle(

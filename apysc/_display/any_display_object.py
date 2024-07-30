@@ -16,6 +16,7 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._loop.initialize_with_base_value_interface import (
     InitializeWithBaseValueInterface,
 )
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 
 class AnyDisplayObject(
@@ -24,6 +25,7 @@ class AnyDisplayObject(
     DisplayObject,
     XMixIn,
     YMixIn,
+    UseHandCursorMixIn,
     InitializeWithBaseValueInterface,
 ):
     """

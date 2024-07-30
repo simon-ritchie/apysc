@@ -33,6 +33,7 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 
 class SvgIcon(
@@ -51,6 +52,7 @@ class SvgIcon(
     AddToParentMixIn,
     SetOverflowVisibleSettingMixIn,
     GetBoundsMixIn,
+    UseHandCursorMixIn,
     VariableNameSuffixMixIn,
 ):
     _svg_icon_html: str

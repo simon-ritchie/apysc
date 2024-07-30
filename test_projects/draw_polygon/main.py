@@ -1,4 +1,4 @@
-"""Test project for draw_polygon interface.
+"""Test project for the `draw_polygon` interface.
 
 Command examples:
 $ python test_projects/draw_polygon/main.py

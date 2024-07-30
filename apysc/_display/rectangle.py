@@ -82,6 +82,7 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 
 class Rectangle(
@@ -124,6 +125,7 @@ class Rectangle(
     LineRoundDotSettingMixIn,
     LineDashDotSettingMixIn,
     GetBoundsMixIn,
+    UseHandCursorMixIn,
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
     AddToParentMixIn,

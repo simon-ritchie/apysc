@@ -23,6 +23,7 @@ from apysc._loop.initialize_with_base_value_interface import (
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._display.use_hand_cursor_mixin import UseHandCursorMixIn
 
 _Graphics = graphics.Graphics
 
@@ -34,6 +35,7 @@ class Sprite(
     SetOverflowVisibleSettingMixIn,
     CssMixIn,
     GetBoundsMixIn,
+    UseHandCursorMixIn,
     DisplayObject,
     ChildMixIn,
     RevertMixIn,

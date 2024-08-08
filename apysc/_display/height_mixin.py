@@ -12,14 +12,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class HeightMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationHeightMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
@@ -32,9 +28,14 @@ class HeightMixIn(
         Initialize _height attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_height"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="height")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="height",
+        )
         self._height = Int(
             0,
             variable_name_suffix=suffix,
@@ -127,14 +128,16 @@ class HeightMixIn(
             Height value to set.
         """
         from apysc._converter import cast
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initialize_height_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
         if isinstance(value, Int):
             value_: Int = value
         else:
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="height"
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="height",
             )
             value_ = Int(value, variable_name_suffix=suffix)
         self._height = value_

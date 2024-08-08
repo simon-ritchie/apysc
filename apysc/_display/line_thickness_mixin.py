@@ -12,14 +12,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class LineThicknessMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationLineThicknessMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
@@ -32,10 +28,13 @@ class LineThicknessMixIn(
         Initialize _line_thickness attribute if this interface
         does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_line_thickness"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_thickness"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_thickness",
         )
         self._line_thickness = Int(
             1,
@@ -143,12 +142,14 @@ class LineThicknessMixIn(
         value : Int or int
             Line thickness to set.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         if isinstance(value, Int):
             value_: Int = value
         else:
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="line_thickness"
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="line_thickness",
             )
             value_ = Int(value, variable_name_suffix=suffix)
         self._line_thickness = value_

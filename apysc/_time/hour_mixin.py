@@ -9,13 +9,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
-class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
+class HourMixIn(RevertMixIn):
     _initial_hour: Union[int, Int]
     _hour: Int
 
@@ -34,9 +31,13 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val,
         )
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initial_hour = hour
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="hour")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="hour",
+        )
         self._hour = get_copied_int_from_builtin_val(
             integer=hour, variable_name_suffix=suffix
         )
@@ -130,8 +131,14 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
             An hour value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
-        expression: str = f"{hour_val.variable_name} = {self.variable_name}.getHours();"
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
+        expression: str = (
+            f"{hour_val.variable_name} = {self_instance.variable_name}.getHours();"
+        )
         expression_data_util.append_js_expression(expression=expression)
 
     @final
@@ -147,8 +154,14 @@ class HourMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
             An hour value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
-        expression: str = f"{self.variable_name}.setHours({hour_val.variable_name});"
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
+        expression: str = (
+            f"{self_instance.variable_name}.setHours({hour_val.variable_name});"
+        )
         expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

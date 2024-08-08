@@ -9,14 +9,11 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class MillisecondMixIn(
-    VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
+    RevertMixIn,
 ):
     _initial_millisecond: Union[int, Int]
     _millisecond: Int
@@ -36,10 +33,12 @@ class MillisecondMixIn(
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val,
         )
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initial_millisecond = millisecond
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="millisecond"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="millisecond",
         )
         self._millisecond = get_copied_int_from_builtin_val(
             integer=millisecond,
@@ -142,9 +141,14 @@ class MillisecondMixIn(
             A millisecond value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
         expression: str = (
-            f"{millisecond_val.variable_name} = {self.variable_name}.getMilliseconds();"
+            f"{millisecond_val.variable_name} = "
+            f"{self_instance.variable_name}.getMilliseconds();"
         )
         expression_data_util.append_js_expression(expression)
 
@@ -158,9 +162,15 @@ class MillisecondMixIn(
             A millisecond value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
+
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
 
         expression: str = (
-            f"{self.variable_name}.setMilliseconds({millisecond_val.variable_name});"
+            f"{self_instance.variable_name}"
+            f".setMilliseconds({millisecond_val.variable_name});"
         )
         expression_data_util.append_js_expression(expression=expression)
 

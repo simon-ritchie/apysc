@@ -11,15 +11,10 @@ from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class EllipseHeightMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
-    VariableNameMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):
@@ -31,10 +26,13 @@ class EllipseHeightMixIn(
         Initialize _ellipse_height attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_ellipse_height"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="ellipse_height"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="ellipse_height",
         )
         self._ellipse_height = Int(
             0,
@@ -113,6 +111,7 @@ class EllipseHeightMixIn(
         """
         from apysc._expression import expression_data_util
         from apysc._type import value_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
         self._initialize_ellipse_height_if_not_initialized()
         if hasattr(self, "_ellipse_width"):
@@ -124,8 +123,12 @@ class EllipseHeightMixIn(
         height_value_str: str = value_util.get_value_str_for_expression(
             value=self._ellipse_height
         )
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
         expression: str = (
-            f"{self.variable_name}.radius({width_value_str}, " f"{height_value_str});"
+            f"{self_instance.variable_name}.radius({width_value_str}, "
+            f"{height_value_str});"
         )
         expression_data_util.append_js_expression(expression=expression)
 

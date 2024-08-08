@@ -25,6 +25,7 @@ from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class Boolean(
@@ -33,6 +34,7 @@ class Boolean(
     RevertMixIn,
     CustomEventMixIn,
     VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
     InitialSubstitutionExpMixIn,
     InitializeWithBaseValueInterface,
     HashableInterface,

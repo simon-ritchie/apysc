@@ -10,18 +10,13 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
 class PathControlXMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
-    VariableNameSuffixMixIn,
 ):
     _control_x: Number
 
@@ -31,10 +26,13 @@ class PathControlXMixIn(
         Initialize the _control_x attribute if this instance
         does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_control_x"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="control_x"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="control_x",
         )
         self._control_x = Number(
             0,

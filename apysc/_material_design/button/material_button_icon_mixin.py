@@ -133,16 +133,27 @@ class MaterialButtonIconMixIn:
         """
         from apysc._material_design.button.material_button_const import ICON_SIZE
         from apysc._type.int import Int
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         if prefix_icon is not None:
-            prefix_icon.width = Int(ICON_SIZE, variable_name_suffix="prefix_icon_width")
-            prefix_icon.height = Int(
-                ICON_SIZE, variable_name_suffix="prefix_icon_height"
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self, value_identifier="prefix_icon_width"
             )
+            prefix_icon.width = Int(ICON_SIZE, variable_name_suffix=suffix)
+            suffix = get_attr_or_variable_name_suffix(
+                instance=self, value_identifier="prefix_icon_height"
+            )
+            prefix_icon.height = Int(ICON_SIZE, variable_name_suffix=suffix)
         if suffix_icon is not None:
-            suffix_icon.width = Int(ICON_SIZE, variable_name_suffix="suffix_icon_width")
+            suffix = get_attr_or_variable_name_suffix(
+                instance=self, value_identifier="suffix_icon_width"
+            )
+            suffix_icon.width = Int(ICON_SIZE, variable_name_suffix=suffix)
+            suffix = get_attr_or_variable_name_suffix(
+                instance=self, value_identifier="suffix_icon_height"
+            )
             suffix_icon.height = Int(
-                ICON_SIZE, variable_name_suffix="suffix_icon_height"
+                ICON_SIZE, variable_name_suffix=suffix
             )
 
     @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=2, optional=True)

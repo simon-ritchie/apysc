@@ -15,14 +15,10 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class RotationAroundPointMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationRotationAroundPointMixIn,
     RevertMixIn,
 ):
@@ -34,10 +30,13 @@ class RotationAroundPointMixIn(
         Initialize the `_rotation_around_point` attribute
         if this interface does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_rotation_around_point"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="rotation_around_point"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="rotation_around_point",
         )
         self._rotation_around_point = Dictionary(
             {},

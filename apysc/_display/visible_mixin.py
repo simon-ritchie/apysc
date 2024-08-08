@@ -11,14 +11,10 @@ from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.boolean import Boolean
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class VisibleMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     VariableNameMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
@@ -31,9 +27,14 @@ class VisibleMixIn(
         Initialize _visible attribute if this instance does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_visible"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="visible")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="visible",
+        )
         self._visible = Boolean(
             True,
             variable_name_suffix=suffix,

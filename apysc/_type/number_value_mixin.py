@@ -17,7 +17,6 @@ from apysc._type.copy_mixin import CopyMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 _NumType = Union[int, float, "NumberValueMixIn"]
@@ -29,7 +28,6 @@ class NumberValueMixIn(
     CopyMixIn[_InstanceType],
     RevertMixIn,
     CustomEventMixIn,
-    VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     Generic[_ValueType, _InstanceType],
 ):

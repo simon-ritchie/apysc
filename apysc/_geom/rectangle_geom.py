@@ -23,9 +23,9 @@ from apysc._validation import arg_validation_decos
 
 
 class RectangleGeom(
-    VariableNameSuffixAttrOrVarMixIn,
     VariableNameMixIn,
     VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
     RectangleGeomLeftXMixIn,
     RectangleGeomCenterXMixIn,
     RectangleGeomRightXMixIn,

@@ -20,9 +20,6 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 _Options = TypeVar("_Options")
@@ -35,7 +32,6 @@ class _EnterFrameEventNotRegistered(Exception):
 
 
 class EnterFrameMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     SetHandlerDataMixIn[EnterFrameEvent],
     Generic[_Target, _Options],
     VariableNameMixIn,
@@ -97,6 +93,7 @@ class EnterFrameMixIn(
         from apysc._event.handler import get_handler_name
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
@@ -122,12 +119,14 @@ class EnterFrameMixIn(
         )
         is_stopped: Boolean = Boolean(
             False,
-            variable_name_suffix=self._get_attr_or_variable_name_suffix(
+            variable_name_suffix=get_attr_or_variable_name_suffix(
+                instance=self,
                 value_identifier="is_stopped",
             ),
         )
         prev_time: DateTime = DateTime.now(
-            variable_name_suffix=self._get_attr_or_variable_name_suffix(
+            variable_name_suffix=get_attr_or_variable_name_suffix(
+                instance=self,
                 value_identifier="prev_time",
             ),
         )
@@ -248,6 +247,7 @@ class EnterFrameMixIn(
         from apysc._math.math import Math
         from apysc._time.timedelta_ import TimeDelta
         from apysc._type.array import Array
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         expression: str = (
             f"function {loop_func_name}() {{"
@@ -258,19 +258,22 @@ class EnterFrameMixIn(
         expression_data_util.append_js_expression(expression=expression)
         with Indent():
             current_time: DateTime = DateTime.now(
-                variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                variable_name_suffix=get_attr_or_variable_name_suffix(
+                    instance=self,
                     value_identifier="current_time",
                 )
             )
             count: Int = Int(
                 0,
-                variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                variable_name_suffix=get_attr_or_variable_name_suffix(
+                    instance=self,
                     value_identifier="count",
                 ),
             )
             liimted_count: Int = Int(
                 0,
-                variable_name_suffix=self._get_attr_or_variable_name_suffix(
+                variable_name_suffix=get_attr_or_variable_name_suffix(
+                    instance=self,
                     value_identifier="limited_count",
                 ),
             )

@@ -25,7 +25,8 @@ class _False(
         - True_ and False_ constants
             - https://simon-ritchie.github.io/apysc/en/true_and_false.html
         """
-        super(_False, self).__init__(
-            value=False,
-            variable_name_suffix="false",
+        suffix: str = self._get_attr_or_variable_name_suffix(
+            value_identifier="false"
         )
+
+        super(_False, self).__init__(value=False, variable_name_suffix=suffix)

@@ -20,19 +20,11 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
-from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
 class LineStyleMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
-    VariableNameMixIn,
     RevertMixIn,
-    VariableNameSuffixMixIn,
 ):
     _line_color: Color
     _line_thickness: Int
@@ -170,11 +162,14 @@ class LineStyleMixIn(
         thickness_ : Int
             Converted line thickness value.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if isinstance(thickness, Int):
             thickness_: Int = thickness.copy()
         else:
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="line_thickness"
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="line_thickness",
             )
             thickness_ = Int(thickness, variable_name_suffix=suffix)
         return thickness_
@@ -195,11 +190,14 @@ class LineStyleMixIn(
         alpha_ : Number
             Converted line alpha value.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if isinstance(alpha, Number):
             alpha_: Number = alpha.copy()
         else:
-            suffix = self._get_attr_or_variable_name_suffix(
-                value_identifier="line_alpha"
+            suffix = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="line_alpha",
             )
             alpha_ = Number(alpha, variable_name_suffix=suffix)
         return alpha_
@@ -215,10 +213,13 @@ class LineStyleMixIn(
         joints : LineJoints or None, default None
             Line vertices (joints) style setting.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if joints is None:
             joints = LineJoints.MITER
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_joints"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_joints",
         )
         self._line_joints = String(joints.value, variable_name_suffix=suffix)
 
@@ -233,10 +234,13 @@ class LineStyleMixIn(
         cap : LineCaps or None, default None
             Line cap (edge style) setting.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if cap is None:
             cap = LineCaps.BUTT
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_cap"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_cap",
         )
         self._line_cap = String(cap.value, variable_name_suffix=suffix)
 
@@ -256,10 +260,13 @@ class LineStyleMixIn(
         Initialize _line_thickness attribute if this interface
         does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_line_thickness"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_thickness"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_thickness",
         )
         self._line_thickness = Int(
             1,
@@ -273,10 +280,13 @@ class LineStyleMixIn(
         Initialize _line_alpha attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_line_alpha"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_alpha"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_alpha",
         )
         self._line_alpha = Number(
             1.0,
@@ -290,10 +300,13 @@ class LineStyleMixIn(
         Initialize _line_cap attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_line_cap"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_cap"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_cap",
         )
         self._line_cap = String(
             LineCaps.BUTT.value,
@@ -307,10 +320,13 @@ class LineStyleMixIn(
         Initialize _line_joints attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_line_joints"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_joints"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_joints",
         )
         self._line_joints = String(
             LineJoints.MITER.value,

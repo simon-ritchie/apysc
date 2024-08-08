@@ -24,6 +24,7 @@ from apysc._loop.initialize_with_base_value_interface import (
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 _Graphics = graphics.Graphics
 
@@ -41,6 +42,7 @@ class Sprite(
     RevertMixIn,
     VariableNameSuffixMixIn,
     InitializeWithBaseValueInterface,
+    VariableNameSuffixAttrOrVarMixIn,
 ):
     """
     This class is for the basic display object that

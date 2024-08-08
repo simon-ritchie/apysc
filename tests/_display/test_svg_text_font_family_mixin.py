@@ -13,8 +13,8 @@ from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class _TestMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
     SvgTextFontFamilyMixIn,
 ):
     pass

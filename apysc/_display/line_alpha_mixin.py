@@ -12,14 +12,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class LineAlphaMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationLineAlphaMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
@@ -32,10 +28,13 @@ class LineAlphaMixIn(
         Initialize _line_alpha attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_line_alpha"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_alpha"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_alpha",
         )
         self._line_alpha = Number(
             1.0,
@@ -144,11 +143,14 @@ class LineAlphaMixIn(
         value : float or Number
             Line alpha (opacity) to set.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if isinstance(value, Number):
             value_: Number = value
         else:
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="line_alpha"
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="line_alpha",
             )
             value_ = Number(value, variable_name_suffix=suffix)
         self._line_alpha = value_

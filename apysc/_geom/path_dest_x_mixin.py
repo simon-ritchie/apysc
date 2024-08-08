@@ -10,18 +10,12 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
 class PathDestXMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
-    VariableNameSuffixMixIn,
 ):
     _dest_x: Number
 
@@ -31,9 +25,14 @@ class PathDestXMixIn(
         Initialize the _dest_x attribute if this instance
         does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_dest_x"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="dest_x")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="dest_x",
+        )
         self._dest_x = Number(
             0,
             variable_name_suffix=suffix,

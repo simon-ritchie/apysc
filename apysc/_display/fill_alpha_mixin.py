@@ -12,14 +12,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class FillAlphaMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationFillAlphaMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
@@ -32,10 +28,13 @@ class FillAlphaMixIn(
         Initialize _fill_alpha attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_fill_alpha"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="fill_alpha"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="fill_alpha",
         )
         self._fill_alpha = Number(
             1.0,
@@ -143,11 +142,13 @@ class FillAlphaMixIn(
             Fill opacity to set.
         """
         from apysc._converter import cast
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initialize_fill_alpha_if_not_initialized()
         if not isinstance(value, Number):
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="fill_alpha"
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="fill_alpha",
             )
             value = cast.to_float_from_int(int_or_float=value)
             value_: Number = Number(value=value, variable_name_suffix=suffix)

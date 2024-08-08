@@ -16,14 +16,10 @@ from apysc._type.dictionary import Dictionary
 from apysc._type.expression_string import ExpressionString
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class ScaleYFromPointMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationScaleYFromPointMixIn,
     SetLowerScaleLimitMixIn,
     RevertMixIn,
@@ -36,10 +32,13 @@ class ScaleYFromPointMixIn(
         Initialize the `_scale_y_from_point` attribute if this
         instance does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_scale_y_from_point"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="scale_y_from_point"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="scale_y_from_point",
         )
         self._scale_y_from_point = Dictionary(
             {},

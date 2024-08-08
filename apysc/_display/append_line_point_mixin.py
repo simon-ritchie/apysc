@@ -15,14 +15,12 @@ from apysc._display.set_x_and_y_with_minimum_point_interface_base import (
 )
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.number import Number
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
 class AppendLinePointMixIn(
     PolygonApplyCurrentPointsMixIn,
     Points2DMixIn,
-    VariableNameSuffixMixIn,
     PointsVarNameMixIn,
 ):
     @final

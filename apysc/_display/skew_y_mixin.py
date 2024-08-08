@@ -11,14 +11,10 @@ from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class SkewYMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     VariableNameMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
@@ -31,9 +27,14 @@ class SkewYMixIn(
         Initialize the _skew_y attribute if this instance does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_skew_y"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="skew_y")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="skew_y",
+        )
         self._skew_y = Int(
             0,
             variable_name_suffix=suffix,

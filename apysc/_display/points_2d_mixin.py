@@ -11,14 +11,10 @@ from apysc._geom.point2d import Point2D
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.array import Array
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
-class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMixIn):
+class Points2DMixIn(RevertMixIn):
     _points: Array[Point2D]
 
     @final
@@ -27,9 +23,14 @@ class Points2DMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertM
         Initialize _points attribute ifa this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_points"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="points")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="points",
+        )
         self._points = Array(
             [],
             variable_name_suffix=suffix,

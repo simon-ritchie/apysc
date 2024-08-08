@@ -22,14 +22,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class WidthAndHeightMixInForEllipse(
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationWidthForEllipseMixIn,
     AnimationHeightForEllipseMixIn,
     RevertMixIn,
@@ -44,9 +40,12 @@ class WidthAndHeightMixInForEllipse(
         Initialize _width and _height attributes if this interface
         does not initialize these yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if not hasattr(self, "_width"):
-            suffix: str = self._get_attr_or_variable_name_suffix(
-                value_identifier="width"
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="width",
             )
             self._width = Int(
                 0,
@@ -55,7 +54,10 @@ class WidthAndHeightMixInForEllipse(
             )
             self._append_width_attr_linking_setting()
         if not hasattr(self, "_height"):
-            suffix = self._get_attr_or_variable_name_suffix(value_identifier="height")
+            suffix = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="height",
+            )
             self._height = Int(
                 0,
                 variable_name_suffix=suffix,

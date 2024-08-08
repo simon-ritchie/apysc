@@ -9,13 +9,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
-class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
+class YearMixIn(RevertMixIn):
     _initial_year: Union[int, Int]
     _year: Int
 
@@ -34,9 +31,13 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val,
         )
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initial_year = year
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="year")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="year",
+        )
         self._year = get_copied_int_from_builtin_val(
             integer=year, variable_name_suffix=suffix
         )
@@ -131,9 +132,13 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
             A year value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
         expression: str = (
-            f"{year_val.variable_name} = {self.variable_name}.getFullYear();"
+            f"{year_val.variable_name} = {self_instance.variable_name}.getFullYear();"
         )
         expression_data_util.append_js_expression(expression=expression)
 
@@ -150,8 +155,14 @@ class YearMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn
             A year value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
-        expression: str = f"{self.variable_name}.setFullYear({year_val.variable_name});"
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
+        expression: str = (
+            f"{self_instance.variable_name}.setFullYear({year_val.variable_name});"
+        )
         expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

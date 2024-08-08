@@ -25,12 +25,12 @@ from apysc._validation import arg_validation_decos
 
 
 class Point2D(
-    VariableNameSuffixAttrOrVarMixIn,
     VariableNameMixIn,
     RevertMixIn,
     DictionaryStructure,
     CustomEventMixIn,
     VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
     AttrToApyscValFromBuiltinMixIn,
 ):
     """

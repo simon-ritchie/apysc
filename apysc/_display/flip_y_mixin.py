@@ -11,15 +11,10 @@ from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.boolean import Boolean
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class FlipYMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
-    VariableNameMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
 ):
@@ -31,9 +26,14 @@ class FlipYMixIn(
         Initialize the _flip_y attribute if this interface
         does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_flip_y"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="flip_y")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="flip_y",
+        )
         self._flip_y = Boolean(
             False,
             variable_name_suffix=suffix,
@@ -129,13 +129,17 @@ class FlipYMixIn(
         """
         from apysc._display import flip_interface_helper
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
         self._initialize_flip_y_if_not_initialized()
         expression: str = flip_interface_helper.make_flip_update_expression(
             before_value=before_value,
             after_value=self._flip_y,
             axis=flip_interface_helper.Axis.Y,
-            interface_variable_name=self.variable_name,
+            interface_variable_name=self_instance.variable_name,
         )
         expression_data_util.append_js_expression(expression=expression)
 

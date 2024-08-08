@@ -11,12 +11,14 @@ from apysc._loop.initialize_with_base_value_interface import (
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class SvgForeignObjectChild(
     CssMixIn,
     DisplayObject,
     VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
     InitializeWithBaseValueInterface,
     RevertMixIn,
 ):

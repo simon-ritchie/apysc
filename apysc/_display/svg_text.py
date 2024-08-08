@@ -85,6 +85,7 @@ from apysc._type.repr_interface import ReprInterface
 from apysc._type.string import String
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class SvgText(
@@ -131,6 +132,7 @@ class SvgText(
     GetBoundsMixIn,
     UseHandCursorMixIn,
     VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
     InitializeWithBaseValueInterface,
     CopyColorIfDefaultValueSpecifiedMixIn,
     AddToParentMixIn,

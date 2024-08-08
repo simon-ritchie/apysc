@@ -12,13 +12,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
-class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMixIn):
+class LineCapMixIn(RevertMixIn):
     _line_cap: String
 
     @final
@@ -27,10 +24,13 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         Initialize the _line_cap attribute if this
         interface does not initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_line_cap"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="line_cap"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="line_cap",
         )
         self._line_cap = String(
             LineCaps.BUTT.value,
@@ -88,10 +88,15 @@ class LineCapMixIn(VariableNameSuffixAttrOrVarMixIn, VariableNameMixIn, RevertMi
         """
         from apysc._expression import expression_data_util
         from apysc._type import value_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
+
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
 
         cap_name: str = value_util.get_value_str_for_expression(value=self._line_cap)
         expression: str = (
-            f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
+            f'{self_instance.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
         )
         expression_data_util.append_js_expression(expression=expression)
 

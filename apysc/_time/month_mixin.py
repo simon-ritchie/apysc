@@ -9,13 +9,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
-class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
+class MonthMixIn(RevertMixIn):
     _initial_month: Union[int, Int]
     _month: Int
 
@@ -34,9 +31,13 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val,
         )
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initial_month = month
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="month")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="month",
+        )
         self._month = get_copied_int_from_builtin_val(
             integer=month, variable_name_suffix=suffix
         )
@@ -130,9 +131,14 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
             A month value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
         expression: str = (
-            f"{month_val.variable_name} = {self.variable_name}.getMonth() + 1;"
+            f"{month_val.variable_name} = "
+            f"{self_instance.variable_name}.getMonth() + 1;"
         )
         expression_data_util.append_js_expression(expression=expression)
 
@@ -148,9 +154,13 @@ class MonthMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixI
             A month value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
         expression: str = (
-            f"{self.variable_name}.setMonth({month_val.variable_name} - 1);"
+            f"{self_instance.variable_name}.setMonth({month_val.variable_name} - 1);"
         )
         expression_data_util.append_js_expression(expression=expression)
 

@@ -11,9 +11,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
 from apysc._type.number import Number
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
@@ -22,7 +19,6 @@ if TYPE_CHECKING:
 
 class TotalSecondsMixIn(
     VariableNameMixIn,
-    VariableNameSuffixAttrOrVarMixIn,
     LeftAndRightDatetimesMixIn,
 ):
     _total_seconds_value: float
@@ -87,8 +83,11 @@ class TotalSecondsMixIn(
         - TimeDelta class total_seconds interface
             - https://simon-ritchie.github.io/apysc/en/timedelta_total_seconds.html
         """
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="total_seconds"
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="total_seconds",
         )
         total_seconds: Number = Number(
             0,

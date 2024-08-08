@@ -21,10 +21,10 @@ from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMix
 from apysc._type.int import Int
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class DateTime(
-    VariableNameSuffixMixIn,
     InitialSubstitutionExpMixIn,
     YearMixIn,
     MonthMixIn,
@@ -36,6 +36,8 @@ class DateTime(
     WeekdayMixIn,
     MonthEndMixin,
     NowMixIn,
+    VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
 ):
     """
     The class for datetime-related interfaces.

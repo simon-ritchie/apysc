@@ -11,9 +11,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time.left_and_right_datetimes_mixin import LeftAndRightDatetimesMixIn
 from apysc._type.int import Int
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:
@@ -22,7 +19,6 @@ if TYPE_CHECKING:
 
 class DaysMixIn(
     VariableNameMixIn,
-    VariableNameSuffixAttrOrVarMixIn,
     LeftAndRightDatetimesMixIn,
 ):
     _days_value: int

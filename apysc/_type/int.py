@@ -16,6 +16,8 @@ from apysc._type.to_hex_mixin import ToHexMixIn
 from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class Int(
@@ -26,6 +28,8 @@ class Int(
     HashableInterface,
     ToNumberMixIn,
     ToHexMixIn,
+    VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
 ):
     """
     Integer class for the apysc library.

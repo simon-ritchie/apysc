@@ -17,9 +17,6 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
@@ -28,10 +25,8 @@ if TYPE_CHECKING:
 
 
 class ChildMixIn(
-    VariableNameSuffixAttrOrVarMixIn,
     VariableNameMixIn,
     RevertMixIn,
-    VariableNameSuffixMixIn,
 ):
     _children: Array[DisplayObject]
     stage: "Stage"
@@ -78,10 +73,13 @@ class ChildMixIn(
         Initialize _children attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_children"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="children"
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="children",
         )
         self._children = Array(
             [],
@@ -167,14 +165,18 @@ class ChildMixIn(
         >>> sprite.graphics.contains(rectangle)
         Boolean(False)
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         self._initialize_children_if_not_initialized()
         index: Int = self._children.index_of(value=child)
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier='contains',
+        )
         if index == -1:
-            result: Boolean = Boolean(
-                False, variable_name_suffix=self._variable_name_suffix
-            )
+            result: Boolean = Boolean(False, variable_name_suffix=suffix)
         else:
-            result = Boolean(True, variable_name_suffix=self._variable_name_suffix)
+            result = Boolean(True, variable_name_suffix=suffix)
         self._append_contains_expression(result=result, child=child)
         return result
 
@@ -231,9 +233,16 @@ class ChildMixIn(
         >>> sprite.graphics.num_children
         Int(2)
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         self._initialize_children_if_not_initialized()
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier='num_children',
+        )
         num_children: Int = Int(
-            value=self._children.length, variable_name_suffix=self._variable_name_suffix
+            value=self._children.length,
+            variable_name_suffix=suffix,
         )
         self._append_num_children_expression(num_children=num_children)
         return num_children

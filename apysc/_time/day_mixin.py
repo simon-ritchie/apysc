@@ -9,13 +9,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.int import Int
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
-class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn):
+class DayMixIn(RevertMixIn):
     _initial_day: Union[int, Int]
     _day: Int
 
@@ -34,9 +31,13 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val,
         )
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         self._initial_day = day
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="day")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="day",
+        )
         self._day = get_copied_int_from_builtin_val(
             integer=day, variable_name_suffix=suffix
         )
@@ -130,8 +131,14 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
             A day value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
-        expression: str = f"{day_val.variable_name} = {self.variable_name}.getDate();"
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
+        expression: str = (
+            f"{day_val.variable_name} = {self_instance.variable_name}.getDate();"
+        )
         expression_data_util.append_js_expression(expression=expression)
 
     def _append_day_setter_expression(self, *, day_val: Int) -> None:
@@ -144,8 +151,14 @@ class DayMixIn(VariableNameMixIn, VariableNameSuffixAttrOrVarMixIn, RevertMixIn)
             A day value to use in an expression.
         """
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
 
-        expression: str = f"{self.variable_name}.setDate({day_val.variable_name});"
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self
+        )
+        expression: str = (
+            f"{self_instance.variable_name}.setDate({day_val.variable_name});"
+        )
         expression_data_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:

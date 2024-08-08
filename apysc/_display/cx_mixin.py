@@ -13,15 +13,11 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import (
-    VariableNameSuffixAttrOrVarMixIn,
-)
 from apysc._validation import arg_validation_decos
 
 
 class CxMixIn(
     XInterface,
-    VariableNameSuffixAttrOrVarMixIn,
     AnimationCxMixIn,
     RevertMixIn,
     AttrLinkingMixIn,
@@ -32,9 +28,14 @@ class CxMixIn(
         Initialize _x attribute if this interface does not
         initialize it yet.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if hasattr(self, "_x"):
             return
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="x",
+        )
         self._x = Number(
             0,
             variable_name_suffix=suffix,
@@ -131,10 +132,15 @@ class CxMixIn(
         x : float or Number
             X-coordinate value.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         if isinstance(x, Number):
             x_: Number = x
         else:
-            suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="x")
+            suffix: str = get_attr_or_variable_name_suffix(
+                instance=self,
+                value_identifier="x",
+            )
             x_ = Number(x, variable_name_suffix=suffix)
         self._x = x_
 

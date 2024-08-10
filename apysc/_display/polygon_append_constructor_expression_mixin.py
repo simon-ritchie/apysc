@@ -46,15 +46,20 @@ class PolygonAppendConstructorExpressionMixIn(Points2DMixIn, PointsVarNameMixIn)
         from apysc._display.stage import Stage
         from apysc._display.stage import get_stage
         from apysc._expression import expression_data_util
+        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
+        from apysc._type.variable_name_mixin import VariableNameMixIn
 
         INDENT_NUM: int = 2
         stage: Stage = get_stage()
         points_var_name: str
         points_expression: str
         points_var_name, points_expression = self._make_2dim_points_expression()
+        self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
+            instance=self,
+        )
         expression: str = (
             f"{points_expression}"
-            f"\nvar {self.variable_name} = {stage.variable_name}"
+            f"\nvar {self_instance.variable_name} = {stage.variable_name}"
             f"\n  .polygon({points_var_name})"
             "\n  .attr({"
         )

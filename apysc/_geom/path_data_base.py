@@ -60,14 +60,21 @@ class PathDataBase(RelativeMixIn, AttrToApyscValFromBuiltinMixIn, ABC):
         svg_char : String
             Target SVG character.
         """
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+
         svg_char_: str = self._path_label.value
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self, value_identifier="svg_char"
+        )
         if self._relative._value:
             svg_char: String = String(
-                svg_char_.lower(), variable_name_suffix=self._variable_name_suffix
+                svg_char_.lower(),
+                variable_name_suffix=suffix,
             )
         else:
             svg_char = String(
-                svg_char_, variable_name_suffix=self._variable_name_suffix
+                svg_char_,
+                variable_name_suffix=suffix
             )
         with If(self._relative, locals_=locals()):
             svg_char.value = svg_char_.lower()

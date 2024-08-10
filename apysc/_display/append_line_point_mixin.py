@@ -61,6 +61,7 @@ class AppendLinePointMixIn(
         from apysc._expression import expression_data_util
         from apysc._geom.point2d import Point2D
         from apysc._type import value_util
+        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
 
         if not hasattr(self, "_points_var_name"):
             raise AttributeError(
@@ -68,7 +69,10 @@ class AppendLinePointMixIn(
                 "implementation to set that value when constructor "
                 "or else."
             )
-        suffix: str = self._get_attr_or_variable_name_suffix(value_identifier="points")
+        suffix: str = get_attr_or_variable_name_suffix(
+            instance=self,
+            value_identifier="points",
+        )
         point: Point2D = Point2D(x=x, y=y, variable_name_suffix=suffix)
         self.points.append(value=point)
         expression: str

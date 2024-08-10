@@ -7,60 +7,72 @@ from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
+from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+
+
+class _TestObject(
+    LineJointsMixIn,
+    VariableNameMixIn,
+    VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
+):
+    pass
 
 
 class TestLineJointsMixIn:
     @apply_test_settings()
     def test__initialize_line_joints_if_not_initialized(self) -> None:
-        mixin: LineJointsMixIn = LineJointsMixIn()
-        mixin._initialize_line_joints_if_not_initialized()
-        assert mixin._line_joints == ap.LineJoints.MITER.value
+        instance: _TestObject = _TestObject()
+        instance._initialize_line_joints_if_not_initialized()
+        assert instance._line_joints == ap.LineJoints.MITER.value
 
-        mixin._line_joints = ap.String(ap.LineJoints.BEVEL.value)
-        mixin._initialize_line_joints_if_not_initialized()
-        assert mixin._line_joints == ap.LineJoints.BEVEL.value
+        instance._line_joints = ap.String(ap.LineJoints.BEVEL.value)
+        instance._initialize_line_joints_if_not_initialized()
+        assert instance._line_joints == ap.LineJoints.BEVEL.value
 
     @apply_test_settings()
     def test_line_joints(self) -> None:
-        mixin: LineJointsMixIn = LineJointsMixIn()
-        mixin.variable_name = "test_line_joints_mixin"
-        mixin._initialize_line_joints_if_not_initialized()
-        assert mixin.line_joints == ap.LineJoints.MITER.value
+        instance: _TestObject = _TestObject()
+        instance.variable_name = "test_line_joints_mixin"
+        instance._initialize_line_joints_if_not_initialized()
+        assert instance.line_joints == ap.LineJoints.MITER.value
 
-        mixin.line_joints = ap.LineJoints.BEVEL
-        assert mixin.line_joints == ap.LineJoints.BEVEL.value  # type: ignore # noqa
+        instance.line_joints = ap.LineJoints.BEVEL
+        assert instance.line_joints == ap.LineJoints.BEVEL.value  # type: ignore # noqa
 
     @apply_test_settings()
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
-        mixin: LineJointsMixIn = LineJointsMixIn()
-        mixin.variable_name = "test_line_joints_mixin"
+        instance: _TestObject = _TestObject()
+        instance.variable_name = "test_line_joints_mixin"
         assert_raises(
             expected_error_class=TypeError,
-            callable_=mixin._update_line_joints_and_skip_appending_exp,
+            callable_=instance._update_line_joints_and_skip_appending_exp,
             match=r"Not supported line_joints type specified: ",
             value="miter",
         )
 
-        mixin._update_line_joints_and_skip_appending_exp(
+        instance._update_line_joints_and_skip_appending_exp(
             value=ap.String(ap.LineJoints.BEVEL.value)
         )
-        assert mixin.line_joints == ap.LineJoints.BEVEL.value
+        assert instance.line_joints == ap.LineJoints.BEVEL.value
         expression: str = expression_data_util.get_current_expression()
         assert ".attr" not in expression
 
-        mixin._update_line_joints_and_skip_appending_exp(value=ap.LineJoints.MITER)
-        assert mixin.line_joints == ap.LineJoints.MITER.value
+        instance._update_line_joints_and_skip_appending_exp(value=ap.LineJoints.MITER)
+        assert instance.line_joints == ap.LineJoints.MITER.value
 
     @apply_test_settings()
     def test__append_line_joints_update_expression(self) -> None:
-        mixin: LineJointsMixIn = LineJointsMixIn()
-        mixin.variable_name = "test_line_joints_mixin"
-        mixin.line_joints = ap.LineJoints.BEVEL
-        mixin._append_line_joints_update_expression()
+        instance: _TestObject = _TestObject()
+        instance.variable_name = "test_line_joints_mixin"
+        instance.line_joints = ap.LineJoints.BEVEL
+        instance._append_line_joints_update_expression()
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf"{mixin.variable_name}.attr" rf'\({{"stroke-linejoin": .+?}}\);'
+                rf"{instance.variable_name}.attr" rf'\({{"stroke-linejoin": .+?}}\);'
             ),
             string=expression,
             flags=re.MULTILINE,
@@ -69,30 +81,30 @@ class TestLineJointsMixIn:
 
     @apply_test_settings()
     def test__make_snapshot(self) -> None:
-        mixin: LineJointsMixIn = LineJointsMixIn()
-        mixin.variable_name = "test_line_joints_mixin"
-        snapshot_name: str = mixin._get_next_snapshot_name()
-        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        assert mixin._line_joints_snapshots == {
+        instance: _TestObject = _TestObject()
+        instance.variable_name = "test_line_joints_mixin"
+        snapshot_name: str = instance._get_next_snapshot_name()
+        instance._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert instance._line_joints_snapshots == {
             snapshot_name: ap.LineJoints.MITER.value
         }
 
-        mixin.line_joints = ap.LineJoints.BEVEL
-        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        assert mixin._line_joints_snapshots == {
+        instance.line_joints = ap.LineJoints.BEVEL
+        instance._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert instance._line_joints_snapshots == {
             snapshot_name: ap.LineJoints.MITER.value
         }
 
     @apply_test_settings()
     def test__revert(self) -> None:
-        mixin: LineJointsMixIn = LineJointsMixIn()
-        mixin.variable_name = "test_line_joints_mixin"
-        snapshot_name: str = mixin._get_next_snapshot_name()
-        mixin._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        mixin.line_joints = ap.LineJoints.BEVEL
-        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert mixin.line_joints == ap.LineJoints.MITER.value  # type: ignore # noqa
+        instance: _TestObject = _TestObject()
+        instance.variable_name = "test_line_joints_mixin"
+        snapshot_name: str = instance._get_next_snapshot_name()
+        instance._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        instance.line_joints = ap.LineJoints.BEVEL
+        instance._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert instance.line_joints == ap.LineJoints.MITER.value  # type: ignore # noqa
 
-        mixin.line_joints = ap.LineJoints.BEVEL
-        mixin._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert mixin.line_joints == ap.LineJoints.BEVEL.value  # type: ignore # noqa
+        instance.line_joints = ap.LineJoints.BEVEL
+        instance._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert instance.line_joints == ap.LineJoints.BEVEL.value  # type: ignore # noqa

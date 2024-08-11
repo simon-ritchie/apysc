@@ -38,9 +38,11 @@ from apysc._loop.initialize_with_base_value_interface import (
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
-from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._validation import arg_validation_decos
 
 
 class Graphics(

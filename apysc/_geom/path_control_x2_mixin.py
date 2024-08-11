@@ -25,7 +25,9 @@ class PathControlX2MixIn(
         Initialize the _control_x2 attribute if this instance
         does not initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_control_x2"):
             return

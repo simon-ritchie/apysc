@@ -8,7 +8,6 @@ from typing_extensions import final
 
 from apysc._type.boolean import Boolean
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
@@ -23,13 +22,14 @@ class RelativeMixIn(
         Initialize the _relative attribute if this instance
         does not initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_relative"):
             return
         suffix: str = get_attr_or_variable_name_suffix(
-            instance=self,
-            value_identifier="relative"
+            instance=self, value_identifier="relative"
         )
         self._relative = Boolean(
             False,

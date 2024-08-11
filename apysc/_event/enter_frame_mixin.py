@@ -93,7 +93,9 @@ class EnterFrameMixIn(
         from apysc._event.handler import get_handler_name
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         self._initialize_enter_frame_handlers_if_not_initialized()
         self._initialize_is_stopped_settings_if_not_initialized()
@@ -247,7 +249,9 @@ class EnterFrameMixIn(
         from apysc._math.math import Math
         from apysc._time.timedelta_ import TimeDelta
         from apysc._type.array import Array
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         expression: str = (
             f"function {loop_func_name}() {{"

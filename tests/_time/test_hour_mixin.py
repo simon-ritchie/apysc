@@ -3,8 +3,10 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._time.hour_mixin import HourMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class _TestObject(
@@ -55,7 +57,9 @@ class TestHourMixIn:
         hour_val: ap.Int = ap.Int(12)
         instance._append_hour_getter_expression(hour_val=hour_val)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{hour_val.variable_name} = {instance.variable_name}.getHours();"
+        expected: str = (
+            f"{hour_val.variable_name} = {instance.variable_name}.getHours();"
+        )
         assert expected in expression
 
     @apply_test_settings()

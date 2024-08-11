@@ -28,7 +28,9 @@ class RadiusMixIn(
         Initialize _radius attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_radius"):
             return
@@ -116,7 +118,9 @@ class RadiusMixIn(
         radius : Int
             Type converted radius value.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if not isinstance(radius, Int):
             suffix: str = get_attr_or_variable_name_suffix(

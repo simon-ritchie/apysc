@@ -28,7 +28,9 @@ class FillAlphaMixIn(
         Initialize _fill_alpha attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_fill_alpha"):
             return
@@ -142,7 +144,9 @@ class FillAlphaMixIn(
             Fill opacity to set.
         """
         from apysc._converter import cast
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         self._initialize_fill_alpha_if_not_initialized()
         if not isinstance(value, Number):

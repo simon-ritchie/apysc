@@ -28,7 +28,9 @@ class LineAlphaMixIn(
         Initialize _line_alpha attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_line_alpha"):
             return
@@ -143,7 +145,9 @@ class LineAlphaMixIn(
         value : float or Number
             Line alpha (opacity) to set.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if isinstance(value, Number):
             value_: Number = value

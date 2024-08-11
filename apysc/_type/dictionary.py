@@ -27,9 +27,11 @@ from apysc._type.py_builtin_iter_disabling_mixin import PyBuiltInIterDisablingMi
 from apysc._type.revert_mixin import RevertMixIn
 from apysc._type.string import String
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 DefaultType = TypeVar("DefaultType")
 _BuiltinKeys = Union[str, int, float]

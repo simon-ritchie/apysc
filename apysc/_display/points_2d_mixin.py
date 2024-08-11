@@ -23,7 +23,9 @@ class Points2DMixIn(RevertMixIn):
         Initialize _points attribute ifa this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_points"):
             return

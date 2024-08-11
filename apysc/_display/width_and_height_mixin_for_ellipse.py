@@ -40,7 +40,9 @@ class WidthAndHeightMixInForEllipse(
         Initialize _width and _height attributes if this interface
         does not initialize these yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if not hasattr(self, "_width"):
             suffix: str = get_attr_or_variable_name_suffix(

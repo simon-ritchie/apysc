@@ -3,8 +3,10 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._time.minute_mixin import MinuteMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class _TestObject(
@@ -69,7 +71,9 @@ class TestMinuteMixIn:
         assert minute == 30
         assert isinstance(minute, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{minute.variable_name} = {instance.variable_name}.getMinutes();"
+        expected: str = (
+            f"{minute.variable_name} = {instance.variable_name}.getMinutes();"
+        )
         assert expected in expression
 
         minute.value = 35
@@ -86,5 +90,7 @@ class TestMinuteMixIn:
         minute_val: ap.Int = ap.Int(30)
         instance._append_minute_setter_expression(minute_val=minute_val)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{instance.variable_name}.setMinutes({minute_val.variable_name});"
+        expected: str = (
+            f"{instance.variable_name}.setMinutes({minute_val.variable_name});"
+        )
         assert expected in expression

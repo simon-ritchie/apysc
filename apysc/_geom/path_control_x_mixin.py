@@ -10,7 +10,6 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.attr_linking_mixin import AttrLinkingMixIn
 from apysc._type.number import Number
 from apysc._type.revert_mixin import RevertMixIn
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
 
 
@@ -26,7 +25,9 @@ class PathControlXMixIn(
         Initialize the _control_x attribute if this instance
         does not initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_control_x"):
             return

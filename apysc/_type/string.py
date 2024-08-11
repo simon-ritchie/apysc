@@ -31,9 +31,11 @@ from apysc._type.string_upper_mixin import StringUpperMixIn
 from apysc._type.string_zfill_mixin import StringZfillMixIn
 from apysc._type.to_number_mixin import ToNumberMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._validation import arg_validation_decos
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class String(

@@ -3,8 +3,10 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._time.millisecond_mixin import MillisecondMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class _TestObject(
@@ -92,6 +94,7 @@ class TestMillisecondMixIn:
         instance._append_millisecond_setter_expression(millisecond_val=millisecond_val)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f"{instance.variable_name}.setMilliseconds({millisecond_val.variable_name});"
+            f"{instance.variable_name}"
+            f".setMilliseconds({millisecond_val.variable_name});"
         )
         assert expected in expression

@@ -9,8 +9,10 @@ from apysc._html.debug_mode import add_debug_info_setting
 from apysc._time.days_mixin import DaysMixIn
 from apysc._time.total_seconds_mixin import TotalSecondsMixIn
 from apysc._type.initial_substitution_exp_mixin import InitialSubstitutionExpMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 from apysc._validation import arg_validation_decos
 
 if TYPE_CHECKING:

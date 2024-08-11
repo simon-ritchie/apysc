@@ -5,8 +5,10 @@ from apysc._display.line_style_mixin import LineStyleMixIn
 from apysc._testing import testing_helper
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class _TestObject(
@@ -54,9 +56,7 @@ class TestLineStyleMixIn:
         line_dash_setting: ap.LineDashSetting = ap.LineDashSetting(
             dash_size=5, space_size=2
         )
-        instance.line_style(
-            color=ap.Color("#333"), dash_setting=line_dash_setting
-        )
+        instance.line_style(color=ap.Color("#333"), dash_setting=line_dash_setting)
         assert instance._line_dash_setting == line_dash_setting
 
         line_round_dot_setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
@@ -97,10 +97,7 @@ class TestLineStyleMixIn:
         assert instance.line_thickness == 3
 
         line_thickness: ap.Int = instance.line_thickness
-        assert (
-            line_thickness.variable_name
-            != instance.line_thickness.variable_name
-        )
+        assert line_thickness.variable_name != instance.line_thickness.variable_name
 
     @apply_test_settings()
     def test_line_alpha(self) -> None:
@@ -178,28 +175,18 @@ class TestLineStyleMixIn:
         assert instance._line_alpha_snapshots[snapshot_name] == 0.5
         if instance._line_cap_snapshots is None:
             raise AssertionError()
-        assert (
-            instance._line_cap_snapshots[snapshot_name]
-            == ap.LineCaps.ROUND.value
-        )
+        assert instance._line_cap_snapshots[snapshot_name] == ap.LineCaps.ROUND.value
         if instance._line_joints_snapshots is None:
             raise AssertionError()
         assert (
-            instance._line_joints_snapshots[snapshot_name]
-            == ap.LineJoints.BEVEL.value
+            instance._line_joints_snapshots[snapshot_name] == ap.LineJoints.BEVEL.value
         )
         if instance._line_dot_setting_snapshots is None:
             raise AssertionError()
-        assert (
-            instance._line_dot_setting_snapshots[snapshot_name]
-            == line_dot_setting
-        )
+        assert instance._line_dot_setting_snapshots[snapshot_name] == line_dot_setting
         if instance._line_dash_setting_snapshots is None:
             raise AssertionError()
-        assert (
-            instance._line_dash_setting_snapshots[snapshot_name]
-            == line_dash_setting
-        )
+        assert instance._line_dash_setting_snapshots[snapshot_name] == line_dash_setting
         if instance._line_round_dot_setting_snapshots is None:
             raise AssertionError()
         assert (
@@ -334,9 +321,7 @@ class TestLineStyleMixIn:
     @apply_test_settings()
     def test_line_dot_setting(self) -> None:
         instance: _TestObject = _TestObject()
-        line_dot_setting: Optional[ap.LineDotSetting] = (
-            instance.line_dot_setting
-        )
+        line_dot_setting: Optional[ap.LineDotSetting] = instance.line_dot_setting
         assert line_dot_setting is None
 
         instance.line_style(
@@ -350,9 +335,7 @@ class TestLineStyleMixIn:
     def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
         instance: _TestObject = _TestObject()
         instance._initialize_line_dot_setting_if_not_initialized()
-        line_dot_setting: Optional[ap.LineDotSetting] = (
-            instance.line_dot_setting
-        )
+        line_dot_setting: Optional[ap.LineDotSetting] = instance.line_dot_setting
         assert line_dot_setting is None
 
         instance.line_style(
@@ -368,18 +351,14 @@ class TestLineStyleMixIn:
         instance._initialize_line_dash_setting_if_not_initialized()
         assert instance._line_dash_setting is None
 
-        instance._line_dash_setting = ap.LineDashSetting(
-            dash_size=10, space_size=5
-        )
+        instance._line_dash_setting = ap.LineDashSetting(dash_size=10, space_size=5)
         instance._initialize_line_dash_setting_if_not_initialized()
         assert instance._line_dash_setting is not None
 
     @apply_test_settings()
     def test_line_dash_setting(self) -> None:
         instance: _TestObject = _TestObject()
-        line_dash_setting: Optional[ap.LineDashSetting] = (
-            instance.line_dash_setting
-        )
+        line_dash_setting: Optional[ap.LineDashSetting] = instance.line_dash_setting
         assert line_dash_setting is None
 
         instance.line_style(
@@ -399,9 +378,7 @@ class TestLineStyleMixIn:
             round_size=10, space_size=5
         )
         instance._initialize_line_round_dot_setting_if_not_initialized()
-        assert isinstance(
-            instance._line_round_dot_setting, ap.LineRoundDotSetting
-        )
+        assert isinstance(instance._line_round_dot_setting, ap.LineRoundDotSetting)
 
     @apply_test_settings()
     def test_line_round_dot_setting(self) -> None:
@@ -428,9 +405,7 @@ class TestLineStyleMixIn:
             dot_size=5, dash_size=10, space_size=7
         )
         instance._initialize_line_dash_dot_setting_if_not_initialized()
-        assert isinstance(
-            instance._line_dash_dot_setting, ap.LineDashDotSetting
-        )
+        assert isinstance(instance._line_dash_dot_setting, ap.LineDashDotSetting)
 
     @apply_test_settings()
     def test_line_dash_dot_setting(self) -> None:
@@ -451,9 +426,7 @@ class TestLineStyleMixIn:
         instance: _TestObject = _TestObject()
         instance._variable_name_suffix = "test_suffix"
 
-        alpha: ap.Number = instance._convert_line_alpha_to_number(
-            alpha=ap.Number(0.5)
-        )
+        alpha: ap.Number = instance._convert_line_alpha_to_number(alpha=ap.Number(0.5))
         assert alpha == 0.5
         assert isinstance(alpha, ap.Number)
 

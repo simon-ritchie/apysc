@@ -83,7 +83,9 @@ class TotalSecondsMixIn(
         - TimeDelta class total_seconds interface
             - https://simon-ritchie.github.io/apysc/en/timedelta_total_seconds.html
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         suffix: str = get_attr_or_variable_name_suffix(
             instance=self,

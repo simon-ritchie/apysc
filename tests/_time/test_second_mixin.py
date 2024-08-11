@@ -3,8 +3,10 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._time.second_mixin import SecondMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class _TestObject(
@@ -69,7 +71,9 @@ class TestSecondMixIn:
         assert second == 50
         assert isinstance(second, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{second.variable_name} = {instance.variable_name}.getSeconds();"
+        expected: str = (
+            f"{second.variable_name} = {instance.variable_name}.getSeconds();"
+        )
         assert expected in expression
 
         second.value = ap.Int(55)
@@ -85,5 +89,7 @@ class TestSecondMixIn:
         second_val: ap.Int = ap.Int(50)
         instance._append_second_setter_expression(second_val=second_val)
         expression: str = expression_data_util.get_current_expression()
-        expectd: str = f"{instance.variable_name}.setSeconds({second_val.variable_name});"
+        expectd: str = (
+            f"{instance.variable_name}.setSeconds({second_val.variable_name});"
+        )
         assert expectd in expression

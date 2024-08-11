@@ -22,6 +22,7 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module), "test_output/"
 )
 
+
 class _TestObject(
     Points2DMixIn,
     VariableNameMixIn,

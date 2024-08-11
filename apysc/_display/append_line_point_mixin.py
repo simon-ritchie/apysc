@@ -61,7 +61,9 @@ class AppendLinePointMixIn(
         from apysc._expression import expression_data_util
         from apysc._geom.point2d import Point2D
         from apysc._type import value_util
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if not hasattr(self, "_points_var_name"):
             raise AttributeError(

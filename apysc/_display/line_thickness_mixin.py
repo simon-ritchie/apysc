@@ -28,7 +28,9 @@ class LineThicknessMixIn(
         Initialize _line_thickness attribute if this interface
         does not initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_line_thickness"):
             return
@@ -142,7 +144,9 @@ class LineThicknessMixIn(
         value : Int or int
             Line thickness to set.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if isinstance(value, Int):
             value_: Int = value

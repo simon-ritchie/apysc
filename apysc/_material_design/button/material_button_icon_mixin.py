@@ -133,7 +133,9 @@ class MaterialButtonIconMixIn:
         """
         from apysc._material_design.button.material_button_const import ICON_SIZE
         from apysc._type.int import Int
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if prefix_icon is not None:
             suffix: str = get_attr_or_variable_name_suffix(
@@ -152,9 +154,7 @@ class MaterialButtonIconMixIn:
             suffix = get_attr_or_variable_name_suffix(
                 instance=self, value_identifier="suffix_icon_height"
             )
-            suffix_icon.height = Int(
-                ICON_SIZE, variable_name_suffix=suffix
-            )
+            suffix_icon.height = Int(ICON_SIZE, variable_name_suffix=suffix)
 
     @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=2, optional=True)
     @arg_validation_decos.is_fixed_html_svg_icon(arg_position_index=3, optional=True)

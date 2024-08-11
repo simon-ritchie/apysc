@@ -31,7 +31,9 @@ class YMixIn(
         Initialize the _y attribute if this instance does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_y"):
             return
@@ -139,7 +141,9 @@ class YMixIn(
         y : float or Number
             Y-coordinate value.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if isinstance(y, Number):
             y_: Number = y

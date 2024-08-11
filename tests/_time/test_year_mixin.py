@@ -3,8 +3,10 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._time.year_mixin import YearMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class _TestObject(
@@ -69,7 +71,9 @@ class TestYearMixIn:
         assert year == 2022
         assert isinstance(year, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{year.variable_name} = {instance.variable_name}.getFullYear();"
+        expected: str = (
+            f"{year.variable_name} = {instance.variable_name}.getFullYear();"
+        )
         assert expected in expression
 
         year = ap.Int(2023)
@@ -88,5 +92,7 @@ class TestYearMixIn:
         year_val: ap.Int = ap.Int(2023)
         instance._append_year_setter_expression(year_val=year_val)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{instance.variable_name}.setFullYear({year_val.variable_name});"
+        expected: str = (
+            f"{instance.variable_name}.setFullYear({year_val.variable_name});"
+        )
         assert expected in expression

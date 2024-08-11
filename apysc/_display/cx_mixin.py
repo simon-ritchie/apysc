@@ -28,7 +28,9 @@ class CxMixIn(
         Initialize _x attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_x"):
             return
@@ -132,7 +134,9 @@ class CxMixIn(
         x : float or Number
             X-coordinate value.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if isinstance(x, Number):
             x_: Number = x

@@ -31,7 +31,9 @@ class YearMixIn(RevertMixIn):
         from apysc._converter.to_apysc_val_from_builtin import (
             get_copied_int_from_builtin_val,
         )
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         self._initial_year = year
         suffix: str = get_attr_or_variable_name_suffix(
@@ -132,7 +134,9 @@ class YearMixIn(RevertMixIn):
             A year value to use in an expression.
         """
         from apysc._expression import expression_data_util
-        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type,
+        )
 
         self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
             instance=self
@@ -155,7 +159,9 @@ class YearMixIn(RevertMixIn):
             A year value to use in an expression.
         """
         from apysc._expression import expression_data_util
-        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type,
+        )
 
         self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
             instance=self

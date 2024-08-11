@@ -28,7 +28,9 @@ class HeightMixIn(
         Initialize _height attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_height"):
             return
@@ -128,7 +130,9 @@ class HeightMixIn(
             Height value to set.
         """
         from apysc._converter import cast
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         self._initialize_height_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)

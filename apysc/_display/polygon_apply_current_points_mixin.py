@@ -10,8 +10,10 @@ class PolygonApplyCurrentPointsMixIn(Points2DMixIn):
         Apply current points settings and re-draw a polygon graphic.
         """
         from apysc._expression import expression_data_util
-        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
         from apysc._type.variable_name_mixin import VariableNameMixIn
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type,
+        )
 
         points_var_name: str
         points_expression: str

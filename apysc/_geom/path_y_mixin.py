@@ -25,7 +25,9 @@ class PathYMixIn(
         Initialize the _y attribute if this instance does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_y"):
             return

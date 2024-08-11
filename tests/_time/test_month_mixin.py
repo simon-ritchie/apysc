@@ -3,8 +3,10 @@ from apysc._expression import expression_data_util
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._time.month_mixin import MonthMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
 
 
 class _TestObject(
@@ -70,7 +72,9 @@ class TestMonthMixIn:
         assert month == 5
         assert isinstance(month, ap.Int)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = f"{month.variable_name} = {instance.variable_name}.getMonth() + 1;"
+        expected: str = (
+            f"{month.variable_name} = {instance.variable_name}.getMonth() + 1;"
+        )
         assert expected in expression
 
         month.value = 7

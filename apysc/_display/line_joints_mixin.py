@@ -24,7 +24,9 @@ class LineJointsMixIn(RevertMixIn):
         Initialize _line_joints attribute if this interface does
         not initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_line_joints"):
             return
@@ -111,7 +113,9 @@ class LineJointsMixIn(RevertMixIn):
         """
         from apysc._expression import expression_data_util
         from apysc._type import value_util
-        from apysc._validation.variable_name_validation import validate_variable_name_mixin_type
+        from apysc._validation.variable_name_validation import (
+            validate_variable_name_mixin_type,
+        )
 
         self_instance: VariableNameMixIn = validate_variable_name_mixin_type(
             instance=self

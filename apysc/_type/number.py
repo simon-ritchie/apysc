@@ -15,9 +15,11 @@ from apysc._type.number_value_mixin import NumberValueMixIn
 from apysc._type.to_fixed_mixin import ToFixedMixIn
 from apysc._type.to_hex_mixin import ToHexMixIn
 from apysc._type.to_string_mixin import ToStringMixIn
-from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
-from apysc._type.variable_name_suffix_attr_or_var_mixin import VariableNameSuffixAttrOrVarMixIn
+from apysc._validation import arg_validation_decos
 
 
 class Number(

@@ -162,7 +162,9 @@ class LineStyleMixIn(
         thickness_ : Int
             Converted line thickness value.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if isinstance(thickness, Int):
             thickness_: Int = thickness.copy()
@@ -190,7 +192,9 @@ class LineStyleMixIn(
         alpha_ : Number
             Converted line alpha value.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if isinstance(alpha, Number):
             alpha_: Number = alpha.copy()
@@ -213,7 +217,9 @@ class LineStyleMixIn(
         joints : LineJoints or None, default None
             Line vertices (joints) style setting.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if joints is None:
             joints = LineJoints.MITER
@@ -234,7 +240,9 @@ class LineStyleMixIn(
         cap : LineCaps or None, default None
             Line cap (edge style) setting.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if cap is None:
             cap = LineCaps.BUTT
@@ -260,7 +268,9 @@ class LineStyleMixIn(
         Initialize _line_thickness attribute if this interface
         does not initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_line_thickness"):
             return
@@ -280,7 +290,9 @@ class LineStyleMixIn(
         Initialize _line_alpha attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_line_alpha"):
             return
@@ -300,7 +312,9 @@ class LineStyleMixIn(
         Initialize _line_cap attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_line_cap"):
             return
@@ -320,7 +334,9 @@ class LineStyleMixIn(
         Initialize _line_joints attribute if this interface does not
         initialize it yet.
         """
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         if hasattr(self, "_line_joints"):
             return

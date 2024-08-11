@@ -26,7 +26,9 @@ class SvgForeignObjectTextMixIn:
             Text value. An HTML tag is available.
         """
         from apysc._converter import to_apysc_val_from_builtin
-        from apysc._type.variable_name_suffix_utils import get_attr_or_variable_name_suffix
+        from apysc._type.variable_name_suffix_utils import (
+            get_attr_or_variable_name_suffix,
+        )
 
         suffix: str = get_attr_or_variable_name_suffix(
             instance=self,

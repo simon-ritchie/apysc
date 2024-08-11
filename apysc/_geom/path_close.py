@@ -7,9 +7,19 @@ from typing_extensions import final
 from apysc._geom.path_data_base import PathDataBase
 from apysc._html.debug_mode import add_debug_info_setting
 from apysc._type.string import String
+from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
-class PathClose(PathDataBase):
+class PathClose(
+    PathDataBase,
+    VariableNameMixIn,
+    VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
+):
     """
     Path data class for the SVG's `close path` (Z).
 

@@ -19,6 +19,11 @@ from apysc._type.boolean import Boolean
 from apysc._type.number import Number
 from apysc._type.string import String
 from apysc._validation import arg_validation_decos
+from apysc._type.variable_name_mixin import VariableNameMixIn
+from apysc._type.variable_name_suffix_attr_or_var_mixin import (
+    VariableNameSuffixAttrOrVarMixIn,
+)
+from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 
 
 class PathBezier3D(
@@ -29,6 +34,9 @@ class PathBezier3D(
     PathControlY1MixIn,
     PathControlX2MixIn,
     PathControlY2MixIn,
+    VariableNameMixIn,
+    VariableNameSuffixMixIn,
+    VariableNameSuffixAttrOrVarMixIn,
 ):
     """
     Path data class for the SVG's `3D bezier curve` (C).

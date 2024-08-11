@@ -25,7 +25,7 @@ class TestPathDataBase:
         svg_char: ap.String = path_data._get_svg_char()
         assert svg_char == "M"
         assert isinstance(svg_char, ap.String)
-        assert svg_char._variable_name_suffix == "test_path_data"
+        assert svg_char._variable_name_suffix == "test_path_data__svg_char"
         expression: str = expression_data_util.get_current_expression()
         assert "if (" in expression
         assert "else {" in expression

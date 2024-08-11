@@ -16,10 +16,7 @@ class Colorless(Color):
         The constant class for the colorlessness.
         """
 
-        suffix: str = self._get_attr_or_variable_name_suffix(
-            value_identifier="colorless"
-        )
-        super(Colorless, self).__init__(value="", variable_name_suffix=suffix)
+        super(Colorless, self).__init__(value="", variable_name_suffix="colorless")
 
 
 COLORLESS: Final[Colorless] = Colorless()

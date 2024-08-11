@@ -5,14 +5,14 @@ from apysc._display.append_line_joints_attr_expression_mixin import (
 from apysc._display.line_joints_mixin import LineJointsMixIn
 from apysc._testing.testing_helper import apply_test_settings
 from apysc._testing.testing_helper import assert_raises
-from tests._display.test_graphics_expression import (
-    assert_stroke_linejoin_attr_expression_exists,
-)
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,
 )
 from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
+from tests._display.test_graphics_expression import (
+    assert_stroke_linejoin_attr_expression_exists,
+)
 
 
 class _TestObject(

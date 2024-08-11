@@ -170,9 +170,6 @@ def apply_test_settings(
     """
     from apysc._display.stage import Stage
 
-    # 
-    retrying_max_attempts_num = 0
-    # 
     if retrying_sleep_seconds is None:
         retrying_sleep_seconds = randint(10, 3000) / 1000
     _validate_retrying_sleep_seconds(retrying_sleep_seconds=retrying_sleep_seconds)

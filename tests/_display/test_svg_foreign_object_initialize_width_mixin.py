@@ -3,7 +3,6 @@ from apysc._display.svg_foreign_object_initialize_width_mixin import (
 )
 from apysc._display.width_mixin import WidthMixIn
 from apysc._testing.testing_helper import apply_test_settings
-from apysc._type.variable_name_suffix_mixin import VariableNameSuffixMixIn
 from apysc._type.variable_name_mixin import VariableNameMixIn
 from apysc._type.variable_name_suffix_attr_or_var_mixin import (
     VariableNameSuffixAttrOrVarMixIn,

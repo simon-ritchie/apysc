@@ -13,8 +13,8 @@ importlib-metadata==8.2.0
 Sphinx==7.1.2
 groundwork-sphinx-theme==1.1.1
 notebook==7.2.1
-pyright==1.1.375
-playwright==1.45.1
+pyright==1.1.376
+playwright==1.46.0
 myst-parser==4.0.0
 black==24.8.0
 blackdoc==0.3.9
